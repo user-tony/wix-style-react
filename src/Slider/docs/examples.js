@@ -1,122 +1,70 @@
 export const plainExample = `
 class SliderWithState extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 3,
-    };
-    this.change = this.change.bind(this);
-  }
 
-  change(value) { this.setState({ value }) }
+  state = { value: 3 };
+
+  change = value => this.setState({ value })
 
   render() {
     const { value } = this.state;
-    return (
-      <Layout>
-        <Cell>
-        <Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} />
-        </Cell>
-      </Layout>
-    );
+    return (<Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} />);
   }
 }
 `;
 
 export const rangeSlider = `
 class SliderWithState extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: [2,4],
-    };
-    this.change = this.change.bind(this);
-  }
 
-  change(value) { this.setState({ value }) }
+  state = { value: [2,4] };
+
+  change = value => this.setState({ value })
 
   render() {
     const { value } = this.state;
-    return (
-      <Layout>
-        <Cell>
-        <Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} />
-        </Cell>
-      </Layout>
-    );
+    return ( <Slider onChange={this.change} min={1} max={10} displayMarks={false} value={value} />);
+
   }
 }
 `;
 
 export const plainSliderMarks = `
 class SliderWithState extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 3,
-    };
-    this.change = this.change.bind(this);
-  }
 
-  change(value) { this.setState({ value }) }
+  state = { value: 3 };
+
+  change = value => this.setState({ value });
 
   render() {
     const { value } = this.state;
-    return (
-      <div style={{ padding:'20px 0'}}>
-          <Slider onChange={this.change} min={1} max={10} value={value} />\
-      </div>
-    );
+    return (<Slider onChange={this.change} min={1} max={10} value={value} />);
   }
 }
 `;
 
 export const rangeSliderPushable = `
 class SliderWithState extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: [3,4,5],
-    };
-    this.change = this.change.bind(this);
-  }
 
-  change(value) { this.setState({ value }) }
+  state = { value: [3,4,5] };
+
+  change = value => this.setState({ value });
 
   render() {
     const { value } = this.state;
-    return (
-      <Layout>
-        <Cell>
-          <Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} pushable={1} />
-        </Cell>
-      </Layout>
-    );
+    return (<Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} pushable={1} />);
   }
 }
 `;
 
 export const states = `
 class SliderWithState extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 2,
-    };
-    this.change = this.change.bind(this);
-  }
 
-  change(value) { this.setState({ value }) }
+  state = { value: 2 };
+
+  change = value => this.setState({ value });
 
   render() {
     const { value } = this.state;
-    return (
-      <Layout>
-        <Cell>
-          <Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} disabled />
-        </Cell>
-      </Layout>
-    );
+    return (<Slider onChange={this.change} min={1} max={10} value={value} displayMarks={false} disabled /> );
   }
 }
 `;
@@ -129,26 +77,28 @@ class SliderWithState extends React.Component {
   change = value => this.setState({ value });
 
   render() {
+
     const { value } = this.state;
+
     const marks = {
-            '-10': '-10°C',
-            0: '0°C',
-            26: '26°C',
-            37: '37°C',
-            50: '50°C',
-            100:'100°C'
-        };
+      0: '$79',
+      1: '$129',
+      2: '$199',
+      3: '$349',
+      4: '$499',
+    };
 
     return (
-       <Layout>
-        <Cell>
-          <Slider marks={marks} onChange={this.change} min={-10} max={100} value={value} />
-        </Cell>
-      </Layout>
+          <Slider
+            marks={marks}
+            onChange={this.change}
+            min={0}
+            max={4}
+            value={value}
+          />
     );
   }
 }
-
 `;
 
 export const startPoint = `
@@ -159,19 +109,8 @@ class SliderWithState extends React.Component {
 
   render() {
     const { value } = this.state;
-    const marks = {
-          [-4]: '-4',
-          [-3]: '-3',
-          [-2]: '-2',
-          [-1]: '-1',
-          0: 0,
-          1: 1,
-          2: 2,
-          3: 3,
-          4: 4,
-    };
 
-    return (<Slider marks={marks} startPoint={0} onChange={this.change} min={-4} max={4} value={value} displayTooltip={false} />);
+    return (<Slider startPoint={0} onChange={this.change} min={-4} max={4} value={value} displayTooltip={false} />);
   }
 }
 `;

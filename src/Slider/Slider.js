@@ -106,6 +106,7 @@ export default class Slider extends Component {
       id,
       ...rest
     } = this.props;
+
     return Array.isArray(value) && value.length > 1 ? (
       <Slide.Range
         {...rest}
@@ -186,7 +187,7 @@ Slider.propTypes = {
     PropTypes.number,
   ]),
 
-  /** Make it disabled */
+  /** Make it disabled  */
   disabled: PropTypes.bool,
 
   /** Track starts from this value. If undefined, min is used. */

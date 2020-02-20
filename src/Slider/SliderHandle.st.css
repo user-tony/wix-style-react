@@ -1,9 +1,4 @@
 :import {
-  -st-from: "wix-ui-core/hocs.st.css";
-  -st-named: Focusable;
-}
-
-:import {
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: F00,B00, B10, D10, D50, D80;
 }
@@ -15,48 +10,27 @@
 
 :vars {
   rootSize: 12px;
-  rootSizeWithState: 18px;
   railHeight: 3px;
+  clickableAreaSize: 24px;
 }
 
 .root {
-  -st-extends: Focusable;
   -st-states: disabled;
   position: absolute;
   margin-left: calc(value(rootSize)/ -2);
-  margin-top: calc((value(rootSize) - value(railHeight)) / -2);
-  width: value(rootSize);
-  height:  value(rootSize);
   box-sizing:border-box;
-  border-radius: 50%;
-  background-color: value(B10);
   touch-action: pan-x;
   cursor: pointer;
   outline: none;
+  /*transition: transform 80ms, left 80ms;*/
+  width: value(clickableAreaSize);
+  height: value(clickableAreaSize);
+  transform: translate(-6px, -6px);
+  display: flex;
 }
 
 .root:disabled {
-  background-color: value(D50);
-}
-
-.root:not(:disabled):hover,
-.root:not(:disabled):active {
-  width: value(rootSizeWithState);
-  height: value(rootSizeWithState);
-  margin-left: calc(value(rootSizeWithState)/ -2);
-  margin-top: calc((value(rootSizeWithState) - value(railHeight)) / -2);
-}
-
-.root:not(:active):not(:hover):not(:disabled):focus-visible {
-  box-shadow: 0 0 0 3px value(F00);
-  z-index: 2;
-}
-
-.root:not(:disabled):focus {
-  box-shadow: 0 0 0 3px transparent;
-  /** rc-slider focus overwrite */
-  border: 1px solid transparent;
-  z-index: 2;
+  cursor: default;
 }
 
 .tooltip {
@@ -66,10 +40,11 @@
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 10px 15px;
-  top: -43px;
+  top: -38px;
   box-shadow: value(shadow30);
   user-select: none;
   transform: translateX(-50%);
+  left: 12px;
 }
 
 .tooltip::after {

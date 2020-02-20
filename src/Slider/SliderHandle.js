@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import { dataHooks } from './constants';
 import styles from './SliderHandle.st.css';
+import SliderThumb from './SliderThumb';
 
 class SliderHandle extends Component {
   constructor(props) {
@@ -67,39 +67,26 @@ class SliderHandle extends Component {
   }
 
   render() {
-    const {
-      value,
-      offset,
-      disabled,
-      focusableOnFocus,
-      focusableOnBlur,
-    } = this.props;
-    const { showTooltip } = this.state;
+    const { value, offset, disabled } = this.props;
+    const { showTooltip, hovered, dragging } = this.state;
 
     return (
-      <>
-        <div
-          {...styles('root', { disabled }, this.props)}
-          onBlur={focusableOnBlur}
-          onFocus={focusableOnFocus}
-          tabIndex="0"
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          onMouseDown={this.handleMouseDown}
-          onMouseUp={this.handleMouseUp}
-          data-hook={dataHooks.sliderHandle}
-          style={{ left: `${offset}%` }}
-        />
+      <div
+        {...styles('root', { disabled }, this.props)}
+        style={{ left: `${offset}%` }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
+        data-hook={dataHooks.sliderHandle}
+      >
+        <SliderThumb disabled={disabled} hovered={hovered || dragging} />
         {showTooltip && value && (
-          <div
-            data-hook={dataHooks.sliderTooltip}
-            className={styles.tooltip}
-            style={{ left: `${offset}%` }}
-          >
+          <div data-hook={dataHooks.sliderTooltip} className={styles.tooltip}>
             {value}
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
@@ -115,4 +102,4 @@ SliderHandle.defaultProps = {
   displayTooltip: true,
 };
 
-export default withFocusable(SliderHandle);
+export default SliderHandle;

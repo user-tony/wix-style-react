@@ -1,9 +1,9 @@
 import eyes from 'eyes.it';
-import { sliderTestkitFactory } from '../../testkit/protractor';
+import { sliderTestkitFactory } from '../../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
 
-import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
-import { storySettings, testStories } from './docs/storySettings';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import { storySettings, testStories } from '../docs/storySettings';
 
 const storyUrl = createTestStoryUrl({
   category: storySettings.category,

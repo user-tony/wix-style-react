@@ -1,12 +1,12 @@
 import React from 'react';
-import Slider from './Slider';
-import sliderDriverFactory from './Slider.driver';
+import Slider from '../Slider';
+import sliderDriverFactory from '../Slider.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
-import { sliderUniDriverFactory } from './Slider.uni.driver';
+} from '../../../test/utils/unit';
+import { sliderUniDriverFactory } from '../Slider.uni.driver';
 
 describe('Slider', () => {
   describe('[sync]', () => {
