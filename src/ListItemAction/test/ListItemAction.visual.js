@@ -14,6 +14,10 @@ const tests = [
       {
         it: 'default',
       },
+      {
+        it: 'highlighted',
+        props: { highlighted: true },
+      },
     ],
   },
   {
@@ -44,6 +48,14 @@ const tests = [
         it: 'dark',
         props: {
           skin: 'dark',
+          prefixIcon: <Edit />,
+        },
+      },
+      {
+        it: 'dark highlighted',
+        props: {
+          skin: 'dark',
+          highlighted: true,
           prefixIcon: <Edit />,
         },
       },

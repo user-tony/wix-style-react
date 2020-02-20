@@ -48,6 +48,10 @@ const tests = [
         props: { selected: true },
       },
       {
+        it: 'highlighted',
+        props: { highlighted: true },
+      },
+      {
         it: 'selected with subtitle',
         props: {
           selected: true,

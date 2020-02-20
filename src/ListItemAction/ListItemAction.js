@@ -33,6 +33,9 @@ class ListItemActionComponent extends React.PureComponent {
     /** Title */
     title: PropTypes.string.isRequired,
 
+    /** If true, the item is highlighted */
+    highlighted: PropTypes.bool,
+
     /** Disabled */
     disabled: PropTypes.bool,
 
@@ -79,6 +82,7 @@ class ListItemActionComponent extends React.PureComponent {
     as: 'button',
     skin: 'standard',
     size: 'medium',
+    highlighted: false,
   };
 
   render() {
@@ -94,11 +98,12 @@ class ListItemActionComponent extends React.PureComponent {
       tabIndex,
       onKeyDown,
       autoFocus,
+      highlighted,
     } = this.props;
 
     return (
       <Component
-        {...styles('root', { skin, disabled }, this.props)}
+        {...styles('root', { skin, disabled, highlighted }, this.props)}
         data-skin={skin}
         data-disabled={disabled}
         tabIndex={tabIndex}
@@ -152,6 +157,7 @@ export const listItemActionBuilder = ({
       prefixIcon={prefixIcon}
       skin={skin}
       size={size}
+      highlighted={props.hovered}
     />
   ),
 });
