@@ -7,6 +7,7 @@ import Button from '../Button';
 import CloseButton from '../CloseButton';
 import { Appearance } from './constants';
 import styles from './SectionHelper.scss';
+import { madeforBold } from '../FontUpgrade/utils';
 
 const appearanceToStyleMap = {
   [Appearance.Warning]: styles.warning,
@@ -65,7 +66,7 @@ class SectionHelper extends React.PureComponent {
               light={isExperimentalDark}
               dataHook="sectionhelper-title"
               size="small"
-              weight="normal"
+              weight={madeforBold('normal')}
             >
               {title}
             </Text>

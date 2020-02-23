@@ -13,6 +13,7 @@ import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../InfoIcon';
 
 import { virtualRowsAreEqual } from './DataTable.utils';
+import { isMadefor } from '../FontUpgrade/utils';
 
 export const DataTableHeader = props => {
   const { dataHook } = props;

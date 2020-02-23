@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { FontUpgradeContext } from './context';
 
 const FontUpgrade = ({ dataHook, active = true, children }) => {
+  window['useMadeforFont'] = active;
+
   return (
     <FontUpgradeContext.Provider value={{ active, styles }}>
       <span

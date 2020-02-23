@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { generateDataAttr } from '../utils/generateDataAttr';
+import { isMadefor } from '../FontUpgrade/utils';
 
 import styles from './Button.st.css';
 
@@ -74,6 +75,7 @@ class Button extends PureComponent {
 
     return (
       <ButtonNext
+        data-madefor={isMadefor()}
         {...rest}
         {...generateDataAttr(this.props, ['skin', 'size', 'priority'])}
         {...styles(

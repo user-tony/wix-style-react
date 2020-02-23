@@ -9,6 +9,7 @@ import { placeholderSVGs } from './assets';
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
 import stringToColor from './string-to-color';
+import { isMadefor } from '../FontUpgrade/utils';
 
 const getSizeNumber = size => Number(size.substring(4));
 const minIndicationRenderSize = 36;
@@ -60,6 +61,7 @@ const Avatar = props => {
           clickable: !!onClick,
           showIndicationOnHover,
         })}
+        data-madefor={isMadefor()}
       >
         <div className={styles.coreAvatar}>
           <CoreAvatar

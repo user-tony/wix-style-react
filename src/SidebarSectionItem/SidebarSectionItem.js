@@ -8,6 +8,7 @@ import { dataHooks } from './constants';
 import Text from '../Text';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
 import { sidebarSkins } from '../Sidebar/constants';
+import { madeforRegular } from '../FontUpgrade/utils';
 
 /** An item for the section within the sidebar */
 class SidebarSectionItem extends React.PureComponent {
@@ -83,7 +84,7 @@ class SidebarSectionItem extends React.PureComponent {
               <Text
                 className={styles.text}
                 size="small"
-                weight="bold"
+                weight={madeforRegular('bold')}
                 secondary={skin === sidebarSkins.light}
                 light={skin === sidebarSkins.dark}
                 skin={disabled && 'disabled'}

@@ -16,6 +16,7 @@ import classnames from 'classnames';
 import Text from '../Text';
 import BreadcrumbsChevronRight from 'wix-ui-icons-common/system/BreadcrumbsChevronRight';
 import { DATA_HOOKS, DATA_ACTIVE, DATA_POSITION_ID } from './constnats';
+import { isMadefor } from '../FontUpgrade/utils';
 
 /**
  * a way to visualise current navigation path
@@ -64,6 +65,7 @@ class Breadcrumbs extends React.PureComponent {
       weight: isActive ? 'normal' : 'thin',
       light: isDarkBackground,
       size: isSmallSize ? 'small' : 'medium',
+      secondary: isMadefor() && !isActive,
     };
   }
 

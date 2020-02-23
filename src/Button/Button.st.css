@@ -11,7 +11,7 @@
 
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: text-tiny-normal, text-small-normal, text-medium-normal;
+  -st-named: text-tiny-normal, text-small-normal, text-medium-normal, text-tiny-bold;
 }
 
 
@@ -471,6 +471,10 @@
     line-height: 16px;
     border-radius: 18px;
     padding: 0 11px;
+}
+
+.root:size(tiny)[data-madefor="true"] {
+  -st-mixin: text-tiny-bold;
 }
 
 /* Full width mode */
