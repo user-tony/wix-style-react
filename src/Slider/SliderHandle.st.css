@@ -40,7 +40,7 @@
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 10px 15px;
-  top: -38px;
+  bottom: 100%;
   box-shadow: value(shadow30);
   user-select: none;
   transform: translateX(-50%);
