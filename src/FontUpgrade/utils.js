@@ -1,11 +1,15 @@
 /* TODO - Remove this utils file when Madefor is ready to use */
 
+function isWindowDefined() {
+  return typeof window === 'object';
+}
+
 export function isMadefor() {
-  return window && window['useMadeforFont'];
+  return isWindowDefined() && window['useMadeforFont'];
 }
 
 export function setMadefor(value) {
-  if (window) {
+  if (isWindowDefined()) {
     if (value) window['useMadeforFont'] = value;
     else delete window['useMadeforFont'];
   }
