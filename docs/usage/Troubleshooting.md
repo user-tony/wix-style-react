@@ -8,7 +8,7 @@ In this doc we will share with you how we are finding our way around, when strug
 2. Check the [Cheetsheet](https://wix-wix-style-react.surge.sh/?selectedKind=Introduction&selectedStory=Components%20Cheatsheet&full=0&addons=0&stories=1&panelRight=0) - sometimes the answer can come from there. 
 3. Use the [Playground](https://wix-wix-style-react.surge.sh/?selectedKind=Introduction&selectedStory=Playground&full=0&addons=0&stories=1&panelRight=0) to easily test the component abilities.
 4. For each component in the library we have many tests, you can learn from them on how to use/test the component. Checkout the [sourcecode](https://github.com/wix/wix-style-react)
-5. Create a new [Yoshi](https://github.com/wix/yoshi) project to serve as a clean enviornment to test the component - isolate all the noise you got from your own project.
+5. Create a new [Yoshi](https://github.com/wix/yoshi) project to serve as a clean environment to test the component - isolate all the noise you got from your own project.
 6. Strip down abilities until you get to the bottom of it. Saying we have for example the `<Table/>` component which does not work as we expect it to. All the above steps did not help us. The thing we would do is one of the 2:
     - Take the most basic and clean table example and on top of it add your own feature in small parts.
     - Take your current code which does not work and strip it's features slowly, one by one, until you reach to the point where things are working, then slowly add them back again so you will be able to find the root cause of the problem.
