@@ -16,6 +16,7 @@ Types of changes:
 
 ## Next
 ## Added
+- `<ImageViewer/>` - Added props status and statusMessage [#5052](https://github.com/wix/wix-style-react/pull/5052)
 - `<Slider/>`- added new feature of `Start Point` [#5011](https://github.com/wix/wix-style-react/pull/5011)
 
 ### Fixed
