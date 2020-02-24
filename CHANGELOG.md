@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+## 7.46.1 - 2020-02-24
+- `<FontUpgrade>` - fix issue with SSR [#5070](https://github.com/wix/wix-style-react/pull/5070)
+
 ## 7.46.0 - 2020-02-24
 
 ### Added
