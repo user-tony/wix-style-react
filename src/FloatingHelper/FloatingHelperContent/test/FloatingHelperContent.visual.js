@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FloatingHelperContent from '../FloatingHelperContent';
+import Box from '../../../Box';
+import Text from '../../../Text';
 import { actionButtonTheme } from '../constants';
 import { floatingHelperAppearance } from '../../constants';
 import Image from 'wix-ui-icons-common/Image';
@@ -10,8 +12,13 @@ const body =
   'In order to sell your music you need to choose a payment method. ';
 const action = { actionText: 'Ok, Take Me There', onActionClick: () => null };
 const image = <Image style={{ color: 'white' }} width="102" height="102" />;
+const footer = (
+  <Box align="center" verticalAlign="middle" backgroundColor="D10">
+    <Text light>This is a footer with a dark background</Text>
+  </Box>
+);
 
-const actionThemes = Object.values(actionButtonTheme);
+const actionButtonThemes = Object.values(actionButtonTheme);
 const appearances = Object.values(floatingHelperAppearance);
 
 const defaultProps = {
@@ -45,10 +52,14 @@ const tests = [
     ],
   },
   {
-    describe: 'action theme',
-    its: actionThemes.map(theme => ({
-      it: `${theme}`,
-      props: { title, ...action, actionTheme: theme },
+    describe: 'action button',
+    its: [{ it: 'default', props: { title, ...action } }],
+  },
+  {
+    describe: 'action button',
+    its: actionButtonThemes.map(actionTheme => ({
+      it: `${actionTheme}`,
+      props: { title, ...action, actionTheme },
     })),
   },
   {
@@ -70,6 +81,16 @@ const tests = [
       it: `${appearance}`,
       props: { appearance },
     })),
+  },
+  {
+    describe: 'footer',
+    its: [
+      { it: 'enabled', props: { footer } },
+      {
+        it: 'with title, action & image',
+        props: { footer, title, ...action, image },
+      },
+    ],
   },
 ];
 
