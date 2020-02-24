@@ -3,19 +3,30 @@ import styles from './FontUpgrade.scss';
 import PropTypes from 'prop-types';
 import { FontUpgradeContext } from './context';
 
-const FontUpgrade = ({ dataHook, active = true, children }) => {
-  window['useMadeforFont'] = active;
+class FontUpgrade extends React.PureComponent {
+  componentDidMount() {
+    const { active = true } = this.props;
+    window['useMadeforFont'] = active;
+  }
 
-  return (
-    <FontUpgradeContext.Provider value={{ active, styles }}>
-      <span
-        data-hook={dataHook}
-        className={active ? styles.root : null}
-        children={children}
-      />
-    </FontUpgradeContext.Provider>
-  );
-};
+  render() {
+    const { dataHook, active = true, children } = this.props;
+
+    return (
+      <FontUpgradeContext.Provider value={{ active, styles }}>
+        <span
+          data-hook={dataHook}
+          className={active ? styles.root : null}
+          children={children}
+        />
+      </FontUpgradeContext.Provider>
+    );
+  }
+
+  componentWillUnmount() {
+    delete window['useMadeforFont'];
+  }
+}
 
 FontUpgrade.propTypes = {
   /** Applied as data-hook HTML attribute that can be used to create driver in testing */
