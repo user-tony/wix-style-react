@@ -2,11 +2,12 @@ import React from 'react';
 import styles from './FontUpgrade.scss';
 import PropTypes from 'prop-types';
 import { FontUpgradeContext } from './context';
+import { setMadefor } from './utils';
 
 class FontUpgrade extends React.PureComponent {
   componentDidMount() {
     const { active = true } = this.props;
-    window['useMadeforFont'] = active;
+    setMadefor(active);
   }
 
   render() {
@@ -24,7 +25,7 @@ class FontUpgrade extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    delete window['useMadeforFont'];
+    setMadefor(false);
   }
 }
 
