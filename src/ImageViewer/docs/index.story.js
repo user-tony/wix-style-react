@@ -1,12 +1,26 @@
 import React from 'react';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  importExample,
+  title,
+  columns,
+  divider,
+  code as baseCode,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
+
+import { storySettings } from '../test/storySettings';
+import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
+
 import ImageViewer from '..';
 
-import CodeExample from 'wix-storybook-utils/CodeExample';
-
-import ExampleStandard from './ExampleStandard';
-import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
-
-import { Category } from '../../../stories/storiesHierarchy';
+const code = config => baseCode({ components: allComponents, ...config });
 
 const exampleImageUrl = [
   { label: 'No Image', value: '' },
@@ -23,8 +37,8 @@ const exampleImageUrl = [
 ];
 
 export default {
-  category: Category.COMPONENTS,
-  storyName: 'ImageViewer',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
 
   component: ImageViewer,
   componentPath: '..',
@@ -42,9 +56,66 @@ export default {
     tooltipProps: [{ label: 'from left', value: { placement: 'left' } }],
   },
 
-  examples: (
-    <CodeExample title="Standard" code={ExampleStandardRaw}>
-      <ExampleStandard />
-    </CodeExample>
-  ),
+  sections: [
+    header({
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/ImageViewer/',
+      component: <ImageViewer />,
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'Image viewer is an container for an image with some functionality like add, update, remove, and status.',
+            }),
+          ]),
+
+          columns([
+            importExample(
+              "import ImageViewer from 'wix-style-react/ImageViewer';",
+            ),
+          ]),
+
+          divider(),
+
+          title('Examples'),
+
+          columns([
+            description({
+              title: 'Simple Usage',
+              text: 'Some examples with different images.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.standard,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Status indicator',
+              text: `Using a status as an indication for the user. for example: 'error', 'warning' or 'loading'`,
+            }),
+
+            code({
+              compact: true,
+              source: examples.status,
+            }),
+          ]),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };

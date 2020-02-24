@@ -3,6 +3,7 @@ import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 import { addItemUniDriverFactory } from '../AddItem/AddItem.uni.driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 import { dataAttributes, dataHooks } from './constants';
+import { statusIndicatorDriverFactory } from '../StatusIndicator/StatusIndicator.uni.driver';
 
 export const imageViewerUniDriverFactory = (base, body) => {
   const find = dataHook => base.$(`[data-hook="${dataHook}"]`);
@@ -28,6 +29,12 @@ export const imageViewerUniDriverFactory = (base, body) => {
   const removeTooltip = tooltipTestkit(dataHooks.removeTooltip);
   const errorTooltip = tooltipTestkit(dataHooks.errorTooltip);
 
+  const statusIndicatorTestkit = () =>
+    statusIndicatorDriverFactory(
+      base.$(`[data-hook="${dataHooks.errorTooltip}"]`),
+      body,
+    );
+
   return {
     ...baseUniDriverFactory(base),
     updateExists: () => !!find(dataHooks.update),
@@ -40,12 +47,10 @@ export const imageViewerUniDriverFactory = (base, body) => {
     getAddTooltipContent: () => addItemTestkit.getTooltipContent(),
     getUpdateTooltipContent: () => updateTooltip.getTooltipText(),
     getRemoveTooltipContent: () => removeTooltip.getTooltipText(),
-    getErrorTooltipContent: () => errorTooltip.getTooltipText(),
     isDisabled: () =>
       base.attr(dataAttributes.disabled).then(x => x === 'true'),
     isAddItemVisible: () => find(dataHooks.addItem).exists(),
     isLoaderVisible: () => find(dataHooks.loader).exists(),
-    isErrorVisible: () => errorTooltip.exists(),
     isImageLoaded: () => base.$('[data-was-image-loaded]').exists(),
     isImageVisible: async () => {
       const image = find(dataHooks.image);
@@ -78,5 +83,21 @@ export const imageViewerUniDriverFactory = (base, body) => {
       );
     },
     hover: hoverElement,
+
+    // Status
+    /** Return true if there's a status */
+    hasStatus: () => statusIndicatorTestkit().exists(),
+    /** If there's a status, returns its type */
+    getStatus: () => statusIndicatorTestkit().getStatus(),
+    /** Return true if there's a status message */
+    hasStatusMessage: () => statusIndicatorTestkit().hasMessage(),
+    /** If there's a status message, returns its text value */
+    getStatusMessage: () => statusIndicatorTestkit().getMessage(),
+
+    // Error - Deprecated
+    /** @deprecated */
+    isErrorVisible: () => errorTooltip.exists(),
+    /** @deprecated */
+    getErrorTooltipContent: () => errorTooltip.getTooltipText(),
   };
 };

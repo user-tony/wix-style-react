@@ -1,8 +1,9 @@
 import addItemDriverFactory from '../AddItem/AddItem.driver';
 import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
 import { dataAttributes, dataHooks } from './constants';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 
-const imageViewerDriverFactory = ({ element, eventTrigger }) => {
+const imageViewerDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const byHook = dataHook => element.querySelector(`[data-hook="${dataHook}"]`);
 
   const hasDataAttribute = (dataAttr, el) =>
@@ -63,15 +64,9 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
       removeTooltip.mouseEnter();
       return removeTooltip.getContentElement().textContent;
     },
-    getErrorTooltipContent: () => {
-      const errorTooltip = tooltipTestkit(dataHooks.errorTooltip);
-      errorTooltip.mouseEnter();
-      return errorTooltip.getContentElement().textContent;
-    },
     isDisabled: () => element.getAttribute('data-disabled') === 'true',
     isAddItemVisible: () => !!byHook(dataHooks.addItem),
     isLoaderVisible: () => !!byHook(dataHooks.loader),
-    isErrorVisible: () => !!byHook(dataHooks.errorTooltip),
     isImageLoaded: () => hasDataAttribute(dataAttributes.imageLoaded, element),
     isImageVisible: () => {
       const image = getImageElement();
@@ -98,6 +93,42 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
       return previousImage && previousImage.getAttribute('src');
     },
     hover: () => hoverElement(),
+
+    // Status
+    /** Return true if there's a status */
+    hasStatus: () =>
+      !!element.querySelector(`[data-hook='${dataHooks.errorTooltip}']`),
+    /** If there's a status, returns its type */
+    getStatus: () =>
+      element
+        .querySelector(`[data-hook='${dataHooks.errorTooltip}']`)
+        .getAttribute('data-status'),
+    /** Return true if there's a status message */
+    hasStatusMessage: () =>
+      !!element.querySelector(`[data-hook='status-indicator-tooltip']`),
+    /** If there's a status message, returns its text value */
+    getStatusMessage: () => {
+      const tooltipDriver = tooltipDriverFactory({
+        element: element.querySelector(
+          `[data-hook='status-indicator-tooltip']`,
+        ),
+        wrapper,
+        eventTrigger,
+      });
+
+      tooltipDriver.mouseEnter();
+      return tooltipDriver.getContentElement().textContent;
+    },
+
+    // Error - Deprecated
+    /** @deprecated */
+    isErrorVisible: () => !!byHook(dataHooks.errorTooltip),
+    /** @deprecated */
+    getErrorTooltipContent: () => {
+      const errorTooltip = tooltipTestkit(dataHooks.errorTooltip);
+      errorTooltip.mouseEnter();
+      return errorTooltip.getContentElement().textContent;
+    },
   };
 };
 

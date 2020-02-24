@@ -576,7 +576,6 @@ module.exports = {
   ImageViewer: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
   },
 
   SectionHelper: {

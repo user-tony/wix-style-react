@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B50, B40, R10, D50;
+  -st-named: B50, B40, R10, D50, Y10;
 }
 
 :import {
@@ -18,7 +18,7 @@
 }
 
 .root {
-  -st-states:
+  -st-states: status(enum(error, warning)),
     error,
     disabled,
     removeRadius,
@@ -51,6 +51,14 @@
 
 .root:error {
   border: 1px solid value(R10);
+}
+
+.root:status(error) {
+  border: 1px solid value(R10);
+}
+
+.root:status(warning) {
+  border: 1px solid value(Y10);
 }
 
 /** buttons group style **/
@@ -131,6 +139,13 @@
 
 .root:hover .image {
   transform: scale(1.1);
+}
+
+/** status styles **/
+.statusContainer {
+  position: absolute;
+  right: 9px;
+  top: 9px;
 }
 
 /** error styles **/

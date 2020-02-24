@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Delete from 'wix-ui-icons-common/Delete';
 import Replace from 'wix-ui-icons-common/Replace';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
+import StatusIndicator from '../StatusIndicator';
 import Loader from '../Loader';
 import styles from './ImageViewer.st.css';
 import Tooltip from '../Tooltip';
@@ -10,6 +11,8 @@ import IconButton from '../IconButton';
 import AddItem from '../AddItem/AddItem';
 import Box from '../Box';
 import classnames from 'classnames';
+import deprecationLog from '../utils/deprecationLog';
+import { dataHooks } from './constants';
 
 class ImageViewer extends Component {
   constructor(props) {
@@ -20,6 +23,12 @@ class ImageViewer extends Component {
       imageLoading: !!imageUrl,
       previousImageUrl: undefined,
     };
+
+    if (this.props.error || this.props.errorMessage) {
+      deprecationLog(
+        'Props error and errorMessage are deprecated. Please use status and statusMessage',
+      );
+    }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -41,7 +50,7 @@ class ImageViewer extends Component {
       <AddItem
         onClick={onAddImage}
         theme="image"
-        dataHook="add-image"
+        dataHook={dataHooks.addItem}
         disabled={disabled}
         tooltipContent={addImageInfo}
         tooltipProps={{ ...tooltipProps, content: addImageInfo }}
@@ -117,8 +126,6 @@ class ImageViewer extends Component {
       previousImageUrl,
     } = this._getCurrentAndPreviousImages();
 
-    const currentImageName = 'image-viewer-current-image';
-    const previousImageName = 'image-viewer-previous-image';
     const shouldDisplayContainer = !!(currentImageUrl || previousImageUrl);
     const generateKey = (imageName, imageUrl) => `${imageName}-${imageUrl}`;
     return (
@@ -128,7 +135,7 @@ class ImageViewer extends Component {
           shouldDisplay: shouldDisplayContainer,
         })}
         data-container-visible={shouldDisplayContainer}
-        data-hook="images-container"
+        data-hook={dataHooks.imagesContainer}
       >
         {/** current image */}
         {this._renderImageElement({
@@ -138,16 +145,16 @@ class ImageViewer extends Component {
           onError: () => {
             this._resetImageLoading();
           },
-          dataHook: currentImageName,
-          key: generateKey(currentImageName, currentImageUrl),
+          dataHook: dataHooks.image,
+          key: generateKey(dataHooks.image, currentImageUrl),
         })}
 
         {/** previous image */}
         {this._renderImageElement({
           imageUrl: previousImageUrl,
           shouldDisplay: imageLoading && !!previousImageUrl,
-          dataHook: previousImageName,
-          key: generateKey(previousImageName, previousImageUrl),
+          dataHook: dataHooks.previousImage,
+          key: generateKey(dataHooks.previousImage, previousImageUrl),
         })}
       </div>
     );
@@ -160,11 +167,11 @@ class ImageViewer extends Component {
         {...tooltipProps}
         upgrade
         timeout={0}
-        dataHook="update-image-tooltip"
+        dataHook={dataHooks.updateTooltip}
         content={updateImageInfo}
       >
         <IconButton
-          dataHook="update-image"
+          dataHook={dataHooks.update}
           onClick={onUpdateImage}
           skin="light"
           priority="secondary"
@@ -184,11 +191,11 @@ class ImageViewer extends Component {
         {...tooltipProps}
         upgrade
         timeout={0}
-        dataHook="remove-image-tooltip"
+        dataHook={dataHooks.removeTooltip}
         content={removeImageInfo}
       >
         <IconButton
-          dataHook="remove-image"
+          dataHook={dataHooks.remove}
           skin="light"
           priority="secondary"
           onClick={e => {
@@ -213,7 +220,7 @@ class ImageViewer extends Component {
             content={errorMessage}
             timeout={0}
             appendTo="window"
-            dataHook="error-image-tooltip"
+            dataHook={dataHooks.errorTooltip}
             placement="top"
           >
             <div className={styles.error}>
@@ -230,7 +237,7 @@ class ImageViewer extends Component {
       align="center"
       verticalAlign="middle"
       height="100%"
-      dataHook="image-viewer-loader"
+      dataHook={dataHooks.loader}
     >
       <Loader size="small" />
     </Box>
@@ -258,7 +265,7 @@ class ImageViewer extends Component {
           this.props,
         )}
         data-remove-radius={removeRoundedBorders}
-        data-hook="image-viewer-overlay"
+        data-hook={dataHooks.overlay}
       >
         {content}
         <span />
@@ -275,6 +282,8 @@ class ImageViewer extends Component {
       dataHook,
       removeRoundedBorders,
       imageUrl,
+      status,
+      statusMessage,
     } = this.props;
     const { imageLoading, previousImageUrl } = this.state;
 
@@ -286,6 +295,7 @@ class ImageViewer extends Component {
     const cssStates = {
       disabled,
       error: !disabled && error,
+      status: !disabled && status,
       removeRadius: removeRoundedBorders,
       hasImage,
     };
@@ -314,6 +324,17 @@ class ImageViewer extends Component {
         )}
 
         {hasError && this._renderErrorIcon()}
+
+        {/* Status */}
+        {status && !disabled && (
+          <div className={styles.statusContainer}>
+            <StatusIndicator
+              status={status}
+              message={statusMessage}
+              dataHook={dataHooks.errorTooltip}
+            />
+          </div>
+        )}
       </div>
     );
   }
@@ -331,43 +352,76 @@ ImageViewer.defaultProps = {
 };
 
 ImageViewer.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used to create driver in testing */
+  dataHook: PropTypes.string,
+
+  /** A css class to be applied to the component's root element */
+  className: PropTypes.string,
+
   /** Image url, blank for not uploaded */
   imageUrl: PropTypes.string,
-  /** Show error icon */
+
+  /** Show error icon
+   * @deprecated
+   */
   error: PropTypes.bool,
-  /** Error tooltip message */
+
+  /** Error tooltip message
+   * @deprecated
+   */
   errorMessage: PropTypes.string,
+
+  /** Sets UI to indicate a status */
+  status: PropTypes.oneOf(['error', 'warning', 'loading']),
+
+  /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
+  statusMessage: PropTypes.node,
+
   /** Error tooltip placement
    * @deprecated
    * @see tooltipProps
    */
   tooltipPlacement: PropTypes.string,
+
   /** Tooltip props, common for all tooltips */
   tooltipProps: PropTypes.object,
+
   /** Show update button */
   showUpdateButton: PropTypes.bool,
+
   /** Show remove button */
   showRemoveButton: PropTypes.bool,
+
   /** Add image click handler */
   onAddImage: PropTypes.func,
+
   /** Update image click handler */
   onUpdateImage: PropTypes.func,
+
   /** Remove image click handler */
   onRemoveImage: PropTypes.func,
+
   /** called right after image loads */
   onImageLoad: PropTypes.func,
+
   /** Add image tooltip */
   addImageInfo: PropTypes.string,
+
   /** Update image tooltip */
   updateImageInfo: PropTypes.string,
+
   /** Remove image tooltip */
   removeImageInfo: PropTypes.string,
+
   /** clear borders radius when displayed in sharp-edges containers */
   removeRoundedBorders: PropTypes.bool,
+
   /** Element width */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
   /** Element height */
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
   /** Applies disabled styles and disables editability options */
   disabled: PropTypes.bool,
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/react';
-import ImageViewer from './ImageViewer';
-import ImageViewerDriver from './ImageViewer.driver';
-import { imageViewerUniDriverFactory } from './ImageViewer.uni.driver';
+import ImageViewer from '../ImageViewer';
+import ImageViewerDriver from '../ImageViewer.driver';
+import { imageViewerPrivateDriverFactory } from './ImageViewer.private.uni.driver';
 import imageViewerPrivateDriver from './ImageViewer.private.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
 describe('ImageViewer', () => {
   const buildComponent = (props = {}) => <ImageViewer {...props} />;
@@ -18,7 +18,7 @@ describe('ImageViewer', () => {
   });
 
   describe('[async]', () => {
-    runTests(createRendererWithUniDriver(imageViewerUniDriverFactory));
+    runTests(createRendererWithUniDriver(imageViewerPrivateDriverFactory));
   });
 
   function runTests(render) {
@@ -320,6 +320,7 @@ describe('ImageViewer', () => {
       });
     });
 
+    /* Deprecated */
     describe('Error Icon', () => {
       it('should not be visible by default', async () => {
         const props = {
@@ -343,6 +344,30 @@ describe('ImageViewer', () => {
           };
           const { driver } = render(buildComponent(props));
           expect(await driver.getErrorTooltipContent()).toBe(errorMessage);
+        });
+      });
+    });
+
+    describe('status attribute', () => {
+      [
+        { status: 'error', message: 'Error Message' },
+        { status: 'warning', message: 'Warning Message' },
+        { status: 'loading', message: 'Loading Message' },
+      ].forEach(test => {
+        it(`should display a status icon when status="${test.status}"`, async () => {
+          const props = {
+            imageUrl: '',
+            width: 300,
+            height: 300,
+            status: test.status,
+            statusMessage: test.message,
+          };
+          const { driver } = render(buildComponent(props));
+
+          expect(await driver.hasStatus()).toBe(true);
+          expect(await driver.getStatus()).toBe(test.status);
+          expect(await driver.hasStatusMessage()).toBe(true);
+          expect(await driver.getStatusMessage()).toBe(test.message);
         });
       });
     });
