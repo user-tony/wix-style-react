@@ -16,8 +16,15 @@ Types of changes:
 
 ## Next
 
-## 7.47.2 - 2020-02-25
 ### Fixed
+
+Fix type definitions for the following:
+- `<ModalSelectorLayout/>` - Add missing TypeScript types [#5090](https://github.com/wix/wix-style-react/pull/5090)
+
+## 7.47.2 - 2020-02-25
+
+### Fixed
+
 Fix type definitions for the following:
 - `<FloatingHelper/>` - expose static Content prop [#5086](https://github.com/wix/wix-style-react/pull/5080)
 - `<InputWithOptions/>` - replace the usage of `Focus` type with a polyfill in favor of older TS consumers [#5086](https://github.com/wix/wix-style-react/pull/5086)
@@ -25,11 +32,15 @@ Fix type definitions for the following:
 - `<Text/>` - Support custom tag props [#5085](https://github.com/wix/wix-style-react/pull/5085)
 
 ## 7.47.1 - 2020-02-25
+
 ### Fixed
+
 - Types - add ignore.d.ts to enable easy types opt out [#5080](https://github.com/wix/wix-style-react/pull/5080)
 
 ## 7.47.0 - 2020-02-25
+
 ### Added
+
 - Types - add type definitions for all components and testkits in the library [#5008](https://github.com/wix/wix-style-react/pull/5008)
 
 ## 7.46.2 - 2020-02-24
