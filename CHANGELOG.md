@@ -16,7 +16,12 @@ Types of changes:
 
 ## Next
 
+## 7.47.1 - 2020-02-25
+### Fixed
+- Types - add ignore.d.ts to enable easy types opt out [#5080](https://github.com/wix/wix-style-react/pull/5080)
+
 ## 7.47.0 - 2020-02-25
+### Added
 - Types - add type definitions for all components and testkits in the library [#5008](https://github.com/wix/wix-style-react/pull/5008)
 
 ## 7.46.2 - 2020-02-24
