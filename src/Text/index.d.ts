@@ -1,7 +1,38 @@
 import * as React from 'react';
 import {EllipsisHOCProps} from '../common/EllipsisHOC';
+import {OmitPolyfill} from "../common";
 
-export interface TextProps extends EllipsisHOCProps {
+export type TextWithAsProp<T> =
+  | TextAsSpanProps<T>
+  | TextAsAnchorProps<T>
+  | TextGenericProps<T>
+  | TextAsComponentProps<T>;
+
+type TextAsSpanProps<T> = React.HTMLAttributes<HTMLSpanElement> &
+  T & {
+  tagName?: 'span';
+  onClick?: React.MouseEventHandler<HTMLElement>;
+};
+
+type TextAsAnchorProps<T> = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  T & {
+  tagName: 'a';
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+};
+
+type TextGenericProps<T> = T & {
+  tagName: keyof OmitPolyfill<HTMLElementTagNameMap, 'a' | 'span'>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [additionalProps: string]: any;
+};
+
+type TextAsComponentProps<T> = T & {
+  tagName: React.ComponentType<any>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [additionalProps: string]: any;
+};
+
+export interface TextPropsBase extends EllipsisHOCProps {
   dataHook?: string;
   tagName?: string;
   className?: string;
@@ -11,6 +42,8 @@ export interface TextProps extends EllipsisHOCProps {
   light?: boolean;
   weight?: TextWeight;
 }
+
+export type TextProps = TextWithAsProp<TextPropsBase>;
 
 export const Text: React.SFC<TextProps>;
 export default Text;

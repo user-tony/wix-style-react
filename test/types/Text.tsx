@@ -35,21 +35,29 @@ function TextWithAllProps() {
   );
 }
 
+function TextAsSpanProps() {
+  return <Text tagName="span" onClick={_ => {}} />;
+}
+
+function TextAsAnchorProps() {
+  return <Text tagName="a" onClick={_ => {}} />;
+}
+
 async function testkits() {
   const testkit = textTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = textEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await textPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }
