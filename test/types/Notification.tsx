@@ -21,11 +21,11 @@ function NotificationWithAllProps() {
       zIndex={9999}
       onClose={(source: string)=>{}}
     >
-      <Notification.ActionButton link={true} type={"button"} target={"target"}>
+      <Notification.ActionButton link={"https://example.com"} type={"button"} target={"target"}>
         Action button
       </Notification.ActionButton>
       <Notification.TextLabel>hello</Notification.TextLabel>
-      <Notification.CloseButton link={true} type={"button"}/>
+      <Notification.CloseButton type={"button"}/>
     </Notification>
   );
 }

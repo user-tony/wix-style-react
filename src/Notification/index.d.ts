@@ -25,7 +25,7 @@ export default class Notification extends React.Component<NotificationProps> {
 declare const TextLabel: React.SFC;
 declare const ActionButton: React.SFC<ActionButtonProps>;
 type ActionButtonProps = ButtonWithAsProp<{
-  link?: boolean;
+  link?: string;
   type?: string;
   target?: string;
 }>;
