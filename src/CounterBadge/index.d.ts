@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 export type CounterBadgeSkin =
   | 'general'
   | 'standard'
@@ -11,7 +10,6 @@ export type CounterBadgeSkin =
 export interface CounterBadgeProps {
   dataHook?: string;
   className?: string;
-  children?: React.ReactNode;
   skin?: CounterBadgeSkin;
 }
 

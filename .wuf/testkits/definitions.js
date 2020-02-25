@@ -447,7 +447,6 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
   },
 
   Label: {
@@ -607,4 +606,9 @@ module.exports = {
     namedProtractorTestkitExport: true,
     namedPuppeteerTestkitExport: true,
   },
+
+  TextLink: {
+    skipSanityTest: true,
+    noTestkit: true,
+  }
 };

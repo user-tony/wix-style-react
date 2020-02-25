@@ -1,3 +1,3 @@
-import {BaseUniDriver} from 'wix-ui-test-utils/unidriver';
+import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface BoxDriver extends BaseUniDriver {}
+export interface BoxUniDriver extends BaseUniDriver {}

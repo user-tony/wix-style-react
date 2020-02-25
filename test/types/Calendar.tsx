@@ -11,7 +11,6 @@ function testkits() {
   });
 
   vanilla.exists();
-  vanilla.click();
 
   const enzyme = CalendarEnzymeTestkitFactory({
     dataHook: 'shbem',

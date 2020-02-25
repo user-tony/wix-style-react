@@ -1,1 +1,1 @@
-export { VBox } from 'wix-ui-backoffice/dist/src/components/VBox';
+export { VBox, VBoxProps } from 'wix-ui-backoffice/dist/src/components/VBox';

@@ -50,7 +50,7 @@ export interface TooltipOldProps extends WixComponentProps {
   zIndex?: React.CSSProperties['zIndex'];
   appendToParent?: boolean;
   appendByPredicate?: (element: HTMLElement) => boolean;
-  appendTo?: HTMLElement;
+  appendTo?: any;
   moveBy?: { x?: number; y?: number };
   moveArrowTo?: number;
   size?: TooltipOldSize;

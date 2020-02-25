@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface SidePanelDriver extends BaseUniDriver {
+export interface SidePanelUniDriver extends BaseUniDriver {
   /** Click close the button */
   clickClose(): Promise<void>;
   /** Get title text */

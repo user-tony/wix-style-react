@@ -98,7 +98,11 @@ export {
 } from './Grid';
 
 export { Layout, Cell } from './Layout';
-export { default as Typography } from './Typography';
+export {
+  default as Typography,
+  convertFromUxLangToCss,
+  convertFromCssToUxLang,
+} from './Typography';
 export { default as GenericModalLayout } from './GenericModalLayout';
 export { default as TextButton } from './TextButton';
 export { default as IconButton } from './IconButton';

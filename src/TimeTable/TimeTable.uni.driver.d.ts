@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface TimeTableDriver extends BaseUniDriver {
+export interface TimeTableUniDriver extends BaseUniDriver {
   getColumnCount(): Promise<number>;
   getTitleAt(columnIndex: number): Promise<string>;
   getSubtitleAt(columnIndex: number): Promise<string>;

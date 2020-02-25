@@ -115,6 +115,7 @@ export const textTestkitFactory = puppeteerTestkitFactoryCreator(load(require('.
 export const textButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TextButton/TextButton.uni.driver')));
 export const thumbnailTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
 export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TimeInput/TimeInput.uni.driver')));
+export const toggleSwitchTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.uni.driver')));
 export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarSectionItem/SidebarSectionItem.uni.driver')));
 export const sidebarDividerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarDivider/SidebarDivider.uni.driver')));
 export const sidebarBackButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarBackButton/SidebarBackButton.uni.driver')));

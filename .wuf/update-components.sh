@@ -17,11 +17,11 @@ wuf export-testkits \
   --output testkit/index.js
 
 # vanilla testkits typescript definitions
-wuf export-testkits \
-  --components .wuf/components.json \
-  --definitions .wuf/testkits/definitions.js \
-  --template .wuf/testkits/vanilla-typescript.template.ejs \
-  --output testkit/index.d.ts
+# wuf export-testkits \
+#   --components .wuf/components.json \
+#   --definitions .wuf/testkits/definitions.js \
+#   --template .wuf/testkits/vanilla-typescript.template.ejs \
+#   --output testkit/index.d.ts
 
 
 # enzyme testkits
@@ -32,11 +32,11 @@ wuf export-testkits \
   --output testkit/enzyme.js
 
 # enzyme testkits typescript definitions
-wuf export-testkits \
-  --components .wuf/components.json \
-  --definitions .wuf/testkits/definitions.js \
-  --template .wuf/testkits/enzyme-typescript.template.ejs \
-  --output testkit/enzyme.d.ts
+# wuf export-testkits \
+#   --components .wuf/components.json \
+#   --definitions .wuf/testkits/definitions.js \
+#   --template .wuf/testkits/enzyme-typescript.template.ejs \
+#   --output testkit/enzyme.d.ts
 
 
 # protractor testkits
@@ -62,8 +62,8 @@ wuf export-testkits \
   --output testkit/puppeteer.js
 
 # puppeteer testkits typescript definitions
-wuf export-testkits \
-  --components .wuf/components.json \
-  --definitions .wuf/testkits/definitions.js \
-  --template .wuf/testkits/puppeteer-typescript.template.ejs \
-  --output testkit/puppeteer.d.ts
+# wuf export-testkits \
+#   --components .wuf/components.json \
+#   --definitions .wuf/testkits/definitions.js \
+#   --template .wuf/testkits/puppeteer-typescript.template.ejs \
+#   --output testkit/puppeteer.d.ts

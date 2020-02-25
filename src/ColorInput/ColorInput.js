@@ -12,7 +12,7 @@ class ColorInput extends React.Component {
 
   static propTypes = {
     /** placeholder to display */
-    placeholder: node,
+    placeholder: string,
     /** when set to true this component is disabled */
     disabled: bool,
     /** sets error state */

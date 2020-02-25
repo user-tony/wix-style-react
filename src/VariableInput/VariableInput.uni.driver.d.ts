@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface VariableInputDriver extends BaseUniDriver {
+export interface VariableInputUniDriver extends BaseUniDriver {
   /** Returns true if component is disabled */
   isDisabled(): Promise<boolean>;
   /** Get the text content of the component*/

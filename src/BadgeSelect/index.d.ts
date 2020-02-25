@@ -11,7 +11,12 @@ export interface BadgeSelectProps {
   dataHook?: string;
 }
 
-export default class BadgeSelect extends React.Component<BadgeSelectProps> {}
+export default class BadgeSelect extends React.Component<BadgeSelectProps> {
+  hideDropdown: () => void;
+  showDropdown: () => void;
+  toggleDropdown: () => void;
+  getSelectedOption: (props: any) => BadgeSelectOption;
+}
 
 export interface BadgeSelectOption {
   id: string;

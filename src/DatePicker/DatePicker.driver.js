@@ -13,6 +13,7 @@ const datePickerDriverFactory = ({ element }) => {
   };
 
   return {
+    exists: driver.exists,
     driver,
     inputDriver,
     calendarDriver,

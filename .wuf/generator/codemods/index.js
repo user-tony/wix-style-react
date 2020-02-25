@@ -19,4 +19,19 @@ module.exports = [
     dist: 'perfer.config.js',
     description: 'Add new threshold for new component',
   },
+  {
+    codemod: 'testkit-enzyme-ts-file.js',
+    dist: 'testkit/enzyme.d.ts',
+    description: 'Add component testkit export to enzyme.d.ts file',
+  },
+  {
+    codemod: 'testkit-vanilla-ts-file.js',
+    dist: 'testkit/index.d.ts',
+    description: 'Add component testkit export to index.d.ts file',
+  },
+  {
+    codemod: 'testkit-puppeteer-ts-file.js',
+    dist: 'testkit/puppeteer.d.ts',
+    description: 'Add component testkit export to puppeteer.d.ts file',
+  },
 ];

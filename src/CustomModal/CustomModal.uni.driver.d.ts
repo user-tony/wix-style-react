@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface CustomModalDriver extends BaseUniDriver {
+export interface CustomModalUniDriver extends BaseUniDriver {
   getTitleText: () => Promise<string>,
   getSubtitleText: () => Promise<string>,
   clickPrimaryButton: () => Promise<void>,
