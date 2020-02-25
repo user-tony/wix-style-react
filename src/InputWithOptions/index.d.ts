@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {OmitPolyfill} from '../common';
+import {FocusOptionsPolyfill, OmitPolyfill} from '../common';
 import {DropdownLayoutValueOption, DropdownLayoutProps} from '../DropdownLayout';
 import {InputProps} from '../Input';
 import {PopoverProps} from '../Popover';
@@ -41,7 +41,7 @@ export default class InputWithOptions<
     OnSelectFn
   > = InputWithOptionsProps<ManualInputFn, OnSelectFn>
 > extends React.Component<T> {
-  focus: (options?: FocusOptions) => void;
+  focus: (options?: FocusOptionsPolyfill) => FocusOptionsPolyfill;
   blur: () => void;
   select: () => void;
 }

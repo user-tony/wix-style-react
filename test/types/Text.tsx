@@ -31,6 +31,7 @@ function TextWithAllProps() {
       showDelay={300}
       timeout={300}
       zIndex={1}
+      showTooltip
     />
   );
 }

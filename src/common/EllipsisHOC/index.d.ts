@@ -11,4 +11,5 @@ export interface EllipsisHOCProps {
   zIndex?: number;
   hideDelay?: number;
   showDelay?: number;
+  showTooltip?: boolean;
 }
