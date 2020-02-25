@@ -50,15 +50,15 @@ export default class ModalSelectorLayout extends WixComponent {
      * Promise<{
      *  items: Array<{
      *    id: number | string,
-     *    title: string,
+     *    title: node,
      *    subtitle?: string,
      *    extraText?: string,
-     *    extraNode?: string,
+     *    extraNode?: node,
      *    disabled?: boolean // show item as disabled, dont count it in "select all", exclude from `onOk`
      *    selected?: boolean // force item as selected
      *    image?: node
-     *    subtitleNode?: Node,
-     *    belowNode?: Node,
+     *    subtitleNode?: node,
+     *    belowNode?: node,
      *    showBelowNodeOnSelect?: boolean,
      *  }>,
      *  totalCount: number

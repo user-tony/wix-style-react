@@ -55,10 +55,13 @@ export interface ModalSelectorLayoutItem {
   title: React.ReactNode;
   subtitle?: string;
   extraText?: string;
-  extraNode?: string;
+  extraNode?: React.ReactNode;
   disabled?: boolean;
   selected?: boolean;
   image?: React.ReactNode;
+  subtitleNode?: React.ReactNode;
+  belowNode?: React.ReactNode;
+  showBelowNodeOnSelect?: boolean;
 }
 
 export type ModalSelectorLayoutImageSize =

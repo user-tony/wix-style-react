@@ -21,7 +21,24 @@ function ModalSelectorLayoutWithAllProps() {
   return (
     <ModalSelectorLayout
       dataSource={(_searchQuery, _number, _limit) =>
-        Promise.resolve({ items: [], totalCount: 0 })
+        Promise.resolve({
+          items: [
+            {
+              id: 1,
+              title: <div/>,
+              subtitle: 'test',
+              subtitleNode: <div/>,
+              extraText: 'test',
+              extraNode: <div/>,
+              disabled: true,
+              selected: true,
+              image: <div/>,
+              belowNode: <div/>,
+              showBelowNodeOnSelect: true,
+            }
+          ],
+          totalCount: 0
+        })
       }
       emptyState={<div />}
       title={<div />}
