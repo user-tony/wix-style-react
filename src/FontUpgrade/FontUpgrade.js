@@ -5,13 +5,9 @@ import { FontUpgradeContext } from './context';
 import { setMadefor } from './utils';
 
 class FontUpgrade extends React.PureComponent {
-  componentDidMount() {
-    const { active = true } = this.props;
-    setMadefor(active);
-  }
-
   render() {
     const { dataHook, active = true, children } = this.props;
+    setMadefor(active);
 
     return (
       <FontUpgradeContext.Provider value={{ active, styles }}>
