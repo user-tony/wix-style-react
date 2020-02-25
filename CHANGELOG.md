@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+## 7.47.0 - 2020-02-25
+- Types - add type definitions for all components and testkits in the library [#5008](https://github.com/wix/wix-style-react/pull/5008)
+
 ## 7.46.2 - 2020-02-24
 - `<FontUpgrade>` - fix issue with SSR [#5070](https://github.com/wix/wix-style-react/pull/5070)
 
