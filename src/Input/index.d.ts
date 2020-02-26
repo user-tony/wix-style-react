@@ -42,7 +42,7 @@ export interface InputProps {
   onCompositionChange?: (isComposing: boolean) => void;
   onEnterPressed?: React.KeyboardEventHandler<HTMLInputElement>;
   onEscapePressed?: React.KeyboardEventHandler<HTMLInputElement>;
-  onFocus?: (e?: FocusEvent) => void;
+  onFocus?: (e?: React.FocusEvent<HTMLInputElement>) => void;
   onInputClicked?: React.MouseEventHandler<HTMLInputElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
