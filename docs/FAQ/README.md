@@ -70,7 +70,7 @@ Steps to fix it:
 ```
   "yoshi": {
   ....
-    "enhancedTpaStyle": true,
+    "separateStylableCss": true,
   ...
   }
 ```
@@ -130,9 +130,9 @@ component for using correct colors and fonts.
 
 In short:
 
-* `<Box/>` is a one-dimensional component that contains children and allows layouting them in a particular direction (horizontally or vertically). Mostly useful for small areas.
-* Grid is a two-dimensional component family that layouts children into rows that are divided by 12 columns at most. Mostly useful for medium/large areas.
-* Layout is a flexible component family that layouts children by cells that are placed into rows automatically. It's flexible compared to Grid because we can control stuff like the maximum amount of rows and gaps. Mostly useful for medium/large areas.
+- `<Box/>` is a one-dimensional component that contains children and allows layouting them in a particular direction (horizontally or vertically). Mostly useful for small areas.
+- Grid is a two-dimensional component family that layouts children into rows that are divided by 12 columns at most. Mostly useful for medium/large areas.
+- Layout is a flexible component family that layouts children by cells that are placed into rows automatically. It's flexible compared to Grid because we can control stuff like the maximum amount of rows and gaps. Mostly useful for medium/large areas.
 
 Check out [this](../usage/LAYOUTING.md) guide to learn more about layouting.
 
