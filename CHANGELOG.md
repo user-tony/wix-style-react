@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 Fix type definitions for the following:
+- `<PopoverMenu/>` - types - moveByEnable passing either x or y [#5084](https://github.com/wix/wix-style-react/pull/5101)
 - `<Input />` - typings: add types for inputRef prop [#5084](https://github.com/wix/wix-style-react/pull/5084)
 - Fix puppeteer and protractor failure for TS < 3.6 users [#commit](https://github.com/wix/wix-style-react/commit/926123dc813fd2f39fb7f934cefd7b0bc8dae1ed)
 - `<ModalSelectorLayout/>` - Add missing TypeScript types [#5090](https://github.com/wix/wix-style-react/pull/5090)
