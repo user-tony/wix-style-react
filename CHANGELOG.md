@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 Fix type definitions for the following:
+- `<ColorPicker/>` - types fixes [#5107](https://github.com/wix/wix-style-react/pull/5107)
 - `<InputWithOptions/>` - remove unneeded prop types [#5109](https://github.com/wix/wix-style-react/pull/5109)
 - `<Input />` - typings: add types for inputRef prop [#5084](https://github.com/wix/wix-style-react/pull/5084)
 - Fix puppeteer and protractor failure for TS < 3.6 users [#commit](https://github.com/wix/wix-style-react/commit/926123dc813fd2f39fb7f934cefd7b0bc8dae1ed)
