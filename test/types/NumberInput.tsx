@@ -43,7 +43,7 @@ function NumberInputOldWithAllProps() {
       noLeftBorderRadius
       noRightBorderRadius
       onBlur={_ev => {}}
-      onChange={_ev => {}}
+      onChange={(value: number | null) => {}}
       onClear={_ev => {}}
       onCompositionChange={_isComposing => {}}
       onEnterPressed={_ev => {}}
