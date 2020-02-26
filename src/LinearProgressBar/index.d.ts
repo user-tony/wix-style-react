@@ -8,6 +8,7 @@ export interface LinearProgressBarProps {
   value?: number | string;
   shouldLoadAsync?: boolean;
   skin?: 'standard' | 'success';
+  dataHook?: string;
 }
 
 export default class LinearProgressBar extends React.PureComponent<

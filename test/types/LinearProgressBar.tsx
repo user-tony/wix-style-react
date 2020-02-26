@@ -20,6 +20,7 @@ function LinearProgressBarWithAllProps() {
       showProgressIndication
       value={40}
       skin="success"
+      dataHook="hook"
     />
   );
 }

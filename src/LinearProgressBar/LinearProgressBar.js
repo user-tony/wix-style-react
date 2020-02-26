@@ -12,6 +12,9 @@ class LinearProgressBar extends React.PureComponent {
   static displayName = 'LinearProgressBar';
 
   static propTypes = {
+    /** Hook for testing purposes. */
+    dataHook: PropTypes.string,
+
     /** Use to apply error styles*/
     error: PropTypes.bool,
 
