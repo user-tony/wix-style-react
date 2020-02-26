@@ -19,7 +19,8 @@ Types of changes:
 ### Fixed
 
 Fix type definitions for the following:
-- Fix puppeteer and protractor failure for TS < 3.6 users (https://github.com/wix/wix-style-react/commit/926123dc813fd2f39fb7f934cefd7b0bc8dae1ed)
+- `<Input />` - typings: add types for inputRef prop [#5084](https://github.com/wix/wix-style-react/pull/5084)
+- Fix puppeteer and protractor failure for TS < 3.6 users [#commit](https://github.com/wix/wix-style-react/commit/926123dc813fd2f39fb7f934cefd7b0bc8dae1ed)
 - `<ModalSelectorLayout/>` - Add missing TypeScript types [#5090](https://github.com/wix/wix-style-react/pull/5090)
 - `<NumberInput/>` - Fix `onChange` prop type [#5091](https://github.com/wix/wix-style-react/pull/5091)
 - `<FillPreview/>` - Add `dataHook` prop type [#5093](https://github.com/wix/wix-style-react/pull/5093)
