@@ -94,6 +94,9 @@ class PopoverMenu extends React.PureComponent {
 
     /** Applied as data-hook HTML attribute that can be used in the tests*/
     dataHook: PropTypes.string,
+
+    /** A single CSS class name to be appended to the root element. */
+    className: PropTypes.string,
   };
 
   static defaultProps = {

@@ -19,6 +19,7 @@ export interface PopoverMenuNextProps {
   showArrow?: boolean;
   wrapText?: boolean;
   dataHook?: string;
+  className?: string;
 }
 
 export interface PopoverMenuNextMenuItemProps {
