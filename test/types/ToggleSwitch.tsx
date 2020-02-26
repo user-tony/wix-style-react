@@ -19,7 +19,7 @@ function ToggleSwitchWithAllProps() {
       checked
       disabled
       id="toggle-id"
-      onChange={() => null}
+      onChange={(ignored: React.ChangeEvent) => null}
       tabIndex={1}
     />
   );

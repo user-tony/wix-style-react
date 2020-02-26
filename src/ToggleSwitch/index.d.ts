@@ -7,7 +7,7 @@ export interface ToggleSwitchProps {
   checked?: boolean;
   disabled?: boolean;
   id?: string;
-  onChange?(): void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   tabIndex?: number;
 }
 
