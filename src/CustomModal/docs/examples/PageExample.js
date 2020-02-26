@@ -16,47 +16,45 @@ class PageExample extends React.Component {
   render() {
     const { isModalOpened } = this.state;
     return (
-      <Box>
+      <>
         <Button onClick={this.openModal}>Open Modal</Button>
-        <Modal isOpen={isModalOpened} onRequestClose={this.closeModal}>
-          <Box width="1254px">
-            <CustomModal
-              title="Title"
-              removeContentPadding
-              primaryButtonText="Save"
-              primaryButtonOnClick={this.closeModal}
-              secondaryButtonText="Cancel"
-              secondaryButtonOnClick={this.closeModal}
-              onCloseButtonClick={this.closeModal}
-            >
-              <Page upgrade height="40vh" sidePadding={30}>
-                <Page.Content>
-                  <Box marginTop={5}>
-                    <Container>
-                      <Row>
-                        <Col>
-                          <Card>
-                            <Card.Header title="Card 2" />
-                            <Card.Content>Lorem ipsum dolor</Card.Content>
-                          </Card>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col>
-                          <Card>
-                            <Card.Header title="Card 2" />
-                            <Card.Content>Lorem ipsum dolor</Card.Content>
-                          </Card>
-                        </Col>
-                      </Row>
-                    </Container>
-                  </Box>
-                </Page.Content>
-              </Page>
-            </CustomModal>
-          </Box>
+        <Modal isOpen={isModalOpened} onRequestClose={this.closeModal} shouldCloseOnOverlayClick >
+          <CustomModal width="1254px"
+            title="Title"
+            removeContentPadding
+            primaryButtonText="Save"
+            primaryButtonOnClick={this.closeModal}
+            secondaryButtonText="Cancel"
+            secondaryButtonOnClick={this.closeModal}
+            onCloseButtonClick={this.closeModal}
+          >
+            <Page upgrade height="40vh" sidePadding={30}>
+              <Page.Content>
+                <Box marginTop={5}>
+                  <Container>
+                    <Row>
+                      <Col>
+                        <Card>
+                          <Card.Header title="Card 1" />
+                          <Card.Content><Text size="medium">Lorem ipsum dolor</Text></Card.Content>
+                        </Card>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card>
+                          <Card.Header title="Card 2" />
+                          <Card.Content><Text size="medium">Lorem ipsum dolor</Text></Card.Content>
+                        </Card>
+                      </Col>
+                    </Row>
+                  </Container>
+                </Box>
+              </Page.Content>
+            </Page>
+          </CustomModal>
         </Modal>
-      </Box>
+      </>
     );
   }
 }

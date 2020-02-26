@@ -1,5 +1,4 @@
 :vars {
-  modalPadding: 30px;
   modalBoxPadding: 48px;
 }
 
@@ -13,6 +12,16 @@
   -st-named: radius08;
 }
 
+:import {
+  -st-from: "../Foundation/stylable/shadows.st.css";
+  -st-named: shadow40;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12, spacing24, spacing30, spacing42;
+}
+
 .root {
   -st-states: removeContentPadding;
   background-color: value(D80);
@@ -23,6 +32,8 @@
   display: flex;
   flex-direction: column;
   border-radius: value(radius08);
+  box-shadow: value(shadow40);
+  overflow: hidden;
 }
 
 
@@ -35,7 +46,7 @@
   height: 100%;
   overflow-y: auto;
   -st-mixin: defaultScrollBar;
-  padding: 0 value(modalPadding);
+  padding: 0 value(spacing30);
 }
 
 
@@ -58,11 +69,11 @@
   flex-shrink: 0;
 }
 .buttons > :first-of-type:not(:last-of-type) {
-  margin-right: 12px;
+  margin-right: value(spacing12);
 }
 
 .sideActions {
-  margin-right: 12px;
+  margin-right: value(spacing12);
 }
 
 
@@ -74,19 +85,19 @@
 }
 
 :global(.rtl) .buttons > :first-of-type:not(:last-of-type) {
-  margin-left: 12px;
+  margin-left: value(spacing12);
   margin-right: 0;
 }
 
 :global(.rtl) .sideActions {
-  margin-left: 12px;
+  margin-left: value(spacing12);
   margin-right: 0;
 }
 
 /** Footer - end **/
 
 .footnote {
-  padding: 12px 0;
+  padding: value(spacing12) 0;
   display: flex;
   justify-content: center;
 }
@@ -95,7 +106,7 @@
 /** Header - start **/
 .header
 {
-  padding: 24px value(modalPadding);
+  padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
 }
 .title{
   /*display: inline-block;*/
@@ -106,20 +117,14 @@
 
 
 
-
-
-
-
-
-
 .closeButton {
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: value(spacing12);
+  top: value(spacing12);
 }
 
 :global(.rtl) .closeButton {
-  left: 12px;
+  left: value(spacing12);
   right: unset;
 }
 

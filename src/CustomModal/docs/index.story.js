@@ -22,6 +22,7 @@ import FootnoteExample from '!raw-loader!./examples/FootnoteExample';
 import ModalExample from '!raw-loader!./examples/ModalExample';
 import PageExample from '!raw-loader!./examples/PageExample';
 import TableExmaple from '!raw-loader!./examples/TableExample';
+import MarketingExample from '!raw-loader!./examples/MarketingExample';
 import CustomModal from '..';
 import Checkbox from '../../Checkbox';
 
@@ -57,8 +58,7 @@ export default {
             description({
               title: 'Description',
               text:
-                //This line here should briefly describe component in just a sentence or two. It should be short and easy to read.
-                "Work in progress - please don't use this component yet.",
+                'Use this component together with <Modal /> to display content in this layout. You may place a title and/or a footer with actions relevant to the displayed content.\n',
             }),
           ]),
 
@@ -120,6 +120,17 @@ export default {
           ]),
           columns([
             description({
+              title: 'Marketing Layout example',
+              text: 'A custom modal example with a marketing layout',
+            }),
+
+            code({
+              compact: true,
+              source: MarketingExample,
+            }),
+          ]),
+          columns([
+            description({
               title: 'Custom Page Example',
               text: 'Open a custom page in a modal',
             }),
@@ -129,13 +140,6 @@ export default {
               source: PageExample,
             }),
           ]),
-
-          code({
-            title: 'Full Interactive Preview',
-            description: 'A non compact version of same code example as above',
-            source:
-              '<CustomModal  title="Title" subtitle="subtitle" sideActions={ (<Checkbox>Check</Checkbox>)}  footnote="footnote text" primaryButtonText="Save" secondaryButtonText="Cancel">Content</CustomModal>;',
-          }),
         ],
       }),
 

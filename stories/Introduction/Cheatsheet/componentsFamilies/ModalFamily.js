@@ -25,6 +25,7 @@ import {
 import Modal from 'wix-style-react/Modal';
 import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';
 import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';
+import CustomModal from 'wix-style-react/CustomModal';
 
 //Assets
 import Button from 'wix-style-react/Button';
@@ -142,7 +143,7 @@ const AlertExamples = () => {
   );
 };
 
-class CustomModalExample extends PureComponent {
+class ContentModalExample extends PureComponent {
   render() {
     const symbol = modalsSymbols.content;
     const components = modalsSymbolsToComponents[symbol];
@@ -194,6 +195,55 @@ class CustomModalExample extends PureComponent {
             </Row>
           </Container>
         </MessageBoxFunctionalLayout>
+      </SingleComponentSideBySide>
+    );
+  }
+}
+
+class CustomModalExample extends PureComponent {
+  render() {
+    const symbol = modalsSymbols.custom;
+    const components = modalsSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
+    return (
+      <SingleComponentSideBySide {...singleComponentProps}>
+        <Box>
+          <CustomModal
+            primaryButtonText="Save"
+            secondaryButtonText="Cancel"
+            title="New Product"
+            subtitle="To get running, your new product needs some details:"
+            sideActions={<Checkbox>Don't show this again</Checkbox>}
+            width="600px"
+          >
+            <Container fluid>
+              <Row stretchViewsVertically>
+                <Col span={9}>
+                  <FormField label="Title">
+                    <Input size="normal" placeholder="Value" />
+                  </FormField>
+                </Col>
+                <Col span={3}>
+                  <FormField label="Quantity">
+                    <NumberInput value={500} />
+                  </FormField>
+                </Col>
+              </Row>
+              <Row stretchViewsVertically>
+                <Col>
+                  <FormField label="Description">
+                    <RichTextInputArea placeholder="Tell your customers what they will get" />
+                  </FormField>
+                </Col>
+              </Row>
+            </Container>
+          </CustomModal>
+        </Box>
       </SingleComponentSideBySide>
     );
   }
@@ -410,7 +460,6 @@ const ModalFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <AlertExamples />
     <CustomModalExample />
-    <MarketingExample />
     <ModalPreviewLayoutExample />
     <ModalMobileLayoutExample />
   </FamilyStructure>

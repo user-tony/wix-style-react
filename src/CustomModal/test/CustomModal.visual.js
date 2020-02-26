@@ -123,6 +123,18 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'width',
+    its: [
+      {
+        it: '800px',
+        props: {
+          ...commonProps,
+          width: '800px',
+        },
+      },
+    ],
+  },
 ];
 
 const customModalTestkitFactory = uniTestkitFactoryCreator(

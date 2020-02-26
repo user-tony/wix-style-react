@@ -31,5 +31,8 @@ export const customModalDriverFactory = base => {
     /** Get the secondary button's text */
     getSecondaryButtonText: async () =>
       base.$(`[data-hook="${dataHooks.secondaryButton}"]`).text(),
+
+    /** Get the modal's width from the wrapping div style */
+    getModalWidth: async () => (await base._prop('style')).width,
   };
 };

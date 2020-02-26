@@ -8,4 +8,5 @@ export interface CustomModalUniDriver extends BaseUniDriver {
   clickCloseButton: () => Promise<void>,
   getPrimaryButtonText: () => Promise<string>,
   getSecondaryButtonText: () => Promise<string>,
+  getModalWidth: () => Promise<string>,
 }

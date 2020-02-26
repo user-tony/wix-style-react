@@ -46,11 +46,28 @@ describe('CustomModal', () => {
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
 
+  it('should render with the given width', async () => {
+    const width = '600px';
+    const { driver } = render(<CustomModal width={width}>Content</CustomModal>);
+
+    expect(await driver.getModalWidth()).toEqual(width);
+  });
+
   it('should render title', async () => {
     const title = 'Modal Title';
     const { driver } = render(<CustomModal title={title}>Content</CustomModal>);
 
     expect(await driver.getTitleText()).toEqual(title);
+  });
+
+  it('should render title node', async () => {
+    const titleText = 'Modal Title';
+    const titleNode = <div data-hook="customModal-title">{titleText}</div>;
+    const { driver } = render(
+      <CustomModal title={titleNode}>Content</CustomModal>,
+    );
+
+    expect(await driver.getTitleText()).toEqual(titleText);
   });
 
   it('should render subtitle', async () => {
