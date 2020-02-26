@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 Fix type definitions for the following:
+- `<Notification.ActionButton/>` - Improve type definition [#5094](https://github.com/wix/wix-style-react/pull/5094)
 - `<ColorPicker/>` - types fixes [#5107](https://github.com/wix/wix-style-react/pull/5107)
 - `<InputWithOptions/>` - remove unneeded prop types [#5109](https://github.com/wix/wix-style-react/pull/5109)
 - `<Input />` - typings: add types for inputRef prop [#5084](https://github.com/wix/wix-style-react/pull/5084)
