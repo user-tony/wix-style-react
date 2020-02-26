@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.47.3 - 2020-02-26
+
 ### Fixed
 
 Fix type definitions for the following:
