@@ -3,6 +3,7 @@ import {
   AppendTo,
   Placement,
 } from 'wix-ui-core/dist/src/components/popover/Popover.d';
+import { MoveByOffset } from '../../common';
 
 export interface PopoverMenuNextProps {
   triggerElement: React.ReactNode;
@@ -10,7 +11,7 @@ export interface PopoverMenuNextProps {
   maxWidth?: number;
   minWidth?: number;
   zIndex?: number;
-  moveBy?: { x: number; y: number };
+  moveBy?: MoveByOffset;
   placement?: Placement;
   textSize?: 'small' | 'medium';
   appendTo?: AppendTo;

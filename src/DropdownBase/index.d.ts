@@ -1,6 +1,7 @@
 import * as React from 'react';
-import DropdownLayout, {DropdownLayoutValueOption, DropdownLayoutProps} from '../DropdownLayout';
-import {PopoverProps} from '../Popover';
+import { MoveByOffset } from '../common';
+import { DropdownLayoutValueOption, DropdownLayoutProps } from '../DropdownLayout';
+import { PopoverProps } from '../Popover';
 
 export interface DropdownBaseProps {
   dataHook?: string;
@@ -23,7 +24,7 @@ export interface DropdownBaseProps {
   tabIndex?: number;
   initialSelectedId?: string | number;
   zIndex?: number;
-  moveBy?: { x?: number; y?: number };
+  moveBy?: MoveByOffset;
   flip?: boolean;
   fixed?: boolean;
 }

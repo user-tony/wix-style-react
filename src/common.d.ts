@@ -18,3 +18,4 @@ export interface FocusOptionsPolyfill {
   preventScroll?: boolean;
 }
 
+export type MoveByOffset = { x?: number; y?: number };

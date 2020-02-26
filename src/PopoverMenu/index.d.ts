@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { MoveByOffset } from '../common';
 import { TooltipOldProps } from '../Tooltip';
 
 export interface PopoverMenuProps {
@@ -14,7 +15,7 @@ export interface PopoverMenuProps {
   showArrow?: boolean;
   onShow?: () => void;
   onHide?: () => void;
-  moveBy?: { x?: number; y?: number };
+  moveBy?: MoveByOffset;
 }
 
 export default class PopoverMenu extends React.Component<PopoverMenuProps> {}

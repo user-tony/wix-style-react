@@ -4,6 +4,7 @@ import {
   AppendTo,
   Placement,
 } from 'wix-ui-core/dist/src/components/popover/Popover.d';
+import { MoveByOffset } from '../common';
 
 export interface TooltipNewProps {
   upgrade: true;
@@ -13,7 +14,7 @@ export interface TooltipNewProps {
   textAlign?: TooltipNewTextAlign;
   enterDelay?: number;
   exitDelay?: number;
-  moveBy?: { x?: number; y?: number };
+  moveBy?: MoveByOffset;
   appendTo?: AppendTo;
   flip?: boolean;
   fixed?: boolean;
@@ -51,7 +52,7 @@ export interface TooltipOldProps extends WixComponentProps {
   appendToParent?: boolean;
   appendByPredicate?: (element: HTMLElement) => boolean;
   appendTo?: any;
-  moveBy?: { x?: number; y?: number };
+  moveBy?: MoveByOffset;
   moveArrowTo?: number;
   size?: TooltipOldSize;
   shouldCloseOnClickOutside?: boolean;
