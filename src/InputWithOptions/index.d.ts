@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {FocusOptionsPolyfill, OmitPolyfill} from '../common';
-import {DropdownLayoutValueOption, DropdownLayoutProps} from '../DropdownLayout';
-import {InputProps} from '../Input';
-import {PopoverProps} from '../Popover';
+import { FocusOptionsPolyfill, OmitPolyfill} from '../common';
+import {DropdownLayoutValueOption, DropdownLayoutProps,
+} from '../DropdownLayout';
+import { InputProps } from '../Input';
+import { PopoverProps } from '../Popover';
 
 export interface InputWithOptionsProps<
   ManualInputFn = ManualInputFnSignature,
@@ -26,7 +27,10 @@ export interface InputWithOptionsProps<
   showOptionsIfEmptyInput?: boolean;
   highlight?: boolean;
   native?: boolean;
-  popoverProps?: PopoverProps;
+  popoverProps?: OmitPolyfill<
+    PopoverProps,
+    'width' | 'dataHook' | 'shown' | 'onClickOutside' | 'onKeyDown' | 'placement'
+  > & Partial<Pick<PopoverProps, 'placement'>>;
   onSelect?: OnSelectFn;
   onOptionsShow?: () => void;
   onOptionsHide?: () => void;

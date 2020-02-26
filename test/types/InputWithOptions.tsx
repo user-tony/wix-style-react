@@ -1,10 +1,10 @@
-import * as React from "react";
-import InputWithOptions from "../../src/InputWithOptions";
-import { inputWithOptionsTestkitFactory } from "../../dist/testkit";
-import { inputWithOptionsTestkitFactory as inputWithOptionsEnzymeTestkitFactory } from "../../dist/testkit/enzyme";
-import { inputWithOptionsTestkitFactory as inputWithOptionsPuppeteerTestkitFactory } from "../../dist/testkit/puppeteer";
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as React from 'react';
+import InputWithOptions from '../../src/InputWithOptions';
+import { inputWithOptionsTestkitFactory } from '../../dist/testkit';
+import { inputWithOptionsTestkitFactory as inputWithOptionsEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
+import { inputWithOptionsTestkitFactory as inputWithOptionsPuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function InputWithOptionsWithMandatoryProps() {
   return <InputWithOptions />;
@@ -18,6 +18,30 @@ function InputWithOptionsWithAllProps() {
       ariaLabel="text"
       autoFocus
       autoSelect
+      popoverProps={{
+        className: 'cls',
+        placement: 'top',
+        onClick: () => {},
+        excludeClass: 'cls',
+        onMouseEnter: () => {},
+        onMouseLeave: () => {},
+        showArrow: true,
+        flip: true,
+        fixed: true,
+        moveBy: { x: 1, y: 0 },
+        hideDelay: 10,
+        showDelay: 1,
+        moveArrowTo: 1,
+        timeout: 1,
+        style: {},
+        id: '123',
+        role: 'role',
+        zIndex: 1,
+        dynamicWidth: true,
+        minWidth: '10px',
+        maxWidth: '11px',
+        disableClickOutsideWhenClosed: true,
+      }}
       autocomplete="off"
       className="cls"
       clearButton
@@ -99,35 +123,35 @@ function InputWithOptionsWithAllProps() {
       visible
       withArrow
       overflow="scroll"
-      onOptionsShow={()=>{}}
-      onOptionsHide={()=>{}}
+      onOptionsShow={() => {}}
+      onOptionsHide={() => {}}
       disableClickOutsideWhenClosed
       options={[
         {
-          value: "a",
+          value: 'a',
           id: 0,
           disabled: true,
-          linkTo: "google.com",
+          linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
         {
           value: <div />,
           id: 1,
           disabled: true,
-          linkTo: "google.com",
+          linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
-        { value: "-", id: "2" },
+        { value: '-', id: '2' },
         {
           value: ({ selected, disabled, hovered }) => <div />,
           id: 3,
           disabled: true,
-          linkTo: "google.com",
+          linkTo: 'google.com',
           title: true,
-          overrideStyle: true
-        }
+          overrideStyle: true,
+        },
       ]}
     />
   );
@@ -142,19 +166,19 @@ function ShouldHaveRefMethods() {
 
 async function testkits() {
   const testkit = inputWithOptionsTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = inputWithOptionsEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await inputWithOptionsPuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }
