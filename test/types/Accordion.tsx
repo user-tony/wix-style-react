@@ -20,7 +20,7 @@ function AccordionWithAllProps() {
         {
           buttonType: "button",
           collapseLabel: <div />,
-          content: <div />,
+          children: <div />,
           expandLabel: <div />,
           icon: <div />,
           title: <div />,

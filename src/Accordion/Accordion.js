@@ -22,7 +22,7 @@ class Accordion extends React.Component {
       PropTypes.shape({
         title: PropTypes.node,
         icon: PropTypes.node,
-        content: PropTypes.node,
+        children: PropTypes.node,
         expandLabel: PropTypes.node,
         collapseLabel: PropTypes.node,
         buttonType: PropTypes.oneOf(['textButton', 'button']),

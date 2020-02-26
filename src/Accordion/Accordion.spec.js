@@ -32,7 +32,7 @@ describe('Accordion', () => {
         {
           title: 'first item',
           icon: <FakeIcon />,
-          content: 'first item content',
+          children: 'first item content',
         },
       ];
       const driver = createDriver(<Accordion items={items} />);
@@ -43,7 +43,7 @@ describe('Accordion', () => {
       const items = [
         {
           title: 'first item',
-          content: 'first item content',
+          children: 'first item content',
         },
       ];
       const driver = createDriver(<Accordion items={items} />);
@@ -56,7 +56,7 @@ describe('Accordion', () => {
       {
         title: 'first item',
         icon: <FakeIcon />,
-        content: 'first item content',
+        children: 'first item content',
         expandLabel: 'see more',
         collapseLabel: 'see less',
         buttonType: buttonTypes.button,
@@ -67,7 +67,7 @@ describe('Accordion', () => {
       {
         title: 'first item',
         icon: <FakeIcon />,
-        content: 'first item content',
+        children: 'first item content',
         expandLabel: 'see more',
         collapseLabel: 'see less',
         buttonType: buttonTypes.textButton,
@@ -78,7 +78,7 @@ describe('Accordion', () => {
       {
         title: 'first item',
         icon: <FakeIcon />,
-        content: 'first item content',
+        children: 'first item content',
         expandLabel: 'see more',
         collapseLabel: 'see less',
         buttonType: buttonTypes.button,
@@ -86,7 +86,7 @@ describe('Accordion', () => {
       {
         title: 'second item',
         icon: <FakeIcon />,
-        content: 'second item content',
+        children: 'second item content',
         expandLabel: 'see more',
         collapseLabel: 'see less',
         buttonType: buttonTypes.button,

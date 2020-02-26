@@ -10,7 +10,7 @@ export interface AccordionProps {
 export interface AccordionItem {
   title?: React.ReactNode;
   icon?: React.ReactNode;
-  content?: React.ReactNode;
+  children?: React.ReactNode;
   expandLabel?: React.ReactNode;
   collapseLabel?: React.ReactNode;
   buttonType?: AccordionItemButtonType;
