@@ -94,6 +94,9 @@ class FillPreview extends React.PureComponent {
 }
 
 FillPreview.propTypes = {
+  /** Hook for testing purposes. */
+  dataHook: string,
+
   /** render as some other component or DOM tag */
   as: oneOfType([func, object, string]),
 

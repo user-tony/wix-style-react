@@ -13,6 +13,7 @@ function FillPreviewWithMandatoryProps() {
 function FillPreviewWithAllProps() {
   return (
     <FillPreview
+      dataHook="test"
       as={"a"}
       href={"http://www.wix.com"}
       tabIndex={-1}
