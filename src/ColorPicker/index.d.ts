@@ -1,15 +1,18 @@
 import * as React from 'react';
+import * as color from 'color';
+
+type ColorInstance = ReturnType<typeof color['rgb']>;
 
 export interface ColorPickerProps {
   dataHook?: string;
-  value: string | object;
+  value: string | ColorInstance;
   showHistory?: boolean;
   showConverter?: boolean;
   showInput?: boolean;
-  onChange: (color: string | object) => void;
-  onCancel: (color: string | object) => void;
-  onConfirm: (color: string | object) => void;
-  onAdd?: (color: string | object) => void;
+  onChange: (color: string | ColorInstance) => void;
+  onCancel: (color: string | ColorInstance) => void;
+  onConfirm: (color: string | ColorInstance) => void;
+  onAdd?: (color: string | ColorInstance) => void;
   addTooltipContent?: React.ReactNode;
   allowEmpty?: boolean;
   emptyPlaceholder?: string;
