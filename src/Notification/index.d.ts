@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {ButtonWithAsProp} from '../Button';
 import CloseButton from '../CloseButton';
 
 export interface NotificationProps {
@@ -24,8 +23,17 @@ export default class Notification extends React.Component<NotificationProps> {
 
 declare const TextLabel: React.SFC;
 declare const ActionButton: React.SFC<ActionButtonProps>;
-type ActionButtonProps = ButtonWithAsProp<{
+
+interface TextLinkActionButton {
+  type: 'textLink';
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   link?: string;
-  type?: string;
   target?: string;
-}>;
+}
+
+interface ButtonActionButtonProps {
+  type?: 'button';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+type ActionButtonProps = ButtonActionButtonProps | TextLinkActionButton;
