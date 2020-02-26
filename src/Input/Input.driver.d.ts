@@ -4,7 +4,7 @@ import { FocusOptionsPolyfill } from '../common';
 import { InputTheme, InputSize } from './index';
 export interface InputDriver extends BaseDriver {
   trigger: (trigger: string, event: SyntheticEventData) => void;
-  focus: (options: FocusOptionsPolyfill) => FocusOptionsPolyfill;
+  focus: (options?: FocusOptionsPolyfill) => FocusOptionsPolyfill;
   blur: () => void;
   getName: () => string | null;
   getMaxLength: () => string | null;
