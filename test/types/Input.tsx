@@ -61,6 +61,7 @@ function InputWithAllProps() {
       roundInput
       rtl
       size="large"
+      inputRef={(_input: HTMLInputElement) => {}}
       status={Input.StatusError}
       statusMessage="msg"
       step={1}

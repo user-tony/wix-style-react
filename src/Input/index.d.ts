@@ -71,6 +71,7 @@ export interface InputProps {
   customInput?: React.ReactNode | Function;
   updateControlledOnClear?: boolean;
   pattern?: string;
+  inputRef?: (input: HTMLInputElement) => void;
 }
 
 export default class Input extends React.Component<InputProps> {
