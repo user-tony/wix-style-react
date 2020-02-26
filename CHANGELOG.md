@@ -20,6 +20,7 @@ Types of changes:
 
 Fix type definitions for the following:
 - `<ModalSelectorLayout/>` - Add missing TypeScript types [#5090](https://github.com/wix/wix-style-react/pull/5090)
+- `<NumberInput/>` - Fix onChange type [#5091](https://github.com/wix/wix-style-react/pull/5091)
 
 ## 7.47.2 - 2020-02-25
 
