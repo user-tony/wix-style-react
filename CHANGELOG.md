@@ -25,6 +25,7 @@ Fix type definitions for the following:
 - `<Accordion/>` - Rename `content` to `children` [#5098](https://github.com/wix/wix-style-react/pull/5098)
 - beta/`<PopoverMenu/>` - Add `className` prop type [#5095](https://github.com/wix/wix-style-react/pull/5095)
 - `<ToggleSwitch/>` - Fix `onChange` prop type [#5092](https://github.com/wix/wix-style-react/pull/5092)
+- `<LinearProgressBar/>` - Add `dataHook` prop [#5104](https://github.com/wix/wix-style-react/pull/5104)
 
 ## 7.47.2 - 2020-02-25
 
