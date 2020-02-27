@@ -54,7 +54,7 @@ export const divider = `
 export const prefix = `
   <Dropdown
     placeholder="Select an option"
-    prefix={<Input.Unit>$</Input.Unit>}
+    prefix={<Input.Affix>$</Input.Affix>}
     options={[{id: 0, value: '35'}, {id: 1, value: '40'}, {id: 2, value: '50'}]}
     />
 `;
@@ -62,7 +62,7 @@ export const prefix = `
 export const suffix = `
   <Dropdown
     placeholder="Select an option"
-    suffix={<Input.Unit>%</Input.Unit>}
+    prefix={<Input.Affix>$</Input.Affix>}
     options={[{id: 0, value: '35'}, {id: 1, value: '40'}, {id: 2, value: '50'}]}
     />
 `;

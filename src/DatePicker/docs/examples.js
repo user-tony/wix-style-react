@@ -1,8 +1,18 @@
 export const simple = `
-<DatePicker
-  placeholderText="Select Date"
-  onChange={event => console.log(event)}
-/>
+class DatePickerExample extends React.PureComponent {
+  state = { value: new Date() };
+
+  render() {
+    const { value } = this.state;
+    return (
+      <DatePicker
+        placeholderText="Select Date"
+        value={value}
+        onChange={value => this.setState({ value })}
+      />
+    );
+  }
+}
 `;
 
 export const customizations = `
