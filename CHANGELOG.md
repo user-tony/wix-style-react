@@ -16,6 +16,11 @@ Types of changes:
 
 ## Next
 
+### Fixed
+
+Fix type definitions for the following:
+- `<FillButton/>` - Add dataHook types [#5113](https://github.com/wix/wix-style-react/pull/5113)
+
 ## 7.47.3 - 2020-02-26
 
 ### Fixed
