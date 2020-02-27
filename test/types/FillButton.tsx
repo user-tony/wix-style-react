@@ -20,6 +20,7 @@ function FillButtonWithAllProps() {
       tooltipContent={<div />}
       fill="red"
       tooltipProps={{}}
+      dataHook="hook"
     />
   );
 }

@@ -10,6 +10,7 @@ export interface FillButtonProps
   tooltipContent?: React.ReactNode;
   fill?: string;
   tooltipProps?: OmitPolyfill<TooltipNewProps, 'dataHook' | 'content' | 'size' | 'upgrade'>;
+  dataHook?: string;
 }
 
 export default class FillButton extends React.PureComponent<FillButtonProps> {}
