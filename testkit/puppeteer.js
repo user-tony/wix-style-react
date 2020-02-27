@@ -48,6 +48,7 @@ export const addItemTestkitFactory = puppeteerUniTestkitFactoryCreator(load(requ
 export const autoCompleteTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/AutoComplete/AutoComplete.uni.driver')));
 export const avatarTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Avatar/Avatar.uni.driver')));
 export const badgeTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Badge/Badge.uni.driver')));
+export const badgeSelectTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/BadgeSelect/BadgeSelect.uni.driver')));
 export const boxTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Box/Box.uni.driver')));
 export const breadcrumbsTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Breadcrumbs/Breadcrumbs.uni.driver')));
 export const buttonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Button/Button.uni.driver')));

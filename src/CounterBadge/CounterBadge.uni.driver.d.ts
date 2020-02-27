@@ -1,5 +1,5 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface CounterBadgeDriver extends BaseUniDriver {
+export interface CounterBadgeUniDriver extends BaseUniDriver {
   getContent(): Promise<HTMLElement>;
 }

@@ -30,7 +30,6 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true, // was not exported before automation, keeping that way for now
   },
 
   Table: {
@@ -38,6 +37,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
+    puppeteerTypeImportName: 'TablePuppeteerDriver'
   },
 
   TableActionCell: {
@@ -108,6 +108,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
+    puppeteerTypeImportName: 'HeadingPuppeteerDriver'
   },
 
   Header: {
@@ -167,6 +168,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
+    puppeteerTypeImportName: 'TextPuppeteerDriver'
   },
 
   SideMenu: {
@@ -366,6 +368,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
+    puppeteerTypeImportName: 'NoBorderInputPuppeteerDriver'
   },
 
   Modal: {
@@ -441,6 +444,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
+    puppeteerTypeImportName: 'FormFieldPuppeteerDriver'
   },
 
   ToggleSwitch: {

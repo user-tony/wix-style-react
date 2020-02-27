@@ -2,7 +2,10 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["dom", "es2016"],
+    "lib": [
+      "dom",
+      "es2016"
+    ],
     "pretty": true,
     "jsx": "react",
     "strict": true,
@@ -12,6 +15,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true
   },
-  "include": ["src/**/*.ts", "test/types/**.*"],
-  "files": ["./node_modules/wix-ui-core/dist/src/globals.d.ts"]
+  "include": [
+    "../../dist/testkit/*.d.ts"
+  ]
 }
