@@ -63,6 +63,13 @@ const tests = [
           suffix: <Input.Affix>$</Input.Affix>,
         },
       },
+
+      {
+        it: 'readOnly',
+        props: {
+          readOnly: true,
+        },
+      },
     ],
   },
 ];

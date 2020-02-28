@@ -9,30 +9,34 @@ import { dataHooks } from './constants';
 
 const Ticker = ({ onUp, onDown, upDisabled, downDisabled, dataHook }) => (
   <InputConsumer consumerCompName={Ticker.displayName}>
-    {({ disabled }) => (
-      <div className={styles.root} data-hook={dataHook}>
-        <div
-          data-hook={dataHooks.tickerUp}
-          data-disabled={upDisabled || disabled}
-          className={classnames(styles.up, {
-            [styles.disabled]: upDisabled || disabled,
-          })}
-          onClick={upDisabled || disabled ? null : onUp}
-        >
-          <FormFieldSpinnerUp />
+    {({ disabled, readOnly }) => {
+      const isUpDisabled = upDisabled || disabled || readOnly;
+      const isDownDisabled = downDisabled || disabled || readOnly;
+      return (
+        <div className={styles.root} data-hook={dataHook}>
+          <div
+            data-hook={dataHooks.tickerUp}
+            data-disabled={isUpDisabled}
+            className={classnames(styles.up, {
+              [styles.disabled]: isUpDisabled,
+            })}
+            onClick={isUpDisabled ? null : onUp}
+          >
+            <FormFieldSpinnerUp />
+          </div>
+          <div
+            data-hook={dataHooks.tickerDown}
+            data-disabled={isDownDisabled}
+            className={classnames(styles.down, {
+              [styles.disabled]: isDownDisabled,
+            })}
+            onClick={isDownDisabled ? null : onDown}
+          >
+            <FormFieldSpinnerDown />
+          </div>
         </div>
-        <div
-          data-hook={dataHooks.tickerDown}
-          data-disabled={downDisabled || disabled}
-          className={classnames(styles.down, {
-            [styles.disabled]: downDisabled || disabled,
-          })}
-          onClick={downDisabled || disabled ? null : onDown}
-        >
-          <FormFieldSpinnerDown />
-        </div>
-      </div>
-    )}
+      );
+    }}
   </InputConsumer>
 );
 
