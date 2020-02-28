@@ -18,7 +18,7 @@ Types of changes:
 
 ### Fixed
 
-Fix type definitions for the following:
+- `<NumberInput/>` - Disable up/down arrows when input is readOnly [#5115](https://github.com/wix/wix-style-react/pull/5115)
 - `<FillButton/>` - Add dataHook types [#5113](https://github.com/wix/wix-style-react/pull/5113)
 
 ## 7.47.3 - 2020-02-26
