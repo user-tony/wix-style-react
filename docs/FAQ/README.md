@@ -57,6 +57,8 @@ wixCssModulesRequireHook();
 +});
 ```
 
+Also, `yoshi` enables [`separateCss`](https://wix.github.io/yoshi/docs/api/configuration.html#separatecss) configuration by default, which outputs the standard CSS to a separate `app.css` file. Make sure you **don't** disable this configuration.
+
 ### Components do not have styling in the first render of Server-Side-Rendering (SSR)
 
 Components that use Stylable may not receive their styling on the first render (while other components styled with Css-Modules are working fine).
