@@ -19,91 +19,127 @@ const deprecatedColorList = ['blue', 'green', 'grey', 'red', 'orange'];
 /**
  * Avatar is a type of element that visually represents a user, either as an image, name initials or placeholder icon.
  */
-const Avatar = props => {
-  const {
-    size,
-    presence,
-    indication,
-    color: colorProp,
-    onIndicationClick,
-    dataHook,
-    className,
-    shape,
-    text,
-    placeholder,
-    name,
-    onClick,
-    showIndicationOnHover,
-    ...rest
-  } = props;
 
-  if (deprecatedColorList.indexOf(colorProp) > -1) {
-    deprecationLog(
-      `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
+class Avatar extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fadeIndication: false,
+      showIndication: false,
+    };
+  }
+
+  _onMouseEnter = () => {
+    if (this.props.showIndicationOnHover) {
+      this.setState({ showIndication: true });
+    }
+  };
+
+  _onMouseLeave = () => {
+    if (this.props.showIndicationOnHover) {
+      this.setState({ fadeIndication: true });
+      setTimeout(
+        () => this.setState({ fadeIndication: false, showIndication: false }),
+        150,
+      );
+    }
+  };
+
+  render() {
+    const {
+      size,
+      presence,
+      indication,
+      color: colorProp,
+      onIndicationClick,
+      dataHook,
+      className,
+      shape,
+      text,
+      placeholder,
+      name,
+      onClick,
+      showIndicationOnHover,
+      ...rest
+    } = this.props;
+    const { fadeIndication, showIndication } = this.state;
+
+    if (deprecatedColorList.indexOf(colorProp) > -1) {
+      deprecationLog(
+        `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
+      );
+    }
+    const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
+    const sizeNumber = getSizeNumber(size);
+    const renderOnHover = !showIndicationOnHover || showIndication;
+    const renderIndication =
+      indication && renderOnHover && sizeNumber > minIndicationRenderSize;
+
+    return (
+      <div
+        data-hook={dataHook}
+        className={classNames(className, styles.externalContainer)}
+      >
+        <div
+          data-hook={dataHooks.avatarWSR}
+          onMouseEnter={this._onMouseEnter}
+          onMouseLeave={this._onMouseLeave}
+          {...styles('avatarContainer', {
+            shape,
+            size,
+            indication,
+            presence,
+            presenceType: presence,
+            clickable: !!onClick,
+            fade: fadeIndication,
+          })}
+          data-madefor={isMadefor()}
+        >
+          <div className={styles.coreAvatar}>
+            <CoreAvatar
+              {...{
+                ...rest,
+                placeholder: placeholder ? (
+                  placeholder
+                ) : (
+                  <AvatarDefaultPlaceholder shape={shape} size={size} />
+                ),
+                text,
+                name,
+                onClick,
+                'data-hook': dataHooks.avatarCore,
+              }}
+              className={classNames(
+                styles.avatar,
+                color && styles[`color${capitalize(color)}`],
+              )}
+            />
+          </div>
+          {presence && <div className={styles.presence} />}
+          {renderIndication && (
+            <div className={styles.indication}>
+              <IconButton
+                className={styles.iconButtonShadow}
+                dataHook={dataHooks.indication}
+                onClick={onIndicationClick}
+                skin="inverted"
+                shape={shape}
+                size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
+              >
+                {indication}
+              </IconButton>
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
-  const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
-  const sizeNumber = getSizeNumber(size);
-  const renderIndication = indication && sizeNumber > minIndicationRenderSize;
+}
 
-  return (
-    <div
-      data-hook={dataHook}
-      className={classNames(className, styles.externalContainer)}
-    >
-      <div
-        {...styles('avatarContainer', {
-          shape,
-          size,
-          indication,
-          presence,
-          presenceType: presence,
-          clickable: !!onClick,
-          showIndicationOnHover,
-        })}
-        data-madefor={isMadefor()}
-      >
-        <div className={styles.coreAvatar}>
-          <CoreAvatar
-            {...{
-              ...rest,
-              placeholder: placeholder ? (
-                placeholder
-              ) : (
-                <AvatarDefaultPlaceholder shape={shape} size={size} />
-              ),
-              text,
-              name,
-              onClick,
-              'data-hook': dataHooks.avatarCore,
-            }}
-            className={classNames(
-              styles.avatar,
-              color && styles[`color${capitalize(color)}`],
-            )}
-          />
-        </div>
-        {presence && <div className={styles.presence} />}
-        {renderIndication && (
-          <div className={styles.indication}>
-            <IconButton
-              className={styles.iconButtonShadow}
-              dataHook={dataHooks.indication}
-              onClick={onIndicationClick}
-              skin="inverted"
-              shape={shape}
-              size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
-            >
-              {indication}
-            </IconButton>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-Avatar.displayName = 'Avatar';
+const AvatarDefaultPlaceholder = ({ shape, size }) =>
+  shape !== avatarShapes.square
+    ? placeholderSVGs[size][avatarShapes.circle]
+    : placeholderSVGs[size][avatarShapes.square];
 
 const CoreAvatarPropTypes = {
   /**
@@ -133,6 +169,8 @@ const CoreAvatarPropTypes = {
    */
   onClick: PropTypes.func,
 };
+
+Avatar.displayName = 'Avatar';
 
 Avatar.propTypes = {
   ...CoreAvatarPropTypes,
@@ -167,11 +205,6 @@ Avatar.propTypes = {
   /** Show indication on hover. */
   showIndicationOnHover: PropTypes.bool,
 };
-
-const AvatarDefaultPlaceholder = ({ shape, size }) =>
-  shape !== avatarShapes.square
-    ? placeholderSVGs[size][avatarShapes.circle]
-    : placeholderSVGs[size][avatarShapes.square];
 
 Avatar.defaultProps = {
   size: 'size48',

@@ -39,4 +39,16 @@ describe('Avatar', () => {
 
     expect(await driver.indicationExists()).toBe(true);
   });
+
+  it('should render indication onHover', async () => {
+    const { driver } = createDriver(
+      <Avatar showIndicationOnHover indication={<PhotoCamera size={24} />} />,
+    );
+
+    expect(await driver.indicationExists()).toBe(false);
+
+    await driver.hover();
+
+    expect(await driver.indicationExists()).toBe(true);
+  });
 });

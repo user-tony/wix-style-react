@@ -5,9 +5,9 @@ import { dataHooks } from './constants';
 export default base => {
   const getIndication = () =>
     iconButtonDriverFactory(base.$(`[data-hook="${dataHooks.indication}"]`));
-
   return {
     ...avatarDriverFactory(base.$(`[data-hook="${dataHooks.avatarCore}"]`)),
+    hover: () => base.$(`[data-hook="${dataHooks.avatarWSR}"]`).hover(),
     clickIndication: () => getIndication().click(),
     indicationExists: () => getIndication().exists(),
   };

@@ -47,7 +47,7 @@
       presenceType(enum(busy, online, offline)),
       presence,
       clickable,
-      showIndicationOnHover;
+      fade;
   position: relative;
   display: inline-block;
 }
@@ -74,12 +74,9 @@
   right: 0;
 }
 
-.avatarContainer:showIndicationOnHover .indication {
+.avatarContainer:fade .indication {
   opacity: 0;
   transition: opacity 100ms linear;
-}
-.avatarContainer:showIndicationOnHover:hover .indication {
-  opacity: 1;
 }
 
 .iconButtonShadow{

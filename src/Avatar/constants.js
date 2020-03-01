@@ -8,4 +8,5 @@ export const avatarShapes = {
 export const dataHooks = {
   indication: 'avatar-indication',
   avatarCore: 'avatar-core',
+  avatarWSR: 'avatar-wsr'
 };
