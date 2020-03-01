@@ -24,4 +24,4 @@ export default class VariableInput extends React.PureComponent<VariableInputProp
 
 export type VariableInputSize = 'small' | 'medium' | 'large';
 
-export const SIZE: { [key in VariableInputSize]: VariableInputSize }
+export const SIZE: { [key in VariableInputSize]: VariableInputSize };

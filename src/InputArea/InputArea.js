@@ -160,7 +160,6 @@ class InputArea extends React.PureComponent {
             onKeyDown={this._onKeyDown}
             onChange={this._onChange}
             onInput={onInput}
-            onDoubleClick={this._onDoubleClick}
             placeholder={placeholder}
             tabIndex={tabIndex}
             autoFocus={autoFocus}

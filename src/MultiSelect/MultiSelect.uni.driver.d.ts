@@ -14,6 +14,7 @@ export interface MultiSelectUniDriver
     inputWrapperIsDisabled: () => Promise<any>;
     numberOfTags: () => Promise<number>;
     getTagLabelAt: (index: number) => Promise<string>;
+    pressCommaKey: () => Promise<void>;
     getTagDriverByTagId: (
       tagId: string,
     ) => Promise<

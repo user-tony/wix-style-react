@@ -10,7 +10,7 @@ import RichTextToolbar from './Toolbar/RichTextToolbar';
 import EditorUtilities from './EditorUtilities';
 import { RichTextInputAreaContext } from './RichTextInputAreaContext';
 import { defaultTexts } from './RichTextInputAreaTexts';
-import ErrorIndicator from '../ErrorIndicator';
+import StatusIndicator from '../StatusIndicator';
 
 const decorator = new CompositeDecorator([
   {
@@ -35,44 +35,7 @@ const decorator = new CompositeDecorator([
 ]);
 
 class RichTextInputArea extends React.PureComponent {
-  static displayName = 'RichTextInputArea';
   static errorStatus = 'error';
-
-  static propTypes = {
-    /** Applied as data-hook HTML attribute that can be used in the tests */
-    dataHook: PropTypes.string,
-    /** Initial value to display in the editor */
-    initialValue: PropTypes.string,
-    /** Placeholder to display in the editor */
-    placeholder: PropTypes.string,
-    /** Disables the editor and toolbar */
-    disabled: PropTypes.bool,
-    /** Displays a status indicator */
-    status: PropTypes.oneOf(['error']),
-    /** Text to be shown within the tooltip of the status indicator */
-    statusMessage: PropTypes.string,
-    /** Callback function for changes: `onChange(htmlText, { plainText })` */
-    onChange: PropTypes.func,
-    /** Defines a maximum height for the editor (it grows by default) */
-    maxHeight: PropTypes.string,
-    /** Texts to be shown */
-    texts: PropTypes.shape({
-      toolbarButtons: PropTypes.shape(
-        mapValues(defaultTexts.toolbarButtons, () => PropTypes.string),
-      ),
-      insertionForm: PropTypes.shape({
-        ...mapValues(defaultTexts.insertionForm, () => PropTypes.string),
-        link: PropTypes.shape(
-          mapValues(defaultTexts.toolbarButtons.link, () => PropTypes.string),
-        ),
-      }),
-    }),
-  };
-
-  static defaultProps = {
-    initialValue: '<p></p>',
-    texts: {},
-  };
 
   constructor(props) {
     super(props);
@@ -156,9 +119,10 @@ class RichTextInputArea extends React.PureComponent {
           />
           {hasError && (
             <span className={styles.errorIndicator}>
-              <ErrorIndicator
+              <StatusIndicator
                 dataHook="richtextarea-error-indicator"
-                errorMessage={statusMessage}
+                status="error"
+                message={statusMessage}
               />
             </span>
           )}
@@ -199,5 +163,43 @@ class RichTextInputArea extends React.PureComponent {
     this._updateContentByValue(value);
   };
 }
+
+RichTextInputArea.displayName = 'RichTextInputArea';
+
+RichTextInputArea.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
+  /** Initial value to display in the editor */
+  initialValue: PropTypes.string,
+  /** Placeholder to display in the editor */
+  placeholder: PropTypes.string,
+  /** Disables the editor and toolbar */
+  disabled: PropTypes.bool,
+  /** Displays a status indicator */
+  status: PropTypes.oneOf(['error']),
+  /** Text to be shown within the tooltip of the status indicator */
+  statusMessage: PropTypes.string,
+  /** Callback function for changes: `onChange(htmlText, { plainText })` */
+  onChange: PropTypes.func,
+  /** Defines a maximum height for the editor (it grows by default) */
+  maxHeight: PropTypes.string,
+  /** Texts to be shown */
+  texts: PropTypes.shape({
+    toolbarButtons: PropTypes.shape(
+      mapValues(defaultTexts.toolbarButtons, () => PropTypes.string),
+    ),
+    insertionForm: PropTypes.shape({
+      ...mapValues(defaultTexts.insertionForm, () => PropTypes.string),
+      link: PropTypes.shape(
+        mapValues(defaultTexts.toolbarButtons.link, () => PropTypes.string),
+      ),
+    }),
+  }),
+};
+
+RichTextInputArea.defaultProps = {
+  initialValue: '<p></p>',
+  texts: {},
+};
 
 export default RichTextInputArea;

@@ -180,13 +180,6 @@ class Input extends Component {
       suffix,
     });
 
-    const inputClassNames = classNames(styles.input, {
-      [styles.disabled]: !!disabled,
-      [styles.withPrefix]: !!prefix,
-      [styles.withSuffix]: visibleSuffixCount,
-      [styles.withSuffixes]: visibleSuffixCount > 1,
-    });
-
     const ariaAttribute = {};
     Object.keys(this.props)
       .filter(key => key.startsWith('aria'))
@@ -207,7 +200,12 @@ class Input extends Component {
       'data-hook': 'wsr-input',
       style: { textOverflow },
       ref: this.extractRef,
-      className: inputClassNames,
+      className: classNames(styles.input, {
+        [styles.disabled]: !!disabled,
+        [styles.withPrefix]: !!prefix, // For testing
+        [styles.withSuffix]: visibleSuffixCount, // For testing
+        [styles.withSuffixes]: visibleSuffixCount > 1, // For testing
+      }),
       id,
       name,
       disabled,
@@ -219,7 +217,6 @@ class Input extends Component {
       onFocus: this._onFocus,
       onBlur: this._onBlur,
       onKeyDown: this._onKeyDown,
-      onDoubleClick: this._onDoubleClick,
       onPaste,
       placeholder,
       tabIndex,

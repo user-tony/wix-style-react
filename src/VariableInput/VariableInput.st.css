@@ -97,10 +97,15 @@
     border-color: value(R10);
     box-shadow: 0 0 0 3px value(R30);
 }
+
 .root .indicatorWrapper {
   position: absolute;
-  top: 3px;
-  right: 5px;
+  top: 9px;
+  right: 12px;
+}
+
+.root:size(small) .indicatorWrapper {
+  top: 6px;
 }
 
 

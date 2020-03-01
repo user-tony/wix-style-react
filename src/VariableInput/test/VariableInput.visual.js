@@ -46,6 +46,14 @@ const tests = [
         },
       },
       {
+        it: '3 Row with status',
+        props: {
+          initialValue: 'Welcome to my {{page.name}} ',
+          rows: 3,
+          status: 'error',
+        },
+      },
+      {
         it: 'Disabled',
         props: {
           initialValue: 'Welcome to my {{page.name}} ',

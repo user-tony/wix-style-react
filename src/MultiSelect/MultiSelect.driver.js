@@ -31,6 +31,8 @@ const multiSelectDriverFactory = ({ element }) => {
 
     /** returns the number of tags selected in the input */
     numberOfTags: () => tags.length,
+
+    /** returns true if a custom suffix exists */
     customSuffixExists: () =>
       !!inputWrapper.querySelector('[data-hook="custom-suffix"]'),
 

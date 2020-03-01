@@ -52,6 +52,8 @@ export const multiselectUniDriverFactory = (base, body) => {
       tagPrivateUniDriverFactory(
         tags.filter(async tag => (await tag._prop('id')) === tagId).get(0),
       ),
+
+    /** returns true if a custom suffix exists */
     customSuffixExists: async () =>
       !!(await getInputWrapper()).querySelector('[data-hook="custom-suffix"]'),
   };

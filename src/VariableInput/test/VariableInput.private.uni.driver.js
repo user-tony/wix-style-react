@@ -9,6 +9,7 @@ export const getPlaceholder = base =>
 
 const getTagDriver = base =>
   tagUniDriverFactory(base.$(`[data-hook=${dataHooks.tag}]`));
+
 export default (base, body) => {
   return {
     ...publicDriverFactory(base, body),

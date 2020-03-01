@@ -3,72 +3,12 @@ import { string, func, shape, oneOf, node, bool, number } from 'prop-types';
 import { Editor, EditorState } from 'draft-js';
 
 import EditorUtilities from './EditorUtilities';
-import {
-  sizeTypes,
-  inputToTagsSize,
-  statusTypes,
-  dataHooks,
-} from './constants';
-import ErrorIndicator from '../ErrorIndicator';
-import WarningIndicator from '../WarningIndicator';
+import { sizeTypes, inputToTagsSize, dataHooks } from './constants';
 import styles from './VariableInput.st.css';
+import StatusIndicator from '../StatusIndicator';
 
 /** Input with variables as tags */
 class VariableInput extends React.PureComponent {
-  static displayName = 'VariableInput';
-
-  static propTypes = {
-    /** A single CSS class name to be appended to the Input's wrapper element. */
-    className: string,
-    /** Applied as data-hook HTML attribute that can be used in the tests */
-    dataHook: string,
-    /** When set to true this component is disabled */
-    disabled: bool,
-    /** Initial value to display in the editor */
-    initialValue: string,
-    /** When set to true, component will allow multiple lines, otherwise will scroll horizontaly and ignore return key*/
-    multiline: bool,
-    /** Callback function for changes while typing.
-     * `onChange(value: String): void` */
-    onChange: func,
-    /** Callback funciton after calling `insertVariable()` and `setValue()`
-     * `onSubmit(value: String): void` */
-    onSubmit: func,
-    /** Callback funciton when focusing out.`
-     * `onBlur(value: String): void` */
-    onBlur: func,
-    /** Use to display a status indication for the user.*/
-    status: oneOf(['error', 'warning']),
-    /** The status (error/warning) message to display when hovering the status icon, if not given or empty there will be no tooltip*/
-    statusMessage: node,
-    /** Placeholder to display in the editor */
-    placeholder: string,
-    /** Set height of component that fits the given number of rows */
-    rows: number,
-    /** Specifies the size of the input and variables*/
-    size: oneOf(['small', 'medium', 'large']),
-    /** Component will parse the variable keys, and convert them to tag bubble on blur and while using insertVariable.
-     * For each key variableParser will be called and should return a proper text for that key or false in case the key is invalid.
-     * `variableParser(key: String): String|boolean` */
-    variableParser: func,
-    /** Template for variables, will search and replace variables with the given prefix and suffix */
-    variableTemplate: shape({
-      prefix: string,
-      suffix: string,
-    }),
-  };
-  static defaultProps = {
-    initialValue: '',
-    multiline: true,
-    rows: 1,
-    size: sizeTypes.medium,
-    statusMessage: '',
-    variableParser: () => {},
-    variableTemplate: {
-      prefix: '{{',
-      suffix: '}}',
-    },
-  };
   constructor(props) {
     super(props);
     const { size, disabled } = props;
@@ -79,34 +19,12 @@ class VariableInput extends React.PureComponent {
       editorState: EditorState.createEmpty(decorator),
     };
   }
+
   componentDidMount() {
     const { initialValue } = this.props;
     this._setStringValue(initialValue);
   }
-  _renderIndicator = (status, statusMessage) => {
-    switch (status) {
-      case statusTypes.error:
-        return (
-          <span className={styles.indicatorWrapper}>
-            <ErrorIndicator
-              dataHook={dataHooks.error}
-              errorMessage={statusMessage}
-            />
-          </span>
-        );
-      case statusTypes.warning:
-        return (
-          <span className={styles.indicatorWrapper}>
-            <WarningIndicator
-              dataHook={dataHooks.warning}
-              warningMessage={statusMessage}
-            />
-          </span>
-        );
-      default:
-        return;
-    }
-  };
+
   render() {
     const {
       dataHook,
@@ -140,10 +58,21 @@ class VariableInput extends React.PureComponent {
           readOnly={disabled}
           {...(!multiline && singleLineProps)}
         />
-        {this._renderIndicator(status, statusMessage)}
+
+        {/* Status */}
+        {status && (
+          <span className={styles.indicatorWrapper}>
+            <StatusIndicator
+              dataHook={dataHooks.indicator}
+              status={status}
+              message={statusMessage}
+            />
+          </span>
+        )}
       </div>
     );
   }
+
   _handlePastedText = (text, html, editorState) => {
     /** We need to prevent new line when `multilne` is false,
      * here we are removing any new lines while pasting text   */
@@ -154,11 +83,14 @@ class VariableInput extends React.PureComponent {
     }
     return false;
   };
+
   _isEmpty = () =>
     this.state.editorState.getCurrentContent().getPlainText().length === 0;
+
   _inputToTagSize = inputSize => {
     return inputToTagsSize[inputSize] || VariableInput.defaultProps.size;
   };
+
   _toString = () => {
     const {
       variableTemplate: { prefix, suffix },
@@ -170,21 +102,26 @@ class VariableInput extends React.PureComponent {
       suffix,
     });
   };
+
   _onBlur = () => {
     const { onBlur = () => {} } = this.props;
     onBlur(this._toString());
   };
+
   _onSubmit = () => {
     const { onSubmit = () => {} } = this.props;
     onSubmit(this._toString());
   };
+
   _onChange = () => {
     const { onChange = () => {} } = this.props;
     onChange(this._toString());
   };
+
   _onEditorChange = editorState => {
     this._setEditorState(editorState);
   };
+
   _setEditorState = (editorState, onStateChanged = () => {}) => {
     const { editorState: editorStateBefore } = this.state;
     const {
@@ -217,6 +154,7 @@ class VariableInput extends React.PureComponent {
       onStateChanged();
     });
   };
+
   _stringToContentState = str => {
     const {
       variableParser = () => {},
@@ -234,6 +172,7 @@ class VariableInput extends React.PureComponent {
       content,
     });
   };
+
   _setStringValue = (str, afterUpdated = () => {}) => {
     const updatedEditorState = EditorState.moveSelectionToEnd(
       this._stringToContentState(str),
@@ -242,12 +181,14 @@ class VariableInput extends React.PureComponent {
       afterUpdated(updatedEditorState);
     });
   };
+
   /** Set value to display in the input */
   setValue = value => {
     this._setStringValue(value, () => {
       this._onSubmit();
     });
   };
+
   /** Insert variable at the input cursor position */
   insertVariable = value => {
     const { variableParser } = this.props;
@@ -259,4 +200,74 @@ class VariableInput extends React.PureComponent {
     });
   };
 }
+
+VariableInput.displayName = 'VariableInput';
+
+VariableInput.propTypes = {
+  /** A single CSS class name to be appended to the Input's wrapper element. */
+  className: string,
+
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: string,
+
+  /** When set to true this component is disabled */
+  disabled: bool,
+
+  /** Initial value to display in the editor */
+  initialValue: string,
+
+  /** When set to true, component will allow multiple lines, otherwise will scroll horizontaly and ignore return key*/
+  multiline: bool,
+
+  /** Callback function for changes while typing.
+   * `onChange(value: String): void` */
+  onChange: func,
+
+  /** Callback funciton after calling `insertVariable()` and `setValue()`
+   * `onSubmit(value: String): void` */
+  onSubmit: func,
+
+  /** Callback funciton when focusing out.`
+   * `onBlur(value: String): void` */
+  onBlur: func,
+
+  /** Use to display a status indication for the user.*/
+  status: oneOf(['error', 'warning']),
+
+  /** The status (error/warning) message to display when hovering the status icon, if not given or empty there will be no tooltip*/
+  statusMessage: node,
+
+  /** Placeholder to display in the editor */
+  placeholder: string,
+
+  /** Set height of component that fits the given number of rows */
+  rows: number,
+
+  /** Specifies the size of the input and variables*/
+  size: oneOf(['small', 'medium', 'large']),
+
+  /** Component will parse the variable keys, and convert them to tag bubble on blur and while using insertVariable.
+   * For each key variableParser will be called and should return a proper text for that key or false in case the key is invalid.
+   * `variableParser(key: String): String|boolean` */
+  variableParser: func,
+
+  /** Template for variables, will search and replace variables with the given prefix and suffix */
+  variableTemplate: shape({
+    prefix: string,
+    suffix: string,
+  }),
+};
+
+VariableInput.defaultProps = {
+  initialValue: '',
+  multiline: true,
+  rows: 1,
+  size: sizeTypes.medium,
+  variableParser: () => {},
+  variableTemplate: {
+    prefix: '{{',
+    suffix: '}}',
+  },
+};
+
 export default VariableInput;

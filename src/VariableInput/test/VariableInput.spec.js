@@ -1,6 +1,9 @@
 import React from 'react';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
-import { createRendererWithUniDriver } from '../../../test/utils/react';
+import {
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../../test/utils/react';
 import publicDriverFactory from '../VariableInput.uni.driver';
 import privateDriverFactory from './VariableInput.private.uni.driver';
 import VariableInput from '../VariableInput';
@@ -8,6 +11,8 @@ import { sizeTypes } from '../constants';
 import { selectionBehaviorPolyfill } from '../../../testkit/polyfills';
 
 describe('VariableInput', () => {
+  afterEach(() => cleanup());
+
   const createDriver = createUniDriverFactory(privateDriverFactory);
   const variableEntity = {
     text: 'Page name',
