@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 
+- `<Table/>` - fix virtualized table with showSelection [#5115](https://github.com/wix/wix-style-react/pull/5115)
 - `<NumberInput/>` - Disable up/down arrows when input is readOnly [#5115](https://github.com/wix/wix-style-react/pull/5115)
 - `<FillButton/>` - Add dataHook types [#5113](https://github.com/wix/wix-style-react/pull/5113)
 
