@@ -20,7 +20,10 @@ function FloatingHelperWithAllProps() {
       content={<div />}
       onClose={() => {}}
       placement={'auto'}
-      appearance={Appearance.dark}
+      appearance={'dark'}
+      hideDelay={100}
+      zIndex={1000}
+      moveBy={{x:1,y:1}}
       initiallyOpened={false}
       opened
       appendTo={'viewport'}
