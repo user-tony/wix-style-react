@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { EditorState, Editor, CompositeDecorator } from 'draft-js';
 import { convertFromHTML } from 'draft-convert';
-import mapValues from 'lodash/mapValues';
 import classNames from 'classnames';
 
 import styles from './RichTextInputArea.scss';
@@ -185,21 +184,29 @@ RichTextInputArea.propTypes = {
   maxHeight: PropTypes.string,
   /** Texts to be shown */
   texts: PropTypes.shape({
-    toolbarButtons: PropTypes.shape(
-      mapValues(defaultTexts.toolbarButtons, () => PropTypes.string),
-    ),
+    toolbarButtons: PropTypes.shape({
+      boldButtonLabel: PropTypes.string,
+      italicButtonLabel: PropTypes.string,
+      underlineButtonLabel: PropTypes.string,
+      linkButtonLabel: PropTypes.string,
+      bulletedListButtonLabel: PropTypes.string,
+      numberedListButtonLabel: PropTypes.string,
+    }),
     insertionForm: PropTypes.shape({
-      ...mapValues(defaultTexts.insertionForm, () => PropTypes.string),
-      link: PropTypes.shape(
-        mapValues(defaultTexts.toolbarButtons.link, () => PropTypes.string),
-      ),
+      confirmButtonLabel: PropTypes.string,
+      cancelButtonLabel: PropTypes.string,
+      link: PropTypes.shape({
+        textInputPlaceholder: PropTypes.string,
+        urlInputPlaceholder: PropTypes.string,
+      }),
     }),
   }),
 };
 
 RichTextInputArea.defaultProps = {
-  initialValue: '<p></p>',
+  initialValue: '<p/>',
   texts: {},
+  disabled: false,
 };
 
 export default RichTextInputArea;
