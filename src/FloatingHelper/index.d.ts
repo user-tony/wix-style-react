@@ -4,7 +4,7 @@ import {
   AppendTo,
   Placement,
 } from 'wix-ui-core/dist/src/components/popover/Popover.d';
-import {MoveByOffset} from "../common";
+import { MoveByOffset } from '../common';
 
 export default class FloatingHelper extends React.PureComponent<
   FloatingHelperProps
@@ -14,11 +14,11 @@ export default class FloatingHelper extends React.PureComponent<
   static Content: typeof FloatingHelperContent;
 }
 
-export type Appearance = 'dark' | 'light';
-
+export type FloatingHelperAppearance = 'dark' | 'light';
 export type FloatingHelperPlacement = Placement;
 export type FloatingHelperAppendTo = AppendTo;
 export type FloatingHelperMoveByOffset = MoveByOffset;
+
 export interface FloatingHelperProps {
   dataHook?: string;
   width?: string | number;
@@ -26,7 +26,7 @@ export interface FloatingHelperProps {
   content: React.ReactNode;
   onClose?: Function;
   onOpen?: Function;
-  appearance?: Appearance;
+  appearance?: FloatingHelperAppearance;
   initiallyOpened?: boolean;
   opened?: boolean;
   zIndex?: number;

@@ -1,17 +1,17 @@
 import * as React from 'react';
+import { FloatingHelperAppearance } from '..'
 
-export type ActionButtonTheme = 'standard' | 'white' | 'premium' | 'lightPrimary';
-export type Appearance = 'dark' | 'light';
+export type FloatingHelperContentActionTheme = 'standard' | 'white' | 'premium' | 'lightPrimary';
 
 export interface FloatingHelperContentProps {
   title?: string;
   body: string;
   actionText?: string;
-  actionTheme?: ActionButtonTheme;
+  actionTheme?: FloatingHelperContentActionTheme;
   footer?: React.ReactNode;
   onActionClick?: () => void;
   image?: React.ReactNode;
-  appearance?: Appearance;
+  appearance?: FloatingHelperAppearance;
 }
 
 export const  FloatingHelperContent: React.ComponentClass<FloatingHelperContentProps>;

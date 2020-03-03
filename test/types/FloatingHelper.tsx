@@ -1,12 +1,12 @@
 import * as React from 'react';
-import FloatingHelper, { Appearance } from '../../src/FloatingHelper';
+import FloatingHelper from '../../src/FloatingHelper';
 import { floatingHelperTestkitFactory } from '../../dist/testkit';
 import { floatingHelperTestkitFactory as floatingHelperEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
 import * as enzyme from 'enzyme';
 
 function FloatingHelperWithMandatoryProps() {
   return (
-    <FloatingHelper target={<div />} content={<div />} placement={'auto'}>
+    <FloatingHelper target={<div />} content={<div />} placement="auto">
       <FloatingHelper.Content body="hello" />
     </FloatingHelper>
   );
@@ -19,14 +19,14 @@ function FloatingHelperWithAllProps() {
       target={<div />}
       content={<div />}
       onClose={() => {}}
-      placement={'auto'}
-      appearance={'dark'}
+      placement="auto"
+      appearance="dark"
       hideDelay={100}
       zIndex={1000}
-      moveBy={{x:1,y:1}}
+      moveBy={{ x: 1, y: 1 }}
       initiallyOpened={false}
       opened
-      appendTo={'viewport'}
+      appendTo="viewport"
       onOpen={() => {}}
     >
       <FloatingHelper.Content
