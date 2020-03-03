@@ -9,7 +9,7 @@ const types = Object.keys(TYPE);
 const typesString = types.join(', ');
 
 const renderBadge = props => (
-  <span style={{ padding: '5px' }}>
+  <span key={`${props.type}_${props.size}`} style={{ padding: '5px' }}>
     <Badge {...props}>Some Badge</Badge>
   </span>
 );

@@ -62,12 +62,9 @@ export const withoutDotsExample = `
 `;
 
 export const variableWidthExample = `
-<Carousel
-  variableWidth={true}
-  children={[
-    <Box width="300px" height="100px" backgroundColor="red" />,
-    <Box width="200px" height="100px" backgroundColor="green" />,
-    <Box width="350px" height="100px" backgroundColor="blue" />,
-  ]}
-/>
+<Carousel variableWidth={true}>
+  <Box width="300px" height="100px" backgroundColor="red" />
+  <Box width="200px" height="100px" backgroundColor="green" />
+  <Box width="350px" height="100px" backgroundColor="blue" />
+</Carousel>
 `;

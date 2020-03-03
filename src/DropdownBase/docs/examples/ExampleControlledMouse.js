@@ -61,7 +61,6 @@ class ExampleControlledMouse extends React.Component {
         {({ delegateKeyDown, selectedOption = {} }) => {
           return (
             <Button
-              upgrade
               onKeyDown={e => this._onKeyDown(e, delegateKeyDown)}
               dataHook={"drop-down-opener"}
             >

@@ -28,7 +28,7 @@
         <IconButton priority="secondary" size="small">
           <Icons.More />
         </IconButton>
-        <Button upgrade priority="secondary" size="small">
+        <Button priority="secondary" size="small">
           Edit
         </Button>
       </Box>

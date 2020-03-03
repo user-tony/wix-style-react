@@ -14,7 +14,6 @@ Note that it could wrap multiple children as well.
     priority="primary"
     size="medium"
     skin="standard"
-    upgrade
   >
     Button
   </Button>
@@ -29,8 +28,8 @@ The component is a container which implements the one-dimensional layout model -
 that means, enables to insert children in a particular **direction**, and align them horizontally and vertically.
   `,
     example: `
-<Box 
-  align="center" 
+<Box
+  align="center"
   verticalAlign="middle"
 >
   <Button
@@ -39,7 +38,6 @@ that means, enables to insert children in a particular **direction**, and align 
     priority="primary"
     size="medium"
     skin="standard"
-    upgrade
   >
     Button
   </Button>
@@ -56,11 +54,11 @@ The component extends the values for \`padding\` and \`margin\`, by accepting th
 2. A predefined spacing value with a semantic name (tiny, small, medium and large).
 3. Space-separated values that are represented by a string (for example: "3px 3px").
 
-Note that the \`padding\` and \`margin\` area properties (\`paddingLeft\`, \`marginTop\`, etc.) support the values specified above.  
+Note that the \`padding\` and \`margin\` area properties (\`paddingLeft\`, \`marginTop\`, etc.) support the values specified above.
     `,
     example: `
-<Box 
-  align="center" 
+<Box
+  align="center"
   verticalAlign="middle"
   padding="medium"
   margin={2}
@@ -71,7 +69,6 @@ Note that the \`padding\` and \`margin\` area properties (\`paddingLeft\`, \`mar
     priority="primary"
     size="medium"
     skin="standard"
-    upgrade
   >
     Button
   </Button>
@@ -86,8 +83,8 @@ The component supports numeric (or string) values for \`width\` and \`height\`, 
 A numeric value is measured in pixels by default.
     `,
     example: `
-<Box 
-  align="center" 
+<Box
+  align="center"
   verticalAlign="middle"
   padding="medium"
   margin={2}
@@ -99,7 +96,6 @@ A numeric value is measured in pixels by default.
     priority="primary"
     size="medium"
     skin="standard"
-    upgrade
   >
     Button
   </Button>
@@ -110,14 +106,14 @@ A numeric value is measured in pixels by default.
     description: `
 ### 🎨 Styling
 
-The component extends the values for \`color\`, \`backgroundColor\` and \`borderColor\` (including border colors from the sides), 
+The component extends the values for \`color\`, \`backgroundColor\` and \`borderColor\` (including border colors from the sides),
 by accepting the color palette keys - which are defined in the design system (beside the natively supported color values: Hex, RGB, etc.).
 
-Moreover, any **valid** CSS property is exposed as \`prop\` (excepts \`flexDirection\`, \`justifyContent\` and \`alignItems\` which are wrapped specifically with appropriate \`props\`).  
+Moreover, any **valid** CSS property is exposed as \`prop\` (excepts \`flexDirection\`, \`justifyContent\` and \`alignItems\` which are wrapped specifically with appropriate \`props\`).
     `,
     example: `
-<Box 
-  align="center" 
+<Box
+  align="center"
   verticalAlign="middle"
   padding="medium"
   margin={2}
@@ -133,7 +129,6 @@ Moreover, any **valid** CSS property is exposed as \`prop\` (excepts \`flexDirec
     priority="primary"
     size="medium"
     skin="standard"
-    upgrade
   >
     Button
   </Button>

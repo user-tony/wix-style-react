@@ -54,7 +54,7 @@ export const inlineLabelWithLength = `
 `;
 
 export const ExampleWithinGrid = `
-<MessageBoxFunctionalLayout title="User Details" confirmText="Save" width={400} cancelText="Cancel">
+<MessageBoxFunctionalLayout title="User Details" confirmText="Save" width="400px" cancelText="Cancel">
   <Container fluid>
     <Row stretchViewsVertically>
       <Col span={3}>

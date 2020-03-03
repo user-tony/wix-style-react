@@ -70,27 +70,28 @@ export default {
           importExample("import Badge from 'wix-style-react/Badge';"),
           divider(),
           title('Examples'),
-          ...[
-            {
-              title: 'With icon',
-              description:
-                'Badge can contain icon as a prefix/suffix Icon size should match badge size. For a medium sized badge use normal icons. For a small badge use small icons which end with the prefix Small',
-              source: examples.withIcon,
-            },
-            {
-              title: 'Variations',
-              description:
-                'The different combinations of skin and variants. Please notice that not all combinations are valid',
-              source: ExampleBadgesRaw,
-              autoRender: false,
-            },
-            {
-              title: 'Ellipsis',
-              description:
-                'When wrapped in a container with limited width - ellipsis and tooltip will appear',
-              source: ExampleBadgeEllipsisRaw,
-            },
-          ].map(code),
+
+          code({
+            title: 'With icon',
+            description:
+              'Badge can contain icon as a prefix/suffix Icon size should match badge size. For a medium sized badge use normal icons. For a small badge use small icons which end with the prefix Small',
+            source: examples.withIcon,
+          }),
+
+          code({
+            title: 'Variations',
+            description:
+              'The different combinations of skin and variants. Please notice that not all combinations are valid',
+            source: ExampleBadgesRaw,
+            autoRender: false,
+          }),
+
+          code({
+            title: 'Ellipsis',
+            description:
+              'When wrapped in a container with limited width - ellipsis and tooltip will appear',
+            source: ExampleBadgeEllipsisRaw,
+          }),
         ],
       }),
       ...[

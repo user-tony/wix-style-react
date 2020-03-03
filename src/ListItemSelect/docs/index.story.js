@@ -100,7 +100,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
 
             code({
               source: `
-                <Layout cols="1">
+                <Layout cols={1}>
                   <ListItemSelect title="Medium size"/>
                   <ListItemSelect size="small" title="Small size"/>
                 </Layout>
@@ -118,7 +118,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
 
             code({
               source: `
-                <Layout cols="1">
+                <Layout cols={1}>
                   <ListItemSelect title="For single selecton"/>
                   <ListItemSelect checkbox title="For multi selection"/>
                 </Layout>
