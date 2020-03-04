@@ -9,10 +9,10 @@ import {
   testkit,
   playground,
 } from 'wix-storybook-utils/Sections';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import DateInput from 'wix-style-react/DateInput';
 
-const code = config => baseCode({ components: baseScope, ...config });
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,

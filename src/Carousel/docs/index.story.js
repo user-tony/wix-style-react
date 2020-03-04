@@ -18,11 +18,11 @@ import {
   withoutDotsExample,
   variableWidthExample,
 } from './examples';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

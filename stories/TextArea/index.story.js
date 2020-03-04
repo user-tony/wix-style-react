@@ -1,6 +1,6 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import {
   header,
   title,
@@ -19,7 +19,7 @@ import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     compact: true,
     ...config,
   });

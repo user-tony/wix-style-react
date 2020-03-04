@@ -20,7 +20,7 @@ import SectionHelper from '../../SectionHelper';
 import Text from '../../Text';
 
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import {
   header as headerExample,
@@ -36,7 +36,7 @@ import ExampleStickyTableWithGapRaw from '!raw-loader!./ExampleStickyTableWithGa
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     compact: false,
     ...config,
   });

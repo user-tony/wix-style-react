@@ -1,7 +1,7 @@
 import React from 'react';
 import { Category } from '../storiesHierarchy';
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import {
   header,
   title,
@@ -18,7 +18,7 @@ import HeaderComponent from '../../src/ModalMobileLayout/docs/examples/Plain';
 import { MobileModalTemplates } from './MobileModalTemplates';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export const propsVariationExamples = [
   {

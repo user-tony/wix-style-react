@@ -12,11 +12,11 @@ import LinkTo from '@storybook/addon-links/react';
 
 import { storySettings } from './storySettings';
 import * as examples from './examples';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import { Category } from '../storiesHierarchy';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export default {
   category: storySettings.category,

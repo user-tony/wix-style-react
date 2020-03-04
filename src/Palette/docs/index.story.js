@@ -18,7 +18,7 @@ import { storySettings } from '../test/storySettings';
 
 import Palette from '..';
 import Box from '../../Box/Box';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import * as examples from './examples';
 
@@ -28,7 +28,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

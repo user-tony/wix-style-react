@@ -7,12 +7,12 @@ import {
   testkit,
   playground,
 } from 'wix-storybook-utils/Sections';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 import NumberInput from 'wix-style-react/NumberInput';
 
-const code = config => baseCode({ components: baseScope, ...config });
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,

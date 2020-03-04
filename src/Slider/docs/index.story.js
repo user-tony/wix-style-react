@@ -13,7 +13,7 @@ import {
   playground,
   code as baseLiveCode,
 } from 'wix-storybook-utils/Sections';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 import Slider from '..';
@@ -23,7 +23,7 @@ import { storySettings } from './storySettings';
 const liveCode = config =>
   baseLiveCode({
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

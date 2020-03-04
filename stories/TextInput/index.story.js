@@ -1,6 +1,6 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import {
   header,
   title as sectionTitle,
@@ -18,7 +18,7 @@ import FormField from 'wix-style-react/FormField';
 import { Category } from '../storiesHierarchy';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export default {
   category: storySettings.category,

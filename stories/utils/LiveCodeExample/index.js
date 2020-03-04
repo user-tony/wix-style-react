@@ -33,8 +33,6 @@ export const createPropsArray = props =>
     return `${key}={${JSON.stringify(value)}}`;
   });
 
-export const baseScope = allComponents;
-
 const Component = props => {
   const { scope, title, ...rest } = props;
 
@@ -49,7 +47,7 @@ const Component = props => {
       {title && <div className={styles.title}>{title}</div>}
 
       <LiveCodeExample
-        scope={{ ...baseScope, ...scope }}
+        scope={{ ...allComponents, ...scope }}
         {...rest}
         initialCode={filteredCode}
       />

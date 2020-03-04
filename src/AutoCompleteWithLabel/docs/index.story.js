@@ -15,7 +15,7 @@ import {
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from '../test/storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import AutoCompleteWithLabel from '..';
 
@@ -26,7 +26,7 @@ const liveCode = config =>
     previewProps: {
       style: { backgroundColor: '#f0f4f7' },
     },
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

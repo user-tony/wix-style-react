@@ -15,7 +15,7 @@ import LockLocked from 'wix-ui-icons-common/LockLocked';
 import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import LinkTo from '@storybook/addon-links/react';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 
 import * as examples from './examples';
 import { Category } from '../storiesHierarchy';
@@ -38,7 +38,7 @@ const BasicExample = () => (
 const liveCode = config =>
   baseLiveCode({
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

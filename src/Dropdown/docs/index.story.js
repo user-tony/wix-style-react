@@ -16,12 +16,12 @@ import {
 import Dropdown from '..';
 import { Layout, Cell } from '../../Layout';
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 const liveCode = config =>
   code({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

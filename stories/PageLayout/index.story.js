@@ -10,7 +10,7 @@ import {
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 
 import * as examples from './examples';
 
@@ -21,7 +21,7 @@ import ExampleEmptyStateRaw from '!raw-loader!./ExampleEmptyState';
 import { Category } from '../storiesHierarchy';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export default {
   category: storySettings.category,

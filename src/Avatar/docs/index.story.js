@@ -21,11 +21,11 @@ import {
   title,
 } from 'wix-storybook-utils/dist/src/Sections';
 
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';

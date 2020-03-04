@@ -18,10 +18,10 @@ import { Container, Row, Col } from 'wix-style-react/Grid';
 import FormField from 'wix-style-react/FormField';
 import { storySettings } from './storySettings';
 import { Category } from '../storiesHierarchy';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export default {
   category: storySettings.category,

@@ -15,12 +15,12 @@ import {
   testkit,
   title,
 } from 'wix-storybook-utils/dist/src/Sections';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import TabsHeaderExample from './TabsHeaderExample';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 import { storySettings } from './storySettings';
 import Tabs from '../Tabs';

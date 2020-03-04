@@ -17,11 +17,11 @@ import {
   code as baseCode,
 } from 'wix-storybook-utils/dist/src/Sections';
 import * as examples from './examples';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

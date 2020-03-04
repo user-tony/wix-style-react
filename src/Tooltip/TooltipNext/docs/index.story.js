@@ -13,7 +13,7 @@ import {
   title,
 } from 'wix-storybook-utils/Sections';
 import Tooltip from '..';
-import { baseScope } from '../../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../../stories/utils/allComponents';
 import AddItem from '../../../AddItem';
 import { Cell, Layout } from '../../../Layout';
 import { placements } from '../../../Popover/Popover';
@@ -31,7 +31,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

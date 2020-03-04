@@ -17,7 +17,7 @@ import { Layout, Cell } from 'wix-style-react/Layout';
 
 import { Table } from '..';
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import compoundReadmeApi from './COMPOUND_README.API.md';
 import contextReadmeApi from './CONTEXT_README.API.md';
 import testkitReadme from './README.TESTKIT.md';
@@ -38,7 +38,7 @@ import TableVirtualizationExampleRaw from '!raw-loader!./examples/TableVirtualiz
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

@@ -10,12 +10,12 @@ import {
   importExample,
 } from 'wix-storybook-utils/Sections';
 
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import FloatingNotification from '..';
 import { TYPES } from '../constants';
 import * as examples from './examples';
 
-const code = config => baseCode({ components: baseScope, ...config });
+const code = config => baseCode({ components: allComponents, ...config });
 
 const trashLabel = { label: 'Trash' };
 const linkProps = {

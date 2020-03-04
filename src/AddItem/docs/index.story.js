@@ -19,7 +19,7 @@ import {
 import * as examples from './examples';
 
 import { Layout } from '../../Layout';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import { storySettings } from './storySettings';
 
@@ -32,7 +32,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

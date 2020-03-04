@@ -10,7 +10,7 @@ import {
   code as baseCode,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import { Category } from '../../../stories/storiesHierarchy';
 
@@ -25,7 +25,7 @@ import HeadingExamplesRaw from '!raw-loader!./HeadingExamples';
 import TextExamples from './TextExamples';
 import TextExamplesRaw from '!raw-loader!./TextExamples';
 
-const code = config => baseCode({ components: baseScope, ...config });
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: Category.FOUNDATION,

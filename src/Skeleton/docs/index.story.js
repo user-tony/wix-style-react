@@ -14,12 +14,12 @@ import {
   testkit,
   title,
 } from 'wix-storybook-utils/dist/src/Sections';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import React from 'react';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 const exampleContent = [
   {

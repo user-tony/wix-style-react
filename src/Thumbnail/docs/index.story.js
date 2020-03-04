@@ -14,7 +14,7 @@ import { Layout, Cell } from '../../Layout';
 import * as examples from './examples';
 import exampleControlled from '!raw-loader!./exampleControlled';
 import thumbnailReadme from '../README.md';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 const sizes = [
   { value: 100, label: '100' },
@@ -23,7 +23,7 @@ const sizes = [
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

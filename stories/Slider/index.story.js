@@ -9,7 +9,7 @@ import {
   code as baseLiveCode,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import * as examples from './examples';
 
 import Slider from 'wix-style-react/Slider';
@@ -20,7 +20,7 @@ import { Category } from '../storiesHierarchy';
 const liveCode = config =>
   baseLiveCode({
     compact: true,
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

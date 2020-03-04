@@ -16,10 +16,10 @@ import {
 } from 'wix-storybook-utils/dist/src/Sections';
 import * as examples from './examples';
 import React from 'react';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({ components: allComponents, compact: true, ...config });
 
 const titleExamples = [
   { label: 'short text', value: 'Look at this important message!' },

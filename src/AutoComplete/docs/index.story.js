@@ -16,7 +16,7 @@ import {
 import AutoComplete from '..';
 import { Layout, Cell } from '../../Layout';
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 const liveCode = config =>
@@ -24,7 +24,7 @@ const liveCode = config =>
     previewProps: {
       style: { backgroundColor: '#f0f4f7' },
     },
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

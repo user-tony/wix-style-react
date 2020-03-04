@@ -16,7 +16,7 @@ import {
 } from 'wix-storybook-utils/dist/src/Sections';
 import React from 'react';
 import * as examples from './examples';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 const defaultValue = new Date('2017/05/01');
 const today = new Date();
@@ -25,7 +25,7 @@ tomorrow.setDate(today.getDate() + 1);
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     ...config,
   });
 

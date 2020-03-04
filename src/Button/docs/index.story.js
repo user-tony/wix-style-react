@@ -18,7 +18,7 @@ import {
 import { Layout } from '../..';
 import Button from '..';
 
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import skins from './Skins.md';
 import testkit from './testkit.md';
@@ -31,7 +31,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: { ...baseScope, Link },
+    components: { ...allComponents, Link },
     ...config,
   });
 

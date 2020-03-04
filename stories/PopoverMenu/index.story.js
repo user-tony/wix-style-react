@@ -1,6 +1,6 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import {
   header,
   title as sectionTitle,
@@ -44,7 +44,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: { ...baseScope, PopoverMenu },
+    components: { ...allComponents, PopoverMenu },
     ...config,
   });
 

@@ -13,13 +13,13 @@ import {
 import Card from '..';
 
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import CompoundComponentsRaw from '!raw-loader!./CompoundComponents.md';
 
 const code = config =>
   baseCode({
-    components: baseScope,
+    components: allComponents,
     compact: false,
     ...config,
   });
