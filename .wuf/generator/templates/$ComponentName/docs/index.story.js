@@ -6,9 +6,9 @@ import {
   description,
   importExample,
   title,
-  columns,
   divider,
-  code as baseCode,
+  example as baseExample,
+  code,
   playground,
   api,
   testkit,
@@ -19,7 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import <%= ComponentName %> from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -48,40 +48,31 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+          }),
 
-          columns([
-            importExample(
-              "import <%= ComponentName %> from 'wix-style-react/<%= ComponentName %>';",
-            ),
-          ]),
+          importExample(
+            "import <%= ComponentName %> from 'wix-style-react/<%= ComponentName %>';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'A simple example with compact preview',
-            }),
-
-            code({
-              compact: true,
-              source: '<<%= ComponentName %> buttonText="Hello World!"/>',
-            }),
-          ]),
+          example({
+            title: 'Simple Usage',
+            text: 'A simple example with compact preview',
+            source: '<<%= ComponentName %> buttonText="Hello World!"/>',
+          }),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
             source: '<<%= ComponentName %> buttonText="Hello World!"/>',
+            components: { <%= ComponentName %> }
           }),
         ],
       }),
