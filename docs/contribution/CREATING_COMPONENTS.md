@@ -27,9 +27,3 @@ Generator will create a sample `.story.js`. Read [story.js usage document](https
 By default documentation will be shown under `Component` category. To change it modify `category` value in `src/YourNewComponent/test/storySettings.js`.
 
 Make sure to re-arrange the [Stories index file](../../stories/index.js) as needed. The order of `require`s in that file is reflected in rendered storybook sidebar.
-
----
-
-Manual mappings required:
-
-* add necessary mappings to [enzyme-typescript.template.ejs](../.wuf/testkits/enzyme-typescript.template.ejs), and [vanilla-typescript.template.ejs](../.wuf/testkits/vanilla-typescript.template.ejs)
