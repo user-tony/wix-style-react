@@ -7,7 +7,8 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  code,
+  example as baseExample,
   api,
 } from 'wix-storybook-utils/Sections';
 
@@ -32,8 +33,7 @@ const { Item, BackButton, PersistentFooter, PersistentHeader } = Sidebar;
 import { SidebarContextConsumer, SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
 `;
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -58,26 +58,21 @@ export default {
           importExample(importDeclaration),
           divider(),
           title('Examples'),
-          columns([
-            description({
-              title: 'Basic example',
-              text:
-                'In its very basic simple form - the `Sidebar` component provides a container for elements',
-            }),
-            code({
-              source: SimpleSidebarRaw,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Inner menu',
-              text:
-                'Sidebar supports inner menus, `NOTE:` We support only 1st level hierarchy.',
-            }),
-            code({
-              source: InnerMenuExampleRaw,
-            }),
-          ]),
+
+          example({
+            title: 'Basic example',
+            text:
+              'In its very basic simple form - the `Sidebar` component provides a container for elements',
+            source: SimpleSidebarRaw,
+          }),
+
+          example({
+            title: 'Inner menu',
+            text:
+              'Sidebar supports inner menus, `NOTE:` We support only 1st level hierarchy.',
+            source: InnerMenuExampleRaw,
+          }),
+
           // This example is built differently because <SidebarItemContext/> loose context when it's raw
           columns([
             description({
@@ -87,6 +82,7 @@ export default {
             }),
             description(<SidebarItemContext />),
           ]),
+
           code({ interactive: false, source: SidebarItemContextRaw }),
         ],
       }),

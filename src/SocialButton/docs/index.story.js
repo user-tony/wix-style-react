@@ -5,10 +5,9 @@ import {
   tab,
   description,
   importExample,
+  example as baseExample,
   title,
-  columns,
   divider,
-  code as baseCode,
   playground,
   api,
   testkit,
@@ -21,10 +20,7 @@ import * as examples from './examples';
 
 import SocialButton from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), code({ compact: true, source })]);
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -53,46 +49,40 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text: 'Button with defined social button colors and icons.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text: 'Button with defined social button colors and icons.',
+          }),
 
-          columns([
-            importExample(
-              "import SocialButton from 'wix-style-react/SocialButton';",
-            ),
-          ]),
+          importExample(
+            "import SocialButton from 'wix-style-react/SocialButton';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          ...[
-            {
-              title: 'Simple Example',
-              text: 'Simple usage.',
-              source: examples.simple,
-            },
-            {
-              title: 'Text Example',
-              text: 'Can be enable or without.',
-              source: examples.text,
-            },
-            {
-              title: 'Social Icons',
-              text:
-                'Component supports: Facebook, Twitter, LinkedIn, Instagram, Pinterest.',
-              source: examples.icons,
-            },
-            {
-              title: 'States',
-              text: 'Component supports state: disabled.',
-              source: examples.disabled,
-            },
-          ].map(example),
+          example({
+            title: 'Simple Example',
+            text: 'Simple usage.',
+            source: examples.simple,
+          }),
+          example({
+            title: 'Text Example',
+            text: 'Can be enable or without.',
+            source: examples.text,
+          }),
+          example({
+            title: 'Social Icons',
+            text:
+              'Component supports: Facebook, Twitter, LinkedIn, Instagram, Pinterest.',
+            source: examples.icons,
+          }),
+          example({
+            title: 'States',
+            text: 'Component supports state: disabled.',
+            source: examples.disabled,
+          }),
         ],
       }),
 

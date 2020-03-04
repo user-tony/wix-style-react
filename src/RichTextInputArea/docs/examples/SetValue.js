@@ -3,6 +3,7 @@ import React from 'react';
 import RichTextInputArea from 'wix-style-react/RichTextInputArea';
 import Button from 'wix-style-react/Button';
 import { Layout, Cell } from 'wix-style-react/Layout';
+import Box from 'wix-style-react/Box';
 
 class RichTextInputAreaSetValueExample extends React.Component {
   render() {
@@ -15,12 +16,13 @@ class RichTextInputAreaSetValueExample extends React.Component {
           />
         </Cell>
         <Cell>
-          <Layout>
+          <Box inline marginRight={1}>
             <Button onClick={() => this._ref.setValue('hello world')}>
               reset
             </Button>
-            <Button onClick={() => this._ref.setValue('')}>clean</Button>
-          </Layout>
+          </Box>
+
+          <Button onClick={() => this._ref.setValue('')}>clean</Button>
         </Cell>
       </Layout>
     );
