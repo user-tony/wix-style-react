@@ -1,6 +1,6 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
 import {
   header,
   title,
@@ -8,7 +8,7 @@ import {
   table,
   importExample,
   columns,
-  code as baseCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
@@ -17,8 +17,7 @@ import NumberInput from 'wix-style-react/NumberInput';
 import FormField from 'wix-style-react/FormField';
 import { Category } from '../storiesHierarchy';
 
-const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -34,7 +33,6 @@ export default {
         </div>
       ),
 
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/blob/master/src/NumberInput',
     }),
@@ -68,37 +66,33 @@ export default {
       }),
     ]),
 
-    columns([importExample(examples.importExample)]),
+    importExample(examples.importExample),
 
     title('Examples'),
 
-    ...[
-      {
-        title: 'Size',
-        text: 'Text Input supports 3 sizes',
-        source: examples.sizes,
-      },
+    example({
+      title: 'Size',
+      text: 'Text Input supports 3 sizes',
+      source: examples.sizes,
+    }),
 
-      {
-        title: 'Affix',
-        text: 'Text Input has additional container in prefix and suffix area',
-        source: examples.affix,
-      },
+    example({
+      title: 'Affix',
+      text: 'Text Input has additional container in prefix and suffix area',
+      source: examples.affix,
+    }),
 
-      {
-        title: 'Required Info',
-        text: 'You can add an asterisk if the field is required',
-        source: examples.required,
-      },
+    example({
+      title: 'Required Info',
+      text: 'You can add an asterisk if the field is required',
+      source: examples.required,
+    }),
 
-      {
-        title: 'Label Position',
-        text:
-          'Text Input’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
-        source: examples.position,
-      },
-    ].map(({ title, text, source }) =>
-      columns([description({ title, text }), code({ source })]),
-    ),
+    example({
+      title: 'Label Position',
+      text:
+        'Text Input’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
+      source: examples.position,
+    }),
   ],
 };

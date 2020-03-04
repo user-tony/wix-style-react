@@ -9,7 +9,7 @@ import {
   table,
   importExample,
   columns,
-  code as baseCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
@@ -20,8 +20,7 @@ import { storySettings } from './storySettings';
 import { Category } from '../storiesHierarchy';
 import allComponents from '../utils/allComponents';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -94,64 +93,59 @@ export default {
 
     title('Examples'),
 
-    ...[
-      {
-        title: 'Size',
-        text:
-          'Tag input can appear in 3 sizes – `small`, `medium` and `large`.',
-        source: examples.size,
-      },
-      {
-        title: 'Select Mode',
-        text:
-          'Tag Input has two select modes – select and type with a keyboard.',
-        source: examples.mode,
-      },
-      {
-        title: 'Custom Values',
-        text:
-          'Tag Input can be set to allow only predefined values, custom values or both.',
-        source: examples.customValues,
-      },
-      {
-        title: 'Action',
-        text: 'Encourage user interaction by displaying the call to action.',
-        source: examples.action,
-      },
-      {
-        title: 'Required',
-        text: 'You can add an asterisk if the field is required.',
-        source: examples.required,
-      },
-      {
-        title: 'Label Position',
-        text:
-          'Tag Input’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
-        source: examples.labelPosition,
-      },
-    ].map(({ title: exampleTitle, text, source }) =>
-      columns([description({ title: exampleTitle, text }), code({ source })]),
-    ),
+    example({
+      title: 'Size',
+      text: 'Tag input can appear in 3 sizes – `small`, `medium` and `large`.',
+      source: examples.size,
+    }),
+
+    example({
+      title: 'Select Mode',
+      text: 'Tag Input has two select modes – select and type with a keyboard.',
+      source: examples.mode,
+    }),
+
+    example({
+      title: 'Custom Values',
+      text:
+        'Tag Input can be set to allow only predefined values, custom values or both.',
+      source: examples.customValues,
+    }),
+
+    example({
+      title: 'Action',
+      text: 'Encourage user interaction by displaying the call to action.',
+      source: examples.action,
+    }),
+
+    example({
+      title: 'Required',
+      text: 'You can add an asterisk if the field is required.',
+      source: examples.required,
+    }),
+
+    example({
+      title: 'Label Position',
+      text:
+        'Tag Input’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
+      source: examples.labelPosition,
+    }),
 
     divider(),
 
     title('Advanced Examples'),
 
-    columns([
-      description({
-        title: 'Reordering Tags',
-        text: 'You can allow reodering tags using drag and drop functionality.',
-      }),
-      code({ source: examples.reordable }),
-    ]),
+    example({
+      title: 'Reordering Tags',
+      text: 'You can allow reodering tags using drag and drop functionality.',
+      source: examples.reordable,
+    }),
 
-    columns([
-      description({
-        title: 'Customizing list',
-        text:
-          'You can customize options by adding `<ListItemSelect/>` props – size, prefix, suffix and subtitle.',
-      }),
-      code({ source: examples.customList }),
-    ]),
+    example({
+      title: 'Customizing list',
+      text:
+        'You can customize options by adding `<ListItemSelect/>` props – size, prefix, suffix and subtitle.',
+      source: examples.customList,
+    }),
   ],
 };

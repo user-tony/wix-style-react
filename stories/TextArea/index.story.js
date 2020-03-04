@@ -8,7 +8,7 @@ import {
   table,
   importExample,
   columns,
-  code as baseCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
@@ -17,12 +17,7 @@ import InputArea from 'wix-style-react/InputArea';
 import FormField from 'wix-style-react/FormField';
 import { Category } from '../storiesHierarchy';
 
-const code = config =>
-  baseCode({
-    components: allComponents,
-    compact: true,
-    ...config,
-  });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -37,13 +32,9 @@ export default {
           </FormField>
         </div>
       ),
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
     }),
 
-    columns([
-      description('A text area can be used to allow for extended user input.'),
-    ]),
+    description('A text area can be used to allow for extended user input.'),
 
     columns([
       table({
@@ -67,41 +58,33 @@ export default {
       }),
     ]),
 
-    columns([importExample(examples.importExample)]),
+    importExample(examples.importExample),
 
     title('Examples'),
 
-    columns([
-      description({
-        title: 'Plain Example',
-        text: 'Default text area setup.',
-      }),
-      code({ source: examples.basicExample }),
-    ]),
+    example({
+      title: 'Plain Example',
+      text: 'Default text area setup.',
+      source: examples.basicExample,
+    }),
 
-    columns([
-      description({
-        title: 'Char Limit',
-        text:
-          'This component allows to limit number of characters can be inserted.',
-      }),
-      code({ source: examples.charLimitExample }),
-    ]),
+    example({
+      title: 'Char Limit',
+      text:
+        'This component allows to limit number of characters can be inserted.',
+      source: examples.charLimitExample,
+    }),
 
-    columns([
-      description({
-        title: 'Resizable Height',
-        text: 'It is allowed to make text area resizable.',
-      }),
-      code({ source: examples.resizableHeightExample }),
-    ]),
+    example({
+      title: 'Resizable Height',
+      text: 'It is allowed to make text area resizable.',
+      source: examples.resizableHeightExample,
+    }),
 
-    columns([
-      description({
-        title: 'Label Position',
-        text: `Text Area's label can be position on top, left or can be hidden. Additional properties behave accordingly.`,
-      }),
-      code({ source: examples.positionExample }),
-    ]),
+    example({
+      title: 'Label Position',
+      text: `Text Area's label can be position on top, left or can be hidden. Additional properties behave accordingly.`,
+      source: examples.positionExample,
+    }),
   ],
 };

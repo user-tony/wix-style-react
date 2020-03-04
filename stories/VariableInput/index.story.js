@@ -8,7 +8,7 @@ import {
   table,
   importExample,
   columns,
-  code as baseCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
@@ -17,8 +17,7 @@ import VariableInput from 'wix-style-react/VariableInput';
 import FormField from 'wix-style-react/FormField';
 import { Category } from '../storiesHierarchy';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -39,8 +38,6 @@ export default {
           </FormField>
         </div>
       ),
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
     }),
 
     columns([
@@ -90,35 +87,35 @@ export default {
 
     sectionTitle('Examples'),
 
-    ...[
-      {
-        title: 'Size',
-        text: 'Variable Input supports 3 sizes',
-        source: examples.sizes,
-      },
-      {
-        title: 'Action',
-        text:
-          'Click the action to add additional Variable to the input field, at cursor position',
-        source: examples.action,
-      },
-      {
-        title: 'Additional Info',
-        text: 'With and without Additional Info',
-        source: examples.info,
-      },
-      {
-        title: 'Required',
-        text: 'With and without required',
-        source: examples.required,
-      },
-      {
-        title: 'Label Position',
-        text: 'Configure the label placement',
-        source: examples.labelPlacement,
-      },
-    ].map(({ title, text, source }) =>
-      columns([description({ title, text }), code({ source })]),
-    ),
+    example({
+      title: 'Size',
+      text: 'Variable Input supports 3 sizes',
+      source: examples.sizes,
+    }),
+
+    example({
+      title: 'Action',
+      text:
+        'Click the action to add additional Variable to the input field, at cursor position',
+      source: examples.action,
+    }),
+
+    example({
+      title: 'Additional Info',
+      text: 'With and without Additional Info',
+      source: examples.info,
+    }),
+
+    example({
+      title: 'Required',
+      text: 'With and without required',
+      source: examples.required,
+    }),
+
+    example({
+      title: 'Label Position',
+      text: 'Configure the label placement',
+      source: examples.labelPlacement,
+    }),
   ],
 };
