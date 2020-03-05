@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -24,7 +24,7 @@ import headingExample from '!raw-loader!./examples/heading';
 import InfoIcon from '..';
 
 const content = 'Tooltip content!';
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -42,8 +42,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/InfoIcon/',
       component: <InfoIcon content={content} />,
     }),
 
@@ -61,55 +59,30 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'The only required prop is `content`.',
-            }),
+          example({
+            title: 'Simple Usage',
+            text: 'The only required prop is `content`.',
+            source: basicExample,
+          }),
 
-            code({
-              compact: true,
-              source: basicExample,
-            }),
-          ]),
+          example({
+            text: 'You can specify information icon size using `size` prop.',
+            source: sizeExample,
+          }),
 
-          columns([
-            description({
-              title: 'Icon Size',
-              text: 'You can specify information icon size using `size` prop.',
-            }),
+          example({
+            title: 'Text with InfoIcon',
+            text:
+              'An example where `<InfoIcon>` is used inline with `<Text>` component content.',
+            source: inlineTextExample,
+          }),
 
-            code({
-              compact: true,
-              source: sizeExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Text with InfoIcon',
-              text:
-                'An example where `<InfoIcon>` is used inline with `<Text>` component content.',
-            }),
-
-            code({
-              compact: true,
-              source: inlineTextExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Heading with InfoIcon',
-              text:
-                'An example of a `<Heading>` component used together with `<InfoIcon>`.',
-            }),
-
-            code({
-              compact: true,
-              source: headingExample,
-            }),
-          ]),
+          example({
+            title: 'Heading with InfoIcon',
+            text:
+              'An example of a `<Heading>` component used together with `<InfoIcon>`.',
+            source: headingExample,
+          }),
         ],
       }),
 

@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,7 +22,7 @@ import SidebarSectionItem from '..';
 import Box from '../../Box';
 import CounterBadge from '../../CounterBadge';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const childrenExamples = [
   { label: 'Text', value: 'Some text' },
@@ -67,11 +67,7 @@ export default {
   },
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidebarSectionItem/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -84,140 +80,79 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';",
-            ),
-          ]),
+          importExample(
+            "import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Plain Example',
-              text: 'A simple example for section item',
-            }),
+          example({
+            title: 'Plain Example',
+            text: 'A simple example for section item',
+            source: examples.plain,
+          }),
 
-            code({
-              compact: true,
-              source: examples.plain,
-            }),
-          ]),
+          example({
+            title: 'Selected Item',
+            text: 'An example that demonstrates a selected item',
+            source: examples.selected,
+          }),
 
-          columns([
-            description({
-              title: 'Selected Item',
-              text: 'An example that demonstrates a selected item',
-            }),
+          example({
+            title: 'Disabled Item',
+            text: 'An example that demonstrates a disabled item',
+            source: examples.disabled,
+          }),
 
-            code({
-              compact: true,
-              source: examples.selected,
-            }),
-          ]),
+          example({
+            title: 'Drillable Item',
+            text:
+              'An example that demonstrates an icon for drilling in when hovering the item',
+            source: examples.drillable,
+          }),
 
-          columns([
-            description({
-              title: 'Disabled Item',
-              text: 'An example that demonstrates a disabled item',
-            }),
+          example({
+            title: 'Drillable Item with always shown Chevron',
+            text:
+              'An example that demonstrates an icon for drilling even without hovering',
+            source: examples.drillableAndAlwaysShowChevron,
+          }),
 
-            code({
-              compact: true,
-              source: examples.disabled,
-            }),
-          ]),
+          example({
+            title: 'Item with Multiple Lines',
+            text: 'An example that demonstrates an item with multiple lines',
+            source: examples.multipleLines,
+          }),
 
-          columns([
-            description({
-              title: 'Drillable Item',
-              text:
-                'An example that demonstrates an icon for drilling in when hovering the item',
-            }),
+          example({
+            title: 'Item with Prefix',
+            text:
+              'An example that demonstrates an item with provided prefix element',
+            source: examples.prefix,
+          }),
 
-            code({
-              compact: true,
-              source: examples.drillable,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Drillable Item with always shown Chevron',
-              text:
-                'An example that demonstrates an icon for drilling even without hovering',
-            }),
+          example({
+            title: 'Item with Suffix (Counter Badge)',
+            text:
+              'An example that demonstrates an item with a `<CounterBadge />` used as a suffix element',
+            source: examples.counterBadgeSuffix,
+          }),
 
-            code({
-              compact: true,
-              source: examples.drillableAndAlwaysShowChevron,
-            }),
-          ]),
+          example({
+            title: 'Item with Suffix (Badge)',
+            text:
+              'An example that demonstrates an item with a `<Badge />` used as a suffix element',
+            source: examples.badgeSuffix,
+          }),
 
-          columns([
-            description({
-              title: 'Item with Multiple Lines',
-              text: 'An example that demonstrates an item with multiple lines',
-            }),
-
-            code({
-              compact: true,
-              source: examples.multipleLines,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Item with Prefix',
-              text:
-                'An example that demonstrates an item with provided prefix element',
-            }),
-
-            code({
-              compact: true,
-              source: examples.prefix,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Item with Suffix (Counter Badge)',
-              text:
-                'An example that demonstrates an item with a `<CounterBadge />` used as a suffix element',
-            }),
-
-            code({
-              compact: true,
-              source: examples.counterBadgeSuffix,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Item with Suffix (Badge)',
-              text:
-                'An example that demonstrates an item with a `<Badge />` used as a suffix element',
-            }),
-
-            code({
-              compact: true,
-              source: examples.badgeSuffix,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Light Skin',
-              text:
-                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarSectionItem/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
-            }),
-
-            code({
-              compact: true,
-              source: examples.lightSkin,
-            }),
-          ]),
+          example({
+            title: 'Light Skin',
+            text:
+              'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarSectionItem/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            source: examples.lightSkin,
+          }),
         ],
       }),
 

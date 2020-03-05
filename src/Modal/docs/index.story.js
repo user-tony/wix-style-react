@@ -8,7 +8,7 @@ import {
   columns,
   title,
   playground,
-  code as baseCode,
+  example as baseExample,
   description,
   importExample,
   testkit,
@@ -24,7 +24,7 @@ import SimpleExample from '!raw-loader!./examples/SimpleExample';
 import ModalWithCloseButton from '!raw-loader!./examples/ModalWithCloseButton';
 import allComponents from '../../../stories/utils/allComponents';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -59,10 +59,7 @@ export default {
   }),
 
   sections: [
-    header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Modal.js',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -81,29 +78,17 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Example',
-              text: 'A simple example for modal with an alert',
-            }),
+          example({
+            title: 'Simple Example',
+            text: 'A simple example for modal with an alert',
+            source: SimpleExample,
+          }),
 
-            code({
-              compact: true,
-              source: SimpleExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Close Button',
-              text: 'An example of a modal with a close button',
-            }),
-
-            code({
-              compact: true,
-              source: ModalWithCloseButton,
-            }),
-          ]),
+          example({
+            title: 'Close Button',
+            text: 'An example of a modal with a close button',
+            source: ModalWithCloseButton,
+          }),
         ],
       }),
 

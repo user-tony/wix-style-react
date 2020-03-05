@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseLiveCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -23,18 +23,8 @@ import ListItemAction from '..';
 import allComponents from '../../../stories/utils/allComponents';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
-const liveCode = config =>
-  baseLiveCode({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
-    compact: true,
-    components: { ...allComponents, Link },
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config =>
+  baseExample({ components: { ...allComponents, Link }, ...config });
 
 export default {
   category: storySettings.category,
@@ -82,41 +72,46 @@ export default {
 
           title('Examples'),
 
-          ...[
-            {
-              title: 'Plain Example',
-              text: 'Using options builder to render a list of items.',
-              source: examples.simple,
-            },
-            {
-              title: 'Affix',
-              text: 'Supports prefix icons.',
-              source: examples.prefix,
-            },
-            {
-              title: 'Skin',
-              text:
-                'Supports three different skins: standard, dark & destructive',
-              source: examples.skin,
-            },
-            {
-              title: 'Size',
-              text: 'Supports two sizes: small and medium',
-              source: examples.size,
-            },
-            {
-              title: 'States',
-              text: 'Supports disabled state.',
-              source: examples.state,
-            },
-            {
-              title: 'Text Ellipsis',
-              text: 'Text can be set to be ellipsed on tight container width.',
-              source: examples.wrap,
-            },
-            {
-              title: 'Custom HTML tag',
-              text: `
+          example({
+            title: 'Plain Example',
+            text: 'Using options builder to render a list of items.',
+            source: examples.simple,
+          }),
+
+          example({
+            title: 'Affix',
+            text: 'Supports prefix icons.',
+            source: examples.prefix,
+          }),
+
+          example({
+            title: 'Skin',
+            text:
+              'Supports three different skins: standard, dark & destructive',
+            source: examples.skin,
+          }),
+
+          example({
+            title: 'Size',
+            text: 'Supports two sizes: small and medium',
+            source: examples.size,
+          }),
+
+          example({
+            title: 'States',
+            text: 'Supports disabled state.',
+            source: examples.state,
+          }),
+
+          example({
+            title: 'Text Ellipsis',
+            text: 'Text can be set to be ellipsed on tight container width.',
+            source: examples.wrap,
+          }),
+
+          example({
+            title: 'Custom HTML tag',
+            text: `
                   This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
                   All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
                   <br/>
@@ -124,9 +119,8 @@ export default {
                   - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
                   - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
                 `,
-              source: examples.custom,
-            },
-          ].map(example),
+            source: examples.custom,
+          }),
         ],
       }),
       ...[

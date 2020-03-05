@@ -3,7 +3,7 @@ import { Category } from '../../../stories/storiesHierarchy';
 import Loader from '..';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -19,8 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import React from 'react';
 import * as examples from './examples';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: Category.COMPONENTS,
@@ -43,10 +42,6 @@ export default {
           <Loader />
         </div>
       ),
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/blob/master/src/Loader',
     }),
 
     tabs([
@@ -61,16 +56,8 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Size', source: examples.sizes },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Status', source: examples.status },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Size', source: examples.sizes }),
+          example({ title: 'Status', source: examples.status }),
         ],
       }),
 

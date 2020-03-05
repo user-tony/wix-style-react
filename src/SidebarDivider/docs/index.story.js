@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   header,
   tabs,
@@ -8,7 +7,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,7 +19,7 @@ import * as examples from './examples';
 
 import SidebarDivider from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -30,11 +29,7 @@ export default {
   componentPath: '..',
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidebarDivider/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -48,53 +43,33 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import SidebarDivider from 'wix-style-react/SidebarDivider';",
-            ),
-          ]),
+          importExample(
+            "import SidebarDivider from 'wix-style-react/SidebarDivider';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Plain Example',
-              text: 'A simple example for an inner sidebar divider',
-            }),
+          example({
+            title: 'Plain Example',
+            text: 'A simple example for an inner sidebar divider',
+            source: examples.plain,
+          }),
 
-            code({
-              compact: true,
-              source: examples.plain,
-            }),
-          ]),
+          example({
+            title: 'Full-Width Divider',
+            text:
+              'An example that demonstrates a divider with full width. Notice that in this mode, the divider has no margins',
+            source: examples.fullWidth,
+          }),
 
-          columns([
-            description({
-              title: 'Full-Width Divider',
-              text:
-                'An example that demonstrates a divider with full width. Notice that in this mode, the divider has no margins',
-            }),
-
-            code({
-              compact: true,
-              source: examples.fullWidth,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Light Skin',
-              text:
-                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarDivider/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
-            }),
-
-            code({
-              compact: true,
-              source: examples.lightSkin,
-            }),
-          ]),
+          example({
+            title: 'Light Skin',
+            text:
+              'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarDivider/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            source: examples.lightSkin,
+          }),
         ],
       }),
 

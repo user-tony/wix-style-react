@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,7 +20,7 @@ import * as examples from './examples';
 
 import Search from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const options = Array(26)
   .fill(0)
@@ -54,8 +54,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Search/',
       component: <Search buttonText="Click me!" />,
     }),
 
@@ -71,51 +69,31 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample("import Search from 'wix-style-react/Search';"),
-          ]),
+          importExample("import Search from 'wix-style-react/Search';"),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'Search component has a basic debounce functionality',
-            }),
+          example({
+            title: 'Simple Usage',
+            text: 'Search component has a basic debounce functionality',
+            source: examples.simple,
+          }),
 
-            code({
-              compact: true,
-              source: examples.simple,
-            }),
-          ]),
+          example({
+            title: 'predicate',
+            text:
+              'When options are given, a predicate function can be used to filter the search in a way other than the default. In this case the predicate makes the search be case sensitive.',
+            source: examples.predicate,
+          }),
 
-          columns([
-            description({
-              title: 'predicate',
-              text:
-                'When options are given, a predicate function can be used to filter the search in a way other than the default. In this case the predicate makes the search be case sensitive.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.predicate,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'expandable',
-              text:
-                'Search component can start as an icon and expanded when clicked.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.expandable,
-            }),
-          ]),
+          example({
+            title: 'expandable',
+            text:
+              'Search component can start as an icon and expanded when clicked.',
+            source: examples.expandable,
+          }),
         ],
       }),
 

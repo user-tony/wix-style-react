@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -27,7 +27,7 @@ import MultipleContentExample from '!raw-loader!./examples/MultipleContent';
 import allComponents from '../../../stories/utils/allComponents';
 import { Category } from '../../../stories/storiesHierarchy';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const childrenNodesExamples = [
   {
@@ -81,11 +81,8 @@ export default {
   },
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ModalPreviewLayout/',
-    }),
+    header(),
+
     tabs([
       tab({
         title: 'Description',
@@ -104,67 +101,41 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';",
-            ),
-          ]),
+          importExample(
+            "import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Plain Example',
-              text:
-                'A simple example for preview layout modal with title, actions and inner content',
-            }),
+          example({
+            title: 'Plain Example',
+            text:
+              'A simple example for preview layout modal with title, actions and inner content',
+            source: SimpleExample,
+          }),
 
-            code({
-              compact: true,
-              source: SimpleExample,
-            }),
-          ]),
+          example({
+            title: 'Example with Full-Width Content',
+            text:
+              'An example for preview layout modal with title, actions and content that takes the full width',
+            source: FullWidthContentExample,
+          }),
 
-          columns([
-            description({
-              title: 'Example with Full-Width Content',
-              text:
-                'An example for preview layout modal with title, actions and content that takes the full width',
-            }),
+          example({
+            title: 'Example with Scrollable Content',
+            text:
+              'An example for preview layout modal with title, actions and content that overflows the height',
+            source: ScrollableContentExample,
+          }),
 
-            code({
-              compact: true,
-              source: FullWidthContentExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Example with Scrollable Content',
-              text:
-                'An example for preview layout modal with title, actions and content that overflows the height',
-            }),
-
-            code({
-              compact: true,
-              source: ScrollableContentExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Example with Multiple Content',
-              text:
-                'An example for preview layout modal with title, actions and multiple content',
-            }),
-
-            code({
-              compact: true,
-              source: MultipleContentExample,
-            }),
-          ]),
+          example({
+            title: 'Example with Multiple Content',
+            text:
+              'An example for preview layout modal with title, actions and multiple content',
+            source: MultipleContentExample,
+          }),
         ],
       }),
 

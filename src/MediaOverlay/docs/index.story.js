@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -34,8 +34,8 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import MediaOverlay from '..';
 
-const code = config =>
-  baseCode({
+const example = config =>
+  baseExample({
     components: {
       ...allComponents,
       PopoverMenu,
@@ -79,8 +79,6 @@ export default {
           <HeaderExample />
         </Box>
       ),
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/MediaOverlay/',
     }),
 
     tabs([
@@ -99,133 +97,73 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Basic overlay',
-              text:
-                'A basic example of overlaying content on a media element where some items are visible only on hover. You can control the visibility of `<MediaOverlay.Content>` elements using `visible` prop.',
-            }),
+          example({
+            title: 'Basic overlay',
+            text:
+              'A basic example of overlaying content on a media element where some items are visible only on hover. You can control the visibility of `<MediaOverlay.Content>` elements using `visible` prop.',
+            source: basicExample,
+          }),
 
-            code({
-              compact: true,
-              source: basicExample,
-            }),
-          ]),
+          example({
+            title: 'Skins',
+            text: 'Use `skin` prop to set different skins.',
+            source: skinExample,
+          }),
 
-          columns([
-            description({
-              title: 'Skins',
-              text: 'Use `skin` prop to set different skins.',
-            }),
+          example({
+            title: 'Hover skins',
+            text:
+              'Use `hoverSkin` prop to set different skins for hover state.',
+            source: hoverSkinExample,
+          }),
 
-            code({
-              compact: true,
-              source: skinExample,
-            }),
-          ]),
+          example({
+            title: 'Content placement',
+            text:
+              'The position of `<MediaOverlay.Content>` elements can be set using `placement` prop.',
+            source: placementExample,
+          }),
 
-          columns([
-            description({
-              title: 'Hover skins',
-              text:
-                'Use `hoverSkin` prop to set different skins for hover state.',
-            }),
-
-            code({
-              compact: true,
-              source: hoverSkinExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Content placement',
-              text:
-                'The position of `<MediaOverlay.Content>` elements can be set using `placement` prop.',
-            }),
-
-            code({
-              compact: true,
-              source: placementExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Custom media element',
-              text:
-                'It is possible to use a custom node with `media` prop. This example uses a `<div>` element with linear gradient background as a media prop.',
-            }),
-
-            code({
-              compact: true,
-              source: customMediaExample,
-            }),
-          ]),
+          example({
+            title: 'Custom media element',
+            text:
+              'It is possible to use a custom node with `media` prop. This example uses a `<div>` element with linear gradient background as a media prop.',
+            source: customMediaExample,
+          }),
 
           divider(),
 
           title('Use Cases'),
 
-          columns([
-            description({
-              text:
-                'Combination of gradient overlay and elements on the bottom can be used to display relevant information in a default state of the element. For example to display source or duration of the video.',
-            }),
+          example({
+            text:
+              'Combination of gradient overlay and elements on the bottom can be used to display relevant information in a default state of the element. For example to display source or duration of the video.',
+            source: useCaseExample1,
+          }),
 
-            code({
-              compact: true,
-              source: useCaseExample1,
-            }),
-          ]),
+          example({
+            text:
+              'A layout of top right actions on a gradient overlay may be used for situations when there are more than two actions and imagery needs to be visible on the overlay. Actions can be supported by other components at the same time.',
+            source: useCaseExample2,
+          }),
 
-          columns([
-            description({
-              text:
-                'A layout of top right actions on a gradient overlay may be used for situations when there are more than two actions and imagery needs to be visible on the overlay. Actions can be supported by other components at the same time.',
-            }),
+          example({
+            text:
+              "A counter type layout can be used to indicate a number of contained images that can't be shown because of insufficient space. It can be used in galleries as the default state of the last image.  It should always be used with color overlay.",
+            source: useCaseExample3,
+          }),
 
-            code({
-              compact: true,
-              source: useCaseExample2,
-            }),
-          ]),
+          example({
+            text:
+              'The center placement of the actions on a color overlay is used when one or few prominent actions are needed.',
+            source: useCaseExample4,
+          }),
 
-          columns([
-            description({
-              text:
-                "A counter type layout can be used to indicate a number of contained images that can't be shown because of insufficient space. It can be used in galleries as the default state of the last image.  It should always be used with color overlay.",
-            }),
-
-            code({
-              compact: true,
-              source: useCaseExample3,
-            }),
-          ]),
-
-          columns([
-            description({
-              text:
-                'The center placement of the actions on a color overlay is used when one or few prominent actions are needed.',
-            }),
-
-            code({
-              compact: true,
-              source: useCaseExample4,
-            }),
-          ]),
-
-          columns([
-            description({
-              text:
-                'Top right placement of the actions with color overlay should be used for reorderable components. The function should always be supported by the use of compound `<MediaOverlay.DragHandle />` component on the hover state.',
-            }),
-
-            code({
-              compact: true,
-              source: useCaseExample5,
-            }),
-          ]),
+          example({
+            text:
+              'Top right placement of the actions with color overlay should be used for reorderable components. The function should always be supported by the use of compound `<MediaOverlay.DragHandle />` component on the hover state.',
+            source: useCaseExample5,
+          }),
         ],
       }),
 

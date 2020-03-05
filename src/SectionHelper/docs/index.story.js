@@ -2,7 +2,7 @@ import SectionHelper from '..';
 import { storySettings } from './storySettings';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -18,8 +18,7 @@ import * as examples from './examples';
 import React from 'react';
 import allComponents from '../../../stories/utils/allComponents';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const titleExamples = [
   { label: 'short text', value: 'Look at this important message!' },
@@ -71,10 +70,6 @@ export default {
   sections: [
     header({
       component: <div style={{ width: '50%' }}></div>,
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/blob/master/src/SectionHelper',
     }),
 
     tabs([
@@ -93,11 +88,7 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Appearance', source: examples.appearance },
-          ].map(({ title: exampleTitle, source }) =>
-            columns([description({ title: exampleTitle }), code({ source })]),
-          ),
+          example({ title: 'Appearance', source: examples.appearance }),
         ],
       }),
 

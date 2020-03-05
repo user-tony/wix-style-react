@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -19,13 +19,11 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import PreviewWidget from '..';
-/* eslint-disable no-unused-vars */
-import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 
 import { skins, contentOutlines } from '../constants';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const childNode = (
   <Box padding="20px" backgroundColor="Y30">
@@ -54,15 +52,8 @@ export default {
     children: childNode,
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/PreviewWidget/',
       component: (
         <PreviewWidget height="100px" width="250px">
           {childNode}
@@ -81,26 +72,19 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import PreviewWidget from 'wix-style-react/PreviewWidget';",
-            ),
-          ]),
+          importExample(
+            "import PreviewWidget from 'wix-style-react/PreviewWidget';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Skin',
-              text:
-                'PreviewWidget supports `neutral` (default), `gradient` and `custom` skins. To use `custom` skin, set it to `custom` and use the `backgroundColor` prop with the desired color',
-            }),
-
-            code({
-              compact: true,
-              source: `<Layout>
+          example({
+            title: 'Skin',
+            text:
+              'PreviewWidget supports `neutral` (default), `gradient` and `custom` skins. To use `custom` skin, set it to `custom` and use the `backgroundColor` prop with the desired color',
+            source: `<Layout>
                 <Cell>
                     <PreviewWidget>${childNodeString}</PreviewWidget>
                 </Cell>
@@ -111,19 +95,13 @@ export default {
                     <PreviewWidget skin='custom' backgroundColor='B10'>${childNodeString}</PreviewWidget>
                 </Cell>
               </Layout>`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Content Outline',
-              text:
-                'PreviewWidget supports `shadow` (default) and `border` content outline.',
-            }),
-
-            code({
-              compact: true,
-              source: `<Layout>
+          example({
+            title: 'Content Outline',
+            text:
+              'PreviewWidget supports `shadow` (default) and `border` content outline.',
+            source: `<Layout>
                 <Cell>
                     <PreviewWidget skin="custom" backgroundColor="D80">${childNodeString}</PreviewWidget>
                 </Cell>
@@ -131,19 +109,13 @@ export default {
                     <PreviewWidget skin="custom" backgroundColor="D80" contentOutline='border'>${childNodeString}</PreviewWidget>
                 </Cell>
               </Layout>`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Custome Size',
-              text:
-                'PreviewWidget supports customizing the `height` and `width` of the component. The content area is centered. Default `height` and `width` are `100%` ',
-            }),
-
-            code({
-              compact: true,
-              source: `<Layout>
+          example({
+            title: 'Custome Size',
+            text:
+              'PreviewWidget supports customizing the `height` and `width` of the component. The content area is centered. Default `height` and `width` are `100%` ',
+            source: `<Layout>
                 <Cell>
                     <PreviewWidget height="200px">${childNodeString}</PreviewWidget>
                 </Cell>
@@ -151,8 +123,7 @@ export default {
                     <PreviewWidget width="250px">${childNodeString}</PreviewWidget>
                 </Cell>
               </Layout>`,
-            }),
-          ]),
+          }),
         ],
       }),
 

@@ -10,7 +10,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -84,7 +84,7 @@ const footerExamples = [
   { label: 'No footer', value: '' },
 ];
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -124,9 +124,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ModalMobileLayout/',
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       component: <HeaderComponent />,
     }),
 
@@ -148,35 +145,22 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';",
-            ),
-          ]),
+          importExample(
+            "import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Plain Example',
-              text:
-                'A simple example with short content and buttons in the footer.',
-            }),
+          example({
+            title: 'Plain Example',
+            text:
+              'A simple example with short content and buttons in the footer.',
+            source: Plain,
+          }),
 
-            code({
-              compact: true,
-              source: Plain,
-            }),
-          ]),
-
-          ...propsVariationExamples.map(({ title, text, source }) =>
-            columns([
-              description({ title, text }),
-              code({ compact: true, source }),
-            ]),
-          ),
+          ...propsVariationExamples,
 
           divider(),
 

@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,7 +20,7 @@ import * as examples from './examples';
 
 import ImageViewer from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const exampleImageUrl = [
   { label: 'No Image', value: '' },
@@ -58,8 +58,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ImageViewer/',
       component: <ImageViewer />,
     }),
 
@@ -75,39 +73,25 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import ImageViewer from 'wix-style-react/ImageViewer';",
-            ),
-          ]),
+          importExample(
+            "import ImageViewer from 'wix-style-react/ImageViewer';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'Some examples with different images.',
-            }),
+          example({
+            title: 'Simple Usage',
+            text: 'Some examples with different images.',
+            source: examples.standard,
+          }),
 
-            code({
-              compact: true,
-              source: examples.standard,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Status indicator',
-              text: `Using a status as an indication for the user. for example: 'error', 'warning' or 'loading'`,
-            }),
-
-            code({
-              compact: true,
-              source: examples.status,
-            }),
-          ]),
+          example({
+            title: 'Status indicator',
+            text: `Using a status as an indication for the user. for example: 'error', 'warning' or 'loading'`,
+            source: examples.status,
+          }),
         ],
       }),
 

@@ -10,7 +10,7 @@ import {
   columns,
   header,
   title,
-  code as baseLiveCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import More from 'wix-ui-icons-common/More';
 
@@ -24,18 +24,8 @@ import * as examples from './examples';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 
-const liveCode = config =>
-  baseLiveCode({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
-    compact: true,
-    components: { ...allComponents, Link },
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config =>
+  baseExample({ components: { ...allComponents, Link }, ...config });
 
 export default {
   category: storySettings.category,
@@ -66,10 +56,8 @@ export default {
           </IconButton>
         </Layout>
       ),
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/IconButton/IconButton.js',
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
     }),
+
     tabs({
       tabs: [
         tab({
@@ -89,34 +77,37 @@ export default {
 
             title('Examples'),
 
-            ...[
-              {
-                title: 'Skin',
-                text:
-                  'Icon Button supports 5 skin styles. `standard` works well on white, `inverted` is great on grey, `light` is perfect on dark backgrounds, `transparent` looks good on coloured backgrounds and `premium` for premium plan actions.',
-                source: examples.skins,
-              },
-              {
-                title: 'Priority',
-                text:
-                  'It can be `primary` or `secondary` action. There should be only one primary action per page.',
-                source: examples.priority,
-              },
-              {
-                title: 'Size',
-                text:
-                  'Its size can be `tiny`, `small`, `medium` or `large`. Icon should be set according to IconButton size. Tiny & small sized icon buttons should use small icons, which ends with the Small prefix. Medium & large sized icon buttons should use normal icons, which has no prefix. Default size is `medium`',
-                source: examples.size,
-              },
-              {
-                title: 'Disabled',
-                text:
-                  'It can be `disabled` when needed to indicate that action is available, but cannot be performed at the moment.',
-                source: examples.disabled,
-              },
-              {
-                title: 'Custom HTML tag',
-                text: `
+            example({
+              title: 'Skin',
+              text:
+                'Icon Button supports 5 skin styles. `standard` works well on white, `inverted` is great on grey, `light` is perfect on dark backgrounds, `transparent` looks good on coloured backgrounds and `premium` for premium plan actions.',
+              source: examples.skins,
+            }),
+
+            example({
+              title: 'Priority',
+              text:
+                'It can be `primary` or `secondary` action. There should be only one primary action per page.',
+              source: examples.priority,
+            }),
+
+            example({
+              title: 'Size',
+              text:
+                'Its size can be `tiny`, `small`, `medium` or `large`. Icon should be set according to IconButton size. Tiny & small sized icon buttons should use small icons, which ends with the Small prefix. Medium & large sized icon buttons should use normal icons, which has no prefix. Default size is `medium`',
+              source: examples.size,
+            }),
+
+            example({
+              title: 'Disabled',
+              text:
+                'It can be `disabled` when needed to indicate that action is available, but cannot be performed at the moment.',
+              source: examples.disabled,
+            }),
+
+            example({
+              title: 'Custom HTML tag',
+              text: `
                   This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
                   All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
                   <br/>
@@ -124,9 +115,8 @@ export default {
                   - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
                   - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
                 `,
-                source: examples.custom,
-              },
-            ].map(example),
+              source: examples.custom,
+            }),
           ],
         }),
 

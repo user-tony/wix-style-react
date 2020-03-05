@@ -11,7 +11,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,8 +22,8 @@ import allComponents from '../../../stories/utils/allComponents';
 import ListItemSection from '..';
 import Box from '../../Box';
 
-const code = config =>
-  baseCode({
+const example = config =>
+  baseExample({
     components: { ...allComponents, Star, Download, Hint },
     ...config,
   });
@@ -40,16 +40,8 @@ export default {
     suffix: 'Suffix',
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ListItemSection/',
-
       component: (
         <Box
           width="500px"
@@ -85,15 +77,11 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Types',
-              text:
-                'Component divides lists by 4 types – adding title, subheader, divider or simnple whitespace.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Types',
+            text:
+              'Component divides lists by 4 types – adding title, subheader, divider or simnple whitespace.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSection
                     title="Section title"
@@ -110,18 +98,12 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   />
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Suffix',
-              text: 'For actions title and subheader types support a suffix.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Suffix',
+            text: 'For actions title and subheader types support a suffix.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSection
                     title="Title area"
@@ -134,19 +116,13 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   />
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Text cropping',
-              text:
-                'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Text cropping',
+            text:
+              'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
+            source: `
                 <Layout cols={1}>
                   <Cell>
                     <ListItemSection
@@ -163,17 +139,11 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   </Cell>
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Advanced Example 1',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Advanced Example 1',
+            source: `
                 <Box height='230px'>
                   <DropdownLayout
                     visible
@@ -216,17 +186,11 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   />
                 </Box>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Advanced Example 2',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Advanced Example 2',
+            source: `
                 <Box height='230px'>
                   <DropdownLayout
                     visible
@@ -274,17 +238,11 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   />
                 </Box>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Advanced Example 3',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Advanced Example 3',
+            source: `
                 <Box height='230px'>
                   <DropdownLayout
                     visible
@@ -323,9 +281,7 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
                   />
                 </Box>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
         ],
       }),
 

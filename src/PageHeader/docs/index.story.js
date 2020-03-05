@@ -8,7 +8,7 @@ import './PageHeader.scss';
 import { storySettings } from './storySettings';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -23,8 +23,7 @@ import {
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -55,11 +54,7 @@ export default {
   },
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/blob/master/src/PageHeader',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -75,16 +70,8 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Breadcrumbs', source: examples.breadcrumbs },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Actionbar', source: examples.actionBar },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Breadcrumbs', source: examples.breadcrumbs }),
+          example({ title: 'Actionbar', source: examples.actionBar }),
         ],
       }),
 

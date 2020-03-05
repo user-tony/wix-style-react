@@ -11,7 +11,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,8 +22,8 @@ import allComponents from '../../../stories/utils/allComponents';
 import ListItemSelect from '..';
 import Box from '../../Box';
 
-const code = config =>
-  baseCode({
+const example = config =>
+  baseExample({
     components: { ...allComponents, Star, Download, Hint },
     ...config,
   });
@@ -46,15 +46,8 @@ export default {
     checkbox: true,
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ListItemSelect/',
       component: (
         <Box
           width="500px"
@@ -92,50 +85,34 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Size',
-              text: 'Component support two sizes – `small` and `medium`.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Size',
+            text: 'Component support two sizes – `small` and `medium`.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSelect title="Medium size"/>
                   <ListItemSelect size="small" title="Small size"/>
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Checkbox',
-              text:
-                'Item can be configured for multi select components by enabling `checkbox`.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Checkbox',
+            text:
+              'Item can be configured for multi select components by enabling `checkbox`.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSelect title="For single selecton"/>
                   <ListItemSelect checkbox title="For multi selection"/>
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Affix',
-              text:
-                'Component has prefix and suffix areas. If plain text or icon is inserted, component automatically inverts the color when selected.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Affix',
+            text:
+              'Component has prefix and suffix areas. If plain text or icon is inserted, component automatically inverts the color when selected.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSelect
                     prefix={<Box><Icons.Toolbox /></Box>}
@@ -161,37 +138,25 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                   />
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Subtitle',
-              text:
-                'Additional information, like user email or address can be inserted to subtitle area.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Subtitle',
+            text:
+              'Additional information, like user email or address can be inserted to subtitle area.',
+            source: `
                 <ListItemSelect
                     title="Title area"
                     subtitle="subtitle area"
                 />
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Disabled',
-              text:
-                'Component can be disabled, it automatically changes color of all areas if used as text or icon.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Disabled',
+            text:
+              'Component can be disabled, it automatically changes color of all areas if used as text or icon.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSelect
                     disabled
@@ -210,19 +175,13 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                   />
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Text cropping',
-              text:
-                'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Text cropping',
+            text:
+              'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
+            source: `
                 <Layout cols={1}>
                   <ListItemSelect
                     title="This is a very very very very long text that will wrap at some point"
@@ -235,19 +194,13 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                   />
                 </Layout>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Advanced Example',
-              text:
-                'All properties work together and can be combined in various ways. It can be rendered as standalone or as part of dropdown.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Advanced Example',
+            text:
+              'All properties work together and can be combined in various ways. It can be rendered as standalone or as part of dropdown.',
+            source: `
                 <Box height="230px">
                   <DropdownLayout
                     visible
@@ -322,9 +275,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                   />
                 </Box>
               `,
-              compact: true,
-            }),
-          ]),
+          }),
         ],
       }),
 

@@ -10,7 +10,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,7 +22,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import InputWithLabel from '..';
 import * as examples from './examples';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -70,9 +70,6 @@ export default {
 
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/InputWithLabel/',
       component: <InputWithLabel label="Full Name" />,
     }),
 
@@ -88,40 +85,26 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import InputWithLabel from 'wix-style-react/InputWithLabel';",
-            ),
-          ]),
+          importExample(
+            "import InputWithLabel from 'wix-style-react/InputWithLabel';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Suffix',
-              text: 'This input supports up to 2 suffix icons',
-            }),
+          example({
+            title: 'Suffix',
+            text: 'This input supports up to 2 suffix icons',
+            source: examples.suffix,
+          }),
 
-            code({
-              compact: true,
-              source: examples.suffix,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Error state',
-              text:
-                'The error state of this input is slightly different then of <code>&lt;Input/&gt;</code>',
-            }),
-
-            code({
-              compact: true,
-              source: examples.error,
-            }),
-          ]),
+          example({
+            title: 'Error state',
+            text:
+              'The error state of this input is slightly different then of <code>&lt;Input/&gt;</code>',
+            source: examples.error,
+          }),
         ],
       }),
 

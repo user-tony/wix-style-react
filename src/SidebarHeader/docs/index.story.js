@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,7 +22,7 @@ import SidebarHeader from '..';
 import Box from '../../Box';
 import LinearProgressBar from '../../LinearProgressBar';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const titleExamples = [
   { label: 'Short', value: 'Site Name' },
@@ -72,11 +72,7 @@ export default {
   },
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidebarHeader/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -90,79 +86,47 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import SidebarHeader from 'wix-style-react/SidebarHeader';",
-            ),
-          ]),
+          importExample(
+            "import SidebarHeader from 'wix-style-react/SidebarHeader';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Plain Example',
-              text: 'A simple example for a header with title and subtitle',
-            }),
+          example({
+            title: 'Plain Example',
+            text: 'A simple example for a header with title and subtitle',
+            source: examples.plain,
+          }),
 
-            code({
-              compact: true,
-              source: examples.plain,
-            }),
-          ]),
+          example({
+            title: 'Header with Title, Subtitle and Children',
+            text:
+              'An example that demonstrates a header with a title, subtitle and custom node child',
+            source: examples.titlesWithChildren,
+          }),
 
-          columns([
-            description({
-              title: 'Header with Title, Subtitle and Children',
-              text:
-                'An example that demonstrates a header with a title, subtitle and custom node child',
-            }),
+          example({
+            title: 'Header with Children',
+            text:
+              'An example that demonstrates a header with just a custom node child',
+            source: examples.onlyChildren,
+          }),
 
-            code({
-              compact: true,
-              source: examples.titlesWithChildren,
-            }),
-          ]),
+          example({
+            title: 'Header with Ellipsis',
+            text:
+              'An example that demonstrates a header with a very long title which exceeds the maximum width of its container',
+            source: examples.ellipsis,
+          }),
 
-          columns([
-            description({
-              title: 'Header with Children',
-              text:
-                'An example that demonstrates a header with just a custom node child',
-            }),
-
-            code({
-              compact: true,
-              source: examples.onlyChildren,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Header with Ellipsis',
-              text:
-                'An example that demonstrates a header with a very long title which exceeds the maximum width of its container',
-            }),
-
-            code({
-              compact: true,
-              source: examples.ellipsis,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Light Skin',
-              text:
-                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarHeader/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
-            }),
-
-            code({
-              compact: true,
-              source: examples.lightSkin,
-            }),
-          ]),
+          example({
+            title: 'Light Skin',
+            text:
+              'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarHeader/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            source: examples.lightSkin,
+          }),
         ],
       }),
 

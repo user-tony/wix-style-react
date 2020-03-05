@@ -7,7 +7,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -18,7 +18,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import SidebarBackButton from '..';
 import * as examples from './examples';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -31,16 +31,8 @@ export default {
     children: 'Go back',
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
-    header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidebarBackButton/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -54,48 +46,32 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import SidebarBackButton from 'wix-style-react/SidebarBackButton';",
-            ),
-          ]),
+          importExample(
+            "import SidebarBackButton from 'wix-style-react/SidebarBackButton';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'the arrow will move only on hover',
-            }),
+          example({
+            title: 'Simple Usage',
+            text: 'the arrow will move only on hover',
+            source: examples.plain,
+          }),
 
-            code({
-              compact: true,
-              source: examples.plain,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Animated Arrow',
-              text:
-                'The arrow will animate every 5 seconds, to achieve prominence',
-            }),
-            code({
-              compact: true,
-              source: examples.withAnimation,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Light Skin',
-              text: 'Using a Sidebar container with skin="light"',
-            }),
-            code({
-              compact: true,
-              source: examples.lightSkin,
-            }),
-          ]),
+          example({
+            title: 'Animated Arrow',
+            text:
+              'The arrow will animate every 5 seconds, to achieve prominence',
+            source: examples.withAnimation,
+          }),
+
+          example({
+            title: 'Light Skin',
+            text: 'Using a Sidebar container with skin="light"',
+            source: examples.lightSkin,
+          }),
         ],
       }),
 
