@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,12 +20,10 @@ import allComponents from '../../../stories/utils/allComponents';
 import BrowserPreviewWidget from '..';
 import Box from 'wix-style-react/Box';
 import Text from 'wix-style-react/Text';
-/* eslint-disable no-unused-vars */
-import { Layout, Cell } from 'wix-style-react/Layout';
 
 import { skins, browserBarSizes } from '../constants';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const childNode = (
   <Box padding="20px" backgroundColor="Y30">
@@ -54,15 +52,8 @@ export default {
     children: childNode,
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/BrowserPreviewWidget/',
       component: (
         <BrowserPreviewWidget
           browserBarSize="size9"
@@ -78,34 +69,25 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'Browser preview widget. Displays custom content within a browser display.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'Browser preview widget. Displays custom content within a browser display.',
+          }),
 
-          columns([
-            importExample(
-              "import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';",
-            ),
-          ]),
+          importExample(
+            "import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Skin',
-              text:
-                'BrowserPreviewWidget supports `neutral` (default), `gradient` and `custom` skins. To use custom skin, set it to `custom` and use the `backgroundColor` prop with the desired color',
-            }),
-
-            code({
-              compact: true,
-              source: `<Layout>
+          example({
+            title: 'Skin',
+            text:
+              'BrowserPreviewWidget supports `neutral` (default), `gradient` and `custom` skins. To use custom skin, set it to `custom` and use the `backgroundColor` prop with the desired color',
+            source: `<Layout>
                 <Cell>
                     <BrowserPreviewWidget browserBarSize="${browserBarSizes.size9}">${childNodeString}</BrowserPreviewWidget>
                 </Cell>
@@ -116,13 +98,11 @@ export default {
                     <BrowserPreviewWidget browserBarSize="${browserBarSizes.size9}" skin='custom' backgroundColor='B10'>${childNodeString}</BrowserPreviewWidget>
                 </Cell>
               </Layout>`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Browser Bar Size',
-              text: `BrowserPreviewWidget supports 4 browser bar sizes: \`${browserBarSizes.size9}\`, \`${browserBarSizes.size12}\` (default), \`${browserBarSizes.size18}\` and \`${browserBarSizes.size24}\`.
+          example({
+            title: 'Browser Bar Size',
+            text: `BrowserPreviewWidget supports 4 browser bar sizes: \`${browserBarSizes.size9}\`, \`${browserBarSizes.size12}\` (default), \`${browserBarSizes.size18}\` and \`${browserBarSizes.size24}\`.
 | Browser Bar Height | Width |
 | --- | --- |
 | ${browserBarSizes.size9} | 0 < w < 312 |
@@ -130,11 +110,7 @@ export default {
 | ${browserBarSizes.size18} | 444 ≤ w < 660 |
 | ${browserBarSizes.size24} | 660 ≤ w |
 `,
-            }),
-
-            code({
-              compact: true,
-              source: `<Layout>
+            source: `<Layout>
                 <Cell>
                   <BrowserPreviewWidget browserBarSize="${browserBarSizes.size9}">
                     <Box width="250px" height="100px" backgroundColor="Y30"/>
@@ -156,8 +132,7 @@ export default {
                   </BrowserPreviewWidget>
                 </Cell>
               </Layout>`,
-            }),
-          ]),
+          }),
         ],
       }),
 

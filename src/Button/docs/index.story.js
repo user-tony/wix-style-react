@@ -6,7 +6,7 @@ import {
   tabs,
   api,
   header,
-  code as baseLiveCode,
+  example as baseExample,
   divider,
   columns,
   title,
@@ -25,18 +25,8 @@ import testkit from './testkit.md';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 
-const liveCode = config =>
-  baseLiveCode({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
-    compact: true,
-    components: { ...allComponents, Link },
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config =>
+  baseExample({ components: { ...allComponents, Link }, ...config });
 
 export default {
   category: storySettings.category,
@@ -68,10 +58,8 @@ export default {
           <Button>Button</Button>
         </Layout>
       ),
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Button/Button.js',
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
     }),
+
     tabs([
       tab({
         title: 'Description',
@@ -86,33 +74,36 @@ export default {
 
           title('Examples'),
 
-          ...[
-            {
-              title: 'Skin and Priority',
-              text: skins,
-              source: examples.primary,
-            },
-            {
-              title: 'Size',
-              text:
-                'Button supports four sizes – large for emphasized actions, medium as default, small as alternative to medium and tiny for very small layouts.',
-              source: examples.sizes,
-            },
-            {
-              title: 'Affix',
-              text:
-                'To emphasize button’s actions it is allowed to add prefix or suffix icon. When adding an icon you should match the icon size to the button size. If your button is small, use a small size icon which ends with Small prefix. *Normal sized icons have no prefix.',
-              source: examples.affixes,
-            },
-            {
-              title: 'States',
-              text:
-                'If action is submitted, but still processing, button can display a loader.Button can be disabled when needed to indicate that action is available, but cannot be performed at the moment.',
-              source: examples.states,
-            },
-            {
-              title: 'Custom HTML tag',
-              text: `
+          example({
+            title: 'Skin and Priority',
+            text: skins,
+            source: examples.primary,
+          }),
+
+          example({
+            title: 'Size',
+            text:
+              'Button supports four sizes – large for emphasized actions, medium as default, small as alternative to medium and tiny for very small layouts.',
+            source: examples.sizes,
+          }),
+
+          example({
+            title: 'Affix',
+            text:
+              'To emphasize button’s actions it is allowed to add prefix or suffix icon. When adding an icon you should match the icon size to the button size. If your button is small, use a small size icon which ends with Small prefix. *Normal sized icons have no prefix.',
+            source: examples.affixes,
+          }),
+
+          example({
+            title: 'States',
+            text:
+              'If action is submitted, but still processing, button can display a loader.Button can be disabled when needed to indicate that action is available, but cannot be performed at the moment.',
+            source: examples.states,
+          }),
+
+          example({
+            title: 'Custom HTML tag',
+            text: `
                   This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
                   All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
                   <br/>
@@ -120,9 +111,8 @@ export default {
                   - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
                   - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
                 `,
-              source: examples.custom,
-            },
-          ].map(example),
+            source: examples.custom,
+          }),
         ],
       }),
 

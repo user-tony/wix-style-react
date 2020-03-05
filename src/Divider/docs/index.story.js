@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,7 +20,7 @@ import * as examples from './examples';
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -36,69 +36,43 @@ export default {
   ),
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Divider/',
-    }),
+    header(),
 
     tabs([
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'A component that separates content by a line horizontally or vertically.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'A component that separates content by a line horizontally or vertically.',
+          }),
 
-          columns([
-            importExample("import Divider from 'wix-style-react/Divider';"),
-          ]),
+          importExample("import Divider from 'wix-style-react/Divider';"),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Horizontal Example',
-              text: 'By default, the divider is horizontal.',
-            }),
+          example({
+            title: 'Horizontal Example',
+            text: 'By default, the divider is horizontal.',
+            source: examples.plain,
+          }),
 
-            code({
-              compact: true,
-              source: examples.plain,
-            }),
-          ]),
+          example({
+            title: 'Vertical Example',
+            text:
+              'The divider could be vertical by using the `direction` prop. Notice that the direct parent should have an explicit `height` or be stretched by flexbox.',
+            source: examples.vertical,
+          }),
 
-          columns([
-            description({
-              title: 'Vertical Example',
-              text:
-                'The divider could be vertical by using the `direction` prop. Notice that the direct parent should have an explicit `height` or be stretched by flexbox.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.vertical,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Example with Dark Skin',
-              text:
-                'The divider could be displayed in dark color using the `skin` prop.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.dark,
-            }),
-          ]),
+          example({
+            title: 'Example with Dark Skin',
+            text:
+              'The divider could be displayed in dark color using the `skin` prop.',
+            source: examples.dark,
+          }),
         ],
       }),
 

@@ -8,8 +8,7 @@ import { avatarColorList } from '../constants';
 
 import {
   api,
-  code as baseCode,
-  columns,
+  example as baseExample,
   description,
   divider,
   header,
@@ -24,8 +23,7 @@ import {
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';
@@ -101,10 +99,6 @@ export default {
   sections: [
     header({
       component: <Avatar color="A1" name={'John Doe'} />,
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/blob/master/src/Avatar',
     }),
 
     tabs([
@@ -121,75 +115,36 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Image', source: examples.image },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Image', source: examples.image }),
 
-          ...[
-            {
-              title: 'Image Error (Icon Placeholder)',
-              source: examples.imageError,
-            },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({
+            title: 'Image Error (Icon Placeholder)',
+            source: examples.imageError,
+          }),
 
-          ...[
-            {
-              title: 'Image Error (Initials Placeholder)',
-              source: examples.imageErrorInitials,
-            },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({
+            title: 'Image Error (Initials Placeholder)',
+            source: examples.imageErrorInitials,
+          }),
 
-          ...[
-            { title: 'Size', source: examples.sizes },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Square Shape', source: examples.squareShape },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Size', source: examples.sizes }),
 
-          ...[
-            { title: 'Colors', source: examples.colors },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Square Shape', source: examples.squareShape }),
 
-          ...[
-            { title: 'Placeholder (No name)', source: examples.placeholder },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Colors', source: examples.colors }),
 
-          ...[
-            { title: 'Custom text', source: examples.customText },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({
+            title: 'Placeholder (No name)',
+            source: examples.placeholder,
+          }),
 
-          ...[
-            { title: 'Presence', source: examples.presence },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Custom text', source: examples.customText }),
 
-          ...[
-            { title: 'Indication', source: examples.indication },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Presence', source: examples.presence }),
 
-          columns([
-            description({ title: 'Click' }),
-            code({ source: examples.click }),
-          ]),
+          example({ title: 'Indication', source: examples.indication }),
+
+          example({ title: 'Click', source: examples.click }),
         ],
       }),
 

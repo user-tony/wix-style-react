@@ -5,10 +5,9 @@ import {
   tab,
   title,
   description,
-  columns,
   importExample,
   divider,
-  code as baseCode,
+  example as baseExample,
   api,
   testkit,
   playground,
@@ -23,8 +22,7 @@ import { buttonTypes } from '../constants';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const item = config => ({
   title: 'Item',
@@ -87,9 +85,7 @@ export default {
   },
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -103,19 +99,18 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Simple Usage', source: examples.simple },
-            { title: 'With Button & Icon', source: examples.withButton },
-            {
-              title: 'Multiple with Initially Open',
-              source: examples.multiple,
-            },
-            { title: 'Disabled Accordion Rows', source: examples.disabled },
-            { title: 'Usage in Card', source: examples.inCard },
-            { title: 'Skins', source: examples.skins },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Simple Usage', source: examples.simple }),
+          example({ title: 'With Button & Icon', source: examples.withButton }),
+          example({
+            title: 'Multiple with Initially Open',
+            source: examples.multiple,
+          }),
+          example({
+            title: 'Disabled Accordion Rows',
+            source: examples.disabled,
+          }),
+          example({ title: 'Usage in Card', source: examples.inCard }),
+          example({ title: 'Skins', source: examples.skins }),
         ],
       }),
 

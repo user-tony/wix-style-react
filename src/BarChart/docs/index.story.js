@@ -7,7 +7,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -18,8 +18,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import BarChart from '..';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const items = [
   {
@@ -71,10 +70,7 @@ export default {
   },
 
   sections: [
-    header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/BarChart/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -94,15 +90,11 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple usage',
-              text:
-                'The only required prop is items with values. Items will be sorted by values from highest to lowest.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Simple usage',
+            text:
+              'The only required prop is items with values. Items will be sorted by values from highest to lowest.',
+            source: `
                <BarChart
                   items={[
                   {
@@ -122,18 +114,13 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Description and additional information',
-              text:
-                'Use description and descriptionInfo to explain data. Descriptions appear under each bar and descriptionInfo appear on hover.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Description and additional information',
+            text:
+              'Use description and descriptionInfo to explain data. Descriptions appear under each bar and descriptionInfo appear on hover.',
+            source: `
                <BarChart
                   items={[
                   {
@@ -153,17 +140,12 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Displayed value',
-              text: 'It is possible to format data shown to the user.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Displayed value',
+            text: 'It is possible to format data shown to the user.',
+            source: `
                <BarChart
                   items={[
                   {
@@ -183,18 +165,13 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Total value',
-              text:
-                'Chart calculates its total value. By default it’s a sum of all items. It can be changed manually to a higher value, then the chart will adjust to a corresponding space. When total is not specified widget will take all the place',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Total value',
+            text:
+              'Chart calculates its total value. By default it’s a sum of all items. It can be changed manually to a higher value, then the chart will adjust to a corresponding space. When total is not specified widget will take all the place',
+            source: `
                <BarChart
                   total={1200}
                   items={[
@@ -210,11 +187,10 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
 
-          code({
-            description: 'Usage with one item.',
+          example({
+            title: 'Usage with one item.',
             source: `
                <BarChart
                   total={1200}
@@ -228,15 +204,11 @@ export default {
               />`,
           }),
 
-          columns([
-            description({
-              title: 'Shortened value',
-              text:
-                'When there is not enough space to display a full value, use shortened labels.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Shortened value',
+            text:
+              'When there is not enough space to display a full value, use shortened labels.',
+            source: `
                <BarChart
                   items={[
                   {
@@ -264,18 +236,13 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Hiding values or showing ellipsis',
-              text:
-                'By default values that don\'t fit show ellipsis. If "descriptionInfo" prop is added those values are hidden and can be exposed on hover in a tooltip.',
-            }),
-
-            code({
-              source: `
+          example({
+            title: 'Hiding values or showing ellipsis',
+            text:
+              'By default values that don\'t fit show ellipsis. If "descriptionInfo" prop is added those values are hidden and can be exposed on hover in a tooltip.',
+            source: `
                <BarChart
                   items={[
                   {
@@ -288,7 +255,7 @@ export default {
                     value: 20000000,
                     label: '$20,000,000',
                     labelShort: '$20M',
-                    description: 'Subscriptions',                    
+                    description: 'Subscriptions',
                     descriptionInfo: '$20,000,000 revenue from Subscriptions',
                   },
                   {
@@ -305,8 +272,7 @@ export default {
                   },
                 ]}
               />`,
-            }),
-          ]),
+          }),
         ],
       }),
 

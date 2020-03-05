@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -19,7 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import GooglePreview from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -37,16 +37,8 @@ export default {
 
   hiddenProps: ['dataHook'],
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/GooglePreview/',
       component: (
         <GooglePreview
           title="Site Name | a title of your site"
@@ -60,39 +52,37 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'A google preview displayer. Contains a title, url and description for SEO result',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'A google preview displayer. Contains a title, url and description for SEO result',
+          }),
 
-          columns([
-            importExample(
-              "import GooglePreview from 'wix-style-react/GooglePreview'",
-            ),
-          ]),
+          importExample(
+            "import GooglePreview from 'wix-style-react/GooglePreview'",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          code({
+          example({
             title: 'Basic',
-            description: 'With all required fields',
+            text: 'With all required fields',
             source:
               '<GooglePreview title="Site Name | a title of your site" previewUrl="www.site-name.com" description="a short description for a site"></GooglePreview>',
           }),
-          code({
+
+          example({
             title: 'Multi-line description',
-            description: 'The description can grow up to two lines maximum',
+            text: 'The description can grow up to two lines maximum',
             source:
               '<GooglePreview title="Site Name | a title of your site" previewUrl="www.site-name.com" description="a short description for a site a short description for a site a short description for a site a short description for a site a short description for a site a short description for a site a short description for a site a short description for a site"></GooglePreview>',
           }),
-          code({
+
+          example({
             title: 'No description',
-            description: 'The google preview can appear without a description',
+            text: 'The google preview can appear without a description',
             source:
               '<GooglePreview title="Site Name | a title of your site" previewUrl="www.site-name.com"></GooglePreview>',
           }),

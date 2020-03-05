@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -23,15 +22,8 @@ import PopoverMenu from '../../beta/PopoverMenu';
 
 const { category, storyName } = storySettings;
 
-const code = config =>
-  baseCode({
-    components: { ...allComponents, PopoverMenu },
-    compact: true,
-    ...config,
-  });
-
-const example = ({ title: exampleTitle, text, ...config }) =>
-  columns([description({ title: exampleTitle, text }), code(config)]);
+const example = config =>
+  baseExample({ components: { ...allComponents, PopoverMenu }, ...config });
 
 export default {
   category,
@@ -44,6 +36,7 @@ export default {
 
   sections: [
     header(),
+
     tabs([
       tab({
         title: 'Description',
@@ -51,33 +44,36 @@ export default {
           importExample(
             "import CardGalleryItem from 'wix-style-react/CardGalleryItem';",
           ),
-          divider(),
-          title('Examples'),
-          ...[
-            {
-              title: 'Settings Menu',
-              text:
-                'Settings menu can be provided with `settingsMenu` prop and can be an `IconButton`, `TextButton` or any other trigger based component.',
-              source: examples.iconButton,
-            },
 
-            {
-              title: 'Badge',
-              text: 'Component can display a badge.',
-              source: examples.badge,
-            },
-            {
-              title: 'Background Image Node',
-              text:
-                'Component can display a background image node instead of image URL.',
-              source: examples.backgroundImageNode,
-            },
-            {
-              title: 'Disabled Primary Action',
-              text: 'Primary Action can be disabled.',
-              source: examples.disabledPrimaryAction,
-            },
-          ].map(example),
+          divider(),
+
+          title('Examples'),
+
+          example({
+            title: 'Settings Menu',
+            text:
+              'Settings menu can be provided with `settingsMenu` prop and can be an `IconButton`, `TextButton` or any other trigger based component.',
+            source: examples.iconButton,
+          }),
+
+          example({
+            title: 'Badge',
+            text: 'Component can display a badge.',
+            source: examples.badge,
+          }),
+
+          example({
+            title: 'Background Image Node',
+            text:
+              'Component can display a background image node instead of image URL.',
+            source: examples.backgroundImageNode,
+          }),
+
+          example({
+            title: 'Disabled Primary Action',
+            text: 'Primary Action can be disabled.',
+            source: examples.disabledPrimaryAction,
+          }),
         ],
       }),
       ...[

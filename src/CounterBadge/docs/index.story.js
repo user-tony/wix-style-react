@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -21,7 +21,7 @@ import * as examples from './examples';
 
 import CounterBadge from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -45,8 +45,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/CounterBadge/',
       component: <CounterBadge>1</CounterBadge>,
     }),
 
@@ -54,73 +52,45 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'CounterBadge gives you a quick preview to indicate more action is required.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              '`CounterBadge` gives you a quick preview to indicate more action is required.',
+          }),
 
-          columns([
-            importExample(
-              "import CounterBadge from 'wix-style-react/CounterBadge';",
-            ),
-          ]),
+          importExample(
+            "import CounterBadge from 'wix-style-react/CounterBadge';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Number counter',
-              text:
-                'The most common use of CounterBadge is with a number value truncated to 99.',
-            }),
+          example({
+            title: 'Number counter',
+            text:
+              'The most common use of CounterBadge is with a number value truncated to 99.',
+            source: examples.numbers,
+          }),
 
-            code({
-              compact: true,
-              source: examples.numbers,
-            }),
-          ]),
+          example({
+            title: 'Skins',
+            text:
+              'Background color can be one of the following: `general`, `danger`, `urgent`, `standard`, `warning` and `success`.',
+            source: examples.skins,
+          }),
 
-          columns([
-            description({
-              title: 'Skins',
-              text:
-                'Background color can be one of the following: `general`, `danger`, `urgent`, `standard`, `warning` and `success`.',
-            }),
+          example({
+            title: 'Custom node',
+            text: 'CounterBadge can display a custom node, like an icon.',
+            source: examples.custom,
+          }),
 
-            code({
-              compact: true,
-              source: examples.skins,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Custom node',
-              text: 'CounterBadge can display a custom node, like an icon.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.custom,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Advanced',
-              text: 'An example for a CounterBadge counting items in cart.',
-            }),
-
-            code({
-              compact: true,
-              source: examples.advanced,
-            }),
-          ]),
+          example({
+            title: 'Advanced',
+            text: 'An example for a CounterBadge counting items in cart.',
+            source: examples.advanced,
+          }),
         ],
       }),
 

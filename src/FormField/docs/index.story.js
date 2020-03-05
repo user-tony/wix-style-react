@@ -10,7 +10,7 @@ import {
   tabs,
   tab,
   api,
-  code as baseCode,
+  example as baseExample,
   importExample,
   description,
   playground,
@@ -84,11 +84,7 @@ const childrenExamples = [
   { label: 'ToggleSwitch', value: <ToggleSwitch /> },
 ];
 
-const code = config =>
-  baseCode({
-    components: allComponents,
-    ...config,
-  });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.kind,
@@ -120,9 +116,6 @@ export default {
 
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/FormField',
       component: (
         <div style={{ width: '50%' }}>
           <FormField label="Label" infoContent="Tooltip with Information">
@@ -149,47 +142,46 @@ export default {
 
           title('Examples'),
 
-          code({
+          example({
             title: 'Generic component to help build forms',
             source: examples.generic,
           }),
 
-          code({
+          example({
             title: 'With tooltip',
             source: examples.withTooltip,
           }),
 
-          code({
+          example({
             title: 'Label Alignment',
             source: examples.alignment,
           }),
 
-          description({
+          example({
             title: 'With length count',
             text:
               'When children is function (a.k.a. render prop), it receives setCharactersLeft which can be called with number',
-          }),
-
-          code({
             source: examples.withLength,
           }),
-          code({
+
+          example({
             title: 'Inline Label With Length Count',
             source: examples.inlineLabelWithLength,
           }),
-          code({
+
+          example({
             title: 'Length count with charCount property',
             description:
               'An example of displaying remaining character count using charCount prop (instead of render function method).',
             source: exampleCharCount,
           }),
-          code({
+          example({
             title: 'With custom suffix',
             description:
               'An example that shows custom suffix element. Notice in case there are both `suffix` and `charCount`, the character counter will disappear',
             source: examples.customSuffix,
           }),
-          code({
+          example({
             title: 'Within Grid',
             source: examples.ExampleWithinGrid,
           }),

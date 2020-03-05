@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   tab,
   tabs,
@@ -8,7 +7,7 @@ import {
   columns,
   title,
   playground,
-  code as baseCode,
+  example as baseExample,
   description,
   importExample,
   testkit,
@@ -24,7 +23,7 @@ import BreadcrumbsSizes from '!raw-loader!./examples/BreadcrumbsSizes';
 import BreadcrumbsOnClickCallback from '!raw-loader!./examples/BreadcrumbsOnClickCallback';
 import ControlledBreadcrumbs from '!raw-loader!./examples/ControlledBreadcrumbs';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const items = [
   {
@@ -62,10 +61,8 @@ export default {
   },
 
   sections: [
-    header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Breadcrumbs.js',
-    }),
+    header(),
+
     tabs([
       tab({
         title: 'Description',
@@ -86,67 +83,37 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Standard',
-              text: 'Breadcrumbs items can be either with or without links.',
-            }),
+          example({
+            title: 'Standard',
+            text: 'Breadcrumbs items can be either with or without links.',
+            source: StandardBreadcrumbs,
+          }),
 
-            code({
-              compact: true,
-              source: StandardBreadcrumbs,
-            }),
-          ]),
+          example({
+            title: 'Sizes',
+            text:
+              'Breadcrumbs supports 2 sizes: `medium` (default) and `large`.',
+            source: BreadcrumbsSizes,
+          }),
 
-          columns([
-            description({
-              title: 'Sizes',
-              text:
-                'Breadcrumbs supports 2 sizes: `medium` (default) and `large`.',
-            }),
+          example({
+            title: 'Themes',
+            text:
+              'Breadcrumbs supports 3 themes: `onGrayBackground` (default), `onWhiteBackground` and `onDarkBackground`.',
+            source: BreadcrumbsThemes,
+          }),
 
-            code({
-              compact: true,
-              source: BreadcrumbsSizes,
-            }),
-          ]),
+          description({
+            title: 'On click callback',
+            text: 'Breadcrumbs supports an onClick callback.',
+            source: BreadcrumbsOnClickCallback,
+          }),
 
-          columns([
-            description({
-              title: 'Themes',
-              text:
-                'Breadcrumbs supports 3 themes: `onGrayBackground` (default), `onWhiteBackground` and `onDarkBackground`.',
-            }),
-
-            code({
-              compact: true,
-              source: BreadcrumbsThemes,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'On click callback',
-              text: 'Breadcrumbs supports an onClick callback.',
-            }),
-
-            code({
-              compact: true,
-              source: BreadcrumbsOnClickCallback,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Controlled Breadcrumbs',
-              text: '',
-            }),
-
-            code({
-              compact: true,
-              source: ControlledBreadcrumbs,
-            }),
-          ]),
+          example({
+            title: 'Controlled Breadcrumbs',
+            text: '',
+            source: ControlledBreadcrumbs,
+          }),
         ],
       }),
 
