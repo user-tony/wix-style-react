@@ -7,7 +7,7 @@ import {
   columns,
   table,
   title,
-  code as baseLiveCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 
 import SegmentedToggle from 'wix-style-react/SegmentedToggle';
@@ -35,15 +35,7 @@ const BasicExample = () => (
   </Layout>
 );
 
-const liveCode = config =>
-  baseLiveCode({
-    compact: true,
-    components: allComponents,
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -65,7 +57,6 @@ export default {
   sections: [
     header({
       component: <BasicExample />,
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/SegmentedToggle/SegmentedToggle.js',
     }),
@@ -101,24 +92,24 @@ export default {
 
     title('Examples'),
 
-    ...[
-      {
-        title: 'Text & Prefix',
-        text:
-          'Icon accompanied by text make information easier to find and scan.',
-        source: examples.textAndIcon,
-      },
-      {
-        title: 'Text',
-        text: 'Simple usecase where prefix icon is not an option.',
-        source: examples.text,
-      },
-      {
-        title: 'Icon',
-        text:
-          'Icon only option is mostly used in narrow places. This option provides additional tooltip on hover in order to inform users on icons meaning.',
-        source: examples.icon,
-      },
-    ].map(example),
+    example({
+      title: 'Text & Prefix',
+      text:
+        'Icon accompanied by text make information easier to find and scan.',
+      source: examples.textAndIcon,
+    }),
+
+    example({
+      title: 'Text',
+      text: 'Simple usecase where prefix icon is not an option.',
+      source: examples.text,
+    }),
+
+    example({
+      title: 'Icon',
+      text:
+        'Icon only option is mostly used in narrow places. This option provides additional tooltip on hover in order to inform users on icons meaning.',
+      source: examples.icon,
+    }),
   ],
 };

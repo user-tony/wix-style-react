@@ -3,12 +3,12 @@ import { storySettings } from './storySettings';
 import allComponents from '../utils/allComponents';
 import {
   header,
-  title as sectionTitle,
+  title,
   description,
   table,
   importExample,
   columns,
-  code,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
@@ -38,18 +38,8 @@ const commonProps = {
   ),
 };
 
-const liveCode = config =>
-  code({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
-    compact: true,
-    components: { ...allComponents, PopoverMenu },
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config =>
+  baseExample({ components: { ...allComponents, PopoverMenu }, ...config });
 
 export default {
   category: storySettings.category,
@@ -127,46 +117,44 @@ export default {
 
     importExample(examples.importExample),
 
-    sectionTitle('Examples'),
+    title('Examples'),
 
-    ...[
-      {
-        title: 'Plain Example',
-        text: 'Plain example of PopoverMenu usage.',
-        source: examples.basic,
-      },
-      {
-        title: 'Skins',
-        text: 'PopoverMenu items supports `dark` and `destructive` skins.',
-        source: examples.skins,
-      },
-      {
-        title: 'Prefix Icon',
-        text: 'PopoverMenu items supports prefixIcon',
-        source: examples.prefix,
-      },
-      {
-        title: 'Text Size',
-        text: 'PopoverMenu can enable small text size for its items.',
-        source: examples.size,
-      },
-      {
-        title: 'Divider',
-        text: 'PopoverMenu items can be divided by using Divider.',
-        source: examples.divider,
-      },
-      {
-        title: 'Ellipsis',
-        text:
-          'All PopoverMenu items by default gets ellipsed, but wrapping text can be enabled too.',
-        source: examples.wrap,
-      },
-      {
-        title: 'Menu placement',
-        text:
-          'PopoverMenu supports 4 main placements: `left`,`rigth`, `top`, `bottom`',
-        source: examples.placement,
-      },
-    ].map(example),
+    example({
+      title: 'Plain Example',
+      text: 'Plain example of PopoverMenu usage.',
+      source: examples.basic,
+    }),
+    example({
+      title: 'Skins',
+      text: 'PopoverMenu items supports `dark` and `destructive` skins.',
+      source: examples.skins,
+    }),
+    example({
+      title: 'Prefix Icon',
+      text: 'PopoverMenu items supports prefixIcon',
+      source: examples.prefix,
+    }),
+    example({
+      title: 'Text Size',
+      text: 'PopoverMenu can enable small text size for its items.',
+      source: examples.size,
+    }),
+    example({
+      title: 'Divider',
+      text: 'PopoverMenu items can be divided by using Divider.',
+      source: examples.divider,
+    }),
+    example({
+      title: 'Ellipsis',
+      text:
+        'All PopoverMenu items by default gets ellipsed, but wrapping text can be enabled too.',
+      source: examples.wrap,
+    }),
+    example({
+      title: 'Menu placement',
+      text:
+        'PopoverMenu supports 4 main placements: `left`,`rigth`, `top`, `bottom`',
+      source: examples.placement,
+    }),
   ],
 };

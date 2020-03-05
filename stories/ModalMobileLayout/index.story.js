@@ -7,7 +7,7 @@ import {
   title,
   description,
   columns,
-  code as baseCode,
+  example as baseExample,
   importExample,
   divider,
 } from 'wix-storybook-utils/Sections';
@@ -17,39 +17,38 @@ import * as examples from './examples';
 import HeaderComponent from '../../src/ModalMobileLayout/docs/examples/Plain';
 import { MobileModalTemplates } from './MobileModalTemplates';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export const propsVariationExamples = [
-  {
+  example({
     title: 'Title',
     text: '',
     source: examples.title,
-  },
+  }),
 
-  {
+  example({
     title: 'Sticky Title',
     text: '',
     source: examples.stickyTitle,
-  },
+  }),
 
-  {
+  example({
     title: 'Footer',
     text: '',
     source: examples.footer,
-  },
+  }),
 
-  {
+  example({
     title: 'Sticky Footer',
     text: '',
     source: examples.stickyFooter,
-  },
+  }),
 
-  {
+  example({
     title: 'Close Button',
     text: '',
     source: examples.closeButton,
-  },
+  }),
 ];
 
 export default {
@@ -60,7 +59,6 @@ export default {
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/ModalMobileLayout/',
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       component: <HeaderComponent />,
     }),
 
@@ -78,19 +76,15 @@ export default {
       }),
     ]),
 
-    columns([
-      importExample(
-        "import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';",
-      ),
-    ]),
+    importExample(
+      "import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';",
+    ),
 
     divider(),
 
     title('Examples'),
 
-    ...propsVariationExamples.map(({ title, text, source }) =>
-      columns([description({ title, text }), code({ source })]),
-    ),
+    ...propsVariationExamples,
 
     divider(),
 

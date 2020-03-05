@@ -7,11 +7,10 @@ import {
   testkit,
   importExample,
   header,
-  columns,
   title,
   divider,
   playground,
-  code as baseLiveCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
@@ -20,15 +19,7 @@ import Slider from '..';
 
 import { storySettings } from './storySettings';
 
-const liveCode = config =>
-  baseLiveCode({
-    compact: true,
-    components: allComponents,
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config => baseExample({ components: allComponents, ...config });
 
 class SlideWithState extends React.Component {
   state = {
@@ -89,61 +80,53 @@ export default {
 
           title('Examples'),
 
-          ...[
-            {
-              title: 'Single Value',
-              text: 'Single value slider.',
-              source: examples.plainExample,
-            },
-            {
-              title: 'Marks under',
-              text: 'Slider supports showing marking values under the slider.',
-              source: examples.plainSliderMarks,
-            },
-            {
-              title: 'Custom Marks',
-              text: 'Slider custom marks',
-              source: examples.customMarks,
-            },
-            {
-              title: 'Multi Value',
-              text: 'Usually used for user to select the range.',
-              source: examples.rangeSlider,
-            },
-            {
-              title: 'Pushable Handlers',
-              text:
-                'Allow pushing of surrounding handles when moving a handle.',
-              source: examples.rangeSliderPushable,
-            },
-            {
-              title: 'States',
-              text: 'Slider supports `disabled` state.',
-              source: examples.states,
-            },
-            {
-              title: 'Start Point',
-              text: `Slider supports having a Start Point`,
-              source: examples.startPoint,
-            },
-          ].map(example),
+          example({
+            title: 'Single Value',
+            text: 'Single value slider.',
+            source: examples.plainExample,
+          }),
+
+          example({
+            title: 'Marks under',
+            text: 'Slider supports showing marking values under the slider.',
+            source: examples.plainSliderMarks,
+          }),
+
+          example({
+            title: 'Custom Marks',
+            text: 'Slider custom marks',
+            source: examples.customMarks,
+          }),
+
+          example({
+            title: 'Multi Value',
+            text: 'Usually used for user to select the range.',
+            source: examples.rangeSlider,
+          }),
+
+          example({
+            title: 'Pushable Handlers',
+            text: 'Allow pushing of surrounding handles when moving a handle.',
+            source: examples.rangeSliderPushable,
+          }),
+
+          example({
+            title: 'States',
+            text: 'Slider supports `disabled` state.',
+            source: examples.states,
+          }),
+
+          example({
+            title: 'Start Point',
+            text: `Slider supports having a Start Point`,
+            source: examples.startPoint,
+          }),
         ],
       }),
 
-      tab({
-        title: 'API',
-        sections: [api()],
-      }),
-
-      tab({
-        title: 'Testkit',
-        sections: [testkit()],
-      }),
-
-      tab({
-        title: 'Playground',
-        sections: [playground()],
-      }),
+      tab({ title: 'API', sections: [api()] }),
+      tab({ title: 'Testkit', sections: [testkit()] }),
+      tab({ title: 'Playground', sections: [playground()] }),
     ]),
   ],
 };
