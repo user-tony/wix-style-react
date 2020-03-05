@@ -9,12 +9,16 @@ export interface AddItemProps {
   size?: AddItemSize;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   dataHook?: string;
-  /** @deprecated do not use this prop. Check for other available props. */
   tooltipProps?: OmitPolyfill<Partial<TooltipNewProps>, 'upgrade' | 'dataHook'>;
+  /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipAppendTo?: AddItemAppendTo;
+  /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipFlip?: boolean;
+  /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipFixed?: boolean;
+  /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipContent?: string;
+  /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipPlacement?: string;
   showIcon?: boolean;
   removePadding?: boolean;

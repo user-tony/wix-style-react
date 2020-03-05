@@ -48,10 +48,10 @@ class AddItem extends Component {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
 
-    /** @deprecated do not use this prop. Check for other available props. */
+    /** Tooltip props */
     tooltipProps: PropTypes.shape(Tooltip.propTypes),
 
-    /** tooltips content relation to a dom element */
+    /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipAppendTo: PropTypes.oneOf([
       'window',
       'scrollParent',
@@ -59,16 +59,16 @@ class AddItem extends Component {
       'parent',
     ]),
 
-    /** whether to enable the flip behaviour. This behaviour is used to flip the Tooltips placement when it starts to overlap the target element. */
+    /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipFlip: PropTypes.bool,
 
-    /** whether to enable the fixed behaviour. This behaviour is used to keep the Tooltip at it's original placement even when it's being positioned outside the boundary. */
+    /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipFixed: PropTypes.bool,
 
-    /** Content of the tooltip, leave undefined for no tooltip */
+    /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipContent: PropTypes.string,
 
-    /** tooltip content placement in relation to target element */
+    /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipPlacement: PropTypes.string,
 
     /** Displays the plus icon */
