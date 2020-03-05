@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   header,
   tabs,
@@ -9,6 +8,7 @@ import {
   columns,
   divider,
   code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -32,11 +32,8 @@ import onClick from '!raw-loader!./examples/onClick';
 import Card from '!raw-loader!./examples/Card';
 import InteractiveCard from '!raw-loader!./examples/InteractiveCard';
 
-const code = config =>
-  baseCode({
-    components: allComponents,
-    ...config,
-  });
+const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -46,11 +43,7 @@ export default {
   componentPath: '..',
 
   sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/StatisticsWidget/',
-    }),
+    header(),
 
     tabs([
       tab({
@@ -64,27 +57,19 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import StatisticsWidget from 'wix-style-react/StatisticsWidget';",
-            ),
-          ]),
+          importExample(
+            "import StatisticsWidget from 'wix-style-react/StatisticsWidget';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'One statistic',
-            }),
-
-            code({
-              compact: true,
-              autoRender: false,
-              source: OneStatistic,
-            }),
-          ]),
+          example({
+            title: 'One statistic',
+            autoRender: false,
+            source: OneStatistic,
+          }),
 
           code({
             compact: true,
@@ -104,57 +89,37 @@ export default {
             source: Descriptions,
           }),
 
-          columns([
-            description({
-              title: 'Info icon',
-              description:
-                "Since description is small by design, there is a possibility to clarify the meaning of each statistic by specifying 'descriptionInfo' property.  It this case widget will render an info icon with a text inside a tooltip.",
-            }),
-            code({
-              compact: true,
-              autoRender: false,
-              source: InfoIcons,
-            }),
-          ]),
+          example({
+            title: 'Info icon',
+            description:
+              "Since description is small by design, there is a possibility to clarify the meaning of each statistic by specifying 'descriptionInfo' property.  It this case widget will render an info icon with a text inside a tooltip.",
+            autoRender: false,
+            source: InfoIcons,
+          }),
 
-          columns([
-            description({
-              title: 'Long text',
-              description:
-                'When there is not enough space, part of the value or description will be hidden with an ellipsis. Hover it to see full text.',
-            }),
-            code({
-              compact: true,
-              autoRender: false,
-              source: LongText,
-            }),
-          ]),
+          example({
+            title: 'Long text',
+            description:
+              'When there is not enough space, part of the value or description will be hidden with an ellipsis. Hover it to see full text.',
+            autoRender: false,
+            source: LongText,
+          }),
 
-          columns([
-            description({
-              title: 'Custom text instead of ellipsis',
-              description:
-                'There is a possibility to set custom text on value, when there is not enough space for long version. Full text will be still visible on hover',
-            }),
-            code({
-              compact: true,
-              autoRender: false,
-              source: CustomLongText,
-            }),
-          ]),
+          example({
+            title: 'Custom text instead of ellipsis',
+            description:
+              'There is a possibility to set custom text on value, when there is not enough space for long version. Full text will be still visible on hover',
+            autoRender: false,
+            source: CustomLongText,
+          }),
 
-          columns([
-            description({
-              title: 'Trends',
-              description:
-                'Shows a change since the last period. Positive change displays with an arrow up, negative - with an arrow down.',
-            }),
-            code({
-              compact: true,
-              autoRender: false,
-              source: Trends,
-            }),
-          ]),
+          example({
+            title: 'Trends',
+            description:
+              'Shows a change since the last period. Positive change displays with an arrow up, negative - with an arrow down.',
+            autoRender: false,
+            source: Trends,
+          }),
 
           code({
             compact: true,

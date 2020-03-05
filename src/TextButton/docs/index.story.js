@@ -10,7 +10,7 @@ import {
   columns,
   header,
   title,
-  code as baseCode,
+  example as baseExample,
 } from 'wix-storybook-utils/Sections';
 
 import TextButton from '..';
@@ -23,15 +23,8 @@ import * as examples from './examples';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 
-const code = config =>
-  baseCode({
-    compact: true,
-    components: { ...allComponents, Link },
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), code({ source })]);
+const example = config =>
+  baseExample({ components: { ...allComponents, Link }, ...config });
 
 export default {
   category: storySettings.category,
@@ -62,10 +55,8 @@ export default {
           <TextButton>Text Button</TextButton>
         </Layout>
       ),
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/TextButton/TextButton.js',
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
     }),
+
     tabs({
       tabs: [
         tab({
@@ -85,45 +76,50 @@ export default {
 
             title('Examples'),
 
-            ...[
-              {
-                title: 'Skin',
-                text:
-                  'TextButton supports 4 styles of different skins. Light skin is designed to be used on dark backgrounds while dark skin is for coloured backgrounds.',
-                source: examples.skins,
-              },
-              {
-                title: 'Size',
-                text:
-                  'This action supports sizes – `tiny`, `small` and `medium`.',
-                source: examples.size,
-              },
-              {
-                title: 'Weight',
-                text:
-                  'Text weight can be adjusted to match adjacent components. TextButton supports two text weights – thin and normal.',
-                source: examples.weight,
-              },
-              {
-                title: 'Affix',
-                text:
-                  "TextButton allows using any icon before or after the text. For medium sized buttons use normal icons. For small buttons use small icons which ends with the 'Small' prefix",
-                source: examples.affixes,
-              },
-              {
-                title: 'Underline',
-                text: `To emphasise an action, it is allowed to make underline always visible. While to make it more neutral, it's allowed to disable underline too.`,
-                source: examples.underline,
-              },
-              {
-                title: 'Inline Text Link',
-                text:
-                  'For text inline text link used in a paragraph with single or multiple lines, please use `<Text/>` component.',
-                source: examples.inline,
-              },
-              {
-                title: 'Custom HTML tag',
-                text: `
+            example({
+              title: 'Skin',
+              text:
+                'TextButton supports 4 styles of different skins. Light skin is designed to be used on dark backgrounds while dark skin is for coloured backgrounds.',
+              source: examples.skins,
+            }),
+
+            example({
+              title: 'Size',
+              text:
+                'This action supports sizes – `tiny`, `small` and `medium`.',
+              source: examples.size,
+            }),
+
+            example({
+              title: 'Weight',
+              text:
+                'Text weight can be adjusted to match adjacent components. TextButton supports two text weights – thin and normal.',
+              source: examples.weight,
+            }),
+
+            example({
+              title: 'Affix',
+              text:
+                "TextButton allows using any icon before or after the text. For medium sized buttons use normal icons. For small buttons use small icons which ends with the 'Small' prefix",
+              source: examples.affixes,
+            }),
+
+            example({
+              title: 'Underline',
+              text: `To emphasise an action, it is allowed to make underline always visible. While to make it more neutral, it's allowed to disable underline too.`,
+              source: examples.underline,
+            }),
+
+            example({
+              title: 'Inline Text Link',
+              text:
+                'For text inline text link used in a paragraph with single or multiple lines, please use `<Text/>` component.',
+              source: examples.inline,
+            }),
+
+            example({
+              title: 'Custom HTML tag',
+              text: `
                   This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
                   All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
                   <br/>
@@ -131,9 +127,8 @@ export default {
                   - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
                   - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
                 `,
-                source: examples.custom,
-              },
-            ].map(example),
+              source: examples.custom,
+            }),
           ],
         }),
 

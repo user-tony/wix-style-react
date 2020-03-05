@@ -4,7 +4,7 @@ import Tag from '..';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -19,8 +19,7 @@ import {
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const GREEN_THUMB = (
   <div
@@ -62,9 +61,6 @@ export default {
   sections: [
     header({
       component: <Tag id="tag">Hello World</Tag>,
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl: 'https://github.com/wix/wix-style-react/blob/master/src/Tag',
     }),
 
     tabs([
@@ -79,26 +75,10 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Size', source: examples.sizes },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Status', source: examples.themes },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Thumb', source: examples.thumbs },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Removable', source: examples.removable },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Size', source: examples.sizes }),
+          example({ title: 'Status', source: examples.themes }),
+          example({ title: 'Thumb', source: examples.thumbs }),
+          example({ title: 'Removable', source: examples.removable }),
         ],
       }),
 

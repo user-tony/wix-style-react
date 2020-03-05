@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,18 +22,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import * as examples from './examples';
 
-const liveCode = config =>
-  baseCode({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
-    compact: true,
-    components: allComponents,
-    ...config,
-  });
-
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+const example = config => baseExample({ components: allComponents, ...config });
 
 const colors3 = [
   'rgb(50, 132, 144)',
@@ -42,6 +31,7 @@ const colors3 = [
   'rgb(203, 246, 255)',
   'rgb(229, 250, 248)',
 ];
+
 const colors6 = ['cyan', 'yellow', 'pink', '#fff', 'rgb(0, 0, 0)', '#aeaeae'];
 
 export default {
@@ -68,8 +58,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/Palette/',
       component: (
         <Box width={'200px'} height={'24px'}>
           <Palette fill={colors3} />
@@ -89,50 +77,47 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample("import Palette from 'wix-style-react/Palette';"),
-          ]),
+          importExample("import Palette from 'wix-style-react/Palette';"),
 
           divider(),
 
           title('Examples'),
 
-          ...[
-            {
-              title: 'Structure',
-              text:
-                'Component allows any number of color fills. It splits into equal columns horiontally.',
-              source: examples.simple,
-            },
-            {
-              title: 'Fill',
-              text: 'It can be a palette of solid colors, gradients or images.',
-              source: examples.fill,
-            },
-            {
-              title: 'Size',
-              text:
-                'Component by default stretches 100% both vertically and hotizontally. It’s size can be controlled with external parent component.',
-              source: examples.size,
-            },
-          ].map(example),
+          example({
+            title: 'Structure',
+            text:
+              'Component allows any number of color fills. It splits into equal columns horiontally.',
+            source: examples.simple,
+          }),
+          example({
+            title: 'Fill',
+            text: 'It can be a palette of solid colors, gradients or images.',
+            source: examples.fill,
+          }),
+          example({
+            title: 'Size',
+            text:
+              'Component by default stretches 100% both vertically and hotizontally. It’s size can be controlled with external parent component.',
+            source: examples.size,
+          }),
 
           divider(),
 
           title('Use Cases'),
 
-          columns([
-            description(
-              'Palette can be used inside various components, for example, FormField or Thumbnail.',
-            ),
-          ]),
+          description(
+            'Palette can be used inside various components, for example, FormField or Thumbnail.',
+          ),
 
-          columns([
-            liveCode({ source: examples.formfield }),
-            liveCode({ source: examples.thumbnailSmall }),
-          ]),
-
-          columns([liveCode({ source: examples.thumbnailBig })]),
+          example({ title: 'Inside FormField', source: examples.formfield }),
+          example({
+            title: 'Inside Thumbnail',
+            source: examples.thumbnailSmall,
+          }),
+          example({
+            title: 'Inside Thumbnail and FormField',
+            source: examples.thumbnailBig,
+          }),
         ],
       }),
 

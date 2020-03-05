@@ -3,7 +3,7 @@ import React from 'react';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -19,8 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import TabsHeaderExample from './TabsHeaderExample';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 import { storySettings } from './storySettings';
 import Tabs from '../Tabs';
@@ -43,9 +42,6 @@ export default {
   sections: [
     header({
       component: <TabsHeaderExample />,
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl: 'https://github.com/wix/wix-style-react/blob/master/src/Tabs',
     }),
 
     tabs([
@@ -62,17 +58,12 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Basic use', source: examples.base },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          ...[
-            { title: 'Without bottom divider', source: examples.hasDivider },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
-          code({ title: 'Tabs types', source: examples.types }),
+          example({ title: 'Basic use', source: examples.base }),
+          example({
+            title: 'Without bottom divider',
+            source: examples.hasDivider,
+          }),
+          example({ title: 'Tabs types', source: examples.types }),
         ],
       }),
 

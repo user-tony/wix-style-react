@@ -7,21 +7,9 @@ import More from 'wix-ui-icons-common/More';
 import ascendInvoice from '../../../test/assets/ascend-invoice.jpg';
 import ModalPreviewLayout from '..';
 import Modal from '../../Modal';
-import { modalPreviewLayoutPrivateDriverFactory } from './ModalPreviewLayout.private.uni.driver';
-import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { snap, visualize, story } from 'storybook-snapper';
 
 const dataHook = 'storybook-modal-preview-layout';
-
-const modalPreviewLayoutUniTestkitFactory = uniTestkitFactoryCreator(
-  modalPreviewLayoutPrivateDriverFactory,
-);
-
-const createDriver = () =>
-  modalPreviewLayoutUniTestkitFactory({
-    wrapper: document.body,
-    dataHook,
-  });
 
 const commonProps = {
   title: 'Basic Website Design',
@@ -41,18 +29,6 @@ const actions = (
     </IconButton>
   </Box>
 );
-
-const multipleChildren = ['first', 'second', 'third'].map(ordinalNum => (
-  <Box
-    width="90vw"
-    height="95vh"
-    align="center"
-    verticalAlign="middle"
-    backgroundColor="D80"
-  >
-    {`${ordinalNum} content page`}
-  </Box>
-));
 
 const tests = [
   {

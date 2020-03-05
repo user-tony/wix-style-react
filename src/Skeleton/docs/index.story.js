@@ -2,7 +2,7 @@ import Skeleton from '..';
 import { Category } from '../../../stories/storiesHierarchy';
 import {
   api,
-  code as baseCode,
+  example as baseExample,
   columns,
   description,
   divider,
@@ -18,8 +18,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import React from 'react';
 
-const code = config =>
-  baseCode({ components: allComponents, compact: true, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 const exampleContent = [
   {
@@ -80,10 +79,6 @@ export default {
           <Skeleton />
         </div>
       ),
-
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/blob/master/src/Skeleton',
     }),
 
     tabs([
@@ -100,11 +95,7 @@ export default {
 
           title('Examples'),
 
-          ...[
-            { title: 'Sizes', source: examples.sizes },
-          ].map(({ title, source }) =>
-            columns([description({ title }), code({ source })]),
-          ),
+          example({ title: 'Sizes', source: examples.sizes }),
         ],
       }),
 

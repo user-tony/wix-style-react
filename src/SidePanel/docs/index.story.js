@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -20,9 +20,9 @@ import FixedExample from '!raw-loader!./FixedPositionExample';
 
 import SidePanel from '..';
 import compoundReadmeApi from '../COMPOUND_README.API.md';
-
-const code = config => baseCode({ components: allComponents, ...config });
 import Box from '../../Box';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 const importDeclaration = `
 import SidePanel from 'wix-style-react/SidePanel';
@@ -52,12 +52,8 @@ export default {
     ),
   },
 
-  exampleProps: {},
-
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidePanel/',
       component: <SidePanel buttonText="Click me!" />,
     }),
 
@@ -73,21 +69,16 @@ export default {
             }),
           ]),
 
-          columns([importExample(importDeclaration)]),
+          importExample(importDeclaration),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'A simple example of panel with header, content and footer',
-            }),
-
-            code({
-              compact: true,
-              source: `
+          example({
+            title: 'Simple Usage',
+            text: 'A simple example of panel with header, content and footer',
+            source: `
 <SidePanel onCloseButtonClick={() => alert('click!')}>
   <SidePanel.Header
     title="Title"
@@ -105,19 +96,13 @@ export default {
   </SidePanel.Footer>
 </SidePanel>
 `,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Custom Header title element',
-              text:
-                'Change the header text to be a custom element, for example a search-bar',
-            }),
-
-            code({
-              compact: true,
-              source: `
+          example({
+            title: 'Custom Header title element',
+            text:
+              'Change the header text to be a custom element, for example a search-bar',
+            source: `
 <SidePanel onCloseButtonClick={() => alert('click!')}>
   <SidePanel.Header title={<Search value="" options={[]}/>}></SidePanel.Header>
   <SidePanel.Content>
@@ -127,19 +112,13 @@ export default {
   </SidePanel.Content>
 </SidePanel>
 `,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Custom Header children',
-              text:
-                'In addition to the header title, you can provide an element to be below the header but still a part of it',
-            }),
-
-            code({
-              compact: true,
-              source: `
+          example({
+            title: 'Custom Header children',
+            text:
+              'In addition to the header title, you can provide an element to be below the header but still a part of it',
+            source: `
 <SidePanel onCloseButtonClick={() => alert('click!')}>
   <SidePanel.Header title="Title">
     <Tabs
@@ -159,18 +138,13 @@ export default {
   </SidePanel.Content>
 </SidePanel>
 `,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'Sectioned content',
-              text:
-                'We recommend using <SidePanel.Content> for each section with <SidePanel.Divider> between them.',
-            }),
-            code({
-              compact: true,
-              source: `
+          example({
+            title: 'Sectioned content',
+            text:
+              'We recommend using <SidePanel.Content> for each section with <SidePanel.Divider> between them.',
+            source: `
 <SidePanel>
   <SidePanel.Header title="Title">
   </SidePanel.Header>
@@ -189,31 +163,23 @@ export default {
   </SidePanel.Content>
 </SidePanel>
           `,
-            }),
-          ]),
+          }),
 
-          columns([
-            description({
-              title: 'An advanced example',
-              text:
-                'Full height, fixed position panel. In this example, we built a filters panel',
-            }),
-
-            code({
-              previewProps: {},
-              compact: true,
-              source: FixedExample,
-            }),
-          ]),
+          example({
+            title: 'An advanced example',
+            text:
+              'Full height, fixed position panel. In this example, we built a filters panel',
+            source: FixedExample,
+          }),
         ],
       }),
 
       ...[
         { title: 'API', sections: [api()] },
-        tab({
+        {
           title: 'Compound components API',
           sections: [description(compoundReadmeApi)],
-        }),
+        },
         { title: 'Testkit', sections: [testkit()] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),

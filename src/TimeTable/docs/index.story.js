@@ -7,7 +7,8 @@ import {
   importExample,
   title,
   divider,
-  code as baseCode,
+  code,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -26,7 +27,7 @@ import TimeTable from '..';
 import Box from '../../Box';
 import { defaultColumns } from './playgroundData';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -56,8 +57,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/TimeTable/',
       component: (
         <Box width="60%" minWidth="500px" height="130px">
           <TimeTableHeaderExample />
@@ -83,31 +82,19 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Structure',
-              description:
-                'Each group has a title and subtitle, it can be set to `active`. Items can be used with plain text or node. "Add Item" button can be renamed or removed.',
-            }),
+          example({
+            title: 'Structure',
+            description:
+              'Each group has a title and subtitle, it can be set to `active`. Items can be used with plain text or node. "Add Item" button can be renamed or removed.',
+            source: structureExample,
+          }),
 
-            code({
-              compact: true,
-              source: structureExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Disabled',
-              description:
-                "Groups and items can be disabled indepentendly. New items cannot be added to disabled groups. Active items placed in a disabled group can be dragged out, but cannot be put back. It's allowed to set `draggable` on disabled item.",
-            }),
-
-            code({
-              compact: true,
-              source: disabledExample,
-            }),
-          ]),
+          example({
+            title: 'Disabled',
+            description:
+              "Groups and items can be disabled indepentendly. New items cannot be added to disabled groups. Active items placed in a disabled group can be dragged out, but cannot be put back. It's allowed to set `draggable` on disabled item.",
+            source: disabledExample,
+          }),
 
           code({
             autoRender: false,
@@ -116,6 +103,7 @@ export default {
               "Item's content can render any content with complex logic. Example below demonstrates how it can be used with a `<Popover/>` or `<Badge/>`.",
             source: customContentExample,
             compact: true,
+            components: allComponents,
           }),
         ],
       }),

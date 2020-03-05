@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -19,7 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import StatusIndicator from '..';
 import { STATUS, TOOLTIP_PLACEMENT } from '../constants';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -47,8 +47,6 @@ export default {
 
   sections: [
     header({
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/StatusIndicator/',
       component: (
         <div
           style={{
@@ -76,58 +74,33 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import StatusIndicator from 'wix-style-react/StatusIndicator';",
-            ),
-          ]),
+          importExample(
+            "import StatusIndicator from 'wix-style-react/StatusIndicator';",
+          ),
 
           divider(),
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Error',
-            }),
+          example({
+            title: 'Error',
+            source: `<StatusIndicator status="error" message="Error Message"/>`,
+          }),
 
-            code({
-              compact: true,
-              source: `<StatusIndicator status="error" message="Error Message"/>`,
-            }),
-          ]),
+          example({
+            title: 'Warning',
+            source: `<StatusIndicator status="warning" message="Warning Message"/>`,
+          }),
 
-          columns([
-            description({
-              title: 'Warning',
-            }),
+          example({
+            title: 'Loading',
+            source: `<StatusIndicator status="loading" message="Loading Message"/>`,
+          }),
 
-            code({
-              compact: true,
-              source: `<StatusIndicator status="warning" message="Warning Message"/>`,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Loading',
-            }),
-
-            code({
-              compact: true,
-              source: `<StatusIndicator status="loading" message="Loading Message"/>`,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Tooltip Placement',
-              text: `The component's tooltip placement can be one of the following:`,
-            }),
-
-            code({
-              compact: true,
-              source: `
+          example({
+            title: 'Tooltip Placement',
+            text: `The component's tooltip placement can be one of the following:`,
+            source: `
 <Layout cols={4}>
   <Cell span={1}>
     <Box marginBottom={1}>top:</Box>
@@ -147,8 +120,7 @@ export default {
   </Cell>
 </Layout>
 `,
-            }),
-          ]),
+          }),
         ],
       }),
 
