@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+Next
+
+### Fixed
+- `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
+
 ## 7.48.0 - 2020-03-05
 
 ### Fixed
