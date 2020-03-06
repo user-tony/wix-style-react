@@ -85,13 +85,10 @@ class CircularProgressBar extends React.PureComponent {
             Tooltip: () =>
               // TODO: convert to WSR Tooltip
               shouldLoadAsync
-                ? import('wix-ui-backoffice/dist/es/src/components/Tooltip')
-                : require('wix-ui-backoffice/Tooltip'),
+                ? import('../Tooltip/TooltipNext')
+                : require('../Tooltip/TooltipNext'),
           }}
           defaultComponent={ProgressBar}
-          namedExports={{
-            Tooltip: 'Tooltip',
-          }}
           shouldLoadComponent={this.props.error && errorMessage}
         >
           {({ Tooltip }) => {

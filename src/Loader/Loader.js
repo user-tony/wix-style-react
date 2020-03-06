@@ -149,24 +149,15 @@ class Loader extends React.PureComponent {
           loader={{
             Tooltip: () =>
               this.props.shouldLoadAsync
-                ? import('../Tooltip')
-                : require('../Tooltip'),
+                ? import('../Tooltip/TooltipNext')
+                : require('../Tooltip/TooltipNext'),
           }}
-          namedExports={
-            /* Remove when https://github.com/wix/wix-ui/pull/1352 will be merged */
-            {}
-          }
           defaultComponent={loader}
           shouldLoadComponent={statusMessage}
         >
           {({ Tooltip }) => {
             return (
-              <Tooltip
-                upgrade
-                appendTo="window"
-                dataHook="loader-tooltip"
-                content={statusMessage}
-              >
+              <Tooltip dataHook="loader-tooltip" content={statusMessage}>
                 {loader}
               </Tooltip>
             );

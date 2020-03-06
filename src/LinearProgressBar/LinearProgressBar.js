@@ -62,13 +62,10 @@ class LinearProgressBar extends React.PureComponent {
               Tooltip: () =>
                 // TODO: convert to WSR Tooltip
                 shouldLoadAsync
-                  ? import('wix-ui-backoffice/dist/es/src/components/Tooltip')
-                  : require('wix-ui-backoffice/Tooltip'),
+                  ? import('../Tooltip/TooltipNext')
+                  : require('../Tooltip/TooltipNext'),
             }}
             defaultComponent={<FormFieldError data-hook="wsr-error-icon" />}
-            namedExports={{
-              Tooltip: 'Tooltip',
-            }}
             shouldLoadComponent={Boolean(error && errorMessage)}
           >
             {({ Tooltip }) => {
