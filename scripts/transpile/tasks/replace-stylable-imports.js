@@ -2,7 +2,15 @@ const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
 
-const targetDir = path.resolve(__dirname, '..', 'dist/es/src');
+const targetDir = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'dist',
+  'es',
+  'src',
+);
 
 const STYLABLE_PATTERN = '/**/*.st.css';
 const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
@@ -29,17 +37,17 @@ const WRONG_PATHS = [
   },
 ];
 
-module.exports = () => {
-  const stylableFiles = glob.sync(targetDir + STYLABLE_PATTERN, {
-    ignore: [targetDir + STYLABLE_ES_PATTERN],
-  });
+const stylableFiles = glob.sync(targetDir + STYLABLE_PATTERN, {
+  ignore: [targetDir + STYLABLE_ES_PATTERN],
+});
 
+module.exports = function() {
   return Promise.all(
     stylableFiles.map(filepath => {
       return new Promise((resolve, reject) => {
         fs.readFile(filepath, 'utf-8', function(e, content) {
           if (e != null) {
-            reject();
+            reject(e);
             return;
           }
 
@@ -81,7 +89,7 @@ module.exports = () => {
 
           fs.writeFile(filepath, results, function(err) {
             if (err) {
-              reject();
+              reject(err);
               return;
             }
             resolve();
