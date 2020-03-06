@@ -212,6 +212,23 @@ describe('Table Action Cell', () => {
     );
   });
 
+  it('should allow to have no visible secondary actions', async () => {
+    const driver = createDriver(
+      <TableActionCell
+        {...primaryActionProps()}
+        {...secondaryActionsProps()}
+        numOfVisibleSecondaryActions={0}
+      />,
+    );
+
+    expect(driver.getVisibleActionsCount()).toEqual(0);
+
+    driver.clickPopoverMenu();
+    await eventually(async () =>
+      expect(await driver.getHiddenActionsCount()).toEqual(4),
+    );
+  });
+
   it('should mark the primary action as disabled', () => {
     const driver = createDriver(
       <TableActionCell {...primaryActionProps(() => {}, true)} />,

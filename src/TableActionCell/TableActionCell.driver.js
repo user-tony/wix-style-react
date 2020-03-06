@@ -74,7 +74,10 @@ const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
     getIsPrimaryActionButtonDisabled: () =>
       getPrimaryActionButtonDriver().isButtonDisabled(),
     /** Get the number of the visible secondary actions */
-    getVisibleActionsCount: () => getVisibleActionsWrapper().childElementCount,
+    getVisibleActionsCount: () => {
+      const wrapper = getVisibleActionsWrapper();
+      return wrapper ? wrapper.childElementCount : 0;
+    },
     /** Get the number of hidden secondary actions (in the <PopoverMenu/>, requires it to be open) */
     getHiddenActionsCount: () =>
       upgrade
