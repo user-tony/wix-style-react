@@ -4,6 +4,7 @@ import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
 import RichTextInputArea from '..';
 import richTextInputAreaPrivateDriverFactory from '../RichTextInputArea.private.uni.driver';
+import Box from '../../Box';
 
 const placeholderText = 'Default text goes here';
 const interactiveDataHook = 'interactive-richtextinputarea';
@@ -25,7 +26,11 @@ class InteractiveEyeTest extends React.Component {
   render() {
     const { componentDidMount, ...restProps } = this.props;
 
-    return <RichTextInputArea dataHook={interactiveDataHook} {...restProps} />;
+    return (
+      <Box marginTop={10}>
+        <RichTextInputArea dataHook={interactiveDataHook} {...restProps} />
+      </Box>
+    );
   }
 }
 

@@ -4,7 +4,7 @@ import X from 'wix-ui-icons-common/X';
 
 import styles from './RichTextInputAreaForm.scss';
 import { RichTextInputAreaContext } from '../RichTextInputAreaContext';
-import Tooltip from '../../Tooltip';
+import Tooltip from '../../Tooltip/TooltipNext';
 import Box from '../../Box';
 import IconButton from '../../IconButton';
 
@@ -18,34 +18,26 @@ class RichTextInputAreaForm extends React.PureComponent {
           <form data-hook={dataHook} onSubmit={onSubmit}>
             {children}
             <div className={styles.footer}>
-              <Tooltip
-                content={texts.insertionForm.cancelButtonLabel}
-                theme="dark"
-                appendToParent
-              >
+              <Tooltip content={texts.insertionForm.confirmButtonLabel}>
                 <IconButton
-                  dataHook="richtextarea-form-cancel-button"
-                  priority="secondary"
+                  dataHook="richtextarea-form-confirm-button"
+                  type="submit"
                   size="small"
-                  onClick={onCancel}
+                  onClick={onSubmit}
+                  disabled={isDisabled}
                 >
-                  <X />
+                  <Check />
                 </IconButton>
               </Tooltip>
-              <Box inline marginLeft={1}>
-                <Tooltip
-                  content={texts.insertionForm.confirmButtonLabel}
-                  theme="dark"
-                  appendToParent
-                >
+              <Box inline marginRight={1} marginLeft={1}>
+                <Tooltip content={texts.insertionForm.cancelButtonLabel}>
                   <IconButton
-                    dataHook="richtextarea-form-confirm-button"
-                    type="submit"
+                    dataHook="richtextarea-form-cancel-button"
+                    priority="secondary"
                     size="small"
-                    onClick={onSubmit}
-                    disabled={isDisabled}
+                    onClick={onCancel}
                   >
-                    <Check />
+                    <X />
                   </IconButton>
                 </Tooltip>
               </Box>

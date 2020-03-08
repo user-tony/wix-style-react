@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import TextAreaBold from 'wix-ui-icons-common/system/TextAreaBold';
 import TextAreaItalic from 'wix-ui-icons-common/system/TextAreaItalic';
 import TextAreaUnderline from 'wix-ui-icons-common/system/TextAreaUnderline';
@@ -7,7 +6,6 @@ import TextAreaLink from 'wix-ui-icons-common/system/TextAreaLink';
 import TextAreaBulletList from 'wix-ui-icons-common/system/TextAreaBulletList';
 import TextAreaNumberedList from 'wix-ui-icons-common/system/TextAreaNumberedList';
 
-import styles from './RichTextToolbar.scss';
 import RichTextToolbarButton from './RichTextToolbarButton';
 import RichTextToolbarLinkButton from './RichTextToolbarLinkButton';
 import { RichTextInputAreaContext } from '../RichTextInputAreaContext';
@@ -179,10 +177,7 @@ const RichTextToolbar = ({
         ];
 
         return (
-          <div
-            data-hook={dataHook}
-            className={classNames(className, styles.root)}
-          >
+          <div data-hook={dataHook} className={className}>
             {buttons.map(({ render, ...props }, index) => render(index, props))}
           </div>
         );
