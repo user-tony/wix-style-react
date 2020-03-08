@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import pick from '../../../utils/operators/pick';
-
-import withTooltip from '../withTooltip';
+import Text from '../../../Text';
 import * as TabPropTypes from '../constants/tab-prop-types';
 import styles from '../../Tabs.scss';
 
@@ -20,13 +19,7 @@ class TabItem extends React.Component {
   }
 
   render() {
-    const {
-      item,
-      onItemClick,
-      isActive,
-      initHasTooltip,
-      dynamicProperties,
-    } = this.props;
+    const { item, onItemClick, isActive, dynamicProperties } = this.props;
 
     const containerProps = {
       key: item.id,
@@ -37,8 +30,10 @@ class TabItem extends React.Component {
     };
 
     return (
-      <li {...containerProps} data-hook={item.dataHook}>
-        <span ref={el => initHasTooltip(el)}>{item.title}</span>
+      <li {...containerProps} data-hook={item.dataHook} ref={this.createRef}>
+        <Text className={styles.tabText} weight="normal" ellipsis>
+          {item.title}
+        </Text>
       </li>
     );
   }
@@ -51,8 +46,7 @@ TabItem.propTypes = {
   onItemClick: TabPropTypes.onClick,
   type: TabPropTypes.type,
   width: TabPropTypes.width,
-  initHasTooltip: PropTypes.func.isRequired,
   dynamicProperties: PropTypes.array,
 };
 
-export default withTooltip(TabItem);
+export default TabItem;

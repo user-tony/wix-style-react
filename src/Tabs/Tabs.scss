@@ -59,14 +59,17 @@
     }
   }
 
-  &:hover {
-    @include TextColor($link: true);
+  span.tabText:hover {
+    color: $B10;
   }
-}
 
-.active {
-  @include TextColor($link: true);
-  border-color: $B10;
+  &.active {
+    border-color: $B10;
+
+    span.tabText {
+      color: $B10;
+    }
+  }
 }
 
 .hasDivider {
