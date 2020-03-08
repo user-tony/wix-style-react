@@ -183,4 +183,5 @@ export { default as Selector } from './Selector';
 export { default as SidePanel } from './SidePanel';
 export { default as FontUpgrade } from './FontUpgrade';
 export { default as StatusIndicator } from './StatusIndicator';
-export { default as CustomModal } from './CustomModal';
+export { default as CustomModalLayout } from './CustomModalLayout';
+export { default as MessageModalLayout } from './MessageModalLayout';

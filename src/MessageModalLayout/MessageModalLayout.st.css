@@ -1,0 +1,141 @@
+:vars {
+  modalBoxPadding: 48px;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: B40, R40, P40, D80;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/border.st.css";
+  -st-named: radius08;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/shadows.st.css";
+  -st-named: shadow40;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12, spacing24, spacing30, spacing42;
+}
+
+.root {
+  -st-states: theme(enum(standard, premium, alert));;
+  background-color: value(D80);
+  position: relative;
+  display: flex;
+  max-height: calc(100% - (value(modalBoxPadding) * 2) );
+  border-radius: value(radius08);
+  box-shadow: value(shadow40);
+  overflow: hidden;
+}
+.illustrationContainer {
+  width: 180px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.root:theme(standard) .illustrationContainer {
+  background-color: value(B40);
+}
+.root:theme(alert) .illustrationContainer {
+  background-color: value(R40);
+}
+.root:theme(premium) .illustrationContainer {
+  background-color: value(P40);
+}
+
+.imageWrapper {
+  width: 120px;
+  height: 120px;
+  padding: value(spacing30);
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
+  -st-named: defaultScrollBar;
+}
+
+.contentWrapper {
+  height: 100%;
+  overflow-y: auto;
+  -st-mixin: defaultScrollBar;
+  padding: 0 value(spacing30);
+}
+
+/** Footer - start **/
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.buttons > :first-of-type:not(:last-of-type) {
+  margin-right: value(spacing12);
+}
+
+.sideActions {
+  margin-right: value(spacing12);
+}
+
+
+
+/* rtl */
+:global(.rtl) .buttons {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+:global(.rtl) .buttons > :first-of-type:not(:last-of-type) {
+  margin-left: value(spacing12);
+  margin-right: 0;
+}
+
+:global(.rtl) .sideActions {
+  margin-left: value(spacing12);
+  margin-right: 0;
+}
+
+/** Footer - end **/
+
+.footnote {
+  padding: value(spacing12) 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+/** Header - start **/
+.header
+{
+  padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
+}
+
+/** Header - end **/
+
+
+
+.closeButton {
+  position: absolute;
+  right: value(spacing12);
+  top: value(spacing12);
+}
+
+:global(.rtl) .closeButton {
+  left: value(spacing12);
+  right: unset;
+}
+
+
+.footerDivider {
+  display: none;
+}

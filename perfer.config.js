@@ -117,6 +117,9 @@ const files = [
   ['ToggleSwitch.bundle.min.js', 17],
   ['Tooltip.bundle.min.js', 40],
   ['SocialButton.bundle.min.js', 17],
+  ['BaseModalLayout.bundle.min.js', 20],
+  ['CustomModalLayout.bundle.min.js', 20],
+  ['MessageModalLayout.bundle.min.js', 20],
 ];
 
 module.exports = {

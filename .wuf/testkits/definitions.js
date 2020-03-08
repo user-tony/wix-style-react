@@ -32,6 +32,11 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
+  BaseModalLayout: {
+    skipSanityTest: true,
+    noTestkit: true,
+  },
+
   Table: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,

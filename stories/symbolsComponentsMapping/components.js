@@ -116,7 +116,7 @@ export const notificationsComponentsNames = {
 export const modalsComponentsNames = {
   MessageBoxFunctionalLayout: 'MessageBoxFunctionalLayout',
   Modal: 'Modal',
-  CustomModal: 'CustomModal',
+  CustomModalLayout: 'CustomModalLayout',
   MessageBoxMarketerialLayout: 'MessageBoxMarketerialLayout',
   ModalPreviewLayout: 'ModalPreviewLayout',
   ModalMobileLayout: 'ModalMobileLayout',

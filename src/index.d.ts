@@ -420,8 +420,8 @@ export * from './clients'
 export { default as StatusIndicator } from './StatusIndicator'
 export * from './StatusIndicator'
 
-export {default as CustomModal} from './CustomModal';
-export * from './CustomModal';
+export {default as CustomModalLayout} from './CustomModalLayout';
+export * from './CustomModalLayout';
 
 export {default as PopoverMenuNext} from './beta/PopoverMenu';
 export * from './beta/PopoverMenu';

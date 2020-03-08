@@ -290,7 +290,17 @@ export default {
     },
   },
 
-  CustomModal: {
+  CustomModalLayout: {
+    props: {
+      children: <div />,
+    },
+  },
+  BaseModalLayout: {
+    props: {
+      children: <div />,
+    },
+  },
+  MessageModalLayout: {
     props: {
       children: <div />,
     },

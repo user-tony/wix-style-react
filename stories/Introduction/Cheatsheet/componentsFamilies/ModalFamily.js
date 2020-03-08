@@ -25,7 +25,7 @@ import {
 import Modal from 'wix-style-react/Modal';
 import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';
 import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';
-import CustomModal from 'wix-style-react/CustomModal';
+import CustomModalLayout from 'wix-style-react/CustomModalLayout';
 
 //Assets
 import Button from 'wix-style-react/Button';
@@ -200,7 +200,7 @@ class ContentModalExample extends PureComponent {
   }
 }
 
-class CustomModalExample extends PureComponent {
+class CustomModalLayoutExample extends PureComponent {
   render() {
     const symbol = modalsSymbols.custom;
     const components = modalsSymbolsToComponents[symbol];
@@ -213,7 +213,7 @@ class CustomModalExample extends PureComponent {
     return (
       <SingleComponentSideBySide {...singleComponentProps}>
         <Box>
-          <CustomModal
+          <CustomModalLayout
             primaryButtonText="Save"
             secondaryButtonText="Cancel"
             title="New Product"
@@ -242,7 +242,7 @@ class CustomModalExample extends PureComponent {
                 </Col>
               </Row>
             </Container>
-          </CustomModal>
+          </CustomModalLayout>
         </Box>
       </SingleComponentSideBySide>
     );
@@ -459,7 +459,7 @@ const ModalMobileLayoutExample = () => {
 const ModalFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <AlertExamples />
-    <CustomModalExample />
+    <CustomModalLayoutExample />
     <ModalPreviewLayoutExample />
     <ModalMobileLayoutExample />
   </FamilyStructure>

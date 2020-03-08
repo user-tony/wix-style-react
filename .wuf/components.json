@@ -458,10 +458,19 @@
   "FontUpgrade": {
     "path": "src/FontUpgrade"
   },
-  "CustomModal": {
-    "path": "src/CustomModal"
+  "CustomModalLayout": {
+    "path": "src/CustomModalLayout"
   },
   "StatusIndicator": {
     "path": "src/StatusIndicator"
+  },
+  "BaseModalLayout": {
+    "path": "src/BaseModalLayout",
+    "missingFiles": [
+      "docs"
+    ]
+  },
+  "MessageModalLayout": {
+    "path": "src/MessageModalLayout"
   }
 }
