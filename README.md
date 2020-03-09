@@ -115,9 +115,9 @@ Our testkits currently support four major testing frameworks: `react-jsdom`, `pr
 
 ## ⌨️ Typescript
 
-The library is javascript based but types are supported with `d.ts` files. Not all components have types defined, but it is ongoing process to make it so. 
-
-Additional type interfaces are added in a separate repo called: `wsr-types` in order not to break our existing users. Read more on the repo description: https://github.com/wix/wix-ui/tree/master/packages/wsr-types
+The library is javascript based but types are supported with `d.ts` files. 
+You should get the types automatically when installing `wix-style-react`.
+For any issues, check out our types [FAQ](https://github.com/wix/wix-style-react/blob/master/docs/FAQ/TYPES.MD)
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
