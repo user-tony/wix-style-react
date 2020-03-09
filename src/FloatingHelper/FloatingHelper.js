@@ -67,7 +67,6 @@ class FloatingHelper extends React.Component {
     return (
       <ClosablePopover
         {...closablePopoverProps}
-        hideDelay={500}
         ref={ref => (this.closablePopoverRef = ref)}
         {...styles('root', {}, this.props)}
       />
@@ -122,7 +121,7 @@ FloatingHelper.propTypes = {
   /** Floating helper z-index */
   zIndex: PropTypes.number,
   /** Set a delay on closing */
-  hideDelay: number,
+  hideDelay: PropTypes.number,
 };
 
 FloatingHelper.defaultProps = {

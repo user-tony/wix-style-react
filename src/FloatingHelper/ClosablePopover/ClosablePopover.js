@@ -77,6 +77,7 @@ class ClosablePopover extends PureComponent {
       onOpen,
       initiallyOpened,
       closeOnMouseLeave,
+      hideDelay,
       ...rest
     } = this.props;
 
@@ -84,6 +85,7 @@ class ClosablePopover extends PureComponent {
 
     const popoverProps = {
       ...rest,
+      timeout: 0,
       theme: appearance,
       shown: open,
       onMouseEnter: this._handleMouseEnter,
@@ -104,7 +106,7 @@ class ClosablePopover extends PureComponent {
 }
 
 ClosablePopover.defaultProps = {
-  timeout: 150,
+  hideDelay: 0,
   initiallyOpened: true,
   closeOnMouseLeave: true,
 };

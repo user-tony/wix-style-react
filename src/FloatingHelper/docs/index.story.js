@@ -1,134 +1,153 @@
-import * as React from 'react';
+import React from 'react';
 import FloatingHelper from '..';
+import { placementOptions } from '../constants';
 import Image from 'wix-ui-icons-common/Image';
-
 import { storySettings } from '../test/storySettings';
-import { storySettings as helperStorySettings } from '../FloatingHelperContent/docs/storySettings';
+import LinkTo from '@storybook/addon-links/react';
+import * as examples from './examples';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  title,
+  importExample,
+  columns,
+  divider,
+  example as baseExample,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
 
-import CodeExample from 'wix-storybook-utils/CodeExample';
+import allComponents from '../../../stories/utils/allComponents';
+import { Category } from '../../../stories/storiesHierarchy';
 
-import { SimpleExample } from './SimpleExample';
-import SimpleExampleRaw from '!raw-loader!./SimpleExample';
+const example = config => baseExample({ components: allComponents, ...config });
 
-import { FullExample } from './FullExample';
-import FullExampleRaw from '!raw-loader!./FullExample';
+const componentProps = {
+  dataHook: storySettings.dataHook,
+  content: (
+    <FloatingHelper.Content
+      title="Don’t forget to setup payments"
+      body="In order to sell your music you need to choose a payment method."
+    />
+  ),
+  target: <span>I am a FloatingHelper target</span>,
+  placement: 'right',
+  initiallyOpened: true,
+};
 
-import { ProgrammaticExample } from './ProgrammaticExample';
-import ProgrammaticExampleRaw from '!raw-loader!./ProgrammaticExample';
+const exampleProps = {
+  placement: Object.values(placementOptions),
 
-import { ControlledExample } from './ControlledExample';
-import ControlledExampleRaw from '!raw-loader!./ControlledExample';
+  target: [
+    { label: 'Simple text', value: 'I am simple text target' },
+    { label: 'Simple span', value: <span>I am a span target</span> },
+  ],
 
-const exampleWrapperStyle = { marginTop: 100, marginBottom: 100 };
+  content: [
+    {
+      label: 'with title & body only',
+      value: (
+        <FloatingHelper.Content
+          title="Don’t forget to setup payments"
+          body="In order to sell your music you need to choose a payment method."
+        />
+      ),
+    },
+    {
+      label: 'with all items',
+      value: (
+        <FloatingHelper.Content
+          title="Don’t forget to setup payments"
+          body="In order to sell your music you need to choose a payment method."
+          actionText="Ok, Take Me There"
+          onActionClick={() => null}
+          image={<Image width="102" height="102" />}
+        />
+      ),
+    },
+  ],
+};
 
 export default {
   category: storySettings.category,
   storyName: storySettings.story,
   component: FloatingHelper,
   componentPath: '..',
+  componentProps,
+  exampleProps,
 
-  componentProps: {
-    'data-hook': storySettings.dataHook,
-    content: (
-      <FloatingHelper.Content
-        title="Don’t forget to setup payments"
-        body="In order to sell your music you need to choose a payment method."
-      />
-    ),
-    target: <span>I am a FloatingHelper target</span>,
-    placement: 'right',
-    initiallyOpened: true,
-  },
+  sections: [
+    header({
+      title: '<FloatingHelper/>',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/FloatingHelper/FloatingHelper.js',
+    }),
 
-  exampleProps: {
-    placement: [
-      'auto-start',
-      'auto',
-      'auto-end',
-      'top-start',
-      'top',
-      'top-end',
-      'right-start',
-      'right',
-      'right-end',
-      'bottom-end',
-      'bottom',
-      'bottom-start',
-      'left-end',
-      'left',
-      'left-start',
-    ],
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text: [
+                'This is a Popover helper component. Note that the "content" prop should receive the ',
+                <LinkTo
+                  kind={Category.COMPONENTS}
+                  story="FloatingHelper.Content"
+                >{`<FloatingHelper.Content/>`}</LinkTo>,
+                ' component.',
+              ],
+            }),
+          ]),
 
-    target: [
-      { label: 'Simple text', value: 'I am simple text target' },
-      { label: 'Simple span', value: <span>I am a span target</span> },
-    ],
+          columns([
+            importExample(
+              "import FloatingHelper from 'wix-style-react/FloatingHelper';",
+            ),
+          ]),
 
-    content: [
-      {
-        label: 'with title & body only',
-        value: (
-          <FloatingHelper.Content
-            title="Don’t forget to setup payments"
-            body="In order to sell your music you need to choose a payment method."
-          />
-        ),
-      },
+          divider(),
 
-      {
-        label: 'with all items',
-        value: (
-          <FloatingHelper.Content
-            title="Don’t forget to setup payments"
-            body="In order to sell your music you need to choose a payment method."
-            actionText="Ok, Take Me There"
-            onActionClick={() => null}
-            image={<Image width="102" height="102" />}
-          />
-        ),
-      },
-    ],
-  },
+          title('Examples'),
 
-  examples: (
-    <div>
-      <p style={{ fontSize: 20 }}>
-        The content property should receive a {`<FloatingHelper.Content>`}{' '}
-        element.
-        <br />
-        See story:
-        <br />
-        <p style={{ fontSize: 25, fontWeight: 'bold' }}>
-          {helperStorySettings.storyName}
-        </p>
-      </p>
+          example({
+            title: 'Simple Example',
+            source: examples.simpleExample,
+          }),
 
-      <CodeExample title="Simple Example" code={SimpleExampleRaw}>
-        <div style={exampleWrapperStyle}>
-          <SimpleExample />
-        </div>
-      </CodeExample>
+          example({
+            title: 'Full Example',
+            text: `A full example with an action button and an image.`,
+            source: examples.fullExample,
+          }),
 
-      <CodeExample title="Full Example" code={FullExampleRaw}>
-        <div style={exampleWrapperStyle}>
-          <FullExample />
-        </div>
-      </CodeExample>
+          example({
+            title: 'Programmatic Open Example (Uncontrolled mode)',
+            text:
+              'In `Uncontrolled` mode, the default behavior is that the popover content is opened when mouse-enter is triggered on the target and closes when the close button is clicked. This option is not recommended but is still supported for backward compatibility.',
+            source: examples.programmaticExample,
+          }),
 
-      <CodeExample
-        title="Programmatic Open Example"
-        code={ProgrammaticExampleRaw}
-      >
-        <div style={exampleWrapperStyle}>
-          <ProgrammaticExample />
-        </div>
-      </CodeExample>
+          example({
+            title: 'Controlled Example',
+            source: examples.controlledExample,
+          }),
+          example({
+            title: 'Appearances',
+            text:
+              '`<FloatingHelper/>` has two appearances: `dark` (default) and `light`.',
+            source: examples.appearance,
+          }),
+        ],
+      }),
 
-      <CodeExample title="Controlled Example" code={ControlledExampleRaw}>
-        <div style={exampleWrapperStyle}>
-          <ControlledExample />
-        </div>
-      </CodeExample>
-    </div>
-  ),
+      tab({ title: 'API', sections: [api()] }),
+      tab({ title: 'Testkit', sections: [testkit()] }),
+      tab({ title: 'Playground', sections: [playground()] }),
+    ]),
+  ],
 };
