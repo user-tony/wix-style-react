@@ -19,10 +19,12 @@ Types of changes:
 ### Added
 
 - `<CustomModalLayout/>` - New component [#5132](https://github.com/wix/wix-style-react/pull/5132)
+- `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5141](https://github.com/wix/wix-style-react/pull/5141)
 
 ### Fixed
 - `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
 - `<Table/>` - fix `virtualized` table with `showSelection` [#5069](https://github.com/wix/wix-style-react/pull/5069)
+
 
 ## 7.48.0 - 2020-03-05
 
