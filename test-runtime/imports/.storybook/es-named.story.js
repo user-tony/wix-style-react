@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import componentsMeta from '../../../.wuf/components.json';
-import DEFINITIONS from '../../../testkit/component-definitions';
+import DEFINITIONS from './component-definitions';
 import { Layout, Cell } from '../../../';
 import { Box } from '../../../';
 import * as wsr from '../../../';

@@ -9,20 +9,24 @@ const tasks = [
   {
     task: () => require('./tasks/transpile-copy-files'),
     folder: 'testkit',
-    description: 'transpiled testkit => dist/testkit',
+    description: '** testkit => dist/testkit',
   },
   {
     task: () => require('./tasks/transpile-copy-files'),
     folder: 'test',
-    description: 'transpiled testkit => dist/testkit',
+    description: '** testkit => dist/testkit',
   },
   {
     task: () => require('./tasks/transpile-src'),
-    description: 'transpiled src => dist/src',
+    description: '.js src => dist/src',
+  },
+  {
+    task: () => require('./tasks/patch-ssr-stylable'),
+    description: '.st.css patch ssr',
   },
   {
     task: () => require('./tasks/replace-stylable-imports'),
-    description: 'stylable /dist/src => /dist/es/src',
+    description: '.st.css /dist/src => /dist/es/src',
   },
 ];
 

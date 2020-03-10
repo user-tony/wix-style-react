@@ -18,7 +18,7 @@ const files = [
   ['CardGalleryItem.bundle.min.js', 65],
   ['Carousel.bundle.min.js', 68],
   ['Checkbox.bundle.min.js', 44],
-  ['CircularProgressBar.bundle.min.js', 35],
+  ['CircularProgressBar.bundle.min.js', 36],
   ['CloseButton.bundle.min.js', 15],
   ['Collapse.bundle.min.js', 9],
   ['ColorInput.bundle.min.js', 81],
