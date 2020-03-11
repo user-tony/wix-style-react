@@ -41,7 +41,7 @@ import Button from 'wix-style-react/Button';
 
 You may receive an error like this one: `TypeError: (0 , _TextSt2.default) is not a function`.
 
-In that case, ensure your generated `index.js` invokes `attachHook` from `@stylable/node`:
+In that case, ensure your generated `index.js` invokes [`attachHook`](https://stylable.io/docs/guides/server-side-rendering) from `@stylable/node`:
 
 ```diff
 modified: my-generated-project/index.js
