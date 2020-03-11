@@ -18,7 +18,6 @@ Types of changes:
 
 ### Added
 
-- `<CustomModalLayout/>` - New component [#5132](https://github.com/wix/wix-style-react/pull/5132)
 - `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5141](https://github.com/wix/wix-style-react/pull/5141)
 - `<FloatingHelper/>` - adding unidriver and d.ts files for both `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5152](https://github.com/wix/wix-style-react/pull/5152).  
 
