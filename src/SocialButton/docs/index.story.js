@@ -35,7 +35,14 @@ export default {
   },
 
   exampleProps: {
-    icon: ['facebook', 'instagram', 'twitter', 'linkedin', 'pinterest'],
+    icon: [
+      'facebook',
+      'instagram',
+      'twitter',
+      'linkedin',
+      'pinterest',
+      'youtube',
+    ],
   },
 
   sections: [
@@ -75,7 +82,7 @@ export default {
           example({
             title: 'Social Icons',
             text:
-              'Component supports: Facebook, Twitter, LinkedIn, Instagram, Pinterest.',
+              'Component supports: Facebook, Twitter, LinkedIn, Instagram, Pinterest, Youtube.',
             source: examples.icons,
           }),
           example({

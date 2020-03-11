@@ -18,6 +18,7 @@ export const icons = `
   <SocialButton  icon="linkedin" />
   <SocialButton  icon="instagram" />
   <SocialButton  icon="pinterest" />
+  <SocialButton  icon="youtube" />
 </Layout>
 `;
 
@@ -28,6 +29,7 @@ export const disabled = `
   <SocialButton  icon="linkedin" disabled />
   <SocialButton  icon="instagram" disabled />
   <SocialButton  icon="pinterest" disabled />
+  <SocialButton  icon="youtube" disabled />
 </Layout>
 `;
 
@@ -39,5 +41,6 @@ export const interactive = `
   <SocialButton  icon="linkedin" disabled />
   <SocialButton  icon="instagram" disabled />
   <SocialButton  icon="pinterest" disabled />
+  <SocialButton  icon="youtube" disabled />
 </Layout>
 `;

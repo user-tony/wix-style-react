@@ -5,6 +5,7 @@ export type SocialButtonIcons =
   | 'instagram'
   | 'twitter'
   | 'pinterest'
+  | 'youtube'
   | 'linkedin';
 
 

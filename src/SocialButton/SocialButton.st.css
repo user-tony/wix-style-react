@@ -19,6 +19,7 @@
   linkedin: #0065c8;
   instagram: #ff0175;
   pinterest: #e60019;
+  youtube: #ff0000;
 }
 
 .root {
@@ -129,4 +130,13 @@
 }
 .icon:not(:disabled):type(pinterest):hover {
   background-color: calc_rgba(value(pinterest), 0.8);
+}
+
+/** Youtube */
+
+.icon:not(:disabled):type(youtube) {
+  background-color: value(youtube);
+}
+.icon:not(:disabled):type(youtube):hover {
+  background-color: calc_rgba(value(youtube), 0.8);
 }

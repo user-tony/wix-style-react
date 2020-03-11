@@ -4,6 +4,7 @@ import FacebookIcon from 'wix-ui-icons-common/system/SocialButtonFacebook';
 import InstagramIcon from 'wix-ui-icons-common/system/SocialButtonInstagram';
 import LinkedInIcon from 'wix-ui-icons-common/system/SocialButtonLinkedIn';
 import PinterestIcon from 'wix-ui-icons-common/system/SocialButtonPinterest';
+import YoutubeIcon from 'wix-ui-icons-common/system/SocialButtonYoutube';
 import TwitterIcon from 'wix-ui-icons-common/system/SocialButtonTwitter';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 
@@ -17,6 +18,7 @@ const iconMap = {
   twitter: TwitterIcon,
   linkedin: LinkedInIcon,
   pinterest: PinterestIcon,
+  youtube: YoutubeIcon,
 };
 
 const Icon = React.memo(props => {
@@ -78,6 +80,7 @@ SocialButton.propTypes = {
     'twitter',
     'linkedin',
     'pinterest',
+    'youtube',
   ]),
 
   /** Disable button */
