@@ -1,28 +1,33 @@
 import React from 'react';
-import { node, bool, string, func, oneOf, oneOfType, object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Input from '../Input';
 import { Hash } from './components/Hash';
 import { ColorViewer } from './components/ColorViewer';
 
 import { validateHex, normalizeHexInput } from './hex-helpers';
+import deprecationLog from '../utils/deprecationLog';
 
 class ColorInput extends React.Component {
   static displayName = 'ColorInput';
 
   static propTypes = {
     /** placeholder to display */
-    placeholder: string,
+    placeholder: PropTypes.string,
     /** when set to true this component is disabled */
-    disabled: bool,
-    /** sets error state */
-    error: bool,
-    /** error message which appears in tooltip */
-    errorMessage: node,
+    disabled: PropTypes.bool,
+    /** Sets UI to indicate a status */
+    status: PropTypes.oneOf(['error', 'warning', 'loading']),
+    /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
+    statusMessage: PropTypes.node,
+    /** @deprecated - use status prop instead */
+    error: PropTypes.bool,
+    /** @deprecated - use statusMessage prop instead */
+    errorMessage: PropTypes.node,
     /** input size */
-    size: oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     /** colorpicker popover placement */
-    popoverPlacement: oneOf([
+    popoverPlacement: PropTypes.oneOf([
       'auto-start',
       'auto',
       'auto-end',
@@ -40,23 +45,28 @@ class ColorInput extends React.Component {
       'left-start',
     ]),
     /** colorpicker popover calculation to a dom element */
-    popoverAppendTo: oneOf(['window', 'scrollParent', 'viewport', 'parent']),
+    popoverAppendTo: PropTypes.oneOf([
+      'window',
+      'scrollParent',
+      'viewport',
+      'parent',
+    ]),
     /** input value */
-    value: string.isRequired,
+    value: PropTypes.string.isRequired,
     /** returns confirmed value */
-    onConfirm: func,
+    onConfirm: PropTypes.func,
     /** returns last confirmed value which is from user prop - value */
-    onCancel: func,
+    onCancel: PropTypes.func,
     /** returns either input's or colorpicker's changed value */
-    onChange: func,
+    onChange: PropTypes.func,
     /** Children to render in <ColorPicker /> component */
-    colorPickerChildren: oneOfType([node, func]),
+    colorPickerChildren: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     /** Callback called with color `hex` string when add color button pressed */
-    onAddColor: func,
+    onAddColor: PropTypes.func,
     /** Content to show in color picker add button tooltip */
-    addTooltipContent: node,
+    addTooltipContent: PropTypes.node,
     /** Popover props */
-    popoverProps: object,
+    popoverProps: PropTypes.object,
   };
 
   static defaultProps = {
@@ -78,6 +88,12 @@ class ColorInput extends React.Component {
       previous: props.value,
       value: '',
     };
+
+    if (props.error || props.errorMessage) {
+      deprecationLog(
+        'Both error and errorMessage props are deprecated. Please use status and statusMessage',
+      );
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -179,14 +195,22 @@ class ColorInput extends React.Component {
   };
 
   render() {
-    const { placeholder, errorMessage, size, ...rest } = this.props;
+    const {
+      placeholder,
+      errorMessage,
+      statusMessage,
+      status,
+      error,
+      size,
+      ...rest
+    } = this.props;
     const { active, value } = this.state;
     return (
       <Input
         {...rest}
         ref={input => (this.input = input)}
-        status={this.props.error ? 'error' : undefined}
-        statusMessage={errorMessage}
+        status={status || (error ? 'error' : undefined)}
+        statusMessage={statusMessage || errorMessage}
         placeholder={active ? '' : placeholder}
         size={size}
         onKeyDown={this._keyDown}

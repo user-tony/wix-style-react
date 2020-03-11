@@ -3,8 +3,8 @@ import inputUniDriverFactory from '../Input/Input.uni.driver.js';
 import { colorPickerUniDriverFactory } from '../ColorPicker/ColorPicker.uni.driver.js';
 import DATA_HOOKS from './DataHooks';
 
-export const colorInputDriverFactory = base => {
-  const inputTestkit = inputUniDriverFactory(base);
+export const colorInputDriverFactory = (base, body) => {
+  const inputTestkit = inputUniDriverFactory(base, body);
   const colorPickerTestkit = colorPickerUniDriverFactory(
     base.$(`[data-hook="${DATA_HOOKS.COLOR_INPUT_COLOR_PICKER}"]`),
   );
@@ -31,7 +31,7 @@ export const colorInputDriverFactory = base => {
     /** Returns the input value */
     getValue: () => inputTestkit.getValue(),
 
-    /** Returns whether there is an error */
+    /** @deprecated - use hasStatus and getStatus instead */
     hasError: () => inputTestkit.hasError(),
 
     /** Returns the placeholder of the input */
@@ -48,6 +48,17 @@ export const colorInputDriverFactory = base => {
 
     /** Clicks on input */
     click: () => inputTestkit.click(),
+
+    // TOOD - uncomment in wsr8
+    // Status
+    // /** Return true if there's a status */
+    // hasStatus: inputTestkit.hasStatus,
+    // /** If there's a status, returns its type */
+    // getStatus: inputTestkit.getStatus,
+    // /** Return true if there's a status message */
+    // hasStatusMessage: inputTestkit.hasStatusMessage,
+    // /** If there's a status message, returns its text value */
+    // getStatusMessage: inputTestkit.getStatusMessage,
   };
 };
 

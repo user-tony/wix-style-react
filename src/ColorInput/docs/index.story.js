@@ -120,7 +120,7 @@ export default {
 
           example({
             title: 'Error, Null and Disabled',
-            text: 'ColorInput has `error`, `null` and `disabled` states.',
+            text: 'ColorInput has `status`, `null` and `disabled` states.',
             source: examples.states,
           }),
 
