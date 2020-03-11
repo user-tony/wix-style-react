@@ -18,8 +18,9 @@ Types of changes:
 
 ### Added
 
-- `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5141](https://github.com/wix/wix-style-react/pull/5141)
-- `<FloatingHelper/>` - adding unidriver and d.ts files for both `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5152](https://github.com/wix/wix-style-react/pull/5152).  
+- `<ColorInput/>` - added status & statusMessage props [#5166](https://github.com/wix/wix-style-react/pull/5166)
+- `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>` [#5141](https://github.com/wix/wix-style-react/pull/5141)
+- `<FloatingHelper/>` - adding unidriver and d.ts files for both `<FloatingHelper/>` and `<FloatingHelper.Content/>` [#5152](https://github.com/wix/wix-style-react/pull/5152).  
 
 ### Fixed
 - `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
