@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 export interface TagProps {
-  children: string;
   disabled?: boolean;
   id: string;
   onClick?: (id: string, event: React.MouseEvent<HTMLButtonElement>) => void;
