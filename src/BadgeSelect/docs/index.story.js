@@ -1,10 +1,7 @@
 import React from 'react';
 import BadgeSelect from '..';
-import {
-  SKIN,
-  TYPE,
-  SIZE,
-} from 'wix-ui-backoffice/dist/src/components/Badge/constants';
+import { SKIN, TYPE, SIZE } from '../../Badge/constants';
+
 import { storySettings } from './storySettings';
 
 import CodeExample from 'wix-storybook-utils/CodeExample';

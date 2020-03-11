@@ -1,1 +1,19 @@
-export {BadgeDriver} from 'wix-ui-backoffice/dist/src/components/Badge/Badge.driver';
+import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
+
+export type Skin = 'general' | 'standard' | 'danger' | 'success' | 'neutral' | 'warning' | 'urgent'  | 'neutralStandard' | 'neutralSuccess' | 'nutralDanger' | 'premium';
+export type Type = 'solid' | 'outlined' | 'transparent';
+export type Size = 'medium' | 'small';
+
+export interface BadgeDriver extends BaseDriver{
+  exists(): boolean;
+  getContent(): string;
+  text(): string;
+  getType(): Type;
+  getSkin():Skin;
+  getSize(): Size;
+  isUppercase(): boolean;
+  hasClickCursor(): boolean;
+  getPrefixIcon(): Element | null;
+  getSuffixIcon(): Element | null;
+  click(): void;
+}
