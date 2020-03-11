@@ -1,7 +1,7 @@
 export const dataHooks = {
-  innerContent: 'inner-content',
-  closeButton: 'close-button',
-  contentWrapper: 'content-wrapper',
+  innerContent: 'floating-helper-inner-content',
+  closeButton: 'floating-helper-close-button',
+  contentWrapper: 'floating-helper-content-wrapper',
 };
 
 export const floatingHelperAppearance = {

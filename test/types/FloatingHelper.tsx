@@ -15,9 +15,19 @@ function FloatingHelperWithMandatoryProps() {
 function FloatingHelperWithAllProps() {
   return (
     <FloatingHelper
+      dataHook='floating-helper-data-hook'
       width={12}
       target={<div />}
-      content={<div />}
+      content={<FloatingHelper.Content
+        body="hello"
+        title="title"
+        actionText="action text"
+        actionTheme="standard"
+        appearance="dark"
+        footer={<div />}
+        image={<div />}
+        onActionClick={() => {}}
+      />}
       onClose={() => {}}
       placement="auto"
       appearance="dark"
@@ -28,18 +38,7 @@ function FloatingHelperWithAllProps() {
       opened
       appendTo="viewport"
       onOpen={() => {}}
-    >
-      <FloatingHelper.Content
-        body="hello"
-        title="title"
-        actionText="action text"
-        actionTheme="standard"
-        appearance="dark"
-        footer={<div />}
-        image={<div />}
-        onActionClick={() => {}}
-      />
-    </FloatingHelper>
+    />
   );
 }
 
