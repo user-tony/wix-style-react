@@ -16,18 +16,25 @@ Types of changes:
 
 ## Next
 
+
+## 7.49.0 - 2020-03-11
+
 ### Added
 
+- `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5141](https://github.com/wix/wix-style-react/pull/5141)
+- `<FloatingHelper/>` - adding unidriver and d.ts files for both `<FloatingHelper/>` and `<FloatingHelper.Content/>`[#5152](https://github.com/wix/wix-style-react/pull/5152).
+- `<SocialButton/>` - add `youtube` as an option for `skin` prop [#5165](https://github.com/wix/wix-style-react/pull/5165)
+- `<FloatingNotification/>` - add `dark` type to types [#5163](https://github.com/wix/wix-style-react/pull/5163)
+
+### Changed
+- `<Tag/>` - allow any type for children [#5160](https://github.com/wix/wix-style-react/pull/5160)
 - `<ColorInput/>` - added status & statusMessage props [#5166](https://github.com/wix/wix-style-react/pull/5166)
-- `<FloatingHelper/>` - new component stories for `<FloatingHelper/>` and `<FloatingHelper.Content/>` [#5141](https://github.com/wix/wix-style-react/pull/5141)
-- `<FloatingHelper/>` - adding unidriver and d.ts files for both `<FloatingHelper/>` and `<FloatingHelper.Content/>` [#5152](https://github.com/wix/wix-style-react/pull/5152).  
 
 ### Fixed
 - `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
 - `<Table/>` - fix `virtualized` table with `showSelection` [#5069](https://github.com/wix/wix-style-react/pull/5069)
 - SSR support - patch stylable to unify classnames [#5161](https://github.com/wix/wix-style-react/pull/5161)
-- `<SocialButton/>` - add `youtube` as an option for `skin` prop [#5165](https://github.com/wix/wix-style-react/pull/5165)
-
+- `<Tag/>` - fix types for `onClick` prop [#5162](https://github.com/wix/wix-style-react/pull/5162)
 
 ## 7.48.0 - 2020-03-05
 
