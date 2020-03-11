@@ -39,6 +39,7 @@ require('../src/ComposerHeader/docs/index.story');
 require('../src/ContactItemBuilder/docs');
 require('../src/CounterBadge/docs/index.story');
 require('../src/CustomModalLayout/docs/index.story');
+require('../src/MessageModalLayout/docs/index.story');
 require('../src/DataTable/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/DatePicker/docs/index.story');
@@ -183,8 +184,7 @@ require('./Tooltip/index.story'); // 7.1 Tooltip
 require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
-require('../src/MessageModalLayout/docs/index.story'); // 9.2 Message Modal
-require('../src/CustomModalLayout/docs/design.story'); // 9.3 Custom Modal
+// require('../src/CustomModalLayout/docs/design.story'); // 9.3 Custom Modal (WIP)
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('../src/MessageBox/docs');
 

@@ -1,4 +1,4 @@
-//Reflecting the symbol groups as described in UX Sketch
+// Reflecting the symbol groups as described in UX Sketch
 export const symbolsGroup = {
   foundation: '1. Foundation',
   layout: '2. Layout',
@@ -116,8 +116,8 @@ export const notificationsSymbols = {
 export const modalsSymbols = {
   alert: '9.1 Alert',
   content: '9.2 Content',
-  custom: '9.3 Custom Modal',
-  marketing: '9.3 (Deprecated) Marketing',
+  marketing: '9.3 Marketing Modal',
+  // marketing: '9.3 (Deprecated) Marketing',
   preview: '9.4 Preview',
   mobile: '9.5 Mobile Modal',
 };

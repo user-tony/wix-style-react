@@ -17,7 +17,7 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//9. Modals
+// 9. Modals
 import {
   MessageBoxFunctionalLayout,
   MessageBoxMarketerialLayout,
@@ -27,7 +27,7 @@ import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';
 import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';
 import CustomModalLayout from 'wix-style-react/CustomModalLayout';
 
-//Assets
+// Assets
 import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
 import Text from 'wix-style-react/Text';
@@ -459,7 +459,9 @@ const ModalMobileLayoutExample = () => {
 const ModalFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <AlertExamples />
-    <CustomModalLayoutExample />
+    {/* <CustomModalLayoutExample />*/}
+    <ContentModalExample />
+    <MarketingExample />
     <ModalPreviewLayoutExample />
     <ModalMobileLayoutExample />
   </FamilyStructure>

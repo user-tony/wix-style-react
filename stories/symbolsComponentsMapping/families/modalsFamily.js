@@ -15,7 +15,7 @@ export const modalsSymbolsToComponents = {
     componentsNames.Modal,
   ],
   [modalsSymbols.custom]: [
-    componentsNames.CustomModalLayout,
+    componentsNames.MessageBoxFunctionalLayout,
     componentsNames.Modal,
   ],
   [modalsSymbols.marketing]: [componentsNames.MessageBoxMarketerialLayout],
