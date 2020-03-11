@@ -25,6 +25,7 @@ Types of changes:
 - `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
 - `<Table/>` - fix `virtualized` table with `showSelection` [#5069](https://github.com/wix/wix-style-react/pull/5069)
 - SSR support - patch stylable to unify classnames [#5161](https://github.com/wix/wix-style-react/pull/5161)
+- `<SocialButton/>` - add `youtube` as an option for `skin` prop [#5165](https://github.com/wix/wix-style-react/pull/5165)
 
 
 ## 7.48.0 - 2020-03-05
