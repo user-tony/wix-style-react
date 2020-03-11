@@ -25,7 +25,8 @@ export type FloatingNotificationType =
   | 'destructive'
   | 'warning'
   | 'premium'
-  | 'preview';
+  | 'preview'
+  | 'dark';
 
 export type FloatingNotificationButtonProps = ButtonWithAsProp<{
   label?: React.ReactNode;
