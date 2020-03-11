@@ -4,7 +4,7 @@ export interface TagProps {
   children: string;
   disabled?: boolean;
   id: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (id: string, event: React.MouseEvent<HTMLButtonElement>) => void;
   onRemove?: (id: string) => void;
   removable?: boolean;
   size?: TagSize;
