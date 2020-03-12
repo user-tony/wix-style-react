@@ -29,6 +29,7 @@ export const layoutSymbols = {
   pageLayout: '2.1 Page Layout',
   cardLayout: '2.2 Card Layout',
   tableLayout: '2.3 Table Layout',
+  sidePanel: '2.4 Side Panel',
 };
 
 /**
@@ -77,6 +78,8 @@ export const buttonsSymbols = {
   textButton: '5.3 Text Button',
   closeButton: '5.4 Close Button',
   addItem: '5.5 Add Item',
+  toggleButton: '5.6 Toggle Button',
+  socialButton: '5.6 Social Button',
 };
 
 /**
@@ -89,6 +92,8 @@ export const navigationSymbols = {
   verticalTabs: '6.4 Vertical Tabs',
   topBar: '6.5 Top Bar',
   stepper: '6.6 Stepper',
+  composerHeader: '6.7 Composer Header',
+  composerSidebar: '6.8 Composer Sidebar',
 };
 
 /**
@@ -146,7 +151,9 @@ export const otherSymbols = {
   loader: '11.6 Loader',
   linearProgressBar: '11.7 Linear Progress Bar',
   circularProgressBar: '11.8 Circular Progress Bar',
-  image: '11.9 Image',
+  skeleton: '11.9 Skeleton',
+  image: '11.10 Image',
+  palette: '11.11 Palette',
 };
 
 /**
@@ -162,4 +169,6 @@ export const contentWidgetsSymbols = {
   preview: '12.7 Preview',
   omniSetup: '12.8 Omni Setup',
   marketingCardLayout: '12.9 Marketing Card Layout',
+  barChart: '12.10 Bar Chart',
+  arenaChart: '12.11 Arena Chart',
 };

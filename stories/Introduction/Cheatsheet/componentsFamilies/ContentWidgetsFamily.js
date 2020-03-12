@@ -17,7 +17,7 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//Assets
+// Assets
 import Text from 'wix-style-react/Text';
 import Box from 'wix-style-react/Box';
 import CardGalleryItem from 'wix-style-react/CardGalleryItem';
@@ -39,6 +39,7 @@ import PreviewWidget from 'wix-style-react/PreviewWidget';
 import MobilePreviewWidget from 'wix-style-react/MobilePreviewWidget';
 import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';
 import MarketingLayout from 'wix-style-react/MarketingLayout';
+import BarChart from 'wix-style-react/BarChart';
 
 const groupSymbol = symbolsGroup.contentWidgets;
 
@@ -513,6 +514,57 @@ const MarketingLayoutCardExample = () => {
   );
 };
 
+const BarChartExample = () => {
+  const symbol = contentWidgetsSymbols.barChart;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <BarChart
+        items={[
+          {
+            value: 25000,
+            label: '$25,000',
+            description: 'Sales',
+          },
+          {
+            value: 48000,
+            label: '$48,000',
+            description: 'Subscription',
+          },
+          {
+            value: 42000,
+            label: '$42,000',
+            description: 'Ads',
+          },
+        ]}
+      />
+    </SingleComponentStacked>
+  );
+};
+
+const ArenaChartExample = () => {
+  const symbol = contentWidgetsSymbols.arenaChart;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <NotDeveloped />
+    </SingleComponentStacked>
+  );
+};
+
 const ContentWidgetsFamily = () => (
   <FamilyStructure title={groupSymbol}>
     <ImageWidgetExample />
@@ -524,6 +576,8 @@ const ContentWidgetsFamily = () => (
     <PreviewExample />
     <OmniSetupExample />
     <MarketingLayoutCardExample />
+    <BarChartExample />
+    <ArenaChartExample />
   </FamilyStructure>
 );
 

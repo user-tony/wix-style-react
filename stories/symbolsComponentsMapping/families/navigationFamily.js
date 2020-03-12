@@ -11,15 +11,21 @@ export const navigationSymbolsToComponents = {
     componentsNames.SidebarDivider,
     componentsNames.SidebarSectionItem,
     componentsNames.SidebarSectionTitle,
+    componentsNames.SidebarBackButton,
   ],
 
   [navigationSymbols.treeNavigation]: [],
 
   [navigationSymbols.textTabs]: [componentsNames.Tabs],
 
-  [navigationSymbols.verticalTabs]: [],
+  [navigationSymbols.verticalTabs]: [
+    componentsNames.VerticalTabs,
+    componentsNames.VerticalTabsItem,
+  ],
 
   [navigationSymbols.topBar]: [],
 
   [navigationSymbols.stepper]: [componentsNames.Stepper],
+
+  [navigationSymbols.composerHeader]: [componentsNames.ComposerHeader],
 };

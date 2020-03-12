@@ -37,4 +37,8 @@ export const contentWidgetsSymbolsToComponents = {
     layoutComponentsNames.Card,
     contentWidgetsComponentsNames.MarketingLayout,
   ],
+
+  [contentWidgetsSymbols.barChart]: [contentWidgetsComponentsNames.BarChart],
+
+  [contentWidgetsSymbols.arenaChart]: [],
 };

@@ -14,4 +14,8 @@ export const buttonsSymbolsToComponents = {
   [buttonsSymbols.closeButton]: [componentsNames.CloseButton],
 
   [buttonsSymbols.addItem]: [componentsNames.AddItem],
+
+  [buttonsSymbols.toggleButton]: [componentsNames.ToggleButton],
+
+  [buttonsSymbols.socialButton]: [componentsNames.SocialButton],
 };

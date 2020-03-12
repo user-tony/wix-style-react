@@ -4,6 +4,7 @@ import {
   SingleComponentSideBySide,
   NotDefined,
   NotDeveloped,
+  Preview,
   singleComponentSizes,
 } from '../sharedComponents';
 
@@ -19,16 +20,21 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//Assets
+// Assets
 import Button from 'wix-style-react/Button';
+import ToggleButton from 'wix-style-react/ToggleButton';
 import TextButton from 'wix-style-react/TextButton';
 import Box from 'wix-style-react/Box';
 import CounterBadge from 'wix-style-react/CounterBadge';
 import Edit from 'wix-ui-icons-common/Edit';
 import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
+import CircleSmallFilled from 'wix-ui-icons-common/CircleSmallFilled';
+import Check from 'wix-ui-icons-common/Check';
+import Undo from 'wix-ui-icons-common/Undo';
+import Redo from 'wix-ui-icons-common/Redo';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 
-//6. Navigation
+// 6. Navigation
 import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
 import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';
 import SidebarSectionTitle from 'wix-style-react/SidebarSectionTitle';
@@ -36,6 +42,8 @@ import SidebarHeader from 'wix-style-react/SidebarHeader';
 import SidebarDivider from 'wix-style-react/SidebarDivider';
 import Tabs from 'wix-style-react/Tabs';
 import Stepper from 'wix-style-react/Stepper';
+import VerticalTabs from 'wix-style-react/VerticalTabs';
+import ComposerHeader from 'wix-style-react/ComposerHeader';
 import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.navigation;
@@ -215,12 +223,37 @@ const VerticalTabsExample = () => {
 
   const singleComponentProps = {
     name: symbol,
-    componentsNames: components,
+    componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <NotDeveloped />
+      <Preview>
+        <VerticalTabs activeTabId={2} onChange={() => {}}>
+          <VerticalTabs.TabsGroup title="Current Benefits">
+            <VerticalTabs.TabItem id={0} prefixIcon={<Check />}>
+              Experts Dashboard
+            </VerticalTabs.TabItem>
+            <VerticalTabs.TabItem id={1} prefixIcon={<Check />}>
+              Product Betas
+            </VerticalTabs.TabItem>
+            <VerticalTabs.TabItem id={2} prefixIcon={<Check />}>
+              Wix Arena Exposure
+            </VerticalTabs.TabItem>
+          </VerticalTabs.TabsGroup>
+          <VerticalTabs.TabsGroup title="Next Level Benefits">
+            <VerticalTabs.TabItem id={3} prefixIcon={<CircleSmallFilled />}>
+              Loyalty Program
+            </VerticalTabs.TabItem>
+            <VerticalTabs.TabItem id={4} prefixIcon={<CircleSmallFilled />}>
+              20% Revenue Share
+            </VerticalTabs.TabItem>
+            <VerticalTabs.TabItem id={5} prefixIcon={<CircleSmallFilled />}>
+              Dedicated Account Manager
+            </VerticalTabs.TabItem>
+          </VerticalTabs.TabsGroup>
+        </VerticalTabs>
+      </Preview>
     </SingleComponentSideBySide>
   );
 };
@@ -265,6 +298,57 @@ const StepperExample = () => {
   );
 };
 
+const ComposerHeaderExample = () => {
+  const symbol = navigationSymbols.composerHeader;
+  const components = navigationSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Preview stretch>
+        <ComposerHeader backButtonValue="Back">
+          <ComposerHeader.Actions>
+            <TextButton skin="premium">Upgrade</TextButton>
+          </ComposerHeader.Actions>
+          <ComposerHeader.Actions justifyContent="flex-end">
+            <ComposerHeader.SaveStatus saveStatusValue="Saving..." />
+            <ToggleButton tooltipContent="Undo">
+              <Undo />
+            </ToggleButton>
+            <ToggleButton tooltipContent="Redo">
+              <Redo />
+            </ToggleButton>
+          </ComposerHeader.Actions>
+          <ComposerHeader.MainActions>
+            <Button skin="inverted">Preview</Button>
+            <Button>Next</Button>
+          </ComposerHeader.MainActions>
+        </ComposerHeader>
+      </Preview>
+    </SingleComponentSideBySide>
+  );
+};
+
+const ComposerSidebar = () => {
+  const symbol = navigationSymbols.composerSidebar;
+  const components = navigationSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <NotDeveloped />
+    </SingleComponentSideBySide>
+  );
+};
+
 const NavigationFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <SidebarExample />
@@ -273,6 +357,8 @@ const NavigationFamily = () => (
     <VerticalTabsExample />
     <TopBarExample />
     <StepperExample />
+    <ComposerHeaderExample />
+    <ComposerSidebar />
   </FamilyStructure>
 );
 

@@ -50,6 +50,7 @@ export const layoutComponentsNames = {
   Table: 'Table',
   TableActionCell: 'TableActionCell',
   TableToolbar: 'TableToolbar',
+  SidePanel: 'SidePanel',
 };
 
 /**
@@ -75,6 +76,8 @@ export const buttonsComponentsNames = {
   TextButton: 'TextButton',
   CloseButton: 'CloseButton',
   AddItem: 'AddItem',
+  ToggleButton: 'ToggleButton',
+  SocialButton: 'SocialButton',
 };
 
 /**
@@ -86,8 +89,12 @@ export const navigationComponentsNames = {
   SidebarDivider: 'SidebarDivider',
   SidebarSectionTitle: 'SidebarSectionTitle',
   SidebarSectionItem: 'SidebarSectionItem',
+  SidebarBackButton: 'SidebarBackButton',
   Tabs: 'Tabs',
   Stepper: 'Stepper',
+  VerticalTabs: 'VerticalTabs',
+  VerticalTabsItem: 'VerticalTabsItem',
+  ComposerHeader: 'ComposerHeader',
 };
 
 /**
@@ -147,6 +154,8 @@ export const otherComponentsNames = {
   LinearProgressBar: 'LinearProgressBar',
   CircularProgressBar: 'CircularProgressBar',
   Image: 'Image',
+  Palette: 'Palette',
+  Skeleton: 'Skeleton',
 };
 
 /**
@@ -161,4 +170,5 @@ export const contentWidgetsComponentsNames = {
   BrowserPreviewWidget: 'BrowserPreviewWidget',
   MobilePreviewWidget: 'MobilePreviewWidget',
   MarketingLayout: 'MarketingLayout',
+  BarChart: 'BarChart',
 };

@@ -2,6 +2,7 @@ import { inputsSymbols } from '../symbols';
 import {
   inputsComponentsNames as componentsNames,
   sharedComponentsNames,
+  buttonsComponentsNames,
 } from '../components';
 
 /**
@@ -69,5 +70,6 @@ export const inputsSymbolsToComponents = {
     sharedComponentsNames.FormField,
     componentsNames.VariableInput,
     sharedComponentsNames.Tag,
+    buttonsComponentsNames.TextButton,
   ],
 };

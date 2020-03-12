@@ -257,18 +257,20 @@ class ThumbnailWithTitleExample extends PureComponent {
     const { selected } = this.state;
 
     return (
-      <Layout gap="12px">
-        {[1, 2, 3].map(n => (
-          <Cell key={`title-thumbnail-cell-${n}`} span={3}>
-            <Thumbnail
-              key={`title-thumbnail-${n}`}
-              title="Thumbnail"
-              selected={selected === n}
-              onClick={() => this.setState({ selected: n })}
-            />
-          </Cell>
-        ))}
-      </Layout>
+      <Box marginBottom="30px">
+        <Layout gap="12px">
+          {[1, 2, 3].map(n => (
+            <Cell key={`title-thumbnail-cell-${n}`} span={3}>
+              <Thumbnail
+                key={`title-thumbnail-${n}`}
+                title="Thumbnail"
+                selected={selected === n}
+                onClick={() => this.setState({ selected: n })}
+              />
+            </Cell>
+          ))}
+        </Layout>
+      </Box>
     );
   }
 }
@@ -279,9 +281,9 @@ class ListSmallThumbnailaExmaple extends PureComponent {
   render() {
     const { selected } = this.state;
     return (
-      <Layout gap="12px">
+      <Box>
         {[1, 2, 3].map(n => (
-          <Cell key={`list-thumbnail-cell-${n}`} span={1}>
+          <Box marginRight="30px">
             <Thumbnail
               key={`list-thumbnail-${n}`}
               title="Thumbnail Title"
@@ -291,9 +293,9 @@ class ListSmallThumbnailaExmaple extends PureComponent {
               onClick={() => this.setState({ selected: n })}
               width="170px"
             />
-          </Cell>
+          </Box>
         ))}
-      </Layout>
+      </Box>
     );
   }
 }
@@ -309,16 +311,12 @@ const ThumbnailSelectExamples = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Box marginBottom="30px">
-        <ThumbnailWithTitleExample />
-      </Box>
+      <ThumbnailWithTitleExample />
       <ListSmallThumbnailaExmaple />
     </SingleComponentSideBySide>
   );
 };
 
-/* This Box component was added due to an issue with the Slider */
-/* https://github.com/wix/wix-style-react/issues/3741 */
 class SliderExample extends PureComponent {
   state = { value: [2, 4] };
 
@@ -348,7 +346,6 @@ class SliderExample extends PureComponent {
             displayMarks
           />
         </FormField>
-        <Box marginBottom="50px" />
       </SingleComponentSideBySide>
     );
   }

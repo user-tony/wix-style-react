@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FamilyStructure,
   SingleComponentSideBySide,
+  Preview,
   singleComponentSizes,
 } from '../sharedComponents';
 
@@ -14,7 +15,7 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//11. Other
+// 11. Other
 import Avatar from 'wix-style-react/Avatar';
 import Badge, { TYPE } from 'wix-style-react/Badge';
 import BadgeSelect from 'wix-style-react/BadgeSelect';
@@ -24,8 +25,10 @@ import Loader from 'wix-style-react/Loader';
 import LinearProgressBar from 'wix-style-react/LinearProgressBar';
 import CircularProgressBar from 'wix-style-react/CircularProgressBar';
 import Image from 'wix-style-react/Image';
+import Palette from 'wix-style-react/Palette';
+import Skeleton from 'wix-style-react/Skeleton';
 
-//Assets
+// Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 import InfoSmall from 'wix-ui-icons-common/InfoSmall';
@@ -228,7 +231,7 @@ const CounterBadgeExample = () => {
   );
 };
 
-const TagExample = () => {
+const TagsExample = () => {
   const thumbTags = [
     {
       id: '1',
@@ -269,10 +272,10 @@ const TagExample = () => {
   const renderTag = props => <Tag {...props}>{props.label}</Tag>;
 
   const renderTagsLayout = tagsArr => (
-    <Layout gap="5px">
-      {tagsArr.map((tagProps, i) =>
-        renderTag({ ...tagProps, key: `tag-${i + 1}` }),
-      )}
+    <Layout cols={6} gap="5px">
+      {tagsArr.map((tagProps, i) => (
+        <Cell>{renderTag({ ...tagProps, key: `tag-${i + 1}` })}</Cell>
+      ))}
     </Layout>
   );
 
@@ -286,9 +289,9 @@ const TagExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout>
-        <Cell>{renderTagsLayout(thumbTags)}</Cell>
-        <Cell>{renderTagsLayout(themeTags)}</Cell>
+      <Layout cols={6}>
+        {renderTagsLayout(thumbTags)}
+        {renderTagsLayout(themeTags)}
       </Layout>
     </SingleComponentSideBySide>
   );
@@ -322,32 +325,27 @@ const LinearProgressBarExample = () => {
   const singleComponentProps = {
     name: symbol,
     componentsNames: createLinkedComponentsNames(components),
-    size: singleComponentSizes.compact,
   };
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
       <Layout cols={2}>
-        <Layout>
-          <Cell>
+        <Cell>
+          <Layout cols={2}>
             <LinearProgressBar value={25} />
-          </Cell>
-          <Cell>
             <Box backgroundColor="D10">
               <LinearProgressBar light value={25} />
             </Box>
-          </Cell>
-        </Layout>
-        <Layout>
-          <Cell>
+          </Layout>
+        </Cell>
+        <Cell>
+          <Layout cols={2}>
             <LinearProgressBar skin="success" value={25} />
-          </Cell>
-          <Cell>
             <Box backgroundColor="D10">
               <LinearProgressBar skin="success" light value={25} />
             </Box>
-          </Cell>
-        </Layout>
+          </Layout>
+        </Cell>
       </Layout>
     </SingleComponentSideBySide>
   );
@@ -375,6 +373,29 @@ const CircularProgressBarExample = () => {
   );
 };
 
+const SkeletonExample = () => {
+  const symbol = otherSymbols.skeleton;
+  const components = otherSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  const skeletonContent = [
+    { size: 'small', type: 'line' },
+    { size: 'medium', type: 'line' },
+    { size: 'medium', type: 'line' },
+  ];
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Skeleton content={skeletonContent} />
+    </SingleComponentSideBySide>
+  );
+};
+
 const ImageExample = () => {
   const symbol = otherSymbols.image;
   const components = otherSymbolsToComponents[symbol];
@@ -392,17 +413,46 @@ const ImageExample = () => {
   );
 };
 
+const PaletteExample = () => {
+  const symbol = otherSymbols.palette;
+  const components = otherSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Box height="42px">
+        <Palette
+          fill={[
+            'rgb(50, 132, 144)',
+            'rgb(50, 183, 198)',
+            'rgb(146, 224, 225)',
+            'rgb(203, 246, 255)',
+            'rgb(229, 250, 248)',
+          ]}
+        />
+      </Box>
+    </SingleComponentSideBySide>
+  );
+};
+
 const OtherFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <AvatarExample />
     <BadgeExample />
     <BadgeSelectExample />
     <CounterBadgeExample />
-    <TagExample />
+    <TagsExample />
     <LoaderExample />
     <LinearProgressBarExample />
     <CircularProgressBarExample />
+    <SkeletonExample />
     <ImageExample />
+    <PaletteExample />
   </FamilyStructure>
 );
 

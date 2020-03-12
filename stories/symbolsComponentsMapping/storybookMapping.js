@@ -3,6 +3,7 @@ import { linkTo } from '@storybook/addon-links';
 import {
   inputsComponentsNames,
   layoutComponentsNames,
+  navigationComponentsNames,
   tooltipPopoverComponentsNames,
   modalsComponentsNames,
   sharedComponentsNames,
@@ -54,6 +55,16 @@ const componentActualUrl = {
   [modalsComponentsNames.MessageBoxMarketerialLayout]: linkTo(
     Category.MODALS,
     '9.4 Announcement',
+  ),
+
+  [navigationComponentsNames.VerticalTabs]: linkTo(
+    Category.WIP,
+    'VerticalTabs',
+  ),
+
+  [navigationComponentsNames.VerticalTabsItem]: linkTo(
+    Category.WIP,
+    'VerticalTabsItem',
   ),
 };
 

@@ -2,6 +2,7 @@ import { otherSymbols } from '../symbols';
 import {
   otherComponentsNames as componentsNames,
   sharedComponentsNames,
+  selectionComponentsNames,
 } from '../components';
 
 /**
@@ -28,4 +29,12 @@ export const otherSymbolsToComponents = {
   [otherSymbols.circularProgressBar]: [componentsNames.CircularProgressBar],
 
   [otherSymbols.image]: [componentsNames.Image],
+
+  [otherSymbols.palette]: [
+    componentsNames.Palette,
+    sharedComponentsNames.FormField,
+    selectionComponentsNames.Thumbnail,
+  ],
+
+  [otherSymbols.skeleton]: [componentsNames.Skeleton],
 };

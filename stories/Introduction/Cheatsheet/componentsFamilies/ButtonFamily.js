@@ -14,17 +14,20 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//Assets
+// Assets
 import More from 'wix-ui-icons-common/More';
+import CropRotate from 'wix-ui-icons-common/CropRotate';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 
-//5. Button
+// 5. Button
 import Button from 'wix-style-react/Button';
 import IconButton from 'wix-style-react/IconButton';
 import TextButton from 'wix-style-react/TextButton';
 import CloseButton from 'wix-style-react/CloseButton';
 import AddItem from 'wix-style-react/AddItem';
+import ToggleButton from 'wix-style-react/ToggleButton';
+import SocialButton from 'wix-style-react/SocialButton';
 
 const groupSymbol = symbolsGroup.buttons;
 
@@ -220,6 +223,53 @@ const AddItemExample = () => {
   );
 };
 
+const ToggleButtonExample = () => {
+  const symbol = buttonsSymbols.toggleButton;
+  const components = buttonsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={2} gap={0} justifyItems="center" alignItems="center">
+        <ToggleButton tooltipContent="Crop & Rotate">
+          <CropRotate />
+        </ToggleButton>
+        <ToggleButton tooltipContent="Crop & Rotate" skin="dark">
+          <CropRotate />
+        </ToggleButton>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
+const SocialButtonExample = () => {
+  const symbol = buttonsSymbols.socialButton;
+  const components = buttonsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={6}>
+        <SocialButton icon="facebook" />
+        <SocialButton icon="twitter" />
+        <SocialButton icon="linkedin" />
+        <SocialButton icon="instagram" />
+        <SocialButton icon="pinterest" />
+        <SocialButton icon="youtube" />
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
 const ButtonFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <ButtonsExamples />
@@ -227,6 +277,8 @@ const ButtonFamily = () => (
     <TextButtonExamples />
     <CloseButtonExamples />
     <AddItemExample />
+    <ToggleButtonExample />
+    <SocialButtonExample />
   </FamilyStructure>
 );
 

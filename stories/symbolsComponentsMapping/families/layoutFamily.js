@@ -27,4 +27,5 @@ export const layoutSymbolsToComponents = {
     componentsNames.TableActionCell,
     componentsNames.TableToolbar,
   ],
+  [layoutSymbols.sidePanel]: [componentsNames.SidePanel],
 };

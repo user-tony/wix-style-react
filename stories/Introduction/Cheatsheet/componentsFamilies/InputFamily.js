@@ -397,7 +397,7 @@ const VariableInputExample = () => {
   const components = inputsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: symbol,
+    name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
   };
