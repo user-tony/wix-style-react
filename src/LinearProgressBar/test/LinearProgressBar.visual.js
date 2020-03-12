@@ -168,11 +168,20 @@ tests.forEach(({ describe, its }) => {
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(
-      `LinearProgressBar${describe ? '/' + describe : ''}`,
-      module,
-    ).add(it, () => (
-      <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
-    ));
+    storiesOf(`LinearProgressBar${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <Box>
+          <Layout>
+            <Cell>
+              <InteractiveEyeTest
+                {...props}
+                componentDidMount={componentDidMount}
+              />
+            </Cell>
+          </Layout>
+        </Box>
+      ),
+    );
   });
 });
