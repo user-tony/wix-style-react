@@ -24,6 +24,7 @@ variableParser={value => {
 export const status = `<Layout>
 <Cell>${_statusExample('error', 'Please fix this')}</Cell>
 <Cell>${_statusExample('warning', `I am warning you`)}</Cell>
+<Cell>${_statusExample('loading', `Loading...`)}</Cell>
 </Layout>`;
 export const simple = `<VariableInput
 initialValue="Example {{page.name}}"

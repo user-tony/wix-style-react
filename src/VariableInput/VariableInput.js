@@ -232,7 +232,7 @@ VariableInput.propTypes = {
   onBlur: func,
 
   /** Use to display a status indication for the user.*/
-  status: oneOf(['error', 'warning']),
+  status: oneOf(['error', 'warning', 'loading']),
 
   /** The status (error/warning) message to display when hovering the status icon, if not given or empty there will be no tooltip*/
   statusMessage: node,
