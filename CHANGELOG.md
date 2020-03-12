@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Fixed
+
+- `<FormField/>` -  wrong dataHook prop on internal component [#5180](https://github.com/wix/wix-style-react/pull/5180)
+
 
 ## 7.49.0 - 2020-03-11
 
