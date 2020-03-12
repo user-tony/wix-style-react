@@ -200,7 +200,7 @@ class FormField extends React.Component {
         size={labelSize}
         htmlFor={id}
         tagName={'label'}
-        data-hook="formfield-label"
+        dataHook="formfield-label"
         ellipsis={trimLongText}
         style={{ display: 'block' }} // allows the label to middle vertically
         secondary
