@@ -19,6 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 import SocialButton from '..';
+import { icons } from '../constants';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -35,14 +36,7 @@ export default {
   },
 
   exampleProps: {
-    icon: [
-      'facebook',
-      'instagram',
-      'twitter',
-      'linkedin',
-      'pinterest',
-      'youtube',
-    ],
+    icon: icons,
   },
 
   sections: [

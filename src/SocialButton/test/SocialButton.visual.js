@@ -1,15 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import SocialButton from '../SocialButton';
-
-const icons = [
-  'facebook',
-  'instagram',
-  'linkedin',
-  'twitter',
-  'pinterest',
-  'youtube',
-];
+import { icons } from '../constants';
 
 const tests = [
   {
