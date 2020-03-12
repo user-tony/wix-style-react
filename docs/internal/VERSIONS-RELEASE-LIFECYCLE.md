@@ -33,7 +33,7 @@ This document summarizes the best practices of how to manage our versions, with 
 #### Minor or Patch release
 
 1. Create a new branch from master branch called `release/<new_version>` (e.g. `release/4.0.1`).
-2. Make sure the [CHANGELOG](https://github.com/wix/wix-style-react/blob/master/CHANGELOG.md) is updated.
+2. Make sure the [CHANGELOG](https://github.com/wix/wix-style-react/blob/master/CHANGELOG.md) is updated, and add a line for `## <new_version> - <date>` below `## Next`.
 3. Change `package.json` version according to semver rules.
 4. Create a PR from the branch, wait for the CI builds to pass and merge to master.
 5. Make sure the new version is deployed (the new version should appear [here](https://wix-wix-style-react.surge.sh)).
