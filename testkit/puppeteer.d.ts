@@ -91,6 +91,8 @@ import {ErrorIndicatorUniDriver} from '../src/ErrorIndicator/ErrorIndicator.uni.
 export const errorIndicatorTestkitFactory: PuppeteerUniTestkitFactory<ErrorIndicatorUniDriver>;
 import {FilePickerUniDriver} from '../src/FilePicker/FilePicker.uni.driver';
 export const filePickerTestkitFactory: PuppeteerUniTestkitFactory<FilePickerUniDriver>;
+import {FloatingHelperUniDriver} from '../src/FloatingHelper/FloatingHelper.uni.driver';
+export const floatingHelperTestkitFactory: PuppeteerUniTestkitFactory<FloatingHelperUniDriver>;
 import {FloatingNotificationUniDriver} from '../src/FloatingNotification/FloatingNotification.uni.driver';
 export const floatingNotificationTestkitFactory: PuppeteerUniTestkitFactory<FloatingNotificationUniDriver>;
 import {FormFieldPuppeteerDriver} from '../src/FormField/FormField.puppeteer.driver';

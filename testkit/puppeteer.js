@@ -74,6 +74,7 @@ export const editableTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(loa
 export const emptyStateTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EmptyState/EmptyState.uni.driver')));
 export const errorIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ErrorIndicator/ErrorIndicator.uni.driver')));
 export const filePickerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FilePicker/FilePicker.uni.driver')));
+export const floatingHelperTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FloatingHelper/FloatingHelper.uni.driver')));
 export const floatingNotificationTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
 export const formFieldTestkitFactory = puppeteerTestkitFactoryCreator(load(require('../src/FormField/FormField.puppeteer.driver')));
 export const genericModalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/GenericModalLayout/GenericModalLayout.uni.driver')));
