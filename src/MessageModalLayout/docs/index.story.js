@@ -60,7 +60,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+                'Use this component inside a <Modal /> to display content in the MessageModalLayout. You may place a title and/or a footer with actions relevant to the displayed content',
             }),
           ]),
 

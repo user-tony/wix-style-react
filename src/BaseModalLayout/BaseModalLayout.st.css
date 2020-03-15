@@ -19,7 +19,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing12, spacing24, spacing30, spacing42;
+  -st-named: spacing12;
 }
 
 .root {
@@ -42,7 +42,6 @@
   height: 100%;
   overflow-y: auto;
   -st-mixin: defaultScrollBar;
-  padding: 0 value(spacing30);
 }
 
 
@@ -52,7 +51,10 @@
 }
 
 .actions {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
 
 
@@ -100,17 +102,14 @@
 
 
 /** Header - start **/
-.header
-{
-  padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
+.header {
+
 }
 .title{
-  /*display: inline-block;*/
-  /*word-break: break-word;*/
+
 }
 
 /** Header - end **/
-
 
 
 .closeButton {

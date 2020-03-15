@@ -249,6 +249,8 @@ import {StatusIndicatorUniDriver} from '../src/StatusIndicator/StatusIndicator.u
 export const statusIndicatorTestkitFactory: PuppeteerUniTestkitFactory<StatusIndicatorUniDriver>;
 import {MessageModalLayoutUniDriver} from '../src/MessageModalLayout/MessageModalLayout.uni.driver';
 export const messageModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageModalLayoutUniDriver>;
+import {AnnouncementModalLayoutUniDriver} from '../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver';
+export const announcementModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
 import {HeaderUniDriver} from '../src/Card/Header/Header.uni.driver';
 export const cardHeaderTestkitFactory: PuppeteerUniTestkitFactory<HeaderUniDriver>;
 import {EditableRowUniDriver} from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';

@@ -140,11 +140,6 @@ const tests = [
 const customModalLayoutTestkitFactory = uniTestkitFactoryCreator(
   customModalLayoutPrivateDriverFactory,
 );
-const createDriver = dataHook =>
-  customModalLayoutTestkitFactory({
-    wrapper: document.body,
-    dataHook,
-  });
 
 const InteractiveCustomModalLayout = ({ componentDidMount, ...props }) => {
   useEffect(() => {

@@ -8,7 +8,6 @@ import { dataHooks } from './constants';
 import CloseButton from '../CloseButton';
 import Divider from '../Divider';
 import Heading from '../Heading/Heading';
-import Box from '../Box';
 
 /** Private component to be used by all public modals. Represents the common internals of all modals */
 class BaseModalLayout extends React.PureComponent {
@@ -31,6 +30,8 @@ class BaseModalLayout extends React.PureComponent {
     secondaryButtonProps: PropTypes.object,
     /** callback for when the secondary button is clicked */
     secondaryButtonOnClick: PropTypes.func,
+    /** a slot for additional buttons below the primary and secondary */
+    additionalButtons: PropTypes.node,
     /** callback for when the close button is clicked */
     onCloseButtonClick: PropTypes.func,
     /** When set to true, there will be no content padding */
@@ -76,11 +77,12 @@ class BaseModalLayout extends React.PureComponent {
       primaryButtonText,
       primaryButtonOnClick,
       primaryButtonProps,
+      additionalButtons,
     } = this.props;
     return (
       <>
         <Divider className={styles.footerDivider} />
-        <Box padding={5} verticalAlign="middle">
+        <div className={styles.actions}>
           {sideActions && (
             <div className={styles.sideActions}>{sideActions}</div>
           )}
@@ -107,7 +109,8 @@ class BaseModalLayout extends React.PureComponent {
               </Button>
             )}
           </div>
-        </Box>
+          {additionalButtons}
+        </div>
       </>
     );
   };
@@ -122,9 +125,11 @@ class BaseModalLayout extends React.PureComponent {
       sideActions,
       footnote,
       onCloseButtonClick,
+      linkText,
     } = this.props;
 
-    const hasFooter = sideActions || primaryButtonText || secondaryButtonText;
+    const hasFooter =
+      sideActions || primaryButtonText || secondaryButtonText || linkText;
 
     return (
       <div {...styles('root', { removeContentPadding }, this.props)}>

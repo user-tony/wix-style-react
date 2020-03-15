@@ -472,5 +472,8 @@
   },
   "MessageModalLayout": {
     "path": "src/MessageModalLayout"
+  },
+  "AnnouncementModalLayout": {
+    "path": "src/AnnouncementModalLayout"
   }
 }

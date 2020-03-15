@@ -17,6 +17,16 @@
   -st-named: shadow40;
 }
 
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing24, spacing30, spacing42;
+}
+
+:import {
+  -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
+  -st-named: buttons, root as baseModal, actions, header, contentWrapper;
+}
+
 .root {
   -st-states: removeContentPadding;
   background-color: value(D80);
@@ -29,4 +39,12 @@
   border-radius: value(radius08);
   box-shadow: value(shadow40);
   overflow: hidden;
+}
+
+.root .header {
+  padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
+}
+
+.root .contentWrapper {
+  padding: 0 value(spacing30);
 }

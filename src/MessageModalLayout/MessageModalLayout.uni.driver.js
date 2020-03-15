@@ -2,6 +2,6 @@ import { baseModalLayoutDriverFactory } from '../BaseModalLayout/BaseModalLayout
 
 export const messageModalLayoutDriverFactory = (base, body) => {
   return {
-    ...baseModalLayoutDriverFactory(base),
+    ...baseModalLayoutDriverFactory(base, body),
   };
 };

@@ -427,4 +427,8 @@ export {default as PopoverMenuNext} from './beta/PopoverMenu';
 export * from './beta/PopoverMenu';
 
 export {default as TextLink} from './TextLink';
+
+export { default as AnnouncementModalLayout } from './AnnouncementModalLayout';
+export * from './AnnouncementModalLayout'
+
 export * from './TextLink';

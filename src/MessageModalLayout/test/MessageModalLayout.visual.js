@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import MessageModalLayout from '../MessageModalLayout';
 import { dataHooks } from '../constants';
 import Text from '../../Text/Text';
+import { BASE64_IMAGE } from './data/base64Image';
 
 const SHORT_CONTENT = (
   <Text>
@@ -39,14 +40,14 @@ const tests = [
         it: 'with illustration',
         props: {
           ...commonProps,
-          illustration: 'marketing_illustration.png',
+          illustration: BASE64_IMAGE,
         },
       },
       {
         it: 'premium with illustration',
         props: {
           ...commonProps,
-          illustration: 'marketing_illustration.png',
+          illustration: BASE64_IMAGE,
           theme: 'premium',
         },
       },
@@ -54,8 +55,8 @@ const tests = [
         it: 'destructive with illustration',
         props: {
           ...commonProps,
-          illustration: 'marketing_illustration.png',
-          theme: 'alert',
+          illustration: BASE64_IMAGE,
+          theme: 'destructive',
         },
       },
     ],

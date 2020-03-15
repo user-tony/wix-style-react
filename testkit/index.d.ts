@@ -273,6 +273,8 @@ import { StatusIndicatorUniDriver } from '../src/StatusIndicator/StatusIndicator
 export const statusIndicatorTestkitFactory: VanillaUniTestkitFactory<StatusIndicatorUniDriver>;
 import { MessageModalLayoutUniDriver } from '../src/MessageModalLayout/MessageModalLayout.uni.driver';
 export const messageModalLayoutTestkitFactory: VanillaUniTestkitFactory<MessageModalLayoutUniDriver>;
+import { AnnouncementModalLayoutUniDriver } from '../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver';
+export const announcementModalLayoutTestkitFactory: VanillaUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
 import { HeaderDriver } from '../src/Card/Header/Header.driver';
 export const headerTestkitFactory: VanillaTestkitFactory<HeaderDriver>;
 import { EditableRowDriver } from '../src/EditableSelector/EditableRow/EditableRow.driver';

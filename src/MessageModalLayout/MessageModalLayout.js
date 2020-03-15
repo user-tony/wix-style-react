@@ -4,18 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './MessageModalLayout.st.css';
 import BaseModalLayout from '../BaseModalLayout';
 
-const themeMapping = {
-  standard: {
-    skin: 'standard',
-  },
-  premium: {
-    skin: 'premium',
-  },
-  alert: {
-    skin: 'destructive',
-  },
-};
-
 /** MessageModalLayout */
 class MessageModalLayout extends React.PureComponent {
   _renderIllustration() {
@@ -45,13 +33,16 @@ class MessageModalLayout extends React.PureComponent {
 
     const width = illustration ? '630px' : '510px';
 
-    const skin = themeMapping[theme].skin;
-    primaryButtonProps['skin'] = skin;
-    secondaryButtonProps['skin'] = skin;
+    const new_theme = ['standard', 'premium', 'destructive'].includes(theme)
+      ? theme
+      : 'standard';
+
+    primaryButtonProps['skin'] = new_theme;
+    secondaryButtonProps['skin'] = new_theme;
 
     return (
       <div
-        {...styles('root', { theme }, this.props)}
+        {...styles('root', { theme: new_theme }, this.props)}
         data-hook={dataHook}
         style={{ width }}
       >
@@ -60,7 +51,7 @@ class MessageModalLayout extends React.PureComponent {
           {...this.props}
           secondaryButtonProps={secondaryButtonProps}
           primaryButtonProps={primaryButtonProps}
-        ></BaseModalLayout>
+        />
       </div>
     );
   }
@@ -70,11 +61,14 @@ MessageModalLayout.displayName = 'MessageModalLayout';
 
 MessageModalLayout.propTypes = {
   ...BaseModalLayout.propTypes,
-
+  /** additional css classes */
+  className: PropTypes.string,
+  /** data hook for testing */
+  dataHook: PropTypes.string,
   /** Illustration URL or custom element. */
   illustration: PropTypes.node,
   /** Theme will affect the buttons skins and illustration bg color. */
-  theme: PropTypes.oneOf(['standard', 'premium', 'alert']),
+  theme: PropTypes.oneOf(['standard', 'premium', 'destructive']),
 };
 
 MessageModalLayout.defaultProps = {

@@ -70,9 +70,9 @@ describe('MessageModalLayout', () => {
       expect(await driver.primaryButtonHasSkin('standard')).toBe(true);
       expect(await driver.secondaryButtonHasSkin('standard')).toBe(true);
     });
-    it('Alert theme', async () => {
+    it('Destructive theme', async () => {
       const { driver } = render(
-        <MessageModalLayout {...commonProps} theme="alert">
+        <MessageModalLayout {...commonProps} theme="destructive">
           Content
         </MessageModalLayout>,
       );

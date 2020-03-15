@@ -7,10 +7,7 @@ class FootnoteExample extends React.Component {
     return (
       <MessageModalLayout
         primaryButtonText="Leave"
-        primaryButtonOnClick={this.closeModal}
         secondaryButtonText="Cancel"
-        secondaryButtonOnClick={this.closeModal}
-        onCloseButtonClick={this.closeModal}
         title="Leave without saving?"
         sideActions={(<Checkbox>Don't show this again</Checkbox>)}
         illustration={"marketing_illustration.png"}

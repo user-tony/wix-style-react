@@ -305,6 +305,11 @@ export default {
       children: <div />,
     },
   },
+  AnnouncementModalLayout: {
+    props: {
+      children: <div />,
+    },
+  },
 
   ModalSelectorLayout: {
     props: {

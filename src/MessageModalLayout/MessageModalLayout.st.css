@@ -4,7 +4,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B40, R40, P40, D80;
+  -st-named: B50, R50, P50, D80;
 }
 
 :import {
@@ -19,11 +19,17 @@
 
 :import {
   -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing12, spacing24, spacing30, spacing42;
+  -st-named: spacing18, spacing24, spacing30, spacing42;
 }
 
+:import {
+  -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
+  -st-named: buttons, root as baseModal, actions, header, contentWrapper, footnote;
+}
+
+
 .root {
-  -st-states: theme(enum(standard, premium, alert));;
+  -st-states: theme(enum(standard, premium, destructive));;
   background-color: value(D80);
   position: relative;
   display: flex;
@@ -40,13 +46,13 @@
   justify-content: center;
 }
 .root:theme(standard) .illustrationContainer {
-  background-color: value(B40);
+  background-color: value(B50);
 }
-.root:theme(alert) .illustrationContainer {
-  background-color: value(R40);
+.root:theme(destructive) .illustrationContainer {
+  background-color: value(R50);
 }
 .root:theme(premium) .illustrationContainer {
-  background-color: value(P40);
+  background-color: value(P50);
 }
 
 .imageWrapper {
@@ -60,82 +66,15 @@
   flex-direction: column;
 }
 
-:import {
-  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
-  -st-named: defaultScrollBar;
+.root .header {
+  padding: value(spacing24) value(spacing42) value(spacing18) value(spacing30);
 }
 
-.contentWrapper {
-  height: 100%;
-  overflow-y: auto;
-  -st-mixin: defaultScrollBar;
+.root .contentWrapper {
   padding: 0 value(spacing30);
 }
 
-/** Footer - start **/
-.buttons {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-.buttons > :first-of-type:not(:last-of-type) {
-  margin-right: value(spacing12);
-}
-
-.sideActions {
-  margin-right: value(spacing12);
-}
-
-
-
-/* rtl */
-:global(.rtl) .buttons {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-:global(.rtl) .buttons > :first-of-type:not(:last-of-type) {
-  margin-left: value(spacing12);
-  margin-right: 0;
-}
-
-:global(.rtl) .sideActions {
-  margin-left: value(spacing12);
-  margin-right: 0;
-}
-
-/** Footer - end **/
-
-.footnote {
-  padding: value(spacing12) 0;
-  display: flex;
-  justify-content: center;
-}
-
-
-/** Header - start **/
-.header
-{
-  padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
-}
-
-/** Header - end **/
-
-
-
-.closeButton {
-  position: absolute;
-  right: value(spacing12);
-  top: value(spacing12);
-}
-
-:global(.rtl) .closeButton {
-  left: value(spacing12);
-  right: unset;
-}
-
-
-.footerDivider {
-  display: none;
+.root .footnote {
+  display: block;
+  padding-left: value(spacing30);
 }
