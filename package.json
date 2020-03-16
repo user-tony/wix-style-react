@@ -223,7 +223,6 @@
     "lodash": "^4.17.4",
     "moment": "2.22.2",
     "omit": "^1.0.1",
-    "popper.js": "^1.14.5",
     "prop-types": "^15.5.8",
     "rc-slider": "^9.2.0",
     "react-collapse": "^4.0.3",

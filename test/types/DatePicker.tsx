@@ -28,6 +28,28 @@ function datePickerWithAllProps() {
       width="number | string"
       zIndex={1}
       onChange={() => {}}
+      popoverProps={{
+
+
+
+
+        dynamicWidth: true,
+        flip: true,
+        hideDelay: 500,
+
+        maxWidth: '100',
+        minWidth: '100',
+        moveArrowTo: 5,
+        moveBy: { x: 1, y: 1 },
+
+
+        showDelay: 500,
+
+
+        timeout: 100,
+        zIndex: 1,
+        width: 100,
+      }}
     />
   );
 }
