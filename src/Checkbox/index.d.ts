@@ -10,13 +10,13 @@ export interface CheckboxProps extends WixComponentProps {
   selectionArea?: CheckboxSelectionArea;
   vAlign?: CheckboxVAlign;
   hover?: boolean;
-  size?: CheckboxSize;
+  size?: CheckboxLabelSize;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   className?: string;
 }
 
 export default class Checkbox extends WixComponent<CheckboxProps> {}
 
-export type CheckboxSize = 'medium';
+export type CheckboxLabelSize = 'medium' | 'small';
 export type CheckboxSelectionArea = 'none' | 'hover' | 'always';
 export type CheckboxVAlign = 'center' | 'top';

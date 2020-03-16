@@ -9,7 +9,7 @@ import checkboxDriverFactory from '../Checkbox.driver';
 import { checkboxUniDriverFactory } from '../Checkbox.uni.driver';
 import Checkbox from '../Checkbox';
 
-const cachedConsoleWarn = global.console.warn;
+import { labelTextSizes } from '../constants';
 
 describe('Checkbox', () => {
   describe('[sync]', () => {
@@ -109,27 +109,24 @@ describe('Checkbox', () => {
       expect(await driver.hasError()).toEqual(false);
     });
 
-    it('should have the correct label', async () => {
-      const { driver } = render(<Checkbox>Info</Checkbox>);
-      expect(await driver.getLabel()).toEqual('Info');
-    });
+    describe('Label', () => {
+      it('should have the correct label text', async () => {
+        const { driver } = render(<Checkbox>Info</Checkbox>);
+        expect(await driver.getLabel()).toEqual('Info');
+      });
 
-    it('should return the label driver', async () => {
-      const { driver } = render(<Checkbox>Info</Checkbox>);
-      expect(await (await driver.getLabelDriver()).getLabelText()).toEqual(
-        'Info',
+      it('should text size "medium" by default', async () => {
+        const { driver } = render(<Checkbox>Info</Checkbox>);
+        expect(await driver.getLabelSize()).toEqual(labelTextSizes.medium);
+      });
+
+      it.each(Object.values(labelTextSizes))(
+        'text be %s when giving size prop "%s"',
+        async size => {
+          const { driver } = render(<Checkbox size={size}>Info</Checkbox>);
+          expect(await driver.getLabelSize()).toEqual(size);
+        },
       );
     });
   }
-
-  describe('deprecation', () => {
-    const render = createRendererWithDriver(checkboxDriverFactory);
-
-    it('should not warn with deprecation warning, if no size', async () => {
-      global.console.warn = jest.fn();
-      render(<Checkbox />);
-      expect(global.console.warn).not.toBeCalled();
-      global.console.warn = cachedConsoleWarn;
-    });
-  });
 });

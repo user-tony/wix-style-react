@@ -4,8 +4,8 @@ import { Languages } from 'wix-ui-icons-common';
 
 import { storySettings } from './storySettings';
 import {
-  api,
   description,
+  api,
   divider,
   header,
   importExample,
@@ -14,10 +14,13 @@ import {
   tabs,
   testkit,
   title,
+  example as baseExample,
   code as baseCode,
-} from 'wix-storybook-utils/dist/src/Sections';
+} from 'wix-storybook-utils/Sections';
 import * as examples from './examples';
 import allComponents from '../../../stories/utils/allComponents';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 const code = config =>
   baseCode({
@@ -74,32 +77,41 @@ export default {
 
     tabs([
       tab({
-        title: 'Usage',
+        title: 'Description',
         sections: [
+          description({
+            title: 'Description',
+            text:
+              'Checkbox allows the user to select one or more items from a set.',
+          }),
+
           importExample("import Checkbox from 'wix-style-react/Checkbox';"),
 
           divider(),
 
           title('Examples'),
 
-          code({
-            title: 'Simple generic use',
-            source: examples.simple,
+          example({
+            title: 'Sizes',
+            text: 'Checkbox has two sizes: `medium` (default) and `small`.',
+            source: examples.sizes,
           }),
 
-          code({
-            title: 'With Error',
+          example({
+            title: 'Error',
             source: examples.error,
           }),
 
-          description({
-            title: 'Using selectionArea',
+          example({
+            title: 'Selection Area',
             text:
               'A selection area makes is easier to select the checkbox, with a background  as an indicator to the click area',
+            source: examples.selectionArea,
           }),
 
-          code({
-            source: examples.selectionArea,
+          example({
+            title: 'Controlled checkbox',
+            source: examples.controlledCheckbox,
           }),
         ],
       }),

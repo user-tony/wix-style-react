@@ -1,5 +1,12 @@
-export const simple = `
-  <Checkbox>Hello World!</Checkbox>
+export const sizes = `
+<Layout>
+    <Cell>
+        <Checkbox>Hello World!</Checkbox>
+    </Cell>
+    <Cell>
+        <Checkbox size="small">Hello World!</Checkbox>
+    </Cell>
+</Layout>
 `;
 
 export const error = `
@@ -10,13 +17,26 @@ export const error = `
 `;
 
 export const selectionArea = `
-<Box direction='vertical'>
-  <Checkbox selectionArea='always' checked>Check me!</Checkbox>
-  <br/>
-  <Checkbox selectionArea='always'>Check me!</Checkbox>
-  <br/>
-  <Checkbox selectionArea='always' disabled>Check me!</Checkbox>
-  <br/>
-  <Checkbox selectionArea='hover'>Check me!</Checkbox>
-</Box>
+<Layout>
+    <Cell>
+        <Checkbox selectionArea='always' checked>Check me!</Checkbox>
+    </Cell>
+    <Cell>
+        <Checkbox selectionArea='always'>Check me!</Checkbox>
+    </Cell>
+    <Cell>
+      <Checkbox selectionArea='always' disabled>Check me!</Checkbox>
+    </Cell>
+    <Cell>
+      <Checkbox selectionArea='hover'>Check me!</Checkbox>
+    </Cell>
+</Layout>
+`;
+
+export const controlledCheckbox = `
+() => {
+  const [checked , setChecked ] = React.useState(false);
+
+  return <Checkbox checked={checked} onChange={() => setChecked(!checked)}>Hello World!</Checkbox>
+}
 `;

@@ -1,6 +1,6 @@
 import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
-import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
+import { textUniDriverFactory } from '../Text/Text.uni.driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 import { dataHooks } from './constants';
 
@@ -10,11 +10,14 @@ const getDataCheckType = base => base.attr(DATA_ATTR.DATA_CHECK_TYPE);
 
 export const checkboxUniDriverFactory = (base, body) => {
   const reactBase = ReactBase(base);
+
+  const labelTextDriver = textUniDriverFactory(
+    base.$(`[data-hook="${dataHooks.children}"]`),
+  );
+
   const input = () => base.$('input');
   const isChecked = async () =>
     (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.CHECKED;
-  const getLabelDriver = async () =>
-    labelUniDriverFactory(base.$(`[data-hook="${dataHooks.label}"]`));
   const getTooltipDriver = async () =>
     tooltipDriverFactory(base.$(`[data-hook="${dataHooks.boxTooltip}"]`), body);
 
@@ -41,8 +44,6 @@ export const checkboxUniDriverFactory = (base, body) => {
       (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.INDETERMINATE,
     hasError: async () =>
       (await base.attr(DATA_ATTR.DATA_HAS_ERROR)) === 'true',
-    getLabel: async () => (await getLabelDriver()).getLabelText(),
-    getLabelDriver,
     getErrorMessage: async () => {
       try {
         const tooltipDriver = await getTooltipDriver();
@@ -51,5 +52,7 @@ export const checkboxUniDriverFactory = (base, body) => {
         throw new Error('Failed getting checkbox error message');
       }
     },
+    getLabel: labelTextDriver.getText,
+    getLabelSize: labelTextDriver.getSize,
   };
 };

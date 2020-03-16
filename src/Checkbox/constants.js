@@ -5,3 +5,8 @@ export const dataHooks = {
   box: 'checkbox-box',
   children: 'checkbox-children',
 };
+
+export const labelTextSizes = {
+  small: 'small',
+  medium: 'medium',
+};
