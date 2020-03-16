@@ -49,7 +49,6 @@ class ExampleTagInput extends React.Component {
         onManuallyInput={this.handleOnManuallyInput}
         onRemoveTag={this.handleOnRemoveTag}
         customSuffix={<TextButton>+ Add Tag</TextButton>}
-        upgrade
       />
     );
   }

@@ -65,7 +65,6 @@ class ExampleReorderable extends React.Component {
         onChange={this.handleOnChange}
         options={options}
         customSuffix={<TextButton>+ Add Tag</TextButton>}
-        upgrade
       />
     );
   }

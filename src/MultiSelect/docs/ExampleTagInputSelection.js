@@ -101,7 +101,6 @@ class CountryInput extends React.Component {
         onRemoveTag={this.handleOnRemoveTag}
         predicate={this.predicate}
         customSuffix={<TextButton>+ Add Tag</TextButton>}
-        upgrade
       />
     );
   }

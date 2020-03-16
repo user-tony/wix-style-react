@@ -59,7 +59,6 @@ class ExampleReorderable extends React.Component {
         value={this.state.inputValue}
         onChange={this.handleOnChange}
         options={options}
-        upgrade
       />
     );
   }

@@ -69,6 +69,5 @@ export default {
       setState({
         tags: getState().tags.filter(currTag => currTag.id !== tagId),
       }),
-    upgrade: true,
   }),
 };

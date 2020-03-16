@@ -31,7 +31,6 @@ MultiSelectTests.add(testStories.withMaxNumRows, () => (
           { id: '6', label: 'aaaaaaaaaaaa' },
         ]}
         maxNumRows={2}
-        upgrade
       />
     </div>
   </RTLWrapper>

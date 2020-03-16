@@ -94,7 +94,6 @@ class ContactsInput extends React.Component {
         onSelect={this.handleOnSelect}
         onRemoveTag={this.handleOnRemoveTag}
         predicate={this.predicate}
-        upgrade
         customSuffix={<TextButton>+ Add Tag</TextButton>}
         highlight={false} // FIXME: This is a workaround a current bug
       />

@@ -25,7 +25,6 @@ class StatsWrapper extends React.Component {
         {({ toggle, selectedOption = { id: '7d', value: 'Last 7 days' } }) => {
           return (
             <TextButton
-              upgrade
               skin="dark"
               suffixIcon={<Icons.ChevronDown />}
               onClick={toggle}
@@ -45,7 +44,6 @@ class StatsWrapper extends React.Component {
         {({ toggle, selectedOption = { id: 'All', value: 'All' } }) => {
           return (
             <TextButton
-              upgrade
               skin="dark"
               suffixIcon={<Icons.ChevronDown />}
               onClick={toggle}

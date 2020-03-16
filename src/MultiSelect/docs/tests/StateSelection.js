@@ -66,7 +66,6 @@ class StateSelection extends React.Component {
         onRemoveTag={this.handleOnRemoveTag}
         options={this.state.options}
         customSuffix={<TextButton>+ Add Tag</TextButton>}
-        upgrade
         dataHook={this.props.dataHook}
       />
     );
