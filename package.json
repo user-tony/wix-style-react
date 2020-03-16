@@ -50,6 +50,7 @@
     "test:e2e-runtime": "cd ./test-runtime/imports && NODE_ENV=production npm run test",
     "test:visual": "eyes-storybook -c ./.storybook/visual",
     "test:chromatic": "chromatic --build-script-name=storybook:build-visual --app-code=$CHROMATIC_WIX_STYLE_REACT",
+    "pretest:types": "node ./test/components-types.js",
     "test:types": "tsc -p tsconfig.declarations.json && npm run pr-storybook:publish",
     "test:performance": "npm run transpile && npm run bundles:generate && npm install --no-save @wix/perfer && perfer --verbose",
     "bundles:generate": "npm run build --prefix .perfer",

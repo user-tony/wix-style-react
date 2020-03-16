@@ -1,10 +1,10 @@
-import * as React from "react";
-import Accordion from "../../src/Accordion";
-import { accordionTestkitFactory } from "../../dist/testkit";
-import { accordionTestkitFactory as accordionEnzymeTestkitFactory } from "../../dist/testkit/enzyme";
-import { accordionTestkitFactory as accordionPuppeteerTestkitFactory } from "../../dist/testkit/puppeteer";
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as React from 'react';
+import Accordion from '../../src/Accordion';
+import { accordionTestkitFactory } from '../../dist/testkit';
+import { accordionTestkitFactory as accordionEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
+import { accordionTestkitFactory as accordionPuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function AccordionWithMandatoryProps() {
   return <Accordion />;
@@ -18,14 +18,14 @@ function AccordionWithAllProps() {
       skin="light"
       items={[
         {
-          buttonType: "button",
+          buttonType: 'button',
           collapseLabel: <div />,
           children: <div />,
           expandLabel: <div />,
           icon: <div />,
           title: <div />,
-          skin: "light"
-        }
+          skin: 'light',
+        },
       ]}
     />
   );
@@ -33,19 +33,19 @@ function AccordionWithAllProps() {
 
 async function testkits() {
   const testkit = accordionTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = accordionEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await accordionPuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

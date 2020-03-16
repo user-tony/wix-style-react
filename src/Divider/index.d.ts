@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 export interface DividerProps {
-  dataHook?: string,
-  direction?: DividerDirection,
-  skin?: DividerSkin,
+  dataHook?: string;
+  direction?: DividerDirection;
+  skin?: DividerSkin;
 }
 
 export type DividerDirection = 'horizontal' | 'vertical';

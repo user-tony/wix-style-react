@@ -21,13 +21,19 @@ class BaseModalLayout extends React.PureComponent {
     /** When not provided, the primary action button will not be rendered */
     primaryButtonText: PropTypes.string,
     /** Passed to the primary button as props without any filter / mutation */
-    primaryButtonProps: PropTypes.object,
+    primaryButtonProps: (() => {
+      const { dataHook, onClick, ...buttonProps } = Button.propTypes;
+      return PropTypes.shape(buttonProps);
+    })(),
     /** callback for when the primary button is clicked */
     primaryButtonOnClick: PropTypes.func,
     /** When not provided, the secondary action button will not be rendered */
     secondaryButtonText: PropTypes.string,
     /** Passed to the secondary button as props without any filter / mutation */
-    secondaryButtonProps: PropTypes.object,
+    secondaryButtonProps: (() => {
+      const { dataHook, onClick, priority, ...buttonProps } = Button.propTypes;
+      return PropTypes.shape(buttonProps);
+    })(),
     /** callback for when the secondary button is clicked */
     secondaryButtonOnClick: PropTypes.func,
     /** a slot for additional buttons below the primary and secondary */
@@ -89,10 +95,10 @@ class BaseModalLayout extends React.PureComponent {
           <div className={styles.buttons}>
             {secondaryButtonText && (
               <Button
-                onClick={secondaryButtonOnClick}
-                priority="secondary"
                 size="small"
                 {...secondaryButtonProps}
+                onClick={secondaryButtonOnClick}
+                priority="secondary"
                 dataHook={dataHooks.secondaryButton}
               >
                 {secondaryButtonText}
@@ -100,9 +106,9 @@ class BaseModalLayout extends React.PureComponent {
             )}
             {primaryButtonText && (
               <Button
-                onClick={primaryButtonOnClick}
                 size="small"
                 {...primaryButtonProps}
+                onClick={primaryButtonOnClick}
                 dataHook={dataHooks.primaryButton}
               >
                 {primaryButtonText}
