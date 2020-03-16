@@ -28,7 +28,7 @@ export interface InputAreaProps extends WixComponentProps {
   minHeight?: string;
   onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
-  onEnterPressed?: () => void;
+  onEnterPressed?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   onEscapePressed?: () => void;
   onFocus?: (e?: React.FocusEvent<HTMLTextAreaElement>) => void;
   onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;

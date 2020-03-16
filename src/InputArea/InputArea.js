@@ -227,7 +227,7 @@ class InputArea extends React.PureComponent {
     this.props.onKeyDown && this.props.onKeyDown(e);
 
     if (e.key === 'Enter') {
-      this.props.onEnterPressed && this.props.onEnterPressed();
+      this.props.onEnterPressed && this.props.onEnterPressed(e);
     } else if (e.key === 'Escape') {
       this.props.onEscapePressed && this.props.onEscapePressed();
     }

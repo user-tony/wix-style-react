@@ -37,7 +37,7 @@ function InputAreaWithAllProps() {
       name="name"
       onBlur={_ev => {}}
       onChange={_ev => {}}
-      onEnterPressed={() => {}}
+      onEnterPressed={_ev => {}}
       onEscapePressed={() => {}}
       onFocus={_ev => {}}
       onKeyDown={_ev => {}}
