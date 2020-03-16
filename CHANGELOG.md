@@ -20,6 +20,9 @@ Types of changes:
 
 - `<Datepicker/>` - migrate to popover, expose popoverProps [#5186](https://github.com/wix/wix-style-react/pull/5186)
 
+### Fixed
+- `<Checkbox/>`- replacing the use of `<Label/>` with `<label>` & `<Text>`. [#5178](https://github.com/wix/wix-style-react/pull/5178)
+
 ## 7.49.1 - 2020-03-16
 
 ### Fixed
