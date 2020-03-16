@@ -1,33 +1,44 @@
 import * as React from 'react';
-import MultiSelectComposite from '../../src/MultiSelectComposite';
-import { multiSelectCompositeTestkitFactory } from '../../dist/testkit';
-import { multiSelectCompositeTestkitFactory as multiSelectCompositeEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
-import { multiSelectCompositeTestkitFactory as multiSelectCompositePuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
+import MobilePreviewWidget, {
+  MobilePreviewWidgetSkin,
+} from '../../src/MobilePreviewWidget';
+import { mobilePreviewWidgetTestkitFactory } from '../../dist/testkit';
+import { mobilePreviewWidgetTestkitFactory as mobilePreviewWidgetEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
+import { mobilePreviewWidgetTestkitFactory as mobilePreviewWidgetPuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
-function multiSelectCompositeWithMandatoryProps() {
-  return <MultiSelectComposite />;
+function mobilePreviewWidgetWithMandatoryProps() {
+  return <MobilePreviewWidget children={<div />} />;
 }
 
-function multiSelectCompositeWithAllProps() {
-  return <MultiSelectComposite />;
+function mobilePreviewWidgetWithAllProps() {
+  return (
+    <MobilePreviewWidget
+      dataHook="dh"
+      skin="gradient"
+      backgroundColor="red"
+      height="10px"
+      width="10px"
+      children={<div />}
+    />
+  );
 }
 
 async function testkits() {
-  const testkit = multiSelectCompositeTestkitFactory({
+  const testkit = mobilePreviewWidgetTestkitFactory({
     dataHook: 'hook',
     wrapper: document.createElement('div'),
   });
 
-  const enzymeTestkit = multiSelectCompositeEnzymeTestkitFactory({
+  const enzymeTestkit = mobilePreviewWidgetEnzymeTestkitFactory({
     dataHook: 'hook',
     wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const puppeteerTestkit = await multiSelectCompositePuppeteerTestkitFactory({
+  const puppeteerTestkit = await mobilePreviewWidgetPuppeteerTestkitFactory({
     dataHook: 'hook',
     page,
   });
