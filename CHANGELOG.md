@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+
+- `<Datepicker/>` - migrate to popover, expose popoverProps [#5186](https://github.com/wix/wix-style-react/pull/5186)
+
 ## 7.49.1 - 2020-03-16
 
 ### Fixed
