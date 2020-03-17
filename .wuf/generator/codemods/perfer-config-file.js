@@ -4,16 +4,24 @@ module.exports = (file, api, options) => {
 
   const { ComponentName } = options;
 
-  const files = root.find(j.VariableDeclaration, {
-    declarations: [{ id: { name: 'files' } }],
-  });
+  const pushNewValue = (name, value, size) => {
+    const list = root.find(j.VariableDeclaration, {
+      declarations: [{ id: { name } }],
+    });
 
-  const newValue = j.arrayExpression([
-    j.literal(`${ComponentName}.bundle.min.js`),
-    j.numericLiteral(10),
-  ]);
+    const newValue = j.arrayExpression([
+      j.literal(value),
+      j.numericLiteral(size),
+    ]);
 
-  files.get(0).node.declarations[0].init.elements.push(newValue);
+    list.get(0).node.declarations[0].init.elements.push(newValue);
+  };
+
+  // for js bundles
+  pushNewValue('javascriptFiles', `${ComponentName}.bundle.min.js`, 10);
+
+  // for css bundles
+  pushNewValue('cssFiles', `${ComponentName}.min.css`, 1);
 
   return root.toSource({ quote: 'single', trailingComma: true });
 };
