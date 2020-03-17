@@ -1,11 +1,15 @@
-import { linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory } from 'wix-ui-core/drivers/vanilla';
-import { tooltipDriverFactory } from 'wix-ui-backoffice/dist/src/components/Tooltip/Tooltip.driver';
-import { dataHooks, SKINS } from './constants';
+import {
+  linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory,
+  tooltipDriverFactory as coreTooltipDriverFactory,
+} from 'wix-ui-core/drivers/vanilla';
+import { dataHooks } from './constants';
 
 const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {
+  const getElementByDataHook = dataHook =>
+    element.querySelector(`[data-hook='${dataHook}']`);
   const createTooltipDriver = () =>
-    tooltipDriverFactory({
-      element: element.querySelector(`[data-hook='${dataHooks.tooltip}']`),
+    coreTooltipDriverFactory({
+      element: getElementByDataHook(dataHooks.tooltip),
       wrapper,
       eventTrigger,
     });
@@ -16,10 +20,8 @@ const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {
     eventTrigger,
   });
 
-  const errorIcon = () =>
-    element.querySelector(`[data-hook='${dataHooks.errorIcon}']`);
-  const successIcon = () =>
-    element.querySelector(`[data-hook='${dataHooks.successIcon}']`);
+  const errorIcon = () => getElementByDataHook(dataHooks.errorIcon);
+  const successIcon = () => getElementByDataHook(dataHooks.successIcon);
   const getTooltip = () => createTooltipDriver();
 
   return {
