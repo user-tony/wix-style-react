@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RadioGroup from '../../RadioGroup';
-import Label from '../../Label';
 import Input from '../../Input';
 import TabsTemplate from './TabsTemplate';
 import Button from '../../Button';
 import styles from './TabsExample.scss';
 import FormField from '../../FormField';
+import Text from '../../Text';
 
 const SideContentExample = () => (
   <div className={styles.sideContentExample}>
@@ -27,7 +27,7 @@ class TabsExample extends Component {
     return (
       <div>
         <div className={styles.controlGroup}>
-          <Label>Type</Label>
+          <Text>Type</Text>
           <div className={styles.radioGroup}>
             <RadioGroup
               display="horizontal"
@@ -82,7 +82,7 @@ class TabsExample extends Component {
           </div>
         ) : null}
         <div className={styles.controlGroup}>
-          <Label>Divider</Label>
+          <Text>Divider</Text>
           <div className={styles.radioGroup}>
             <RadioGroup
               display="horizontal"
@@ -95,7 +95,7 @@ class TabsExample extends Component {
           </div>
         </div>
         <div className={styles.controlGroup}>
-          <Label>Side Content</Label>
+          <Text>Side Content</Text>
           <div className={styles.radioGroup}>
             <RadioGroup
               display="horizontal"

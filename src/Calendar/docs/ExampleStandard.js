@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'wix-style-react/Calendar';
 import ToggleSwitch from 'wix-style-react/ToggleSwitch';
-import Label from 'wix-style-react/Label';
+	import Text from 'wix-style-react/Text';
 
 class ControlledCalendarExample extends React.Component {
   constructor(props) {
@@ -51,17 +51,17 @@ class ControlledCalendarExample extends React.Component {
             checked={this.state.excludePastDates}
             onChange={() => this.toggleExclude()}
           />
-          <Label>Exclude Past Days</Label>
+          <Text>Exclude Past Days</Text>
         </div>
         <div style={{ display: 'flex' }}>
           <ToggleSwitch
             checked={this.state.selectionMode === 'day'}
             onChange={() => this.toggleSelectionMode()}
           />
-          <Label>
+          <Text>
             Selection Mode:{' '}
             {this.state.selectionMode === 'day' ? 'Single day' : 'Date range'}
-          </Label>
+          </Text>
         </div>
       </div>
     );
