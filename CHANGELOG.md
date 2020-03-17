@@ -23,6 +23,10 @@ Types of changes:
 ### Fixed
 - `<Checkbox/>`- replacing the use of `<Label/>` with `<label>` & `<Text>`. [#5178](https://github.com/wix/wix-style-react/pull/5178)
 
+### Docs
+
+- Migrate to named-imports [#5196](https://github.com/wix/wix-style-react/pull/5196)
+
 ## 7.49.1 - 2020-03-16
 
 ### Fixed
