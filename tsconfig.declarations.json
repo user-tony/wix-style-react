@@ -12,6 +12,6 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true
   },
-  "include": ["src/**/*.ts", "test/types/**.*"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "test/types/**.*"],
   "files": ["./node_modules/wix-ui-core/dist/src/globals.d.ts"]
 }
