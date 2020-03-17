@@ -10,7 +10,7 @@ import StandardMessageBoxFunctionalLayout from './PremiumExample/Standard';
 import StandardMessageBoxFunctionalLayoutRaw from '!raw-loader!./PremiumExample/Standard';
 
 const introduction = `# Premium Modal (\`<MessageBoxFunctionalLayout/>\`)
-Components to be used within \`wix-style-react/Modal\`:
+import { MessageBoxFunctionalLayout  } "wix-style-react":
 `;
 
 const layoutStyles = {

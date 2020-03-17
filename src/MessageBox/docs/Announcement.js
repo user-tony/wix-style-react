@@ -29,7 +29,7 @@ import Footnote from './AnnouncementExamples/Footnote';
 import FootnoteRaw from '!raw-loader!./AnnouncementExamples/Footnote';
 
 const introduction = `# Announcement (\`<MessageBoxMarketerialLayout/>\`)
-Components to be used within \`wix-style-react/Modal\`:
+import { MessageBoxMarketerialLayout  } "wix-style-react":
 `;
 
 const layoutStyles = {

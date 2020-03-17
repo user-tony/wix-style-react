@@ -1,6 +1,5 @@
 export const importExample = `
-import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
-import IconButton from 'wix-style-react/IconButton';
+import { PopoverMenuNext, IconButton } from 'wix-style-react';
 `;
 
 export const basic = `

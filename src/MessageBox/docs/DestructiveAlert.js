@@ -13,7 +13,7 @@ import SecondaryMessageBoxFunctionalLayout from './DestructiveAlertExamples/Seco
 import SecondaryMessageBoxFunctionalLayoutRaw from '!raw-loader!./DestructiveAlertExamples/Secondary';
 
 const introduction = `# Destructive Alert (\`<MessageBoxFunctionalLayout/>\`)
-Components to be used within \`wix-style-react/Modal\`:
+import { MessageBoxFunctionalLayout  } "wix-style-react":
 `;
 
 const layoutStyles = {

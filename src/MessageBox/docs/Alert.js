@@ -32,7 +32,7 @@ import ActionsAlert from './AlertExamples/Actions';
 import ActionsAlertRaw from '!raw-loader!./AlertExamples/Actions';
 
 const introduction = `# Alert (\`<MessageBoxFunctionalLayout/>\`)
-Components to be used within \`wix-style-react/Modal\`:
+import {\ MessageBoxFunctionalLayout \ } "wix-style-react":
 `;
 
 const layoutStyles = {
