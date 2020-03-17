@@ -72,7 +72,7 @@ export default {
             }),
           ]),
           importExample(
-            "import MultiSelectCheckbox from 'wix-style-react/MultiSelectCheckbox';",
+            "import { MultiSelectCheckbox } from 'wix-style-react';",
           ),
 
           divider(),

@@ -106,7 +106,7 @@ export default {
 
           columns([
             importExample(
-              "import PopoverMenu from 'wix-style-react/beta/PopoverMenu';",
+              "import {  PopoverMenuNext } from 'wix-style-react';",
             ),
           ]),
 
