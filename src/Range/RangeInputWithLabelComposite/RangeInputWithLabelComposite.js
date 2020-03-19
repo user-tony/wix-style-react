@@ -1,18 +1,14 @@
-import React, { Children } from 'react';
-import * as PropTypes from 'prop-types';
-import WixComponent from '../../BaseComponents/WixComponent';
+import React, { Children, PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './RangeInputWithLabelComposite.scss';
 import classNames from 'classnames';
 import FieldLabelAttributes from '../../FieldLabelAttributes/FieldLabelAttributes';
 
-class RangeInputWithLabelComposite extends WixComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasFocusFirst: false,
-      hasFocusLast: false,
-    };
-  }
+class RangeInputWithLabelComposite extends PureComponent {
+  state = {
+    hasFocusFirst: false,
+    hasFocusLast: false,
+  };
 
   _doKeyDown(e) {
     const keys = {
@@ -46,8 +42,12 @@ class RangeInputWithLabelComposite extends WixComponent {
   }
 
   render() {
-    const children = Children.toArray(this.props.children);
-    const rangeType = this.props.children[1].type.displayName;
+    const { children, dataHook } = this.props;
+    const { hasFocusFirst, hasFocusLast } = this.state;
+
+    const childrenArr = Children.toArray(children);
+    const rangeType = children[1].type.displayName;
+
     const label =
       children.length === 3 ? (
         <div className={styles.label}>
@@ -62,8 +62,11 @@ class RangeInputWithLabelComposite extends WixComponent {
           ) : null}
         </div>
       ) : null;
-    const firstInput = children.length === 3 ? children[1] : children[0];
-    const lastInput = children.length === 3 ? children[2] : children[1];
+
+    const firstInput =
+      childrenArr.length === 3 ? childrenArr[1] : childrenArr[0];
+    const lastInput =
+      childrenArr.length === 3 ? childrenArr[2] : childrenArr[1];
 
     const additionalFirstInputProps = {
       className:
@@ -82,15 +85,14 @@ class RangeInputWithLabelComposite extends WixComponent {
       onFocus: e => this._handleFocusLast(e),
       onBlur: e => this._handleBlurLast(e),
     };
-
     const inputWrapperClassNames = classNames({
-      [styles.hasFocusFirst]: this.state.hasFocusFirst,
-      [styles.hasFocusLast]: this.state.hasFocusLast,
+      [styles.hasFocusFirst]: hasFocusFirst,
+      [styles.hasFocusLast]: hasFocusLast,
       [styles.inputs]: true,
     });
 
     return (
-      <div className={styles.wrapper}>
+      <div data-hook={dataHook}>
         {label}
         <div className={inputWrapperClassNames}>
           {React.cloneElement(
@@ -112,10 +114,16 @@ class RangeInputWithLabelComposite extends WixComponent {
 }
 
 RangeInputWithLabelComposite.propTypes = {
-  ...WixComponent.propTypes,
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
+  /** Range type can be either `<DatePicker/>` or `< Input/>`*/
   children: PropTypes.any,
+  /** @deprecated Do not use this prop */
   required: PropTypes.bool,
+  /** @deprecated Do not use this prop */
   info: PropTypes.string,
+  /** @deprecated Do not use this prop */
+  appendToParent: PropTypes.bool,
 };
 
 RangeInputWithLabelComposite.defaultProps = {

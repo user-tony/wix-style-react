@@ -14,10 +14,9 @@ function RangeWithAllProps() {
       required
       info={"info"}
       dataHook={"hook"}
-      style={"style"}
       appendToParent
-    >
-    </Range>
+      children={<div/>}
+    />
   );
 }
 

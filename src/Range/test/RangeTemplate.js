@@ -5,7 +5,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import Range from '..';
 import DatePicker from '../../DatePicker';
 import Input from '../../Input';
-import Label from '../../Label';
+import Text from '../../Text';
 
 export default class Form extends Component {
   static propTypes = {
@@ -37,7 +37,9 @@ export default class Form extends Component {
         required={this.props.required}
         info={this.props.info}
       >
-        {this.props.withLabel ? <Label {...this.props.label} /> : null}
+        {this.props.withLabel ? (
+          <Text tagName="label">{this.props.label}</Text>
+        ) : null}
         {this.props.rangeType.value === 'InputRange' ? (
           <Input dataHook="first-item" id="first" {...this.props.firstInput} />
         ) : (

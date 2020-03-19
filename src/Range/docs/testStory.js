@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { storySettings, testStories } from './storySettings';
-import RangeTemplate from './RangeTemplate';
+import RangeTemplate from '../test/RangeTemplate';
 
 const kind = getTestStoryKind({
   category: storySettings.category,
@@ -20,10 +20,7 @@ storiesOf(kind, module).add(testStories.range, () => (
       rangeType={{ value: 'InputRange' }}
       onChange={onChange}
       withLabel
-      label={{
-        appearance: 'T1.1',
-        children: 'With Input',
-      }}
+      label="With Input"
       firstInput={{
         placeholder: '0',
         resizable: false,
@@ -38,10 +35,7 @@ storiesOf(kind, module).add(testStories.range, () => (
       rangeType={{ value: 'DateRange' }}
       onChange={onChange}
       withLabel
-      label={{
-        appearance: 'T1.1',
-        children: 'With DatePicker',
-      }}
+      label="With DatePicker"
       firstDate={{
         value: ARBITRARY_FIXED_DATE,
         onChange,

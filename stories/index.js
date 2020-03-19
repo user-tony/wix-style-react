@@ -105,7 +105,7 @@ require('../src/PopoverMenu/docs/index.story');
 require('../src/PreviewWidget/docs/index.story');
 require('../src/Proportion/docs/index.story');
 require('../src/RadioGroup/docs/index.story');
-require('../src/Range/docs');
+require('../src/Range/docs/index.story');
 require('../src/RichTextInputArea/docs/index.story');
 require('../src/Search/docs/index.story');
 require('../src/SectionHelper/docs/index.story');

@@ -1,35 +1,25 @@
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
 import Range from '../Range';
 import DatePicker from '../../DatePicker';
-import { rangePolyfill } from '../../../testkit/polyfills';
-
-import { rangeTestkitFactory } from '../../../testkit';
+import rangeDriverFactory from '../Range.driver';
+import { createRendererWithDriver, cleanup } from '../../../test/utils/unit';
 
 describe('Range', () => {
-  beforeEach(() => {
-    rangePolyfill.install();
-  });
+  afterEach(cleanup);
 
-  afterEach(() => {
-    rangePolyfill.uninstall();
-  });
+  const render = createRendererWithDriver(rangeDriverFactory);
 
   it('should work with datePickers', () => {
     const onChange = jest.fn();
-    const div = document.createElement('div');
     const dataHook = 'compHook';
-    const wrapper = div.appendChild(
-      ReactTestUtils.renderIntoDocument(
-        <div>
-          <Range dataHook={dataHook}>
-            <DatePicker onChange={onChange} />
-            <DatePicker onChange={onChange} />
-          </Range>
-        </div>,
-      ),
+
+    const { driver } = render(
+      <Range dataHook={dataHook}>
+        <DatePicker onChange={onChange} />
+        <DatePicker onChange={onChange} />
+      </Range>,
     );
-    const rangeTestkit = rangeTestkitFactory({ wrapper, dataHook });
-    expect(rangeTestkit.exists()).toBe(true);
+
+    expect(driver.exists()).toBe(true);
   });
 });

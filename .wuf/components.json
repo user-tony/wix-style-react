@@ -264,10 +264,7 @@
     "path": "src/RadioGroup"
   },
   "Range": {
-    "path": "src/Range",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/Range"
   },
   "RichTextInputArea": {
     "path": "src/RichTextInputArea"

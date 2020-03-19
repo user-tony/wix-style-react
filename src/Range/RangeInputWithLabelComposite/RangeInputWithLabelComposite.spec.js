@@ -1,6 +1,6 @@
 import React from 'react';
 import RangeInputWithLabelComposite from './RangeInputWithLabelComposite';
-import Label from '../../Label';
+import Text from '../../Text';
 import Input from '../../Input';
 import rangeCompositeDriverFactory from './RangeWithLabelComposite.driver';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
@@ -25,7 +25,7 @@ describe('RangeInputWithLabelComposite', () => {
   it('should render Label with 2 Inputs', () => {
     const driver = createRangeCompositeDriver(
       <RangeInputWithLabelComposite>
-        <Label>myLabel</Label>
+        <Text tagName="label">myLabel</Text>
         <Input />
         <Input />
       </RangeInputWithLabelComposite>,
@@ -39,7 +39,7 @@ describe('RangeInputWithLabelComposite', () => {
     it('should FieldLabelAttributes not exists if all attributes empty or false', () => {
       const driver = createRangeCompositeDriver(
         <RangeInputWithLabelComposite>
-          <Label>myLabel</Label>
+          <Text tagName="label">myLabel</Text>
           <Input />
           <Input />
         </RangeInputWithLabelComposite>,
@@ -51,7 +51,7 @@ describe('RangeInputWithLabelComposite', () => {
     it('should FieldLabelAttributes exists if required', () => {
       const driver = createRangeCompositeDriver(
         <RangeInputWithLabelComposite required>
-          <Label>myLabel</Label>
+          <Text tagName="label">myLabel</Text>
           <Input />
           <Input />
         </RangeInputWithLabelComposite>,
@@ -63,7 +63,7 @@ describe('RangeInputWithLabelComposite', () => {
     it('should FieldLabelAttributes exists if info', () => {
       const driver = createRangeCompositeDriver(
         <RangeInputWithLabelComposite info="info">
-          <Label>myLabel</Label>
+          <Text tagName="label">myLabel</Text>
           <Input />
           <Input />
         </RangeInputWithLabelComposite>,
@@ -75,7 +75,7 @@ describe('RangeInputWithLabelComposite', () => {
     it('should FieldLabelAttributes exists if tooltip', () => {
       const driver = createRangeCompositeDriver(
         <RangeInputWithLabelComposite tooltip={<Tooltip content="content" />}>
-          <Label>myLabel</Label>
+          <Text tagName="label">myLabel</Text>
           <Input />
           <Input />
         </RangeInputWithLabelComposite>,

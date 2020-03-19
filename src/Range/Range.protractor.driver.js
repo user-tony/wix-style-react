@@ -1,4 +1,4 @@
-import rangeWithLabelCompositeDriverFactory from '../Composite/RangeInputWithLabelComposite/RangeInputWithLabelComposite.protractor.driver';
+import rangeWithLabelCompositeDriverFactory from './RangeInputWithLabelComposite/RangeInputWithLabelComposite.protractor.driver';
 
 const rangeDriverFactory = component => {
   return {
