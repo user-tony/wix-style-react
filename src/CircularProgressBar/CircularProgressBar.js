@@ -85,7 +85,9 @@ class CircularProgressBar extends React.PureComponent {
             Tooltip: () =>
               // TODO: convert to WSR Tooltip
               shouldLoadAsync
-                ? import('../Tooltip/TooltipNext')
+                ? import(
+                    /* webpackChunkName: "wsr-tooltip" */ '../Tooltip/TooltipNext'
+                  )
                 : require('../Tooltip/TooltipNext'),
           }}
           defaultComponent={ProgressBar}

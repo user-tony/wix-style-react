@@ -149,7 +149,9 @@ class Loader extends React.PureComponent {
           loader={{
             Tooltip: () =>
               this.props.shouldLoadAsync
-                ? import('../Tooltip/TooltipNext')
+                ? import(
+                    /* webpackChunkName: "wsr-tooltip" */ '../Tooltip/TooltipNext'
+                  )
                 : require('../Tooltip/TooltipNext'),
           }}
           defaultComponent={loader}

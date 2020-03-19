@@ -45,7 +45,11 @@ const fallbackEllipsis = {
   whiteSpace: 'noWrap',
 };
 
-const LazyEllipsisHOC = loadable(() => retry(() => import('./EllipsisHOC')));
+const LazyEllipsisHOC = loadable(() =>
+  retry(() =>
+    import(/* webpackChunkName: "wsr-ellipsisHOC" */ './EllipsisHOC'),
+  ),
+);
 
 const Comp /** @autodocs-component */ = Component => {
   return React.memo(
