@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 - [dynamic chunks] - define custom webpackChunkNames [#5209](https://github.com/wix/wix-style-react/pull/5209)
+- `<Carousel/>` - mark component in ESM modules as having sideEffects [#5214](https://github.com/wix/wix-style-react/pull/5214)
 
 ## 7.50.0 - 2020-03-18
 
