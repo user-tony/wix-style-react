@@ -6,10 +6,11 @@ const formFieldDriver = ({ element, dataHook }) => {
   const byHook = hook => element.querySelector(`[data-hook*="${hook}"]`);
   const charactersCounter = () => byHook('formfield-counter');
 
-  const tooltipTestkit = tooltipDriverFactory({
-    element: byHook(`${dataHook}-formfield-infoicon-tooltip`),
-    eventTrigger: Simulate,
-  });
+  const tooltipTestkit = () =>
+    tooltipDriverFactory({
+      element: byHook(`${dataHook}-formfield-infoicon-tooltip`),
+      eventTrigger: Simulate,
+    });
 
   return {
     exists: () => !!element,
@@ -29,10 +30,11 @@ const formFieldDriver = ({ element, dataHook }) => {
       }
       return false;
     },
-    hasTooltip: () => tooltipTestkit.exists(),
+    hasTooltip: () => tooltipTestkit().exists(),
     getInfoContent: () => {
-      tooltipTestkit.mouseEnter();
-      return tooltipTestkit.getContentElement().textContent;
+      const tooltipDriver = tooltipTestkit();
+      tooltipDriver.mouseEnter();
+      return tooltipDriver.getContentElement().textContent;
     },
     getSuffix: () => byHook(dataHooks.suffix),
   };

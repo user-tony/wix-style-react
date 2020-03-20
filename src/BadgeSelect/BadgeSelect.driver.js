@@ -7,11 +7,6 @@ import popoverDriverFactory from '../Popover/Popover.driver';
 const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
   const popoverDriver = popoverDriverFactory({ element, eventTrigger });
 
-  const badgeDriver = badgeDriverFactory({
-    element: element.querySelector(`[data-hook="${DATA_ATTR.DATA_BADGE}"]`),
-    eventTrigger,
-  });
-
   return {
     /** Returns 'true' whether the element exists */
     exists: () => !!element,
@@ -19,6 +14,13 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
     /** Click on an option */
     clickAtOption: index => {
       if (!popoverDriver.isContentElementExists()) {
+        const badgeDriver = badgeDriverFactory({
+          element: element.querySelector(
+            `[data-hook="${DATA_ATTR.DATA_BADGE}"]`,
+          ),
+          eventTrigger,
+        });
+
         badgeDriver.click();
       }
 

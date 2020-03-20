@@ -7,8 +7,8 @@ import { warningIndicatorDriverFactory } from '../WarningIndicator/WarningIndica
 
 const inputAreaDriverFactory = ({ element }) => {
   const textAreaElement = element && element.childNodes[0];
-  const textArea = element.querySelector('textarea');
-  const name = textArea.getAttribute('name');
+  const textArea = () => element.querySelector('textarea');
+  const name = () => textArea().getAttribute('name');
   const counterSelector = '[data-hook="counter"]';
   const indicatorSelector = '[data-hook="inputArea-tooltip"]';
   const errorIndicatorTestkit = () =>
@@ -22,25 +22,26 @@ const inputAreaDriverFactory = ({ element }) => {
 
   return {
     trigger: (trigger, event) =>
-      ReactTestUtils.Simulate[trigger](textArea, event),
-    focus: () => textArea.focus(),
+      ReactTestUtils.Simulate[trigger](textArea(), event),
+    focus: () => textArea().focus(),
     enterText: text => {
-      textArea.value = text;
-      ReactTestUtils.Simulate.change(textArea, {
-        target: { name, value: text },
+      textArea().value = text;
+      ReactTestUtils.Simulate.change(textArea(), {
+        target: { name: name(), value: text },
       });
     },
-    getValue: () => textArea.value,
-    getName: () => name,
-    getPlaceholder: () => textArea.placeholder,
-    getDefaultValue: () => textArea.defaultValue,
-    getRowsCount: () => textArea.rows,
-    getMaxLength: () => textArea.maxLength,
-    getTabIndex: () => textArea.tabIndex,
-    getReadOnly: () => textArea.readOnly,
+    getValue: () => textArea().value,
+    getName: name,
+    getPlaceholder: () => textArea().placeholder,
+    getDefaultValue: () => textArea().defaultValue,
+    getRowsCount: () => textArea().rows,
+    getMaxLength: () => textArea().maxLength,
+    getTabIndex: () => textArea().tabIndex,
+    getReadOnly: () => textArea().readOnly,
     getResizable: () => textAreaElement.classList.contains(styles.resizable),
     getDisabled: () =>
-      textAreaElement.classList.contains(styles.disabled) && textArea.disabled,
+      textAreaElement.classList.contains(styles.disabled) &&
+      textArea().disabled,
     getHasCounter: () => !!element.querySelectorAll(counterSelector).length,
     getCounterValue: () => element.querySelector(counterSelector).textContent,
     hasExclamation: () =>
@@ -48,16 +49,16 @@ const inputAreaDriverFactory = ({ element }) => {
     hasError: () => textAreaElement.classList.contains(styles.hasError),
     hasWarning: () => textAreaElement.classList.contains(styles.hasWarning),
     isFocusedStyle: () => textAreaElement.classList.contains(styles.hasFocus),
-    isSizeSmall: () => textArea.classList.contains(styles.sizeSmall),
+    isSizeSmall: () => textArea().classList.contains(styles.sizeSmall),
     isHoveredStyle: () => textAreaElement.classList.contains(styles.hasHover),
     isOfStyle: style =>
       textAreaElement.classList.contains(styles[`theme-${style}`]),
-    isFocus: () => document.activeElement === textArea,
-    exists: () => !!textArea,
-    getStyle: () => textArea.style,
-    getAriaLabel: () => textArea.getAttribute('aria-label'),
-    getAriaControls: () => textArea.getAttribute('aria-controls'),
-    getAriaDescribedby: () => textArea.getAttribute('aria-describedby'),
+    isFocus: () => document.activeElement === textArea(),
+    exists: () => !!textArea(),
+    getStyle: () => textArea().style,
+    getAriaLabel: () => textArea().getAttribute('aria-label'),
+    getAriaControls: () => textArea().getAttribute('aria-controls'),
+    getAriaDescribedby: () => textArea().getAttribute('aria-describedby'),
     // TODO: get the dataHook using the <ErrorIndicator/> driver
     getTooltipDataHook: () => tooltipDataHook,
     getTooltipElement: () => element,

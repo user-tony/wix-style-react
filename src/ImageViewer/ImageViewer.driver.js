@@ -9,10 +9,11 @@ const imageViewerDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const hasDataAttribute = (dataAttr, el) =>
     el.getAttribute(dataAttr) === 'true';
 
-  const addItemDriver = addItemDriverFactory({
-    element: byHook(dataHooks.addItem),
-    eventTrigger,
-  });
+  const addItemDriver = () =>
+    addItemDriverFactory({
+      element: byHook(dataHooks.addItem),
+      eventTrigger,
+    });
 
   const tooltipTestkit = dataHook =>
     tooltipTestkitFactory({
@@ -41,7 +42,7 @@ const imageViewerDriverFactory = ({ element, wrapper, eventTrigger }) => {
     updateExists: () => !!byHook(dataHooks.update),
     updateButtonExists: () => !!byHook(dataHooks.update),
     removeButtonExists: () => !!byHook(dataHooks.remove),
-    clickAdd: () => addItemDriver.click(),
+    clickAdd: () => addItemDriver().click(),
     clickUpdate: () => {
       showButtons();
       eventTrigger.click(byHook(dataHooks.update));
@@ -51,7 +52,7 @@ const imageViewerDriverFactory = ({ element, wrapper, eventTrigger }) => {
       eventTrigger.click(byHook(dataHooks.remove));
     },
     getContainerStyles: () => element.getAttribute('style'),
-    getAddTooltipContent: () => addItemDriver.getTooltipContent(),
+    getAddTooltipContent: () => addItemDriver().getTooltipContent(),
     getUpdateTooltipContent: () => {
       const updateTooltip = tooltipTestkit(dataHooks.updateTooltip);
       showButtons();

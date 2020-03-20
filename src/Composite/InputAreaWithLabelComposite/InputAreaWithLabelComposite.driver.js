@@ -1,11 +1,11 @@
 import fieldLabelAttributesDriverFactory from '../../FieldLabelAttributes/FieldLabelAttributes.driver';
 
 const inputAreaWithLabelCompositeDriverFactory = ({ element }) => {
-  const label = element.childNodes[0].childNodes[0];
+  const label = () => element.childNodes[0].childNodes[0];
   return {
     exists: () => !!element,
-    getLabel: () => label.textContent,
-    hasLabel: () => label.tagName.toLowerCase() === 'label',
+    getLabel: () => label().textContent,
+    hasLabel: () => label().tagName.toLowerCase() === 'label',
     getAttr: attrName => element.getAttribute(attrName),
     getNumberOfChildren: () => element.childElementCount,
     getInfoTooltipTestKit: () =>
