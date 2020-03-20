@@ -37,12 +37,11 @@ export default {
     as: 'button',
     children: <CropRotate />,
     skin: 'standard',
-    priority: 'primary',
     size: 'medium',
-    tooltip: 'I am a tooltip',
     selected: false,
     disabled: false,
-    tooltipContent: 'Crop & Rotate',
+    labelValue: 'Crop & Rotate',
+    labelPlacement: 'tooltip',
     tooltipProps: { placement: 'top' },
   },
   exampleProps: {
@@ -55,7 +54,7 @@ export default {
     header({
       component: (
         <Layout gap={0}>
-          <ToggleButton tooltipContent="Crop & Rotate">
+          <ToggleButton labelValue="Crop & Rotate">
             <CropRotate />
           </ToggleButton>
         </Layout>
@@ -82,8 +81,22 @@ export default {
             example({
               title: 'Skin',
               text:
-                'Toggle Button supports 2 skin styles: `standard` and `dark`',
+                'Toggle supports 1 skin style – `standard`. Skin `dark` is deprecated.',
               source: examples.skins,
+            }),
+
+            example({
+              title: 'Size',
+              text:
+                'Toggle Button supports 4 sizes: `tiny`, `small`, `medium` (default) and `large`',
+              source: examples.sizes,
+            }),
+
+            example({
+              title: 'Label',
+              text:
+                'Component’s action must be explained using text. Text’s label can be placed at the `end` or `bottom` of the icon or can appear in a `tooltip`',
+              source: examples.labelPlacements,
             }),
 
             example({

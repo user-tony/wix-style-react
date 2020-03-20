@@ -2,10 +2,17 @@ import { buttonNextDriverFactory } from 'wix-ui-core/drivers/unidriver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
 export const toggleButtonDriverFactory = (base, body) => {
-  const tooltipDriver = tooltipDriverFactory(base, body);
+  const tooltipBaseElement = base.$('[data-hook="toggleButtonTooltip"]');
+  const tooltipDriver = tooltipDriverFactory(tooltipBaseElement, body);
+  const buttonDriver = buttonNextDriverFactory(base);
 
-  const buttonBaseElement = base.$('[data-hook="togglebutton-trigger"]');
-  const buttonDriver = buttonNextDriverFactory(buttonBaseElement);
+  async function getLabelPlacement() {
+    return base.attr('data-placement');
+  }
+
+  function getTooltipText() {
+    return tooltipDriver.getTooltipText();
+  }
 
   // Not using Omit so that AutoDocs will generate properly
   return {
@@ -18,10 +25,22 @@ export const toggleButtonDriverFactory = (base, body) => {
     /** returns true if button is disabled */
     isButtonDisabled: buttonDriver.isButtonDisabled,
     /** returns skin value, applied to a button */
-    getSkin: async () => await buttonBaseElement.attr('data-skin'),
+    getSkin: async () => await base.attr('data-skin'),
     /** returns true if button is selected */
-    isButtonSelected: async () =>
-      (await buttonBaseElement.attr('data-selected')) === 'true',
-    getTooltipText: async () => tooltipDriver.getTooltipText(),
+    isButtonSelected: async () => (await base.attr('data-selected')) === 'true',
+    /** @deprecated use `getLabelValue` instead */
+    getTooltipText,
+    /** returns label placement value */
+    getLabelPlacement,
+    /** returns label value */
+    getLabelValue: async () => {
+      const placement = await getLabelPlacement();
+
+      if (placement === 'tooltip') {
+        return getTooltipText();
+      }
+
+      return base.$('[data-hook="togglebutton-label"]').text();
+    },
   };
 };
