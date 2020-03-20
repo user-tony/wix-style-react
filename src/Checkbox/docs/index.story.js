@@ -98,8 +98,10 @@ export default {
           }),
 
           example({
-            title: 'Error',
-            source: examples.error,
+            title: 'Checkbox States',
+            text:
+              'Checkbox can be either checked, unchecked, has error or disabled.',
+            source: examples.checkboxStates,
           }),
 
           example({

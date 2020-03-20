@@ -9,28 +9,56 @@ export const sizes = `
 </Layout>
 `;
 
-export const error = `
-<Checkbox hasError errorMessage="Oops!" vAlign="top">
-  <div>I have an error!</div>
-  <div>Hover me...</div>
-</Checkbox>
+export const checkboxStates = `
+<Layout>
+    <Cell><Checkbox> Unchecked</Checkbox></Cell>
+    <Cell><Checkbox checked> Checked</Checkbox></Cell>
+    <Cell><Checkbox hasError errorMessage="Oops!">Error</Checkbox></Cell>
+    <Cell><Checkbox disabled>Disabled</Checkbox></Cell>
+</Layout>
 `;
 
 export const selectionArea = `
-<Layout>
-    <Cell>
-        <Checkbox selectionArea='always' checked>Check me!</Checkbox>
-    </Cell>
-    <Cell>
-        <Checkbox selectionArea='always'>Check me!</Checkbox>
-    </Cell>
-    <Cell>
-      <Checkbox selectionArea='always' disabled>Check me!</Checkbox>
-    </Cell>
-    <Cell>
-      <Checkbox selectionArea='hover'>Check me!</Checkbox>
-    </Cell>
-</Layout>
+<Card>
+    <Card.Header title="Selection Area" />
+    <Card.Content>
+      <Layout>
+        <Cell>
+           <FormField label="None:" infoContent="No selection area" required>
+               <Box padding="18px"><Checkbox>Option 1</Checkbox></Box>
+               <Box padding="18px"><Checkbox>Option 2</Checkbox></Box>
+               <Box padding="18px"><Checkbox>Option 3</Checkbox></Box>
+           </FormField>
+        </Cell>
+        <Cell>
+           <FormField label='Hover:' infoContent="Selection area on hover" required>
+              <Box direction="vertical" paddingBottom="6px">
+                  <Checkbox selectionArea="hover">Option 1</Checkbox>
+              </Box>
+              <Box direction="vertical" paddingBottom="6px">
+                  <Checkbox selectionArea="hover">Option 2</Checkbox>
+              </Box>
+              <Box direction="vertical">
+                  <Checkbox selectionArea="hover">Option 3</Checkbox>
+              </Box>
+            </FormField>
+          </Cell>
+          <Cell>
+           <FormField label='Always:' infoContent="Always show selection area" required>
+              <Box direction="vertical" paddingBottom="6px">
+                  <Checkbox selectionArea="always">Option 1</Checkbox>
+              </Box>
+              <Box direction="vertical" paddingBottom="6px">
+                  <Checkbox selectionArea="always">Option 2</Checkbox>
+              </Box>
+              <Box direction="vertical">
+                  <Checkbox selectionArea="always">Option 3</Checkbox>
+              </Box>
+            </FormField>
+          </Cell>
+       </Layout>
+    </Card.Content>
+</Card>
 `;
 
 export const controlledCheckbox = `
