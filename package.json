@@ -8,8 +8,7 @@
   "sideEffects": [
     "./.storybook/**/*.*",
     "./stories/**/*.*",
-    "./dist/src/Carousel/Carousel.js",
-    "./dist/es/src/Carousel/Carousel.js",
+    "./dist/**/*.global.scss",
     "./src/**/*.scss"
   ],
   "files": [
