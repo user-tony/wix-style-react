@@ -18,8 +18,11 @@ Types of changes:
 
 ### Added
 
-- `<ToggleButton/>` - size and labelPlacement props https://github.com/wix/wix-style-react/pull/5202
+- `<ToggleButton/>` - size and labelPlacement props [#5202](https://github.com/wix/wix-style-react/pull/5202)
 
+### Fixed 
+
+- tooltipProps - migrate to common d.ts and proptypes [#5225](https://github.com/wix/wix-style-react/pull/5225)
 
 ## 7.50.1 - 2020-03-20
 
