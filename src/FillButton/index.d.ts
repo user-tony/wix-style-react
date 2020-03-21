@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { OmitPolyfill } from '../common';
-import { TooltipNewProps } from '../Tooltip';
+import { PopoverCommonProps } from '../common'
 
 export interface FillButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,7 +8,7 @@ export interface FillButtonProps
   disabled?: boolean;
   tooltipContent?: React.ReactNode;
   fill?: string;
-  tooltipProps?: OmitPolyfill<TooltipNewProps, 'dataHook' | 'content' | 'size' | 'upgrade'>;
+  tooltipProps?: PopoverCommonProps;
   dataHook?: string;
 }
 

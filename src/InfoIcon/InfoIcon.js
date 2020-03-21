@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 import InfoCircleSmall from 'wix-ui-icons-common/InfoCircleSmall';
+import { PopoverCommonProps } from '../commonProps';
 
 import Tooltip from '../Tooltip';
 import styles from './InfoIcon.st.css';
@@ -45,7 +46,7 @@ InfoIcon.propTypes = {
   content: PropTypes.node.isRequired,
 
   /** Props for `<Tooltip/>` component. */
-  tooltipProps: PropTypes.shape(Tooltip.propTypes),
+  tooltipProps: PropTypes.shape(PopoverCommonProps),
 };
 
 InfoIcon.defaultProps = {

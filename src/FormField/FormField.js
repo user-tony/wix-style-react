@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import InfoIcon from '../InfoIcon';
 import Text, { SIZES, SKINS, WEIGHTS } from '../Text';
-import Tooltip from '../Tooltip';
 import { dataHooks } from './constants';
 import styles from './FormField.scss';
+import { PopoverCommonProps } from '../commonProps';
 
 const PLACEMENT = {
   top: 'top',
@@ -88,7 +88,7 @@ class FormField extends React.Component {
     infoContent: PropTypes.node,
 
     /** info icon tooltip props */
-    infoTooltipProps: PropTypes.shape(Tooltip.propTypes),
+    infoTooltipProps: PropTypes.shape(PopoverCommonProps),
 
     /** string used to match text label with FormField children. For example:
      *

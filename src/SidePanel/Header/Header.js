@@ -3,12 +3,12 @@ import { SidePanelContext } from '../SidePanelAPI';
 import PropTypes from 'prop-types';
 import styles from './Header.st.css';
 import { dataHooks } from '../constants';
-import Tooltip from '../../Tooltip';
 import Heading from '../../Heading';
 import Divider from '../../Divider';
 import CloseButton from '../../CloseButton';
 import Box from '../../Box';
 import InfoIcon from '../../InfoIcon';
+import { PopoverCommonProps } from '../../commonProps';
 
 class Header extends React.PureComponent {
   static displayName = 'SidePanel.Header';
@@ -21,7 +21,7 @@ class Header extends React.PureComponent {
     /** Tooltip text */
     infoTooltipContent: PropTypes.string,
     /** Tooltip props */
-    infoTooltipProps: PropTypes.shape(Tooltip.propTypes),
+    infoTooltipProps: PropTypes.shape(PopoverCommonProps),
     /** Show divider */
     showDivider: PropTypes.bool,
     /** Any element to be rendered inside under title */

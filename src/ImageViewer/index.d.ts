@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { OmitPolyfill } from '../common';
-import { TooltipNewProps } from '../Tooltip';
-import {InputStatus} from '../Input';
+import { InputStatus } from '../Input';
+import { PopoverCommonProps } from '../common';
 
 export interface ImageViewerProps {
   imageUrl?: string;
@@ -11,8 +10,8 @@ export interface ImageViewerProps {
    * @deprecated
    * @see tooltipProps
    */
-  tooltipPlacement?: TooltipNewProps['placement'];
-  tooltipProps?: OmitPolyfill<TooltipNewProps, 'content' | 'upgrade' | 'dataHook'>;
+  tooltipPlacement?: PopoverCommonProps['placement'];
+  tooltipProps?: PopoverCommonProps;
   showUpdateButton?: boolean;
   showRemoveButton?: boolean;
   onAddImage?: React.MouseEventHandler<HTMLElement>;

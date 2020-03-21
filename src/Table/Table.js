@@ -8,7 +8,8 @@ import DataTable from '../DataTable';
 import Checkbox from '../Checkbox';
 import { TableContext } from './TableContext';
 import { BulkSelection } from './BulkSelection';
-import Tooltip from '../Tooltip/Tooltip';
+import { PopoverCommonProps } from '../commonProps';
+
 import {
   TableToolbarContainer,
   TableTitleBar,
@@ -248,7 +249,7 @@ Table.propTypes = {
       onCellClick: PropTypes.func,
       sortable: PropTypes.bool,
       sortDescending: PropTypes.bool,
-      infoTooltipProps: PropTypes.shape(Tooltip.propTypes),
+      infoTooltipProps: PropTypes.shape(PopoverCommonProps),
       style: PropTypes.oneOf([PropTypes.object, PropTypes.func]),
       align: PropTypes.oneOf(['start', 'center', 'end']),
       width: PropTypes.string,

@@ -6,6 +6,7 @@ import { Animator } from 'wix-animations';
 import classNames from 'classnames';
 import defaultTo from 'lodash/defaultTo';
 import { VariableSizeList as List } from 'react-window';
+import { PopoverCommonProps } from '../commonProps';
 
 import styles from './DataTable.scss';
 import InfiniteScroll from '../utils/InfiniteScroll';
@@ -527,7 +528,7 @@ DataTable.propTypes = {
       title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
       render: PropTypes.func.isRequired,
       sortable: PropTypes.bool,
-      infoTooltipProps: PropTypes.shape(infoTooltipProps),
+      infoTooltipProps: PropTypes.shape(PopoverCommonProps),
       sortDescending: PropTypes.bool,
       align: PropTypes.oneOf(['start', 'center', 'end']),
     }),
