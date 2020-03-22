@@ -11,6 +11,18 @@ export const badgeUniDriverFactory = base => ({
   getSize: () => base.attr('data-size'),
   isUppercase: async () => (await base.attr('data-uppercase')) === 'true',
   hasClickCursor: async () => (await base.attr('data-clickable')) === 'true',
-  getPrefixIcon: () => base.$(`[data-prefix-icon]`),
-  getSuffixIcon: () => base.$(`[data-suffix-icon]`),
+  /** @deprecated use your own dataHook on prefix element instead */
+  getPrefixIcon: async () => {
+    if (await base.$(`[data-prefix-icon]`).exists()) {
+      return await base.$(`[data-prefix-icon]`).getNative(); //eslint-disable-line
+    }
+    return null;
+  },
+  /** @deprecated use your own dataHook on suffix element instead */
+  getSuffixIcon: async () => {
+    if (await base.$(`[data-suffix-icon]`).exists()) {
+      return await base.$(`[data-suffix-icon]`).getNative(); // eslint-disable-line
+    }
+    return null;
+  },
 });

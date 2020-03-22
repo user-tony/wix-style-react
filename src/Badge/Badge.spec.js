@@ -1,5 +1,5 @@
 import React from 'react';
-import { badgePrivateDriverFactory } from './Badge.private.driver';
+import badgeDriverFactory from './Badge.driver';
 import Badge from '.';
 import { SKIN, TYPE, SIZE } from './constants';
 import Email from 'wix-ui-icons-common/Email';
@@ -12,7 +12,7 @@ import { badgeUniDriverFactory } from './Badge.uni.driver';
 
 describe('Badge', () => {
   describe('[sync]', () => {
-    runTests(createRendererWithDriver(badgePrivateDriverFactory));
+    runTests(createRendererWithDriver(badgeDriverFactory));
   });
 
   describe('[async]', () => {
@@ -107,22 +107,22 @@ describe('Badge', () => {
 
       it('should not have any icons by default', async () => {
         const driver = createDriver(<Badge>Hello</Badge>);
-        expect(await driver.getPrefixIcon().exists()).toBeFalsy();
-        expect(await driver.getSuffixIcon().exists()).toBeFalsy();
+        expect(!!(await driver.getPrefixIcon())).toBe(false);
+        expect(!!(await driver.getSuffixIcon())).toBe(false);
       });
 
       it('should have prefix icon', async () => {
         const driver = createDriver(
           <Badge prefixIcon={<Email />}>Hello</Badge>,
         );
-        expect(await driver.getPrefixIcon().exists()).toBeTruthy();
+        expect(!!(await driver.getPrefixIcon())).toBe(true);
       });
 
       it('should have suffix icon', async () => {
         const driver = createDriver(
           <Badge suffixIcon={<Email />}>Hello</Badge>,
         );
-        expect(await driver.getSuffixIcon().exists()).toBeTruthy();
+        expect(!!(await driver.getSuffixIcon())).toBe(true);
       });
     });
   }

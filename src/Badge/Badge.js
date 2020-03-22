@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
+import { generateDataAttr } from '../utils/generateDataAttr';
 
 import { SKIN, TYPE, SIZE } from './constants';
 import style from './Badge.st.css';
@@ -90,17 +91,6 @@ class Badge extends React.PureComponent {
     return <EllipsedBadgeContent ellipsis>{children}</EllipsedBadgeContent>;
   };
 
-  _getDataAttributes = () => {
-    const { type, skin, size, uppercase, onClick } = this.props;
-    return {
-      'data-type': type,
-      'data-skin': skin,
-      'data-size': size,
-      'data-clickable': !!onClick,
-      'data-uppercase': uppercase,
-    };
-  };
-
   render() {
     const {
       children,
@@ -114,10 +104,11 @@ class Badge extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        {...this._getDataAttributes()}
         onClick={onClick}
         {...this._getFocusableProps()}
         {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}
+        {...generateDataAttr(this.props, ['type', 'skin', 'size', 'uppercase'])}
+        data-clickable={!!onClick}
       >
         {prefixIcon &&
           React.cloneElement(prefixIcon, {
