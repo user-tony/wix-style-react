@@ -25,6 +25,7 @@ Types of changes:
 - tooltipProps - migrate to common d.ts and proptypes [#5225](https://github.com/wix/wix-style-react/pull/5225)
 - `<Heading/>` - migrating regular driver to not use stylable stylesheet for testing [#5230](https://github.com/wix/wix-style-react/pull/5230)
 - `<Badge/>` - migrate regular testkit to not use stylable && deprecate getSufixIcon and getPrefixIcon [#5229](https://github.com/wix/wix-style-react/pull/5229)
+- `<Text/>` - migrate regular driver to not use stylesheet for testing [#5231](https://github.com/wix/wix-style-react/pull/5231)
 
 ## 7.50.1 - 2020-03-20
 
