@@ -23,6 +23,7 @@ Types of changes:
 ### Fixed 
 
 - tooltipProps - migrate to common d.ts and proptypes [#5225](https://github.com/wix/wix-style-react/pull/5225)
+- `<Heading/>` - migrating regular driver to not use stylable stylesheet for testing [#5230](https://github.com/wix/wix-style-react/pull/5230)
 
 ## 7.50.1 - 2020-03-20
 
