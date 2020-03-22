@@ -394,7 +394,7 @@ class TableHeader extends Component {
       return null;
     }
 
-    const Arrow = sortDescending ? SortByArrowUp : SortByArrowDown;
+    const Arrow = sortDescending ? SortByArrowDown : SortByArrowUp;
 
     return (
       <span data-hook={`${colNum}_title`} className={this.style.sortArrow}>
