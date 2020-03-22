@@ -74,12 +74,12 @@ class AnnouncementModalLayout extends React.PureComponent {
     primaryButtonProps['size'] = 'medium';
     secondaryButtonProps['skin'] = theme;
     secondaryButtonProps['size'] = 'medium';
-    const transformedProps = {
+
+    return {
       title: this._renderTitle(),
       primaryButtonProps: primaryButtonProps,
       secondaryButtonProps: secondaryButtonProps,
     };
-    return transformedProps;
   }
 }
 

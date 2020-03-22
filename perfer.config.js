@@ -137,7 +137,7 @@ const javascriptFiles = [
   ['StatusIndicator.bundle.min.js', 37],
   ['BaseModalLayout.bundle.min.js', 20],
   ['MessageModalLayout.bundle.min.js', 20],
-  ['AnnouncementModalLayout.bundle.min.js', 17],
+  ['AnnouncementModalLayout.bundle.min.js', 18],
 ];
 
 const cssFiles = [
