@@ -8,12 +8,12 @@ import AddItemMedium from 'wix-ui-icons-common/system/AddItemMedium';
 import AddItemSmall from 'wix-ui-icons-common/system/AddItemSmall';
 import Add from 'wix-ui-icons-common/Add';
 
-import Tooltip from '../Tooltip';
 import Text from '../Text';
 import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 import { dataHooks } from './constants';
 import { PopoverCommonProps } from '../commonProps';
+import deprecationLog from '../utils/deprecationLog';
 
 import style from './AddItem.st.css';
 
@@ -86,6 +86,25 @@ class AddItem extends Component {
     showIcon: true,
     removePadding: false,
   };
+
+  constructor(props) {
+    super(props);
+
+    [
+      'tooltipAppendTo',
+      'tooltipFlip',
+      'tooltipFixed',
+      'tooltipContent',
+      'tooltipPlacement',
+    ].forEach(prop => {
+      if (props.hasOwnProperty(prop)) {
+        deprecationLog(
+          `do not use '${prop}' prop, use 'tooltipProps' prop instead.`,
+          `<AddItem/> - do not use '${prop}' prop, use 'tooltipProps' prop instead.`,
+        );
+      }
+    });
+  }
 
   _renderIcon = () => {
     const { size, theme } = this.props;
