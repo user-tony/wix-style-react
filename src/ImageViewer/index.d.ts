@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { InputStatus } from '../Input';
+import { InputProps } from '../Input';
 import { PopoverCommonProps } from '../common';
 
 export interface ImageViewerProps {
@@ -25,8 +25,8 @@ export interface ImageViewerProps {
   width?: number | string;
   height?: number | string;
   disabled?: boolean;
-  status?: InputStatus;
-  statusMessage?: React.ReactNode;
+  status?: InputProps['status'];
+  statusMessage?: InputProps['statusMessage'];
   dataHook?: string;
   className?: string;
 }

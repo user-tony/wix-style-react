@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { PopoverProps } from '../Popover';
 import { OmitPolyfill } from '../common';
-import { InputProps, InputStatus } from '../Input';
-
-export type ColorInputStatus = InputStatus;
+import { InputProps } from '../Input';
 
 export type ColorInputProps = OmitPolyfill<InputProps, 'onChange'> & {
   value: string;
@@ -11,8 +9,8 @@ export type ColorInputProps = OmitPolyfill<InputProps, 'onChange'> & {
   disabled?: boolean;
   error?: boolean;
   errorMessage?: React.ReactNode;
-  status?: ColorInputStatus;
-  statusMessage?: React.ReactNode;
+  status?: InputProps['status'];
+  statusMessage?: InputProps['statusMessage'];
   size?: ColorInputSize;
   popoverPlacement?: PopoverProps['placement'];
   popoverAppendTo?: 'window' | 'scrollParent' | 'viewport' | 'parent';

@@ -15,6 +15,8 @@ function GoogleAddressInputWithAllProps() {
       types={['type1','type2']}
       filterTypes={['filterType1']}
       placeDetailsFields={['place1', 'place2']}
+      status="error"
+      statusMessage="message"
       error={true}
       onChange={e=>{}}
       onBlur={e=>{}}

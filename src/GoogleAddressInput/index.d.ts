@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {OmitPolyfill,} from '../common';
-import {InputProps, InputTheme} from '../Input';
-import {GoogleMapsClient} from '../clients';
+import { OmitPolyfill } from '../common';
+import { InputProps, InputTheme } from '../Input';
+import { GoogleMapsClient } from '../clients';
 
 export interface GoogleAddressInputProps
   extends OmitPolyfill<
@@ -12,6 +12,8 @@ export interface GoogleAddressInputProps
   valuePrefix?: string;
   countryCode?: string;
   value?: string;
+  status?: InputProps['status'];
+  statusMessage?: InputProps['statusMessage'];
   error?: boolean;
   onChange?: React.MouseEventHandler<HTMLButtonElement>;
   onBlur?: React.MouseEventHandler<HTMLButtonElement>;

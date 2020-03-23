@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {InputStatus} from '../Input';
+import { InputProps } from '../Input';
 
 export interface InputWithLabelProps {
   dataHook?: string;
   suffix?: React.ReactNode[];
   label?: string;
   value?: string | number;
-  status?: InputStatus;
-  statusMessage?: React.ReactNode;
+  status?: InputProps['status'];
+  statusMessage?: InputProps['statusMessage'];
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;

@@ -12,6 +12,7 @@ import {
   trySetStreetNumberIfNotReceived,
 } from './google2address';
 import styles from './GoogleAddressInput.scss';
+import deprecationLog from '../utils/deprecationLog';
 
 export const GoogleAddressInputHandler = {
   geocode: 'geocode',
@@ -39,6 +40,12 @@ class GoogleAddressInput extends React.Component {
     this.onFocus = this.onFocus.bind(this);
     this.onSet = this.onSet.bind(this);
     this.onManuallyInput = this.onManuallyInput.bind(this);
+
+    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
+      deprecationLog(
+        '<GoogleAddressInput/> - props error and errorMessage are deprecated. Please use status="error" and statusMessage',
+      );
+    }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -332,6 +339,12 @@ GoogleAddressInput.propTypes = {
 
   /** Fields indicating which types of Places data to return (see [here](https://developers.google.com/maps/documentation/javascript/places#place_details)**/
   placeDetailsFields: PropTypes.array,
+
+  /** Sets UI to indicate a status */
+  status: PropTypes.oneOf(['error', 'warning', 'loading']),
+
+  /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
+  statusMessage: PropTypes.node,
 
   /** Should display error marker */
   error: PropTypes.bool,
