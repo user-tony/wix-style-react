@@ -22,40 +22,6 @@ const sizeToErrorIcon = {
 };
 
 class CircularProgressBar extends React.PureComponent {
-  static displayName = 'CircularProgressBar';
-
-  static defaultProps = {
-    size: 'medium',
-  };
-
-  static propTypes = {
-    /** Should be true if had failure during the progress */
-    error: PropTypes.bool,
-
-    /** Label to display when an error happens */
-    errorLabel: PropTypes.string,
-
-    /** Message to display when an error happens */
-    errorMessage: PropTypes.string,
-
-    /** Use light theme instead of dark theme */
-    light: PropTypes.bool,
-
-    /** Use to display a percentage progress */
-    showProgressIndication: PropTypes.bool,
-
-    /** Size of the bar */
-    size: PropTypes.string,
-
-    /** The number of the percentage progress */
-    value: PropTypes.number || PropTypes.string,
-
-    dataHook: PropTypes.string,
-
-    /** load Tooltip async using dynamic import */
-    shouldLoadAsync: PropTypes.bool,
-  };
-
   render() {
     const {
       errorMessage,
@@ -109,5 +75,39 @@ class CircularProgressBar extends React.PureComponent {
     );
   }
 }
+
+CircularProgressBar.displayName = 'CircularProgressBar';
+
+CircularProgressBar.defaultProps = {
+  size: 'medium',
+};
+
+CircularProgressBar.propTypes = {
+  /** Should be true if had failure during the progress */
+  error: PropTypes.bool,
+
+  /** Label to display when an error happens */
+  errorLabel: PropTypes.string,
+
+  /** Message to display when an error happens */
+  errorMessage: PropTypes.string,
+
+  /** Use light theme instead of dark theme */
+  light: PropTypes.bool,
+
+  /** Use to display a percentage progress */
+  showProgressIndication: PropTypes.bool,
+
+  /** Size of the bar */
+  size: PropTypes.string,
+
+  /** The number of the percentage progress */
+  value: PropTypes.number || PropTypes.string,
+
+  dataHook: PropTypes.string,
+
+  /** load Tooltip async using dynamic import */
+  shouldLoadAsync: PropTypes.bool,
+};
 
 export default CircularProgressBar;
