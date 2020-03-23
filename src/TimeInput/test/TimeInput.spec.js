@@ -51,7 +51,7 @@ describe('TimeInput', () => {
           parseInt(inputTimeMinutes) - parseInt(currentTimeMinutes),
         );
         expect(inputTimeHours).toBe(currentTimeHours);
-        expect(minutesDiff <= 1).toBe(true); //ignore diff of one minute (minute can be change from the time the object was created to current time)
+        expect(minutesDiff <= 1).toBe(true); // ignore diff of one minute (minute can be change from the time the object was created to current time)
       });
 
       it(`should allow rendering time in 24 hours mode`, async () => {
@@ -115,6 +115,17 @@ describe('TimeInput', () => {
 
         expect(await driver.isDisabled()).toBe(true);
         expect(props.onChange.called).toBe(false);
+      });
+
+      it(`should trigger 'onChange' callBack upon setValue`, async () => {
+        const props = {
+          onChange: sinon.spy(),
+          defaultValue: defaultMoment,
+        };
+        const { driver } = render(<TimePicker {...props} />);
+        await driver.setValue('12:00');
+        await driver.blur();
+        expect(props.onChange.called).toBe(true);
       });
 
       it(`should increase input value by 20 minutes upon clicking the input's up ticker`, async () => {
