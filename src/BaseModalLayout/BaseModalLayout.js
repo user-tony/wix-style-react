@@ -69,7 +69,11 @@ class BaseModalLayout extends React.PureComponent {
         ) : (
           title
         )}
-        {subtitle && <Text dataHook={dataHooks.subtitle}>{subtitle}</Text>}
+        {subtitle && (
+          <Text secondary dataHook={dataHooks.subtitle}>
+            {subtitle}
+          </Text>
+        )}
       </div>
     );
   };
