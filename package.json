@@ -49,7 +49,7 @@
     "test:e2e": "npm run test:e2e-runtime && build-storybook -c ./.storybook/e2e && npm run test:e2e-only",
     "test:e2e-only": "NODE_ENV=production yoshi test --protractor",
     "test:e2e-runtime": "cd ./test-runtime/imports && NODE_ENV=production npm run test",
-    "test:visual": "#eyes-storybook -c ./.storybook/visual",
+    "test:visual": "eyes-storybook -c ./.storybook/visual",
     "test:chromatic": "chromatic --build-script-name=storybook:build-visual --app-code=$CHROMATIC_WIX_STYLE_REACT",
     "test:types": "tsc -p tsconfig.declarations.json && npm run pr-storybook:publish",
     "test:performance": "npm run transpile && npm run bundles:generate && npm install --no-save @wix/perfer && perfer --verbose",
