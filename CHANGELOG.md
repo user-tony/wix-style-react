@@ -16,8 +16,10 @@ Types of changes:
 
 ## Next
 
-### Added
+## 7.51.0 - 2020-03-24
 
+### Added
+- `<DropdownBase/>` - teskit - add testkit function - optionContentAt [#5257](https://github.com/wix/wix-style-react/pull/5257)
 - `<ToggleButton/>` - size and labelPlacement props [#5202](https://github.com/wix/wix-style-react/pull/5202)
 
 ### Fixed 
