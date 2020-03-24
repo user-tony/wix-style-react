@@ -27,6 +27,14 @@ describe('DropdownBase', () => {
       { id: 1, value: 'Second option' },
       { id: 2, value: 'Third option' },
       { id: 3, value: 'Fourth option' },
+      {
+        id: 4,
+        value: (
+          <div>
+            <span>test</span>
+          </div>
+        ),
+      },
     ],
   };
 
@@ -232,6 +240,58 @@ describe('DropdownBase', () => {
 
     await driver.clickTargetElement(targetDataHook);
     expect(await driver.optionsCount()).toEqual(defaultProps.options.length);
+  });
+
+  it('should return the requested textual option', async () => {
+    const onMouseLeaveFn = jest.fn();
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps} onMouseLeave={onMouseLeaveFn}>
+        {({ open }) => {
+          return (
+            <IconButton
+              skin="inverted"
+              dataHook={targetDataHook}
+              onClick={open}
+            >
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.clickTargetElement(targetDataHook);
+    expect(await driver.optionContentAt(1)).toEqual(
+      defaultProps.options[1].value,
+    );
+  });
+
+  it('should return the requested node option', async () => {
+    const onMouseLeaveFn = jest.fn();
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps} onMouseLeave={onMouseLeaveFn}>
+        {({ open }) => {
+          return (
+            <IconButton
+              skin="inverted"
+              dataHook={targetDataHook}
+              onClick={open}
+            >
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.clickTargetElement(targetDataHook);
+    expect((await driver.optionContentAt(4)).innerHTML).toEqual(
+      '<span>test</span>',
+    );
   });
 
   describe('uncontrolled open behaviour', () => {
