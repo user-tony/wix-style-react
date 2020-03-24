@@ -54,9 +54,7 @@ export default {
               'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
           }),
 
-          importExample(
-            "import <%= ComponentName %> from 'wix-style-react/<%= ComponentName %>';",
-          ),
+          importExample(),
 
           divider(),
 
