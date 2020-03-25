@@ -14,11 +14,11 @@ class InputWarningSuffix extends React.Component {
     return (
       <Tooltip
         dataHook="input-tooltip"
-        disabled={this.props.warningMessage.length === 0}
+        disabled={!this.props.warningMessage}
         placement={this.props.tooltipPlacement}
         alignment="center"
         textAlign="left"
-        content={this.props.warningMessage}
+        content={this.props.warningMessage || ''}
         overlay=""
         theme="dark"
         maxWidth="230px"

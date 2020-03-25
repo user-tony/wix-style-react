@@ -29,7 +29,7 @@ class ControlledInputArea extends Component {
     return (
       <InputArea
         {...this.props}
-        error={this.state.value === 'Starwars'}
+        status={this.state.value === 'Starwars' ? 'error' : undefined}
         value={this.state.value}
         onChange={onChange}
         onClear={onClear}

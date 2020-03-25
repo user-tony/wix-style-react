@@ -41,7 +41,6 @@ export default class DatePicker extends React.PureComponent {
     width: 150,
     zIndex: 1,
     disabled: false,
-    error: false,
     inputDataHook: 'date-picker-input',
     popoverProps: {
       placement: 'top-start',
@@ -52,8 +51,16 @@ export default class DatePicker extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    if (props.isOpen !== undefined) {
-      deprecationLog('DatePicker isOpen is deprecated. Please use initialOpen');
+    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
+      deprecationLog(
+        '<DatePicker/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
+      );
+    }
+
+    if (props.hasOwnProperty('isOpen')) {
+      deprecationLog(
+        '<DatePicker/> - isOpen prop is deprecated. Please use initialOpen instead.',
+      );
     }
 
     const initialOpen =
@@ -150,6 +157,8 @@ export default class DatePicker extends React.PureComponent {
       value: initialValue,
       error,
       errorMessage,
+      status,
+      statusMessage,
       customInput,
       dateFormat,
       inputProps = {},
@@ -173,8 +182,8 @@ export default class DatePicker extends React.PureComponent {
         }}
         onKeyDown={this._handleKeyDown}
         tabIndex={this.state.isDateInputFocusable ? 1 : -1}
-        error={error}
-        errorMessage={errorMessage}
+        status={status || (error ? 'error' : undefined)}
+        statusMessage={statusMessage || errorMessage}
         autoSelect={false}
         dateFormat={dateFormat}
         customInput={customInput}

@@ -71,7 +71,6 @@ class ColorInput extends React.Component {
 
   static defaultProps = {
     placeholder: '',
-    error: false,
     size: 'medium',
     popoverPlacement: 'bottom',
     popoverAppendTo: 'parent',
@@ -89,9 +88,21 @@ class ColorInput extends React.Component {
       value: '',
     };
 
-    if (props.error || props.errorMessage) {
+    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
       deprecationLog(
-        'Both error and errorMessage props are deprecated. Please use status and statusMessage',
+        '<ColorInput/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
+      );
+    }
+
+    if (props.hasOwnProperty('help') || props.hasOwnProperty('helpMessage')) {
+      deprecationLog(
+        '<ColorInput/> - help and helpMessage props are deprecated. Please use <FormField/> as a wrapper instead.',
+      );
+    }
+
+    if (props.hasOwnProperty('theme') && props.theme !== 'normal') {
+      deprecationLog(
+        '<ColorInput/> - theme prop is deprecated, please contact us or your UX if needed.',
       );
     }
   }

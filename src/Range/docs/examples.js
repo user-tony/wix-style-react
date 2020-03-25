@@ -34,19 +34,19 @@ export const errorState = `<Layout>
       <DatePicker
         placeholderText="From"
         id="fromDate"
-        error
+        status="error"
       />
       <DatePicker
          placeholderText="To"
          id="toDate"
-         error
+         status="error"
       />
     </Range>
     </Cell>
     <Cell>
       <Range>
-        <Input error/>
-        <Input error/>
+        <Input status="error"/>
+        <Input status="error"/>
      </Range>
     </Cell>
 </Layout>`;

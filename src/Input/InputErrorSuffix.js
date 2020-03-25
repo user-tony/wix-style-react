@@ -10,7 +10,7 @@ class InputErrorSuffix extends React.Component {
       <ErrorIndicator
         {...styles('root', { narrow }, this.props)}
         dataHook="input-tooltip"
-        disabled={errorMessage.length === 0}
+        disabled={!errorMessage}
         placement={tooltipPlacement}
         errorMessage={errorMessage}
       />

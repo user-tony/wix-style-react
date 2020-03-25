@@ -10,13 +10,13 @@ class InputHelpSuffix extends React.Component {
     return (
       <Tooltip
         dataHook="input-tooltip"
-        disabled={this.props.helpMessage.length === 0}
+        disabled={!this.props.helpMessage}
         maxWidth="230px"
         placement="right"
         alignment="center"
         textAlign="left"
         hideDelay={100}
-        content={this.props.helpMessage}
+        content={this.props.helpMessage || ''}
         overlay=""
       >
         <div className={styles.help}>

@@ -45,7 +45,7 @@ export const states = `
     { id: 3, value: 'Fifth option' },
     { id: 4, value: 'Fourth option' },
   ]}
-  disabled 
+  disabled
   />
   <AutoComplete options={[
     { id: 0, value: 'First option' },
@@ -54,14 +54,14 @@ export const states = `
     { id: 3, value: 'Fifth option' },
     { id: 4, value: 'Fourth option' },
   ]}
-  error
+  status="error"
   />
 </Layout>
 `;
 
 export const overflow = `
 <div style={{ display:'flex', justifyContent:'center', alignItems: 'center', width: '400px', height: '150px', background: 'rgba(240, 244, 247, 1)', overflow:'scroll'}}>
- <AutoComplete 
+ <AutoComplete
   popoverProps={{ appendTo:"window" }}
   options={[
     { id: 0, value: 'Option 1' },
