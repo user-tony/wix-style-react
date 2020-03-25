@@ -1,7 +1,20 @@
 import { dropdownBaseDriverFactory } from '../../DropdownBase/DropdownBase.uni.driver';
+import { dropdownLayoutDriverFactory } from '../../DropdownLayout/DropdownLayout.uni.driver';
+import popoverCommonDriverFactory from '../../Popover/Popover.common.uni.driver';
 
 export const PopoverMenuDriver = (base, body) => {
   const dropdownBaseTestkit = dropdownBaseDriverFactory(base, body);
+
+  const createDropdownLayoutDriver = async () =>
+    dropdownLayoutDriverFactory(
+      (await getContentElement()).$(
+        `[data-hook="dropdown-base-dropdownlayout"]`,
+      ),
+    );
+
+  const getContentElement = async () =>
+    popoverCommonDriverFactory(base, body).getContentElement();
+
   return {
     /** Returns true of popoverMenu exists */
     exists: () => dropdownBaseTestkit.exists(),
@@ -16,5 +29,12 @@ export const PopoverMenuDriver = (base, body) => {
     isMenuOpen: () => dropdownBaseTestkit.isDropdownShown(),
     /** Returns children count */
     childrenCount: () => dropdownBaseTestkit.optionsCount(),
+    /** Returns text of <PopoverMenu.MenuItem/> of a specific index */
+    itemContentAt: async index => {
+      const dropdownLayoutDriver = await createDropdownLayoutDriver();
+      const options = await dropdownLayoutDriver.options();
+      const nodeContent = options[index].element().$$(':first-child');
+      return await nodeContent.get(0).text();
+    },
   };
 };

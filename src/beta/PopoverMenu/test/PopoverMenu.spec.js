@@ -155,6 +155,24 @@ describe('PopoverMenu', () => {
           ).toBe('random');
         });
       });
+
+      describe('`text` prop', () => {
+        it('should render the given text', async () => {
+          const text = 'First Menu Item';
+          const { driver } = render(
+            renderPopoverMenu({
+              children: renderPopoverMenuItem({ text }),
+            }),
+          );
+          const iconButton = await driver.getTriggerElement('iconbutton');
+          const iconButtonTestkit = iconButtonDriverFactory(iconButton);
+          await iconButtonTestkit.click();
+
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect(await driver.itemContentAt(0)).toBe(text);
+        });
+      });
     });
 
     describe('PopoverMenu.Divider', () => {

@@ -7,4 +7,5 @@ export interface PopoverMenuDriver {
   clickAtChildByDataHook: (dataHook: string) => Promise<void>;
   isMenuOpen(): Promise<boolean>;
   childrenCount(): Promise<number>;
+  itemContentAt: (id: number) => Promise<string>;
 }
