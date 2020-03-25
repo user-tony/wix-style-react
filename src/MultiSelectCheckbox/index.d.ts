@@ -1,12 +1,12 @@
 import InputWithOptions, {ManualInputFnSignature, InputWithOptionsProps} from '../InputWithOptions';
-import {DropdownLayoutValueOption} from '../DropdownLayout';
+import {DropdownLayoutValueOption, DropdownLayoutProps} from '../DropdownLayout';
 
 export interface MultiSelectCheckboxProps
   extends InputWithOptionsProps<
     ManualInputFnSignature,
     MultiSelectOnSelectFnSignature
   > {
-  selectedOptions?: DropdownLayoutValueOption[];
+  selectedOptions?: DropdownLayoutProps['selectedId'][];
   onDeselect?: (
     id: DropdownLayoutValueOption['id'],
     option: DropdownLayoutValueOption,

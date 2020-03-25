@@ -13,16 +13,7 @@ function MultiSelectCheckboxWithMandatoryProps() {
 function MultiSelectCheckboxWithAllProps() {
   return (
     <MultiSelectCheckbox
-      selectedOptions={[
-        {
-          disabled: true,
-          id: "1",
-          linkTo: "www.google.com",
-          overrideStyle: true,
-          title: true,
-          value: 1
-        }
-      ]}
+      selectedOptions={["1","2","3"]}
       onSelect={(_a, _v) => {}}
       onDeselect={(_a, _v) => {}}
       delimiter=","
