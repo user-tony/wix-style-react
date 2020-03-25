@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 - `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
+- `<ToggleButton/>`- fix disabled prop and pass it also to <ButtonNext/> [#5269](https://github.com/wix/wix-style-react/pull/5269)
 
 ## 7.51.0 - 2020-03-24
 
