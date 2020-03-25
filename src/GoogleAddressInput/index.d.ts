@@ -15,9 +15,9 @@ export interface GoogleAddressInputProps
   status?: InputProps['status'];
   statusMessage?: InputProps['statusMessage'];
   error?: boolean;
-  onChange?: React.MouseEventHandler<HTMLButtonElement>;
-  onBlur?: React.MouseEventHandler<HTMLButtonElement>;
-  onFocus?: React.MouseEventHandler<HTMLButtonElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
   onPaste?: React.ClipboardEventHandler<HTMLInputElement>;
