@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Fixed
+
+- `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
+
 ## 7.51.0 - 2020-03-24
 
 ### Added
