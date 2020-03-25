@@ -60,6 +60,19 @@ describe('ToggleButton', () => {
     });
   });
 
+  describe(`'disabled' prop`, () => {
+    it('should be disabled', async () => {
+      const props = {
+        disabled: true,
+        labelValue: 'crop&rotate',
+        children: <CropRotate />,
+      };
+      const { driver } = render(<ToggleButton {...props} />);
+
+      expect(await driver.isButtonDisabled()).toEqual(true);
+    });
+  });
+
   describe('deprecated `tooltipContent` prop', () => {
     it('should set tooltip content from `tooltipContent` prop', async () => {
       const props = {

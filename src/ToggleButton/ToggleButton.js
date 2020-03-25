@@ -144,7 +144,6 @@ class ToggleButton extends PureComponent {
       labelPlacement,
       labelEllipsis,
       disabled,
-      onClick,
       ...rest
     } = this.props;
 
@@ -157,7 +156,7 @@ class ToggleButton extends PureComponent {
         data-placement={labelPlacement}
         data-selected={selected}
         data-skin={skin}
-        onClick={disabled ? null : onClick}
+        disabled={disabled}
       >
         <ToggleButtonIcon
           size={size}
