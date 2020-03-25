@@ -19,3 +19,22 @@ export const selectionArea = `
     <RadioGroup.Radio value={2}>Option 2</RadioGroup.Radio>
   </RadioGroup>
 `;
+
+export const withContent = `
+  <RadioGroup value={1} selectionArea="always">
+    <RadioGroup.Radio
+      key={0}
+      value={1}
+      content={<Box margin={2}>Another details for option 1, not clickable</Box>}
+    >
+      Option 1
+    </RadioGroup.Radio>
+    <RadioGroup.Radio
+      key={1}
+      value={2}
+      content={<Box margin={2}>Another details for option 2, not clickable</Box>}
+    >
+      Option 2
+    </RadioGroup.Radio>
+  </RadioGroup>
+`;

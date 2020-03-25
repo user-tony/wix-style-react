@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioGroup from '..';
+import Box from 'wix-style-react/Box';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
 import {
   api,
@@ -42,6 +43,29 @@ const exampleChildren = [
       <RadioGroup.Radio key={1} value={2}>
         <div>Option 2</div>
         <small>Also pretty good option</small>
+      </RadioGroup.Radio>,
+    ],
+  },
+  {
+    label: 'Button with content',
+    value: [
+      <RadioGroup.Radio
+        key={0}
+        value={1}
+        content={
+          <Box margin={2}>Another details for option 1, not clickable</Box>
+        }
+      >
+        <div>Option 1</div>
+      </RadioGroup.Radio>,
+      <RadioGroup.Radio
+        key={1}
+        value={2}
+        content={
+          <Box margin={2}>Another details for option 2, not clickable</Box>
+        }
+      >
+        <div>Option 2</div>
       </RadioGroup.Radio>,
     ],
   },
@@ -119,6 +143,11 @@ export default {
 
           code({
             source: examples.selectionArea,
+          }),
+
+          code({
+            title: 'Using with content',
+            source: examples.withContent,
           }),
         ],
       }),
