@@ -36,7 +36,6 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 - `<GoogleAddressInput/>` - fix type [#5274](https://github.com/wix/wix-style-react/pull/5274)
 - `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
 - `<ToggleButton/>`- fix disabled prop and pass it also to <ButtonNext/> [#5269](https://github.com/wix/wix-style-react/pull/5269)
-- Migrate from PopoverCommonProps to TooltipCommonProps [#5268](https://github.com/wix/wix-style-react/pull/5268)
 
 ## 7.51.0 - 2020-03-24
 
