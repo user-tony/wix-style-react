@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { DataTableColumn, DataTableProps } from '../DataTable';
+import { DataTableColumn, DataTableProps, RowDataDefaultType } from '../DataTable';
 import EmptyState from '../EmptyState';
 
-export interface TableProps extends UsedDataTableProps {
+export interface TableProps<RowData = RowDataDefaultType> extends UsedDataTableProps<RowData> {
   dataHook?: string;
   onSelectionChanged?: OnSelectionChangedFn;
   showSelection?: boolean;
@@ -17,14 +17,14 @@ export interface TableProps extends UsedDataTableProps {
   columns: TableColumn[];
 }
 
-export default class Table extends React.Component<TableProps> {
+export default class Table<RowData = RowDataDefaultType> extends React.Component<TableProps<RowData>> {
   static ToolbarContainer: typeof ToolbarContainer;
   static Titlebar: typeof Titlebar;
   static Content: typeof Content;
   static EmptyState: typeof EmptyState;
   static BulkSelectionCheckbox: typeof BulkSelectionCheckbox;
 
-  setSelectedIds: (selectedIds: any) => void;
+  setSelectedIds: (selectedIds: TableProps['selectedIds']) => void;
 }
 
 declare const ToolbarContainer: React.SFC;
@@ -52,8 +52,8 @@ export type OnSelectionChangedFn = (
       },
 ) => void;
 
-export type UsedDataTableProps = Pick<
-  DataTableProps,
+export type UsedDataTableProps<RowData = RowDataDefaultType> = Pick<
+  DataTableProps<RowData>,
   | 'allowMultiDetailsExpansion'
   | 'dynamicRowClass'
   | 'isRowHighlight'

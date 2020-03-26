@@ -72,9 +72,25 @@ function tableWithRefScrollElement() {
   return <Table scrollElement={React.createRef()} columns={[]} />;
 }
 
+interface TableRowData {
+  name: string;
+  age: number;
+}
+
+function typedTable() {
+  return <Table<TableRowData>
+    data={[{
+      name: 'Joe',
+      age: 42,
+    }]}
+    columns={[]}
+  />;
+}
+
 function testInstanceMethods() {
   const instance = new Table({ columns: [] });
   instance.setSelectedIds([1, 2, 3]);
+  instance.setSelectedIds(['row1', 'row2', 'row3']);
 }
 
 async function testkits() {

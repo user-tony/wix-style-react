@@ -10,6 +10,24 @@ function DataTableWithMandatoryProps() {
   return <DataTable columns={[]} />;
 }
 
+interface TableRowData {
+  name: string;
+  age: number;
+}
+function typedDataTable() {
+  return (
+    <DataTable<TableRowData>
+      data={[
+        {
+          name: 'Joe',
+          age: 42,
+        },
+      ]}
+      columns={[]}
+    />
+  );
+}
+
 function DataTableWithAllProps() {
   return (
     <DataTable
