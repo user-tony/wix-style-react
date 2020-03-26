@@ -13,7 +13,7 @@ import Box from '../Box';
 import classnames from 'classnames';
 import deprecationLog from '../utils/deprecationLog';
 import { dataHooks } from './constants';
-import { PopoverCommonProps } from '../commonProps';
+import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 
 class ImageViewer extends Component {
   constructor(props) {
@@ -387,7 +387,7 @@ ImageViewer.propTypes = {
   tooltipPlacement: PropTypes.string,
 
   /** Tooltip props, common for all tooltips */
-  tooltipProps: PropTypes.shape(PopoverCommonProps),
+  tooltipProps: PropTypes.shape(TooltipCommonProps),
 
   /** Show update button */
   showUpdateButton: PropTypes.bool,

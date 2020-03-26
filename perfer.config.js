@@ -124,7 +124,7 @@ const javascriptFiles = [
   ['MobilePreviewWidget.bundle.min.js', 7],
   ['ListItemSection.bundle.min.js', 13],
   ['BrowserPreviewWidget.bundle.min.js', 7],
-  ['ListItemSelect.bundle.min.js', 44],
+  ['ListItemSelect.bundle.min.js', 45],
   ['TimeTable.bundle.min.js', 74],
   ['MarketingLayout.bundle.min.js', 12],
   ['Palette.bundle.min.js', 16],

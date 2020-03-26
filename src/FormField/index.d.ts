@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PopoverCommonProps } from '../common'
+import { TooltipCommonProps } from '../common'
 
 export interface FormFieldProps {
   children?:
@@ -13,7 +13,7 @@ export interface FormFieldProps {
   labelPlacement?: FormFieldLabelPlacement;
   required?: boolean;
   infoContent?: React.ReactNode;
-  infoTooltipProps?: PopoverCommonProps;
+  infoTooltipProps?: TooltipCommonProps;
   suffix?: React.ReactNode;
   id?: string;
   dataHook?: string;

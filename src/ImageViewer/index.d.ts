@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { InputProps } from '../Input';
-import { PopoverCommonProps } from '../common';
+import { TooltipCommonProps } from '../common';
 
 export interface ImageViewerProps {
   imageUrl?: string;
@@ -10,8 +10,8 @@ export interface ImageViewerProps {
    * @deprecated
    * @see tooltipProps
    */
-  tooltipPlacement?: PopoverCommonProps['placement'];
-  tooltipProps?: PopoverCommonProps;
+  tooltipPlacement?: TooltipCommonProps['placement'];
+  tooltipProps?: TooltipCommonProps;
   showUpdateButton?: boolean;
   showRemoveButton?: boolean;
   onAddImage?: React.MouseEventHandler<HTMLElement>;

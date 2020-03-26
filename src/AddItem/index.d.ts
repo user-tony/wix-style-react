@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { PopoverCommonProps } from '../common';
-import { OmitPolyfill } from '../common';
+import { TooltipCommonProps } from '../common';
+
 
 export interface AddItemProps {
   disabled?: boolean;
@@ -9,7 +9,7 @@ export interface AddItemProps {
   size?: AddItemSize;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   dataHook?: string;
-  tooltipProps?: PopoverCommonProps;
+  tooltipProps?: TooltipCommonProps;
   /** @deprecated do not use this prop, use tooltipProps prop instead. */
   tooltipAppendTo?: AddItemAppendTo;
   /** @deprecated do not use this prop, use tooltipProps prop instead. */

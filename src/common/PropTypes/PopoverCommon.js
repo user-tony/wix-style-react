@@ -1,4 +1,4 @@
-import Popover from './Popover/Popover';
+import Popover from '../../Popover/Popover';
 
 export const PopoverCommonProps = {
   appendTo: Popover.propTypes['appendTo'],
@@ -7,6 +7,8 @@ export const PopoverCommonProps = {
   placement: Popover.propTypes['placement'],
   timeout: Popover.propTypes['timeout'],
   zIndex: Popover.propTypes['zIndex'],
+  onMouseEnter: Popover.propTypes['onMouseEnter'],
+  onMouseLeave: Popover.propTypes['onMouseLeave'],
   moveArrowTo: Popover.propTypes['moveArrowTo'],
   moveBy: Popover.propTypes['moveBy'],
   hideDelay: Popover.propTypes['hideDelay'],

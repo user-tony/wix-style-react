@@ -19,28 +19,21 @@ function InputWithOptionsWithAllProps() {
       autoFocus
       autoSelect
       popoverProps={{
-        className: 'cls',
         placement: 'top',
-        onClick: () => {},
         excludeClass: 'cls',
-        onMouseEnter: () => {},
-        onMouseLeave: () => {},
-        showArrow: true,
         flip: true,
         fixed: true,
         moveBy: { x: 1, y: 0 },
+        onMouseEnter: () => ({}),
+        onMouseLeave: () => ({}),
         hideDelay: 10,
         showDelay: 1,
         moveArrowTo: 1,
         timeout: 1,
-        style: {},
-        id: '123',
-        role: 'role',
         zIndex: 1,
         dynamicWidth: true,
         minWidth: '10px',
         maxWidth: '11px',
-        disableClickOutsideWhenClosed: true,
       }}
       autocomplete="off"
       className="cls"

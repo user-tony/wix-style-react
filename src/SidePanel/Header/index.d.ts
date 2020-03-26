@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { PopoverCommonProps } from '../../common';
+import { TooltipCommonProps } from '../../common';
 
 export interface HeaderProps {
   children?: React.ReactNode;
   className?: string;
   title?: string | React.ReactNode;
-  infoTooltipProps?: PopoverCommonProps;
+  infoTooltipProps?: TooltipCommonProps;
   infoTooltipContent?: string;
   showDivider?: boolean;
 }

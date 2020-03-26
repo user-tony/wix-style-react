@@ -8,7 +8,7 @@ import Divider from '../../Divider';
 import CloseButton from '../../CloseButton';
 import Box from '../../Box';
 import InfoIcon from '../../InfoIcon';
-import { PopoverCommonProps } from '../../commonProps';
+import { TooltipCommonProps } from '../../common/PropTypes/TooltipCommon';
 
 class Header extends React.PureComponent {
   static displayName = 'SidePanel.Header';
@@ -21,7 +21,7 @@ class Header extends React.PureComponent {
     /** Tooltip text */
     infoTooltipContent: PropTypes.string,
     /** Tooltip props */
-    infoTooltipProps: PropTypes.shape(PopoverCommonProps),
+    infoTooltipProps: PropTypes.shape(TooltipCommonProps),
     /** Show divider */
     showDivider: PropTypes.bool,
     /** Any element to be rendered inside under title */

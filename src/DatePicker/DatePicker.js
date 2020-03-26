@@ -11,7 +11,7 @@ import Popover from '../Popover';
 import Calendar from '../Calendar';
 import DateInput from '../DateInput';
 
-import { PopoverCommonProps } from '../commonProps';
+import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
 import deprecationLog from '../utils/deprecationLog';
 
 /**

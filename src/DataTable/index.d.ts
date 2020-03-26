@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { PopoverCommonProps } from '../common';
+import { OmitPolyfill } from '../common';
+import { TooltipNewProps } from '../Tooltip';
 export interface DataTableProps {
   dataHook?: string;
   id?: string;
@@ -82,6 +83,9 @@ export type DataTableColumn = {
   sortable?: boolean;
   sortDescending?: boolean;
   style?: React.CSSProperties;
-  infoTooltipProps?: PopoverCommonProps;
+  infoTooltipProps?: OmitPolyfill<
+  Partial<TooltipNewProps>,
+  'dataHook' | 'moveBy' | 'upgrade'
+>;
   align?: DataTableColumnAlign;
 };

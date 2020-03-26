@@ -3,7 +3,7 @@ import { FocusOptionsPolyfill, OmitPolyfill} from '../common';
 import {DropdownLayoutValueOption, DropdownLayoutProps,
 } from '../DropdownLayout';
 import { InputProps } from '../Input';
-import { PopoverProps } from '../Popover';
+import { PopoverCommonProps } from '../common'
 
 export interface InputWithOptionsProps<
   ManualInputFn = ManualInputFnSignature,
@@ -27,10 +27,7 @@ export interface InputWithOptionsProps<
   showOptionsIfEmptyInput?: boolean;
   highlight?: boolean;
   native?: boolean;
-  popoverProps?: OmitPolyfill<
-    PopoverProps,
-    'width' | 'dataHook' | 'shown' | 'onClickOutside' | 'onKeyDown' | 'placement'
-  > & Partial<Pick<PopoverProps, 'placement'>>;
+  popoverProps?: PopoverCommonProps;
   onSelect?: OnSelectFn;
   onOptionsShow?: () => void;
   onOptionsHide?: () => void;

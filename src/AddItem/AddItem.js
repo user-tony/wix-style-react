@@ -12,7 +12,7 @@ import Text from '../Text';
 import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 import { dataHooks } from './constants';
-import { PopoverCommonProps } from '../commonProps';
+import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 import deprecationLog from '../utils/deprecationLog';
 
 import style from './AddItem.st.css';
@@ -50,7 +50,7 @@ class AddItem extends Component {
     dataHook: PropTypes.string,
 
     /** Tooltip props */
-    tooltipProps: PropTypes.shape(PopoverCommonProps),
+    tooltipProps: PropTypes.shape(TooltipCommonProps),
 
     /** @deprecated do not use this prop, use tooltipProps prop instead. */
     tooltipAppendTo: PropTypes.oneOf([

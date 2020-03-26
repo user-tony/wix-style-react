@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PopoverCommonProps } from '../common'
+import { TooltipCommonProps } from '../common'
 
 export type InfoIconSize = 'small' | 'medium';
 
@@ -7,7 +7,7 @@ export interface InfoIconProps {
   content: React.ReactNode;
   size?: InfoIconSize;
   dataHook?: string;
-  tooltipProps?: PopoverCommonProps;
+  tooltipProps?: TooltipCommonProps;
 }
 
 declare const InfoIcon: React.FC<InfoIconProps>;

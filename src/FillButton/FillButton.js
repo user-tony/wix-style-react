@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import IconAdd from 'wix-ui-icons-common/Add';
 import IconAddSmall from 'wix-ui-icons-common/AddSmall';
-import { PopoverCommonProps } from '../commonProps';
+import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 
 import styles from './FillButton.st.css';
 import Tooltip from '../Tooltip';
@@ -32,7 +32,7 @@ class FillButton extends React.PureComponent {
     /** fill value in string. Hex or gradient */
     fill: PropTypes.string,
     /** tooltip common props */
-    tooltipProps: PropTypes.shape(PopoverCommonProps),
+    tooltipProps: PropTypes.shape(TooltipCommonProps),
   };
 
   static defaultProps = {
