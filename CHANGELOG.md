@@ -16,17 +16,20 @@ Types of changes:
 
 ## Next
 
+## 7.52.0 - 2020-03-26
+
 ### Docs
 Added deprecation logs to enable easy pre-migration to WSR 8.
 
 ### Added
+- `TooltipCommonProps` interface [#5268](https://github.com/wix/wix-style-react/pull/5268)
 - `<PopoverMenu.MenuItem/>`- adding itemContentAt to driver [#5262](https://github.com/wix/wix-style-react/pull/5262)
 
 ### Changed
 - `<RadioButton/>` - Separate extra content from selection area [#5234](https://github.com/wix/wix-style-react/pull/5234)
 
 ### Fixed
-
+- `<GoogleAddressInput/>` - fix type [#5274](https://github.com/wix/wix-style-react/pull/5274)
 - `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
 - `<ToggleButton/>`- fix disabled prop and pass it also to <ButtonNext/> [#5269](https://github.com/wix/wix-style-react/pull/5269)
 
