@@ -16,6 +16,15 @@ Types of changes:
 
 ## Next
 
+### Docs
+Added deprecation logs to enable easy pre-migration to WSR 8.
+
+### Added
+- `<PopoverMenu.MenuItem/>`- adding itemContentAt to driver [#5262](https://github.com/wix/wix-style-react/pull/5262)
+
+### Changed
+- `<RadioButton/>` - Separate extra content from selection area [#5234](https://github.com/wix/wix-style-react/pull/5234)
+
 ### Fixed
 
 - `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
@@ -27,7 +36,7 @@ Types of changes:
 - `<DropdownBase/>` - teskit - add testkit function - optionContentAt [#5257](https://github.com/wix/wix-style-react/pull/5257)
 - `<ToggleButton/>` - size and labelPlacement props [#5202](https://github.com/wix/wix-style-react/pull/5202)
 
-### Fixed 
+### Fixed
 
 - tooltipProps - migrate to common d.ts and proptypes [#5225](https://github.com/wix/wix-style-react/pull/5225)
 - `<Heading/>` - migrating regular driver to not use stylable stylesheet for testing [#5230](https://github.com/wix/wix-style-react/pull/5230)
