@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ButtonWithAsProp } from '../Button';
-import { PopoverCommonProps } from '../common';
+import { TooltipCommonProps } from '../common';
 
 export type ToggleButtonProps = ButtonWithAsProp<{
   skin?: ToggleButtonSkin;
@@ -13,7 +13,7 @@ export type ToggleButtonProps = ButtonWithAsProp<{
   labelEllipsis?: boolean;
   /** @deprecated use labelValue instead */
   tooltipContent?: React.ReactNode;
-  tooltipProps?: PopoverCommonProps;
+  tooltipProps?: TooltipCommonProps;
 }>;
 
 export default class ToggleButton extends React.Component<ToggleButtonProps> {}

@@ -1,5 +1,14 @@
 import React, { cloneElement, PureComponent } from 'react';
-import { bool, func, node, object, oneOf, oneOfType, string } from 'prop-types';
+import {
+  bool,
+  func,
+  node,
+  object,
+  oneOf,
+  oneOfType,
+  string,
+  shape,
+} from 'prop-types';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './ToggleButton.st.css';
@@ -7,6 +16,7 @@ import Tooltip from '../Tooltip';
 import deprecationLog from '../utils/deprecationLog';
 import Text from '../Text';
 import { iconChildSize } from './constants';
+import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 
 class Icon extends PureComponent {
   render() {
@@ -88,7 +98,7 @@ class ToggleButton extends PureComponent {
      * @deprecated use labelValue instead */
     tooltipContent: node,
     /** Tooltip props for label. Applied only when `labelPlacement` is `tooltip`. */
-    tooltipProps: object,
+    tooltipProps: shape(TooltipCommonProps),
   };
   static defaultProps = {
     skin: 'standard',
