@@ -26,7 +26,7 @@ class Tag extends React.PureComponent {
 
     if (props.hasOwnProperty('wrap')) {
       deprecationLog(
-        'Using "wrap" with current API is deprecated, The default is now always cropped by ellipsis.',
+        '<Tag/> - Using "wrap" with current API is deprecated, The default is now always cropped by ellipsis.',
       );
     }
   }

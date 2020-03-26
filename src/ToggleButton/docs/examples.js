@@ -1,21 +1,21 @@
 export const skins = `
-<ToggleButton tooltipContent="Crop & Rotate">
+<ToggleButton labelValue="Crop & Rotate">
   <Icons.CropRotate />
 </ToggleButton>
 `;
 
 export const selected = `
-<ToggleButton tooltipContent="Crop & Rotate" selected>
+<ToggleButton labelValue="Crop & Rotate" selected>
   <Icons.CropRotate />
 </ToggleButton>
 `;
 
 export const disabled = `
 <Layout cols={2} gap={0} justifyItems="center">
-  <ToggleButton tooltipContent="Crop & Rotate" disabled>
+  <ToggleButton labelValue="Crop & Rotate" disabled>
     <Icons.CropRotate />
   </ToggleButton>
-  <ToggleButton tooltipContent="Crop & Rotate" skin="dark" disabled>
+  <ToggleButton labelValue="Crop & Rotate" skin="dark" disabled>
     <Icons.CropRotate />
   </ToggleButton>
 </Layout>

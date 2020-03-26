@@ -63,10 +63,10 @@ export default {
             justifyContent="flex-end"
             saveStatusValue="Saving..."
           >
-            <ToggleButton tooltipContent="Undo">
+            <ToggleButton labelValue="Undo">
               <Undo />
             </ToggleButton>
-            <ToggleButton tooltipContent="Redo">
+            <ToggleButton labelValue="Redo">
               <Redo />
             </ToggleButton>
           </ComposerHeader.Actions>

@@ -30,6 +30,12 @@ class ImageViewer extends Component {
         '<ImageViewer/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
       );
     }
+
+    if (props.hasOwnProperty('tooltipPlacement')) {
+      deprecationLog(
+        '<ImageViewer/> - tooltipPlacement prop is deprecated, use tooltipProps instead.',
+      );
+    }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -53,7 +59,6 @@ class ImageViewer extends Component {
         theme="image"
         dataHook={dataHooks.addItem}
         disabled={disabled}
-        tooltipContent={addImageInfo}
         tooltipProps={{ ...tooltipProps, content: addImageInfo }}
       />
     );

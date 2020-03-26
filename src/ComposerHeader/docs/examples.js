@@ -29,10 +29,10 @@ export const dividers = `
   </TextButton>
 </ComposerHeader.Actions>
 <ComposerHeader.Actions justifyContent="flex-end">
-  <ToggleButton tooltipContent="Undo">
+  <ToggleButton labelValue="Undo">
     <Icons.Undo />
   </ToggleButton>
-  <ToggleButton tooltipContent="Redo">
+  <ToggleButton labelValue="Redo">
     <Icons.Redo />
   </ToggleButton>
 </ComposerHeader.Actions>
@@ -53,10 +53,10 @@ export const save = `
 </ComposerHeader.Actions>
 <ComposerHeader.Actions justifyContent="flex-end" >
 <ComposerHeader.SaveStatus saveStatusValue="Saving..."/>
-<ToggleButton tooltipContent="Undo">
+<ToggleButton labelValue="Undo">
   <Icons.Undo />
 </ToggleButton>
-<ToggleButton tooltipContent="Redo">
+<ToggleButton labelValue="Redo">
   <Icons.Redo />
 </ToggleButton>
 </ComposerHeader.Actions>
@@ -92,10 +92,10 @@ export const size = `
 </ComposerHeader.Actions>
 <ComposerHeader.Actions justifyContent="flex-end">
 <ComposerHeader.SaveStatus saveStatusValue="Saving..." />
-<ToggleButton tooltipContent="Undo">
+<ToggleButton labelValue="Undo">
   <Icons.Undo />
 </ToggleButton>
-<ToggleButton tooltipContent="Redo">
+<ToggleButton labelValue="Redo">
   <Icons.Redo />
 </ToggleButton>
 </ComposerHeader.Actions>
@@ -113,10 +113,10 @@ export const size = `
 </ComposerHeader.Actions>
 <ComposerHeader.Actions justifyContent="flex-end">
 <ComposerHeader.SaveStatus saveStatusValue="Saving..." size="small" />
-<ToggleButton tooltipContent="Undo">
+<ToggleButton labelValue="Undo">
   <Icons.Undo />
 </ToggleButton>
-<ToggleButton tooltipContent="Redo">
+<ToggleButton labelValue="Redo">
   <Icons.Redo />
 </ToggleButton>
 </ComposerHeader.Actions>
@@ -137,10 +137,10 @@ export const shadow = `
 </ComposerHeader.Actions>
 <ComposerHeader.Actions justifyContent="flex-end">
 <ComposerHeader.SaveStatus saveStatusValue="Saving..." />
-<ToggleButton tooltipContent="Undo">
+<ToggleButton labelValue="Undo">
   <Icons.Undo />
 </ToggleButton>
-<ToggleButton tooltipContent="Redo">
+<ToggleButton labelValue="Redo">
   <Icons.Redo />
 </ToggleButton>
 </ComposerHeader.Actions>

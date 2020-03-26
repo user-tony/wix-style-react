@@ -8,6 +8,7 @@ import style from './CircularProgressBar.st.css';
 import PropTypes from 'prop-types';
 import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 import { dataHooks, Size, sizesMap } from './constants';
+import deprecationLog from '../utils/deprecationLog';
 
 const sizeToSuccessIcon = {
   [Size.small]: <CircleLoaderCheckSmall />,
@@ -22,6 +23,16 @@ const sizeToErrorIcon = {
 };
 
 class CircularProgressBar extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    if (props.hasOwnProperty('shouldLoadAsync')) {
+      deprecationLog(
+        '<CircularProgressBar/> - shouldLoadAsync prop is deprecated. Just remove it, no other change required.',
+      );
+    }
+  }
+
   render() {
     const {
       errorMessage,
@@ -106,7 +117,7 @@ CircularProgressBar.propTypes = {
 
   dataHook: PropTypes.string,
 
-  /** load Tooltip async using dynamic import */
+  /** @deprecated load Tooltip async using dynamic import */
   shouldLoadAsync: PropTypes.bool,
 };
 

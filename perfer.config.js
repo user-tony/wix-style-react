@@ -134,7 +134,7 @@ const javascriptFiles = [
   ['SidePanel.bundle.min.js', 48],
   ['FontUpgrade.bundle.min.js', 3],
   ['CustomModalLayout.bundle.min.js', 20],
-  ['StatusIndicator.bundle.min.js', 37],
+  ['StatusIndicator.bundle.min.js', 38],
   ['BaseModalLayout.bundle.min.js', 20],
   ['MessageModalLayout.bundle.min.js', 20],
   ['AnnouncementModalLayout.bundle.min.js', 18],

@@ -5,6 +5,7 @@ import { LinearProgressBar as CoreLinearProgressBar } from 'wix-ui-core/dist/src
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
+import deprecationLog from '../utils/deprecationLog';
 
 /**
  * This component is used for indicating a progress along a process.*/
@@ -36,6 +37,16 @@ class LinearProgressBar extends React.PureComponent {
     /** Sets the skin of the Linear Progress Bar. */
     skin: PropTypes.oneOf(['standard', 'success']),
   };
+
+  constructor(props) {
+    super(props);
+
+    if (props.hasOwnProperty('shouldLoadAsync')) {
+      deprecationLog(
+        '<LinearProgressBar/> - shouldLoadAsync prop is deprecated. Just remove it, no other change required.',
+      );
+    }
+  }
 
   render() {
     const {
@@ -89,7 +100,6 @@ class LinearProgressBar extends React.PureComponent {
 }
 
 LinearProgressBar.defaultProps = {
-  shouldLoadAsync: false,
   skin: 'standard',
 };
 

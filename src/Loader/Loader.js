@@ -10,6 +10,7 @@ import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheck
 import Arc from './Arc';
 import css from './Loader.scss';
 import Heading from '../Heading';
+import deprecationLog from '../utils/deprecationLog';
 
 const arcsAngles = {
   tiny: {
@@ -88,8 +89,17 @@ class Loader extends React.PureComponent {
     size: 'medium',
     color: 'blue',
     status: 'loading',
-    shouldLoadAsync: false,
   };
+
+  constructor(props) {
+    super(props);
+
+    if (props.hasOwnProperty('shouldLoadAsync')) {
+      deprecationLog(
+        '<Loader/> - shouldLoadAsync prop is deprecated. Just remove it, no other change required.',
+      );
+    }
+  }
 
   render() {
     const { dataHook, size, color, text, status, statusMessage } = this.props;

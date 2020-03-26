@@ -94,7 +94,6 @@ class ToggleButton extends PureComponent {
     skin: 'standard',
     size: 'medium',
     disabled: false,
-    tooltipContent: '',
     labelValue: '',
     labelPlacement: 'tooltip',
     labelEllipsis: false,
@@ -102,14 +101,17 @@ class ToggleButton extends PureComponent {
       placement: 'top',
     },
   };
-  componentDidMount() {
-    const { tooltipContent } = this.props;
-    if (tooltipContent) {
+
+  constructor(props) {
+    super(props);
+
+    if (props.hasOwnProperty('tooltipContent')) {
       deprecationLog(
-        '"tooltipContent" prop is deprecated. Use "labelValue" instead.',
+        '<ToggleButton/> - "tooltipContent" prop is deprecated. Use "labelValue" instead.',
       );
     }
   }
+
   renderLabel = () => {
     const {
       disabled,
@@ -161,7 +163,7 @@ class ToggleButton extends PureComponent {
         <ToggleButtonIcon
           size={size}
           tooltipProps={tooltipProps}
-          labelValue={labelValue || tooltipContent}
+          labelValue={labelValue || tooltipContent || ''}
           tooltipDisabled={labelPlacement !== 'tooltip'}
         >
           {children}

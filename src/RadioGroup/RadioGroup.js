@@ -96,7 +96,7 @@ RadioGroup.propTypes = {
   /** Make the entire control disabled */
   disabled: PropTypes.bool,
 
-  /** Decided which type of child controls to render */
+  /** @deprecated Decided which type of child controls to render */
   type: PropTypes.oneOf(['default', 'button']),
 
   /** Display direction of the radios */
