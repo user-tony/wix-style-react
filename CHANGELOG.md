@@ -16,7 +16,11 @@ Types of changes:
 
 ## Next
 
-## Fixed
+### Added
+
+-  `<Pagination/> - new component [#5256](https://github.com/wix/wix-style-react/pull/5256)
+
+### Fixed
 
 - `<Table/> <DataTable/>` - types - use generics instead of any in row type [#5190](https://github.com/wix/wix-style-react/pull/5190)
 - `<ToggleButton/>` - migrate to TooltipCommonProps instead [#5279](https://github.com/wix/wix-style-react/pull/5279)
