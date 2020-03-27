@@ -8,6 +8,8 @@ import {
   description,
   importExample,
   code as baseCode,
+  header,
+  tabs,
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from './storySettings';
@@ -94,51 +96,58 @@ export default {
   },
 
   sections: [
-    tab({
-      title: 'Description',
-      sections: [
-        description(
-          `
+    header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl: 'https://github.com/wix/wix-style-react/tree/master/src/Box/',
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(
+            `
 📦  Box is a wrapper component that provides a way to align, space, resize and style - easily and straightforwardly.\n
 This component behaves exactly like “CSS Flexbox”, therefore any related **valid** CSS property is exposed as \`prop\` (excepts \`flexDirection\`, \`justifyContent\` and \`alignItems\` which are wrapped specifically with appropriate \`props\`).
           `,
-        ),
+          ),
 
-        importExample("import { Box } from 'wix-style-react';"),
+          importExample("import { Box } from 'wix-style-react';"),
 
-        // Children
-        description(propExplanations.children.description),
-        code({ source: propExplanations.children.example }),
+          // Children
+          description(propExplanations.children.description),
+          code({ source: propExplanations.children.example }),
 
-        // Alignment
-        description(propExplanations.alignment.description),
-        code({ source: propExplanations.alignment.example }),
+          // Alignment
+          description(propExplanations.alignment.description),
+          code({ source: propExplanations.alignment.example }),
 
-        // Spacing
-        description(propExplanations.spacing.description),
-        code({ source: propExplanations.spacing.example }),
+          // Spacing
+          description(propExplanations.spacing.description),
+          code({ source: propExplanations.spacing.example }),
 
-        // Sizing
-        description(propExplanations.sizing.description),
-        code({ source: propExplanations.sizing.example }),
+          // Sizing
+          description(propExplanations.sizing.description),
+          code({ source: propExplanations.sizing.example }),
 
-        // Styling
-        description(propExplanations.styling.description),
-        code({ source: propExplanations.styling.example }),
+          // Styling
+          description(propExplanations.styling.description),
+          code({ source: propExplanations.styling.example }),
 
-        title('Examples'),
+          title('Examples'),
 
-        code({
-          title: 'Event Item (multiple boxes)',
-          source: ExampleEventItem,
-        }),
-      ],
-    }),
+          code({
+            title: 'Event Item (multiple boxes)',
+            source: ExampleEventItem,
+          }),
+        ],
+      }),
 
-    ...[
-      { title: 'Playground', sections: [playground()] },
-      { title: 'API', sections: [api()] },
-      { title: 'Testkit', sections: [testkit()] },
-    ].map(tab),
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
   ],
 };
