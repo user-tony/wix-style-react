@@ -14,31 +14,34 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.53.0 - 2020-03-27
 
 ### Added
 
--  `<Pagination/>` - new component [#5256](https://github.com/wix/wix-style-react/pull/5256)
+- `<Pagination/>` - new component [#5256](https://github.com/wix/wix-style-react/pull/5256)
 
 ### Fixed
 
 - `<Table/> <DataTable/>` - types - use generics instead of any in row type [#5190](https://github.com/wix/wix-style-react/pull/5190)
-- `<ToggleButton/>` - migrate to TooltipCommonProps instead [#5279](https://github.com/wix/wix-style-react/pull/5279)
--`<ToggleButton/>` - make tooltipProps.disabled work [#5286](https://github.com/wix/wix-style-react/pull/5286)
+- `<ToggleButton/>` - migrate to TooltipCommonProps instead [#5279](https://github.com/wix/wix-style-react/pull/5279) -`<ToggleButton/>` - make tooltipProps.disabled work [#5286](https://github.com/wix/wix-style-react/pull/5286)
 
 ## 7.52.0 - 2020-03-26
 
 ### Docs
+
 Added deprecation logs to enable easy pre-migration to WSR 8.
 
 ### Added
+
 - `TooltipCommonProps` interface [#5268](https://github.com/wix/wix-style-react/pull/5268)
 - `<PopoverMenu.MenuItem/>`- adding itemContentAt to driver [#5262](https://github.com/wix/wix-style-react/pull/5262)
 
 ### Changed
+
 - `<RadioButton/>` - Separate extra content from selection area [#5234](https://github.com/wix/wix-style-react/pull/5234)
 
 ### Fixed
+
 - `<GoogleAddressInput/>` - fix type [#5274](https://github.com/wix/wix-style-react/pull/5274)
 - `<MultiSelectCheckBox/>` - selectedId type fix [#5261](https://github.com/wix/wix-style-react/pull/5261)
 - `<ToggleButton/>`- fix disabled prop and pass it also to <ButtonNext/> [#5269](https://github.com/wix/wix-style-react/pull/5269)
@@ -46,6 +49,7 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 ## 7.51.0 - 2020-03-24
 
 ### Added
+
 - `<DropdownBase/>` - teskit - add testkit function - optionContentAt [#5257](https://github.com/wix/wix-style-react/pull/5257)
 - `<ToggleButton/>` - size and labelPlacement props [#5202](https://github.com/wix/wix-style-react/pull/5202)
 
@@ -71,6 +75,7 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 - `<Datepicker/>` - migrate to popover, expose popoverProps [#5186](https://github.com/wix/wix-style-react/pull/5186)
 
 ### Fixed
+
 - `<Checkbox/>`- replacing the use of `<Label/>` with `<label>` & `<Text>`. [#5178](https://github.com/wix/wix-style-react/pull/5178)
 
 ### Docs
@@ -81,8 +86,7 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 
 ### Fixed
 
-- `<FormField/>` -  wrong dataHook prop on internal component [#5180](https://github.com/wix/wix-style-react/pull/5180)
-
+- `<FormField/>` - wrong dataHook prop on internal component [#5180](https://github.com/wix/wix-style-react/pull/5180)
 
 ## 7.49.0 - 2020-03-11
 
@@ -94,10 +98,12 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 - `<FloatingNotification/>` - add `dark` type to types [#5163](https://github.com/wix/wix-style-react/pull/5163)
 
 ### Changed
+
 - `<Tag/>` - allow any type for children [#5160](https://github.com/wix/wix-style-react/pull/5160)
 - `<ColorInput/>` - added status & statusMessage props [#5166](https://github.com/wix/wix-style-react/pull/5166)
 
 ### Fixed
+
 - `<TableActionCell/>` - enable `getVisibleActionsCount` to return 0 [#5148](https://github.com/wix/wix-style-react/pull/5148)
 - `<Table/>` - fix `virtualized` table with `showSelection` [#5069](https://github.com/wix/wix-style-react/pull/5069)
 - SSR support - patch stylable to unify classnames [#5161](https://github.com/wix/wix-style-react/pull/5161)
@@ -119,6 +125,7 @@ Added deprecation logs to enable easy pre-migration to WSR 8.
 ### Fixed
 
 Fix type definitions for the following:
+
 - `<Notification.ActionButton/>` - Improve type definition [#5094](https://github.com/wix/wix-style-react/pull/5094)
 - `<ColorPicker/>` - types fixes [#5107](https://github.com/wix/wix-style-react/pull/5107)
 - `<InputWithOptions/>` - remove unneeded popoverProps types (fixes Dropdown issues as well) [#5109](https://github.com/wix/wix-style-react/pull/5109)
@@ -138,6 +145,7 @@ Fix type definitions for the following:
 ### Fixed
 
 Fix type definitions for the following:
+
 - `<FloatingHelper/>` - expose static Content prop [#5086](https://github.com/wix/wix-style-react/pull/5080)
 - `<InputWithOptions/>` - replace the usage of `Focus` type with a polyfill in favor of older TS consumers [#5086](https://github.com/wix/wix-style-react/pull/5086)
 - `<Text/>`, `<EllipsisHOC/>` - add `showTooltip` prop [#5086](https://github.com/wix/wix-style-react/pull/5086)
@@ -156,11 +164,13 @@ Fix type definitions for the following:
 - Types - add type definitions for all components and testkits in the library [#5008](https://github.com/wix/wix-style-react/pull/5008)
 
 ## 7.46.2 - 2020-02-24
+
 - `<FontUpgrade>` - fix issue with SSR [#5070](https://github.com/wix/wix-style-react/pull/5070)
 
 ## 7.46.0 - 2020-02-24
 
 ### Added
+
 - `<ListItemSelect />` - added hovered prop [#5033](https://github.com/wix/wix-style-react/pull/5033)
 - `<ImageViewer/>` - Added props status and statusMessage [#5052](https://github.com/wix/wix-style-react/pull/5052)
 - `<Slider/>`- added new feature of `Start Point` [#5011](https://github.com/wix/wix-style-react/pull/5011)
