@@ -20,6 +20,7 @@ Types of changes:
 
 - `<Table/> <DataTable/>` - types - use generics instead of any in row type [#5190](https://github.com/wix/wix-style-react/pull/5190)
 - `<ToggleButton/>` - migrate to TooltipCommonProps instead [#5279](https://github.com/wix/wix-style-react/pull/5279)
+-`<ToggleButton/>` - make tooltipProps.disabled work [#5286](https://github.com/wix/wix-style-react/pull/5286)
 
 ## 7.52.0 - 2020-03-26
 
