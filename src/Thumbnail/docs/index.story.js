@@ -7,6 +7,8 @@ import {
   testkit,
   importExample,
   code as baseCode,
+  header,
+  tabs,
 } from 'wix-storybook-utils/Sections';
 
 import Thumbnail from '../Thumbnail';
@@ -75,52 +77,60 @@ export default {
   },
 
   sections: [
-    tab({
-      title: 'Description',
-      sections: [
-        description(thumbnailReadme),
-        importExample("import { Thumbnail } from 'wix-style-react';"),
-
-        ...[
-          {
-            title: 'Thumbnail with title',
-            source: examples.exampleDefault,
-          },
-          {
-            title: 'Thumbnail with image',
-            source: examples.selectedWithImage,
-          },
-          {
-            title: 'Thumbnail with background image',
-            source: examples.selectedWithBackgroundImage,
-          },
-          {
-            title: 'Thumbnail with custom children',
-            source: examples.withCustomChildren,
-          },
-          {
-            title: 'List of small thumbnails',
-            source: examples.listOfSmall,
-          },
-          {
-            title: 'Disabled',
-            source: examples.disabledWithImage,
-          },
-        ].map(code),
-
-        code({
-          title: 'Controlled Thumbnail',
-          source: exampleControlled,
-          components: { Thumbnail, Layout, Cell },
-          autoRender: false,
-        }),
-      ],
+    header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/Thumbnail/',
     }),
 
-    ...[
-      { title: 'Playground', sections: [playground()] },
-      { title: 'API', sections: [api()] },
-      { title: 'Testkit', sections: [testkit()] },
-    ].map(tab),
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(thumbnailReadme),
+          importExample("import { Thumbnail } from 'wix-style-react';"),
+
+          ...[
+            {
+              title: 'Thumbnail with title',
+              source: examples.exampleDefault,
+            },
+            {
+              title: 'Thumbnail with image',
+              source: examples.selectedWithImage,
+            },
+            {
+              title: 'Thumbnail with background image',
+              source: examples.selectedWithBackgroundImage,
+            },
+            {
+              title: 'Thumbnail with custom children',
+              source: examples.withCustomChildren,
+            },
+            {
+              title: 'List of small thumbnails',
+              source: examples.listOfSmall,
+            },
+            {
+              title: 'Disabled',
+              source: examples.disabledWithImage,
+            },
+          ].map(code),
+
+          code({
+            title: 'Controlled Thumbnail',
+            source: exampleControlled,
+            components: { Thumbnail, Layout, Cell },
+            autoRender: false,
+          }),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
   ],
 };
