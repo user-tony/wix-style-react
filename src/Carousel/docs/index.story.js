@@ -7,6 +7,8 @@ import {
   importExample,
   playground,
   testkit,
+  header,
+  tabs,
 } from 'wix-storybook-utils/Sections';
 
 import Carousel from '..';
@@ -76,35 +78,43 @@ export default {
   },
 
   sections: [
-    tab({
-      title: 'Usage',
-      sections: [
-        importExample("import { Carousel } from 'wix-style-react';"),
-
-        title('Examples'),
-
-        code({ title: 'Button Skin', source: buttonSkinExample }),
-        code({ title: 'Autoplay', source: autoplayExample }),
-        code({ title: 'Without Dots', source: withoutDotsExample }),
-        code({ title: 'Variable Width', source: variableWidthExample }),
-      ],
+    header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/Carousel/',
     }),
 
-    ...[
-      {
-        title: 'API',
-        sections: [api()],
-      },
+    tabs([
+      tab({
+        title: 'Usage',
+        sections: [
+          importExample("import { Carousel } from 'wix-style-react';"),
 
-      {
-        title: 'TestKit',
-        sections: [testkit()],
-      },
+          title('Examples'),
 
-      {
-        title: 'Playground',
-        sections: [playground()],
-      },
-    ].map(tab),
+          code({ title: 'Button Skin', source: buttonSkinExample }),
+          code({ title: 'Autoplay', source: autoplayExample }),
+          code({ title: 'Without Dots', source: withoutDotsExample }),
+          code({ title: 'Variable Width', source: variableWidthExample }),
+        ],
+      }),
+
+      ...[
+        {
+          title: 'API',
+          sections: [api()],
+        },
+
+        {
+          title: 'TestKit',
+          sections: [testkit()],
+        },
+
+        {
+          title: 'Playground',
+          sections: [playground()],
+        },
+      ].map(tab),
+    ]),
   ],
 };
