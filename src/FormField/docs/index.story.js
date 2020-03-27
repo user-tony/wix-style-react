@@ -134,7 +134,7 @@ export default {
 
     tabs([
       tab({
-        title: 'Usage',
+        title: 'Description',
         sections: [
           importExample("import { FormField } from 'wix-style-react';"),
 
@@ -190,7 +190,7 @@ export default {
 
       ...[
         { title: 'API', sections: [api()] },
-        { title: 'TestKit', sections: [testkit()] },
+        { title: 'Testkit', sections: [testkit()] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),

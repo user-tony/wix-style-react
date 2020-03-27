@@ -55,7 +55,7 @@ export default {
 
     tabs([
       tab({
-        title: 'Usage',
+        title: 'Description',
         sections: [
           importExample("import { RichTextInputArea } from 'wix-style-react';"),
 
@@ -88,7 +88,7 @@ export default {
 
       ...[
         { title: 'API', sections: [api()] },
-        { title: 'TestKit', sections: [testkit(), description(testkitReadme)] },
+        { title: 'Testkit', sections: [testkit(), description(testkitReadme)] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),

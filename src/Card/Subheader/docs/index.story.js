@@ -35,7 +35,7 @@ export default {
 
     tabs([
       tab({
-        title: 'Usage',
+        title: 'Description',
         sections: [
           importExample({
             source: `
@@ -73,7 +73,7 @@ const Subheader = Card.Subheader;
 
       ...[
         { title: 'API', sections: [api()] },
-        { title: 'TestKit', sections: [testkit()] },
+        { title: 'Testkit', sections: [testkit()] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),

@@ -119,7 +119,7 @@ export default {
       }),
       ...[
         { title: 'API', sections: [api()] },
-        { title: 'TestKit', sections: [testkit()] },
+        { title: 'Testkit', sections: [testkit()] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
