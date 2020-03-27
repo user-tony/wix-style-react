@@ -5,7 +5,7 @@ import {
   cleanup,
   createRendererWithUniDriver,
 } from '../../../test/utils/react/index';
-import { toggleButtonPrivateDriverFactory } from '../ToggleButton.private.uni.driver';
+import { toggleButtonPrivateDriverFactory } from './ToggleButton.private.uni.driver';
 import ToggleButton from '../index';
 import { dataHooks } from './storySettings';
 
@@ -101,6 +101,22 @@ describe('ToggleButton', () => {
         expect(await driver.getLabelPlacement()).toEqual(labelPlacement);
       },
     );
+  });
+
+  describe('tooltipProps', () => {
+    it('`disabled` property should set disable tooltip', async () => {
+      const props = {
+        labelValue: 'crop&rotate',
+        tooltipProps: { disabled: true },
+        children: <CropRotate />,
+      };
+
+      const { driver } = render(<ToggleButton {...props} />);
+
+      await driver.mouseEnter();
+
+      expect(await driver.tooltipExists()).toEqual(false);
+    });
   });
 
   describe('Label value ', () => {

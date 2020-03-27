@@ -2,7 +2,7 @@ import { buttonNextDriverFactory } from 'wix-ui-core/drivers/unidriver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
 export const toggleButtonDriverFactory = (base, body) => {
-  const tooltipBaseElement = base.$('[data-hook="toggleButtonTooltip"]');
+  const tooltipBaseElement = base.$('[data-hook="toggle-button-tooltip"]');
   const tooltipDriver = tooltipDriverFactory(tooltipBaseElement, body);
   const buttonDriver = buttonNextDriverFactory(base);
 

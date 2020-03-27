@@ -41,11 +41,12 @@ class Icon extends PureComponent {
     return (
       children && (
         <Tooltip
-          {...{ dataHook: 'toggleButtonTooltip', ...tooltipProps }}
+          {...tooltipProps}
+          dataHook="toggle-button-tooltip"
           upgrade
           size="small"
           content={labelValue}
-          disabled={tooltipDisabled}
+          disabled={tooltipDisabled || tooltipProps.disabled}
         >
           <span>
             <div
