@@ -18,7 +18,7 @@ Types of changes:
 
 ### Added
 
--  `<Pagination/> - new component [#5256](https://github.com/wix/wix-style-react/pull/5256)
+-  `<Pagination/>` - new component [#5256](https://github.com/wix/wix-style-react/pull/5256)
 
 ### Fixed
 
