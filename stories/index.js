@@ -100,6 +100,7 @@ require('../src/NumberInput/docs/index.story');
 require('../src/Page/docs/PageExampleStories');
 require('../src/Page/docs/index.story');
 require('../src/PageHeader/docs/index.story');
+require('../src/Pagination/docs/index.story');
 require('../src/Popover/docs/index.story');
 require('../src/PopoverMenu/docs/index.story');
 require('../src/PreviewWidget/docs/index.story');
