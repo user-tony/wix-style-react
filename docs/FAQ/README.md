@@ -28,11 +28,10 @@ Please create a pull request with the solution if it worth sharing.
 
 ### How should I import a component properly?
 
-Currently, as the library does not support tree-shaking, the recommended way to `import` a component
-is using the entry file of the component, and **not** importing from the index file:
+Our library supports named-imports:
 
 ```js
-import Button from 'wix-style-react/Button';
+import { Button } from 'wix-style-react';
 ```
 
 `import`ing a component directly from `dist/src` is strongly prohibited.
