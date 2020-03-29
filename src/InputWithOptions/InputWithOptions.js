@@ -96,6 +96,11 @@ class InputWithOptions extends Component {
     ) {
       this.showOptions();
     }
+
+    // Clear value in controlled mode
+    if (prevProps.value !== this.props.value && this.props.value === '') {
+      this.setState({ inputValue: '' });
+    }
   }
 
   onCompositionChange(isComposing) {

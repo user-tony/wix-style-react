@@ -150,7 +150,10 @@ class Search extends Component {
 
     if (!isEmpty(stateChanges)) {
       // call onClear only *after* updating the search value
-      this.setState(stateChanges, () => onClear && onClear(event));
+      this.setState(stateChanges, () => {
+        if (onClear) onClear(event);
+        this.searchInput.hideOptions();
+      });
     }
   };
 

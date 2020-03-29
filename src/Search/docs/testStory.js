@@ -23,6 +23,7 @@ const StatefulSearch = () => {
       value={value}
       onChange={e => setValue(e.target.value)}
       onSelect={option => setValue(option.value)}
+      updateControlledOnClear
     />
   );
 };

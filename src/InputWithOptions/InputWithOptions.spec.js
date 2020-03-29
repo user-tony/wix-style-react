@@ -9,6 +9,8 @@ import { makeControlled } from '../../test/utils';
 import InputWithOptions from './InputWithOptions';
 import inputWithOptionsDriverFactory from './InputWithOptions.driver';
 import { inputWithOptionsUniDriverFactory } from './InputWithOptions.private.uni.driver';
+import { mount } from 'enzyme';
+import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 
 describe('InputWithOptions', () => {
   const ControlledInputWithOptions = makeControlled(InputWithOptions);
@@ -147,6 +149,36 @@ describe('InputWithOptions', () => {
 
           await driver.inputDriver.enterText('some value');
           await driver.inputDriver.clearText();
+          expect(await driver.dropdownLayoutDriver.isShown()).toBe(false);
+        });
+
+        it('should clear value in controlled mode and close dropdown', async () => {
+          const dataHook = 'dataHook';
+          const value = 'value';
+          const wrapper = mount(
+            <InputWithOptions
+              updateControlledOnClear
+              showOptionsIfEmptyInput={false}
+              dataHook={dataHook}
+              options={options}
+              value={value}
+              onClear={() => wrapper.setProps({ value: '' })}
+            />,
+          );
+
+          const driver = enzymeUniTestkitFactoryCreator(
+            inputWithOptionsUniDriverFactory,
+          )({
+            wrapper,
+            dataHook,
+          });
+
+          expect(await driver.dropdownLayoutDriver.isShown()).toBe(false);
+          expect(await driver.inputDriver.getText()).toBe(value);
+          await driver.inputDriver.enterText('o');
+          expect(await driver.dropdownLayoutDriver.isShown()).toBe(true);
+          await driver.inputDriver.clickClear();
+          expect(await driver.inputDriver.getText()).toBe('');
           expect(await driver.dropdownLayoutDriver.isShown()).toBe(false);
         });
 

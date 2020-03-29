@@ -33,11 +33,11 @@ describe('Search', () => {
   });
 
   eyes.it('should clear input after clear button click', async () => {
-    driver.clickOnInput();
-    driver.enterText('z');
-    expect(driver.hasClearButton()).toBe(true);
-    driver.clickClear();
+    await driver.clickOnInput();
+    await driver.enterText('z');
+    expect(await driver.hasClearButton()).toBe(true);
+    await driver.clickClear();
     expect((await driver.getSearchDropdown()).isDisplayed()).toBe(false);
-    expect(driver.getText()).toBe('');
+    expect(await driver.getText()).toBe('');
   });
 });
