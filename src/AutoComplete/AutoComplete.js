@@ -1,11 +1,16 @@
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import deprecationLog from '../utils/deprecationLog';
 
 class AutoComplete extends InputWithOptions {
   static propTypes = {
     ...InputWithOptions.propTypes,
+
+    /** Callback predicate for the filtering options function */
     predicate: func,
+
+    /** The message to be displayed instead of options, when no options exist, or no options pass the predicate filter function */
+    emptyStateMessage: string,
   };
 
   static defaultProps = {
