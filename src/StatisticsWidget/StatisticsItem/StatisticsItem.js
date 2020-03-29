@@ -100,7 +100,10 @@ class StatisticsItem extends React.PureComponent {
     };
 
     return (
-      <Badge {...badgeProps} className={styles.percentage}>
+      <Badge
+        {...badgeProps}
+        {...styles('percentage ', { clickable: !!this.props.onClick })}
+      >
         <div className={styles.percentageInner}>
           {!!percentage && (
             <span

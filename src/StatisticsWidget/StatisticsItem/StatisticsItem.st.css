@@ -75,7 +75,12 @@
 }
 
 .percentage {
+  -st-states: clickable;
   margin-top: auto;
+}
+
+.percentage:clickable {
+  cursor: pointer;
 }
 
 .percentageInner {
