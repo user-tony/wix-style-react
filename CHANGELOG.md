@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+
+- `<StatisticsWidget/>` - fix clickable cursor on badge area [#5292](https://github.com/wix/wix-style-react/pull/5292)
+
 ## 7.53.0 - 2020-03-27
 
 ### Added
