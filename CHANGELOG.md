@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.53.1 - 2020-03-29
+
 ### Fixed
 
 - `<Box/>` - Enable passing numeric sizing values [#5194](https://github.com/wix/wix-style-react/pull/5194)
