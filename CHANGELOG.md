@@ -18,7 +18,8 @@ Types of changes:
 
 ### Fixed
 
-- `<StatisticsWidget/>` - fix clickable cursor on badge area [#5292](https://github.com/wix/wix-style-react/pull/5292)
+- `<AutoComplete/>` - Add emptyStateMessage to AutoComplete type definitions [#5278](https://github.com/wix/wix-style-react/pull/5278)
+- `<StatisticsWidget/>` - Fix clickable cursor on badge area [#5292](https://github.com/wix/wix-style-react/pull/5292)
 
 ## 7.53.0 - 2020-03-27
 
