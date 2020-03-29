@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 
+- `<Box/>` - Enable passing numeric sizing values [#5194](https://github.com/wix/wix-style-react/pull/5194)
 - `<AutoComplete/>` - Add emptyStateMessage to AutoComplete type definitions [#5278](https://github.com/wix/wix-style-react/pull/5278)
 - `<StatisticsWidget/>` - Fix clickable cursor on badge area [#5292](https://github.com/wix/wix-style-react/pull/5292)
 
