@@ -13,12 +13,12 @@ const radioGroupDriverFactory = component => {
     selectByIndex: index => getRadioButtonLabel(index).click(),
     isRadioChecked: index =>
       component
-        .$$(`div input`)
+        .$$(`div div input`)
         .get(index)
         .isSelected(),
     isRadioDisabled: index =>
       !!component
-        .$$(`div input`)
+        .$$(`div div input`)
         .get(index)
         .getAttribute('disabled'),
     /**
@@ -28,7 +28,7 @@ const radioGroupDriverFactory = component => {
     isRadioFocused: index =>
       isFocused(
         component
-          .$$(`div label`)
+          .$$(`div div label`)
           .get(index)
           .$(`[tabindex="0"]`),
       ),

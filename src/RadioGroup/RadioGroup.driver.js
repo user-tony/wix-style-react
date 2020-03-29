@@ -5,7 +5,7 @@ import radioButtonDriverFactory from './RadioButton/RadioButton.driver';
 const radioGroupDriverFactory = ({ element }) => {
   const radios = () =>
     (toArray(element.children) || []).map(radio =>
-      radioButtonDriverFactory({ element: radio }),
+      Object.assign(radio, radioButtonDriverFactory({ element: radio })),
     );
   const labels = () => radios().map(radio => radio.getLabelElement());
   const selectedRadio = () => radios().find(radio => radio.isChecked());
