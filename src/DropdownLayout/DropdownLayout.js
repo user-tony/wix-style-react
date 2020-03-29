@@ -33,7 +33,10 @@ class DropdownLayout extends WixComponent {
       selectedId: props.selectedId,
     };
 
-    if (props.hasOwnProperty('theme') && props.theme !== 'normal') {
+    if (
+      props.hasOwnProperty('theme') &&
+      !['normal', 'tags'].includes(props.theme)
+    ) {
       deprecationLog(
         '<DropdownLayout/> - theme prop is deprecated, please contact us or your UX if needed.',
       );
