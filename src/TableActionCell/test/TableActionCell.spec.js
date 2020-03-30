@@ -182,6 +182,7 @@ describe('Table Action Cell', () => {
     };
     const driver = createDriver(
       <TableActionCell
+        upgrade
         {...primaryActionProps()}
         secondaryActions={[disabledAction]}
         numOfVisibleSecondaryActions={0}

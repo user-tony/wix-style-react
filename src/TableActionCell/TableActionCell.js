@@ -140,7 +140,11 @@ const TableActionCell = props => {
   const hiddenActions = secondaryActions.slice(numOfVisibleSecondaryActions);
 
   return (
-    <span data-hook={dataHook} {...style('root', {}, props)}>
+    <span
+      data-hook={dataHook}
+      data-deprecated={!upgrade}
+      {...style('root', {}, props)}
+    >
       {primaryAction && (
         <HoverSlot
           display="onHover"

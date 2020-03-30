@@ -5,12 +5,12 @@ import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
 import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
 
-const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
+const tableActionCellDriverFactory = ({ element }) => {
   const getPrimaryActionPlaceholder = () =>
     element.querySelector('[data-hook="table-action-cell-placeholder"]');
   const getVisibleActionsWrapper = () =>
     element.querySelector('[data-hook="table-action-cell-visible-actions"]');
-  const { upgrade } = (component && component.props) || {};
+  const isUpgraded = () => element.getAttribute('data-deprecated') === 'false';
 
   const getPrimaryActionButtonDriver = () =>
     buttonDriverFactory({
@@ -48,9 +48,9 @@ const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
     });
 
   const getHiddenActionsPopoverMenuDriver = () =>
-    upgrade
+    isUpgraded()
       ? PopoverMenuTestkit({
-          wrapper,
+          wrapper: element,
           dataHook: 'table-action-cell-popover-menu',
         })
       : popoverMenuDriverFactory({
@@ -80,7 +80,7 @@ const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
     },
     /** Get the number of hidden secondary actions (in the <PopoverMenu/>, requires it to be open) */
     getHiddenActionsCount: () =>
-      upgrade
+      isUpgraded()
         ? getHiddenActionsPopoverMenuDriver().childrenCount()
         : getHiddenActionsPopoverMenuDriver().menu.itemsLength(),
     /** Get the driver of a specific visible secondary action <Tooltip/> */
@@ -101,14 +101,14 @@ const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
       getVisibleActionByDataHookButtonDriver(actionDataHook).click(),
     /** Click on the hidden secondary actions <PopoverMenu/> */
     clickPopoverMenu: () =>
-      upgrade
+      isUpgraded()
         ? getHiddenActionsPopoverMenuDriver()
             .getTriggerElement(dataHooks.triggerElement)
             .click()
         : getHiddenActionsPopoverMenuDriver().click(),
     /** Click on a hidden secondary action (requires the <PopoverMenu/> to be open) */
     clickHiddenAction: actionIndex =>
-      upgrade
+      isUpgraded()
         ? getHiddenActionsPopoverMenuDriver().clickAtChild(actionIndex)
         : getHiddenActionsPopoverMenuDriver().menu.clickItemAt(actionIndex),
     clickHiddenActionByDataHook: actionDataHook =>
