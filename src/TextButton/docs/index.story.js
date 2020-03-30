@@ -46,6 +46,7 @@ export default {
     prefixIcon: icons,
     suffixIcon: icons,
     as: ['button', 'a', 'span', 'div'],
+    skin: ['standard', 'destructive', 'light', 'premium', 'dark'],
   },
 
   sections: [
