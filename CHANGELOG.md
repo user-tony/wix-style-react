@@ -15,6 +15,17 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+## 7.54.0 - 2020-03-31
+
+### Added
+
+- `<Input>` - Add testkit functions to status/statusMessage props [#5298](https://github.com/wix/wix-style-react/pull/5298)
+
+### Fixed
+
+- `<InputWithOptions/>` - Clear value in controlled mode [#5285](https://github.com/wix/wix-style-react/pull/5285)
+- `<TableActionCell/>` - fix testkit initialization [#5299](https://github.com/wix/wix-style-react/pull/5299)
+- `<RadioButton/>` - fix testkit functions [#5290](https://github.com/wix/wix-style-react/pull/5290)
 
 ## 7.53.1 - 2020-03-29
 
