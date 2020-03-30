@@ -1,7 +1,8 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { SyntheticEventData } from 'react-dom/test-utils';
 import { FocusOptionsPolyfill } from '../common';
-import { InputTheme, InputSize } from './index';
+import { InputTheme, InputSize, InputStatus } from './index';
+
 export interface InputDriver extends BaseDriver {
   trigger: (trigger: string, event: SyntheticEventData) => void;
   focus: (options?: FocusOptionsPolyfill) => FocusOptionsPolyfill;
@@ -49,7 +50,7 @@ export interface InputDriver extends BaseDriver {
   hasError: () => boolean;
   hasWarning: () => boolean;
   getTooltipElement: () => HTMLElement;
-  hasLoader: () => ReturnType<HTMLInputElement['querySelector']>;
+  hasLoader: () => boolean;
   getTooltipDataHook: () => 'input-tooltip';
   getDataHook: () => string | null;
   getUnit: () => string;
@@ -73,4 +74,8 @@ export interface InputDriver extends BaseDriver {
   hasRightBorderRadius: () => boolean;
   hasLeftBorderRadius: () => boolean;
   isCustomInput: () => boolean;
+
+  // Status
+  hasStatus: (status: InputStatus) => boolean;
+  getStatusMessage: () => string | null;
 }

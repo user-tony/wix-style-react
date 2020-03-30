@@ -1,8 +1,9 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { ReactBase } from '../../test/utils/unidriver';
 import DATA_ATTR from './DataAttr';
+import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
-export const testkit = base => {
+export const testkit = (base, body) => {
   // single $ throws an exception for more than 1 match, so we use the first matching result with $$
   // to support cases of multiple inputs, e.g cases where this driver is used inside other drivers with popovers
   // which includes an input
@@ -119,6 +120,27 @@ export const testkit = base => {
     getCursorLocation: async () => await input._prop('selectionStart'),
     clearText: () => driver.enterText(''),
     clickOutside: () => ReactBase.clickDocument(),
+
+    // Status
+    /** Return true if the given status is displayed */
+    hasStatus: async status =>
+      (status === 'error' && (await base.hasClass('hasError'))) ||
+      (status === 'warning' && (await base.hasClass('hasWarning'))) ||
+      (status === 'loading' && (await base.$$(`.loaderContainer`).count()) > 0),
+    /** If there's a status message, returns its text value */
+    getStatusMessage: async () => {
+      let tooltipText = null;
+      const tooltipDriver = tooltipDriverFactory(
+        base.$('[data-hook="input-tooltip"]'),
+        body,
+      );
+      await tooltipDriver.mouseEnter();
+      if (await tooltipDriver.tooltipExists()) {
+        tooltipText = await tooltipDriver.getTooltipText();
+      }
+
+      return tooltipText;
+    },
   };
 
   return driver;

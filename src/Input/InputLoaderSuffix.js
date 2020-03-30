@@ -8,15 +8,15 @@ class InputLoaderSuffix extends React.Component {
   render() {
     return (
       <Tooltip
+        upgrade
         dataHook="input-tooltip"
         disabled={!this.props.tooltipMessage}
         placement={this.props.tooltipPlacement}
         alignment="center"
-        textAlign="left"
+        textAlign="start"
         content={this.props.tooltipMessage || ''}
         overlay=""
-        theme="dark"
-        maxWidth="230px"
+        maxWidth={230}
         hideDelay={150}
         zIndex={10000}
       >

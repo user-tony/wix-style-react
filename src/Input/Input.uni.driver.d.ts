@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 import { SyntheticEventData } from 'react-dom/test-utils';
-import { InputTheme, InputSize } from './index';
+import { InputTheme, InputSize, InputStatus } from './index';
 
 export interface InputUniDriver extends BaseUniDriver {
   click: () => Promise<void>;
@@ -70,4 +70,8 @@ export interface InputUniDriver extends BaseUniDriver {
   getCursorLocation: () => Promise<any>;
   clearText: () => Promise<void>;
   clickOutside: () => boolean;
+
+  // Status
+  hasStatus: (status: InputStatus) => Promise<boolean>;
+  getStatusMessage: () => Promise<string | null>;
 }
