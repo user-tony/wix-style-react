@@ -21,6 +21,7 @@ class TableActionCellExample extends React.Component {
             title: '',
             render: rowData => (
               <TableActionCell
+                upgrade
                 primaryAction={{
                   text: 'Edit',
                   theme: 'fullblue',
