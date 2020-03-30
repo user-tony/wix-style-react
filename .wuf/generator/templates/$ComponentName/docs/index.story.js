@@ -8,7 +8,7 @@ import {
   title,
   divider,
   example as baseExample,
-  code,
+  code as baseCode,
   playground,
   api,
   testkit,
@@ -20,6 +20,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import <%= ComponentName %> from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -70,7 +71,6 @@ export default {
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
             source: '<<%= ComponentName %> buttonText="Hello World!"/>',
-            components: { <%= ComponentName %> }
           }),
         ],
       }),
