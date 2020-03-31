@@ -5,12 +5,12 @@ import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import Button from 'wix-style-react/Button';
 import Card from 'wix-style-react/Card';
 import Checkbox from 'wix-style-react/Checkbox';
+import IconButton from 'wix-style-react/IconButton';
 import Dropdown from 'wix-style-react/Dropdown';
 import { Container, Row } from 'wix-style-react/Grid';
 import Highlighter from 'wix-style-react/Highlighter';
 import Page from 'wix-style-react/Page';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
 import Search from 'wix-style-react/Search';
 import Table from 'wix-style-react/Table';
 import TableActionCell from 'wix-style-react/TableActionCell';
@@ -44,23 +44,19 @@ class Example extends React.Component {
 }
 
 class ProductTable extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      data: allData,
-      collectionId: 0,
-      filterId: 0,
-      searchTerm: '',
-      inStock: false,
-    };
-  }
+  state = {
+    data: allData,
+    collectionId: 0,
+    filterId: 0,
+    searchTerm: '',
+    inStock: false,
+  };
 
   render() {
     const tableData = this.getFilteredData();
     return (
       <Table
-        withWrapper
         dataHook="story-table-example"
         data={tableData}
         itemsPerPage={20}
@@ -119,11 +115,12 @@ class ProductTable extends React.Component {
         width: '40%',
         render: rowData => (
           <TableActionCell
+            upgrade
             dataHook="action-cell-component-secondary"
             primaryAction={{
               text: 'Edit',
               theme: 'fullblue',
-              onActionTrigger: () => primaryAction(rowData),
+              onClick: () => window.alert(`Row Data: ${JSON.stringify(rowData)}`),
             }}
             secondaryActions={[
               {
@@ -153,15 +150,6 @@ class ProductTable extends React.Component {
         ),
       },
     ];
-  }
-
-  clearSearch() {
-    this.setState({
-      collectionId: 0,
-      filterId: 0,
-      searchTerm: '',
-      inStock: false,
-    });
   }
 
   renderMainToolbar() {
@@ -221,39 +209,35 @@ class ProductTable extends React.Component {
             </TableToolbar.Item>
           </TableToolbar.ItemGroup>
           <TableToolbar.ItemGroup position="end">
-            <TableToolbar.Item>{this.renderSearch(false)}</TableToolbar.Item>
+            <TableToolbar.Item>
+              <Search
+                onChange={e => this.setState({ searchTerm: e.target.value })}
+                value={this.state.searchTerm}
+              />
+            </TableToolbar.Item>
           </TableToolbar.ItemGroup>
         </TableToolbar>
       </Card>
     );
   }
 
-  renderSearch(expandable) {
-    return (
-      <Search
-        expandable={expandable}
-        onChange={e => {
-          this.setState({ searchTerm: e.target.value });
-        }}
-        value={this.state.searchTerm}
-      />
-    );
-  }
 
   getFilteredData() {
-    let data = this.state.data;
-    if (this.state.collectionId > 0) {
-      data = data.filter(row => row.collectionId === this.state.collectionId);
+    const { collectionId, filterId, searchTerm, inStock } = this.state;
+    let { data } = this.state;
+
+    if (collectionId > 0) {
+      data = data.filter(row => row.collectionId === collectionId);
     }
-    if (this.state.filterId > 0) {
-      data = data.filter(row => row.filterId === this.state.filterId);
+    if (filterId > 0) {
+      data = data.filter(row => row.filterId === filterId);
     }
-    if (this.state.inStock) {
+    if (inStock) {
       data = data.filter(row => row.inventory === 'In stock');
     }
-    if (this.state.searchTerm !== '') {
+    if (searchTerm !== '') {
       data = data.filter(row =>
-        row.name.toUpperCase().includes(this.state.searchTerm.toUpperCase()),
+        row.name.toUpperCase().includes(searchTerm.toUpperCase()),
       );
     }
     return data;
@@ -308,13 +292,17 @@ const renderPageHeader = () => {
       <Box>
         <Box>
           <PopoverMenu
-            buttonTheme="icon-greybackground"
+            triggerElement={
+              <IconButton skin="inverted">
+                <Icons.More />
+              </IconButton>
+            }
             placement="bottom"
             size="normal"
-            appendToParent
+            appendTo='parent'
           >
-            <PopoverMenuItem onClick={() => {}} text="Refresh" />
-            <PopoverMenuItem onClick={() => {}} text="Trash" />
+            <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />
+            <PopoverMenu.MenuItem onClick={() => {}} text="Trash" />
           </PopoverMenu>
         </Box>
         <Box marginLeft="small" marginRight="small">

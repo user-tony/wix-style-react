@@ -124,7 +124,7 @@ export default {
             {
               title: 'Basic',
               description:
-                'Simply compund a <Page/> with <Page.Header/> and <Page.Content/>',
+                'Simply compound a <Page/> with <Page.Header/> and <Page.Content/>',
               source: `
                 <Page upgrade>
                   <Page.Header title="Page Header"/>
@@ -208,8 +208,8 @@ export default {
                           <Card>
                             <Card.Content>
                               <h3>Scroll Down</h3>
-                              {Array(20).fill(' ').map(item => 
-                                (<div>
+                              {Array(20).fill(' ').map((item, i) =>
+                                (<div key={"minimized-header-example-item-"+ i}>
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                                   facilisis molestie magna vitae pellentesque. Ut elementum
                                   accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
@@ -246,8 +246,8 @@ export default {
                         <Col span={8}>
                           <Card>
                             <Card.Content>
-                              {Array(20).fill(' ').map(item => 
-                                (<div>
+                              {Array(20).fill(' ').map((item,i) =>
+                                (<div key={"header-tail-elements-example-item-"+ i}>
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                                   facilisis molestie magna vitae pellentesque. Ut elementum
                                   accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
@@ -277,8 +277,8 @@ export default {
                         <Col span={8}>
                           <Card>
                             <Card.Content>
-                              {Array(20).fill(' ').map(item => 
-                                (<div>
+                              {Array(20).fill(' ').map((item,i) =>
+                                (<div key={"sticky-elements-example-item-"+i}>
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                                   facilisis molestie magna vitae pellentesque. Ut elementum
                                   accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
