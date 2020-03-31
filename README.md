@@ -20,7 +20,7 @@ A collection of React components that conform to Wix Style.
 </div>
 
 <div align="center">
- <a href="https://wix-style-react.now.sh">https://wix-style-react.now.sh/</a>
+ <a href="https://wix-style-react-v7.now.sh">https://wix-style-react-v7.now.sh/</a>
 </div>
 
 ## 📦 Install
@@ -35,7 +35,7 @@ yarn add wix-style-react
 
 ## 🔨 Setup
 
-If 🐉yoshi build runner is used for your application then all required loaders are already defined. If you'd rather set up your project manually, take a look at our [webpack guide](https://github.com/wix/wix-style-react/blob/master/docs/usage-without-yoshi.md).
+If 🐉yoshi build runner is used for your application then all required loaders are already defined. If you'd rather set up your project manually, take a look at our [webpack guide](https://github.com/wix/wix-style-react/blob/version_7.x/docs/usage-without-yoshi.md).
 
 Minimal Yoshi version to be used with wix-style-react:
 
@@ -72,7 +72,7 @@ Make sure that react and react-dom versions are not higher then:
 
 **wix-style-react v6.x migration note**:
 
-If you're using wix-style-react 6.x and want to shift to 7.x version then read our [migration guide](https://github.com/wix/wix-style-react/blob/master/docs/migration/v6-v7.md).
+If you're using wix-style-react 6.x and want to shift to 7.x version then read our [migration guide](https://github.com/wix/wix-style-react/blob/version_7.x/docs/migration/v6-v7.md).
 
 Previous version documentation: https://wix-wix-style-react-v6.surge.sh/
   
@@ -111,13 +111,13 @@ await inputDriver.enterText('hello world');
 ```
 All methods are documented in our storybook components stories and some can be viewed through typescript interface.
 
-Our testkits currently support four major testing frameworks: `react-jsdom`, `protractor`, `puppeteer` and `selenium`. Read our [testing guidelines](https://github.com/wix/wix-style-react/blob/master/docs/usage/testing.md)
+Our testkits currently support four major testing frameworks: `react-jsdom`, `protractor`, `puppeteer` and `selenium`. Read our [testing guidelines](https://github.com/wix/wix-style-react/blob/version_7.x/docs/usage/testing.md)
 
 ## ⌨️ Typescript
 
 The library is javascript based but types are supported with `d.ts` files. 
 You should get the types automatically when installing `wix-style-react`.
-For any issues, check out our types [FAQ](https://github.com/wix/wix-style-react/blob/master/docs/FAQ/TYPES.MD)
+For any issues, check out our types [FAQ](https://github.com/wix/wix-style-react/blob/version_7.x/docs/FAQ/TYPES.MD)
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 

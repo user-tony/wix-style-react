@@ -52,7 +52,7 @@ Before the next major version - go over `Next` components and migrate - replace 
 
 ## Deprecation
 
-[Read here](https://github.com/wix/wix-style-react/blob/master/docs/internal/DEPRECATION_GUIDE.md)
+[Read here](https://github.com/wix/wix-style-react/blob/version_7.x/docs/internal/DEPRECATION_GUIDE.md)
 
 ## WIP
 Work in progress - another section in storybook. Should be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
