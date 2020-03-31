@@ -14,6 +14,8 @@ import DateInput from '../DateInput';
 import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
 import deprecationLog from '../utils/deprecationLog';
 
+import styles from './DatePicker.st.css';
+
 /**
  * DatePicker component
  *
@@ -229,6 +231,7 @@ export default class DatePicker extends React.PureComponent {
 
     return (
       <Popover
+        {...styles('root', {}, this.props)}
         dataHook={dataHook}
         onClickOutside={this.closeCalendar}
         appendTo="parent"

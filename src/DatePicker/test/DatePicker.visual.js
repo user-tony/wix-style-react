@@ -70,6 +70,40 @@ const testGroups = [
       },
     ],
   },
+  {
+    describe: 'width prop',
+    tests: [
+      {
+        describe: 'should be 150px by default',
+        its: [
+          {
+            placeholderText: 'Select Date',
+            value: new Date('08/07/1986'),
+          },
+        ],
+      },
+      {
+        describe: 'should accept px values',
+        its: [
+          {
+            width: '100px',
+            placeholderText: 'Select Date',
+            value: new Date('08/07/1986'),
+          },
+        ],
+      },
+      {
+        describe: 'should accept % values',
+        its: [
+          {
+            width: '50%',
+            placeholderText: 'Select Date',
+            value: new Date('08/07/1986'),
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 testGroups.forEach(group => {
