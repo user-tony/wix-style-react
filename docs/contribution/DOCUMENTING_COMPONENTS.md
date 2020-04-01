@@ -52,6 +52,21 @@ export default {
 }
 ```
 
+## Design Guidelines
+In some cases, we implement a Component’s Sketch symbol, as a composite of more than 1 component. 
+In such a case, a Design Guidelines story is required.
+
+For example, [`Tag Input`](https://wix-style-react.now.sh/?path=/story/design-guidelines-inputs--3-12-tag-input) is a composition of 2 individual components – [`<FormField/>`](https://wix-style-react.now.sh/?path=/story/components-api-components--formfield), and [`<MultiSelect/>`](https://wix-style-react.now.sh/?path=/story/components-api-components--multiselect).
+Both of these individual components have their Component API stories.
+
+`Tag Input` has a Design Guidelines story, to provide info and exampls on how to implement this Component Sketch symbol as a composition.
+
+### Design Guidelines key parts
+ - Description
+ - Included Components: a list of all individual components used in the examples
+ - Examples: showcase the different basic variants
+Code example can be found [here](https://github.com/wix/wix-style-react/blob/master/stories/MultiSelect/index.story.js)
+
 ## Cheatsheet
 
 In order to improve the components discoverability and map each UX symbol to the relevant components used, we've created a [Cheatsheet](https://wix-style-react.now.sh/?path=/story/introduction-cheatsheet--components-cheatsheet) with all the components within the library.
