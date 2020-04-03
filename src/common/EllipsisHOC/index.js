@@ -16,6 +16,7 @@ import {
  */
 import loadable from '@loadable/component';
 import { retry } from './utils';
+import { getDisplayName } from '../hocUtils';
 
 const validTooltipProps = [
   'flip',
@@ -52,7 +53,9 @@ const LazyEllipsisHOC = loadable(() =>
 );
 
 const Comp /** @autodocs-component */ = Component => {
-  return React.memo(
+  const displayName = getDisplayName(Component);
+
+  const Ellipsed = React.memo(
     React.forwardRef(({ ellipsis, ...props }, ref) => {
       const rest = omit(props, validTooltipProps);
 
@@ -77,6 +80,10 @@ const Comp /** @autodocs-component */ = Component => {
       return <Component ref={ref} {...rest} />;
     }),
   );
+
+  Ellipsed.displayName = displayName;
+
+  return Ellipsed;
 };
 
 Comp.propTypes = {
