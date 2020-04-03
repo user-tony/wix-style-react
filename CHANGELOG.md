@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 - `<DatePicker/>` - fix width prop to accept percentage [#5306](https://github.com/wix/wix-style-react/pull/5306)
+- `<RichTextInputArea/>` - stopping toolbar buttons triggering `<form/>` submits [#5320](https://github.com/wix/wix-style-react/pull/5320)
 
 ## 7.54.0 - 2020-03-31
 
