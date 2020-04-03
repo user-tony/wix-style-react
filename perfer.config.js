@@ -120,7 +120,7 @@ const javascriptFiles = [
   ['InfoIcon.bundle.min.js', 41],
   ['SocialButton.bundle.min.js', 17],
   ['VerticalTabs.bundle.min.js', 13],
-  ['VerticalTabsItem.bundle.min.js', 12],
+  ['VerticalTabsItem.bundle.min.js', 13],
   ['MobilePreviewWidget.bundle.min.js', 7],
   ['ListItemSection.bundle.min.js', 13],
   ['BrowserPreviewWidget.bundle.min.js', 7],
