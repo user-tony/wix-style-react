@@ -217,6 +217,8 @@ class MultiSelect extends InputWithOptions {
     );
 }
 
+MultiSelect.displayName = 'MultiSelect';
+
 MultiSelect.propTypes = {
   selectedId: DropdownLayout.propTypes.selectedId,
   closeOnSelect: DropdownLayout.propTypes.closeOnSelect,

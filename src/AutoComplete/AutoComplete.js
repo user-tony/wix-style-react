@@ -3,6 +3,8 @@ import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import deprecationLog from '../utils/deprecationLog';
 
 class AutoComplete extends InputWithOptions {
+  static displayName = 'AutoComplete';
+
   static propTypes = {
     ...InputWithOptions.propTypes,
 
