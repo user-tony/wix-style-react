@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Fixed
-
+- `<Table/> <DataTable/>` - Pass RowDataType to TableColumn [#5291](https://github.com/wix/wix-style-react/pull/5291)
 - `<DatePicker/>` - fix width prop to accept percentage [#5306](https://github.com/wix/wix-style-react/pull/5306)
 - `<RichTextInputArea/>` - stopping toolbar buttons triggering `<form/>` submits [#5320](https://github.com/wix/wix-style-react/pull/5320)
 - `EllipsisHOC` - grab displayName of component and reassign to returned function [#5322](https://github.com/wix/wix-style-react/pull/5322)
