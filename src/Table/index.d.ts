@@ -14,7 +14,7 @@ export interface TableProps<RowData = RowDataDefaultType> extends UsedDataTableP
   withWrapper?: boolean;
   onSortClick?(colData: TableColumn, colNum: number): void;
   totalSelectableCount?: number;
-  columns: TableColumn[];
+  columns: TableColumn<RowData>[];
 }
 
 export default class Table<RowData = RowDataDefaultType> extends React.Component<TableProps<RowData>> {
@@ -35,7 +35,7 @@ declare const Content: React.SFC<{
 }>;
 declare const BulkSelectionCheckbox: React.SFC<{ dataHook: string }>;
 
-export type TableColumn = DataTableColumn;
+export type TableColumn<RowDataType = RowDataDefaultType> = DataTableColumn<RowDataType>;
 
 export type OnSelectionChangedFn = (
   selectedIds: TableProps['selectedIds'] | null,
