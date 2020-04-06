@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.55.0 - 2020-04-06
+
 ### Added
 - `<Avatar/>` - add `customIndication` prop [#5324](https://github.com/wix/wix-style-react/pull/5324)
 
