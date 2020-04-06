@@ -22,6 +22,7 @@ export interface AvatarProps {
   dataHook?: string;
   presence?: 'online' | 'offline' | 'busy';
   indication?: React.ReactNode;
+  customIndication?: React.ReactNode;
   showIndicationOnHover?: boolean;
   onIndicationClick?(): void;
   onClick?(): void;

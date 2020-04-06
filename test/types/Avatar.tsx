@@ -39,6 +39,7 @@ function AvatarWithAllProps() {
       shape="circle"
       presence="online"
       indication={<div />}
+      customIndication={<div />}
       onIndicationClick={() => {}}
       onClick={() => {}}
       showIndicationOnHover

@@ -3,6 +3,20 @@ import { storiesOf } from '@storybook/react';
 
 import Avatar from '..';
 import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
+import Facebook from 'wix-ui-icons-common/Facebook';
+import Box from '../../Box';
+
+const customIndication = (
+  <Box
+    align="center"
+    verticalAlign="middle"
+    backgroundColor="#3b5998"
+    color="white"
+    minHeight="100%"
+  >
+    <Facebook size="18" />
+  </Box>
+);
 
 const allSizesAvatarWithProps = props => (
   <div
@@ -61,6 +75,20 @@ storiesOf(`Avatar/Props`, module).add('Indication', () => (
   </div>
 ));
 
+storiesOf(`Avatar/Props`, module).add('CustomIndication', () => (
+  <div>
+    <div style={{ display: 'flex', marginBottom: '30px' }}>
+      {renderAvatar({
+        customIndication,
+      })}
+    </div>
+    {allSizesAvatarWithProps({
+      customIndication,
+      ...baseProps,
+    })}
+  </div>
+));
+
 storiesOf(`Avatar/Props`, module).add('Presence and Indication', () => (
   <div>
     {allSizesAvatarWithProps({
@@ -73,6 +101,23 @@ storiesOf(`Avatar/Props`, module).add('Presence and Indication', () => (
       presence: 'online',
       shape: 'square',
       indication: <PhotoCamera size="24" />,
+      ...baseProps,
+    })}
+  </div>
+));
+
+storiesOf(`Avatar/Props`, module).add('Presence and Custom Indication', () => (
+  <div>
+    {allSizesAvatarWithProps({
+      presence: 'online',
+      customIndication,
+      ...baseProps,
+    })}
+    <br />
+    {allSizesAvatarWithProps({
+      presence: 'online',
+      shape: 'square',
+      customIndication,
       ...baseProps,
     })}
   </div>

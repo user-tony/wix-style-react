@@ -33,6 +33,7 @@ import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 import InfoSmall from 'wix-ui-icons-common/InfoSmall';
 import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
+import { Facebook } from 'wix-ui-icons-common';
 
 const groupSymbol = symbolsGroup.other;
 
@@ -65,6 +66,22 @@ const AvatarExample = () => {
         {renderAvatar({
           imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
           indication: <PhotoCamera size="24" />,
+          shape: 'square',
+          onClick: () => 'Clicked!',
+        })}
+        {renderAvatar({
+          imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
+          customIndication: (
+            <Box
+              align="center"
+              verticalAlign="middle"
+              backgroundColor="#3b5998"
+              color="white"
+              minHeight="100%"
+            >
+              <Facebook size="18" />
+            </Box>
+          ),
           shape: 'square',
           onClick: () => 'Clicked!',
         })}
