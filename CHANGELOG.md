@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Avatar/>` - add `customIndication` prop [#5324](https://github.com/wix/wix-style-react/pull/5324)
+
 ### Fixed
 - `<Table/> <DataTable/>` - Pass RowDataType to TableColumn [#5291](https://github.com/wix/wix-style-react/pull/5291)
 - `<DatePicker/>` - fix width prop to accept percentage [#5306](https://github.com/wix/wix-style-react/pull/5306)
