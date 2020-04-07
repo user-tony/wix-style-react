@@ -3,6 +3,7 @@ import { Container, Row } from 'wix-style-react/Grid';
 import Page from 'wix-style-react/Page';
 
 // importing components by family type
+import UnclassifiedFamily from './componentsFamilies/UnclassifiedFamily';
 import FoundationFamily from './componentsFamilies/FoundationFamily';
 import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './componentsFamilies/InputFamily';
@@ -19,6 +20,7 @@ import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 class ComponentsCheatsheet extends React.Component {
   render() {
     const componentsFamiliesArr = [
+      UnclassifiedFamily,
       FoundationFamily,
       LayoutFamily,
       InputFamily,

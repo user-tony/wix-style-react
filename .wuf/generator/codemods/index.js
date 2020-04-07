@@ -19,4 +19,19 @@ module.exports = [
     dist: 'perfer.config.js',
     description: 'Add new threshold for new component',
   },
+  {
+    codemod: 'components-index-file.js',
+    dist: 'stories/symbolsComponentsMapping/components.js',
+    description : 'Add component to components mapping file'
+  },
+  {
+    codemod: 'symbols-index-file.js',
+    dist: 'stories/symbolsComponentsMapping/symbols.js',
+    description: 'Add UX symbol to symbols mapping file'
+  },
+  {
+    codemod: 'symbol-to-component-file.js',
+    dist: 'stories/symbolsComponentsMapping/families/unclassifiedFamily.js',
+    description: 'Add symbol to component mapping',
+  }
 ];
