@@ -22,6 +22,8 @@ import {
 
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
+import { CounterBadge } from '../..';
+import Box from '../../Box';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -38,13 +40,34 @@ const indicationExamples = [
   {
     label: 'SVG',
     value: (
-      <svg viewBox="0 0 18 18" fill="currentColor" width="18" height="18">
+      <svg viewBox="0 0 18 18" fill="hotpink" width="18" height="18">
         <path
           id="addsmall-a"
           d="M10 9L10 5 9 5 9 9 5 9 5 10 9 10 9 14 10 14 10 10 14 10 14 9z"
         ></path>
       </svg>
     ),
+  },
+];
+
+const customIndicationExamples = [
+  {
+    label: 'Facebook Logo',
+    value: (
+      <Box
+        align="center"
+        verticalAlign="middle"
+        backgroundColor="#3b5998"
+        color="white"
+        minHeight="100%"
+      >
+        <icons.Facebook size="18" />
+      </Box>
+    ),
+  },
+  {
+    label: 'Counter Badge',
+    value: <CounterBadge skin="warning">3</CounterBadge>,
   },
 ];
 
@@ -66,11 +89,13 @@ export default {
     title: 'Wix Account: John Doe (johndoe@gmail.com)',
     ariaLabel: 'Avatar for John Doe',
     indication: indicationExamples[0].value,
+    customIndication: undefined,
     presence: undefined,
   },
   exampleProps: {
     onIndicationClick: () => 'Clicked!',
     indication: indicationExamples,
+    customIndication: customIndicationExamples,
     size: [
       'size90',
       'size72',
@@ -143,6 +168,11 @@ export default {
           example({ title: 'Presence', source: examples.presence }),
 
           example({ title: 'Indication', source: examples.indication }),
+
+          example({
+            title: 'Custom Indication',
+            source: examples.customIndication,
+          }),
 
           example({ title: 'Click', source: examples.click }),
         ],

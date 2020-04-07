@@ -129,6 +129,8 @@ class MultiSelectCheckbox extends InputWithOptions {
   }
 }
 
+MultiSelectCheckbox.displayName = 'MultiSelectCheckbox';
+
 MultiSelectCheckbox.propTypes = {
   ...InputWithOptions.propTypes,
 

@@ -4,7 +4,7 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import <%= ComponentName %> from '../<%= ComponentName %>';
 import { <%= componentName %>PrivateDriverFactory } from './<%= ComponentName %>.private.uni.driver';
 
-describe('<%= ComponentName %>', () => {
+describe(<%= ComponentName %>.displayName, () => {
   const render = createRendererWithUniDriver(
     <%= componentName %>PrivateDriverFactory,
   );

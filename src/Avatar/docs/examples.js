@@ -89,6 +89,23 @@ export const indication = `
 </Box>
 `;
 
+const customIndicationComponent = `<Box align="center" verticalAlign="middle" backgroundColor="#3b5998" color="white" minHeight="100%">
+   <Icons.Facebook size="18" />
+</Box>`;
+
+export const customIndication = `
+<Box align="space-between" width="350">
+  <Avatar customIndication={${customIndicationComponent}}
+          name={'John Doe'} size="size90" />
+  <Avatar customIndication={${customIndicationComponent}}
+          name={'John Doe'} size="size72" />
+  <Avatar customIndication={${customIndicationComponent}}
+          name={'John Doe'} size="size60" />
+  <Avatar customIndication={${customIndicationComponent}}
+          name={'John Doe'} />
+</Box>
+`;
+
 export const click = `
 <Avatar name="John H. Doe" onClick={() => console.log('Avatar click!')} />
 `;

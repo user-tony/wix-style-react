@@ -19,16 +19,11 @@ import { storySettings } from './storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-const liveCode = config =>
+const example = config =>
   code({
-    previewProps: {
-      style: { backgroundColor: '#f0f4f7' },
-    },
     components: allComponents,
     ...config,
   });
-
-const example = props => liveCode(props);
 
 const options = [
   { id: 0, value: 'Option 1' },

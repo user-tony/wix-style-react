@@ -14,6 +14,7 @@ const RichTextToolbarButton = ({
 }) => (
   <Tooltip content={tooltipText}>
     <button
+      type="button"
       data-hook={dataHook}
       className={classNames(
         styles.button,

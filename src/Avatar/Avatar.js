@@ -50,6 +50,7 @@ class Avatar extends React.PureComponent {
       size,
       presence,
       indication,
+      customIndication,
       color: colorProp,
       onIndicationClick,
       dataHook,
@@ -69,11 +70,14 @@ class Avatar extends React.PureComponent {
         `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
       );
     }
-    const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
+    const color = colorProp || stringToColor(text || name); // if color is provided as a prop use it, otherwise, generate a color based on the text
     const sizeNumber = getSizeNumber(size);
     const renderOnHover = !showIndicationOnHover || showIndication;
+    const indicationConstraints =
+      renderOnHover && sizeNumber > minIndicationRenderSize;
     const renderIndication =
-      indication && renderOnHover && sizeNumber > minIndicationRenderSize;
+      indicationConstraints && !customIndication && indication;
+    const renderCustomIndication = indicationConstraints && customIndication;
 
     return (
       <div
@@ -87,7 +91,7 @@ class Avatar extends React.PureComponent {
           {...styles('avatarContainer', {
             shape,
             size,
-            indication,
+            indication: customIndication || indication,
             presence,
             presenceType: presence,
             clickable: !!onClick,
@@ -128,6 +132,15 @@ class Avatar extends React.PureComponent {
               >
                 {indication}
               </IconButton>
+            </div>
+          )}
+          {renderCustomIndication && (
+            <div
+              className={styles.indication}
+              data-hook={dataHooks.customIndication}
+              onClick={onIndicationClick}
+            >
+              {customIndication}
             </div>
           )}
         </div>
@@ -200,6 +213,8 @@ Avatar.propTypes = {
   presence: PropTypes.oneOf(['online', 'offline', 'busy']),
   /** A node to be rendered as Indication. */
   indication: PropTypes.node,
+  /** A node to be rendered as a custom indication, that is not wrapped by an IconButton. This node could be rendered in other shapes (such as square). */
+  customIndication: PropTypes.node,
   /** Function which triggers on indication click. */
   onIndicationClick: PropTypes.func,
   /** Show indication on hover. */
