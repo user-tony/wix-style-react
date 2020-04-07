@@ -19,7 +19,7 @@ _NOTE <span style="color:#c30000">links don't work in Storybook - only in GitHub
 
 ### Before you upgrade
 
-Before upgrading to v8, it is best to fix all **Deprecation Messages** shown in console, that appear in v7.
+Before upgrading to v8, it is best to fix all **Deprecation Messages** shown in console, that appear in v7.<br>
 It will be much easier to apply other changes.
 
 An example for v7 deprecation log:
