@@ -2,6 +2,7 @@
 
 EXCLUDE_FILES="
 node_modules
+.idea
 applitools.private.config.js
 "
 
