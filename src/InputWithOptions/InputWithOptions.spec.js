@@ -446,23 +446,27 @@ describe('InputWithOptions', () => {
     });
 
     it('should hide options on outside click', async () => {
+      const onClickOutsideFn = jest.fn();
       const { driver, dropdownLayoutDriver } = createDriver(
-        <InputWithOptions options={options} />,
-      );
-      await driver.outsideClick();
-      expect(await dropdownLayoutDriver.isShown()).toBe(false);
-    });
-
-    it('should trigger callback function on clicking outside', async () => {
-      const handleClickOutside = jest.fn();
-      const { driver } = createDriver(
         <InputWithOptions
           options={options}
-          onClickOutside={handleClickOutside}
+          onClickOutside={onClickOutsideFn}
         />,
       );
+
+      // Click outside when dropdown is closed
       await driver.outsideClick();
-      expect(handleClickOutside).toHaveBeenCalled();
+      expect(onClickOutsideFn).toHaveBeenCalledTimes(0);
+      expect(await dropdownLayoutDriver.isShown()).toBe(false);
+
+      // Open Dropdown
+      await driver.pressKey('ArrowDown');
+      expect(await dropdownLayoutDriver.isShown()).toBe(true);
+
+      // Click outside when dropdown is open
+      await driver.outsideClick();
+      expect(onClickOutsideFn).toHaveBeenCalledTimes(1);
+      expect(await dropdownLayoutDriver.isShown()).toBe(false);
     });
 
     it('should not hide options on selection', async () => {
@@ -785,17 +789,6 @@ describe('InputWithOptions', () => {
         expect(onOptionsShow).not.toHaveBeenCalled();
         await inputDriver.enterText('some value');
         expect(onOptionsShow).toHaveBeenCalled();
-      });
-    });
-
-    describe('appearance', () => {
-      it('should be possible to specify the theme of underlying elements', async () => {
-        const props = { theme: 'material', dataHook: 'myDataHook' };
-        const { driver } = render(<InputWithOptions {...props} />);
-        expect(await driver.inputDriver.isOfStyle(props.theme)).toBe(true);
-        expect(await driver.dropdownLayoutDriver.hasTheme(props.theme)).toBe(
-          true,
-        );
       });
     });
   }

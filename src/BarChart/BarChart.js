@@ -7,7 +7,6 @@ import AdaptiveHeading from '../utils/AdaptiveHeading';
 
 import styles from './BarChart.st.css';
 import dataHooks from './dataHooks';
-import deprecationLog from '../utils/deprecationLog';
 
 class BarChart extends React.PureComponent {
   static displayName = 'BarChart';
@@ -43,11 +42,6 @@ class BarChart extends React.PureComponent {
 
     /** Callback called every time when descriptionInfo tooltip is shown*/
     onDescriptionInfoShown: PropTypes.func,
-
-    /** Use old color scheme
-     * @deprecated
-     */
-    deprecatedColors: PropTypes.bool,
   };
 
   MIN_BAR_WIDTH = 50;
@@ -55,16 +49,6 @@ class BarChart extends React.PureComponent {
   state = {
     width: 0,
   };
-
-  constructor(props) {
-    super(props);
-
-    if (props.hasOwnProperty('deprecatedColors')) {
-      deprecationLog(
-        '<BarChart/> - deprecatedColors prop is deprecated. Just remove it, no other change required.',
-      );
-    }
-  }
 
   componentDidMount() {
     this.setState({
@@ -95,7 +79,6 @@ class BarChart extends React.PureComponent {
         content={descriptionInfo}
         onShow={onDescriptionInfoShown}
         zIndex={5999}
-        upgrade
       >
         <div className={styles.value}>
           {showText && <AdaptiveHeading {...headingProps} emptyLast />}
@@ -113,7 +96,7 @@ class BarChart extends React.PureComponent {
     key,
   ) => {
     const { width } = this.state;
-    const { total, deprecatedColors } = this.props;
+    const { total } = this.props;
     const calculatedTotal = this._getCalculatedTotal();
     const coefficient = total ? calculatedTotal / total : 1;
     const showText =
@@ -122,7 +105,7 @@ class BarChart extends React.PureComponent {
 
     return (
       <div
-        {...styles('item', { deprecatedColors }, this.props)}
+        {...styles('item', {}, this.props)}
         key={key}
         data-hook={dataHooks.bar}
         style={{

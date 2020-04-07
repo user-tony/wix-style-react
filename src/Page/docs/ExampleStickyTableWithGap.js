@@ -19,7 +19,7 @@ import TableToolbar from 'wix-style-react/TableToolbar';
 class Example extends React.Component {
   render() {
     return (
-      <Page upgrade height="372px">
+      <Page height="372px">
         {renderPageHeader()}
         <Page.Content>
           <Container>
@@ -115,11 +115,10 @@ class ProductTable extends React.Component {
         width: '40%',
         render: rowData => (
           <TableActionCell
-            upgrade
             dataHook="action-cell-component-secondary"
             primaryAction={{
               text: 'Edit',
-              theme: 'fullblue',
+              skin: 'standard',
               onClick: () => window.alert(`Row Data: ${JSON.stringify(rowData)}`),
             }}
             secondaryActions={[

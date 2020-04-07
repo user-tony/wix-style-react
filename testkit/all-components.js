@@ -4,18 +4,14 @@ const path = require('path');
 const NON_COMPONENT_FOLDER = [
   'utils',
   'providers',
-  'new-icons',
   'dnd-styles',
   'assets',
   'clients',
   'mixins',
   'common',
   'FieldLabelAttributes',
-  'Backoffice',
   'BaseComponents',
-  'Deprecated',
   'Typography',
-  'Animations',
   'Foundation',
   'beta',
 ];

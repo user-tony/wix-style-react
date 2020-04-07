@@ -12,16 +12,6 @@ import {
   puppeteerUniTestkitFactoryCreator,
 } from 'wix-ui-test-utils/puppeteer';
 
-import tooltipDriverFactory from '../src/Tooltip/Tooltip.puppeteer.driver';
-import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-
-export const tooltipTestkitFactory = puppeteerTestkitFactoryCreator(
-  tooltipDriverFactory,
-);
-
-export const TooltipTestkit = puppeteerUniTestkitFactoryCreator(
-  tooltipNextDriverFactory,
-);
 const load = module => {
   const MODULE_META_KEYS = ['__esModule'];
 
@@ -64,7 +54,6 @@ export const colorInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(r
 export const colorPickerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ColorPicker/ColorPicker.uni.driver')));
 export const contactItemBuilderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.uni.driver')));
 export const counterBadgeTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.uni.driver')));
-export const dataTableTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/DataTable/DataTable.uni.driver')));
 export const dateInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/DateInput/DateInput.uni.driver')));
 export const dropdownTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Dropdown/Dropdown.uni.driver')));
 export const dropdownBaseTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/DropdownBase/DropdownBase.uni.driver')));
@@ -72,7 +61,6 @@ export const dropdownLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(lo
 export const editableSelectorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EditableSelector/EditableSelector.uni.driver')));
 export const editableTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EditableTitle/EditableTitle.uni.driver')));
 export const emptyStateTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EmptyState/EmptyState.uni.driver')));
-export const errorIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ErrorIndicator/ErrorIndicator.uni.driver')));
 export const filePickerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FilePicker/FilePicker.uni.driver')));
 export const floatingHelperTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FloatingHelper/FloatingHelper.uni.driver')));
 export const floatingNotificationTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
@@ -107,7 +95,6 @@ export const sidebarTestkitFactory = puppeteerUniTestkitFactoryCreator(load(requ
 export const sidebarSectionTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver')));
 export const sliderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Slider/Slider.uni.driver')));
 export const socialPreviewTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SocialPreview/SocialPreview.uni.driver')));
-export const statsWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/StatsWidget/StatsWidget.uni.driver')));
 export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const tableTestkitFactory = puppeteerTestkitFactoryCreator(load(require('../src/Table/Table.puppeteer.driver')));
@@ -118,6 +105,7 @@ export const textButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(r
 export const thumbnailTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
 export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TimeInput/TimeInput.uni.driver')));
 export const toggleSwitchTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.uni.driver')));
+export const tooltipTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Tooltip/Tooltip.uni.driver')));
 export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarSectionItem/SidebarSectionItem.uni.driver')));
 export const sidebarDividerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarDivider/SidebarDivider.uni.driver')));
 export const sidebarBackButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarBackButton/SidebarBackButton.uni.driver')));
@@ -146,7 +134,6 @@ export const listItemSelectTestkitFactory = puppeteerUniTestkitFactoryCreator(lo
 export const timeTableTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
 export const marketingLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MarketingLayout/MarketingLayout.uni.driver')));
 export const paletteTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Palette/Palette.uni.driver')));
-export const warningIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/WarningIndicator/WarningIndicator.uni.driver')));
 export const variableInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/VariableInput/VariableInput.uni.driver')));
 export const imageTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Image/Image.uni.driver')));
 export const sidePanelTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidePanel/SidePanel.uni.driver')));
@@ -155,10 +142,9 @@ export const customModalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator
 export const statusIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
 export const messageModalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MessageModalLayout/MessageModalLayout.uni.driver')));
 export const announcementModalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver')));
+export const popoverMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.uni.driver')));
 export const paginationTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Pagination/Pagination.uni.driver')));
-export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver')));
 export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
-export const sideMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));
 export const editableRowTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.uni.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver')));
 export const messageBoxFunctionalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.uni.driver')));

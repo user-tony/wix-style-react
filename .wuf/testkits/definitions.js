@@ -6,21 +6,6 @@
  */
 
 module.exports = {
-  SideMenuDrill: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    skipSanityTest: true,
-    testkitPath: '../src/Deprecated/SideMenu/DrillView/DrillView.driver',
-    protractorTestkitPath:
-      '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver',
-    protractorTestkitExportName: 'drillViewTestkitFactory',
-
-    puppeteerTestkitPath:
-      '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver',
-    puppeteerTestkitExportName: 'drillViewTestkitFactory',
-  },
-
   BadgeSelectItemBuilder: {
     skipSanityTest: true,
     noTestkit: true,
@@ -66,13 +51,6 @@ module.exports = {
     skipSanityTest: true, // testkit does not have root `exists` method
   },
 
-  MultiSelectComposite: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
-  },
-
   DragAndDrop: { skipSanityTest: true, noTestkit: true },
   DragDropContextProvider: { skipSanityTest: true, noTestkit: true },
 
@@ -90,21 +68,7 @@ module.exports = {
     noTestkit: true,
   },
 
-  GoogleAddressInputWithLabel: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    skipSanityTest: true,
-    // TODO: testkit of this component is not following convention.
-    // It is used only internally and before automated export was not exported manually
-
-    // the name of export has a typo, it's different than component name
-    protractorTestkitExportName: 'googleAddressWithInputTestkitFactory',
-    noPuppeteerTestkit: true,
-  },
-
   Grid: { skipSanityTest: true, noTestkit: true },
-  HBox: { skipSanityTest: true, noTestkit: true },
   Layout: { skipSanityTest: true, noTestkit: true },
   MessageBox: { skipSanityTest: true, noTestkit: true },
 
@@ -152,21 +116,10 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  PopoverMenu: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
-  },
-
-  PopoverMenuItem: { skipSanityTest: true, noTestkit: true },
   TableToolbar: { skipSanityTest: true, noTestkit: true },
-  Tooltip: { skipSanityTest: true, manualExport: true },
-  VBox: { skipSanityTest: true, noTestkit: true },
   Collapse: { skipSanityTest: true, noTestkit: true },
   Card: { skipSanityTest: true, noTestkit: true },
   Composite: { skipSanityTest: true, noTestkit: true },
-  FullTextView: { skipSanityTest: true, noTestkit: true },
 
   Text: {
     vanillaLegacyTestkit: true,
@@ -174,18 +127,6 @@ module.exports = {
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
     puppeteerTypeImportName: 'TextPuppeteerDriver'
-  },
-
-  SideMenu: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    testkitPath: '../src/Deprecated/SideMenu/core/SideMenu.driver',
-
-    protractorTestkitPath:
-      '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
-
-    puppeteerTestkitPath: '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
   },
 
   Calendar: {
@@ -242,18 +183,6 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     testkitPath: '../src/FieldLabelAttributes/FieldLabelAttributes.driver',
-    skipSanityTest: true,
-    noPuppeteerTestkit: true,
-  },
-
-  FieldWithSelectionComposite: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    testkitPath:
-      '../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.driver',
-    protractorTestkitPath:
-      '../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.protractor.driver',
     skipSanityTest: true,
     noPuppeteerTestkit: true,
   },
@@ -457,13 +386,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  Label: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
-  },
-
   Highlighter: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
@@ -513,13 +435,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  AutoCompleteComposite: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
-  },
-
   EditableSelector: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
@@ -544,12 +459,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  DataTable: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-  },
-
   DropdownLayout: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
@@ -568,16 +477,9 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  StatsWidget: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-  },
-
   AddItem: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
   },
 
   ImageViewer: {
@@ -614,9 +516,4 @@ module.exports = {
     namedProtractorTestkitExport: true,
     namedPuppeteerTestkitExport: true,
   },
-
-  TextLink: {
-    skipSanityTest: true,
-    noTestkit: true,
-  }
 };

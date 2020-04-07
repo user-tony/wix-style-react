@@ -8,6 +8,11 @@
 }
 
 :import {
+  -st-from: "../Tooltip/Tooltip.st.css";
+  -st-default: Tooltip;
+}
+
+:import {
   -st-from: "../Foundation/stylable/opacity.st.css";
   -st-named: opacity48;
 }
@@ -225,4 +230,19 @@
 
 .root:disabled .text Text {
   color: value(D10-30);
+}
+
+.tooltip {
+  -st-extends: Tooltip;
+  display: flex;
+}
+
+.tooltip::root {
+  width: 100%;
+  height: 100%;
+}
+
+.tooltip::popoverElement  {
+  width: 100%;
+  height: 100%;
 }

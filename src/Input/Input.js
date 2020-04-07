@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Ticker from './Ticker';
-import Unit from './Unit';
 import IconAffix from './IconAffix';
 import Affix from './Affix';
 import Group from './Group';
 import InputSuffix, { getVisibleSuffixCount } from './InputSuffix';
-import deprecationLog from '../utils/deprecationLog';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
 
 class Input extends Component {
   static Ticker = Ticker;
-  static Unit = Unit;
   static IconAffix = IconAffix;
   static Affix = Affix;
   static Group = Group;
@@ -31,28 +28,6 @@ class Input extends Component {
   constructor(props) {
     super(props);
     this._isMounted = false;
-    this.logDeprecations(props);
-
-    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
-      deprecationLog(
-        '<Input/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
-      );
-    }
-
-    if (props.hasOwnProperty('help') || props.hasOwnProperty('helpMessage')) {
-      deprecationLog(
-        '<Input/> - help and helpMessage props are deprecated. Please use <FormField/> as a wrapper instead.',
-      );
-    }
-
-    if (
-      props.hasOwnProperty('theme') &&
-      !['normal', 'tags'].includes(props.theme)
-    ) {
-      deprecationLog(
-        '<Input/> - theme prop is deprecated, please contact us or your UX if needed.',
-      );
-    }
   }
 
   componentDidMount() {
@@ -79,29 +54,6 @@ class Input extends Component {
     this.isComposing = isComposing;
   };
 
-  logDeprecations(props) {
-    if (props.unit) {
-      deprecationLog(
-        `Input's unit prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix>${props.unit}</Input.Affix>}/>' instead`,
-      );
-    }
-    if (props.magnifyingGlass) {
-      deprecationLog(
-        `Input's magnifyingGlass prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix><Search /></Input.Affix>}/>' instead`,
-      );
-    }
-
-    if (
-      this._isClearFeatureEnabled &&
-      this._isControlled &&
-      !props.updateControlledOnClear
-    ) {
-      deprecationLog(
-        `<Input/> - Clearing the value in a controlled component through onChange() will be deprecated in next major version. Pass updateControlledOnClear prop and use the onClear() callback to apply the new behavior`,
-      );
-    }
-  }
-
   get _isClearFeatureEnabled() {
     return !!this.props.onClear || !!this.props.clearButton;
   }
@@ -123,11 +75,7 @@ class Input extends Component {
       id,
       name,
       value,
-      help,
       placeholder,
-      helpMessage,
-      unit,
-      magnifyingGlass,
       menuArrow,
       defaultValue,
       tabIndex,
@@ -143,19 +91,15 @@ class Input extends Component {
       type,
       maxLength,
       textOverflow,
-      theme,
       disabled,
       status,
       statusMessage,
       tooltipPlacement,
-      onTooltipShow,
       autocomplete,
       min,
       max,
       step,
       required,
-      error,
-      errorMessage,
       hideStatusSuffix,
       customInput,
       pattern,
@@ -168,31 +112,16 @@ class Input extends Component {
       }
     };
 
-    let suffixStatus = hideStatusSuffix ? undefined : status;
-    let suffixStatusMessage =
-      statusMessage && statusMessage !== '' ? statusMessage : '';
-
-    // Check for deprecated fields and use them if provided
-    if (error) {
-      suffixStatus = Input.StatusError;
-      suffixStatusMessage = errorMessage;
-    }
-
-    const hasErrors = suffixStatus === Input.StatusError;
-
     // this doesn't work for uncontrolled, "value" refers only to controlled input
     const isClearButtonVisible =
-      this._isClearFeatureEnabled && !!value && !hasErrors && !disabled;
+      this._isClearFeatureEnabled && !!value && !status && !disabled;
 
     const visibleSuffixCount = getVisibleSuffixCount({
-      status: suffixStatus,
-      statusMessage: suffixStatusMessage,
+      status: hideStatusSuffix ? undefined : status,
+      statusMessage,
       disabled,
-      help,
-      magnifyingGlass,
       isClearButtonVisible,
       menuArrow,
-      unit,
       suffix,
     });
 
@@ -264,22 +193,15 @@ class Input extends Component {
         <InputContext.Provider value={{ ...this.props, inSuffix: true }}>
           {visibleSuffixCount > 0 && (
             <InputSuffix
-              status={suffixStatus}
-              statusMessage={suffixStatusMessage}
-              theme={theme}
+              status={hideStatusSuffix ? undefined : status}
+              statusMessage={statusMessage}
               disabled={disabled}
-              help={help}
-              helpMessage={helpMessage}
               onIconClicked={onIconClicked}
-              magnifyingGlass={magnifyingGlass}
               isClearButtonVisible={isClearButtonVisible}
               onClear={this.handleSuffixOnClear}
               menuArrow={menuArrow}
-              unit={unit}
-              focused={this.state.focus}
               suffix={suffix}
               tooltipPlacement={tooltipPlacement}
-              onTooltipShow={onTooltipShow}
             />
           )}
         </InputContext.Provider>
@@ -377,19 +299,10 @@ class Input extends Component {
    * @param event delegated to the onClear call
    */
   clear = event => {
-    const { onClear, updateControlledOnClear } = this.props;
+    const { onClear } = this.props;
 
-    if (updateControlledOnClear) {
-      if (!this._isControlled) {
-        this.input.value = '';
-      }
-    } else {
-      /* an older implementation that has a hack, it's currently enabled by default for backward compatibility
-       * see https://github.com/wix/wix-style-react/issues/3122
-       */
-      const prevValue = this.input.value;
+    if (!this._isControlled) {
       this.input.value = '';
-      prevValue && this._triggerOnChangeHandlerOnClearEvent(event);
     }
 
     onClear && onClear(event);
@@ -441,13 +354,11 @@ Input.displayName = 'Input';
 Input.defaultProps = {
   autoSelect: true,
   size: 'normal',
-  theme: 'normal',
   roundInput: false,
   textOverflow: 'clip',
   maxLength: 524288,
   withSelection: false,
   clearButton: false,
-  updateControlledOnClear: false,
   hideStatusSuffix: false,
 };
 
@@ -487,39 +398,22 @@ Input.propTypes = {
   /** when set to true this component is disabled */
   disabled: PropTypes.bool,
 
-  /** Input status - use to display an status indication for the user. for example: 'error', 'warning' or 'loading' */
+  /** Sets UI to indicate a status */
   status: PropTypes.oneOf([
     Input.StatusError,
     Input.StatusWarning,
     Input.StatusLoading,
   ]),
 
-  /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
+  /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
   statusMessage: PropTypes.node,
 
   /** When set to true, this input won't display status suffix */
   hideStatusSuffix: PropTypes.bool,
 
-  /** Is input has errors
-   * @deprecated
-   * @see status
-   */
-  error: PropTypes.bool,
-
-  /** Error message to display
-   * @deprecated
-   * @see statusMessage
-   */
-  errorMessage: PropTypes.node,
-
   forceFocus: PropTypes.bool,
   forceHover: PropTypes.bool,
 
-  /** Adding a suffix help icon */
-  help: PropTypes.bool,
-
-  /** The help message to display when hovering the help icon, if not given or empty there will be no tooltip */
-  helpMessage: PropTypes.node,
   id: PropTypes.string,
 
   /** Input max length */
@@ -571,9 +465,6 @@ Input.propTypes = {
   /** called when user pastes text from clipboard (using mouse or keyboard shortcut) */
   onPaste: PropTypes.func,
 
-  /** onShow prop for the error and help tooltips (supported only for amaterial theme for now) */
-  onTooltipShow: PropTypes.func,
-
   /** Placeholder to display */
   placeholder: PropTypes.string,
 
@@ -604,21 +495,7 @@ Input.propTypes = {
   /** Text overflow behaviour */
   textOverflow: PropTypes.string,
 
-  /** The theme of the input */
-  theme: PropTypes.oneOf([
-    'normal',
-    'tags',
-    'paneltitle',
-    'material',
-    'amaterial',
-    'flat',
-    'flatdark',
-  ]),
-
-  /** The material design style floating label for input (supported only for amaterial theme for now) */
-  title: PropTypes.string,
-
-  /** Placement of the error and help tooltips (supported only for amaterial theme for now) */
+  /** Placement of status tooltips */
   tooltipPlacement: PropTypes.string,
   type: PropTypes.string,
 
@@ -644,11 +521,6 @@ Input.propTypes = {
         PropTypes.elementType,
       ])
     : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-
-  /** Don't call onChange on a controlled Input when user clicks the clear button.
-   *  See https://github.com/wix/wix-style-react/issues/3122
-   */
-  updateControlledOnClear: PropTypes.bool,
 
   /** Pattern the value must match to be valid (regex) */
   pattern: PropTypes.string,

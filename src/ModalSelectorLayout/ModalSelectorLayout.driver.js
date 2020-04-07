@@ -1,12 +1,12 @@
 import ReactTestUtils from 'react-dom/test-utils';
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import loaderDriverFactory from '../Loader/Loader.driver';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver';
 import selectorDriverFactory from '../Selector/Selector.driver';
 import searchDriverFactory from '../Search/Search.driver';
 import textDriverFactory from '../Text/Text.driver';
 import { dataHooks } from './ModalSelectorLayout.helpers';
 import checkboxDriverFactory from '../Checkbox/Checkbox.driver';
+import buttonDriverFactory from '../Button/Button.legacy.driver';
 
 const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
 const loaderTestkitFactory = testkitFactoryCreator(loaderDriverFactory);

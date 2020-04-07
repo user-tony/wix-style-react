@@ -1,15 +1,13 @@
 import ReactTestUtils from 'react-dom/test-utils';
-import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import styles from './Input.scss';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
+import { dataHooks } from './constants';
 
 const inputDriverFactory = ({ element, eventTrigger }) => {
   const input = element && element.querySelector('input');
   const clearButton =
     element && element.querySelector(`[data-hook=input-clear-button]`);
   const suffixNode = element && element.querySelector(`.${styles.suffix}`);
-  const unitNode = element && element.querySelector(`.${styles.unit}`);
-  const magnifyingGlassNode =
-    element && element.querySelector(`.${styles.magnifyingGlass}`);
   const customAffixNode =
     element && element.querySelector(`[data-hook="custom-affix"]`);
   const iconAffixNode =
@@ -36,9 +34,6 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
     keyDown: key => ReactTestUtils.Simulate.keyDown(input, { key }),
     click: () => ReactTestUtils.Simulate.click(input),
     clickSuffix: () => ReactTestUtils.Simulate.click(suffixNode),
-    clickUnit: () => ReactTestUtils.Simulate.click(unitNode),
-    clickMagnifyingGlass: () =>
-      ReactTestUtils.Simulate.click(magnifyingGlassNode),
     clickCustomAffix: () => ReactTestUtils.Simulate.click(customAffixNode),
     clickClear: () => ReactTestUtils.Simulate.click(clearButton),
     clickIconAffix: () => ReactTestUtils.Simulate.click(iconAffixNode),
@@ -85,25 +80,14 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
       element.querySelectorAll(
         `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`,
       ).length === 1,
-    hasExclamation: () => !!element.querySelector(`.${styles.exclamation}`),
-    isNarrowError: () => !!element.querySelector(`.${styles.narrow}`),
-    hasHelp: () => !!element.querySelector(`.${styles.help}`),
-    hasError: () => element.classList.contains(styles.hasError),
-    hasWarning: () => element.classList.contains(styles.hasWarning),
-    getTooltipElement: () => element,
-    hasLoader: () => !!element.querySelector(`.loaderContainer`),
-    getTooltipDataHook: () => 'input-tooltip',
     getDataHook: () => element.getAttribute('data-hook'),
-    getUnit: () => unitNode.textContent,
     getCustomAffix: () => customAffixNode.textContent,
-    hasMagnifyingGlass: () => !!magnifyingGlassNode,
     hasMenuArrow: () => !!menuArrowNode,
     hasClearButton: () => !!clearButton,
     isRTL: () => element.className.indexOf(styles.rtl) >= 0,
     isFocusedStyle: () => element.classList.contains(styles.hasFocus),
     isHoveredStyle: () => element.classList.contains(styles.hasHover),
     isDisabled: () => element.classList.contains(styles.disabled),
-    isOfStyle: style => element.classList.contains(styles[`theme-${style}`]),
     isOfSize: size => element.classList.contains(styles[`size-${size}`]),
     getSize: () => element.getAttribute('data-size'),
     isFocus: () => document.activeElement === input,
@@ -124,21 +108,26 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
     // Status
     /** Return true if the given status is displayed */
     hasStatus: status =>
-      (status === 'error' && element.classList.contains(styles.hasError)) ||
-      (status === 'warning' && element.classList.contains(styles.hasWarning)) ||
-      (status === 'loading' && !!element.querySelector(`.loaderContainer`)),
+      status ===
+      element
+        .querySelector(`[data-hook='${dataHooks.status}']`)
+        .getAttribute('data-status'),
     /** If there's a status message, returns its text value */
     getStatusMessage: () => {
       let tooltipText = null;
       const tooltipDriver = tooltipDriverFactory({
-        element: element.querySelector(`[data-hook='input-tooltip']`),
+        element: element.querySelector(
+          '[data-hook="status-indicator-tooltip"]',
+        ),
         eventTrigger,
       });
 
-      tooltipDriver.mouseEnter();
-      const contentElement = tooltipDriver.getContentElement();
-      if (contentElement) {
-        tooltipText = contentElement.textContent;
+      if (tooltipDriver.exists()) {
+        tooltipDriver.mouseEnter();
+        const contentElement = tooltipDriver.getContentElement();
+        if (contentElement) {
+          tooltipText = contentElement.textContent;
+        }
       }
 
       return tooltipText;

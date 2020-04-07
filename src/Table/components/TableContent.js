@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool, string } from 'prop-types';
 import defaultTo from 'lodash/defaultTo';
-import DataTable from '../../DataTable';
+import DataTable from '../DataTable';
 import { getDataTableProps, createColumns } from '../Table';
 import { TableContext } from '../TableContext';
 
@@ -9,7 +9,7 @@ import styles from '../Table.st.css';
 import { BulkSelectionConsumer } from '../BulkSelection';
 
 export const TableContent = ({ titleBarVisible, dataHook, ...rest }) => {
-  //TODO: figure out if we need to put result of createColumns() on state, in order to avoid
+  // TODO: figure out if we need to put result of createColumns() on state, in order to avoid
   // redundant renders.
   return (
     <TableContext.Consumer>

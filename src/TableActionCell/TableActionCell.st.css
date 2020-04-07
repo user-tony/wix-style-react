@@ -4,7 +4,7 @@
 }
 
 :import {
-  -st-from: "../beta/PopoverMenu/PopoverMenu.st.css";
+  -st-from: "../PopoverMenu/PopoverMenu.st.css";
   -st-default: PopoverMenu;
 }
 
@@ -25,8 +25,12 @@
   white-space: nowrap;
 }
 
+.hoverSlot {
+  display: flex;
+}
+
 .hoverSlot > button,
-.hoverSlot > PopoverMenu > Popover::popoverElement > button {
+.hoverSlot > Popover::popoverElement > button {
   margin: 0 6px;
   transition-property: background, border;
 }

@@ -5,10 +5,10 @@ Thanks for contributing. We're happy for your input and would ask you to follow 
 ## Getting Started
 
 Let's get the storybook running locally
-```
+```bash
 npm start
 ```
-If you run it for the first time, run `npm run build` first. This initial build is necessary for creating `new-icons` proxy, after that, you may just run `npm run storybook`
+If you run it for the first time, run `npm run build` first. After that, you may just run `npm run storybook`
 
 ## Creating Components
 

@@ -1,23 +1,17 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
-import { DeprecatedButtonDriver } from '../Deprecated/Button/Button.driver';
-import { PopoverMenuDriver } from '../PopoverMenu/PopoverMenu.driver';
-import { TooltipDriver } from '../Tooltip/Tooltip.driver';
+import { PopoverMenuUniDriver } from '../PopoverMenu/PopoverMenu.uni.driver';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 
 export interface TableActionCellDriver<T> extends BaseDriver {
   element: () => T;
   exists: () => boolean;
-  getPrimaryActionButtonDriver: () => DeprecatedButtonDriver;
   clickPrimaryActionButton: () => void;
   getIsPrimaryActionButtonDisabled: () => boolean;
   getVisibleActionsCount: () => number;
   getHiddenActionsCount: () => number;
-  getVisibleActionTooltipDriver: (action: number) => TooltipDriver;
-  getVisibleActionByDataHookTooltipDriver: (dataHook: string) => TooltipDriver;
-  getVisibleActionButtonDriver: (index: number) => DeprecatedButtonDriver;
-  getVisibleActionByDataHookButtonDriver: (
-    dataHook: string,
-  ) => DeprecatedButtonDriver;
-  getHiddenActionsPopoverMenuDriver: () => PopoverMenuDriver;
+  getVisibleActionTooltipDriver: (action: number) => ReturnType<typeof tooltipDriverFactory>;
+  getVisibleActionByDataHookTooltipDriver: (dataHook: string) => ReturnType<typeof tooltipDriverFactory>;
+  getHiddenActionsPopoverMenuDriver: () => PopoverMenuUniDriver;
   clickVisibleAction: (actionIndex: number) => void;
   clickVisibleActionByDataHook: (actionDataHook: string) => void;
   clickPopoverMenu: () => void;

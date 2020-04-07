@@ -1,7 +1,8 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { ReactBase } from '../../test/utils/unidriver';
 import DATA_ATTR from './DataAttr';
-import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { statusIndicatorDriverFactory } from '../StatusIndicator/StatusIndicator.uni.driver';
+import { dataHooks } from './constants';
 
 export const testkit = (base, body) => {
   // single $ throws an exception for more than 1 match, so we use the first matching result with $$
@@ -13,9 +14,13 @@ export const testkit = (base, body) => {
   const reactBaseInput = ReactBase(input);
 
   const clearButtonNode = base.$(`[data-hook=input-clear-button]`);
-  const unitNode = base.$(`.unit`);
   const menuArrowNode = base.$(`.menuArrow`);
-  const magnifyingGlassNode = base.$(`.magnifyingGlass`);
+
+  const getStatusIndicatorDriver = () =>
+    statusIndicatorDriverFactory(
+      base.$(`[data-hook="${dataHooks.status}"]`),
+      body,
+    );
 
   const driver = {
     ...baseUniDriverFactory(base),
@@ -56,7 +61,6 @@ export const testkit = (base, body) => {
     getText: async () => await input.value(),
     getPattern: async () => await input.attr('pattern'),
     getPlaceholder: async () => await input.attr('placeholder'),
-    isOfStyle: async style => await base.hasClass(`theme-${style}`),
     isOfSize: async size => await base.hasClass(`size-${size}`),
     getSize: async () => await base.attr(DATA_ATTR.DATA_SIZE),
     isDisabled: async () => await base.hasClass('disabled'),
@@ -66,23 +70,12 @@ export const testkit = (base, body) => {
     enterText: async value => await input.enterValue(value),
     getAutocomplete: async () => await input.attr('autocomplete'),
     getDefaultValue: async () => await input._prop('defaultValue'),
-    getUnit: async () => {
-      return await unitNode.text();
-    },
     getTabIndex: async () => await input._prop('tabIndex'),
     isCustomInput: async () =>
       (await input.attr('data-hook')) === 'wsr-custom-input',
     getReadOnly: async () => await input._prop('readOnly'),
     getDisabled: async () => await input._prop('disabled'),
     getTextOverflow: async () => (await input._prop('style'))['text-overflow'],
-    hasExclamation: async () => await base.$(`.exclamation`).exists(),
-    hasError: async () => await base.hasClass('hasError'),
-    hasWarning: async () => await base.hasClass('hasWarning'),
-    hasLoader: async () => {
-      // There actually should be only 1  element with `.loaderContainer`, this is a component bug that there are actually 2.
-      return (await base.$$(`.loaderContainer`).count()) > 0;
-    },
-
     focus: async () => await reactBaseInput.focus(),
     blur: async () => await reactBaseInput.blur(),
     keyUp: async () => await reactBaseInput.keyUp(),
@@ -109,34 +102,24 @@ export const testkit = (base, body) => {
       }
     },
     isFocus: async () => await reactBaseInput.isFocus(),
-    hasHelp: async () => await base.$('.help').exists(),
-    clickUnit: async () => await unitNode.click(),
-    hasMagnifyingGlass: async () => await magnifyingGlassNode.exists(),
-    clickMagnifyingGlass: async () => await magnifyingGlassNode.click(),
     clickMenuArrow: async () => await menuArrowNode.click(),
     hasMenuArrow: async () => await menuArrowNode.exists(),
-    isNarrowError: async () => await base.$(`.narrow`).exists(),
     isRTL: async () => await base.hasClass('rtl'),
     getCursorLocation: async () => await input._prop('selectionStart'),
     clearText: () => driver.enterText(''),
     clickOutside: () => ReactBase.clickDocument(),
 
     // Status
-    /** Return true if the given status is displayed */
+    /** Return true if there's a status */
     hasStatus: async status =>
-      (status === 'error' && (await base.hasClass('hasError'))) ||
-      (status === 'warning' && (await base.hasClass('hasWarning'))) ||
-      (status === 'loading' && (await base.$$(`.loaderContainer`).count()) > 0),
+      status === (await getStatusIndicatorDriver().getStatus()),
     /** If there's a status message, returns its text value */
     getStatusMessage: async () => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
       let tooltipText = null;
-      const tooltipDriver = tooltipDriverFactory(
-        base.$('[data-hook="input-tooltip"]'),
-        body,
-      );
-      await tooltipDriver.mouseEnter();
-      if (await tooltipDriver.tooltipExists()) {
-        tooltipText = await tooltipDriver.getTooltipText();
+
+      if (await statusIndicatorDriver.hasMessage()) {
+        tooltipText = await statusIndicatorDriver.getMessage();
       }
 
       return tooltipText;

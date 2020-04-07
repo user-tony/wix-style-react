@@ -11,7 +11,6 @@ require('./Playground/Playground');
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
 require('../src/AutoComplete/docs/index.story');
-require('../src/AutoCompleteComposite/docs');
 require('../src/AutoCompleteWithLabel/docs/index.story');
 require('../src/Avatar/docs/index.story');
 require('../src/Badge/docs/index.story');
@@ -41,7 +40,6 @@ require('../src/CounterBadge/docs/index.story');
 require('../src/CustomModalLayout/docs/index.story');
 require('../src/AnnouncementModalLayout/docs/index.story');
 require('../src/MessageModalLayout/docs/index.story');
-require('../src/DataTable/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/DatePicker/docs/index.story');
 require('../src/Divider/docs/index.story');
@@ -61,7 +59,6 @@ require('../src/FloatingHelper/docs/index.story');
 require('../src/FloatingNotification/docs/index.story');
 require('../src/FloatingNotification/docs/index.story');
 require('../src/FormField/docs/index.story');
-require('../src/FullTextView/docs/index.story');
 require('../src/GenericModalLayout/docs/index.story');
 require('../src/GoogleAddressInput/docs/index.story');
 require('../src/GooglePreview/docs/index.story');
@@ -76,7 +73,6 @@ require('../src/Input/docs/index.story');
 require('../src/InputArea/docs/index.story');
 require('../src/InputWithLabel/docs/index.story');
 require('../src/InputWithOptions/docs/index.story');
-require('../src/Label/docs/index.story');
 require('../src/LabelledElement/docs/index.story');
 require('../src/Layout/docs/index.story');
 require('../src/LinearProgressBar/docs/index.story');
@@ -93,7 +89,6 @@ require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
 require('../src/MultiSelect/docs/index.story');
 require('../src/MultiSelectCheckbox/docs/index.story');
-require('../src/MultiSelectComposite/docs');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/Notification/docs/index.story');
 require('../src/NumberInput/docs/index.story');
@@ -123,7 +118,6 @@ require('../src/Slider/docs/index.story');
 require('../src/SocialButton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
 require('../src/StatisticsWidget/docs/index.story');
-require('../src/StatsWidget/docs/index.story');
 require('../src/StatusIndicator/docs/index.story');
 require('../src/Stepper/docs/index.story');
 require('../src/Swatches/docs/index.story');
@@ -139,7 +133,7 @@ require('../src/TimeInput/docs/index.story');
 require('../src/TimeTable/docs/index.story');
 require('../src/ToggleButton/docs/index.story');
 require('../src/ToggleSwitch/docs/index.story');
-require('../src/Tooltip/TooltipNext/docs/index.story');
+require('../src/Tooltip/docs/index.story');
 require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('../src/VerticalTabs/docs/index.story');
@@ -150,7 +144,6 @@ require('../src/VariableInput/docs/index.story');
 require('./WIP');
 
 // Next API
-require('../src/beta/PopoverMenu/docs/index.story');
 require('../src/FontUpgrade/docs/index.story');
 
 // Styling
@@ -158,7 +151,7 @@ require('../src/Typography/docs/cssClasses.story');
 
 // 1. Foundations
 require('../src/Typography/docs/index.story'); // 1.2 Typography
-require('../src/new-icons/docs'); // 1.4 Icons
+require('./Icons'); // 1.4 Icons
 
 require('./ScrollBar'); // 1.8 ScrollBar
 
@@ -189,8 +182,3 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 // require('../src/CustomModalLayout/docs/design.story'); // 9.3 Custom Modal (WIP)
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('../src/MessageBox/docs');
-
-// DEPRECATED
-require('./FieldWithSelectionComposite');
-require('../src/Deprecated/SideMenu/docs');
-require('../src/Deprecated/SideMenu/docs/SideMenu');

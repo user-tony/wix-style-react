@@ -24,10 +24,6 @@ interface PuppeteerTestkitParams {
 
 type DeprecatedPuppeteerTestkit = any;
 
-import {TooltipPuppeteerDriver} from '../src/Tooltip/Tooltip.puppeteer.driver';
-export const tooltipTestkitFactory: PuppeteerTestkitFactory<TooltipPuppeteerDriver>;
-import {TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-export const TooltipTestkit: PuppeteerUniTestkitFactory<TooltipUniDriver>;
 
 import {AccordionUniDriver} from '../src/Accordion/Accordion.uni.driver';
 export const accordionTestkitFactory: PuppeteerUniTestkitFactory<AccordionUniDriver>;
@@ -71,8 +67,6 @@ import {ContactItemBuilderUniDriver} from '../src/ContactItemBuilder/ContactItem
 export const contactItemBuilderTestkitFactory: PuppeteerUniTestkitFactory<ContactItemBuilderUniDriver>;
 import {CounterBadgeUniDriver} from '../src/CounterBadge/CounterBadge.uni.driver';
 export const counterBadgeTestkitFactory: PuppeteerUniTestkitFactory<CounterBadgeUniDriver>;
-import {DataTableUniDriver} from '../src/DataTable/DataTable.uni.driver';
-export const dataTableTestkitFactory: PuppeteerUniTestkitFactory<DataTableUniDriver>;
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: PuppeteerUniTestkitFactory<DateInputUniDriver>;
 import {DropdownUniDriver} from '../src/Dropdown/Dropdown.uni.driver';
@@ -87,8 +81,6 @@ import {EditableTitleUniDriver} from '../src/EditableTitle/EditableTitle.uni.dri
 export const editableTitleTestkitFactory: PuppeteerUniTestkitFactory<EditableTitleUniDriver>;
 import {EmptyStateUniDriver} from '../src/EmptyState/EmptyState.uni.driver';
 export const emptyStateTestkitFactory: PuppeteerUniTestkitFactory<EmptyStateUniDriver>;
-import {ErrorIndicatorUniDriver} from '../src/ErrorIndicator/ErrorIndicator.uni.driver';
-export const errorIndicatorTestkitFactory: PuppeteerUniTestkitFactory<ErrorIndicatorUniDriver>;
 import {FilePickerUniDriver} from '../src/FilePicker/FilePicker.uni.driver';
 export const filePickerTestkitFactory: PuppeteerUniTestkitFactory<FilePickerUniDriver>;
 import {FloatingHelperUniDriver} from '../src/FloatingHelper/FloatingHelper.uni.driver';
@@ -177,6 +169,8 @@ import {TimeInputUniDriver} from '../src/TimeInput/TimeInput.uni.driver';
 export const timeInputTestkitFactory: PuppeteerUniTestkitFactory<TimeInputUniDriver>;
 import {ToggleSwitchUniDriver} from '../src/ToggleSwitch/ToggleSwitch.uni.driver';
 export const toggleSwitchTestkitFactory: PuppeteerUniTestkitFactory<ToggleSwitchUniDriver>;
+import {TooltipUniDriver} from '../src/Tooltip/Tooltip.uni.driver';
+export const tooltipTestkitFactory: PuppeteerUniTestkitFactory<TooltipUniDriver>;
 import {SidebarSectionItemUniDriver} from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
 export const sidebarSectionItemTestkitFactory: PuppeteerUniTestkitFactory<SidebarSectionItemUniDriver>;
 import {SidebarDividerUniDriver} from '../src/SidebarDivider/SidebarDivider.uni.driver';
@@ -233,8 +227,6 @@ import {MarketingLayoutUniDriver} from '../src/MarketingLayout/MarketingLayout.u
 export const marketingLayoutTestkitFactory: PuppeteerUniTestkitFactory<MarketingLayoutUniDriver>;
 import {PaletteUniDriver} from '../src/Palette/Palette.uni.driver';
 export const paletteTestkitFactory: PuppeteerUniTestkitFactory<PaletteUniDriver>;
-import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-export const warningIndicatorTestkitFactory: PuppeteerUniTestkitFactory<WarningIndicatorUniDriver>;
 import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.driver';
 export const variableInputTestkitFactory: PuppeteerUniTestkitFactory<VariableInputUniDriver>;
 import {ImageUniDriver} from '../src/Image/Image.uni.driver';
@@ -251,6 +243,8 @@ import {MessageModalLayoutUniDriver} from '../src/MessageModalLayout/MessageModa
 export const messageModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageModalLayoutUniDriver>;
 import {AnnouncementModalLayoutUniDriver} from '../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver';
 export const announcementModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
+import {PopoverMenuUniDriver} from '../src/PopoverMenu/PopoverMenu.uni.driver';
+export const popoverMenuTestkitFactory: PuppeteerUniTestkitFactory<PopoverMenuUniDriver>;
 import {PaginationUniDriver} from '../src/Pagination/Pagination.uni.driver';
 export const paginationTestkitFactory: PuppeteerUniTestkitFactory<PaginationUniDriver>;
 import {HeaderUniDriver} from '../src/Card/Header/Header.uni.driver';
@@ -265,12 +259,5 @@ import {CardSubheaderUniDriver} from '../src/Card/Subheader/Subheader.uni.driver
 export const subheaderTestkitFactory: PuppeteerUniTestkitFactory<CardSubheaderUniDriver>;
 
 
-export const autoCompleteCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
-export const googleAddressInputWithLabelTestkitFactory: DeprecatedPuppeteerTestkit;
-export const multiSelectCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
-export const statsWidgetTestkitFactory: DeprecatedPuppeteerTestkit;
-export const drillViewTestkitFactory: DeprecatedPuppeteerTestkit;
-export const sideMenuTestkitFactory: DeprecatedPuppeteerTestkit;
 export const draggableTestkitFactory: DeprecatedPuppeteerTestkit;
 export const fieldLabelAttributesTestkitFactory: DeprecatedPuppeteerTestkit;
-export const fieldWithSelectionCompositeTestkitFactory: DeprecatedPuppeteerTestkit;

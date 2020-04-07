@@ -1,17 +1,16 @@
-import { errorIndicatorDriverFactory } from '../ErrorIndicator/ErrorIndicator.uni.driver';
-import { warningIndicatorDriverFactory } from '../WarningIndicator/WarningIndicator.uni.driver';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { dataHooks } from './constants';
+import { statusIndicatorDriverFactory } from '../StatusIndicator/StatusIndicator.uni.driver';
 
 export const inputAreaUniDriverFactory = (base, body) => {
   const textAreaElement = base.$(`.root`);
   const textArea = base.$('textarea');
   const counterSelector = '[data-hook="counter"]';
-  const indicatorSelector = `[data-hook="${dataHooks.tooltip}"]`;
-  const errorIndicatorTestkit = () =>
-    errorIndicatorDriverFactory(base.$(indicatorSelector), body);
-  const warningIndicatorTestkit = () =>
-    warningIndicatorDriverFactory(base.$(indicatorSelector), body);
+  const statusIndicatorTestkit = () =>
+    statusIndicatorDriverFactory(
+      base.$(`[data-hook="${dataHooks.tooltip}"]`),
+      body,
+    );
 
   const textAreaBase = ReactBase(textArea);
 
@@ -35,12 +34,9 @@ export const inputAreaUniDriverFactory = (base, body) => {
     getHasCounter: () => !!base.$$(counterSelector).length,
     getCounterValue: () => base.$(counterSelector).text(),
     hasExclamation: () => base.$$(`.exclamation`).length === 1,
-    hasError: () => textAreaElement.hasClass('hasError'),
-    hasWarning: () => textAreaElement.hasClass('hasWarning'),
     isFocusedStyle: () => textAreaElement.hasClass('hasFocus'),
     isSizeSmall: () => textArea.hasClass('sizeSmall'),
     isHoveredStyle: () => textAreaElement.hasClass('hasHover'),
-    isOfStyle: style => textAreaElement.hasClass([`theme-${style}`]),
     isFocus: () => textAreaBase.isFocus(),
     exists: () => textArea.exists(),
     getStyle: () => textArea._prop('style'),
@@ -49,12 +45,15 @@ export const inputAreaUniDriverFactory = (base, body) => {
     getAriaDescribedby: () => textArea.attr('aria-describedby'),
     getTooltipDataHook: () => dataHooks.tooltip,
     getTooltipElement: () => base,
-    isErrorMessageShown: () => errorIndicatorTestkit().isShown(),
-    mouseEnterErrorIndicator: () => errorIndicatorTestkit().mouseEnter(),
-    // getErrorMessage - deprecated
-    getErrorMessage: () => errorIndicatorTestkit().getErrorMessage(),
-    getStatusMessage: () =>
-      errorIndicatorTestkit().getErrorMessage() ||
-      warningIndicatorTestkit().getWarningMessage(),
+
+    // Status
+    /** Return true if there's a status */
+    hasStatus: () => statusIndicatorTestkit().exists(),
+    /** If there's a status, returns its type */
+    getStatus: () => statusIndicatorTestkit().getStatus(),
+    /** Return true if there's a status message */
+    hasStatusMessage: () => statusIndicatorTestkit().hasMessage(),
+    /** If there's a status message, returns its text value */
+    getStatusMessage: () => statusIndicatorTestkit().getMessage(),
   };
 };

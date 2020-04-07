@@ -1,5 +1,5 @@
 import { buttonNextDriverFactory } from 'wix-ui-core/drivers/unidriver';
-import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { tooltipDriverFactory } from '../Tooltip/Tooltip.uni.driver';
 
 export const toggleButtonDriverFactory = (base, body) => {
   const tooltipBaseElement = base.$('[data-hook="toggle-button-tooltip"]');
@@ -28,8 +28,6 @@ export const toggleButtonDriverFactory = (base, body) => {
     getSkin: async () => await base.attr('data-skin'),
     /** returns true if button is selected */
     isButtonSelected: async () => (await base.attr('data-selected')) === 'true',
-    /** @deprecated use `getLabelValue` instead */
-    getTooltipText,
     /** returns label placement value */
     getLabelPlacement,
     /** returns label value */

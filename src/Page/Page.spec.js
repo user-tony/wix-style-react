@@ -16,7 +16,7 @@ const Content = () => <div>content</div>;
 const Tail = () => <div>tail</div>;
 
 const renderPageWithProps = (props = {}) => (
-  <Page {...props} upgrade>
+  <Page {...props}>
     <Page.Header title="title" />
     <Page.Content>
       <Content />
@@ -155,7 +155,7 @@ describe('Page', () => {
   }
 
   describe('Prop Validation', () => {
-    //Please notice that Prop Validation tests are running on the Page Driver only (and not Page UniDriver).
+    // Please notice that Prop Validation tests are running on the Page Driver only (and not Page UniDriver).
     const render = createRendererWithDriver(pageDriverFactory);
     const prefixWarning = 'Warning: Failed prop type: ';
     const suffixWarning = '\n    in Page';

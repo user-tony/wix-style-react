@@ -201,25 +201,25 @@ describe('InputArea', () => {
       });
     });
 
-    describe('deprecated - error attribute', () => {
-      it('should display an error icon if error is true', async () => {
-        const driver = createDriver(<InputAreaForTesting error />);
-
-        expect(await driver.hasError()).toBe(true);
-      });
-    });
-
     describe('status attribute', () => {
-      it('should display an error icon if status="error"', async () => {
-        const driver = createDriver(<InputAreaForTesting status="error" />);
+      [
+        { status: 'error', message: 'Error Message' },
+        { status: 'warning', message: 'Warning Message' },
+        { status: 'loading', message: 'Loading Message' },
+      ].forEach(test => {
+        it(`should display a status icon when status="${test.status}"`, async () => {
+          const driver = createDriver(
+            <InputAreaForTesting
+              status={test.status}
+              statusMessage={test.message}
+            />,
+          );
 
-        expect(await driver.hasError()).toBe(true);
-      });
-
-      it('should display an warning icon if status="warning"', async () => {
-        const driver = createDriver(<InputAreaForTesting status="warning" />);
-
-        expect(await driver.hasWarning()).toBe(true);
+          expect(await driver.hasStatus()).toBe(true);
+          expect(await driver.getStatus()).toBe(test.status);
+          expect(await driver.hasStatusMessage()).toBe(true);
+          expect(await driver.getStatusMessage()).toBe(test.message);
+        });
       });
     });
 
@@ -345,23 +345,6 @@ describe('InputArea', () => {
         expect(await driver.isFocus()).toBe(false);
         await driver.focus();
         expect(await driver.isFocus()).toBe(true);
-      });
-    });
-
-    describe('theme attribute', () => {
-      it('should set the theme by default to "normal"', async () => {
-        const driver = createDriver(<InputAreaForTesting />);
-        expect(await driver.isOfStyle('normal')).toBe(true);
-      });
-
-      it('should allowing setting the theme to "paneltitle"', async () => {
-        const driver = createDriver(<InputAreaForTesting theme="paneltitle" />);
-        expect(await driver.isOfStyle('paneltitle')).toBe(true);
-      });
-
-      it('should allow setting the theme to "material"', async () => {
-        const driver = createDriver(<InputAreaForTesting theme="material" />);
-        expect(await driver.isOfStyle('material')).toBe(true);
       });
     });
 

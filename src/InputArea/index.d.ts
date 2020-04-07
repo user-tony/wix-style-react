@@ -2,8 +2,10 @@ import * as React from 'react';
 import WixComponent, {
   WixComponentProps,
 } from '../BaseComponents/WixComponent';
-import { InputStatusError, InputStatusWarning } from '../Input';
-import { TooltipOldProps } from '../Tooltip';
+import { InputStatus } from '../Input';
+import { TooltipProps } from '../Tooltip';
+
+export type InputAreaStatus = InputStatus;
 
 export interface InputAreaProps extends WixComponentProps {
   ariaControls?: string;
@@ -15,8 +17,6 @@ export interface InputAreaProps extends WixComponentProps {
   size?: InputAreaSize;
   defaultValue?: string;
   disabled?: boolean;
-  error?: boolean;
-  errorMessage?: string;
   forceFocus?: boolean;
   forceHover?: boolean;
   hasCounter?: boolean;
@@ -39,13 +39,11 @@ export interface InputAreaProps extends WixComponentProps {
   rows?: number;
   autoGrow?: boolean;
   minRowsAutoGrow?: number;
-  style?: InputAreaTheme;
   tabIndex?: number;
-  theme?: InputAreaTheme;
-  tooltipPlacement?: TooltipOldProps['placement'];
+  tooltipPlacement?: TooltipProps['placement'];
   value?: string;
-  status?: InputStatusError | InputStatusWarning;
-  statusMessage?: string;
+  status?: InputAreaStatus;
+  statusMessage?: React.ReactNode;
 }
 
 export default class InputArea extends WixComponent<InputAreaProps> {
@@ -57,4 +55,3 @@ export default class InputArea extends WixComponent<InputAreaProps> {
 }
 
 export type InputAreaSize = 'small' | 'normal';
-export type InputAreaTheme = 'normal' | 'paneltitle' | 'material' | 'amaterial';

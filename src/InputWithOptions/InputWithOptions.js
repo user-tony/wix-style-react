@@ -13,7 +13,6 @@ import nativeStyles from './InputWithOptions.scss';
 import { placements } from '../Popover/constants';
 
 import Popover from '../Popover';
-import deprecationLog from '../utils/deprecationLog';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
 
@@ -49,27 +48,6 @@ class InputWithOptions extends Component {
       lastOptionsShow: 0,
       isEditing: false,
     };
-
-    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
-      deprecationLog(
-        '<InputWithOptions/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
-      );
-    }
-
-    if (props.hasOwnProperty('help') || props.hasOwnProperty('helpMessage')) {
-      deprecationLog(
-        '<InputWithOptions/> - help and helpMessage props are deprecated. Please use <FormField/> as a wrapper instead.',
-      );
-    }
-
-    if (
-      props.hasOwnProperty('theme') &&
-      !['normal', 'tags'].includes(props.theme)
-    ) {
-      deprecationLog(
-        '<InputWithOptions/> - theme prop is deprecated, please contact us or your UX if needed.',
-      );
-    }
 
     this._onSelect = this._onSelect.bind(this);
     this._onFocus = this._onFocus.bind(this);
@@ -121,11 +99,7 @@ class InputWithOptions extends Component {
     const inputAdditionalProps = this.inputAdditionalProps();
     const inputProps = Object.assign(
       omit(
-        Object.keys(DropdownLayout.propTypes).concat([
-          'onChange',
-          'dataHook',
-          'magnifyingGlass',
-        ]),
+        Object.keys(DropdownLayout.propTypes).concat(['onChange', 'dataHook']),
         this.props,
       ),
       inputAdditionalProps,
@@ -133,13 +107,12 @@ class InputWithOptions extends Component {
 
     const { inputElement } = inputProps;
     return React.cloneElement(inputElement, {
-      menuArrow: !this.props.magnifyingGlass,
+      menuArrow: true,
       ref: input => (this.input = input),
       ...inputProps,
       onKeyDown: chainEventHandlers(
         inputAdditionalProps && inputAdditionalProps.onKeyDown,
       ),
-      theme: this.props.theme,
       onChange: this._onChange,
       onInputClicked: this._onInputClicked,
       onFocus: this._onFocus,
@@ -196,7 +169,6 @@ class InputWithOptions extends Component {
           {...dropdownProps}
           dataHook="inputwithoptions-dropdownlayout"
           options={this._processOptions(dropdownProps.options)}
-          theme={this.props.theme}
           visible
           onClose={this.hideOptions}
           onSelect={this._onSelect}
@@ -246,11 +218,9 @@ class InputWithOptions extends Component {
       popoverProps,
       dropDirectionUp,
       dropdownWidth,
-      disableClickOutsideWhenClosed,
     } = this.props;
     const placement = dropDirectionUp ? 'top' : popoverProps.placement;
     const body = popoverProps.appendTo === 'window';
-    popoverProps.disableClickOutsideWhenClosed = disableClickOutsideWhenClosed;
     return !native ? (
       <Popover
         {...styles('root', {}, this.props)}
@@ -481,7 +451,6 @@ InputWithOptions.defaultProps = {
   popoverProps: DEFAULT_POPOVER_PROPS,
   dropdownOffsetLeft: '0',
   showOptionsIfEmptyInput: true,
-  magnifyingGlass: false,
   autocomplete: 'off',
   native: false,
 };
@@ -514,14 +483,6 @@ InputWithOptions.propTypes = {
     placement: PropTypes.oneOf(placements),
     dynamicWidth: PropTypes.bool,
   }),
-
-  /**
-   * Breaking change:
-   * When true - onClickOutside will be called only when the dropdown is open
-   *
-   * **NOTE! This is a temporary prop that will be removed in wsr-8**
-   */
-  disableClickOutsideWhenClosed: PropTypes.bool,
 };
 
 InputWithOptions.displayName = 'InputWithOptions';

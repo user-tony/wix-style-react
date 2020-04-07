@@ -9,13 +9,10 @@ import * as wsr from '../../../';
 const components = Object.keys(componentsMeta);
 
 const ignoreList = [
-  'WarningIndicator',
   'Layout',
   'Box',
   'Grid',
-  'MultiSelectComposite',
   'Selector',
-  'AutoCompleteComposite',
   'ContactItemBuilder',
   'BadgeSelectItemBuilder',
 ];

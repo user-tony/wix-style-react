@@ -10,7 +10,7 @@ import { LongTextContent } from './SomeContentComponent';
 
 const ExampleStandAlone = () => (
   <div className={s.fullHeightStoryContainer}>
-    <Page upgrade>
+    <Page>
       <Page.Header
         title="Your Product"
         showBackButton
@@ -24,6 +24,7 @@ const ExampleStandAlone = () => (
             <Col>
               <Card>
                 <Card.Header title="Catchy Header" />
+                <Card.Divider />
                 <Card.Content>
                   <LongTextContent />
                 </Card.Content>

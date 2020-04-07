@@ -20,13 +20,13 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//Assets
+// Assets
 import Box from 'wix-style-react/Box';
 import TextButton from 'wix-style-react/TextButton';
 import GoogleMapsClient from 'wix-style-react/clients/GoogleMapsClient';
 import GoogleAPILoader from '../../../utils/GoogleAPILoader';
 
-//3. Inputs
+// 3. Inputs
 import Input from 'wix-style-react/Input';
 import InputArea from 'wix-style-react/InputArea';
 import RichTextInputArea from 'wix-style-react/RichTextInputArea';
@@ -41,7 +41,7 @@ import Search from 'wix-style-react/Search';
 import ImageViewer from 'wix-style-react/ImageViewer';
 import { Category } from '../../../storiesHierarchy';
 import VariableInput from 'wix-style-react/VariableInput';
-import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
+import PopoverMenu from 'wix-style-react/PopoverMenu';
 import { Add } from 'wix-ui-icons-common';
 
 const groupSymbol = symbolsGroup.inputs;

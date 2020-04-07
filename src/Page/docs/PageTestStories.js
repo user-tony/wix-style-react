@@ -8,7 +8,9 @@ import Page from 'wix-style-react/Page';
 import Card from 'wix-style-react/Card';
 import Box from 'wix-style-react/Box';
 import Notification from 'wix-style-react/Notification';
-import PopoverMenu from '../../beta/PopoverMenu/PopoverMenu';
+import PopoverMenu from 'wix-style-react/PopoverMenu';
+import IconButton from 'wix-style-react/IconButton';
+import More from 'wix-ui-icons-common/More';
 
 import * as s from './PageTestStories.scss';
 import './PageStory.scss';
@@ -16,8 +18,6 @@ import classNames from 'classnames';
 import { header, tail, fixedContent, content } from './PageChildren';
 import { storySettings } from './storySettings';
 import { LongTextContent } from './SomeContentComponent';
-import IconButton from 'wix-style-react/IconButton';
-import More from 'wix-ui-icons-common/More';
 
 const PageContainer = props => {
   return (
@@ -39,7 +39,6 @@ PageContainer.propTypes = {
 const kind = getTestStoryKind(storySettings);
 
 const defaultPageProps = {
-  upgrade: true,
   dataHook: storySettings.dataHook,
   gradientClassName: 'background-gradient',
   children: [header(), content()],
@@ -70,6 +69,7 @@ PageTestStories.add('11. With Notification', () => (
       <Page.Content>
         <Card>
           <Card.Header title="Hello" />
+          <Card.Divider />
           <Card.Content>
             <LongTextContent />
           </Card.Content>

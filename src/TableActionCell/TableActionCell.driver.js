@@ -1,16 +1,14 @@
 import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
-import { PopoverMenuTestkit } from '../../testkit/beta';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
-import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
-import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
+import { popoverMenuTestkitFactory } from '../../testkit';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
+import buttonDriverFactory from '../Button/Button.legacy.driver';
 
-const tableActionCellDriverFactory = ({ element }) => {
+const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const getPrimaryActionPlaceholder = () =>
     element.querySelector('[data-hook="table-action-cell-placeholder"]');
   const getVisibleActionsWrapper = () =>
     element.querySelector('[data-hook="table-action-cell-visible-actions"]');
-  const isUpgraded = () => element.getAttribute('data-deprecated') === 'false';
 
   const getPrimaryActionButtonDriver = () =>
     buttonDriverFactory({
@@ -24,6 +22,7 @@ const tableActionCellDriverFactory = ({ element }) => {
       element: getVisibleActionsWrapper().querySelectorAll(
         '[data-hook="table-action-cell-visible-action-tooltip"]',
       )[actionIndex],
+      eventTrigger,
     });
 
   const getVisibleActionByDataHookTooltipDriver = dataHook =>
@@ -31,6 +30,7 @@ const tableActionCellDriverFactory = ({ element }) => {
       element: getVisibleActionsWrapper().querySelector(
         `[data-hook="${dataHook}"]`,
       ),
+      eventTrigger,
     });
 
   const getVisibleActionButtonDriver = actionIndex =>
@@ -43,23 +43,15 @@ const tableActionCellDriverFactory = ({ element }) => {
   const getVisibleActionByDataHookButtonDriver = dataHook =>
     buttonDriverFactory({
       element: getVisibleActionsWrapper().querySelector(
-        `button[data-hook="${dataHook}"]`,
+        `[data-hook="${dataHook}"]`,
       ),
     });
 
   const getHiddenActionsPopoverMenuDriver = () =>
-    isUpgraded()
-      ? PopoverMenuTestkit({
-          wrapper: element,
-          dataHook: 'table-action-cell-popover-menu',
-        })
-      : popoverMenuDriverFactory({
-          element: element.querySelector(
-            '[data-hook="table-action-cell-popover-menu"]',
-          ),
-        })
-          .init.menuItemDataHook('table-action-cell-popover-menu-item')
-          .init.parentElement(element);
+    popoverMenuTestkitFactory({
+      wrapper,
+      dataHook: 'table-action-cell-popover-menu',
+    });
 
   return {
     /** Get the element */
@@ -80,9 +72,7 @@ const tableActionCellDriverFactory = ({ element }) => {
     },
     /** Get the number of hidden secondary actions (in the <PopoverMenu/>, requires it to be open) */
     getHiddenActionsCount: () =>
-      isUpgraded()
-        ? getHiddenActionsPopoverMenuDriver().childrenCount()
-        : getHiddenActionsPopoverMenuDriver().menu.itemsLength(),
+      getHiddenActionsPopoverMenuDriver().childrenCount(),
     /** Get the driver of a specific visible secondary action <Tooltip/> */
     getVisibleActionTooltipDriver,
     /** Get the driver of a specific visible secondary action <Tooltip/> by its specified dataHook */
@@ -101,16 +91,12 @@ const tableActionCellDriverFactory = ({ element }) => {
       getVisibleActionByDataHookButtonDriver(actionDataHook).click(),
     /** Click on the hidden secondary actions <PopoverMenu/> */
     clickPopoverMenu: () =>
-      isUpgraded()
-        ? getHiddenActionsPopoverMenuDriver()
-            .getTriggerElement(dataHooks.triggerElement)
-            .click()
-        : getHiddenActionsPopoverMenuDriver().click(),
+      getHiddenActionsPopoverMenuDriver()
+        .getTriggerElement(dataHooks.triggerElement)
+        .click(),
     /** Click on a hidden secondary action (requires the <PopoverMenu/> to be open) */
     clickHiddenAction: actionIndex =>
-      isUpgraded()
-        ? getHiddenActionsPopoverMenuDriver().clickAtChild(actionIndex)
-        : getHiddenActionsPopoverMenuDriver().menu.clickItemAt(actionIndex),
+      getHiddenActionsPopoverMenuDriver().clickAtChild(actionIndex),
     clickHiddenActionByDataHook: actionDataHook =>
       getHiddenActionsPopoverMenuDriver().clickAtChildByDataHook(
         actionDataHook,

@@ -12,7 +12,6 @@ import Calendar from '../Calendar';
 import DateInput from '../DateInput';
 
 import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
-import deprecationLog from '../utils/deprecationLog';
 
 import styles from './DatePicker.st.css';
 
@@ -53,25 +52,12 @@ export default class DatePicker extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    if (props.hasOwnProperty('error') || props.hasOwnProperty('errorMessage')) {
-      deprecationLog(
-        '<DatePicker/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.',
-      );
-    }
-
-    if (props.hasOwnProperty('isOpen')) {
-      deprecationLog(
-        '<DatePicker/> - isOpen prop is deprecated. Please use initialOpen instead.',
-      );
-    }
-
-    const initialOpen =
-      (!!props.initialOpen || !!props.isOpen) && !props.disabled;
+    const initialOpen = props.initialOpen && !props.disabled;
 
     this.state = {
       value: props.value || new Date(),
       isOpen: initialOpen,
-      isDateInputFocusable: !props.isOpen,
+      isDateInputFocusable: !props.initialOpen,
     };
   }
 
@@ -157,8 +143,6 @@ export default class DatePicker extends React.PureComponent {
       placeholderText,
       readOnly,
       value: initialValue,
-      error,
-      errorMessage,
       status,
       statusMessage,
       customInput,
@@ -183,9 +167,9 @@ export default class DatePicker extends React.PureComponent {
           this.openCalendar(e);
         }}
         onKeyDown={this._handleKeyDown}
-        tabIndex={this.state.isDateInputFocusable ? 1 : -1}
-        status={status || (error ? 'error' : undefined)}
-        statusMessage={statusMessage || errorMessage}
+        tabIndex={this.state.isDateInputFocusable ? 0 : -1}
+        status={status}
+        statusMessage={statusMessage}
         autoSelect={false}
         dateFormat={dateFormat}
         customInput={customInput}
@@ -318,20 +302,14 @@ DatePicker.propTypes = {
   /** The selected date */
   value: PropTypes.object,
 
-  /**
-   * Controls the whether the calendar will be visible or not
-   * @deprecated
-   * */
-  isOpen: PropTypes.bool,
-
   /** Controls the whether the calendar will be initially visible or not */
   initialOpen: PropTypes.bool,
 
-  /** will show exclamation icon when true */
-  error: PropTypes.bool,
+  /** Sets UI to indicate a status */
+  status: PropTypes.oneOf(['error', 'warning', 'loading']),
 
-  /** will display message when hovering error icon */
-  errorMessage: PropTypes.node,
+  /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
+  statusMessage: PropTypes.node,
 
   /** set desired width of DatePicker input */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

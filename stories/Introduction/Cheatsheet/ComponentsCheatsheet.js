@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row } from 'wix-style-react/Grid';
 import Page from 'wix-style-react/Page';
 
-//importing components by family type
+// importing components by family type
 import FoundationFamily from './componentsFamilies/FoundationFamily';
 import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './componentsFamilies/InputFamily';
@@ -34,7 +34,7 @@ class ComponentsCheatsheet extends React.Component {
     ];
 
     return (
-      <Page upgrade>
+      <Page>
         <Page.Header
           title="Components Cheatsheet"
           subtitle="Common components index"

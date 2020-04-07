@@ -11,17 +11,6 @@ import {
   uniTestkitFactoryCreator,
 } from 'wix-ui-test-utils/vanilla';
 
-import tooltipDriverFactory from '../src/Tooltip/Tooltip.driver';
-import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-
-export const tooltipTestkitFactory = testkitFactoryCreator(
-  tooltipDriverFactory,
-);
-
-export const TooltipTestkit = uniTestkitFactoryCreator(
-  tooltipNextDriverFactory,
-);
-
 const load = module => {
   const MODULE_META_KEYS = ['__esModule'];
 
@@ -46,7 +35,6 @@ const load = module => {
 export const accordionTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Accordion/Accordion.uni.driver')));
 export const addItemTestkitFactory = testkitFactoryCreator(load(require('../src/AddItem/AddItem.driver')));
 export const autoCompleteTestkitFactory = testkitFactoryCreator(load(require('../src/AutoComplete/AutoComplete.driver')));
-export const autoCompleteCompositeTestkitFactory = testkitFactoryCreator(load(require('../src/AutoCompleteComposite/AutoCompleteComposite.driver')));
 export const avatarTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Avatar/Avatar.uni.driver')));
 export const badgeTestkitFactory = testkitFactoryCreator(load(require('../src/Badge/Badge.driver')));
 export const badgeSelectTestkitFactory = testkitFactoryCreator(load(require('../src/BadgeSelect/BadgeSelect.driver')));
@@ -65,7 +53,6 @@ export const colorInputTestkitFactory = uniTestkitFactoryCreator(load(require('.
 export const colorPickerTestkitFactory = testkitFactoryCreator(load(require('../src/ColorPicker/ColorPicker.driver')));
 export const contactItemBuilderTestkitFactory = testkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.driver')));
 export const counterBadgeTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.uni.driver')));
-export const dataTableTestkitFactory = testkitFactoryCreator(load(require('../src/DataTable/DataTable.driver')));
 export const dateInputTestkitFactory = uniTestkitFactoryCreator(load(require('../src/DateInput/DateInput.uni.driver')));
 export const datePickerTestkitFactory = testkitFactoryCreator(load(require('../src/DatePicker/DatePicker.driver')));
 export const dropdownTestkitFactory = testkitFactoryCreator(load(require('../src/Dropdown/Dropdown.driver')));
@@ -74,13 +61,11 @@ export const dropdownLayoutTestkitFactory = testkitFactoryCreator(load(require('
 export const editableSelectorTestkitFactory = testkitFactoryCreator(load(require('../src/EditableSelector/EditableSelector.driver')));
 export const editableTitleTestkitFactory = uniTestkitFactoryCreator(load(require('../src/EditableTitle/EditableTitle.uni.driver')));
 export const emptyStateTestkitFactory = testkitFactoryCreator(load(require('../src/EmptyState/EmptyState.driver')));
-export const errorIndicatorTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ErrorIndicator/ErrorIndicator.uni.driver')));
 export const filePickerTestkitFactory = testkitFactoryCreator(load(require('../src/FilePicker/FilePicker.driver')));
 export const floatingHelperTestkitFactory = testkitFactoryCreator(load(require('../src/FloatingHelper/FloatingHelper.driver')));
 export const floatingNotificationTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
 export const formFieldTestkitFactory = testkitFactoryCreator(load(require('../src/FormField/FormField.driver')));
 export const genericModalLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/GenericModalLayout/GenericModalLayout.driver')));
-export const googleAddressInputWithLabelTestkitFactory = testkitFactoryCreator(load(require('../src/GoogleAddressInputWithLabel/GoogleAddressInputWithLabel.driver')));
 export const googlePreviewTestkitFactory = uniTestkitFactoryCreator(load(require('../src/GooglePreview/GooglePreview.uni.driver')));
 export const headingTestkitFactory = testkitFactoryCreator(load(require('../src/Heading/Heading.driver')));
 export const highlighterTestkitFactory = testkitFactoryCreator(load(require('../src/Highlighter/Highlighter.driver')));
@@ -90,7 +75,6 @@ export const imageViewerTestkitFactory = testkitFactoryCreator(load(require('../
 export const inputTestkitFactory = testkitFactoryCreator(load(require('../src/Input/Input.driver')));
 export const inputAreaTestkitFactory = testkitFactoryCreator(load(require('../src/InputArea/InputArea.driver')));
 export const inputWithOptionsTestkitFactory = testkitFactoryCreator(load(require('../src/InputWithOptions/InputWithOptions.driver')));
-export const labelTestkitFactory = testkitFactoryCreator(load(require('../src/Label/Label.driver')));
 export const linearProgressBarTestkitFactory = testkitFactoryCreator(load(require('../src/LinearProgressBar/LinearProgressBar.driver')));
 export const listItemActionTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ListItemAction/ListItemAction.uni.driver')));
 export const loaderTestkitFactory = testkitFactoryCreator(load(require('../src/Loader/Loader.driver')));
@@ -98,7 +82,6 @@ export const modalTestkitFactory = testkitFactoryCreator(load(require('../src/Mo
 export const modalSelectorLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/ModalSelectorLayout/ModalSelectorLayout.driver')));
 export const multiSelectTestkitFactory = testkitFactoryCreator(load(require('../src/MultiSelect/MultiSelect.driver')));
 export const multiSelectCheckboxTestkitFactory = testkitFactoryCreator(load(require('../src/MultiSelectCheckbox/MultiSelectCheckbox.driver')));
-export const multiSelectCompositeTestkitFactory = testkitFactoryCreator(load(require('../src/MultiSelectComposite/MultiSelectComposite.driver')));
 export const nestableListTestkitFactory = testkitFactoryCreator(load(require('../src/NestableList/NestableList.driver')));
 export const noBorderInputTestkitFactory = testkitFactoryCreator(load(require('../src/NoBorderInput/NoBorderInput.driver')));
 export const notificationTestkitFactory = testkitFactoryCreator(load(require('../src/Notification/Notification.driver')));
@@ -106,7 +89,6 @@ export const numberInputTestkitFactory = uniTestkitFactoryCreator(load(require('
 export const pageTestkitFactory = testkitFactoryCreator(load(require('../src/Page/Page.driver')));
 export const pageHeaderTestkitFactory = testkitFactoryCreator(load(require('../src/PageHeader/PageHeader.driver')));
 export const popoverTestkitFactory = testkitFactoryCreator(load(require('../src/Popover/Popover.driver')));
-export const popoverMenuTestkitFactory = testkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.driver')));
 export const proportionTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Proportion/Proportion.uni.driver')));
 export const radioGroupTestkitFactory = testkitFactoryCreator(load(require('../src/RadioGroup/RadioGroup.driver')));
 export const rangeTestkitFactory = testkitFactoryCreator(load(require('../src/Range/Range.driver')));
@@ -121,7 +103,6 @@ export const skeletonTestkitFactory = testkitFactoryCreator(load(require('../src
 export const sliderTestkitFactory = testkitFactoryCreator(load(require('../src/Slider/Slider.driver')));
 export const socialPreviewTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SocialPreview/SocialPreview.uni.driver')));
 export const sortableListTestkitFactory = testkitFactoryCreator(load(require('../src/SortableList/SortableList.driver')));
-export const statsWidgetTestkitFactory = testkitFactoryCreator(load(require('../src/StatsWidget/StatsWidget.driver')));
 export const stepperTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const swatchesTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const tableTestkitFactory = testkitFactoryCreator(load(require('../src/Table/Table.driver')));
@@ -133,6 +114,7 @@ export const textButtonTestkitFactory = uniTestkitFactoryCreator(load(require('.
 export const thumbnailTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
 export const timeInputTestkitFactory = testkitFactoryCreator(load(require('../src/TimeInput/TimeInput.driver')));
 export const toggleSwitchTestkitFactory = testkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.driver')));
+export const tooltipTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Tooltip/Tooltip.uni.driver')));
 export const sidebarSectionItemTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarSectionItem/SidebarSectionItem.uni.driver')));
 export const sidebarDividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarDivider/SidebarDivider.uni.driver')));
 export const sidebarBackButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarBackButton/SidebarBackButton.uni.driver')));
@@ -161,7 +143,6 @@ export const listItemSelectTestkitFactory = uniTestkitFactoryCreator(load(requir
 export const timeTableTestkitFactory = uniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
 export const marketingLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MarketingLayout/MarketingLayout.uni.driver')));
 export const paletteTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Palette/Palette.uni.driver')));
-export const warningIndicatorTestkitFactory = uniTestkitFactoryCreator(load(require('../src/WarningIndicator/WarningIndicator.uni.driver')));
 export const variableInputTestkitFactory = uniTestkitFactoryCreator(load(require('../src/VariableInput/VariableInput.uni.driver')));
 export const imageTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Image/Image.uni.driver')));
 export const sidePanelTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidePanel/SidePanel.uni.driver')));
@@ -170,14 +151,12 @@ export const customModalLayoutTestkitFactory = uniTestkitFactoryCreator(load(req
 export const statusIndicatorTestkitFactory = uniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
 export const messageModalLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MessageModalLayout/MessageModalLayout.uni.driver')));
 export const announcementModalLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver')));
+export const popoverMenuTestkitFactory = uniTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.uni.driver')));
 export const paginationTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Pagination/Pagination.uni.driver')));
-export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
-export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));
 export const draggableTestkitFactory = testkitFactoryCreator(load(require('../src/DragAndDrop/Draggable/Draggable.driver')));
 export const editableRowTestkitFactory = testkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.driver')));
 export const fieldLabelAttributesTestkitFactory = testkitFactoryCreator(load(require('../src/FieldLabelAttributes/FieldLabelAttributes.driver')));
-export const fieldWithSelectionCompositeTestkitFactory = testkitFactoryCreator(load(require('../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.driver')));
 export const radioButtonTestkitFactory = testkitFactoryCreator(load(require('../src/RadioGroup/RadioButton/RadioButton.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver')));
 export const messageBoxFunctionalLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.driver')));

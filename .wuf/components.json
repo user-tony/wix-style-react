@@ -8,12 +8,6 @@
   "AutoComplete": {
     "path": "src/AutoComplete"
   },
-  "AutoCompleteComposite": {
-    "path": "src/AutoCompleteComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
-  },
   "Avatar": {
     "path": "src/Avatar"
   },
@@ -83,12 +77,6 @@
   "CounterBadge": {
     "path": "src/CounterBadge"
   },
-  "DataTable": {
-    "path": "src/DataTable",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
-  },
   "DateInput": {
     "path": "src/DateInput"
   },
@@ -122,12 +110,6 @@
       "docs/index.story.js"
     ]
   },
-  "ErrorIndicator": {
-    "path": "src/ErrorIndicator",
-    "missingFiles": [
-      "docs"
-    ]
-  },
   "FilePicker": {
     "path": "src/FilePicker"
   },
@@ -140,20 +122,11 @@
   "FormField": {
     "path": "src/FormField"
   },
-  "FullTextView": {
-    "path": "src/FullTextView"
-  },
   "GenericModalLayout": {
     "path": "src/GenericModalLayout"
   },
   "GoogleAddressInput": {
     "path": "src/GoogleAddressInput"
-  },
-  "GoogleAddressInputWithLabel": {
-    "path": "src/GoogleAddressInputWithLabel",
-    "missingFiles": [
-      "docs"
-    ]
   },
   "GooglePreview": {
     "path": "src/GooglePreview"
@@ -188,9 +161,6 @@
   "InputWithOptions": {
     "path": "src/InputWithOptions"
   },
-  "Label": {
-    "path": "src/Label"
-  },
   "Layout": {
     "path": "src/Layout",
     "missingFiles": [
@@ -218,12 +188,6 @@
   "MultiSelectCheckbox": {
     "path": "src/MultiSelectCheckbox"
   },
-  "MultiSelectComposite": {
-    "path": "src/MultiSelectComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
-  },
   "NestableList": {
     "path": "src/NestableList",
     "missingFiles": [
@@ -247,15 +211,6 @@
   },
   "Popover": {
     "path": "src/Popover"
-  },
-  "PopoverMenu": {
-    "path": "src/PopoverMenu"
-  },
-  "PopoverMenuItem": {
-    "path": "src/PopoverMenuItem",
-    "missingFiles": [
-      "docs"
-    ]
   },
   "Proportion": {
     "path": "src/Proportion"
@@ -305,9 +260,6 @@
       "docs"
     ]
   },
-  "StatsWidget": {
-    "path": "src/StatsWidget"
-  },
   "Stepper": {
     "path": "src/Stepper"
   },
@@ -348,10 +300,7 @@
     "path": "src/ToggleSwitch"
   },
   "Tooltip": {
-    "path": "src/Tooltip",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/Tooltip"
   },
   "SidebarSectionItem": {
     "path": "src/SidebarSectionItem"
@@ -437,12 +386,6 @@
   "Palette": {
     "path": "src/Palette"
   },
-  "WarningIndicator": {
-    "path": "src/WarningIndicator",
-    "missingFiles": [
-      "docs"
-    ]
-  },
   "VariableInput": {
     "path": "src/VariableInput"
   },
@@ -472,6 +415,9 @@
   },
   "AnnouncementModalLayout": {
     "path": "src/AnnouncementModalLayout"
+  },
+  "PopoverMenu": {
+    "path": "src/PopoverMenu"
   },
   "Pagination": {
     "path": "src/Pagination"

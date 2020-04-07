@@ -1,33 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DropDownArrow from 'wix-ui-icons-common/system/DropDownArrow';
-import Search from 'wix-ui-icons-common/Search';
-
 import CloseButton from '../CloseButton';
-import ThemedInputErrorSuffix from './ThemedInputErrorSuffix';
-import ThemedInputHelpSuffix from './ThemedInputHelpSuffix';
-import InputLoaderSuffix from './InputLoaderSuffix';
-import Input from './Input';
-
+import StatusIndicator from '../StatusIndicator';
 import styles from './Input.scss';
-import InputWarningSuffix from './InputWarningSuffix';
+import Box from '../Box';
+import { dataHooks } from './constants';
 
 const isFixVisible = fix => fix.isVisible;
 
 const suffixRules = {
-  inputLoaderSuffix: ({ status, disabled }) =>
-    status === Input.StatusLoading && !disabled,
-  inputErrorSuffix: ({ status, disabled }) =>
-    status === Input.StatusError && !disabled,
-  inputWarningSuffix: ({ status, disabled }) =>
-    status === Input.StatusWarning && !disabled,
-  inputHelpSuffix: ({ help, disabled }) => help && !disabled,
-  magnifyingGlass: ({ magnifyingGlass, isClearButtonVisible, error }) =>
-    magnifyingGlass && !isClearButtonVisible && !error,
+  inputStatusSuffix: ({ status, disabled }) => status && !disabled,
   clearButton: ({ isClearButtonVisible }) => isClearButtonVisible,
-  menuArrow: ({ menuArrow, isClearButtonVisible, magnifyingGlass }) =>
-    menuArrow && !isClearButtonVisible && !magnifyingGlass,
-  unit: ({ unit }) => !!unit,
+  menuArrow: ({ menuArrow, isClearButtonVisible }) =>
+    menuArrow && !isClearButtonVisible,
   customSuffix: ({ suffix }) => !!suffix,
 };
 
@@ -38,88 +24,29 @@ const getVisibleSuffixCount = args =>
     .filter(x => x).length;
 
 const InputSuffix = ({
-  theme,
   statusMessage,
   status,
   disabled,
-  help,
-  helpMessage,
   onIconClicked,
-  magnifyingGlass,
   isClearButtonVisible,
   onClear,
   menuArrow,
-  unit,
   suffix,
-  focused,
   tooltipPlacement,
-  onTooltipShow,
 }) => {
-  const error = status === Input.StatusError;
-
   const suffixes = [
     {
       component: () => (
-        <InputWarningSuffix
-          theme={theme}
-          focused={focused}
-          warningMessage={statusMessage}
-          tooltipPlacement={tooltipPlacement}
-          onTooltipShow={onTooltipShow}
-        />
+        <Box margin={1} lineHeight="initial">
+          <StatusIndicator
+            dataHook={dataHooks.status}
+            status={status}
+            message={statusMessage}
+            tooltipPlacement={tooltipPlacement}
+          />
+        </Box>
       ),
-      isVisible: suffixRules.inputWarningSuffix({ status, disabled }),
-    },
-    {
-      component: () => (
-        <ThemedInputErrorSuffix
-          theme={theme}
-          focused={focused}
-          errorMessage={statusMessage}
-          tooltipPlacement={tooltipPlacement}
-          onTooltipShow={onTooltipShow}
-        />
-      ),
-      isVisible: suffixRules.inputErrorSuffix({ status, disabled }),
-    },
-    {
-      component: () => (
-        <InputLoaderSuffix
-          theme={theme}
-          tooltipMessage={statusMessage}
-          tooltipPlacement={tooltipPlacement}
-          onTooltipShow={onTooltipShow}
-        />
-      ),
-      isVisible: suffixRules.inputLoaderSuffix({ status, disabled }),
-    },
-    {
-      component: () => (
-        <ThemedInputHelpSuffix
-          theme={theme}
-          help={help}
-          helpMessage={helpMessage}
-          tooltipPlacement={tooltipPlacement}
-          onTooltipShow={onTooltipShow}
-        />
-      ),
-      isVisible: suffixRules.inputHelpSuffix({ help, disabled }),
-    },
-    {
-      component: () => (
-        <div
-          className={styles.magnifyingGlass}
-          disabled={disabled}
-          onClick={onIconClicked}
-        >
-          <Search />
-        </div>
-      ),
-      isVisible: suffixRules.magnifyingGlass({
-        magnifyingGlass,
-        isClearButtonVisible,
-        error,
-      }),
+      isVisible: suffixRules.inputStatusSuffix({ status, disabled }),
     },
     {
       component: () => (
@@ -132,14 +59,6 @@ const InputSuffix = ({
         </div>
       ),
       isVisible: suffixRules.clearButton({ isClearButtonVisible }),
-    },
-    {
-      component: () => (
-        <div className={styles.unit} onClick={onIconClicked}>
-          {unit}
-        </div>
-      ),
-      isVisible: suffixRules.unit({ unit }),
     },
     {
       component: () => suffix,
@@ -158,7 +77,6 @@ const InputSuffix = ({
       isVisible: suffixRules.menuArrow({
         menuArrow,
         isClearButtonVisible,
-        magnifyingGlass,
       }),
     },
   ].filter(isFixVisible);
@@ -181,30 +99,15 @@ InputSuffix.propTypes = {
       isVisible: PropTypes.bool.isRequired,
     }),
   ),
-  theme: PropTypes.oneOf([
-    'normal',
-    'tags',
-    'paneltitle',
-    'material',
-    'amaterial',
-    'flat',
-    'flatdark',
-  ]),
   statusMessage: PropTypes.node,
   status: PropTypes.oneOf(['loading', 'error', 'warning']),
   disabled: PropTypes.bool,
-  help: PropTypes.bool,
-  helpMessage: PropTypes.node,
   onIconClicked: PropTypes.func,
-  magnifyingGlass: PropTypes.bool,
   isClearButtonVisible: PropTypes.bool,
   onClear: PropTypes.func,
   menuArrow: PropTypes.bool,
-  unit: PropTypes.string,
   suffix: PropTypes.node,
-  focused: PropTypes.bool,
   tooltipPlacement: PropTypes.string,
-  onTooltipShow: PropTypes.func,
 };
 
 export default InputSuffix;

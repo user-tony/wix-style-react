@@ -10,6 +10,7 @@
 
 // Override <Input>'s default focus style
 .input div {
+  background-color: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
 }
@@ -81,6 +82,11 @@
 
 .warning {
   border-color: $paletteY1;
+  position: relative;
+  padding-right: 55px;
+}
+
+.loading {
   position: relative;
   padding-right: 55px;
 }

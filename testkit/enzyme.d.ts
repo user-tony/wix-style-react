@@ -23,11 +23,6 @@ interface EnzymeTestkitParams {
   dataHook: string;
 }
 
-import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
-export const tooltipTestkitFactory: EnzymeTestkitFactory<TooltipDriver>;
-import {TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-export const TooltipTestkit: EnzymeUniTestkitFactory<TooltipUniDriver>;
-
 type DeprecatedEnzymeTestkit = any;
 
 import {AccordionUniDriver} from '../src/Accordion/Accordion.uni.driver';
@@ -72,8 +67,6 @@ import {ContactItemBuilderDriver} from '../src/ContactItemBuilder/ContactItemBui
 export const contactItemBuilderTestkitFactory: EnzymeTestkitFactory<ContactItemBuilderDriver>;
 import {CounterBadgeUniDriver} from '../src/CounterBadge/CounterBadge.uni.driver';
 export const counterBadgeTestkitFactory: EnzymeUniTestkitFactory<CounterBadgeUniDriver>;
-import {DataTableDriver} from '../src/DataTable/DataTable.driver';
-export const dataTableTestkitFactory: EnzymeTestkitFactory<DataTableDriver>;
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: EnzymeUniTestkitFactory<DateInputUniDriver>;
 import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
@@ -90,8 +83,6 @@ import {EditableTitleUniDriver} from '../src/EditableTitle/EditableTitle.uni.dri
 export const editableTitleTestkitFactory: EnzymeUniTestkitFactory<EditableTitleUniDriver>;
 import {EmptyStateDriver} from '../src/EmptyState/EmptyState.driver';
 export const emptyStateTestkitFactory: EnzymeTestkitFactory<EmptyStateDriver>;
-import {ErrorIndicatorUniDriver} from '../src/ErrorIndicator/ErrorIndicator.uni.driver';
-export const errorIndicatorTestkitFactory: EnzymeUniTestkitFactory<ErrorIndicatorUniDriver>;
 import {FilePickerDriver} from '../src/FilePicker/FilePicker.driver';
 export const filePickerTestkitFactory: EnzymeTestkitFactory<FilePickerDriver>;
 import {FloatingHelperDriver} from '../src/FloatingHelper/FloatingHelper.driver';
@@ -120,8 +111,6 @@ import {InputAreaDriver} from '../src/InputArea/InputArea.driver';
 export const inputAreaTestkitFactory: EnzymeTestkitFactory<InputAreaDriver<ReactWrapper>>;
 import {InputWithOptionsDriver} from '../src/InputWithOptions/InputWithOptions.driver';
 export const inputWithOptionsTestkitFactory: EnzymeTestkitFactory<InputWithOptionsDriver>;
-import {LabelDriver} from '../src/Label/Label.driver';
-export const labelTestkitFactory: EnzymeTestkitFactory<LabelDriver>;
 import {LinearProgressBarDriver} from '../src/LinearProgressBar/LinearProgressBar.driver';
 export const linearProgressBarTestkitFactory: EnzymeTestkitFactory<LinearProgressBarDriver>;
 import {ListItemActionUniDriver} from '../src/ListItemAction/ListItemAction.uni.driver';
@@ -150,8 +139,6 @@ import {PageHeaderDriver} from '../src/PageHeader/PageHeader.driver';
 export const pageHeaderTestkitFactory: EnzymeTestkitFactory<PageHeaderDriver>;
 import {PopoverDriver} from '../src/Popover/Popover.driver';
 export const popoverTestkitFactory: EnzymeTestkitFactory<PopoverDriver>;
-import {PopoverMenuDriver} from '../src/PopoverMenu/PopoverMenu.driver';
-export const popoverMenuTestkitFactory: EnzymeTestkitFactory<PopoverMenuDriver>;
 import {ProportionUniDriver} from '../src/Proportion/Proportion.uni.driver';
 export const proportionTestkitFactory: EnzymeUniTestkitFactory<ProportionUniDriver>;
 import {RadioGroupDriver} from '../src/RadioGroup/RadioGroup.driver';
@@ -202,6 +189,8 @@ import {TimeInputDriver} from '../src/TimeInput/TimeInput.driver';
 export const timeInputTestkitFactory: EnzymeTestkitFactory<TimeInputDriver>;
 import {ToggleSwitchDriver} from '../src/ToggleSwitch/ToggleSwitch.driver';
 export const toggleSwitchTestkitFactory: EnzymeTestkitFactory<ToggleSwitchDriver>;
+import {TooltipUniDriver} from '../src/Tooltip/Tooltip.uni.driver';
+export const tooltipTestkitFactory: EnzymeUniTestkitFactory<TooltipUniDriver>;
 import {SidebarSectionItemUniDriver} from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
 export const sidebarSectionItemTestkitFactory: EnzymeUniTestkitFactory<SidebarSectionItemUniDriver>;
 import {SidebarDividerUniDriver} from '../src/SidebarDivider/SidebarDivider.uni.driver';
@@ -258,8 +247,6 @@ import {MarketingLayoutUniDriver} from '../src/MarketingLayout/MarketingLayout.u
 export const marketingLayoutTestkitFactory: EnzymeUniTestkitFactory<MarketingLayoutUniDriver>;
 import {PaletteUniDriver} from '../src/Palette/Palette.uni.driver';
 export const paletteTestkitFactory: EnzymeUniTestkitFactory<PaletteUniDriver>;
-import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-export const warningIndicatorTestkitFactory: EnzymeUniTestkitFactory<WarningIndicatorUniDriver>;
 import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.driver';
 export const variableInputTestkitFactory: EnzymeUniTestkitFactory<VariableInputUniDriver>;
 import {ImageUniDriver} from '../src/Image/Image.uni.driver';
@@ -276,6 +263,8 @@ import {MessageModalLayoutUniDriver} from '../src/MessageModalLayout/MessageModa
 export const messageModalLayoutTestkitFactory: EnzymeUniTestkitFactory<MessageModalLayoutUniDriver>;
 import {AnnouncementModalLayoutUniDriver} from '../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver';
 export const announcementModalLayoutTestkitFactory: EnzymeUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
+import {PopoverMenuUniDriver} from '../src/PopoverMenu/PopoverMenu.uni.driver';
+export const popoverMenuTestkitFactory: EnzymeUniTestkitFactory<PopoverMenuUniDriver>;
 import {PaginationUniDriver} from '../src/Pagination/Pagination.uni.driver';
 export const paginationTestkitFactory: EnzymeUniTestkitFactory<PaginationUniDriver>;
 import {HeaderDriver} from '../src/Card/Header/Header.driver';
@@ -292,12 +281,5 @@ import {CardSubheaderUniDriver} from '../src/Card/Subheader/Subheader.uni.driver
 export const cardSubheaderTestkitFactory: EnzymeUniTestkitFactory<CardSubheaderUniDriver>;
 
 
-export const autoCompleteCompositeTestkitFactory: DeprecatedEnzymeTestkit;
-export const googleAddressInputWithLabelTestkitFactory: DeprecatedEnzymeTestkit;
-export const multiSelectCompositeTestkitFactory: DeprecatedEnzymeTestkit;
-export const statsWidgetTestkitFactory: DeprecatedEnzymeTestkit;
-export const sideMenuDrillTestkitFactory: DeprecatedEnzymeTestkit;
-export const sideMenuTestkitFactory: DeprecatedEnzymeTestkit;
 export const draggableTestkitFactory: DeprecatedEnzymeTestkit;
 export const fieldLabelAttributesTestkitFactory: DeprecatedEnzymeTestkit;
-export const fieldWithSelectionCompositeTestkitFactory: DeprecatedEnzymeTestkit;

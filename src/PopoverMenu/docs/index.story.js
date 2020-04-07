@@ -1,82 +1,149 @@
+/* eslint-disable no-console */
 import React from 'react';
-import { header, playground } from 'wix-storybook-utils/Sections';
-import { default as PopoverMenu } from '..';
-import { default as PopoverMenuItem } from '../../PopoverMenuItem';
-import { storySettings } from './storySettings';
 
-import SectionHelper from '../../SectionHelper';
-import { Layout, Cell } from '../../Layout';
+import {
+  api,
+  code as baseLiveCode,
+  columns,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  title,
+} from 'wix-storybook-utils/Sections';
 
-import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
+import More from 'wix-ui-icons-common/More';
+import Add from 'wix-ui-icons-common/Add';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
 
-const exampleItems = [
-  <PopoverMenuItem
+import { storySettings } from '../test/storySettings';
+import allComponents from '../../../stories/utils/allComponents';
+
+import PopoverMenu from '..';
+
+import IconButton from '../../IconButton';
+
+import { placements } from '../../Popover';
+import testkitDesc from './testkit.md';
+import compound from './compound.md';
+
+import * as examples from './examples';
+
+const liveCode = config =>
+  baseLiveCode({ components: { ...allComponents, PopoverMenu }, ...config });
+const example = props => liveCode(props);
+
+const commonProps = {
+  appendTo: 'window',
+  triggerElement: (
+    <IconButton priority="secondary">
+      <More />
+    </IconButton>
+  ),
+};
+
+const menuItems = [
+  <PopoverMenu.MenuItem
+    key="add"
+    text="Add"
+    onClick={e => console.log(e)}
+    prefixIcon={<Add />}
+  />,
+  <PopoverMenu.MenuItem
     key="edit"
-    dataHook={storySettings.itemDataHook}
     text="Edit"
-    onClick={() => {}}
+    onClick={e => console.log(e)}
+    prefixIcon={<Edit />}
   />,
-  <PopoverMenuItem
-    key="hide"
-    dataHook={storySettings.itemDataHook}
-    text="Hide"
-    onClick={() => {}}
-  />,
-  <PopoverMenuItem
+  <PopoverMenu.MenuItem
     key="delete"
-    dataHook={storySettings.itemDataHook}
     text="Delete"
-    onClick={() => {}}
+    onClick={e => console.log(e)}
+    prefixIcon={<Delete />}
   />,
 ];
-
-const exampleChildren = [
-  {
-    label: 'One item',
-    value: exampleItems.slice(0, 1),
-  },
-  {
-    label: 'Two items',
-    value: exampleItems.slice(0, 2),
-  },
-  {
-    label: 'Three items',
-    value: exampleItems,
-  },
-];
-
 export default {
   category: storySettings.category,
-  storyName: storySettings.storyName,
-  component: createAutoExampleWrapper(PopoverMenu),
-  componentPath: '..',
+  storyName: 'PopoverMenu',
 
+  component: PopoverMenu,
+  componentPath: '..',
   componentProps: {
-    dataHook: storySettings.dataHook,
-    size: 'normal',
-    placement: 'right',
-    buttonTheme: 'icon-greybackground',
-    children: exampleChildren[0].value,
+    ...commonProps,
+    children: [...menuItems],
   },
 
   exampleProps: {
-    children: exampleChildren,
+    placement: placements.map(placement => ({
+      label: placement,
+      value: placement,
+    })),
   },
 
   sections: [
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      component: (
-        <Layout>
-          <Cell span={6}>
-            <SectionHelper title="Deprecated Component">
-              Make sure to use the same component from Next API section and
-              upgrade your api usage.
-            </SectionHelper>
-          </Cell>
-        </Layout>
-      ),
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/PopoverMenu/',
+      component: <PopoverMenu {...commonProps}>{menuItems}</PopoverMenu>,
     }),
-    playground(),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'PopoverMenu renders a trigger element that when the user click on it, a popup box with menu options appear.',
+            }),
+          ]),
+
+          columns([
+            importExample("import { PopoverMenu } from 'wix-style-react';"),
+          ]),
+
+          divider(),
+
+          title('Examples'),
+
+          ...[
+            {
+              title: 'Element (Trigger)',
+              subtitle:
+                'Any component that is meant for triggering an action can be used as trigger element.',
+              source: examples.trigger,
+            },
+            {
+              title: 'Render props (Trigger)',
+              subtitle:
+                'Trigger events can be access through triggerElement prop render props. ',
+              source: examples.renderprops,
+            },
+            {
+              title: 'Text Wrap',
+              subtitle:
+                'By default all menu items text gets ellipsed when reaches boundaries limit. Passing `textWrap` disables ellipsis and wrap text to new line.',
+              source: examples.wrap,
+            },
+          ].map(example),
+        ],
+      }),
+
+      ...[
+        { title: 'PopoverMenu API', sections: [api()] },
+        {
+          title: 'Compound Components API',
+          sections: [description(compound)],
+        },
+        { title: 'Testkit', sections: [description(testkitDesc)] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
   ],
 };

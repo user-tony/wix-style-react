@@ -22,11 +22,6 @@ interface VanillaTestkitParams {
   dataHook: string;
 }
 
-import { TooltipDriver } from '../src/Tooltip/Tooltip.driver';
-export const tooltipTestkitFactory: VanillaTestkitFactory<TooltipDriver>;
-import { TooltipUniDriver } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
-
 type DeprecatedVanillaTestkit = any;
 
 import { AccordionUniDriver } from '../src/Accordion/Accordion.uni.driver';
@@ -71,8 +66,6 @@ import { ContactItemBuilderDriver } from '../src/ContactItemBuilder/ContactItemB
 export const contactItemBuilderTestkitFactory: VanillaTestkitFactory<ContactItemBuilderDriver>;
 import { CounterBadgeUniDriver } from '../src/CounterBadge/CounterBadge.uni.driver';
 export const counterBadgeTestkitFactory: VanillaUniTestkitFactory<CounterBadgeUniDriver>;
-import { DataTableDriver } from '../src/DataTable/DataTable.driver';
-export const dataTableTestkitFactory: VanillaTestkitFactory<DataTableDriver>;
 import { DateInputUniDriver } from '../src/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: VanillaUniTestkitFactory<DateInputUniDriver>;
 import { DatePickerDriver } from '../src/DatePicker/DatePicker.driver';
@@ -89,8 +82,6 @@ import { EditableTitleUniDriver } from '../src/EditableTitle/EditableTitle.uni.d
 export const editableTitleTestkitFactory: VanillaUniTestkitFactory<EditableTitleUniDriver>;
 import { EmptyStateDriver } from '../src/EmptyState/EmptyState.driver';
 export const emptyStateTestkitFactory: VanillaTestkitFactory<EmptyStateDriver>;
-import { ErrorIndicatorUniDriver } from '../src/ErrorIndicator/ErrorIndicator.uni.driver';
-export const errorIndicatorTestkitFactory: VanillaUniTestkitFactory<ErrorIndicatorUniDriver>;
 import { FilePickerDriver } from '../src/FilePicker/FilePicker.driver';
 export const filePickerTestkitFactory: VanillaTestkitFactory<FilePickerDriver>;
 import { FloatingHelperDriver } from '../src/FloatingHelper/FloatingHelper.driver';
@@ -119,8 +110,6 @@ import { InputAreaDriver } from '../src/InputArea/InputArea.driver';
 export const inputAreaTestkitFactory: VanillaTestkitFactory<InputAreaDriver<HTMLElement>>;
 import { InputWithOptionsDriver } from '../src/InputWithOptions/InputWithOptions.driver';
 export const inputWithOptionsTestkitFactory: VanillaTestkitFactory<InputWithOptionsDriver>;
-import { LabelDriver } from '../src/Label/Label.driver';
-export const labelTestkitFactory: VanillaTestkitFactory<LabelDriver>;
 import { LinearProgressBarDriver } from '../src/LinearProgressBar/LinearProgressBar.driver';
 export const linearProgressBarTestkitFactory: VanillaTestkitFactory<LinearProgressBarDriver>;
 import { ListItemActionUniDriver } from '../src/ListItemAction/ListItemAction.uni.driver';
@@ -149,8 +138,6 @@ import { PageHeaderDriver } from '../src/PageHeader/PageHeader.driver';
 export const pageHeaderTestkitFactory: VanillaTestkitFactory<PageHeaderDriver>;
 import { PopoverDriver } from '../src/Popover/Popover.driver';
 export const popoverTestkitFactory: VanillaTestkitFactory<PopoverDriver>;
-import { PopoverMenuDriver } from '../src/PopoverMenu/PopoverMenu.driver';
-export const popoverMenuTestkitFactory: VanillaTestkitFactory<PopoverMenuDriver>;
 import { ProportionUniDriver } from '../src/Proportion/Proportion.uni.driver';
 export const proportionTestkitFactory: VanillaUniTestkitFactory<ProportionUniDriver>;
 import { RadioGroupDriver } from '../src/RadioGroup/RadioGroup.driver';
@@ -201,6 +188,8 @@ import { TimeInputDriver } from '../src/TimeInput/TimeInput.driver';
 export const timeInputTestkitFactory: VanillaTestkitFactory<TimeInputDriver>;
 import { ToggleSwitchDriver } from '../src/ToggleSwitch/ToggleSwitch.driver';
 export const toggleSwitchTestkitFactory: VanillaTestkitFactory<ToggleSwitchDriver>;
+import { TooltipUniDriver } from '../src/Tooltip/Tooltip.uni.driver';
+export const tooltipTestkitFactory: VanillaUniTestkitFactory<TooltipUniDriver>;
 import { SidebarSectionItemUniDriver } from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
 export const sidebarSectionItemTestkitFactory: VanillaUniTestkitFactory<SidebarSectionItemUniDriver>;
 import { SidebarDividerUniDriver } from '../src/SidebarDivider/SidebarDivider.uni.driver';
@@ -257,8 +246,6 @@ import { MarketingLayoutUniDriver } from '../src/MarketingLayout/MarketingLayout
 export const marketingLayoutTestkitFactory: VanillaUniTestkitFactory<MarketingLayoutUniDriver>;
 import { PaletteUniDriver } from '../src/Palette/Palette.uni.driver';
 export const paletteTestkitFactory: VanillaUniTestkitFactory<PaletteUniDriver>;
-import { WarningIndicatorUniDriver } from '../src/WarningIndicator/WarningIndicator.uni.driver';
-export const warningIndicatorTestkitFactory: VanillaUniTestkitFactory<WarningIndicatorUniDriver>;
 import { VariableInputUniDriver } from '../src/VariableInput/VariableInput.uni.driver';
 export const variableInputTestkitFactory: VanillaUniTestkitFactory<VariableInputUniDriver>;
 import { ImageUniDriver } from '../src/Image/Image.uni.driver';
@@ -275,6 +262,8 @@ import { MessageModalLayoutUniDriver } from '../src/MessageModalLayout/MessageMo
 export const messageModalLayoutTestkitFactory: VanillaUniTestkitFactory<MessageModalLayoutUniDriver>;
 import { AnnouncementModalLayoutUniDriver } from '../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver';
 export const announcementModalLayoutTestkitFactory: VanillaUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
+import { PopoverMenuUniDriver } from '../src/PopoverMenu/PopoverMenu.uni.driver';
+export const popoverMenuTestkitFactory: VanillaUniTestkitFactory<PopoverMenuUniDriver>;
 import { PaginationUniDriver } from '../src/Pagination/Pagination.uni.driver';
 export const paginationTestkitFactory: VanillaUniTestkitFactory<PaginationUniDriver>;
 import { HeaderDriver } from '../src/Card/Header/Header.driver';
@@ -290,12 +279,5 @@ export const messageBoxFunctionalLayoutTestkitFactory: VanillaTestkitFactory<Mes
 import { CardSubheaderUniDriver } from '../src/Card/Subheader/Subheader.uni.driver';
 export const cardSubheaderTestkitFactory: VanillaUniTestkitFactory<CardSubheaderUniDriver>;
 
-export const autoCompleteCompositeTestkitFactory: DeprecatedVanillaTestkit;
-export const googleAddressInputWithLabelTestkitFactory: DeprecatedVanillaTestkit;
-export const multiSelectCompositeTestkitFactory: DeprecatedVanillaTestkit;
-export const statsWidgetTestkitFactory: DeprecatedVanillaTestkit;
-export const sideMenuDrillTestkitFactory: DeprecatedVanillaTestkit;
-export const sideMenuTestkitFactory: DeprecatedVanillaTestkit;
 export const draggableTestkitFactory: DeprecatedVanillaTestkit;
 export const fieldLabelAttributesTestkitFactory: DeprecatedVanillaTestkit;
-export const fieldWithSelectionCompositeTestkitFactory: DeprecatedVanillaTestkit;

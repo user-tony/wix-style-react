@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 import Page from 'wix-style-react/Page';
@@ -6,7 +7,7 @@ import Card from 'wix-style-react/Card';
 
 import Box from 'wix-style-react/Box';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
+import IconButton from 'wix-style-react/IconButton';
 import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 
@@ -17,13 +18,14 @@ class ExampleSplitLayout extends React.Component {
         <Box>
           <Box>
             <PopoverMenu
-              buttonTheme="icon-greybackground"
-              placement="bottom"
-              size="normal"
-              appendToParent
+              triggerElement={
+                <IconButton skin="inverted">
+                  <Icons.More />
+                </IconButton>
+              }
             >
-              <PopoverMenuItem onClick={() => {}} text="Refresh" />
-              <PopoverMenuItem onClick={() => {}} text="Trash" />
+              <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />
+              <PopoverMenu.MenuItem onClick={() => {}} text="Trash" />
             </PopoverMenu>
           </Box>
           <Box marginLeft="small" marginRight="small">
@@ -58,7 +60,7 @@ class ExampleSplitLayout extends React.Component {
     const ExampleShortContent = () => <div style={{ height: '250px' }} />;
 
     return (
-      <Page upgrade height="372px">
+      <Page height="372px">
         {this.renderHeader()}
         <Page.Content>
           <Container>

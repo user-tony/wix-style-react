@@ -1,16 +1,13 @@
 import React from 'react';
 
-import { GmapsTestClient } from '../src/GoogleAddressInput/gmapsTestClient';
 import CropRotate from 'wix-ui-icons-common/CropRotate';
 import Popover from '../src/Popover';
-import MultiSelect from '../src/MultiSelect';
-import AutoComplete from '../src/AutoComplete';
 import Input from '../src/Input';
 import Notification from '../src/Notification';
 import FloatingHelper from '../src/FloatingHelper';
-import GoogleAddressInput from '../src/GoogleAddressInput';
 import VerticalTabs from '../src/VerticalTabs';
 import SegmentedToggle from '../src/SegmentedToggle';
+import PopoverMenu from '../src/PopoverMenu';
 
 /*
  * This file exports object with config for components.
@@ -40,18 +37,6 @@ export default {
     },
   },
 
-  MultiSelectComposite: {
-    props: {
-      children: <MultiSelect />,
-    },
-  },
-
-  AutoCompleteComposite: {
-    props: {
-      children: [<AutoComplete key={1} />],
-    },
-  },
-
   Popover: {
     props: {
       children: [
@@ -62,6 +47,13 @@ export default {
           <div>I am the content!</div>
         </Popover.Content>,
       ],
+    },
+  },
+
+  PopoverMenu: {
+    props: {
+      triggerElement: <div />,
+      children: [<PopoverMenu.MenuItem key="0" />],
     },
   },
 
@@ -209,7 +201,7 @@ export default {
     },
   },
   ToggleButton: {
-    props: { tooltipContent: 'Crop & Rotate', children: <CropRotate /> },
+    props: { labelValue: 'Crop & Rotate', children: <CropRotate /> },
   },
 
   Button: {
@@ -224,13 +216,6 @@ export default {
     },
   },
 
-  DataTable: {
-    props: {
-      data: [{ a: 'value 1', b: 'value 2' }],
-      columns: [{ title: 'A', render: row => row.a }],
-    },
-  },
-
   Slider: {
     props: {
       onChange: () => {},
@@ -241,12 +226,6 @@ export default {
     props: {
       id: 1,
       title: 'title',
-    },
-  },
-
-  StatsWidget: {
-    props: {
-      title: 'test title',
     },
   },
 
@@ -326,12 +305,6 @@ export default {
   Box: {
     props: {
       children: <div />,
-    },
-  },
-
-  GoogleAddressInputWithLabel: {
-    props: {
-      children: <GoogleAddressInput Client={GmapsTestClient} />,
     },
   },
 
@@ -572,7 +545,6 @@ export default {
 
   Tooltip: {
     props: {
-      upgrade: true,
       content: 'hello',
       children: <button>content</button>,
     },
@@ -666,18 +638,11 @@ export default {
     },
   },
 
-  Label: {
-    props: {
-      size: 'medium',
-      children: 'label',
-    },
-  },
-
   TableActionCell: {
     props: {
       primaryAction: {
         text: 'Edit',
-        theme: 'whiteblue',
+        skin: 'inverted',
         onClick: () => ({}),
       },
     },

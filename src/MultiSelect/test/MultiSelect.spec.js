@@ -158,6 +158,32 @@ describe('MultiSelect', () => {
       });
     });
 
+    describe('with status', () => {
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const { inputDriver } = createDriver(
+          <MultiSelect {...test} options={options} />,
+        );
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
+        { status: 'error', statusMessage: 'Error Message' },
+        { status: 'warning', statusMessage: 'Warning Message' },
+        { status: 'loading', statusMessage: 'Loading Message' },
+      ])('should display status with message when %p', async test => {
+        const { inputDriver } = createDriver(
+          <MultiSelect {...test} options={options} />,
+        );
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBe(test.statusMessage);
+      });
+    });
+
     describe('Tag Input', () => {
       it('should render readonly input on select mode', async () => {
         const { inputDriver } = createDriver(
@@ -171,13 +197,6 @@ describe('MultiSelect', () => {
           <MultiSelect options={options} mode="select" />,
         );
         expect(await inputDriver.hasMenuArrow()).toBe(true);
-      });
-
-      it('should render input wrapper with error', async () => {
-        const { driver } = createDriver(
-          <MultiSelect error options={options} />,
-        );
-        expect(await driver.inputWrapperHasError()).toBe(true);
       });
 
       it('should have disabled attribute on input if disabled', async () => {

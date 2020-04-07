@@ -4,7 +4,7 @@ import {
 } from 'wix-ui-core/drivers/vanilla';
 import { dataHooks } from './constants';
 
-export const circularProgressBarDriverFactory = ({
+const circularProgressBarDriverFactory = ({
   element,
   eventTrigger,
   wrapper,
@@ -25,22 +25,18 @@ export const circularProgressBarDriverFactory = ({
     eventTrigger,
   });
 
-  const errorIcon = () => getElementByDataHook(dataHooks.errorIcon);
-  const successIcon = () => getElementByDataHook(dataHooks.successIcon);
-  const progressBar = () => getElementByDataHook(dataHooks.circularProgressBar);
-
-  const getTooltip = () => createTooltipDriver();
-
   return {
     ...coreProgressBarDriver,
-    isTooltipShown: () => getTooltip().isContentElementExists(),
-    getTooltip,
-    isErrorIconShown: () => !!errorIcon(),
-    isSuccessIconShown: () => !!successIcon(),
-    getSize: () => progressBar().getAttribute('data-size'),
-    getTooltipErrorMessage: async () => {
-      await getTooltip().mouseEnter();
-      return getTooltip().getContentElement().textContent;
+    isErrorIconShown: () => !!getElementByDataHook(dataHooks.errorIcon),
+    isSuccessIconShown: () => !!getElementByDataHook(dataHooks.successIcon),
+    getSize: () =>
+      getElementByDataHook(dataHooks.circularProgressBar).getAttribute(
+        'data-size',
+      ),
+    getTooltipErrorMessage: () => {
+      const tooltipDriver = createTooltipDriver();
+      tooltipDriver.mouseEnter();
+      return tooltipDriver.getContentElement().textContent;
     },
   };
 };

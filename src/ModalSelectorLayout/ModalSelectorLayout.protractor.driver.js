@@ -1,14 +1,17 @@
-import { protractorTestkitFactoryCreator } from 'wix-ui-test-utils/protractor';
+import {
+  protractorUniTestkitFactoryCreator,
+  protractorTestkitFactoryCreator,
+} from 'wix-ui-test-utils/protractor';
 import loaderDriverFactory from '../Loader/Loader.protractor.driver';
-import buttonDriverFactory from '../Deprecated/Button/Button.protractor.driver';
 import textDriverFactory from '../Text/Text.protractor.driver';
 import searchDriverFactory from '../Search/Search.protractor.driver';
 import { dataHooks } from './ModalSelectorLayout.helpers';
+import { buttonDriverFactory } from '../Button/Button.uni.driver';
 
 const loaderTestkitFactory = protractorTestkitFactoryCreator(
   loaderDriverFactory,
 );
-const buttonTestkitFactory = protractorTestkitFactoryCreator(
+const buttonTestkitFactory = protractorUniTestkitFactoryCreator(
   buttonDriverFactory,
 );
 const textTestkitFactory = protractorTestkitFactoryCreator(textDriverFactory);

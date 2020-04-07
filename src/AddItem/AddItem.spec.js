@@ -5,8 +5,8 @@ import {
   cleanup,
 } from '../../test/utils/react';
 
-import { addItemPrivateDriverFactory } from './tests/AddItem.private.driver';
-import { addItemPrivateUniDriverFactory } from './tests/AddItem.private.uni.driver';
+import { addItemPrivateDriverFactory } from './test/AddItem.private.driver';
+import { addItemPrivateUniDriverFactory } from './test/AddItem.private.uni.driver';
 
 import AddItem from './AddItem';
 
@@ -68,7 +68,7 @@ describe('AddItem', () => {
 
     describe('Tooltip', () => {
       it('should appear [when] `theme` image prop is passed', async () => {
-        const props = { tooltipContent: 'content', theme: 'image' };
+        const props = { tooltipProps: { content: 'content' }, theme: 'image' };
         const { driver } = render(renderAddItem(props));
         expect(await driver.tooltipElementExists()).toEqual(true);
       });

@@ -1,6 +1,6 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { findBaseByHook } from '../../test/utils';
-import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { tooltipDriverFactory } from '../Tooltip/Tooltip.uni.driver';
 import { adaptiveHeadingDriverFactory } from '../utils/AdaptiveHeading/AdaptiveHeading.uni.driver';
 
 import DataHooks from './dataHooks';
@@ -43,9 +43,9 @@ const statisticsWidgetDriverFactory = (base, body) => {
 
     /** Click on the statistic with index */
     clickStatistics: async index => {
-      const statistics = await getStatsItem(index);
+      const item = await getStatsItem(index);
 
-      return statistics.click();
+      return item.click();
     },
 
     /** Get value of the statistic with index */

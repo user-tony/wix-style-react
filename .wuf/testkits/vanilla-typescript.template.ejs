@@ -14,23 +14,11 @@ interface VanillaTestkitParams {
   dataHook: string;
 }
 
-import { TooltipDriver } from '../src/Tooltip/Tooltip.driver';
-export const tooltipTestkitFactory: VanillaTestkitFactory<TooltipDriver>;
-import { TooltipUniDriver } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
-
 type DeprecatedVanillaTestkit = any;
 <%
   const deprecated = [
-    'AutoCompleteComposite',
-    'GoogleAddressInputWithLabel',
-    'MultiSelectComposite',
-    'StatsWidget',
-    'SideMenuDrill',
-    'SideMenu',
     'Draggable',
     'FieldLabelAttributes',
-    'FieldWithSelectionComposite',
   ];
 
   const defaultExport = [

@@ -280,30 +280,28 @@ describe('ColorInput', () => {
         expect(await driver.getPlaceholder()).toBe('');
       });
     });
-    describe(`'error' prop`, () => {
-      it(`should be set when true`, async () => {
-        const { driver } = render(renderColorInput({ error: true }));
-        await driver.click();
-        await driver.blur();
-        expect(await driver.hasError()).toBe(true);
-      });
-    });
 
-    // Uncomment in wsr8
-    xdescribe('with status', () => {
-      [
+    describe('with status', () => {
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const { driver } = render(renderColorInput(test));
+
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
         { status: 'error', statusMessage: 'Error Message' },
         { status: 'warning', statusMessage: 'Warning Message' },
         { status: 'loading', statusMessage: 'Loading Message' },
-      ].forEach(test => {
-        it(`should display a status icon when status="${test.status}"`, async () => {
-          const { driver } = render(renderColorInput(test));
+      ])('should display status with message when %p', async test => {
+        const { driver } = render(renderColorInput(test));
 
-          expect(await driver.hasStatus()).toBe(true);
-          expect(await driver.getStatus()).toBe(test.status);
-          expect(await driver.hasStatusMessage()).toBe(true);
-          expect(await driver.getStatusMessage()).toBe(test.statusMessage);
-        });
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBe(test.statusMessage);
       });
     });
 
