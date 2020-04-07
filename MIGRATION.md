@@ -19,7 +19,7 @@ _NOTE <span style="color:#c30000">links don't work in Storybook - only in GitHub
 
 ### Before you upgrade
 
-Before upgrading to v8, it is best to fix all **Deprecation Messages** shown in console, that appear in v7.  
+Before upgrading to v8, it is best to fix all **Deprecation Messages** shown in console, that appear in v7.
 It will be much easier to apply other changes.
 
 An example for v7 deprecation log:
@@ -43,18 +43,18 @@ This code is now ready for v8!
 
 This is the recommended migration flow. Each step is described in more detail below.
 
-1. Change component import statements to named-imports and to the icons library.  
+1. Change component import statements to named-imports and to the icons library.
 
     Use codemods:
-    ```
+    ```bash
     npx wix-ui-codemod wix-style-react/named-imports <path-to-your-project>
     npx wix-ui-codemod wix-style-react/icons-common <path-to-your-project>
     ```
 1. Remove old and deprecated components like `AutoCompleteComposite`. Follow list [here](#remove-old-and-deprecated-components).
-1. Change components with `upgrade` prop like `Tooltip` and `Page`.  
+1. Change components with `upgrade` prop like `Tooltip` and `Page`.
 
    Use codemod:
-   ```
+   ```bash
    npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
    ```
 
@@ -118,7 +118,7 @@ npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
 
 ### Remove old and deprecated components
 
-1. The following components were deprecated for a long time and will not be available anymore.  
+1. The following components were deprecated for a long time and will not be available anymore.
    Use `<FormField/>` instead:
 
     - `<AutoCompleteComposite/>`
@@ -134,7 +134,7 @@ npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
     - `<StatsWidget/>` - use `<StatisticsWidget/>` instead
     - `<TextLink/>` - use `<TextButton/>` instead
 
-3. The following components were removed.  
+3. The following components were removed.
   `<Sidebar/>` should be used instead:
 
     - `<SideMenu/>`,
@@ -143,7 +143,7 @@ npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
 
 4. Remove `<DataTable/>` - This component became _internal_ and should not be used directly. Use `<Table/>` instead.
 
-5. The following components were removed.  
+5. The following components were removed.
    Use `<MessageBoxMarketerialLayout/>` or `<MessageBoxFunctionalLayout/>` instead.
 
     - `<HeaderLayout/>`,
