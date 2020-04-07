@@ -4,7 +4,7 @@ This guide will help to migrate `wix-style-react` from v7 to v8.
 
 Changes from your side might be required. Follow this guide for a smooth ride.
 
-A high level overview of changes are described in [Release Notes](./RELEASE_NOTES_V8.md)
+A high level overview of changes are described in [Release Notes](./RELEASE_NOTES_v8.md)
 
 _NOTE <span style="color:#c30000">links don't work in Storybook - only in GitHub. sorry for the inconvenience.</span>_
 
