@@ -135,6 +135,7 @@ describe('DropdownBase', () => {
     const onClickOutsideFn = jest.fn();
 
     const { args, driver } = createUncontrolledDriver(null, {
+      open: true,
       onClickOutside: onClickOutsideFn,
     });
 
