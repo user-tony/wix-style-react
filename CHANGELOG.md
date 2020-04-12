@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+
+- `<Avatar/>` - support single letter in size 24 [#5332](https://github.com/wix/wix-style-react/pull/5332)
 
 ## 8.0.0 - 2020-04-07
 
