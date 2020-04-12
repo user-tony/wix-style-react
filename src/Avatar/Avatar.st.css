@@ -47,7 +47,8 @@
       presenceType(enum(busy, online, offline)),
       presence,
       clickable,
-      fade;
+      fade,
+      hasText;
   position: relative;
   display: inline-block;
 }
@@ -316,18 +317,22 @@
 }
 
 .avatarContainer:size(size36) .avatar:contentType(text)::content,
-.avatarContainer:size(size30) .avatar:contentType(text)::content  {
+.avatarContainer:size(size30) .avatar:contentType(text)::content,
+.avatarContainer:size(size24) .avatar:contentType(text)::content,
+.avatarContainer:size(size18) .avatar:contentType(text)::content  {
   -st-mixin: text-tiny-normal;
   line-height: 18px;
 }
 
 .avatarContainer:size(size36)[data-madefor="true"] .avatar:contentType(text)::content,
-.avatarContainer:size(size30)[data-madefor="true"] .avatar:contentType(text)::content  {
-  -st-mixin: text-tiny-bold;
+.avatarContainer:size(size30)[data-madefor="true"] .avatar:contentType(text)::content,
+.avatarContainer:size(size24)[data-madefor="true"] .avatar:contentType(text)::content,
+.avatarContainer:size(size18)[data-madefor="true"] .avatar:contentType(text)::content   
+{ 
+  -st-mixin: text-tiny-bold
 }
 
-.avatarContainer:size(size24) .avatar:contentType(text)::content,
+.avatarContainer:size(size24):hasText .avatar:contentType(text)::content,
 .avatarContainer:size(size18) .avatar:contentType(text)::content  {
   visibility: hidden;
 }
-
