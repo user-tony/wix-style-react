@@ -41,6 +41,11 @@ This code is now ready for v8!
 
 ### Order of migration
 
+First of all, make sure you have the latest version:
+```sh
+npm install wix-style-react@8
+```
+
 This is the recommended migration flow. Each step is described in more detail below.
 
 1. Change component import statements to named-imports and to the icons library.
