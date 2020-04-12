@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<Avatar/>` - support single letter in size 24 [#5338](https://github.com/wix/wix-style-react/pull/5338)
+
 ## 7.55.0 - 2020-04-06
 
 ### Added
