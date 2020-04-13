@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.1.0 - 2020-04-13
+
 ### Fixed
 
 - Aligned status indication API across all input family components [#5339](https://github.com/wix/wix-style-react/pull/5339)
