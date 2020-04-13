@@ -111,8 +111,14 @@ export const testkit = (base, body) => {
 
     // Status
     /** Return true if there's a status */
-    hasStatus: async status =>
-      status === (await getStatusIndicatorDriver().getStatus()),
+    hasStatus: async status => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
+      if (await statusIndicatorDriver.exists()) {
+        return status === (await statusIndicatorDriver.getStatus());
+      }
+
+      return false;
+    },
     /** If there's a status message, returns its text value */
     getStatusMessage: async () => {
       const statusIndicatorDriver = getStatusIndicatorDriver();

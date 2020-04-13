@@ -1,5 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
-import { InputSize, InputStatus } from '../Input';
+import { InputSize } from '../Input';
+import { StatusIndications } from '../common';
 
 export interface ColorInputUniDriver extends BaseUniDriver {
   cancel(): Promise<void>;
@@ -13,8 +14,6 @@ export interface ColorInputUniDriver extends BaseUniDriver {
   colorPickerVisible(): Promise<boolean>;
 
   // Status
-  hasStatus(): Promise<boolean>;
-  getStatus(): Promise<InputStatus>;
-  hasStatusMessage(): Promise<boolean>;
-  getStatusMessage(): Promise<string>;
+  hasStatus: (status: StatusIndications) => Promise<boolean>;
+  getStatusMessage: () => Promise<string | null>;
 }

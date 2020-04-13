@@ -7,10 +7,11 @@ export const getPlaceholder = base =>
   base.$('.public-DraftEditorPlaceholder-root');
 
 export default (base, body) => {
-  const statusIndicatorDriver = statusIndicatorDriverFactory(
-    base.$(`[data-hook=${dataHooks.indicator}]`),
-    body,
-  );
+  const getStatusIndicatorDriver = () =>
+    statusIndicatorDriverFactory(
+      base.$(`[data-hook="${dataHooks.indicator}"]`),
+      body,
+    );
 
   return {
     ...baseUniDriverFactory(base),
@@ -38,12 +39,24 @@ export default (base, body) => {
 
     // Status
     /** Return true if there's a status */
-    hasStatus: statusIndicatorDriver.exists,
-    /** If there's a status, returns its type */
-    getStatus: statusIndicatorDriver.getStatus,
-    /** Return true if there's a status message */
-    hasStatusMessage: statusIndicatorDriver.hasMessage,
+    hasStatus: async status => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
+      if (await statusIndicatorDriver.exists()) {
+        return status === (await statusIndicatorDriver.getStatus());
+      }
+
+      return false;
+    },
     /** If there's a status message, returns its text value */
-    getStatusMessage: statusIndicatorDriver.getMessage,
+    getStatusMessage: async () => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
+      let tooltipText = null;
+
+      if (await statusIndicatorDriver.hasMessage()) {
+        tooltipText = await statusIndicatorDriver.getMessage();
+      }
+
+      return tooltipText;
+    },
   };
 };

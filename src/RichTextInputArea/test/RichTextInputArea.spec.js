@@ -120,27 +120,13 @@ describe('RichTextInputArea', () => {
   });
 
   describe('status attribute', () => {
-    [
-      { status: 'error', message: 'Error Message' },
-      { status: 'warning', message: 'Warning Message' },
-      { status: 'loading', message: 'Loading Message' },
-    ].forEach(test => {
-      it(`should display a status icon when status="${test.status}"`, async () => {
-        const render = createRendererWithUniDriver(
-          richTextInputAreaPrivateDriverFactory,
-        );
-        const { driver } = render(
-          <RichTextInputArea
-            status={test.status}
-            statusMessage={test.message}
-          />,
-        );
+    it('should have no status', async () => {
+      const render = createRendererWithUniDriver(
+        richTextInputAreaPrivateDriverFactory,
+      );
+      const { driver } = render(<RichTextInputArea />);
 
-        expect(await driver.hasStatus()).toBe(true);
-        expect(await driver.getStatus()).toBe(test.status);
-        expect(await driver.hasStatusMessage()).toBe(true);
-        expect(await driver.getStatusMessage()).toBe(test.message);
-      });
+      expect(await driver.hasStatus('error')).toBe(false);
     });
 
     it('should not render the status indicator when disabled', async () => {
@@ -149,6 +135,34 @@ describe('RichTextInputArea', () => {
       );
 
       expect(await driver.hasStatus()).toBe(false);
+    });
+
+    it.each([
+      { status: 'error' },
+      { status: 'warning' },
+      { status: 'loading' },
+    ])('should display status when %p', async test => {
+      const render = createRendererWithUniDriver(
+        richTextInputAreaPrivateDriverFactory,
+      );
+      const { driver } = render(<RichTextInputArea {...test} />);
+
+      expect(await driver.hasStatus(test.status)).toBe(true);
+      expect(await driver.getStatusMessage()).toBeNull();
+    });
+
+    it.each([
+      { status: 'error', statusMessage: 'Error Message' },
+      { status: 'warning', statusMessage: 'Warning Message' },
+      { status: 'loading', statusMessage: 'Loading Message' },
+    ])('should display status with message when %p', async test => {
+      const render = createRendererWithUniDriver(
+        richTextInputAreaPrivateDriverFactory,
+      );
+      const { driver } = render(<RichTextInputArea {...test} />);
+
+      expect(await driver.hasStatus(test.status)).toBe(true);
+      expect(await driver.getStatusMessage()).toBe(test.statusMessage);
     });
   });
 

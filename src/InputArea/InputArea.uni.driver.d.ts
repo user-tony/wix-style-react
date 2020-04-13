@@ -1,9 +1,13 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 import { SyntheticEventData, Simulate } from 'react-dom/test-utils';
 import { UniDriver } from 'wix-ui-test-utils/unidriver';
+import { StatusIndications } from '../common';
 
 export interface InputAreaUniDriver extends BaseUniDriver {
-  trigger: (trigger: keyof typeof Simulate, event: SyntheticEventData) => Promise<void>;
+  trigger: (
+    trigger: keyof typeof Simulate,
+    event: SyntheticEventData,
+  ) => Promise<void>;
   focus: () => Promise<void>;
   enterText: (text: string) => Promise<string>;
   getValue: () => Promise<string>;
@@ -19,7 +23,6 @@ export interface InputAreaUniDriver extends BaseUniDriver {
   getHasCounter: () => Promise<boolean>;
   getCounterValue: () => Promise<string>;
   hasExclamation: () => Promise<boolean>;
-  hasError: () => Promise<boolean>;
   isFocusedStyle: () => Promise<boolean>;
   isSizeSmall: () => Promise<boolean>;
   isHoveredStyle: () => Promise<boolean>;
@@ -30,6 +33,8 @@ export interface InputAreaUniDriver extends BaseUniDriver {
   getAriaDescribedby: () => Promise<string | null>;
   getTooltipDataHook: () => string;
   getTooltipElement: () => UniDriver;
-  isErrorMessageShown: () => Promise<boolean>;
-  getErrorMessage: () => Promise<string>;
+
+  // Status
+  hasStatus: (status: StatusIndications) => Promise<boolean>;
+  getStatusMessage: () => Promise<string | null>;
 }

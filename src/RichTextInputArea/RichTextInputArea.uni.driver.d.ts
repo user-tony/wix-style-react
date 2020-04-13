@@ -1,5 +1,5 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
-import { RichTextInputAreaStatus } from './index';
+import { StatusIndications } from '../common';
 
 export interface RichTextInputAreaUniDriver extends BaseUniDriver {
   isDisabled: () => Promise<boolean>;
@@ -8,8 +8,6 @@ export interface RichTextInputAreaUniDriver extends BaseUniDriver {
   enterText: (value: string) => Promise<void>;
 
   // Status
-  hasStatus: () => Promise<boolean>;
-  getStatus: () => Promise<RichTextInputAreaStatus>;
-  hasStatusMessage: () => Promise<boolean>;
-  getStatusMessage: () => Promise<string>;
+  hasStatus: (status: StatusIndications) => Promise<boolean>;
+  getStatusMessage: () => Promise<string | null>;
 }

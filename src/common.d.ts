@@ -55,3 +55,5 @@ export interface TooltipCommonProps {
   onShow?: TooltipProps['onShow'];
   onHide?: TooltipProps['onHide'];
 }
+
+export type StatusIndications = 'error' | 'warning' | 'loading';

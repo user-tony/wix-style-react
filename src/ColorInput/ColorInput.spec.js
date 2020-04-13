@@ -281,7 +281,13 @@ describe('ColorInput', () => {
       });
     });
 
-    describe('with status', () => {
+    describe('status attribute', () => {
+      it('should have no status', async () => {
+        const { driver } = render(renderColorInput(test));
+
+        expect(await driver.hasStatus('error')).toBe(false);
+      });
+
       it.each([
         { status: 'error' },
         { status: 'warning' },

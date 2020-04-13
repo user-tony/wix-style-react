@@ -384,5 +384,35 @@ describe('Search', () => {
         expect(await driver.dropdownLayoutDriver.isShown()).toBe(true);
       });
     });
+
+    describe('status attribute', () => {
+      it('should have no status', async () => {
+        const { inputDriver } = createDriver(<Search />);
+
+        expect(await inputDriver.hasStatus('error')).toBe(false);
+      });
+
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const { inputDriver } = createDriver(<Search {...test} />);
+
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
+        { status: 'error', statusMessage: 'Error Message' },
+        { status: 'warning', statusMessage: 'Warning Message' },
+        { status: 'loading', statusMessage: 'Loading Message' },
+      ])('should display status with message when %p', async test => {
+        const { inputDriver } = createDriver(<Search {...test} />);
+
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBe(test.statusMessage);
+      });
+    });
   }
 });

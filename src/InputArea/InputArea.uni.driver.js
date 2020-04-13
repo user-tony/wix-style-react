@@ -6,7 +6,7 @@ export const inputAreaUniDriverFactory = (base, body) => {
   const textAreaElement = base.$(`.root`);
   const textArea = base.$('textarea');
   const counterSelector = '[data-hook="counter"]';
-  const statusIndicatorTestkit = () =>
+  const getStatusIndicatorDriver = () =>
     statusIndicatorDriverFactory(
       base.$(`[data-hook="${dataHooks.tooltip}"]`),
       body,
@@ -48,12 +48,24 @@ export const inputAreaUniDriverFactory = (base, body) => {
 
     // Status
     /** Return true if there's a status */
-    hasStatus: () => statusIndicatorTestkit().exists(),
-    /** If there's a status, returns its type */
-    getStatus: () => statusIndicatorTestkit().getStatus(),
-    /** Return true if there's a status message */
-    hasStatusMessage: () => statusIndicatorTestkit().hasMessage(),
+    hasStatus: async status => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
+      if (await statusIndicatorDriver.exists()) {
+        return status === (await statusIndicatorDriver.getStatus());
+      }
+
+      return false;
+    },
     /** If there's a status message, returns its text value */
-    getStatusMessage: () => statusIndicatorTestkit().getMessage(),
+    getStatusMessage: async () => {
+      const statusIndicatorDriver = getStatusIndicatorDriver();
+      let tooltipText = null;
+
+      if (await statusIndicatorDriver.hasMessage()) {
+        tooltipText = await statusIndicatorDriver.getMessage();
+      }
+
+      return tooltipText;
+    },
   };
 };

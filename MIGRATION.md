@@ -465,8 +465,6 @@ _Pay attention: In all places without withoutDivider, the divider will disappear
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
 - removed `hasError` - use `hasStatus` instead.
 
@@ -620,8 +618,6 @@ This component was deleted, use `<Box/>` instead.
 
 *Testkit:*
 - added `hasStatus`
-- added `getStatus`
-- added `hasStatusMessage`
 - added `getStatusMessage`
 - removed `isErrorVisible` - use `hasStatus` instead
 - removed `getErrorTooltipContent` - use `getStatusMessage` instead
@@ -726,11 +722,9 @@ Behavior:
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
-- removed `hasError` - use `hasStatus` & `getStatus` instead.
-- removed `hasWarning` - use `hasStatus` & `getStatus` instead.
+- removed `hasError` - use `hasStatus`.
+- removed `hasWarning` - use `hasStatus`.
 - removed `getTooltipDataHook`.
 - removed `getTooltipElement`.
 - removed `isErrorMessageShown`.
@@ -852,8 +846,6 @@ General:
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
 - removed `inputWrapperHasError` - use `hasStatus` instead.
 
@@ -898,8 +890,6 @@ This component was deleted, use `<FormField/>` instead.
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
 
 ## \<NumberInput/>
@@ -914,8 +904,6 @@ This component was deleted, use `<FormField/>` instead.
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
 
 ## \<Page/>
@@ -1056,10 +1044,8 @@ import More from 'wix-ui-icons-common/More';
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
-- removed `hasError` - use `hasStatus` & `getStatus` instead.
+- removed `hasError` - use `hasStatus`.
 - removed `getErrorMessage` - use `getStatusMessage` instead.
 
 ## \<Search/>
@@ -1074,8 +1060,6 @@ import More from 'wix-ui-icons-common/More';
 
 *Testkit:*
 - added `hasStatus`.
-- added `getStatus`.
-- added `hasStatusMessage`.
 - added `getStatusMessage`.
 
 ## \<SideMenu/>
@@ -1633,12 +1617,10 @@ It can be on of `error`, `warning`, or `loading`, each have it's own style and i
 
 *Testkit:*
 - added `hasStatus`
-- added `getStatus`
-- added `hasStatusMessage`
 - added `getStatusMessage`
 - \~ \~ \~
-- removed `hasError` - use `hasStatus` and `getStatus` instead
-- removed `inputWrapperHasError` - use `hasStatus` and `getStatus` instead
+- removed `hasError` - use `hasStatus`
+- removed `inputWrapperHasError` - use `hasStatus`
 - removed `isErrorVisible` - use `hasStatus` instead
 - removed `getErrorTooltipContent` - use `getStatusMessage` instead
 

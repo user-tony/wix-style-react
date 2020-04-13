@@ -321,25 +321,50 @@ describe('ImageViewer', () => {
     });
 
     describe('status attribute', () => {
-      [
+      it('should have no status', async () => {
+        const props = {
+          imageUrl: '',
+          width: 300,
+          height: 300,
+          ...test,
+        };
+        const { driver } = render(buildComponent(props));
+
+        expect(await driver.hasStatus('error')).toBe(false);
+      });
+
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const props = {
+          imageUrl: '',
+          width: 300,
+          height: 300,
+          ...test,
+        };
+        const { driver } = render(buildComponent(props));
+
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
         { status: 'error', statusMessage: 'Error Message' },
         { status: 'warning', statusMessage: 'Warning Message' },
         { status: 'loading', statusMessage: 'Loading Message' },
-      ].forEach(test => {
-        it(`should display a status icon when status="${test.status}"`, async () => {
-          const props = {
-            imageUrl: '',
-            width: 300,
-            height: 300,
-            ...test,
-          };
-          const { driver } = render(buildComponent(props));
+      ])('should display status with message when %p', async test => {
+        const props = {
+          imageUrl: '',
+          width: 300,
+          height: 300,
+          ...test,
+        };
+        const { driver } = render(buildComponent(props));
 
-          expect(await driver.hasStatus()).toBe(true);
-          expect(await driver.getStatus()).toBe(test.status);
-          expect(await driver.hasStatusMessage()).toBe(true);
-          expect(await driver.getStatusMessage()).toBe(test.statusMessage);
-        });
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBe(test.statusMessage);
       });
     });
 

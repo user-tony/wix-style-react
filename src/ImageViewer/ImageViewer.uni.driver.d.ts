@@ -1,4 +1,5 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
+import { StatusIndications } from '../common';
 
 export interface ImageViewerUniDriver extends BaseUniDriver {
   updateExists: () => Promise<boolean>;
@@ -11,15 +12,17 @@ export interface ImageViewerUniDriver extends BaseUniDriver {
   getAddTooltipContent: () => Promise<string>;
   getUpdateTooltipContent: () => Promise<string>;
   getRemoveTooltipContent: () => Promise<string>;
-  getErrorTooltipContent: () => Promise<string>;
   isDisabled: () => Promise<boolean>;
   isAddItemVisible: () => Promise<boolean>;
   isLoaderVisible: () => Promise<boolean>;
-  isErrorVisible: () => Promise<boolean>;
   isImageLoaded: () => Promise<boolean>;
   isImageVisible: Promise<boolean>;
   isPreviousImageVisible: () => Promise<boolean>;
   getImageUrl: () => Promise<string | null>;
   getPreviousImageUrl: () => Promise<string | null>;
   hover: () => Promise<void>;
+
+  // Status
+  hasStatus: (status: StatusIndications) => Promise<boolean>;
+  getStatusMessage: () => Promise<string | null>;
 }

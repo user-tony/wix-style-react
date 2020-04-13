@@ -1,5 +1,6 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { SyntheticEventData, Simulate } from 'react-dom/test-utils';
+import { StatusIndications } from '../common';
 
 export interface InputAreaDriver<T> extends BaseDriver {
   trigger: (trigger: keyof typeof Simulate, event: SyntheticEventData) => void;
@@ -18,7 +19,6 @@ export interface InputAreaDriver<T> extends BaseDriver {
   getHasCounter: () => boolean;
   getCounterValue: () => string;
   hasExclamation: () => boolean;
-  hasError: () => boolean;
   isFocusedStyle: () => boolean;
   isSizeSmall: () => boolean;
   isHoveredStyle: () => boolean;
@@ -29,6 +29,8 @@ export interface InputAreaDriver<T> extends BaseDriver {
   getAriaDescribedby: () => string;
   getTooltipDataHook: () => string;
   getTooltipElement: () => T;
-  isErrorMessageShown: () => boolean;
-  getErrorMessage: () => string;
+
+  // Status
+  hasStatus: (status: StatusIndications) => boolean;
+  getStatusMessage: () => string | null;
 }

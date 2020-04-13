@@ -47,29 +47,32 @@ const inputAreaDriverFactory = ({ element, eventTrigger, wrapper }) => {
     getAriaDescribedby: () => textArea().getAttribute('aria-describedby'),
 
     // Status
-    /** Return true if there's a status */
-    hasStatus: () =>
-      !!element.querySelector(`[data-hook='${dataHooks.tooltip}']`),
-    /** If there's a status, returns its type */
-    getStatus: () =>
-      element
-        .querySelector(`[data-hook='${dataHooks.tooltip}']`)
-        .getAttribute('data-status'),
-    /** Return true if there's a status message */
-    hasStatusMessage: () =>
-      !!element.querySelector(`[data-hook='status-indicator-tooltip']`),
+    /** Return true if the given status is displayed */
+    hasStatus: status => {
+      const statusEl = element.querySelector(
+        `[data-hook='${dataHooks.tooltip}']`,
+      );
+      return (statusEl && statusEl.getAttribute('data-status')) === status;
+    },
     /** If there's a status message, returns its text value */
     getStatusMessage: () => {
+      let tooltipText = null;
       const tooltipDriver = tooltipDriverFactory({
         element: element.querySelector(
-          `[data-hook='status-indicator-tooltip']`,
+          '[data-hook="status-indicator-tooltip"]',
         ),
-        wrapper,
         eventTrigger,
       });
 
-      tooltipDriver.mouseEnter();
-      return tooltipDriver.getContentElement().textContent;
+      if (tooltipDriver.exists()) {
+        tooltipDriver.mouseEnter();
+        const contentElement = tooltipDriver.getContentElement();
+        if (contentElement) {
+          tooltipText = contentElement.textContent;
+        }
+      }
+
+      return tooltipText;
     },
   };
 };

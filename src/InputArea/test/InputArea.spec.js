@@ -202,24 +202,32 @@ describe('InputArea', () => {
     });
 
     describe('status attribute', () => {
-      [
-        { status: 'error', message: 'Error Message' },
-        { status: 'warning', message: 'Warning Message' },
-        { status: 'loading', message: 'Loading Message' },
-      ].forEach(test => {
-        it(`should display a status icon when status="${test.status}"`, async () => {
-          const driver = createDriver(
-            <InputAreaForTesting
-              status={test.status}
-              statusMessage={test.message}
-            />,
-          );
+      it('should have no status', async () => {
+        const { driver } = render(<InputAreaForTesting />);
 
-          expect(await driver.hasStatus()).toBe(true);
-          expect(await driver.getStatus()).toBe(test.status);
-          expect(await driver.hasStatusMessage()).toBe(true);
-          expect(await driver.getStatusMessage()).toBe(test.message);
-        });
+        expect(await driver.hasStatus('error')).toBe(false);
+      });
+
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const { driver } = render(<InputAreaForTesting {...test} />);
+
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
+        { status: 'error', statusMessage: 'Error Message' },
+        { status: 'warning', statusMessage: 'Warning Message' },
+        { status: 'loading', statusMessage: 'Loading Message' },
+      ])('should display status with message when %p', async test => {
+        const { driver } = render(<InputAreaForTesting {...test} />);
+
+        expect(await driver.hasStatus(test.status)).toBe(true);
+        expect(await driver.getStatusMessage()).toBe(test.statusMessage);
       });
     });
 

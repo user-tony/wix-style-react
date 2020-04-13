@@ -273,4 +273,34 @@ describe('NumberInput', () => {
     await driver.clickOnDecrement();
     expect(await driver.getValue()).toEqual('41');
   });
+
+  describe('status attribute', () => {
+    it('should have no status', async () => {
+      const driver = createDriver(<NumberInput />);
+
+      expect(await driver.hasStatus('error')).toBe(false);
+    });
+
+    it.each([
+      { status: 'error' },
+      { status: 'warning' },
+      { status: 'loading' },
+    ])('should display status when %p', async test => {
+      const driver = createDriver(<NumberInput {...test} />);
+
+      expect(await driver.hasStatus(test.status)).toBe(true);
+      expect(await driver.getStatusMessage()).toBeNull();
+    });
+
+    it.each([
+      { status: 'error', statusMessage: 'Error Message' },
+      { status: 'warning', statusMessage: 'Warning Message' },
+      { status: 'loading', statusMessage: 'Loading Message' },
+    ])('should display status with message when %p', async test => {
+      const driver = createDriver(<NumberInput {...test} />);
+
+      expect(await driver.hasStatus(test.status)).toBe(true);
+      expect(await driver.getStatusMessage()).toBe(test.statusMessage);
+    });
+  });
 });

@@ -107,11 +107,12 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
 
     // Status
     /** Return true if the given status is displayed */
-    hasStatus: status =>
-      status ===
-      element
-        .querySelector(`[data-hook='${dataHooks.status}']`)
-        .getAttribute('data-status'),
+    hasStatus: status => {
+      const statusEl = element.querySelector(
+        `[data-hook='${dataHooks.status}']`,
+      );
+      return (statusEl && statusEl.getAttribute('data-status')) === status;
+    },
     /** If there's a status message, returns its text value */
     getStatusMessage: () => {
       let tooltipText = null;

@@ -1,6 +1,7 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 import { SyntheticEventData } from 'react-dom/test-utils';
-import { InputSize, InputStatus } from './index';
+import { InputSize } from './index';
+import { StatusIndications } from '../common';
 
 export interface InputUniDriver extends BaseUniDriver {
   click: () => Promise<void>;
@@ -66,6 +67,6 @@ export interface InputUniDriver extends BaseUniDriver {
   clickOutside: () => boolean;
 
   // Status
-  hasStatus: (status: InputStatus) => Promise<boolean>;
+  hasStatus: (status: StatusIndications) => Promise<boolean>;
   getStatusMessage: () => Promise<string | null>;
 }

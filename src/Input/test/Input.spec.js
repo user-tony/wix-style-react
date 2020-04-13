@@ -189,6 +189,12 @@ describe('Input', () => {
     });
 
     describe('status attribute', () => {
+      it('should have no status', async () => {
+        const { driver } = render(<Input />);
+
+        expect(await driver.hasStatus('error')).toBe(false);
+      });
+
       it.each([
         { status: 'error' },
         { status: 'warning' },

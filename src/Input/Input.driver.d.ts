@@ -1,7 +1,7 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { SyntheticEventData } from 'react-dom/test-utils';
-import { FocusOptionsPolyfill } from '../common';
-import { InputSize, InputStatus } from './index';
+import { FocusOptionsPolyfill, StatusIndications } from '../common';
+import { InputSize } from './index';
 
 export interface InputDriver extends BaseDriver {
   trigger: (trigger: string, event: SyntheticEventData) => void;
@@ -67,6 +67,6 @@ export interface InputDriver extends BaseDriver {
   isCustomInput: () => boolean;
 
   // Status
-  hasStatus: (status: InputStatus) => boolean;
+  hasStatus: (status: StatusIndications) => boolean;
   getStatusMessage: () => string | null;
 }

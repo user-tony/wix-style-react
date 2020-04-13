@@ -28,14 +28,20 @@ describe('NoBorderInput', () => {
     expect(driver.getLabel()).toEqual(someLabel);
   });
 
+  it('should not have status', () => {
+    const driver = createDriver(renderNoBorderInputWithProps({}));
+    expect(driver.hasStatus('error')).toBe(false);
+  });
+
   it('should render the status message', () => {
-    const someStatusMessage = 'george';
+    const someStatusMessage = 'Error!';
     const driver = createDriver(
       renderNoBorderInputWithProps({
         status: NoBorderInput.StatusError,
         statusMessage: someStatusMessage,
       }),
     );
+    expect(driver.hasStatus('error')).toBe(true);
     expect(driver.getStatusMessage()).toEqual(someStatusMessage);
   });
 
