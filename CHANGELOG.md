@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 - Aligned status indication API across all input family components [#5339](https://github.com/wix/wix-style-react/pull/5339)
+- `<Button/>` - fix uni.driver type [#5341](https://github.com/wix/wix-style-react/pull/5341)
 
 ### Added
 
