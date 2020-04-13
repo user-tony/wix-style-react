@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Sidebar/>`- Add shadow to sidebar for scrolling indication [#5297](https://github.com/wix/wix-style-react/pull/5297)
+
 ## 8.1.0 - 2020-04-13
 
 ### Fixed
