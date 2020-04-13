@@ -49,7 +49,8 @@ class Sidebar extends Component {
   };
 
   itemKey2Children = {};
-  itemKey2ParenttKey = {};
+  itemKey2ParentKey = {};
+  onScreenChildrenRef = React.createRef();
 
   state = {
     persistentTopChildren: [],
@@ -57,20 +58,24 @@ class Sidebar extends Component {
     onScreenChildren: [],
     drivenInChildren: [],
     persistentBottomChildren: [],
-
     selectedKey: '',
     lastSelectedKey: '',
+    isScrollbarDisplayed: false,
   };
 
+  componentDidMount() {
+    this._shouldAddGradient();
+  }
+
   _navigateTo = itemKey => {
-    if (this.itemKey2ParenttKey[itemKey]) {
-      if (this.itemKey2ParenttKey[itemKey] !== this.state.lastSelectedKey) {
+    if (this.itemKey2ParentKey[itemKey]) {
+      if (this.itemKey2ParentKey[itemKey] !== this.state.lastSelectedKey) {
         this.setState({
           drivenInChildren: this.itemKey2Children[
-            this.itemKey2ParenttKey[itemKey]
+            this.itemKey2ParentKey[itemKey]
           ].children,
           selectedKey: itemKey,
-          lastSelectedKey: this.itemKey2ParenttKey[itemKey],
+          lastSelectedKey: this.itemKey2ParentKey[itemKey],
         });
       } else {
         this.setState({ selectedKey: itemKey });
@@ -110,6 +115,11 @@ class Sidebar extends Component {
     };
   };
 
+  _shouldAddGradient() {
+    const { scrollHeight, clientHeight } = this.onScreenChildrenRef.current;
+    this.setState({ isScrollbarDisplayed: scrollHeight > clientHeight });
+  }
+
   sidebarContext = this._getSidebarContext();
 
   UNSAFE_componentWillMount() {
@@ -142,7 +152,7 @@ class Sidebar extends Component {
         if (child.props.innerMenu) {
           child.props.innerMenu.forEach(innerChild => {
             if (innerChild.type === SidebarItem) {
-              this.itemKey2ParenttKey[innerChild.props.itemKey] =
+              this.itemKey2ParentKey[innerChild.props.itemKey] =
                 child.props.itemKey;
             }
           });
@@ -178,7 +188,7 @@ class Sidebar extends Component {
       selectedKey: props.selectedKey,
     };
 
-    const selectedItemParentKey = this.itemKey2ParenttKey[props.selectedKey];
+    const selectedItemParentKey = this.itemKey2ParentKey[props.selectedKey];
     if (selectedItemParentKey) {
       this.setState({
         ...newState,
@@ -193,11 +203,6 @@ class Sidebar extends Component {
       });
     }
   }
-
-  /** marks the selected key as the current one */
-  setSelectedKey = selectedKey => {
-    this.setState({ selectedKey });
-  };
 
   render() {
     const css = { ...defaultCss, ...this.props.classNames };
@@ -224,6 +229,11 @@ class Sidebar extends Component {
       [css.light]: this.props.skin === sidebarSkins.light,
     });
 
+    const gradientClasses = classNames({
+      [css.gradient]: this.state.isScrollbarDisplayed,
+      [css.light]: this.props.skin === sidebarSkins.light,
+    });
+
     return (
       <SidebarContext.Provider value={this.sidebarContext}>
         <div className={rootClasses} data-hook={this.props.dataHook}>
@@ -242,9 +252,16 @@ class Sidebar extends Component {
 
             <div
               className={sliderClasses}
+              ref={this.onScreenChildrenRef}
               data-hook={dataHooks.onScreenChildren}
             >
               {this.state.onScreenChildren}
+              {this.state.isScrollbarDisplayed && (
+                <div
+                  className={gradientClasses}
+                  data-hook={dataHooks.scrollBarGradient}
+                />
+              )}
             </div>
 
             {this.state.drivenInChildren.length !== 0 && (

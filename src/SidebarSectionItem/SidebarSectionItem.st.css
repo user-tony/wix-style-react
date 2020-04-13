@@ -1,7 +1,7 @@
 :import {
   -st-from: "../Text/Text.st.css";
   -st-default: Text;
-};
+}
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
