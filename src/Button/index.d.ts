@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {OmitPolyfill} from '../common';
-import {IconElement} from '../common';
+import { OmitPolyfill, IconElement } from '../common';
 
 export type ButtonWithAsProp<T> =
   | ButtonAsButtonProps<T>
