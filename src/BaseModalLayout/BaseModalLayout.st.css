@@ -59,7 +59,7 @@
 
 
 
-/** Footer - start **/
+/* Footer - start */
 .buttons {
   display: flex;
   align-items: center;
@@ -92,7 +92,7 @@
   margin-right: 0;
 }
 
-/** Footer - end **/
+/* Footer - end */
 
 .footnote {
   padding: value(spacing12) 0;
@@ -101,7 +101,7 @@
 }
 
 
-/** Header - start **/
+/* Header - start */
 .header {
 
 }
@@ -109,9 +109,7 @@
 
 }
 
-/** Header - end **/
-
-
+/* Header - end */
 .closeButton {
   position: absolute;
   right: value(spacing12);

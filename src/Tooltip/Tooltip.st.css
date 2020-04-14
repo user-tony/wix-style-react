@@ -39,7 +39,7 @@
   display: block;
 }
 
-/** Popover Content */
+/* Popover Content */
 
 .root::popoverContent {
   border: none;

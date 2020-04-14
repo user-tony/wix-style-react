@@ -55,7 +55,7 @@
   box-shadow: 0 0 0 3px value(F00);
 }
 
-/** Theme plain */
+/* Theme plain */
 
 .root:theme(plain) {
   background-color: white;
@@ -76,7 +76,7 @@
   color: value(D10-30);
 }
 
-/** Theme dashes **/
+/* Theme dashes */
 
 .root:theme(dashes) {
   border: dashed 1px value(B20);
@@ -104,7 +104,7 @@
   border: dashed 1px transparent;
 }
 
-/** Theme filled **/
+/* Theme filled */
 
 .root:theme(filled) {
   background-color: value(B50);
@@ -126,7 +126,7 @@
   color: value(D10-30);
 }
 
-/** Theme image **/
+/* Theme image */
 
 .root:theme(image) {
   display: block;
@@ -152,7 +152,7 @@
   background-color: value(D70);
 }
 
-/** Content **/
+/* Content */
 
 .content {
   -st-states: theme(enum(image)), alignItems(enum(center, right, left)), size(enum(tiny)), disabled;
@@ -165,7 +165,7 @@
   height: 100%;
 }
 
-/** Specific theme image classname **/
+/* Specific theme image classname */
 .content:theme(image) {
   border: dashed 1px value(B20);
   border-radius: 3px;
@@ -195,7 +195,7 @@
   flex-direction: row;
 }
 
-/** Text **/
+/* Text */
 
 .text {
   -st-states:size(enum(tiny, small, medium, large));

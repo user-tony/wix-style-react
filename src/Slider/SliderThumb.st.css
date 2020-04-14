@@ -39,7 +39,7 @@
 
 .root:not(:disabled):focus {
   box-shadow: 0 0 0 3px transparent;
-  /** rc-slider focus overwrite */
+  /* rc-slider focus overwrite */
   border: 0 solid transparent;
   z-index: 2;
   /* removing native browser focus */

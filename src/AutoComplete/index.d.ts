@@ -3,9 +3,7 @@ import InputWithOptions, {
   OnSelectFnSignature,
   InputWithOptionsProps,
 } from '../InputWithOptions';
-import  {
-  DropdownLayoutValueOption
-} from '../DropdownLayout';
+import { DropdownLayoutValueOption } from '../DropdownLayout';
 
 export interface AutoCompleteProps extends InputWithOptionsProps {
   predicate?: (option: DropdownLayoutValueOption) => boolean;

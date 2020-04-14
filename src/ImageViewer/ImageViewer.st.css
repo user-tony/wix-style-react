@@ -56,7 +56,7 @@
   border: 1px solid value(Y10);
 }
 
-/** buttons group style **/
+/* buttons group style */
 
 .buttons {
   display: flex;
@@ -75,7 +75,7 @@
   display: none;
 }
 
-/** image styles **/
+/* image styles */
 
 .imageContainer {
   -st-states: shouldDisplay;
@@ -136,14 +136,14 @@
   transform: scale(1.1);
 }
 
-/** status styles **/
+/* status styles */
 .statusContainer {
   position: absolute;
   right: 9px;
   top: 9px;
 }
 
-/** disabled styles */
+/* disabled styles */
 
 .root:disabled {
   cursor: not-allowed;
