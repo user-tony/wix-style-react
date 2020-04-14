@@ -4,7 +4,7 @@
 ```javascript
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import Button from 'wix-style-react/Button';
+import { Button } from 'wix-style-react';
 import { buttonTestkitFactory } from 'wix-style-react/dist/testkit';
 
 const div = document.createElement('div');
@@ -23,9 +23,11 @@ const wrapper = div.appendChild(
 const testkit = buttonTestkitFactory({ wrapper, dataHook });
 
 //Do tests
-describe('Element should exist', async () => {
-  expect(await testkit.exists()).toBeTruthy();
-});
+describe('App', () => {
+  it('Element should exist', async () => {
+    expect(await testkit.exists()).toBeTruthy();
+  });
+}
 ```
 
 ## Enzyme Example
