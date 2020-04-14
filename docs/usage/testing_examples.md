@@ -27,7 +27,7 @@ describe('App', () => {
   it('Element should exist', async () => {
     expect(await testkit.exists()).toBeTruthy();
   });
-}
+});
 ```
 
 ## Enzyme Example
@@ -35,7 +35,7 @@ describe('App', () => {
 ```javascript
 import React from 'react';
 import { mount } from 'enzyme';
-import Button from 'wix-style-react/Button';
+import { Button } from 'wix-style-react';
 import { buttonTestkitFactory } from 'wix-style-react/dist/testkit/enzyme';
 
 const dataHook = 'myDataHook';
@@ -48,8 +48,10 @@ const wrapper = mount(
 const testkit = buttonTestkitFactory({ wrapper, dataHook });
 
 //Do tests
-describe('Element should exist', async () => {
-  expect(await testkit.exists()).toBeTruthy();
+describe('App', () => {
+  it('Element should exist', async () => {
+    expect(await testkit.exists()).toBeTruthy();
+  });
 });
 ```
 
@@ -73,8 +75,10 @@ const testkit = await buttonTestkitFactory({
 await page.goto('/page-where-button-appears'); //Your application url
 
 //Do tests
-describe('Element should exist', async () => {
-  expect(await testkit.exists()).toBeTruthy();
+describe('App', () => {
+  it('Element should exist', async () => {
+    expect(await testkit.exists()).toBeTruthy();
+  });
 });
 ```
 
@@ -91,7 +95,9 @@ const testkit = buttonTestkitFactory({ dataHook: 'myDataHook' });
 await browser.get('/page-where-button-appears'); //Your application url
 
 //Do tests
-describe('Element should exist', async () => {
-  expect(await testkit.exists()).toBeTruthy();
+describe('App', () => {
+  it('Element should exist', async () => {
+    expect(await testkit.exists()).toBeTruthy();
+  });
 });
 ```
