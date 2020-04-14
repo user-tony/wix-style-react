@@ -68,6 +68,10 @@
   color: value(B20);
 }
 
+.pagination::emptyButton {
+  -st-mixin: button-common-mixin;
+}
+
 .pagination::gap {
   -st-mixin: button-common-mixin;
   color: value(D10);
