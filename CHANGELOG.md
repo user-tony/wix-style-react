@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Sidebar/>`- Add shadow to sidebar for scrolling indication [#5297](https://github.com/wix/wix-style-react/pull/5297)
 
+### Fixed
+- <Pagination />  - correctly render empty nav buttons [#5345](https://github.com/wix/wix-style-react/pull/5345)
+
 ## 8.1.0 - 2020-04-13
 
 ### Fixed
