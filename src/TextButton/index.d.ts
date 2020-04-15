@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {IconElement} from '../common';
+import { IconElement } from '../common';
 
-import {ButtonWithAsProp} from '../Button';
+import { ButtonWithAsProp } from '../Button';
 
 export type TextButtonProps = ButtonWithAsProp<{
   className?: string;
@@ -13,6 +13,7 @@ export type TextButtonProps = ButtonWithAsProp<{
   prefixIcon?: IconElement;
   disabled?: boolean;
   dataHook?: string;
+  fluid?: boolean;
 }>;
 
 export default class TextButton extends React.Component<TextButtonProps> {}

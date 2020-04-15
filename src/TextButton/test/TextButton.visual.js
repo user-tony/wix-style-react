@@ -1,6 +1,9 @@
 import React from 'react';
 import AddChannel from 'wix-ui-icons-common/AddChannel';
 import TextButton from '../TextButton';
+import Box from '../../Box';
+import Text from '../../Text';
+
 import { visualize, story, snap } from 'storybook-snapper';
 
 import {
@@ -76,5 +79,15 @@ visualize('TextButton', () => {
     story(describe, () => {
       its.map(({ it, props }) => snap(it, () => <TextButton {...props} />));
     });
+  });
+
+  story('ellipsis', () => {
+    snap('Using Text', () => (
+      <Box width="150px">
+        <TextButton fluid>
+          <Text ellipsis>TextButton that gets shrinked</Text>
+        </TextButton>
+      </Box>
+    ));
   });
 });

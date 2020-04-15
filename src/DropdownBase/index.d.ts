@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { MoveByOffset } from '../common';
-import { DropdownLayoutValueOption, DropdownLayoutProps } from '../DropdownLayout';
+import {
+  DropdownLayoutValueOption,
+  DropdownLayoutProps,
+} from '../DropdownLayout';
 import { PopoverProps } from '../Popover';
 
 export interface DropdownBaseProps {
@@ -27,9 +30,12 @@ export interface DropdownBaseProps {
   moveBy?: MoveByOffset;
   flip?: boolean;
   fixed?: boolean;
+  fluid?: boolean;
 }
 
-export default class DropdownBase extends React.PureComponent<DropdownBaseProps> {}
+export default class DropdownBase extends React.PureComponent<
+  DropdownBaseProps
+> {}
 
 export type DropdownBaseChildrenFn = React.ReactNode | ChildrenFnArgs;
 export type ChildrenFnArgs = (data: {

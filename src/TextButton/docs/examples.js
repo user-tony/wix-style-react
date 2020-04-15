@@ -66,3 +66,13 @@ export const custom = `
   </Box>
 </Layout>
 `;
+
+export const fluid = `
+<Box width="150px">
+  <TextButton fluid>
+    <Text ellipsis={true}>
+      TextButton that gets shrinked
+    </Text>
+  </TextButton>
+</Box>  
+`;

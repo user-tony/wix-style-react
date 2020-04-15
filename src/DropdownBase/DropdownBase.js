@@ -115,6 +115,9 @@ class DropdownBase extends React.PureComponent {
      * original placement even when it's being positioned outside the boundary.
      */
     fixed: PropTypes.bool,
+
+    /** stretches trigger element to its parent container witdth */
+    fluid: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -122,6 +125,7 @@ class DropdownBase extends React.PureComponent {
     appendTo: 'parent',
     showArrow: false,
     maxHeight: '260px',
+    fluid: false,
   };
 
   _dropdownLayoutRef = null;
@@ -323,6 +327,7 @@ class DropdownBase extends React.PureComponent {
       overflow,
       dynamicWidth,
       maxHeight,
+      fluid,
     } = this.props;
 
     const { open, selectedId } = this.state;
@@ -343,6 +348,7 @@ class DropdownBase extends React.PureComponent {
         onClickOutside={this._handleClickOutside}
         fixed={fixed}
         flip={flip}
+        fluid={fluid}
         {...style(
           'root',
           {

@@ -1,17 +1,35 @@
 import React from 'react';
+import {
+  header,
+  tabs,
+  tab,
+  columns,
+  description,
+  importExample,
+  example as baseExample,
+  divider,
+  title,
+  api,
+  testkit,
+  playground,
+} from 'wix-storybook-utils/Sections';
 import { storySettings } from './storySettings';
 
-import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
-
 import DropdownBase from '..';
+import TextButton from '../../TextButton';
+import IconButton from '../../IconButton';
+import Input from '../../Input';
 import { Layout, Cell } from '../../Layout';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import Date from 'wix-ui-icons-common/Date';
+
 import { placements } from '../../Popover';
 import Button from '../../Button';
 
-import ExampleUncontrolledClick from '!raw-loader!./examples/ExampleUncontrolledClick';
-import ExampleUncontrolledIcon from '!raw-loader!./examples/ExampleUncontrolledIcon';
-import ExampleControlledInput from '!raw-loader!./examples/ExampleControlledInput';
-import ExampleControlledMouse from '!raw-loader!./examples/ExampleControlledMouse';
+import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 const options = [
   {
@@ -84,49 +102,149 @@ export default {
       `Triggered with: ${JSON.stringify(selectedOption)}`,
     onClickOutside: () => 'Triggered!',
   },
+  sections: [
+    header({
+      component: (
+        <Layout alignItems="center">
+          <Cell span={2}>
+            <DropdownBase
+              appendTo="window"
+              dynamicWidth
+              options={[
+                { id: 0, value: 'First option' },
+                { id: 1, value: 'Second option' },
+                { id: 2, value: 'Third option' },
+                { id: 3, value: 'Fourth option' },
+                { id: 4, value: 'Fifth option' },
+                { id: 5, value: 'Sixth option' },
+              ]}
+            >
+              {({ toggle, selectedOption = {} }) => {
+                return (
+                  <TextButton
+                    skin="dark"
+                    suffixIcon={<ChevronDown />}
+                    onClick={toggle}
+                    dataHook={'drop-down-opener'}
+                  >
+                    {selectedOption.value || 'Select an option'}
+                  </TextButton>
+                );
+              }}
+            </DropdownBase>
+          </Cell>
+          <Cell span={1}>
+            <DropdownBase
+              appendTo="window"
+              showArrow
+              dynamicWidth
+              options={[
+                { id: 0, value: 'First option' },
+                { id: 1, value: 'Second option' },
+                { id: 2, value: 'Third option' },
+                { id: 3, value: 'Fourth option' },
+                { id: 4, value: 'Fifth option' },
+                { id: 5, value: 'Sixth option' },
+              ]}
+            >
+              {({ toggle }) => {
+                return (
+                  <IconButton onClick={toggle}>
+                    <Date />
+                  </IconButton>
+                );
+              }}
+            </DropdownBase>
+          </Cell>
+          <Cell span={4}>
+            <DropdownBase
+              appendTo="window"
+              dynamicWidth
+              options={[
+                { id: 0, value: 'First option' },
+                { id: 1, value: 'Second option' },
+                { id: 2, value: 'Third option' },
+                { id: 3, value: 'Fourth option' },
+                { id: 4, value: 'Fifth option' },
+                { id: 5, value: 'Sixth option' },
+              ]}
+            >
+              {({ toggle }) => {
+                return (
+                  <Input
+                    menuArrow
+                    dataHook={'drop-down-opener'}
+                    placeholder="Type something"
+                    onInputClicked={toggle}
+                  />
+                );
+              }}
+            </DropdownBase>
+          </Cell>
+        </Layout>
+      ),
+    }),
 
-  examples: (
-    <div
-      style={{
-        maxWidth: 1254,
-        padding: 10,
-      }}
-    >
-      <Layout>
-        <Cell span={6}>
-          <LiveCodeExample
-            compact
-            title="Uncontrolled example with click events"
-            initialCode={ExampleUncontrolledClick}
-          />
-        </Cell>
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description({
+            title: 'Description',
+            text: `There is a common behaviour of "Dropdown-like" components in our library. They have a trigger
+                element, and a list of items that opens when the user interacts with that trigger element. The
+                <DropdownBase/> component is a higher-level component that encapsulates that logic, and allows
+                you to create "Dropdown-like" component with ease.`,
+          }),
 
-        <Cell span={6}>
-          <LiveCodeExample
-            compact
-            title="Uncontrolled example with an icon"
-            initialCode={ExampleUncontrolledIcon}
-          />
-        </Cell>
+          importExample(),
 
-        <Cell span={6}>
-          <LiveCodeExample
-            compact
-            autoRender={false}
-            title="Controlled example with mouse events"
-            initialCode={ExampleControlledMouse}
-          />
-        </Cell>
+          divider(),
 
-        <Cell span={6}>
-          <LiveCodeExample
-            compact
-            autoRender={false}
-            title="Controlled example with an input"
-            initialCode={ExampleControlledInput}
-          />
-        </Cell>
-      </Layout>
-    </div>
-  ),
+          title('Examples'),
+
+          example({
+            title: 'TextButton (click)',
+            text:
+              'An example that shows how to use TextButton and its click events to control DropdownBase.',
+            source: examples.uncontrolled,
+          }),
+
+          example({
+            title: 'IconButton (hover)',
+            text:
+              'An example that shows how to use IconButton and its hover events to control DropdownBase.',
+            source: examples.uncontrolledIcon,
+          }),
+
+          example({
+            title: 'Button (hover)(controlled)',
+            text:
+              'An example that shows how to use controlled Button and its hover events to control DropdownBase.',
+            source: examples.controlledButton,
+          }),
+
+          example({
+            title: 'Input (click)(controlled)',
+            text:
+              'An example that shows how to use controlled Input and its click events to control DropdownBase.',
+            source: examples.controlledInput,
+          }),
+
+          example({
+            title: 'TextButton with Ellipsis',
+            text:
+              'An example that shows how to achieve ellipsis functionality using Text, TextButton and DropdownBase',
+            source: examples.uncontrolledEllipsis,
+          }),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };

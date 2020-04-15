@@ -43,6 +43,8 @@ class TextButton extends PureComponent {
     children: node,
     /** String based data hook */
     dataHook: string,
+    /** Stretches text button to its container width */
+    fluid: bool,
   };
 
   static defaultProps = {
@@ -51,6 +53,7 @@ class TextButton extends PureComponent {
     weight: 'thin',
     size: 'medium',
     disabled: false,
+    fluid: false,
   };
 
   render() {
@@ -62,10 +65,18 @@ class TextButton extends PureComponent {
       children,
       className: userClassName,
       dataHook,
+      fluid,
       ...rest
     } = this.props;
 
-    const { className } = styles('root', { skin, underline, weight, size });
+    const { className } = styles('root', {
+      skin,
+      underline,
+      weight,
+      size,
+      fluid,
+    });
+
     const classNames = cx(className, userClassName);
 
     return (
@@ -77,7 +88,7 @@ class TextButton extends PureComponent {
           'weight',
           'underline',
         ])}
-        {...styles('root', { skin, underline, weight, size }, rest)}
+        {...styles('root', { skin, underline, weight, size, fluid }, rest)}
         className={classNames}
         data-hook={dataHook}
       >

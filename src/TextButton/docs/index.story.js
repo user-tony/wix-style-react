@@ -117,6 +117,13 @@ export default {
             }),
 
             example({
+              title: 'Ellipsis',
+              text:
+                'TextButton can be used in combination with Text component achieve ellipsis functionality.',
+              source: examples.fluid,
+            }),
+
+            example({
               title: 'Custom HTML tag',
               text: `
                   This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>

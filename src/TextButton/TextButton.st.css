@@ -16,7 +16,7 @@
 
 .root {
   -st-extends: ButtonNext;
-  -st-states: skin(string), underline(string), weight(string), size(string);
+  -st-states: skin(string), underline(string), weight(string), size(string), fluid;
 
   color: value(B10);
   white-space: nowrap;
@@ -53,6 +53,10 @@
 
 .root:focus-visible {
   box-shadow: 0 0 0 3px value(F00);
+}
+
+.root:fluid, .root:fluid::content {
+  width: 100%;
 }
 
 /* Underline: onHover */
