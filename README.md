@@ -131,7 +131,7 @@ For any issues, check out our types [FAQ](https://github.com/wix/wix-style-react
 
 We welcome contributions to Wix-Style-React!
 
-Read our [contributing guide](./CONTRIBUTING.md) and help us build or improve our components.
+Read our [contributing guide](https://github.com/wix/wix-style-react/blob/master/CONTRIBUTING.md) and help us build or improve our components.
 
 ## 📝 License
 
