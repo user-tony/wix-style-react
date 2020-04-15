@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+- `<Input/>` - out of date README.TESTKIT.md removed[#5352](https://github.com/wix/wix-style-react/pull/5352)
+
 ## 8.2.0 - 2020-04-15
 
 ### Added
