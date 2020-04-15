@@ -22,7 +22,7 @@ Types of changes:
 - `<DropdownBase/>` - support fluid functionality [#5349](https://github.com/wix/wix-style-react/pull/5349)
 
 ### Fixed
-- <Pagination />  - correctly render empty nav buttons [#5345](https://github.com/wix/wix-style-react/pull/5345)
+- `<Pagination />`  - correctly render empty nav buttons [#5345](https://github.com/wix/wix-style-react/pull/5345)
 
 ## 8.1.0 - 2020-04-13
 
