@@ -16,12 +16,15 @@ Types of changes:
 
 ## Next
 
+## 8.3.0 - 2020-04-16
+
 ### Added
 - `<CheckToggle/>` -  new component [#5334](https://github.com/wix/wix-style-react/pull/5334)
 
 ### Fixed
 - `<Input/>` - out of date README.TESTKIT.md removed [#5352](https://github.com/wix/wix-style-react/pull/5352)
 - `<Page.Sticky/>` - add missing `propType` and type for `style` prop [#5356](https://github.com/wix/wix-style-react/pull/5356)
+- set a fixed version of react-day-picker@7.4.1 due to breaking chang in the import API
 
 ## 8.2.0 - 2020-04-15
 
