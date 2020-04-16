@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+## 7.56.1 - 2020-04-16
+
+### Fixed
+- set a fixed version of react-day-picker@7.4.1 due to breaking chang in the import API
+
 ## 7.56.0 - 2020-04-16
 
 ### Added
