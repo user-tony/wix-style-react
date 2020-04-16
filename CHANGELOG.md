@@ -21,6 +21,7 @@ Types of changes:
 
 ### Fixed
 - `<Input/>` - out of date README.TESTKIT.md removed [#5352](https://github.com/wix/wix-style-react/pull/5352)
+- `<Page.Sticky/>` - add missing `propType` and type for `style` prop [#5356](https://github.com/wix/wix-style-react/pull/5356)
 
 ## 8.2.0 - 2020-04-15
 
