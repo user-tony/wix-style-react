@@ -33,4 +33,5 @@ export const PageSticky = ({ children, className, style, ...props }) => {
 PageSticky.displayName = 'Page.Sticky';
 PageSticky.propTypes = {
   children: PropTypes.element.isRequired,
+  style: PropTypes.style,
 };

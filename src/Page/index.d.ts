@@ -43,6 +43,7 @@ declare const Tail: React.SFC<TailProps>;
 
 export interface StickyProps {
   children: React.ReactElement | StickyChildrenRenderFn;
+  style?: React.CSSProperties;
 }
 type StickyChildrenRenderFn = (data: {
   style: string;
