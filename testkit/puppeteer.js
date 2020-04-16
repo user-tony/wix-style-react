@@ -52,6 +52,7 @@ export const calendarPanelFooterTestkitFactory = puppeteerUniTestkitFactoryCreat
 export const cardGalleryItemTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CardGalleryItem/CardGalleryItem.uni.driver')));
 export const carouselTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Carousel/Carousel.uni.driver')));
 export const checkboxTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Checkbox/Checkbox.uni.driver')));
+export const checkToggleTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CheckToggle/CheckToggle.uni.driver')));
 export const circularProgressBarTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CircularProgressBar/CircularProgressBar.uni.driver')));
 export const closeButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CloseButton/CloseButton.uni.driver')));
 export const colorInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ColorInput/ColorInput.uni.driver')));

@@ -58,6 +58,7 @@ export const calendarPanelFooterTestkitFactory = protractorUniTestkitFactoryCrea
 export const cardGalleryItemTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CardGalleryItem/CardGalleryItem.uni.driver')));
 export const carouselTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Carousel/Carousel.protractor.driver')));
 export const checkboxTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Checkbox/Checkbox.protractor.driver')));
+export const checkToggleTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CheckToggle/CheckToggle.uni.driver')));
 export const circularProgressBarTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/CircularProgressBar/CircularProgressBar.protractor.driver')));
 export const closeButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CloseButton/CloseButton.uni.driver')));
 export const colorInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ColorInput/ColorInput.uni.driver')));

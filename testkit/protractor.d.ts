@@ -26,6 +26,7 @@ export const calendarPanelFooterTestkitFactory: any;
 export const cardGalleryItemTestkitFactory: any;
 export const carouselTestkitFactory: any;
 export const checkboxTestkitFactory: any;
+export const checkToggleTestkitFactory: any;
 export const circularProgressBarTestkitFactory: any;
 export const closeButtonTestkitFactory: any;
 export const colorInputTestkitFactory: any;

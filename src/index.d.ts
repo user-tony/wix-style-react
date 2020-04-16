@@ -403,4 +403,8 @@ export { default as AnnouncementModalLayout } from './AnnouncementModalLayout';
 export * from './AnnouncementModalLayout';
 
 export { default as Pagination } from './Pagination';
+
+export { default as CheckToggle } from './CheckToggle';
+export * from './CheckToggle'
+
 export * from './Pagination';

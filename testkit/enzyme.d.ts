@@ -63,6 +63,8 @@ import {CarouselDriver} from '../src/Carousel/Carousel.driver';
 export const carouselTestkitFactory: EnzymeTestkitFactory<CarouselDriver>;
 import {CheckboxDriver} from '../src/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory: EnzymeTestkitFactory<CheckboxDriver>;
+import {CheckToggleUniDriver} from '../src/CheckToggle/CheckToggle.uni.driver';
+export const checkToggleTestkitFactory: EnzymeUniTestkitFactory<CheckToggleUniDriver>;
 import {CircularProgressBarDriver} from '../src/CircularProgressBar/CircularProgressBar.driver';
 export const circularProgressBarTestkitFactory: EnzymeTestkitFactory<CircularProgressBarDriver>;
 import {CloseButtonUniDriver} from '../src/CloseButton/CloseButton.uni.driver';

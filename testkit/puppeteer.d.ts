@@ -63,6 +63,8 @@ import {CarouselUniDriver} from '../src/Carousel/Carousel.uni.driver';
 export const carouselTestkitFactory: PuppeteerUniTestkitFactory<CarouselUniDriver>;
 import {CheckboxUniDriver} from '../src/Checkbox/Checkbox.uni.driver';
 export const checkboxTestkitFactory: PuppeteerUniTestkitFactory<CheckboxUniDriver>;
+import {CheckToggleUniDriver} from '../src/CheckToggle/CheckToggle.uni.driver';
+export const checkToggleTestkitFactory: PuppeteerUniTestkitFactory<CheckToggleUniDriver>;
 import {CircularProgressBarUniDriver} from '../src/CircularProgressBar/CircularProgressBar.uni.driver';
 export const circularProgressBarTestkitFactory: PuppeteerUniTestkitFactory<CircularProgressBarUniDriver>;
 import {CloseButtonUniDriver} from '../src/CloseButton/CloseButton.uni.driver';

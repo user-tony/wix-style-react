@@ -71,6 +71,9 @@
   "Checkbox": {
     "path": "src/Checkbox"
   },
+  "CheckToggle": {
+    "path": "src/CheckToggle"
+  },
   "CircularProgressBar": {
     "path": "src/CircularProgressBar"
   },
