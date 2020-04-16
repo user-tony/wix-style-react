@@ -29,6 +29,10 @@ Every component folder should be a single component.
 | *xxxProps*        | If the component is wrapping another component (or native DOM element) and its props is needed - pass it with the convention of xxxProps. for example inputProps tooltipProps, etc..
 | `PropTypes.node` instead of `PropTypes.string` | a frequent case for props that accept string is to use a component which evaluates to string. For example, component that handles translation or experiment, or some kind of provider. For those cases `PropTypes.string` would give a warning, therefore almost all `PropTypes.string` cases should actually be `PropTypes.node` |
 
+## Component instance methods
+
+Every method that is set on a React class component is publically available on the component `ref`.<br/> Methods like `focus()` or `blur()` are common public API for input elements and should be exposed to the consumer.<br/> Other methods, for example, `_handleButtonClick()` are usually private and should not be exposed to the consumer. <br/><br/>The library's convention is to add a `_` prefix for any private method. This convention is also handled as part of the `wix-storybook-utils` documentation tool, dropping it from the public API documentation.
+
 ## Typography
 
 1. For common typography, components should use the `Text` or `Heading` components.
