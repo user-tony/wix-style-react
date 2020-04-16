@@ -219,7 +219,7 @@
     "prop-types": "^15.7.2",
     "rc-slider": "^9.2.4",
     "react-collapse": "^4.0.3",
-    "react-day-picker": "^7.4.0",
+    "react-day-picker": "7.4.1",
     "react-dnd": "^2.6.0",
     "react-dnd-html5-backend": "^5.0.1",
     "react-modal": "^3.11.2",
