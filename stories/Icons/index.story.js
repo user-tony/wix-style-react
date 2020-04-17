@@ -15,6 +15,8 @@ import allComponents from '../utils/allComponents';
 import { foundationSymbols } from '../symbolsComponentsMapping/symbols';
 import { Category } from '../storiesHierarchy';
 import * as examples from './examples';
+import SectionHelper from '../../src/SectionHelper';
+import Box from '../../src/Box';
 
 const API_Table = `
 | Name | Type | Default Value | Required | Description |
@@ -67,11 +69,12 @@ export default {
       tab({
         title: 'Common Usages',
         sections: [
-          description({
-            title: 'Important:',
-            text:
-              'In storybook, we import icons using `Icons` prefix. When using in your application, remember to **remove** this prefix.',
-          }),
+          <Box marginBottom="50px">
+            <SectionHelper appearance="danger" title="Important">
+              In storybook, we import icons using "Icons" prefix. When using in
+              your application, remember to remove this prefix.
+            </SectionHelper>
+          </Box>,
 
           title('Examples'),
 
