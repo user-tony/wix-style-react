@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<Popover/>` - adding exit animation [#5363](https://github.com/wix/wix-style-react/pull/5363)
+- `<FloatingHelper/>`- adding exit animation [#5364](https://github.com/wix/wix-style-react/pull/5364)
 
 ### Docs
 - `Icons` - improving icons story. [#5361](https://github.com/wix/wix-style-react/pull/5361)
