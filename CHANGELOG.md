@@ -15,6 +15,12 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<Popover/>` - adding exit animation [#5363](https://github.com/wix/wix-style-react/pull/5363)
+
+### Docs
+- `Icons` - improving icons story. [#5361](https://github.com/wix/wix-style-react/pull/5361)
+
 
 ## 8.3.0 - 2020-04-16
 
