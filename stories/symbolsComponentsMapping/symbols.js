@@ -18,6 +18,7 @@ export const symbolsGroup = {
  * Symbols Family 1
  */
 export const foundationSymbols = {
+  colors: '1.1 Colors',
   typography: '1.2 Typography',
   icons: '1.4 General Use Icons',
 };

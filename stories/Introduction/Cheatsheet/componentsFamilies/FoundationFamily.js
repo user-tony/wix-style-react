@@ -40,6 +40,7 @@ import FlagFilled from 'wix-ui-icons-common/FlagFilled';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 import { capitalize } from '../../../../src/Typography/docs/utils.js';
+import colors from '../../../../src/colors.scss';
 
 const groupSymbol = symbolsGroup.foundation;
 
@@ -51,6 +52,41 @@ const TypographyDisplay = ({ children, label }) => (
     </Text>
   </div>
 );
+
+const ColorsExamples = () => {
+  const symbol = foundationSymbols.colors;
+
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol: Category.FOUNDATION, symbol }),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Box marginBottom={1} direction="vertical">
+        <Text>Wix Style design system color palette</Text>
+        <Text>For example:</Text>
+      </Box>
+      <Layout cols={3}>
+        {['B10', 'P10', 'R10'].map(color => (
+          <Cell key={color} span={1}>
+            <Box height="100px" direction="vertical">
+              <Box
+                height="80px"
+                width="80px"
+                borderRadius="8px"
+                padding="10px"
+                backgroundColor={color}
+                borderColor={color}
+              >
+                <Text size="small">Button, Text Link (Default; Click)</Text>
+              </Box>
+            </Box>
+          </Cell>
+        ))}
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
 
 const TypographyExamples = () => {
   const HeadingExamples = () => {
@@ -196,6 +232,7 @@ const IconsExamples = () => {
 
 const FoundationFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
+    <ColorsExamples />
     <TypographyExamples />
     <IconsExamples />
   </FamilyStructure>

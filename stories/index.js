@@ -144,13 +144,12 @@ require('../src/VerticalTabsItem/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('./WIP');
 
-// Next API
-require('../src/FontUpgrade/docs/index.story');
-
 // Styling
 require('../src/Typography/docs/cssClasses.story');
+require('../src/FontUpgrade/docs/index.story');
 
 // 1. Foundations
+require('./Colors/index.story');
 require('../src/Typography/docs/index.story'); // 1.2 Typography
 require('./Icons/index.story.js'); // 1.4 Icons
 require('./ScrollBar'); // 1.8 ScrollBar
