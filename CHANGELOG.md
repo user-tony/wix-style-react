@@ -20,6 +20,9 @@ Types of changes:
 - `<FloatingHelper/>`- adding exit animation [#5364](https://github.com/wix/wix-style-react/pull/5364)
 - `<PopoverMenu/>`&& `<DropdownBase/>`- adding exit animation to `<PopoverMenu/>` by adding `animate` prop to `<DropdownBase/>` [#5365](https://github.com/wix/wix-style-react/pull/5365)
 
+### Fixed
+- `<ModalSelectorLayout/>` - add ok&cancel buttons functions to driver's types [#5373](https://github.com/wix/wix-style-react/pull/5373)
+
 ### Docs
 - `Icons` - improving icons story. [#5361](https://github.com/wix/wix-style-react/pull/5361)
 
