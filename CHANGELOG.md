@@ -67,6 +67,7 @@ For changelog of version 7 [see here](CHANGELOG-V7.md)
 - `<GoogleAddressInputWithLabel/>`
 - `<HBox/>`
 - `<InputAreaWithLabelComposite/>`
+- `<Label/>`
 - `<MultiSelectComposite/>`
 - `<SideMenu/>`
 - `<SideMenuDrill/>`
