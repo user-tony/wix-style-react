@@ -41,6 +41,7 @@ describe('ModalPreviewLayout', () => {
       `should display 'Next' white tooltip when hovering right navigation button`,
       async () => {
         await driver.hoverRightNavigationButton();
+        setTimeout(() => {}, 1000);
       },
     );
 
@@ -49,6 +50,7 @@ describe('ModalPreviewLayout', () => {
       async () => {
         await driver.clickRightNavigationButton();
         await driver.hoverLeftNavigationButton();
+        setTimeout(() => {}, 1000);
       },
     );
 
@@ -56,6 +58,7 @@ describe('ModalPreviewLayout', () => {
       `should display 'Close' white tooltip when hovering close button`,
       async () => {
         await driver.hoverCloseButton();
+        setTimeout(() => {}, 1000);
       },
     );
   });
