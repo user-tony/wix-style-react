@@ -43,6 +43,7 @@ function DropdownBaseWithAllProps() {
       showArrow
       tabIndex={1}
       zIndex={2}
+      animate
     />
   );
 }

@@ -116,8 +116,11 @@ class DropdownBase extends React.PureComponent {
      */
     fixed: PropTypes.bool,
 
-    /** stretches trigger element to its parent container witdth */
+    /** stretches trigger element to its parent container width */
     fluid: PropTypes.bool,
+
+    /** adds enter and exit animation */
+    animate: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -126,6 +129,7 @@ class DropdownBase extends React.PureComponent {
     showArrow: false,
     maxHeight: '260px',
     fluid: false,
+    animate: false,
   };
 
   _dropdownLayoutRef = null;
@@ -328,12 +332,14 @@ class DropdownBase extends React.PureComponent {
       dynamicWidth,
       maxHeight,
       fluid,
+      animate,
     } = this.props;
 
     const { open, selectedId } = this.state;
 
     return (
       <Popover
+        animate={animate}
         dataHook={dataHook}
         shown={open}
         placement={placement}

@@ -6,6 +6,7 @@ import PopoverMenu from '../PopoverMenu';
 import { PopoverMenuPrivateDriver } from './PopoverMenu.private.uni.driver';
 import IconButton from '../../IconButton';
 import { iconButtonDriverFactory } from '../../IconButton/IconButton.uni.driver';
+import eventually from 'wix-eventually';
 
 describe('PopoverMenu', () => {
   const render = createRendererWithUniDriver(PopoverMenuPrivateDriver);
@@ -329,7 +330,9 @@ describe('PopoverMenu', () => {
           expect(await driver.isMenuOpen()).toBe(true);
 
           await driver.keyDownTrigger('Escape');
-          expect(await driver.isMenuOpen()).toBe(false);
+          await eventually(async () =>
+            expect(await driver.isMenuOpen()).toBe(false),
+          );
         });
       });
 

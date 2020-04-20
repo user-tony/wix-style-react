@@ -31,6 +31,7 @@ export interface DropdownBaseProps {
   flip?: boolean;
   fixed?: boolean;
   fluid?: boolean;
+  animate?: boolean;
 }
 
 export default class DropdownBase extends React.PureComponent<
