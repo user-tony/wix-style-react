@@ -4,10 +4,13 @@ import { SelectorDriver } from '../Selector/Selector.driver';
 import { TextDriver } from '../Text/Text.driver';
 import { CheckboxDriver } from '../Checkbox/Checkbox.driver';
 import { SearchDriver } from '../Search/Search.driver';
+import { buttonDriverFactory } from '../Button/Button.legacy.driver';
 
 export interface ModalSelectorLayoutDriver extends BaseDriver {
   mainLoaderDriver: () => LoaderDriver;
   nextPageLoaderDriver: () => LoaderDriver;
+  okButtonDriver: () => buttonDriverFactory;
+  cancelButtonDriver: () => buttonDriverFactory;
   searchDriver: () => SearchDriver;
   subtitleTextDriver: () => TextDriver;
   getTitle: () => string;
