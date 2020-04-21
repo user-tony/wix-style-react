@@ -77,6 +77,7 @@ class NoBorderInput extends React.Component {
           className,
         )}
         data-hook={dataHook}
+        data-status={status}
       >
         <label
           data-hook={dataHooks.label}

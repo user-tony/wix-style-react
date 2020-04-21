@@ -178,4 +178,16 @@ describe('AutoCompleteWithLabel', () => {
       expect(await driver.optionsLength()).toEqual(1);
     });
   });
+
+  describe('status prop', () => {
+    it('should not render with error', async () => {
+      const { driver } = render(<AutoCompleteWithLabel />);
+      expect(await driver.hasError()).toEqual(false);
+    });
+
+    it('should render with error', async () => {
+      const { driver } = render(<AutoCompleteWithLabel status="error" />);
+      expect(await driver.hasError()).toEqual(true);
+    });
+  });
 });

@@ -105,6 +105,7 @@ class InputWithTags extends React.Component {
     return (
       <div
         className={className}
+        data-status={status}
         style={{ maxHeight }}
         onClick={this.handleClick}
         data-hook={this.props.dataHook}

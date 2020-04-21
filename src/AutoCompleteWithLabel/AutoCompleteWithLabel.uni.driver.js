@@ -3,6 +3,7 @@ import { testkit as inputUniDriverFactory } from '../Input/Input.uni.driver';
 import { labelledElementDriverFactory as labelledElementUniDriverFactory } from '../LabelledElement/LabelledElement.uni.driver';
 import dataHooks from './dataHooks';
 import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.uni.driver';
+import Input from '../Input';
 
 export const autoCompleteWithLabelDriverFactory = base => {
   const labelledElementSelector = `[data-hook="${dataHooks.labelledElement}"]`;
@@ -31,6 +32,6 @@ export const autoCompleteWithLabelDriverFactory = base => {
     clickMenuArrow: () => inputDriver.clickMenuArrow(),
     isDisabled: async () => inputDriver.isDisabled(),
     blur: () => inputDriver.blur(),
-    hasError: () => inputDriver.hasError(),
+    hasError: () => inputDriver.hasStatus(Input.StatusError),
   };
 };

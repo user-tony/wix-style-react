@@ -6,10 +6,11 @@ import DATA_ATTR from './DataAttr';
 import styles from './Input.scss';
 
 class ThemedInput extends Input {
-  getDataAttr = ({ dataHook, size }) => {
+  getDataAttr = ({ dataHook, size, status }) => {
     return {
       'data-hook': dataHook,
       [DATA_ATTR.DATA_SIZE]: size,
+      [DATA_ATTR.DATA_STATUS]: status,
     };
   };
 
@@ -57,7 +58,7 @@ class ThemedInput extends Input {
           className,
           { [styles.readOnly]: readOnly },
         )}
-        {...this.getDataAttr({ dataHook, size })}
+        {...this.getDataAttr({ dataHook, size, status })}
       >
         {super.render({ placeholder })}
       </div>
