@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+rm .wuf/components.json || true
+
 # create components list
 wuf update \
   --shape .wuf/required-component-files.json \
