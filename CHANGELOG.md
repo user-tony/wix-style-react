@@ -67,6 +67,7 @@ For changelog of version 7 [see here](CHANGELOG-V7.md)
 ### Deleted
 
 - `<AutoCompleteComposite/>`
+- `<DateInput/>`
 - `<FieldWithSelectionComposite/>`
 - `<FullTextView/>`
 - `<GoogleAddressInputWithLabel/>`
