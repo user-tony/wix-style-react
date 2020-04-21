@@ -3,6 +3,7 @@ import React from 'react';
 import { Tooltip as CoreTooltip } from 'wix-ui-core/dist/src/components/tooltip';
 import Text from '../Text';
 import styles from './Tooltip.st.css';
+import { dataHooks, TIMEOUT } from './constants';
 
 /**
  * Next Tooltip
@@ -81,7 +82,12 @@ class Tooltip extends React.PureComponent {
     return (
       <div style={{ textAlign }}>
         {typeof content === 'string' ? (
-          <Text dataHook="tooltip-text" size={textSize} weight="normal" light>
+          <Text
+            dataHook={dataHooks.tooltipText}
+            size={textSize}
+            weight="normal"
+            light
+          >
             {content}
           </Text>
         ) : (
@@ -117,6 +123,7 @@ class Tooltip extends React.PureComponent {
             : disabled
         }
         showArrow
+        timeout={TIMEOUT}
       >
         {children}
       </CoreTooltip>
