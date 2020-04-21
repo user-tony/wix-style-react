@@ -10,4 +10,5 @@ export const dataHooks = {
   customIndication: 'avatar-customIndication',
   avatarCore: 'avatar-core',
   avatarWSR: 'avatar-wsr',
+  loader: 'avatar-loader',
 };

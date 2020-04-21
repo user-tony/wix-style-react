@@ -43,6 +43,7 @@ function AvatarWithAllProps() {
       onIndicationClick={() => {}}
       onClick={() => {}}
       showIndicationOnHover
+      loading
     />
   );
 }

@@ -12,7 +12,7 @@
 
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: A1, A2, A3, A4, A5, A6, F00, D80, G10, R10, Y10, B40, D80;
+  -st-named: A1, A2, A3, A4, A5, A6, F00, D80, G10, R10, Y10, B40, D80, D10;
 }
 
 :import {
@@ -242,24 +242,27 @@
 .avatar:contentType(text).colorA6 { background-color: value(A6); }
 
 /* Sizes */
+
+.avatarContainer:size(size90) .loaderContainer,
 .avatarContainer:size(size90) .avatar {
   height: 90px;
   width: 90px;
   border-radius: 45px;
 }
-
+.avatarContainer:size(size72) .loaderContainer, 
 .avatarContainer:size(size72) .avatar {
   height: 72px;
   width: 72px;
   border-radius: 36px;
 }
-
+.avatarContainer:size(size60) .loaderContainer,
 .avatarContainer:size(size60) .avatar {
   height: 60px;
   width: 60px;
   border-radius: 36px;
 }
 
+.avatarContainer:size(size48) .loaderContainer,
 .avatarContainer:size(size48) .avatar {
   height: 48px;
   width: 48px;
@@ -290,10 +293,13 @@
 }
 
 /* Shapes */
+.avatarContainer:shape(square) .loaderContainer,
 .avatarContainer:shape(square) .avatar {
   border-radius: 4px;
 }
 
+.avatarContainer:size(size72):shape(square) .loaderContainer,
+.avatarContainer:size(size90):shape(square) .loaderContainer,
 .avatarContainer:size(size72):shape(square) .avatar,
 .avatarContainer:size(size90):shape(square) .avatar {
     border-radius: 6px;
@@ -335,4 +341,21 @@
 .avatarContainer:size(size24):hasText .avatar:contentType(text)::content,
 .avatarContainer:size(size18) .avatar:contentType(text)::content  {
   visibility: hidden;
+}
+
+.loaderContainer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.overlay{
+  opacity: 0.66;
+  background-color: value(D10);
+}
+
+.loader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }

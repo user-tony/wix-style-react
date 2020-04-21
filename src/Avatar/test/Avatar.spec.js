@@ -121,4 +121,14 @@ describe('Avatar', () => {
     expect(await driver30.getTextContent()).toBe('JD');
     expect(await driver48.getTextContent()).toBe('JD');
   });
+
+  it('For size < 48, with loading should not show loader', async () => {
+    const { driver: driver30 } = createDriver(<Avatar loading size="size30" />);
+    expect(await driver30.isLoading()).toBe(false);
+  });
+
+  it('For size >= 48, with loading should show loader', async () => {
+    const { driver: driver48 } = createDriver(<Avatar loading size="size48" />);
+    expect(await driver48.isLoading()).toBe(true);
+  });
 });

@@ -89,6 +89,15 @@ export const indication = `
 </Box>
 `;
 
+export const loading = `
+<Box align="space-between" width="350">
+  <Avatar name={'John Doe'} size="size90" loading/>
+  <Avatar name={'John Doe'} size="size72" loading/>
+  <Avatar name={'John Doe'} size="size60" loading/>
+  <Avatar name={'John Doe'} loading/>
+</Box>
+`;
+
 const customIndicationComponent = `<Box align="center" verticalAlign="middle" backgroundColor="#3b5998" color="white" minHeight="100%">
    <Icons.Facebook size="18" />
 </Box>`;

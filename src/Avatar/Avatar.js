@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
 import { avatarShapes, dataHooks } from './constants';
 import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
+import Loader from '../Loader';
 import { placeholderSVGs } from './assets';
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
@@ -11,7 +12,7 @@ import stringToColor from './string-to-color';
 import { isMadefor } from '../FontUpgrade/utils';
 
 const getSizeNumber = size => Number(size.substring(4));
-const minIndicationRenderSize = 36;
+const defaultSize = 48;
 const minSmallIconButton = 60;
 
 /**
@@ -59,6 +60,7 @@ class Avatar extends React.PureComponent {
       name,
       onClick,
       showIndicationOnHover,
+      loading,
       ...rest
     } = this.props;
     const { fadeIndication, showIndication } = this.state;
@@ -66,12 +68,11 @@ class Avatar extends React.PureComponent {
     const calculatedColor = color || stringToColor(text || name); // if color is provided as a prop use it, otherwise, generate a color based on the text
     const sizeNumber = getSizeNumber(size);
     const renderOnHover = !showIndicationOnHover || showIndication;
-    const indicationConstraints =
-      renderOnHover && sizeNumber > minIndicationRenderSize;
+    const indicationConstraints = renderOnHover && sizeNumber >= defaultSize;
     const renderIndication =
       indicationConstraints && !customIndication && indication;
     const renderCustomIndication = indicationConstraints && customIndication;
-
+    const renderLoader = loading && sizeNumber >= defaultSize;
     return (
       <div
         data-hook={dataHook}
@@ -114,6 +115,18 @@ class Avatar extends React.PureComponent {
               )}
             />
           </div>
+          {renderLoader && [
+            <div
+              key="overlay"
+              className={classNames(styles.loaderContainer, styles.overlay)}
+            />,
+            <div
+              key="loader"
+              className={classNames(styles.loaderContainer, styles.loader)}
+            >
+              <Loader dataHook={dataHooks.loader} size="tiny" />
+            </div>,
+          ]}
           {presence && <div className={styles.presence} />}
           {renderIndication && (
             <div className={styles.indication}>
@@ -214,6 +227,8 @@ Avatar.propTypes = {
   onIndicationClick: PropTypes.func,
   /** Show indication on hover. */
   showIndicationOnHover: PropTypes.bool,
+  /** Explicitly show a loader on top of the Avatar, commonly used when uploading an image and indicating a loading state */
+  loading: PropTypes.bool,
 };
 
 Avatar.defaultProps = {

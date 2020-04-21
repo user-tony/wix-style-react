@@ -91,6 +91,7 @@ export default {
     indication: indicationExamples[0].value,
     customIndication: undefined,
     presence: undefined,
+    loading: false,
   },
   exampleProps: {
     onIndicationClick: () => 'Clicked!',
@@ -168,6 +169,8 @@ export default {
           example({ title: 'Presence', source: examples.presence }),
 
           example({ title: 'Indication', source: examples.indication }),
+
+          example({ title: 'Loading', source: examples.loading }),
 
           example({
             title: 'Custom Indication',

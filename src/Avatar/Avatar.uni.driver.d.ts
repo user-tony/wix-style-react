@@ -4,5 +4,6 @@ export default interface AvatarUniDriver extends AvatarDriverCore {
   clickIndication: () => Promise<void>;
   clickCustomIndication: () => Promise<void>;
   indicationExists: () => Promise<boolean>;
+  isLoading: () => Promise<boolean>;
   customIndicationExists: () => Promise<boolean>;
 }

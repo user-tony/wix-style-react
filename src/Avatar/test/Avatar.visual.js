@@ -156,3 +156,11 @@ storiesOf(`Avatar/Props`, module).add('Placeholder', () => (
     {allSizesAvatarWithProps({ shape: 'circle', placeholder: <div /> })}
   </div>
 ));
+
+storiesOf(`Avatar/Props`, module).add('Loading', () => (
+  <div>
+    {allSizesAvatarWithProps({ loading: true })}
+    <br />
+    {allSizesAvatarWithProps({ shape: 'square', loading: true })}
+  </div>
+));
