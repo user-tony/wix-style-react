@@ -8,7 +8,7 @@ function PopoverMenuWithMandatoryProps() {
   return <PopoverMenu triggerElement={<span />} />;
 }
 
-function PopoverMenuNextWithAllProps() {
+function PopoverMenuWithAllProps() {
   return (
     <PopoverMenu
       triggerElement={<span />}
@@ -28,11 +28,11 @@ function PopoverMenuNextWithAllProps() {
   );
 }
 
-function PopoverMenuNextWithMoveByX() {
+function PopoverMenuWithMoveByX() {
   return <PopoverMenu triggerElement={<span />} moveBy={{ x: 1 }} />;
 }
 
-function PopoverMenuNextWithMoveByY() {
+function PopoverMenuWithMoveByY() {
   return <PopoverMenu triggerElement={<span />} moveBy={{ y: 1 }} />;
 }
 

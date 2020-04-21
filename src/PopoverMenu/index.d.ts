@@ -35,9 +35,9 @@ export interface PopoverMenuDividerProps {
   dataHook?: string;
 }
 
-export default class PopoverMenuNext<
+export default class PopoverMenu<
   T extends PopoverMenuProps
-  > extends React.PureComponent<T> {
+> extends React.PureComponent<T> {
   static MenuItem: (props?: PopoverMenuItemProps) => React.ReactElement;
   static Divider: (props?: PopoverMenuDividerProps) => React.ReactElement;
 }
