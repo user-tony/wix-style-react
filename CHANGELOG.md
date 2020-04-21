@@ -22,6 +22,7 @@ Types of changes:
 - `<Tooltip/>`- adding exit animation [#5368](https://github.com/wix/wix-style-react/pull/5368)
 
 ### Fixed
+- <AutoCompleteWithLabel /> - fix hasError in testkit [#5370](https://github.com/wix/wix-style-react/pull/5370)
 - `<ModalSelectorLayout/>` - add ok&cancel buttons functions to driver's types [#5373](https://github.com/wix/wix-style-react/pull/5373)
 - `<PopoverMenu.MenuItem/>` - fix type for `text` prop [#5360](https://github.com/wix/wix-style-react/pull/5360)
 - `<AddItem/>` & `<FillButton/>` - Restore `tooltipContent` prop [#5371](https://github.com/wix/wix-style-react/pull/5371)
