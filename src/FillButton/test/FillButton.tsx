@@ -18,6 +18,7 @@ function FillButtonWithAllProps() {
       iconSize="medium"
       disabled
       fill="red"
+      tooltipContent="content"
       tooltipProps={{}}
       dataHook="hook"
     />

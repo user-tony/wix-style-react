@@ -28,6 +28,8 @@ class FillButton extends React.PureComponent {
     disabled: PropTypes.bool,
     /** fill value in string. Hex or gradient */
     fill: PropTypes.string,
+    /** When provided, hover will display a tooltip */
+    tooltipContent: PropTypes.node,
     /** tooltip common props */
     tooltipProps: PropTypes.shape(TooltipCommonProps),
   };
@@ -70,15 +72,21 @@ class FillButton extends React.PureComponent {
       dataHook,
       fill,
       iconSize,
-      tooltipProps,
+      tooltipContent,
+      tooltipProps = {},
       ...rest
     } = this.props;
     const background = this._getBackground(fill);
+
+    // For backwards compatibility
+    const content = tooltipProps.content || tooltipContent;
+
     return (
       <Tooltip
         appendTo="window"
         disabled={disabled}
         {...tooltipProps}
+        content={content}
         dataHook={dataHook}
         size="small"
       >

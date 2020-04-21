@@ -38,7 +38,7 @@ export default {
     theme: 'dashes',
     alignItems: 'center',
     dataHook: storySettings.dataHook,
-    tooltipProps: { content: 'tooltip content' },
+    tooltipContent: 'tooltip content',
   },
 
   exampleProps: {

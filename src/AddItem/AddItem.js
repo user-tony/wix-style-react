@@ -48,6 +48,9 @@ class AddItem extends Component {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
 
+    /** When provided, hover will display a tooltip */
+    tooltipContent: PropTypes.node,
+
     /** Tooltip props */
     tooltipProps: PropTypes.shape(TooltipCommonProps),
 
@@ -105,8 +108,12 @@ class AddItem extends Component {
       size,
       disabled,
       showIcon,
+      tooltipContent,
       tooltipProps = {},
     } = this.props;
+
+    // For backwards compatibility
+    const content = tooltipProps.content || tooltipContent;
 
     const container = (
       <div
@@ -115,7 +122,7 @@ class AddItem extends Component {
           size,
           alignItems,
           disabled,
-          tooltip: !!tooltipProps.content,
+          tooltip: !!content,
         })}
       >
         {showIcon && this._renderIcon()}
@@ -123,9 +130,10 @@ class AddItem extends Component {
       </div>
     );
 
-    return theme === 'image' && !!tooltipProps.content ? (
+    return theme === 'image' && !!content ? (
       <Tooltip
         {...tooltipProps}
+        content={content}
         dataHook={dataHooks.itemTooltip}
         className={style.tooltip}
       >

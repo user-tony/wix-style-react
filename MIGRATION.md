@@ -167,11 +167,10 @@ npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
 
 #### Standardize components with tooltip props configuration
 
-Standartize the usage of internal tooltips - instead of passing specific props (e.g. `tootlipContent`), you should propagate the entire `tooltipProps`.
+Standartize the usage of internal tooltips - instead of passing specific props (e.g. `tootlipAppendTo`), you should propagate the entire `tooltipProps`, except `tooltipContent`.
 
 - [\<InputWithOptions/>](#page), [\<Popover/>](#page) and the entire dropdown family - change default behavior to **not** call `clickOutside` when popover is closed.
 - [\<AddItem/>](#page)
-- [\<FillButton/>](#page)
 - [\<ImageViewer/>](#page)
 
 #### Standardize input components message indications
@@ -239,7 +238,6 @@ The library contained a lot of old code, including unsupported styles of the des
 - [\<Dropdown/>](#dropdown)
 - [\<DropdownLayout/>](#dropdownlayout)
 - [\<FieldWithSelectionComposite/>](#fieldwithselectioncomposite)
-- [\<FillButton/>](#fillbutton)
 - [\<FormField/>](#formfield)
 - [\<FullTextView/>](#fulltextview)
 - [\<GoogleAddressInputWithLabel/>](#googleaddressinputwithlabel)
@@ -285,7 +283,6 @@ The library contained a lot of old code, including unsupported styles of the des
 
 *Props:*
 - removed `tooltipAppendTo` - use `tooltipProps` instead.
-- removed `tooltipContent` - use `tooltipProps` instead.
 - removed `tooltipPlacement` - use `tooltipProps` instead.
 - removed `tooltipFixed` - use `tooltipProps` instead.
 - removed `tooltipFlip` - use `tooltipProps` instead.
@@ -299,8 +296,8 @@ _Note: `tooltipProps` are defined in Tooltip component story page._
   - Before:
   ```jsx
   <AddItem
-    tooltipAppendTo="window"
     tooltipContent="hello"
+    tooltipAppendTo="window"
     tooltipPlacement="top"
     tooltipFixed
     tooltipFlip
@@ -310,6 +307,7 @@ _Note: `tooltipProps` are defined in Tooltip component story page._
   - After:
   ```jsx
   <AddItem
+    tooltipContent="hello"
     tooltipProps={
       appendTo: 'window',
       content: 'hello',
@@ -541,32 +539,6 @@ This component was deleted, use `<FormField/>` instead.
   <FormField>
     <Component />
   </FormField>
-  ```
-</details>
-
-## \<FillButton/>
-
-*Props:*
-- removed `tooltipContent` - use `tooltipProps` instead
-
-_Note: `tooltipProps` are defined in Tooltip component story page._
-
-*Examples:*
-<details>
-  <summary>Using <code>tooltipContent</code> prop example:</summary>
-
-  - Before:
-  ```jsx
-  <FillButton tooltipContent="hello" />
-  ```
-
-  - After:
-  ```jsx
-  <FillButton
-    tooltipProps={
-      content: 'hello',
-    }
-  />
   ```
 </details>
 

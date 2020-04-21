@@ -7,6 +7,7 @@ export interface FillButtonProps
   iconSize?: FillButtonIconSize;
   disabled?: boolean;
   fill?: string;
+  tooltipContent?: React.ReactNode;
   tooltipProps?: TooltipCommonProps;
   dataHook?: string;
 }

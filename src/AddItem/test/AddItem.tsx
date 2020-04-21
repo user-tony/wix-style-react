@@ -21,6 +21,7 @@ function AddItemWithAllProps() {
       showIcon
       size="large"
       theme="dashes"
+      tooltipContent="content"
       tooltipProps={{}}
     />
   );
