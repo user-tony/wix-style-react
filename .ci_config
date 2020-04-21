@@ -10,6 +10,6 @@
     "test8:chromatic"
   ],
   "depmonkey_ignore": true,
-  "pr_env_params" : { "env.APPLITOOLS_GITHUB_FT": "true", "env.APPLITOOLS_BASELINE_BRANCH": "wix/wix-style-react/version_7.x", "env.EYES_API_SERVER_URL": "https://wixeyesapi.applitools.com", "env.NPM_CI_SCRIPTS_VERSION": "3.0.122" },
+  "pr_env_params" : { "env.APPLITOOLS_GITHUB_FT": "true", "env.APPLITOOLS_PARENT_BRANCH_NAME": "version_7.x", "env.EYES_API_SERVER_URL": "https://wixeyesapi.applitools.com", "env.NPM_CI_SCRIPTS_VERSION": "3.0.122" },
   "env_params" : { "env.APPLITOOLS_GITHUB_FT": "true", "env.EYES_API_SERVER_URL": "https://wixeyesapi.applitools.com", "env.NPM_CI_SCRIPTS_VERSION": "3.0.122" }
 }
