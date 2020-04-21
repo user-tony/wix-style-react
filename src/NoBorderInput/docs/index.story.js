@@ -1,12 +1,30 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
+import { Category } from '../../../stories/storiesHierarchy';
 
 import NoBorderInput from '..';
+import {
+  api,
+  example as baseExample,
+  columns,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  testkit,
+  title,
+} from 'wix-storybook-utils/dist/src/Sections';
+import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
-  category: storySettings.category,
-  storyName: storySettings.storyName,
+  category: Category.COMPONENTS,
+  storyName: 'NoBorderInput',
 
   component: NoBorderInput,
   componentPath: '..',
@@ -21,22 +39,46 @@ export default {
     statusMessage: undefined,
   }),
 
-  exampleProps: {
-    status: [{ label: 'NoBorderInput.StatusError', value: 'error' }],
-  },
+  sections: [
+    header({
+      component: (
+        <div style={{ width: '50%' }}>
+          <NoBorderInput />
+        </div>
+      ),
+    }),
 
-  examples: (
-    <div style={{ maxWidth: 627 }}>
-      <LiveCodeExample
-        compact
-        title="No border input standard example"
-        initialCode={`
-          <NoBorderInput
-            dataHook="story-no-border-input-live-example"
-            placeholder="this is a placeholder"
-          />
-        `}
-      />
-    </div>
-  ),
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(
+            `Displays an input with no borders, useful for editing inline text content`,
+          ),
+
+          importExample("import { NoBorderInput } from 'wix-style-react';"),
+
+          divider(),
+
+          title('Examples'),
+
+          example({
+            title: 'With placeholder',
+            source: examples.withPlaceholder,
+          }),
+          example({ title: 'With label', source: examples.withLabel }),
+          example({
+            title: 'Controlled with state',
+            source: examples.controlled,
+          }),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
