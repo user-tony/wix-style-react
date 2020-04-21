@@ -61,10 +61,10 @@ import {CardGalleryItemUniDriver} from '../src/CardGalleryItem/CardGalleryItem.u
 export const cardGalleryItemTestkitFactory: EnzymeUniTestkitFactory<CardGalleryItemUniDriver>;
 import {CarouselDriver} from '../src/Carousel/Carousel.driver';
 export const carouselTestkitFactory: EnzymeTestkitFactory<CarouselDriver>;
-import {CheckboxDriver} from '../src/Checkbox/Checkbox.driver';
-export const checkboxTestkitFactory: EnzymeTestkitFactory<CheckboxDriver>;
 import {CheckToggleUniDriver} from '../src/CheckToggle/CheckToggle.uni.driver';
 export const checkToggleTestkitFactory: EnzymeUniTestkitFactory<CheckToggleUniDriver>;
+import {CheckboxDriver} from '../src/Checkbox/Checkbox.driver';
+export const checkboxTestkitFactory: EnzymeTestkitFactory<CheckboxDriver>;
 import {CircularProgressBarDriver} from '../src/CircularProgressBar/CircularProgressBar.driver';
 export const circularProgressBarTestkitFactory: EnzymeTestkitFactory<CircularProgressBarDriver>;
 import {CloseButtonUniDriver} from '../src/CloseButton/CloseButton.uni.driver';
@@ -143,6 +143,8 @@ import {LinearProgressBarDriver} from '../src/LinearProgressBar/LinearProgressBa
 export const linearProgressBarTestkitFactory: EnzymeTestkitFactory<LinearProgressBarDriver>;
 import {ListItemActionUniDriver} from '../src/ListItemAction/ListItemAction.uni.driver';
 export const listItemActionTestkitFactory: EnzymeUniTestkitFactory<ListItemActionUniDriver>;
+import {ListItemEditableUniDriver} from '../src/ListItemEditable/ListItemEditable.uni.driver';
+export const listItemEditableTestkitFactory: EnzymeUniTestkitFactory<ListItemEditableUniDriver>;
 import {ListItemSectionUniDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
 export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionUniDriver>;
 import {ListItemSelectUniDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';

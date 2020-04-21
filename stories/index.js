@@ -77,6 +77,7 @@ require('../src/LabelledElement/docs/index.story');
 require('../src/Layout/docs/index.story');
 require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
+require('../src/ListItemEditable/docs/index.story');
 require('../src/ListItemSection/docs/index.story');
 require('../src/ListItemSelect/docs/index.story');
 require('../src/Loader/docs/index.story');

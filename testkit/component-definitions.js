@@ -320,6 +320,13 @@ export default {
     },
   },
 
+  ListItemEditable: {
+    props: {
+      onApprove: () => null,
+      onCancel: () => null,
+    },
+  },
+
   SidebarHeader: {
     props: {
       title: 'test',

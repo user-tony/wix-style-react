@@ -103,6 +103,10 @@ export {
   listItemActionBuilder,
 } from './ListItemAction';
 export {
+  default as ListItemEditable,
+  listItemEditableBuilder,
+} from './ListItemEditable';
+export {
   default as Sidebar,
   SidebarContextConsumer,
   SidebarItemContextConsumer,
