@@ -4,7 +4,7 @@
 
 | propName   | propType                          | defaultValue | isRequired | description                          |
 | ---------- | --------------------------------- | ------------ | ---------- | ------------------------------------ |
-| text       | string                            | -            | false      | The menu item textual representation |
+| text       | node                              | -            | false      | The menu item textual representation |
 | skin       | 'standard', 'dark', 'destructive' | 'standard'   | false      | The skin of menu item                |
 | prefixIcon | node                              | -            | false      | Prefix icon of menu item             |
 | onClick    | func                              | -            | false      | The click handler                    |

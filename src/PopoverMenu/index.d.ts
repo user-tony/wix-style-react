@@ -23,7 +23,7 @@ export interface PopoverMenuProps {
 }
 
 export interface PopoverMenuItemProps {
-  text?: string;
+  text?: React.ReactNode;
   onClick?: () => any;
   skin?: 'dark' | 'destructive';
   prefixIcon?: React.ReactNode;
