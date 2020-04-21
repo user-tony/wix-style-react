@@ -8,13 +8,33 @@ import ascendInvoice from '../../../test/assets/ascend-invoice.jpg';
 import ModalPreviewLayout from '..';
 import Modal from '../../Modal';
 import { snap, visualize, story } from 'storybook-snapper';
+import { modalPreviewLayoutPrivateDriverFactory } from './ModalPreviewLayout.private.uni.driver';
+import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
 const dataHook = 'storybook-modal-preview-layout';
+
+const createDriver = () =>
+  uniTestkitFactoryCreator(modalPreviewLayoutPrivateDriverFactory)({
+    wrapper: document.body,
+    dataHook,
+  });
 
 const commonProps = {
   title: 'Basic Website Design',
   onClose: () => null,
 };
+
+const multipleChildren = ['first', 'second', 'third'].map(ordinalNum => (
+  <Box
+    width="90vw"
+    height="100%"
+    align="center"
+    verticalAlign="middle"
+    backgroundColor="D80"
+  >
+    {`${ordinalNum} content page`}
+  </Box>
+));
 
 const actions = (
   <Box align="space-between" width={'276px'}>
@@ -74,6 +94,32 @@ const tests = [
               Simple Content
             </Box>
           ),
+        },
+      },
+    ],
+  },
+  {
+    describe: 'multiple children',
+    its: [
+      {
+        it: 'Navigation buttons on render',
+        props: { children: multipleChildren },
+      },
+      {
+        it: 'Navigation buttons on middle child node',
+        props: { children: multipleChildren },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.clickRightNavigationButton();
+        },
+      },
+      {
+        it: 'NavigationButton on last child node',
+        props: { children: multipleChildren },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.clickRightNavigationButton();
+          await driver.clickRightNavigationButton();
         },
       },
     ],
