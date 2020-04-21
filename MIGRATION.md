@@ -157,6 +157,8 @@ npx wix-ui-codemod wix-style-react/migrate-wsr8 <path-to-your-project>
     - `<FooterLayout1/>`,
     - `<MessageBoxLayout2/>`,
     - `<MessageBoxLayout1/>`
+    
+6. `<DateInput/>` component which was under _WIP (Work In Progress)_ was removed. Use `<DatePicker/>` instead.
 
 ### API Changes for big components
 - [\<Page/>](#page) - remove `upgrade`, to better performance, new API features and slickness.
@@ -231,6 +233,7 @@ The library contained a lot of old code, including unsupported styles of the des
 - [\<Card.Header/>](#cardheader)
 - [\<CircularProgressBar/>](#circularprogressbar)
 - [\<ColorInput/>](#colorinput)
+- [\<DateInput/>](#dateinput)
 - [\<DataTable/>](#datatable)
 - [\<DatePicker/>](#datepicker)
 - [\<Dropdown/>](#dropdown)
@@ -471,6 +474,10 @@ _Pay attention: In all places without withoutDivider, the divider will disappear
 ## \<DataTable/>
 
 This component is _internal_ and should not be used directly - use `<Table/>` instead.
+
+## \<DateInput/>
+
+This component is _internal_ and should not be used directly - use `<DatePicker/>` instead.
 
 ## \<DatePicker/>
 
