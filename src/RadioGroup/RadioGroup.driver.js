@@ -18,10 +18,18 @@ const radioGroupDriverFactory = ({ element }) => {
     exists: () => !!element,
     selectByValue: value => getRadioByValue(value).check(),
     selectByIndex: index => radios()[index].check(),
-    getRadioValueAt: index => radios()[index].getValue(),
+    getRadioValueAt: index => {
+      const radio = radios()[index];
+      if (radio) return radio.getValue();
+
+      // Throws an error in case there is no RadioButton at the given index
+      throw new Error(`No RadioButton at index ${index}`);
+    },
     getRadioAtIndex: index => radios()[index],
-    getSelectedValue: () =>
-      selectedRadio() ? selectedRadio().getValue() : null,
+    getSelectedValue: () => {
+      const selected = selectedRadio();
+      return selected ? selected.getValue() : null;
+    },
     isRadioDisabled: index => radios()[index].isDisabled(),
     // TODO: We should deprecate getClassOfLabelAt(). Css tests should be in e2e tests.
     getClassOfLabelAt: index => labels()[index].className,

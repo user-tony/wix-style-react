@@ -23,14 +23,24 @@ describe('RadioGroup', () => {
     </RadioGroup>
   );
 
-  afterEach(() => {
-    cleanup();
+  afterEach(cleanup);
+
+  it('should render', () => {
+    const driver = createDriver(<RadioGroup />);
+    expect(driver.exists()).toBe(true);
   });
 
   it('should have the correct radio buttons', () => {
     const driver = createDriver(defaultRadioGroup());
     expect(driver.getNumberOfRadios()).toBe(4);
+    expect(driver.getRadioAtIndex(0)).toBeTruthy();
     expect(driver.getRadioValueAt(0)).toBe('1');
+
+    const nonExistingIndex = 9999;
+    expect(driver.getRadioAtIndex(nonExistingIndex)).toBeUndefined();
+    expect(() => driver.getRadioValueAt(nonExistingIndex)).toThrow(
+      `No RadioButton at index ${nonExistingIndex}`,
+    );
   });
 
   it('should return true if a radio button is disabled and false otherwise', () => {
@@ -65,8 +75,14 @@ describe('RadioGroup', () => {
     it('should be called with the correct option value', () => {
       const onChange = jest.fn();
       const driver = createDriver(defaultRadioGroup({ onChange }));
+
+      // Select by value
       driver.selectByValue(1);
-      expect(onChange).toBeCalledWith(1);
+      expect(onChange).toHaveBeenNthCalledWith(1, 1);
+
+      // Select by index
+      driver.selectByIndex(1);
+      expect(onChange).toHaveBeenNthCalledWith(2, 2);
     });
 
     it('should not be called upon checked option', () => {
@@ -74,8 +90,13 @@ describe('RadioGroup', () => {
       const onChange = jest.fn();
       const driver = createDriver(defaultRadioGroup({ onChange, value }));
 
+      // Select by value
       driver.selectByValue(1);
-      expect(onChange.mock.calls).toHaveLength(0);
+      expect(onChange).not.toHaveBeenCalled();
+
+      // Select by index
+      driver.selectByIndex(0);
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it('should not be called upon disabled option', () => {
@@ -85,8 +106,13 @@ describe('RadioGroup', () => {
         defaultRadioGroup({ onChange, disabledRadios }),
       );
 
+      // Select by value
       driver.selectByValue(1);
-      expect(onChange.mock.calls).toHaveLength(0);
+      expect(onChange).not.toHaveBeenCalled();
+
+      // Select by index
+      driver.selectByIndex(0);
+      expect(onChange).not.toHaveBeenCalled();
     });
   });
 
@@ -115,11 +141,13 @@ describe('RadioGroup', () => {
     it('should be vertical by default', () => {
       const driver = createDriver(defaultRadioGroup());
       expect(driver.isVerticalDisplay()).toBe(true);
+      expect(driver.isHorizontalDisplay()).toBe(false);
     });
 
     it('should be horizontal', () => {
       const driver = createDriver(defaultRadioGroup({ display: 'horizontal' }));
       expect(driver.isHorizontalDisplay()).toBe(true);
+      expect(driver.isVerticalDisplay()).toBe(false);
     });
   });
 
