@@ -72,6 +72,11 @@ export default {
 
           example({ title: 'Breadcrumbs', source: examples.breadcrumbs }),
           example({ title: 'Actionbar', source: examples.actionBar }),
+          example({
+            title: 'Editable title',
+            description: 'Title can be set with the EditableTitle component',
+            source: examples.editableTitle,
+          }),
         ],
       }),
 
