@@ -5,7 +5,7 @@ import {
   columns,
   importExample,
   title,
-  code,
+  example as baseExample,
   tab,
   api,
   testkit,
@@ -20,7 +20,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
 const example = config =>
-  code({
+  baseExample({
     components: allComponents,
     ...config,
   });
@@ -98,6 +98,12 @@ export default {
               title: 'Handling overflow',
               subtitle: `Some times we want autocomplete to be detached from nearest overflow container. For this we can use popovers feature to set the overflow target to certain element in the DOM. By passing appendTo="window" we say that dropdowns overflow boundary is document.body itself.`,
               source: examples.overflow,
+            },
+            {
+              title: 'Infinite Scroll',
+              subtitle:
+                'Adding the `infiniteScroll` prop triggers `loadMore` callback function when the user scrolls to the end and the `hasMore` prop is true',
+              source: examples.infinite,
             },
           ].map(example),
         ],
