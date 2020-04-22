@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Fixed
+- Infra: use latest `babel-plugin-dynamic-import-node` [#5398](https://github.com/wix/wix-style-react/pull/5398)
 
 ## 8.4.0 - 2020-04-22
 
