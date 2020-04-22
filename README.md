@@ -75,6 +75,8 @@ Make sure that react and react-dom versions are not higher then:
 
 - From 7.x to 8.x read [V8 migration guide](https://github.com/wix/wix-style-react/blob/master/MIGRATION.md)
 - From 6.x to 7.x read [V7 migration guide](https://github.com/wix/wix-style-react/blob/version_7.x/docs/migration/v6-v7.md)
+- From 5.x to 6.x read [V6 migration guide](https://github.com/wix/wix-style-react/blob/version_7.x/docs/migration/v5-v6.md)
+- From 4.x to 5.x read [V5 migration guide](https://github.com/wix/wix-style-react/blob/version_7.x/docs/migration/v4-v5.md)
 
 **Older version Storybook:**
 
