@@ -31,10 +31,10 @@ class ListItemSelect extends React.PureComponent {
     prefix: PropTypes.node,
 
     /** Title of the list item */
-    title: PropTypes.string,
+    title: PropTypes.node,
 
     /** Text of the list item subtitle */
-    subtitle: PropTypes.string,
+    subtitle: PropTypes.node,
 
     /** Any suffix */
     suffix: PropTypes.node,
@@ -67,8 +67,6 @@ class ListItemSelect extends React.PureComponent {
     dataHook: 'list-item-select',
   };
 
-  state = {};
-
   render() {
     const {
       dataHook,
@@ -92,7 +90,6 @@ class ListItemSelect extends React.PureComponent {
         data-selected={selected}
         onClick={disabled ? undefined : onClick}
       >
-        {/* Checkbox */}
         {checkbox ? (
           <Checkbox
             dataHook={dataHooks.CHECKBOX}
@@ -141,7 +138,6 @@ class ListItemSelect extends React.PureComponent {
 
     return (
       <Box width="100%" className={styles.textsWrapper}>
-        {/* Prefix */}
         {prefix && (
           <Text
             {...styles(styles.prefix, { subtitle })}
@@ -161,12 +157,9 @@ class ListItemSelect extends React.PureComponent {
           lineHeight="initial"
           fontSize="initial"
         >
-          {/* Title */}
           <Text dataHook={dataHooks.TITLE} {...textProps}>
             {title}
           </Text>
-
-          {/* Subtitle */}
           {subtitle && (
             <Text
               dataHook={dataHooks.SUBTITLE}
@@ -178,8 +171,6 @@ class ListItemSelect extends React.PureComponent {
             </Text>
           )}
         </Box>
-
-        {/* Suffix */}
         {suffix && (
           <Text
             dataHook={dataHooks.SUFFIX}

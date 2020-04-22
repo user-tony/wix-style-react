@@ -6,12 +6,12 @@ export interface ListItemSelectProps {
   size?: ListItemSelectSizes;
   dataHook?: string;
   className?: string;
-  title?: string;
+  title?: React.ReactNode;
   suffix?: React.ReactNode;
   ellipsis?: boolean;
   checkbox?: boolean;
   prefix?: React.ReactNode;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   selected?: boolean;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;

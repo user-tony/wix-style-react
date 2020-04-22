@@ -19,13 +19,16 @@
 }
 
 .root:checkbox:selected {
-  background-color: value(B30);
+  background-color: value(D80);
 }
 
+.root:checkbox:selected:not(:disabled):highlighted,
+.root:checkbox:selected:not(:disabled):hover,
 .root:not(:disabled):not(:selected):highlighted,
 .root:not(:disabled):not(:selected):hover {
   background-color: value(B50);
 }
+
 
 .root:disabled {
   pointer-events: none;
