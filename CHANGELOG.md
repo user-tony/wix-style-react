@@ -17,6 +17,8 @@ Types of changes:
 ## Next
 ### Fixed
 - Infra: use latest `babel-plugin-dynamic-import-node` [#5398](https://github.com/wix/wix-style-react/pull/5398)
+- `<ListItemSelect/>`- fix selected checkbox css [#5391](https://github.com/wix/wix-style-react/pull/5391)
+
 
 ## 8.4.0 - 2020-04-22
 
