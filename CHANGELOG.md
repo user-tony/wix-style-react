@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.4.0 - 2020-04-22
+
 ### Added
 - `<ListItemEditable/>` - new component [#5348](https://github.com/wix/wix-style-react/pull/5348)
 - `<Popover/>` - adding exit animation [#5363](https://github.com/wix/wix-style-react/pull/5363)
