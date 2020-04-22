@@ -140,7 +140,7 @@
     "@ui-autotools/registry": "^3.4.0",
     "@ui-autotools/sanity": "^2.8.4",
     "babel-loader": "^8.1.0",
-    "babel-plugin-dynamic-import-node": "2.3.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-preset-yoshi": "^4.51.1",
     "cista": "0.0.3",
     "concurrently": "^3.6.1",
