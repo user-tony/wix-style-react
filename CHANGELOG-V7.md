@@ -14,7 +14,20 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.57.0 - 2020-04-23
+### Fixed
+- `<Tooltip/>` - now works when wrapped with `<FontUpgrade/>` when appended to window [#5404](https://github.com/wix/wix-style-react/pull/5404)
+- `<Modal/>` - now works when wrapped with `<FontUpgrade/>` [#5404](https://github.com/wix/wix-style-react/pull/5404)
+
+## 7.56.1 - 2020-04-16
+
+### Fixed
+- set a fixed version of react-day-picker@7.4.1 due to breaking chang in the import API
+
+## 7.56.0 - 2020-04-16
+
+### Added
+- `<Avatar/>` - support single letter in size 24 [#5338](https://github.com/wix/wix-style-react/pull/5338)
 
 ## 7.55.0 - 2020-04-06
 
