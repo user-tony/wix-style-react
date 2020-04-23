@@ -26,18 +26,15 @@ import DragDropContextProvider from './DragDropContextProvider';
 
 import { Category } from '../../../stories/storiesHierarchy';
 
-storiesOf(`${Category.WIP}/Drag And Drop`, module)
+storiesOf(`${Category.COMPONENTS}/Drag And Drop`, module)
   .add('Introduction', () => <Introduction />)
   .add('Styles', () => <Styles />)
   .add('DragDropContextProvider', () => <DragDropContextProvider />)
   .add('NestableList', () => <NestableListExample />);
 
-storiesOf(`${Category.WIP}/SortableList`, module)
+storiesOf(`${Category.COMPONENTS}/Drag And Drop/SortableList`, module)
   .add('API', () => (
     <div>
-      <Heading>
-        SortableList API <Badge skin="danger">Under development</Badge>
-      </Heading>
       <Markdown source={SortableListReadme} />
       <Markdown source={SortableListReadmeAPI} />
     </div>
