@@ -4,10 +4,11 @@ import ReactModal from 'react-modal';
 import classnames from 'classnames';
 import X from 'wix-ui-icons-common/X';
 import defaultTo from 'lodash/defaultTo';
-
 import styles from './Modal.scss';
 import { flexPositions } from './constants';
 import { ZIndex } from '../ZIndex';
+import { FontUpgradeContext } from '../FontUpgrade/context';
+import FontUpgrade from '../FontUpgrade';
 
 const CHILDREN_WRAPPER_DIV_ID = 'modal-children-container';
 
@@ -150,27 +151,37 @@ class Modal extends React.PureComponent {
 
     return (
       <div data-hook={dataHook}>
-        <ReactModal
-          portalClassName={portalClassName}
-          isOpen={isOpen}
-          shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-          onRequestClose={onRequestClose}
-          onAfterOpen={onAfterOpen}
-          style={modalStyles}
-          className={modalClasses}
-          contentLabel={contentLabel}
-          closeTimeoutMS={closeTimeoutMS}
-          parentSelector={parentSelector}
-        >
-          {isOpen && shouldDisplayCloseButton && this.renderCloseButton()}
-          <div
-            id={CHILDREN_WRAPPER_DIV_ID}
-            className={styles.childrenContainer}
-            onClick={this.handleOverlayClick}
-          >
-            {children}
-          </div>
-        </ReactModal>
+        <FontUpgradeContext.Consumer>
+          {context => {
+            return (
+              <ReactModal
+                portalClassName={portalClassName}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+                onRequestClose={onRequestClose}
+                onAfterOpen={onAfterOpen}
+                style={modalStyles}
+                className={modalClasses}
+                contentLabel={contentLabel}
+                closeTimeoutMS={closeTimeoutMS}
+                parentSelector={parentSelector}
+              >
+                <FontUpgrade active={context.active}>
+                  {isOpen &&
+                    shouldDisplayCloseButton &&
+                    this.renderCloseButton()}
+                  <div
+                    id={CHILDREN_WRAPPER_DIV_ID}
+                    className={styles.childrenContainer}
+                    onClick={this.handleOverlayClick}
+                  >
+                    {children}
+                  </div>
+                </FontUpgrade>
+              </ReactModal>
+            );
+          }}
+        </FontUpgradeContext.Consumer>
       </div>
     );
   }
