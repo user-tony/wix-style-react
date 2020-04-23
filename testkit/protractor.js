@@ -67,7 +67,6 @@ export const composerHeaderTestkitFactory = protractorUniTestkitFactoryCreator(l
 export const contactItemBuilderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.uni.driver')));
 export const counterBadgeTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.uni.driver')));
 export const customModalLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CustomModalLayout/CustomModalLayout.uni.driver')));
-export const dateInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/DatePicker/DateInput/DateInput.uni.driver')));
 export const datePickerTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/DatePicker/DatePicker.protractor.driver')));
 export const dividerTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const dropdownTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Dropdown/Dropdown.protractor.driver')));

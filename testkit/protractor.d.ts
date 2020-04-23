@@ -35,7 +35,6 @@ export const composerHeaderTestkitFactory: any;
 export const contactItemBuilderTestkitFactory: any;
 export const counterBadgeTestkitFactory: any;
 export const customModalLayoutTestkitFactory: any;
-export const dateInputTestkitFactory: any;
 export const datePickerTestkitFactory: any;
 export const dividerTestkitFactory: any;
 export const dropdownTestkitFactory: any;

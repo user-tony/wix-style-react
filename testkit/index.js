@@ -60,7 +60,6 @@ export const composerHeaderTestkitFactory = uniTestkitFactoryCreator(load(requir
 export const contactItemBuilderTestkitFactory = testkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.driver')));
 export const counterBadgeTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.uni.driver')));
 export const customModalLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CustomModalLayout/CustomModalLayout.uni.driver')));
-export const dateInputTestkitFactory = uniTestkitFactoryCreator(load(require('../src/DatePicker/DateInput/DateInput.uni.driver')));
 export const datePickerTestkitFactory = testkitFactoryCreator(load(require('../src/DatePicker/DatePicker.driver')));
 export const dividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const dropdownTestkitFactory = testkitFactoryCreator(load(require('../src/Dropdown/Dropdown.driver')));

@@ -81,8 +81,6 @@ import {CounterBadgeUniDriver} from '../src/CounterBadge/CounterBadge.uni.driver
 export const counterBadgeTestkitFactory: PuppeteerUniTestkitFactory<CounterBadgeUniDriver>;
 import {CustomModalLayoutUniDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 export const customModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<CustomModalLayoutUniDriver>;
-import {DateInputUniDriver} from '../src/DatePicker/DateInput/DateInput.uni.driver';
-export const dateInputTestkitFactory: PuppeteerUniTestkitFactory<DateInputUniDriver>;
 import {DividerUniDriver} from '../src/Divider/Divider.uni.driver';
 export const dividerTestkitFactory: PuppeteerUniTestkitFactory<DividerUniDriver>;
 import {DropdownUniDriver} from '../src/Dropdown/Dropdown.uni.driver';

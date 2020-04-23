@@ -6,6 +6,9 @@ export * from './Accordion';
 export { default as AddItem } from './AddItem';
 export * from './AddItem';
 
+export { default as AnnouncementModalLayout } from './AnnouncementModalLayout';
+export * from './AnnouncementModalLayout';
+
 export { default as AutoComplete } from './AutoComplete';
 export * from './AutoComplete';
 
@@ -57,6 +60,9 @@ export * from './CardGalleryItem';
 export { default as Carousel } from './Carousel';
 export * from './Carousel';
 
+export { default as CheckToggle } from './CheckToggle';
+export * from './CheckToggle';
+
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
 
@@ -83,6 +89,9 @@ export * from './ContactItemBuilder';
 
 export { default as CounterBadge } from './CounterBadge';
 export * from './CounterBadge';
+
+export { default as CustomModalLayout } from './CustomModalLayout';
+export * from './CustomModalLayout';
 
 export { default as DatePicker } from './DatePicker';
 export * from './DatePicker';
@@ -190,6 +199,9 @@ export * from './LinearProgressBar';
 export { default as ListItemAction } from './ListItemAction';
 export * from './ListItemAction';
 
+export { default as ListItemEditable } from './ListItemEditable';
+export * from './ListItemEditable';
+
 export { default as ListItemSection } from './ListItemSection';
 export {
   ListItemSectionProps,
@@ -249,6 +261,9 @@ export * from './Page';
 
 export { default as PageHeader } from './PageHeader';
 export * from './PageHeader';
+
+export { default as Pagination } from './Pagination';
+export * from './Pagination';
 
 export { default as Palette } from './Palette';
 export * from './Palette';
@@ -325,6 +340,9 @@ export * from './SortableList';
 export { default as StatisticsWidget } from './StatisticsWidget';
 export * from './StatisticsWidget';
 
+export { default as StatusIndicator } from './StatusIndicator';
+export * from './StatusIndicator';
+
 export { default as Stepper } from './Stepper';
 export * from './Stepper';
 
@@ -389,22 +407,3 @@ export * from './VerticalTabsItem';
 
 export { default as clients } from './clients';
 export * from './clients';
-
-export { default as StatusIndicator } from './StatusIndicator';
-export * from './StatusIndicator';
-
-export { default as CustomModalLayout } from './CustomModalLayout';
-export * from './CustomModalLayout';
-
-export { default as AnnouncementModalLayout } from './AnnouncementModalLayout';
-export * from './AnnouncementModalLayout';
-
-export { default as Pagination } from './Pagination';
-
-export { default as CheckToggle } from './CheckToggle';
-export * from './CheckToggle';
-
-export { default as ListItemEditable } from './ListItemEditable';
-export * from './ListItemEditable';
-
-export * from './Pagination';

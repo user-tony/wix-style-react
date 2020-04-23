@@ -61,7 +61,6 @@ export const composerHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(lo
 export const contactItemBuilderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.uni.driver')));
 export const counterBadgeTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.uni.driver')));
 export const customModalLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CustomModalLayout/CustomModalLayout.uni.driver')));
-export const dateInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/DatePicker/DateInput/DateInput.uni.driver')));
 export const dividerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const dropdownTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Dropdown/Dropdown.uni.driver')));
 export const dropdownBaseTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/DropdownBase/DropdownBase.uni.driver')));
