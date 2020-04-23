@@ -1,7 +1,7 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
-  category: Category.WIP,
+  category: Category.INTERNAL,
   storyName: 'LabelledElement',
   dataHook: 'story-labelled-element',
 };

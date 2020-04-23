@@ -24,5 +24,6 @@ export const Category = {
   COMPONENTS: 'Components API|Components',
   STYLING: 'Components API|Styling',
   WIP: 'Components API|Work in Progress',
+  INTERNAL: 'Components API|Internal',
   DEPRECATED: 'Deprecated',
 };

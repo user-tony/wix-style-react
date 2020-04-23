@@ -143,6 +143,7 @@ require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('./WIP');
+require('./Internal');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
