@@ -1,7 +1,5 @@
 import * as React from 'react';
 import DateInput from '../index';
-import * as enzyme from 'enzyme';
-import * as puppeteer from 'puppeteer';
 
 function DateInputWithMandatoryProps() {
   return <DateInput />;
