@@ -3,8 +3,8 @@ import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
 
 import DateInput from '../DateInput';
 import { dateInputPrivateDriverFactory } from '../DateInput.private.uni.driver';
-import { formatDate } from '../../LocaleUtils';
-import Input from '../../Input/Input';
+import { formatDate } from '../../../LocaleUtils';
+import Input from '../../../Input/Input';
 
 describe('DateInput', () => {
   const createDriver = createUniDriverFactory(dateInputPrivateDriverFactory);

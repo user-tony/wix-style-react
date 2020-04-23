@@ -1,8 +1,8 @@
 import * as React from 'react';
-import DateInput from '..';
-import { dateInputTestkitFactory } from '../../../testkit';
-import { dateInputTestkitFactory as dateInputEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import { dateInputTestkitFactory as dateInputPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
+import DateInput from '../index';
+import { dateInputTestkitFactory } from '../../../../testkit';
+import { dateInputTestkitFactory as dateInputEnzymeTestkitFactory } from '../../../../testkit/enzyme';
+import { dateInputTestkitFactory as dateInputPuppeteerTestkitFactory } from '../../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 

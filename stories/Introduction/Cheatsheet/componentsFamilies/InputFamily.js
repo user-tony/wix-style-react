@@ -32,7 +32,6 @@ import InputArea from 'wix-style-react/InputArea';
 import RichTextInputArea from 'wix-style-react/RichTextInputArea';
 import NumberInput from 'wix-style-react/NumberInput';
 import TimeInput from 'wix-style-react/TimeInput';
-import DateInput from 'wix-style-react/DateInput';
 import ColorInput from 'wix-style-react/ColorInput';
 import MultiSelect from 'wix-style-react/MultiSelect';
 import FormField from 'wix-style-react/FormField';
@@ -191,25 +190,6 @@ const TimeInputExample = () => {
     <SingleComponentSideBySide {...singleComponentProps}>
       <FormField label="Time Input">
         <TimeInput disableAmPm />
-      </FormField>
-    </SingleComponentSideBySide>
-  );
-};
-
-const DateInputExample = () => {
-  const symbol = inputsSymbols.dateInput;
-  const components = inputsSymbolsToComponents[symbol];
-
-  const singleComponentProps = {
-    name: symbol,
-    componentsNames: createLinkedComponentsNames(components),
-    size: singleComponentSizes.compact,
-  };
-
-  return (
-    <SingleComponentSideBySide {...singleComponentProps}>
-      <FormField label="Date">
-        <DateInput value={new Date().toString()} />
       </FormField>
     </SingleComponentSideBySide>
   );
@@ -448,7 +428,6 @@ const InputFamily = () => (
     <IncrementerInputExample />
     <DurationInputExample />
     <TimeInputExample />
-    <DateInputExample />
     <DateRangeInputExample />
     <ColorInputExample />
     <TagsInputExample />

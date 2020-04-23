@@ -32,7 +32,6 @@ const componentActualUrl = {
   [sharedComponentsNames.Icon]: linkTo(Category.FOUNDATION, '1.4 Icons'),
 
   [inputsComponentsNames.TimeInput]: linkTo(Category.COMPONENTS, 'TimePicker'),
-  [inputsComponentsNames.DateInput]: linkTo(Category.WIP, 'DateInput'),
   [inputsComponentsNames.MultiSelect]: linkTo(
     Category.COMPONENTS,
     'Multiselect',

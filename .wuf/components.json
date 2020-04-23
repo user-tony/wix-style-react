@@ -104,9 +104,6 @@
   "CustomModalLayout": {
     "path": "src/CustomModalLayout"
   },
-  "DateInput": {
-    "path": "src/DateInput"
-  },
   "DatePicker": {
     "path": "src/DatePicker"
   },

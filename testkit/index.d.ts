@@ -80,7 +80,7 @@ import { CounterBadgeUniDriver } from '../src/CounterBadge/CounterBadge.uni.driv
 export const counterBadgeTestkitFactory: VanillaUniTestkitFactory<CounterBadgeUniDriver>;
 import { CustomModalLayoutUniDriver } from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 export const customModalLayoutTestkitFactory: VanillaUniTestkitFactory<CustomModalLayoutUniDriver>;
-import { DateInputUniDriver } from '../src/DateInput/DateInput.uni.driver';
+import { DateInputUniDriver } from '../src/DatePicker/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: VanillaUniTestkitFactory<DateInputUniDriver>;
 import { DatePickerDriver } from '../src/DatePicker/DatePicker.driver';
 export const datePickerTestkitFactory: VanillaTestkitFactory<DatePickerDriver>;

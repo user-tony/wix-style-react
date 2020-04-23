@@ -9,7 +9,7 @@ import setDate from 'date-fns/set_date';
 
 import Popover from '../Popover';
 import Calendar from '../Calendar';
-import DateInput from '../DateInput';
+import DateInput from './DateInput';
 
 import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
 

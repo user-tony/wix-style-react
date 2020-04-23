@@ -45,7 +45,6 @@ export const inputsSymbols = {
   incrementerInput: '3.6 Incrementer Input',
   durationInput: '3.7 Duration Input',
   timeInput: '3.8 Time Input',
-  dateInput: '3.9 Date Input',
   dateRangeInput: '3.10 Date Range Input',
   colorInput: '3.11 Color Input',
   tagsInput: '3.12 Tags Input',

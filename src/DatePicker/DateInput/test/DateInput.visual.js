@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Input from '../../Input';
-import DateInput from '..';
+import Input from '../../../Input';
+import DateInput from '../index';
 
 const defaultProps = {
   value: new Date(0),

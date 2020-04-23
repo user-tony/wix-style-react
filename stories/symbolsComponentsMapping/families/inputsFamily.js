@@ -40,11 +40,6 @@ export const inputsSymbolsToComponents = {
     componentsNames.TimeInput,
   ],
 
-  [inputsSymbols.dateInput]: [
-    sharedComponentsNames.FormField,
-    componentsNames.DateInput,
-  ],
-
   [inputsSymbols.dateRangeInput]: [],
 
   [inputsSymbols.colorInput]: [

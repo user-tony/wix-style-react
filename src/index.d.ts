@@ -84,9 +84,6 @@ export * from './ContactItemBuilder';
 export { default as CounterBadge } from './CounterBadge';
 export * from './CounterBadge';
 
-export { default as DateInput } from './DateInput';
-export * from './DateInput';
-
 export { default as DatePicker } from './DatePicker';
 export * from './DatePicker';
 

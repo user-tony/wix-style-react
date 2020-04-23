@@ -81,7 +81,7 @@ import {CounterBadgeUniDriver} from '../src/CounterBadge/CounterBadge.uni.driver
 export const counterBadgeTestkitFactory: EnzymeUniTestkitFactory<CounterBadgeUniDriver>;
 import {CustomModalLayoutUniDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 export const customModalLayoutTestkitFactory: EnzymeUniTestkitFactory<CustomModalLayoutUniDriver>;
-import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
+import {DateInputUniDriver} from '../src/DatePicker/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: EnzymeUniTestkitFactory<DateInputUniDriver>;
 import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
 export const datePickerTestkitFactory: EnzymeTestkitFactory<DatePickerDriver>;

@@ -27,7 +27,6 @@ export const inputsComponentsNames = {
   ColorInput: 'ColorInput',
   MultiSelect: 'MultiSelect',
   TimeInput: 'TimeInput',
-  DateInput: 'DateInput',
   Search: 'Search',
   ImageViewer: 'ImageViewer',
   GoogleAddressInput: 'GoogleAddressInput',
