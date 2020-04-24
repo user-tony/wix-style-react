@@ -20,6 +20,7 @@ Types of changes:
 - `<ListItemSelect/>`- fix selected checkbox css [#5391](https://github.com/wix/wix-style-react/pull/5391)
 - `<Tooltip/>` - now works when wrapped with `<FontUpgrade/>` when appended to window [#5403](https://github.com/wix/wix-style-react/pull/5403)
 - `<Modal/>` - now works when wrapped with `<FontUpgrade/>` [#5403](https://github.com/wix/wix-style-react/pull/5403)
+- `<MultiSelectCheckbox/>`- replaced list item with `<ListItemSelect/>` [#4890](https://github.com/wix/wix-style-react/pull/4890)
 
 ## 8.4.0 - 2020-04-22
 
