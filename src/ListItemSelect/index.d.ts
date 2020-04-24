@@ -14,6 +14,7 @@ export interface ListItemSelectProps {
   subtitle?: React.ReactNode;
   selected?: boolean;
   disabled?: boolean;
+  highlighted?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 

@@ -2,26 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import Input from '../Input';
-import Checkbox from '../Checkbox/Checkbox';
 import styles from './MultiSelectCheckbox.scss';
+import ListItemSelect from '../ListItemSelect';
+import ListItemSection from '../ListItemSection';
 
 const OPEN_DROPDOWN_CHARS = ['Enter', 'ArrowDown', 'Space', ' '];
 
 class MultiSelectCheckbox extends InputWithOptions {
   wrapOptionsWithCheckbox(options) {
-    const newOptions = options.map(option => ({
-      ...option,
-      value: this.wrapWithCheckBox(option, this.isSelectedId(option.id)),
-    }));
-    return newOptions;
-  }
-
-  wrapWithCheckBox(option, isSelected) {
-    return (
-      <Checkbox checked={isSelected} disabled={option.disabled}>
-        {option.value}
-      </Checkbox>
-    );
+    return options.map(option => {
+      if (option.value === '-') {
+        return {
+          ...option,
+          overrideStyle: true,
+          value: <ListItemSection type="divider" />,
+        };
+      } else {
+        return {
+          ...option,
+          overrideStyle: true,
+          value: props => (
+            <ListItemSelect
+              checkbox
+              selected={this.isSelectedId(option.id)}
+              disabled={option.disabled}
+              title={option.value}
+              highlighted={props.hovered}
+              onClick={e => e.preventDefault()} // This is prevented because there's an event listener wrapping the option
+            />
+          ),
+        };
+      }
+    });
   }
 
   isSelectedId(optionId) {
@@ -37,14 +49,13 @@ class MultiSelectCheckbox extends InputWithOptions {
   }
 
   selectedOptionsToText() {
-    const selectedOptionsText = this.props.selectedOptions
+    return this.props.selectedOptions
       .map(selectedOption =>
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
       .map(this.props.valueParser)
       .join(this.props.delimiter);
-    return selectedOptionsText;
   }
 
   inputAdditionalProps() {

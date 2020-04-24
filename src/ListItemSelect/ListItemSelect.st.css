@@ -5,8 +5,7 @@
 
 .root {
   -st-states: checkbox, selected, disabled, highlighted;
-
-  background-color: white;
+  background-color: value(D80);
   display: inline-flex;
   cursor: pointer;
   width: 100%;
