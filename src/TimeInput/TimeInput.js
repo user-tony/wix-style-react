@@ -248,7 +248,13 @@ export default class TimePicker extends Component {
           >
             {customSuffix && (
               <Box marginRight="6px" dataHook={dataHooks.customSuffix}>
-                {customSuffix}
+                {typeof customSuffix === 'string' ? (
+                  <Text weight="normal" light secondary>
+                    {customSuffix}
+                  </Text>
+                ) : (
+                  customSuffix
+                )}
               </Box>
             )}
             <Input.Ticker

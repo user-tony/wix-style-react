@@ -1,5 +1,8 @@
+import React from 'react';
 import TimeInput from '..';
 import { storySettings } from './storySettings';
+import LockLocked from 'wix-ui-icons-common/LockLocked';
+import Input from '../../Input';
 
 export default {
   category: storySettings.category,
@@ -18,5 +21,16 @@ export default {
 
   exampleProps: {
     onChange: moment => moment.format('h:mm a'),
+    customSuffix: [
+      { label: 'string', value: 'hello' },
+      {
+        label: 'node',
+        value: (
+          <Input.IconAffix>
+            <LockLocked />
+          </Input.IconAffix>
+        ),
+      },
+    ],
   },
 };
