@@ -244,14 +244,12 @@ const getJS = () =>
   javascriptFiles.map(([name, size]) => ({
     maxSize: `${size}kb`,
     glob: `.perfer/dist/statics/${name}`,
-    maxDegradation: '999999999%',
   }));
 
 const getCSS = () =>
   cssFiles.map(([name, size]) => ({
     maxSize: `${size}kb`,
     glob: `.perfer/dist/statics/${name}`,
-    maxDegradation: '999999999%',
   }));
 
 module.exports = {
