@@ -13,6 +13,7 @@ export default {
   componentProps: {
     dashesWhenDisabled: false,
     disabled: false,
+    width: 'auto',
   },
 
   exampleProps: {

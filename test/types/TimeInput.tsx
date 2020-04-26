@@ -23,6 +23,8 @@ function TimeInputWithAllProps() {
     disableAmPm
     style={{margin: 'auto'}}
     minutesStep={11}
+    width="auto"
+    customSuffix={<div>hello</div>}
     />
   );
 }

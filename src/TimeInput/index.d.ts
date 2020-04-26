@@ -9,7 +9,9 @@ export interface TimeInputProps {
   onChange?: (time: import('moment').Moment) => void;
   rtl?: boolean;
   style?: object;
+  width?: 'auto' | '100%';
   minutesStep?: number;
+  customSuffix?: React.ReactNode;
 }
 
 export default class TimeInput extends React.PureComponent<TimeInputProps> {}

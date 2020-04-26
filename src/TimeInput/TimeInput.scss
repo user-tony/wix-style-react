@@ -5,10 +5,15 @@
   display: flex;
   flex-direction: row;
   line-height: 15px;
-  width: 120px; // Inferred from Zeplin spec.
 
   &.rtl {
     flex-direction: row-reverse;
+  }
+}
+
+.input {
+  input {
+    width: 55px;
   }
 }
 
@@ -19,6 +24,10 @@
   white-space: nowrap;
   flex-direction: row;
   box-sizing: border-box;
+
+  &.stretch {
+    width: 100%;
+  }
 
   &.focus {
     outline: 1px solid black;
@@ -34,7 +43,6 @@
 }
 
 .ampm {
-  margin: 0 3px;
   text-transform: uppercase;
 }
 
@@ -45,6 +53,6 @@
   pointer-events: none;
 }
 
-.input {
-  cursor: pointer;
+.suffix-end-wrapper div {
+  flex-grow: 0;
 }
