@@ -6,15 +6,14 @@ import Carousel from '..';
 const sampleImages = [
   {
     src:
-      'https://a-static.besthdwallpaper.com/garfield-wallpaper-2800x2100-815_28.jpg',
+      'https://cdn.pixabay.com/photo/2017/10/05/22/34/rubber-duck-2821371_1280.jpg',
   },
   {
     src:
-      'https://m.media-amazon.com/images/M/MV5BZGMwOGIwZjUtOWQ1OS00YWRjLWJmZGMtN2Y1OWQ3ZDYwYTM3XkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_.jpg',
+      'https://cdn.pixabay.com/photo/2017/06/28/10/53/board-2450236_1280.jpg',
   },
   {
-    src:
-      'https://a-static.besthdwallpaper.com/cartoons-garfield-wallpaper-1440x1080-6773_22.jpg',
+    src: 'https://cdn.pixabay.com/photo/2016/09/05/21/37/cat-1647775_1280.jpg',
   },
 ];
 
@@ -32,9 +31,9 @@ const tests = [
         it: 'Display custom nodes',
         props: {
           children: [
-            <span>First</span>,
-            <span>Second</span>,
-            <span>Third</span>,
+            <span key={1}>First</span>,
+            <span key={2}>Second</span>,
+            <span key={3}>Third</span>,
           ],
         },
       },
@@ -60,17 +59,17 @@ const tests = [
         props: {
           variableWidth: true,
           children: [
-            <div>
+            <div key={1}>
               <div
                 style={{ width: '300px', height: '100px', background: 'red' }}
               />
             </div>,
-            <div>
+            <div key={2}>
               <div
                 style={{ width: '200px', height: '100px', background: 'green' }}
               />
             </div>,
-            <div>
+            <div key={3}>
               <div
                 style={{ width: '350px', height: '100px', background: 'blue' }}
               />
