@@ -247,13 +247,18 @@ export default class TimePicker extends Component {
             className={styles.suffixEndWrapper}
           >
             {customSuffix && (
-              <Box marginRight="6px" dataHook={dataHooks.customSuffix}>
+              <Box marginRight="6px">
                 {typeof customSuffix === 'string' ? (
-                  <Text weight="normal" light secondary>
+                  <Text
+                    weight="normal"
+                    light
+                    secondary
+                    dataHook={dataHooks.customSuffix}
+                  >
                     {customSuffix}
                   </Text>
                 ) : (
-                  customSuffix
+                  <span data-hook={dataHooks.customSuffix}>{customSuffix}</span>
                 )}
               </Box>
             )}
