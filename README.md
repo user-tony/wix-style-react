@@ -43,7 +43,9 @@ Minimal Yoshi version to be used with wix-style-react:
 
 `Version 3 - ^3.31.2`
 
-Load Wix fonts from CDN:
+Load Wix fonts from CDN:<br/>
+- For Madefor font please visit [wix-fonts](https://wix-fonts.now.sh/).
+- For Helvetica Neue:
   ```html
   <link
     rel="stylesheet"

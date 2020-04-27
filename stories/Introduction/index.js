@@ -22,6 +22,8 @@ storiesOf(Category.GETTINGSTARTED, module).add('Migrating to wsr8', () => (
   <Markdown source={Migration} />
 ));
 
+require('../MadeforFont/index.story');
+
 storiesOf(Category.GETTINGSTARTED, module).add('Contributing', () => (
   <Markdown source={Contributing} />
 ));

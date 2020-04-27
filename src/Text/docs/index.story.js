@@ -20,6 +20,8 @@ import * as examples from './examples';
 import { storySettings } from '../test/storySettings';
 import { Layout, Cell } from '../../Layout';
 import SectionHelper from '../../SectionHelper';
+import { Category } from '../../../stories/storiesHierarchy';
+import LinkTo from '@storybook/addon-links/react';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -75,8 +77,18 @@ export default {
 
           columns([
             description({
+              title: 'Load Wix fonts from CDN:',
               text: (
-                <SectionHelper title="Load Wix fonts from CDN:">{`<link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css"></link>`}</SectionHelper>
+                <div>
+                  <SectionHelper title="Helvetica Neue:">{`<link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css"></link>`}</SectionHelper>
+                  <p>
+                    For Madefor font, plese see{' '}
+                    <LinkTo kind={Category.GETTINGSTARTED} story="Madefor Font">
+                      MadeforFont
+                    </LinkTo>{' '}
+                    section.
+                  </p>
+                </div>
               ),
             }),
           ]),
