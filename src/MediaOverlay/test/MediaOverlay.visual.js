@@ -10,7 +10,6 @@ import {
 } from '../docs/examples/content';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 import { snap, story, visualize } from 'storybook-snapper';
-import { wait } from '../../../test/utils/visual/utils';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { mediaOverlayDriverFactory } from '../MediaOverlay.uni.driver';
 
@@ -19,6 +18,9 @@ const createDriver = () =>
     wrapper: document.body,
     dataHook: storySettings.dataHook,
   });
+
+const wait = timeToDelay =>
+  new Promise(resolve => setTimeout(resolve, timeToDelay));
 
 const hover = async done => {
   await createDriver().hover();
