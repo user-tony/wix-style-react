@@ -93,13 +93,15 @@ const createDriver = () =>
 const checkIsLoading = async done => {
   const driver = createDriver();
   await eventually(async () => {
-    expect(await driver.isLoading()).toBe(false);
+    return (await driver.isLoading()) ? Promise.reject() : Promise.resolve();
   });
   done();
 };
 
-const CarouselWrapper = ({ componentDidMount, done, ...props }) => {
-  useEffect(componentDidMount);
+const CarouselWrapper = ({ done, ...props }) => {
+  useEffect(() => {
+    checkIsLoading(done);
+  }, [done]);
 
   return <Carousel {...props} />;
 };
@@ -113,9 +115,7 @@ visualize('Carousel', () => {
             <CarouselWrapper
               {...props}
               dataHook={storySettings.dataHook}
-              componentDidMount={() => {
-                checkIsLoading(done);
-              }}
+              done={done}
             />
           </div>
         ));

@@ -20,7 +20,7 @@ const getDriver = () =>
 const ColorPickerWrapper = ({ componentDidMount, ...rest }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <ColorPicker dataHook={dataHook} {...rest} />;
 };
@@ -29,7 +29,7 @@ const defaultProps = {
   value: '#3899eb',
   emptyPlaceholder: 'No Fill',
 };
-//showConverter={false} showInput={false}
+// showConverter={false} showInput={false}
 const tests = [
   {
     describe: 'ColorPicker',
