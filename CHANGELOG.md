@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<TimeInput/>` - custom suffix - [#5408](https://github.com/wix/wix-style-react/pull/5408)
+- `<Timeline/>` - create new component [#5387](https://github.com/wix/wix-style-react/pull/5387)
 
 ### Fixed
 - Infra: use latest `babel-plugin-dynamic-import-node` [#5398](https://github.com/wix/wix-style-react/pull/5398)
