@@ -5,7 +5,7 @@ import styles from './EmptyState.scss';
 
 import Heading from '../Heading';
 import Text from '../Text';
-import { madeforBold } from '../FontUpgrade/utils';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 
 /**
  * Representing a state of an empty page, section, table, etc.
@@ -58,7 +58,11 @@ const EmptyState = ({
           data-hook="empty-state-title-container"
         >
           {theme === 'section' ? (
-            <Text weight={madeforBold('normal')}>{title}</Text>
+            <FontUpgradeContext.Consumer>
+              {context => (
+                <Text weight={context.active ? 'bold' : 'normal'}>{title}</Text>
+              )}
+            </FontUpgradeContext.Consumer>
           ) : (
             <Heading appearance="H3">{title}</Heading>
           )}

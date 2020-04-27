@@ -1,31 +1,24 @@
 import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { generateDataAttr } from '../utils/generateDataAttr';
-import { isMadefor } from '../FontUpgrade/utils';
-
+import { FontUpgradeContext } from '../FontUpgrade/context';
 import styles from './Button.st.css';
-
-import {
-  oneOfType,
-  string,
-  node,
-  oneOf,
-  element,
-  object,
-  bool,
-  func,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Button extends PureComponent {
   static displayName = 'Button';
 
   static propTypes = {
     /** render as some other component or DOM tag */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     /** Additional classes */
-    className: string,
+    className: PropTypes.string,
     /** Skins of Button content */
-    skin: oneOf([
+    skin: PropTypes.oneOf([
       'standard',
       'inverted',
       'destructive',
@@ -36,23 +29,23 @@ class Button extends PureComponent {
       'premium-light',
     ]),
     /** Priority of Button content */
-    priority: oneOf(['primary', 'secondary']),
+    priority: PropTypes.oneOf(['primary', 'secondary']),
     /** Size of Button content */
-    size: oneOf(['tiny', 'small', 'medium', 'large']),
+    size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
     /** Click event handler  */
-    onClick: func,
+    onClick: PropTypes.func,
     /** Sets button width to 100% */
-    fullWidth: bool,
+    fullWidth: PropTypes.bool,
     /** Element based icon (svg, image etc.) */
-    suffixIcon: element,
+    suffixIcon: PropTypes.element,
     /** Element based icon (svg, image etc.) */
-    prefixIcon: element,
+    prefixIcon: PropTypes.element,
     /** Applies disabled styles */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** String based node */
-    children: node,
+    children: PropTypes.node,
     /** String based data hook */
-    dataHook: string,
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {
@@ -74,19 +67,23 @@ class Button extends PureComponent {
     } = this.props;
 
     return (
-      <ButtonNext
-        data-madefor={isMadefor()}
-        {...rest}
-        {...generateDataAttr(this.props, ['skin', 'size', 'priority'])}
-        {...styles(
-          'root',
-          { fluid: fullWidth, skin, priority, size },
-          this.props,
+      <FontUpgradeContext.Consumer>
+        {context => (
+          <ButtonNext
+            data-madefor={context.active}
+            {...rest}
+            {...generateDataAttr(this.props, ['skin', 'size', 'priority'])}
+            {...styles(
+              'root',
+              { fluid: fullWidth, skin, priority, size },
+              this.props,
+            )}
+            data-hook={dataHook}
+          >
+            {children}
+          </ButtonNext>
         )}
-        data-hook={dataHook}
-      >
-        {children}
-      </ButtonNext>
+      </FontUpgradeContext.Consumer>
     );
   }
 }

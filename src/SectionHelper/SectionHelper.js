@@ -7,7 +7,7 @@ import Button from '../Button';
 import CloseButton from '../CloseButton';
 import { Appearance } from './constants';
 import styles from './SectionHelper.scss';
-import { madeforBold } from '../FontUpgrade/utils';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 
 const appearanceToStyleMap = {
   [Appearance.Warning]: styles.warning,
@@ -62,14 +62,18 @@ class SectionHelper extends React.PureComponent {
 
         {title && (
           <div className={styles.title}>
-            <Text
-              light={isExperimentalDark}
-              dataHook="sectionhelper-title"
-              size="small"
-              weight={madeforBold('normal')}
-            >
-              {title}
-            </Text>
+            <FontUpgradeContext.Consumer>
+              {context => (
+                <Text
+                  light={isExperimentalDark}
+                  dataHook="sectionhelper-title"
+                  size="small"
+                  weight={context.active ? 'bold' : 'normal'}
+                >
+                  {title}
+                </Text>
+              )}
+            </FontUpgradeContext.Consumer>
           </div>
         )}
 

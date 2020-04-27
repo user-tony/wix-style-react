@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneOf, bool, string, any } from 'prop-types';
+import PropTypes from 'prop-types';
 import ellipsisHOC from '../common/EllipsisHOC';
 import style from './Text.st.css';
 
@@ -71,30 +71,31 @@ const Text = ({
 Text.displayName = 'Text';
 
 Text.propTypes = {
-  dataHook: string,
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
   /** tag name that will be rendered */
-  tagName: string,
+  tagName: PropTypes.string,
 
   /** class to be applied to the root element */
-  className: string,
+  className: PropTypes.string,
 
   /** font size of the text */
-  size: oneOf(Object.keys(SIZES)),
+  size: PropTypes.oneOf(Object.keys(SIZES)),
 
   /** any nodes to be rendered (usually text nodes) */
-  children: any,
+  children: PropTypes.any,
 
   /** is the text type is secondary. Affects the font color */
-  secondary: bool,
+  secondary: PropTypes.bool,
 
   /** skin color of the text */
-  skin: oneOf(Object.keys(SKINS)),
+  skin: PropTypes.oneOf(Object.keys(SKINS)),
 
   /** make the text color lighter */
-  light: bool,
+  light: PropTypes.bool,
 
   /** font weight of the text */
-  weight: oneOf(Object.keys(WEIGHTS)),
+  weight: PropTypes.oneOf(Object.keys(WEIGHTS)),
 
   ...ellipsisHOC.propTypes,
 };

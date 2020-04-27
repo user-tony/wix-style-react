@@ -1,22 +1,11 @@
 import React from 'react';
-import {
-  arrayOf,
-  func,
-  oneOf,
-  oneOfType,
-  node,
-  number,
-  shape,
-  string,
-  any,
-  bool,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './Breadcrumbs.scss';
 import classnames from 'classnames';
 import Text from '../Text';
 import BreadcrumbsChevronRight from 'wix-ui-icons-common/system/BreadcrumbsChevronRight';
 import { DATA_HOOKS, DATA_ACTIVE, DATA_POSITION_ID } from './constnats';
-import { isMadefor } from '../FontUpgrade/utils';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 
 /**
  * a way to visualise current navigation path
@@ -32,21 +21,26 @@ class Breadcrumbs extends React.PureComponent {
      * * __disabled__ - if this value is disabled
      * * __customElement__ - A custom item which will be rendered
      */
-    items: arrayOf(
-      shape({
-        id: oneOfType([string, number]).isRequired,
-        value: node.isRequired,
-        link: string,
-        customElement: any,
-        disabled: bool,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+          .isRequired,
+        value: PropTypes.node.isRequired,
+        link: PropTypes.string,
+        customElement: PropTypes.any,
+        disabled: PropTypes.bool,
       }),
     ).isRequired,
-    onClick: func,
-    activeId: oneOfType([string, number]),
-    size: oneOf(['medium', 'large']),
-    theme: oneOf(['onWhiteBackground', 'onGrayBackground', 'onDarkBackground']),
+    onClick: PropTypes.func,
+    activeId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    size: PropTypes.oneOf(['medium', 'large']),
+    theme: PropTypes.oneOf([
+      'onWhiteBackground',
+      'onGrayBackground',
+      'onDarkBackground',
+    ]),
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
-    dataHook: string,
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {
@@ -55,29 +49,27 @@ class Breadcrumbs extends React.PureComponent {
     onClick: () => {},
   };
 
-  getTextAppearance(isActive) {
-    const { theme, size } = this.props;
-
-    const isDarkBackground = theme === 'onDarkBackground';
-    const isSmallSize = size === 'medium';
-
-    return {
-      weight: isActive ? 'normal' : 'thin',
-      light: isDarkBackground,
-      size: isSmallSize ? 'small' : 'medium',
-      secondary: isMadefor() && !isActive,
-    };
-  }
-
   createItem({ item, isActive, onClick, className, id }) {
-    const breadcrumbText = value => (
-      <Text
-        dataHook={DATA_HOOKS.BREADCRUMBS_ITEM}
-        {...this.getTextAppearance(isActive)}
-      >
-        {value}
-      </Text>
-    );
+    const breadcrumbText = value => {
+      const { theme, size } = this.props;
+      const isSmallSize = size === 'medium';
+
+      return (
+        <FontUpgradeContext.Consumer>
+          {context => (
+            <Text
+              dataHook={DATA_HOOKS.BREADCRUMBS_ITEM}
+              weight={isActive ? 'normal' : 'thin'}
+              light={theme === 'onDarkBackground'}
+              size={isSmallSize ? 'small' : 'medium'}
+              secondary={context.active && !isActive}
+            >
+              {value}
+            </Text>
+          )}
+        </FontUpgradeContext.Consumer>
+      );
+    };
 
     const defaultBreadcrumb = id => (
       <button

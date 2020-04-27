@@ -2,12 +2,10 @@ import React from 'react';
 import styles from './FontUpgrade.scss';
 import PropTypes from 'prop-types';
 import { FontUpgradeContext } from './context';
-import { setMadefor } from './utils';
 
 class FontUpgrade extends React.PureComponent {
   render() {
     const { dataHook, active = true, children } = this.props;
-    setMadefor(active);
 
     return (
       <FontUpgradeContext.Provider value={{ active, styles }}>
@@ -18,10 +16,6 @@ class FontUpgrade extends React.PureComponent {
         />
       </FontUpgradeContext.Provider>
     );
-  }
-
-  componentWillUnmount() {
-    setMadefor(false);
   }
 }
 

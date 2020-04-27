@@ -9,7 +9,7 @@ import { placeholderSVGs } from './assets';
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
 import stringToColor from './string-to-color';
-import { isMadefor } from '../FontUpgrade/utils';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 
 const getSizeNumber = size => Number(size.substring(4));
 const defaultSize = 48;
@@ -78,80 +78,84 @@ class Avatar extends React.PureComponent {
         data-hook={dataHook}
         className={classNames(className, styles.externalContainer)}
       >
-        <div
-          data-hook={dataHooks.avatarWSR}
-          onMouseEnter={this._onMouseEnter}
-          onMouseLeave={this._onMouseLeave}
-          {...styles('avatarContainer', {
-            shape,
-            size,
-            indication: customIndication || indication,
-            presence,
-            presenceType: presence,
-            clickable: !!onClick,
-            fade: fadeIndication,
-            hasText: !!text,
-          })}
-          data-madefor={isMadefor()}
-        >
-          <div className={styles.coreAvatar}>
-            <CoreAvatar
-              {...{
-                ...rest,
-                placeholder: placeholder ? (
-                  placeholder
-                ) : (
-                  <AvatarDefaultPlaceholder shape={shape} size={size} />
-                ),
-                text,
-                name,
-                onClick,
-                initialsLimit: sizeNumber < 30 ? 1 : undefined,
-                'data-hook': dataHooks.avatarCore,
-              }}
-              className={classNames(
-                styles.avatar,
-                styles[`color${capitalize(calculatedColor)}`],
+        <FontUpgradeContext.Consumer>
+          {context => (
+            <div
+              data-hook={dataHooks.avatarWSR}
+              onMouseEnter={this._onMouseEnter}
+              onMouseLeave={this._onMouseLeave}
+              {...styles('avatarContainer', {
+                shape,
+                size,
+                indication: customIndication || indication,
+                presence,
+                presenceType: presence,
+                clickable: !!onClick,
+                fade: fadeIndication,
+                hasText: !!text,
+              })}
+              data-madefor={context.active}
+            >
+              <div className={styles.coreAvatar}>
+                <CoreAvatar
+                  {...{
+                    ...rest,
+                    placeholder: placeholder ? (
+                      placeholder
+                    ) : (
+                      <AvatarDefaultPlaceholder shape={shape} size={size} />
+                    ),
+                    text,
+                    name,
+                    onClick,
+                    initialsLimit: sizeNumber < 30 ? 1 : undefined,
+                    'data-hook': dataHooks.avatarCore,
+                  }}
+                  className={classNames(
+                    styles.avatar,
+                    styles[`color${capitalize(calculatedColor)}`],
+                  )}
+                />
+              </div>
+              {renderLoader && [
+                <div
+                  key="overlay"
+                  className={classNames(styles.loaderContainer, styles.overlay)}
+                />,
+                <div
+                  key="loader"
+                  className={classNames(styles.loaderContainer, styles.loader)}
+                >
+                  <Loader dataHook={dataHooks.loader} size="tiny" />
+                </div>,
+              ]}
+              {presence && <div className={styles.presence} />}
+              {renderIndication && (
+                <div className={styles.indication}>
+                  <IconButton
+                    className={styles.iconButtonShadow}
+                    dataHook={dataHooks.indication}
+                    onClick={onIndicationClick}
+                    skin="inverted"
+                    shape={shape}
+                    size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
+                  >
+                    {indication}
+                  </IconButton>
+                </div>
               )}
-            />
-          </div>
-          {renderLoader && [
-            <div
-              key="overlay"
-              className={classNames(styles.loaderContainer, styles.overlay)}
-            />,
-            <div
-              key="loader"
-              className={classNames(styles.loaderContainer, styles.loader)}
-            >
-              <Loader dataHook={dataHooks.loader} size="tiny" />
-            </div>,
-          ]}
-          {presence && <div className={styles.presence} />}
-          {renderIndication && (
-            <div className={styles.indication}>
-              <IconButton
-                className={styles.iconButtonShadow}
-                dataHook={dataHooks.indication}
-                onClick={onIndicationClick}
-                skin="inverted"
-                shape={shape}
-                size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
-              >
-                {indication}
-              </IconButton>
+              {renderCustomIndication && (
+                <div
+                  className={styles.indication}
+                  data-hook={dataHooks.customIndication}
+                  onClick={onIndicationClick}
+                >
+                  {customIndication}
+                </div>
+              )}
             </div>
           )}
-          {renderCustomIndication && (
-            <div
-              className={styles.indication}
-              data-hook={dataHooks.customIndication}
-              onClick={onIndicationClick}
-            >
-              {customIndication}
-            </div>
-          )}
-        </div>
+        </FontUpgradeContext.Consumer>
       </div>
     );
   }

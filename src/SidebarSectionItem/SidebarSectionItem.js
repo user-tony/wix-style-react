@@ -8,7 +8,7 @@ import { dataHooks } from './constants';
 import Text from '../Text';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
 import { sidebarSkins } from '../Sidebar/constants';
-import { madeforRegular } from '../FontUpgrade/utils';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 
 /** An item for the section within the sidebar */
 class SidebarSectionItem extends React.PureComponent {
@@ -81,16 +81,20 @@ class SidebarSectionItem extends React.PureComponent {
                   {prefix}
                 </span>
               )}
-              <Text
-                className={styles.text}
-                size="small"
-                weight={madeforRegular('bold')}
-                secondary={skin === sidebarSkins.light}
-                light={skin === sidebarSkins.dark}
-                skin={disabled && 'disabled'}
-              >
-                {children}
-              </Text>
+              <FontUpgradeContext.Consumer>
+                {context => (
+                  <Text
+                    className={styles.text}
+                    size="small"
+                    weight={context.active ? 'normal' : 'bold'}
+                    secondary={skin === sidebarSkins.light}
+                    light={skin === sidebarSkins.dark}
+                    skin={disabled && 'disabled'}
+                  >
+                    {children}
+                  </Text>
+                )}
+              </FontUpgradeContext.Consumer>
               {!disabled && (suffix || drillable) && (
                 <span data-hook={dataHooks.suffix} className={styles.suffix}>
                   {suffix || (
