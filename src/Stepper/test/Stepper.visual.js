@@ -291,7 +291,7 @@ tests.forEach(({ describe, its }) => {
 const InteractiveStepperWrapper = ({ componentDidMount, ...props }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <Stepper {...props} />;
 };

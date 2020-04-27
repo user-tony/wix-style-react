@@ -21,7 +21,7 @@ const getDriver = () =>
 const DropdownBaseWrapper = ({ componentDidMount, ...rest }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <DropdownBase dataHook={dataHook} {...rest} />;
 };

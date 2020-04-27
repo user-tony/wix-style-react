@@ -73,7 +73,7 @@ tests.forEach(({ describe, its }) => {
 const InteractiveSearchWrapper = ({ componentDidMount, ...props }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <Search {...props} />;
 };

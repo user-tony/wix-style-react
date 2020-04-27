@@ -166,7 +166,7 @@ const tests = [
 ];
 
 const MediaOverlayWrapper = ({ componentDidMount, rtl, done, ...props }) => {
-  useEffect(componentDidMount);
+  useEffect(() => componentDidMount(), [componentDidMount]);
 
   return (
     <RTLWrapper rtl={rtl}>

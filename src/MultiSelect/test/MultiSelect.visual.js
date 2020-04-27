@@ -161,7 +161,7 @@ const interactiveTests = [
 const InteractiveEyeTest = ({ componentDidMount, rtl, ...props }) => {
   useEffect(() => {
     componentDidMount();
-  });
+  }, [componentDidMount]);
   return (
     <RTLWrapper rtl={rtl}>
       <MultiSelect dataHook={interactiveDataHook} {...props} />

@@ -81,7 +81,7 @@ const tests = [
 const InfoIconWrapper = ({ componentDidMount, ...props }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <InfoIcon {...props} />;
 };

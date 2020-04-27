@@ -20,7 +20,7 @@ const getDriver = () =>
 const ColorPickerWrapper = ({ componentDidMount, ...rest }) => {
   useEffect(() => {
     componentDidMount && componentDidMount();
-  });
+  }, [componentDidMount]);
 
   return <ColorPicker dataHook={dataHook} {...rest} />;
 };
