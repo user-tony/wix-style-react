@@ -36,6 +36,7 @@ Types of changes:
 - `<PopoverMenu/>`&& `<DropdownBase/>`- adding exit animation to `<PopoverMenu/>` by adding `animate` prop to `<DropdownBase/>` [#5365](https://github.com/wix/wix-style-react/pull/5365)
 - `<Tooltip/>`- adding exit animation [#5368](https://github.com/wix/wix-style-react/pull/5368)
 - `<Avatar>` - add loading state [#5369](https://github.com/wix/wix-style-react/pull/5369)
+- `<FontUpgrade/>`- Using React context to apply `FontUpgrade` to multiple components instead of "global variable" [#5406](https://github.com/wix/wix-style-react/pull/5406)
 
 ### Fixed
 - `<AutoCompleteWithLabel/>` - fix hasError in testkit [#5370](https://github.com/wix/wix-style-react/pull/5370)
