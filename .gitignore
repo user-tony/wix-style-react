@@ -37,3 +37,13 @@ autodocs-registry
 # applitools private config
 !applitools.config.js
 applitools.private.config.js
+
+# Generated testkit files
+testkit/enzyme.d.ts
+testkit/enzyme.js
+testkit/index.d.ts
+testkit/index.js
+testkit/protractor.d.ts
+testkit/protractor.js
+testkit/puppeteer.d.ts
+testkit/puppeteer.js
