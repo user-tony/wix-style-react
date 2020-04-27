@@ -27,6 +27,37 @@ visualize('TimeInput', () => {
         <TimeInput defaultValue={value2} rtl disabled dashesWhenDisabled />
         <br />
         <TimeInput defaultValue={value2} rtl disableAmPm />
+        <br />
+        <TimeInput defaultValue={value1} width="100%" />
+        <br />
+        <TimeInput defaultValue={value1} disableAmPm width="100%" />
+        <br />
+        <TimeInput
+          defaultValue={value1}
+          disableAmPm
+          customSuffix={'custom suffix'}
+        />
+        <br />
+        <TimeInput defaultValue={value1} customSuffix={'custom suffix'} />
+        <br />
+        <TimeInput
+          defaultValue={value1}
+          customSuffix={'custom suffix'}
+          width="100%"
+        />
+        <br />
+        <TimeInput
+          defaultValue={value1}
+          customSuffix={'custom suffix'}
+          disabled
+        />
+        <br />
+        <TimeInput
+          defaultValue={value1}
+          rtl
+          disableAmPm
+          customSuffix={'custom suffix'}
+        />
       </>
     );
   });

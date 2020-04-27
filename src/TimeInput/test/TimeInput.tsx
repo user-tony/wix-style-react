@@ -8,21 +8,23 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function TimeInputWithMandatoryProps() {
-  return <TimePicker/>;
+  return <TimePicker />;
 }
 
 function TimeInputWithAllProps() {
   return (
     <TimePicker
-    rtl
-    disabled
-    onChange={(time: moment.Moment) => {}}
-    dataHook="dh"
-    dashesWhenDisabled
-    defaultValue={moment()}
-    disableAmPm
-    style={{margin: 'auto'}}
-    minutesStep={11}
+      rtl
+      disabled
+      onChange={(time: moment.Moment) => {}}
+      dataHook="dh"
+      dashesWhenDisabled
+      defaultValue={moment()}
+      disableAmPm
+      style={{ margin: 'auto' }}
+      minutesStep={11}
+      width="auto"
+      customSuffix={<div>hello</div>}
     />
   );
 }
@@ -30,18 +32,18 @@ function TimeInputWithAllProps() {
 async function testkits() {
   const testkit = timeInputTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = timeInputEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await timeInputPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

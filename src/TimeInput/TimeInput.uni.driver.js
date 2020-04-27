@@ -18,6 +18,8 @@ export const timeInputUniDriverFactory = base => {
     isAmPmIndicatorExist: async () => amPmIndicator().exists(),
     toggleAmPmIndicator: async () => amPmIndicator().click(),
     getAmPmIndicatorText: async () => amPmIndicator().text(),
+    getCustomSuffix: () =>
+      base.$(`[data-hook="${dataHooks.customSuffix}"]`)._prop('innerHTML'),
     isRtl: async () => base.$(`.rtl`).exists(),
     setValue: async value => input.enterText(value),
     blur: async () => input.blur(),

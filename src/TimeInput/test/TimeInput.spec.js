@@ -89,6 +89,16 @@ describe('TimeInput', () => {
         const { driver } = render(<TimePicker {...props} />);
         expect(await driver.getAmPmIndicatorText()).toBe('pm');
       });
+
+      it('should display custom suffix before ticker', async () => {
+        const customSuffix = 'Custom Suffix';
+        const props = { customSuffix };
+
+        const { driver } = render(<TimePicker {...props} />);
+
+        const customSuffixNode = await driver.getCustomSuffix();
+        expect(customSuffixNode).toBe(customSuffix);
+      });
     });
 
     describe('onChange & disabled', () => {

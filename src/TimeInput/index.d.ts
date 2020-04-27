@@ -10,6 +10,8 @@ export interface TimeInputProps {
   rtl?: boolean;
   style?: object;
   minutesStep?: number;
+  width?: 'auto' | '100%';
+  customSuffix?: React.ReactNode;
 }
 
 export default class TimeInput extends React.PureComponent<TimeInputProps> {}
