@@ -404,11 +404,11 @@
   "TimeInput": {
     "path": "src/TimeInput"
   },
-  "Timeline": {
-    "path": "src/Timeline"
-  },
   "TimeTable": {
     "path": "src/TimeTable"
+  },
+  "Timeline": {
+    "path": "src/Timeline"
   },
   "ToggleButton": {
     "path": "src/ToggleButton"
