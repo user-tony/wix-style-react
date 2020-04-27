@@ -147,6 +147,7 @@ export const textTestkitFactory = testkitFactoryCreator(load(require('../src/Tex
 export const textButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/TextButton/TextButton.uni.driver')));
 export const thumbnailTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
 export const timeInputTestkitFactory = testkitFactoryCreator(load(require('../src/TimeInput/TimeInput.driver')));
+export const timelineTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Timeline/Timeline.uni.driver')));
 export const timeTableTestkitFactory = uniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
 export const toggleButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ToggleButton/ToggleButton.uni.driver')));
 export const toggleSwitchTestkitFactory = testkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.driver')));

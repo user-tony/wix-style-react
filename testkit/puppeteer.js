@@ -138,6 +138,7 @@ export const textTestkitFactory = puppeteerTestkitFactoryCreator(load(require('.
 export const textButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TextButton/TextButton.uni.driver')));
 export const thumbnailTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
 export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TimeInput/TimeInput.uni.driver')));
+export const timelineTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Timeline/Timeline.uni.driver')));
 export const timeTableTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
 export const toggleButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ToggleButton/ToggleButton.uni.driver')));
 export const toggleSwitchTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.uni.driver')));

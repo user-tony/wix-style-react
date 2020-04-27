@@ -404,6 +404,9 @@
   "TimeInput": {
     "path": "src/TimeInput"
   },
+  "Timeline": {
+    "path": "src/Timeline"
+  },
   "TimeTable": {
     "path": "src/TimeTable"
   },

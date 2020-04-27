@@ -235,6 +235,8 @@ import {ThumbnailUniDriver} from '../src/Thumbnail/Thumbnail.uni.driver';
 export const thumbnailTestkitFactory: PuppeteerUniTestkitFactory<ThumbnailUniDriver>;
 import {TimeInputUniDriver} from '../src/TimeInput/TimeInput.uni.driver';
 export const timeInputTestkitFactory: PuppeteerUniTestkitFactory<TimeInputUniDriver>;
+import {TimelineUniDriver} from '../src/Timeline/Timeline.uni.driver';
+export const timelineTestkitFactory: PuppeteerUniTestkitFactory<TimelineUniDriver>;
 import {TimeTableUniDriver} from '../src/TimeTable/TimeTable.uni.driver';
 export const timeTableTestkitFactory: PuppeteerUniTestkitFactory<TimeTableUniDriver>;
 import {ToggleButtonUniDriver} from '../src/ToggleButton/ToggleButton.uni.driver';

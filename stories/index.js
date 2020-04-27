@@ -133,6 +133,7 @@ require('../src/Text/docs/index.story');
 require('../src/TextButton/docs/index.story');
 require('../src/Thumbnail/docs/index.story');
 require('../src/TimeInput/docs/index.story');
+require('../src/Timeline/docs/index.story');
 require('../src/TimeTable/docs/index.story');
 require('../src/ToggleButton/docs/index.story');
 require('../src/ToggleSwitch/docs/index.story');

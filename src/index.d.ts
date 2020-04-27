@@ -381,6 +381,9 @@ export * from './Thumbnail';
 export { default as TimeInput } from './TimeInput';
 export * from './TimeInput';
 
+export { default as Timeline } from './Timeline';
+export * from './Timeline'
+
 export { default as TimeTable } from './TimeTable';
 export * from './TimeTable';
 

@@ -255,6 +255,8 @@ import {ThumbnailUniDriver} from '../src/Thumbnail/Thumbnail.uni.driver';
 export const thumbnailTestkitFactory: EnzymeUniTestkitFactory<ThumbnailUniDriver>;
 import {TimeInputDriver} from '../src/TimeInput/TimeInput.driver';
 export const timeInputTestkitFactory: EnzymeTestkitFactory<TimeInputDriver>;
+import {TimelineUniDriver} from '../src/Timeline/Timeline.uni.driver';
+export const timelineTestkitFactory: EnzymeUniTestkitFactory<TimelineUniDriver>;
 import {TimeTableUniDriver} from '../src/TimeTable/TimeTable.uni.driver';
 export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableUniDriver>;
 import {ToggleButtonUniDriver} from '../src/ToggleButton/ToggleButton.uni.driver';

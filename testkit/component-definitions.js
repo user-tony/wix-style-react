@@ -378,6 +378,12 @@ export default {
     },
   },
 
+  Timeline: {
+    props: {
+      items: [],
+    },
+  },
+
   TimeTable: {
     props: {
       addItemButtonLabel: 'Add Task',

@@ -118,6 +118,7 @@ export const textTestkitFactory: any;
 export const textButtonTestkitFactory: any;
 export const thumbnailTestkitFactory: any;
 export const timeInputTestkitFactory: any;
+export const timelineTestkitFactory: any;
 export const timeTableTestkitFactory: any;
 export const toggleButtonTestkitFactory: any;
 export const toggleSwitchTestkitFactory: any;
