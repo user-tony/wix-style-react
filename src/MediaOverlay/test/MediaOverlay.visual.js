@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { storySettings } from './storySettings';
 import MediaOverlay from '../MediaOverlay';
@@ -10,15 +9,22 @@ import {
   dragHandle,
 } from '../docs/examples/content';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
-import { mediaOverlayTestkitFactory } from '../../../testkit';
+import { snap, story, visualize } from 'storybook-snapper';
+import { wait } from '../../../test/utils/visual/utils';
+import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
+import { mediaOverlayDriverFactory } from '../MediaOverlay.uni.driver';
 
 const createDriver = () =>
-  mediaOverlayTestkitFactory({
+  uniTestkitFactoryCreator(mediaOverlayDriverFactory)({
     wrapper: document.body,
     dataHook: storySettings.dataHook,
   });
 
-const hover = async () => await createDriver().hover();
+const hover = async done => {
+  await createDriver().hover();
+  await wait(200);
+  done();
+};
 
 const mediaUrl =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8Exv7FAAF8AJtZv8v8wAAAABJRU5ErkJggg==';
@@ -159,10 +165,8 @@ const tests = [
   },
 ];
 
-const MediaOverlayWrapper = ({ componentDidMount, rtl, ...props }) => {
-  useEffect(() => {
-    componentDidMount && componentDidMount();
-  });
+const MediaOverlayWrapper = ({ componentDidMount, rtl, done, ...props }) => {
+  useEffect(componentDidMount);
 
   return (
     <RTLWrapper rtl={rtl}>
@@ -173,19 +177,22 @@ const MediaOverlayWrapper = ({ componentDidMount, rtl, ...props }) => {
   );
 };
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props, componentDidMount, rtl }) => {
-    storiesOf(`MediaOverlay${describe ? '/' + describe : ''}`, module).add(
-      it,
-      () => (
-        <MediaOverlayWrapper
-          {...commonProps}
-          {...props}
-          data-hook={storySettings.dataHook}
-          componentDidMount={componentDidMount}
-          rtl={rtl}
-        />
-      ),
-    );
+visualize('MediaOverlay', () => {
+  tests.forEach(({ describe, its }) => {
+    its.forEach(({ it, props, componentDidMount, rtl }) => {
+      story(describe, () => {
+        snap(it, done => (
+          <MediaOverlayWrapper
+            {...commonProps}
+            {...props}
+            data-hook={storySettings.dataHook}
+            componentDidMount={() => {
+              componentDidMount && componentDidMount(done);
+            }}
+            rtl={rtl}
+          />
+        ));
+      });
+    });
   });
 });
