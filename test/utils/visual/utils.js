@@ -97,3 +97,7 @@ export const storyOfAllPermutations = (Story, Component, options = {}) => {
     </Container>
   ));
 };
+
+/** A simple wait function to test components with animations */
+export const wait = timeToDelay =>
+  new Promise(resolve => setTimeout(resolve, timeToDelay));

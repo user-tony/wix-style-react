@@ -1,7 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-
+import React, { useEffect } from 'react';
+import { visualize, story, snap } from 'storybook-snapper';
 import Carousel from '..';
+import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
+import { carouselUniDriverFactory } from '../Carousel.uni.driver';
+import { storySettings } from '../docs/storySettings';
+import eventually from 'wix-eventually';
 
 const sampleImages = [
   {
@@ -81,15 +84,42 @@ const tests = [
   },
 ];
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
-    storiesOf(`Carousel${describe ? '/' + describe : ''}`, module).add(
-      it,
-      () => (
-        <div style={{ maxWidth: '550px' }}>
-          <Carousel {...props} />
-        </div>
-      ),
-    );
+const createDriver = () =>
+  uniTestkitFactoryCreator(carouselUniDriverFactory)({
+    wrapper: document.body,
+    dataHook: storySettings.dataHook,
+  });
+
+const checkIsLoading = async done => {
+  const driver = createDriver();
+  await eventually(async () => {
+    expect(await driver.isLoading()).toBe(false);
+  });
+  done();
+};
+
+const CarouselWrapper = ({ componentDidMount, done, ...props }) => {
+  useEffect(componentDidMount);
+
+  return <Carousel {...props} />;
+};
+
+visualize('Carousel', () => {
+  tests.forEach(({ describe, its }) => {
+    its.forEach(({ it, props }) => {
+      story(describe, () => {
+        snap(it, done => (
+          <div style={{ maxWidth: '550px' }}>
+            <CarouselWrapper
+              {...props}
+              dataHook={storySettings.dataHook}
+              componentDidMount={() => {
+                checkIsLoading(done);
+              }}
+            />
+          </div>
+        ));
+      });
+    });
   });
 });
