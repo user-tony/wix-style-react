@@ -14,6 +14,13 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 7.58.0 - 2020-04-28
+### Added
+- `<TimeInput/>` - custom suffix - [#5097](https://github.com/wix/wix-style-react/pull/5097)
+
+### Fixed
+- Tests stability
+
 ## 7.57.0 - 2020-04-23
 ### Fixed
 - `<Tooltip/>` - now works when wrapped with `<FontUpgrade/>` when appended to window [#5404](https://github.com/wix/wix-style-react/pull/5404)
