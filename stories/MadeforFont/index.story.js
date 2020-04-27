@@ -47,7 +47,7 @@ export default {
             <Text tagName="div">
               Use our
               <LinkTo
-                kind={Category.STYLING}
+                kind={Category.COMPONENTS}
                 story="FontUpgrade"
               >{` <FontUpgrade/> `}</LinkTo>
               wrapper component to define the affected scope.

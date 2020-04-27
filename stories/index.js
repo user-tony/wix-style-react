@@ -57,6 +57,7 @@ require('../src/FloatingHelper/FloatingHelperContent/docs/index.story');
 require('../src/FloatingHelper/docs/index.story');
 require('../src/FloatingNotification/docs/index.story');
 require('../src/FloatingNotification/docs/index.story');
+require('../src/FontUpgrade/docs/index.story');
 require('../src/FormField/docs/index.story');
 require('../src/GenericModalLayout/docs/index.story');
 require('../src/GoogleAddressInput/docs/index.story');
@@ -148,7 +149,6 @@ require('./Internal');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
-require('../src/FontUpgrade/docs/index.story');
 
 // 1. Foundations
 require('./Colors/index.story');
