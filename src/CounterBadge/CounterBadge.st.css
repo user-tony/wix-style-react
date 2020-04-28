@@ -26,27 +26,32 @@
 
 /* General skin*/
 .root {
-  background-color: value(D20);
+  background-color: #465764;
 }
 
 .root:skin(standard) {
-  background-color: value(B10);
+  background-color:
+    #116CFF;
 }
 
 .root:skin(danger) {
-  background-color: value(R10);
+  background-color: #D12D14;
+  /* color: #0d1b25; */
 }
 
 .root:skin(warning) {
-  background-color: value(Y10);
+  background-color: #FFC50D;
+  color: #162D3D;
 }
 
 .root:skin(urgent) {
-  background-color: value(O10);
+  background-color: #FCA429;
+  color: #162D3D;
 }
 
 .root:skin(success) {
-  background-color: value(G10);
+  background-color: #1BC69B;
+  color: #162D3D;
 }
 
 .root:custom {
@@ -54,7 +59,7 @@
   height: 18px;
 }
 
-.root:custom > * {
+.root:custom>* {
   position: absolute;
   width: 12px;
   height: 12px;

@@ -113,7 +113,9 @@ $arrowDownShadow: -3px -3px 8px rgba(0, 0, 0, .1);
   }
 
   &:not(.title) {
-    @extend .text, .sizeMedium, .weightNormal;
+    @extend .text,
+    .sizeMedium,
+    .weightNormal;
   }
 
   &.title {
@@ -142,7 +144,7 @@ a[data-hook=link-item] {
 }
 
 .option.hovered {
-  background: $B50;
+  background: #E5F1FF;
   color: $D10;
 }
 

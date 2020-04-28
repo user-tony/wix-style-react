@@ -36,7 +36,7 @@
 
 .root:appearance(H5) {
   -st-mixin: heading-h5;
-  color: value(D20);
+  color: #465764;
   text-transform: uppercase;
   letter-spacing: 1px;
 }

@@ -42,7 +42,7 @@
     }
   }
 
-  &.small{
+  &.small {
     .statusIndicator {
       svg {
         height: 8px;
@@ -56,7 +56,7 @@
   }
 
   .darkArc {
-    stroke: $B00;
+    stroke: #0E50CF;
   }
 
   .lightArc,
@@ -82,29 +82,29 @@
   }
 
   &.success {
-    color: $B00;
+    color: #0E50CF;
 
     &.tiny {
       color: $GR50;
 
       .darkArc {
-        fill: $B00;
+        fill: #0E50CF;
       }
     }
   }
 
   &.error {
-    color: $R10;
+    color: #D12D14;
 
     .darkArc {
-      stroke: $R10;
+      stroke: #D12D14;
     }
 
     &.tiny {
       color: $GR50;
 
       .darkArc {
-        fill: $R10;
+        fill: #D12D14;
       }
     }
   }
@@ -156,9 +156,10 @@
       }
     }
   }
+
   &.blue {
     .lightArc {
-      stroke: $B30;
+      stroke: #B8D9FF;
     }
   }
 

@@ -50,38 +50,45 @@ $buttonMaxWidth: 25%;
     flex-shrink: 0;
   }
 
-  > *:first-child {
+  >*:first-child {
     margin-left: 0;
   }
 
   &.standard {
-    background-color: $B50;
-    border-color: $B30;
+    background-color:
+      #E5F1FF;
+    border-color:
+      #B8D9FF;
   }
 
   &.success {
-    background-color: $G50;
-    border-color: $G30;
+    background-color: #DBF6EC;
+    border-color: #89E1C1;
   }
 
   &.destructive {
-    background-color: $R50;
-    border-color: $R30;
+    background-color:
+      #FFE0E0;
+    border-color:
+      #EFABA1;
   }
 
   &.warning {
-    background-color: $Y50;
-    border-color: $Y30;
+    background-color:
+      #FFF7E0;
+    border-color:
+      #FEE9A4;
   }
 
   &.premium {
-    background-color: $P50;
-    border-color: $P30;
+    background-color: #FAEBFD;
+    border-color: #E9CCF2;
   }
 
   &.preview {
-    background-color: $D70;
-    border-color: $D50;
+    background-color:
+      #F7F4F7;
+    border-color: #D0D5D8;
   }
 
   &.dark {
@@ -106,7 +113,7 @@ $buttonMaxWidth: 25%;
       margin-right: 12px;
     }
 
-    > *:first-child {
+    >*:first-child {
       margin-left: unset;
       margin-right: 0;
     }

@@ -15,7 +15,7 @@
   /* Styles */
   background: value(D80);
   /* Disable native focus */
-  outline:none;
+  outline: none;
 }
 
 .root:disabled {

@@ -64,6 +64,7 @@ $gap: 6px;
   @include Placeholder(getTextColor($light: true, $secondary: true));
   @include Selection($paletteB4);
   @include default-scroll-bar();
+
   &::-webkit-scrollbar-thumb {
     height: 30px;
   }
@@ -93,11 +94,11 @@ $gap: 6px;
   }
 }
 
-.resizable > textarea {
+.resizable>textarea {
   resize: vertical;
 }
 
-.nonResizable > textarea {
+.nonResizable>textarea {
   resize: none;
 }
 
@@ -114,6 +115,7 @@ $gap: 6px;
   .inputArea {
     direction: rtl;
   }
+
   .counter {
     right: auto;
   }

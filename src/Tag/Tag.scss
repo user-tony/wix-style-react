@@ -124,31 +124,31 @@
 
   //Themes
   &.standard-theme {
-    background-color: $B40;
+    background-color: #E5F1FF;
 
     &.clickable:hover {
-      background-color: $B30;
+      background-color: #B8D9FF;
     }
   }
 
   &.warning-theme {
-    background-color: $Y40;
+    background-color: #FFF7E0;
 
     &.clickable:hover {
-      background-color: $Y30;
+      background-color: #FEF2C8;
     }
   }
 
   &.error-theme {
-    background-color: $R40;
+    background-color: #FFE0E0;
 
     &.clickable:hover {
-      background-color: $R30;
+      background-color: #FBD0D0;
     }
   }
 
   &.dark-theme {
-    background-color: $D20;
+    background-color: #465764;
     color: $D80;
 
     &.clickable:hover {
@@ -157,10 +157,10 @@
   }
 
   &.neutral-theme {
-    background-color: $D70;
+    background-color: #F7F4F7;
 
     &.clickable:hover {
-      background-color: $D60;
+      background-color: #E9EAEC;
     }
   }
 
@@ -168,7 +168,7 @@
     background-color: $D80;
 
     &.clickable:hover {
-      background-color: $B50;
+      background-color: #E5F1FF;
     }
   }
 }

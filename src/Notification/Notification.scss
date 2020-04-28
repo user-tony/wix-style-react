@@ -1,6 +1,10 @@
 @import '../common.scss';
 @import '../ZIndex.scss';
 
+* {
+  // color: #333 !important;
+}
+
 .root {
   position: relative;
 }
@@ -20,6 +24,10 @@
   max-width: 70%;
   margin-right: 12px;
   display: flex;
+}
+
+.label span {
+  color: #0d1b25 !important;
 }
 
 .closeButton {
@@ -52,12 +60,29 @@
 }
 
 /*Theme*/
-.standardTheme { background-color: $B20; }
-.errorTheme { background-color: $R20; }
-.successTheme { background-color: $G20; }
-.warningTheme { background-color: $Y10; }
-.premiumTheme { background-color: $P20; }
+.standardTheme {
+  background-color:
+    #60A1FF;
+}
 
+.errorTheme {
+  background-color: #DF5844;
+}
+
+.successTheme {
+  background-color:
+
+    #1BC69B;
+}
+
+.warningTheme {
+  background-color:
+    #FCD245;
+}
+
+.premiumTheme {
+  background-color: #B268CA;
+}
 
 /*Animations*/
 $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);

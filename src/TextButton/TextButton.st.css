@@ -18,7 +18,8 @@
   -st-extends: ButtonNext;
   -st-states: skin(string), underline(string), weight(string), size(string), fluid;
 
-  color: value(B10);
+  color:
+    #116CFF;
   white-space: nowrap;
 
   background-color: transparent;
@@ -40,11 +41,11 @@
 }
 
 .root:hover {
-  color: value(B20);
+  color: #0F59E6;
 }
 
 .root:active {
-  color: value(B20);
+  color: #0F59E6;
 }
 
 .root:disabled {
@@ -82,15 +83,15 @@
 /* skin: premium */
 
 .root:skin(premium) {
-  color: value(P10);
+  color: #9F42BD;
 }
 
 .root:skin(premium):hover {
-  color: value(P20);
+  color: #8D21B0;
 }
 
 .root:skin(premium):active {
-  color: value(P10);
+  color: #9F42BD;
 }
 
 .root:skin(premium):disabled {
@@ -100,15 +101,18 @@
 /* skin: premium */
 
 .root:skin(destructive) {
-  color: value(R10);
+  color:
+    #EE5951;
 }
 
 .root:skin(destructive):hover {
-  color: value(R20);
+  color:
+    #BA2712;
 }
 
 .root:skin(destructive):active {
-  color: value(R10);
+  color:
+    #EE5951;
 }
 
 .root:skin(destructive):disabled {
@@ -173,6 +177,7 @@
   -st-mixin: text-tiny-thin;
   height: 18px;
 }
+
 .root:size(tiny):weight(normal) {
   -st-mixin: text-tiny-normal;
   height: 18px;

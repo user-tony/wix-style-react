@@ -11,9 +11,9 @@
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
   -st-named:
-          B05, R05, G05,
-          D10, D20, D80,
-          D10-10, D80-30,
+    B05, R05, G05,
+    D10, D20, D80,
+    D10-10, D80-30,
 }
 
 .root {
@@ -28,11 +28,13 @@
 }
 
 .root:skin(standard)::barForeground {
-  background: value(B05);
+  background:
+    #3582FF;
 }
 
 .root:skin(success)::barForeground {
-  background: value(G05);
+  background:
+    #00A77D;
 }
 
 .root::barBackground {
@@ -40,14 +42,13 @@
 }
 
 .root::barBackground,
-.root::barForeground
-{
+.root::barForeground {
   border-radius: 2px;
   height: 4px;
 }
 
 .root:error::barForeground {
-  background: value(R05);
+  background: #DF5844;
 }
 
 .root:light::barBackground {
@@ -77,12 +78,12 @@
 }
 
 .root:skin(standard):success::indicationContainer {
-  background: value(B05);
+  background: #3582FF;
   color: value(D80);
 }
 
 .root:skin(success):success::indicationContainer {
-  background: value(G05);
+  background: value(#00A77D);
   color: value(D80);
 }
 

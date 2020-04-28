@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B10 ,D80, B20, B50, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-70, P10, P20, D10-30, D80-30;
+  -st-named: B10, D80, B20, B50, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-70, P10, P20, D10-30, D80-30;
 }
 
 .root {
@@ -27,20 +27,20 @@
   transition-timing-function: linear;
   transition-property: background-color, color, border-color;
 
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #116CFF;
+  border-color: #116CFF;
   color: white;
 }
 
 .root:hover {
-  background-color: value(B20);
-  border-color: value(B20);
+  background-color: #0F59E6;
+  border-color: #0F59E6;
   color: value(D80);
 }
 
 .root:active {
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #116CFF;
+  border-color: #116CFF;
   color: value(D80);
 }
 
@@ -67,20 +67,21 @@
 /* Skin: Standard - Secondary */
 
 .root:priority(secondary) {
-  border: solid 1px value(B10);
+  border: solid 1px #116CFF;
   background: transparent;
-  color: value(B10);
+  color:
+    #116CFF;
 }
 
 .root:priority(secondary):hover {
   color: value(D80);
   border-color: transparent;
-  background-color: value(B20);
+  background-color: #0F59E6;
 }
 
 .root:priority(secondary):active {
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #116CFF;
+  border-color: #116CFF;
   color: value(D80);
 }
 
@@ -96,18 +97,19 @@
 .root:skin(inverted) {
   border: none;
   background-color: value(D80);
-  color: value(B10);
+  color:
+    #116CFF;
 }
 
 .root:skin(inverted):hover {
   color: value(D80);
   border-color: transparent;
-  background: value(B20);
+  background: #0F59E6;
 }
 
 .root:skin(inverted):active {
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #116CFF;
+  border-color: #116CFF;
   color: value(D80);
 }
 
@@ -122,13 +124,14 @@
 .root:skin(inverted):priority(secondary) {
   border: none;
   background-color: value(D80);
-  color: value(B20);
+  color:
+    #116CFF;
 }
 
 .root:skin(inverted):priority(secondary):hover {
   color: value(D80);
   border-color: transparent;
-  background: value(B20);
+  background: #0F59E6;
 }
 
 .root:skin(inverted):priority(secondary):active {
@@ -149,18 +152,20 @@
 .root:skin(light) {
   border: none;
   background-color: value(D80);
-  color: value(B20);
+  color: #116CFF;
 }
 
 .root:skin(light):hover {
-  background-color: value(B50);
-  color: value(B10);
-  border-color: value(B50);
+  background-color:
+    #EBF4FF;
+  color: #0F59E6;
+  border-color:
+    #EBF4FF;
 }
 
 .root:skin(light):active {
-  background-color: value(B40);
-  color: value(B10);
+  background-color: #EBF4FF;
+  color: #0F59E6;
 }
 
 .root:skin(light):disabled {
@@ -178,15 +183,15 @@
 }
 
 .root:skin(light):priority(secondary):hover {
-  background-color: value(B50);
-  color: value(B10);
-  border-color: value(B50);
+  background-color: #EBF4FF;
+  color: #0F59E6;
+  border-color: #EBF4FF;
 }
 
 .root:skin(light):priority(secondary):active {
-  background-color: value(B40);
-  border: solid 1px value(B40);
-  color: value(B10);
+  background-color: #EBF4FF;
+  border: solid 1px #EBF4FF;
+  color: #0F59E6;
 }
 
 .root:skin(light):priority(secondary):disabled {
@@ -215,7 +220,7 @@
   color: value(D80);
 }
 
-.root:skin(transparent):disabled{
+.root:skin(transparent):disabled {
   background-color: value(D10-20);
   border-color: transparent;
   color: value(D80-70);
@@ -251,18 +256,18 @@
 
 .root:skin(premium) {
   border: none;
-  background-color: value(P10);
+  background-color: #9F42BD;
   color: value(D80);
 }
 
 .root:skin(premium):hover {
-  background-color: value(P20);
+  background-color: #8D21B0;
   color: value(D80);
-  border-color: value(P20);
+  border-color: #8D21B0;
 }
 
 .root:skin(premium):active {
-  background-color: value(P10);
+  background-color: #9F42BD;
   color: value(D80);
 }
 
@@ -275,20 +280,20 @@
 /* skin: premium - Secondary */
 
 .root:skin(premium):priority(secondary) {
-  border: solid 1px value(P10);
+  border: solid 1px #9F42BD;
   background: transparent;
-  color: value(P10);
+  color: #9F42BD;
 }
 
 .root:skin(premium):priority(secondary):hover {
-  background-color: value(P20);
+  background-color: #8D21B0;
   color: value(D80);
-  border-color: value(P20);
+  border-color: #8D21B0;
 }
 
 .root:skin(premium):priority(secondary):active {
-  background-color: value(P10);
-  border: solid 1px value(P10);
+  background-color: #9F42BD;
+  border: solid 1px #9F42BD;
   color: value(D80);
 }
 

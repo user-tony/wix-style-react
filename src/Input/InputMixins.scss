@@ -2,6 +2,7 @@
 
 @mixin BoxSizing($boxSizing: border-box) {
   box-sizing: $boxSizing;
+
   * {
     box-sizing: $boxSizing;
   }
@@ -10,13 +11,16 @@
 @mixin Size($height, $fontSize) {
   height: $height;
   font-size: $fontSize;
+
   .input {
     display: block;
     font-size: $fontSize;
+
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 $height white inset;
       box-shadow: 0 0 0 $height white inset;
     }
+
     &::placeholder {
       font-size: $fontSize;
       opacity: initial;
@@ -34,6 +38,7 @@
   border-color: $borderColor;
   background-color: $backgroundColor;
   color: $color;
+
   .input {
     color: $color;
   }
@@ -41,6 +46,7 @@
 
 @mixin BorderRadius($borderRadius) {
   border-radius: $borderRadius;
+
   &:-webkit-autofill {
     border-radius: $borderRadius;
   }
@@ -50,12 +56,15 @@
   &:hover:not(.hasFocus):not(.disabled) {
     background-color: $backgroundColor;
   }
+
   &.hasHover:not(.disabled) {
     background-color: $backgroundColor;
   }
+
   &:hover.readOnly:not(.disabled) {
-    border: solid 1px $B30;
+    border: solid 1px #C3E0FF;
   }
+
   &:hover.readOnly.disabled {
     border: solid 1px $D60;
   }
@@ -77,6 +86,7 @@
     @include Placeholder($color: $color);
     color: $color;
   }
+
   .menu-arrow path {
     fill: $color;
   }
@@ -89,6 +99,7 @@
     &.hasError {
       @include FocusBoxError;
     }
+
     &.hasWarning {
       @include FocusBoxWarning;
     }
@@ -120,6 +131,7 @@
   &::selection {
     background: $color;
   }
+
   &::-moz-selection {
     background: $color;
   }
@@ -129,12 +141,15 @@
   &::-webkit-input-placeholder {
     color: $color;
   }
+
   &:-moz-placeholder {
     color: $color;
   }
+
   &::-moz-placeholder {
     color: $color;
   }
+
   &:-ms-input-placeholder {
     color: $color !important;
   }

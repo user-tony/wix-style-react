@@ -52,13 +52,13 @@
   border-radius: 4px;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid value(B20);
+  border: 1px solid #3582FF;
   background-color: value(D80);
 }
 
 .root:focus-visible .checkbox {
   outline: none;
-  border-color: value(B10);
+  border-color: #116CFF;
   box-shadow: 0 0 0 3px value(F00);
 }
 
@@ -75,7 +75,7 @@
   opacity: 0;
 }
 
-.inner > svg {
+.inner>svg {
   width: 8px;
   height: 8px;
 }
@@ -92,7 +92,7 @@
 
 /* Selection Area */
 .root:selectionarea(always) {
-  background-color: value(B60);
+  background-color: #F5FAFF;
   cursor: pointer;
   border-radius: 8px;
 }
@@ -104,7 +104,7 @@
 
 .root:selectionarea(always):hover,
 .root:selectionarea(hover):hover {
-  background-color: value(B50);
+  background-color: #E5F1FF;
 }
 
 .root:selectionarea(always) .children,
@@ -127,7 +127,7 @@
 .root:selectionarea(hover):selection(indeterminate),
 .root:selectionarea(always):selection(checked),
 .root:selectionarea(always):selection(indeterminate) {
-  background-color: value(B40);
+  background-color: #E5F1FF;
 }
 
 .root:selectionarea(always):valign(top) .outer {
@@ -146,8 +146,8 @@
 
 .root:selection(checked) .checkbox,
 .root:selection(indeterminate) .checkbox {
-  border: 1px solid value(B10);
-  background-color: value(B10);
+  border: 1px solid #116CFF;
+  background-color: #116CFF;
 }
 
 .root:selection(checked) .checkbox .inner,
@@ -197,7 +197,7 @@
 
 /* Hover */
 .root:selection(unchecked):hover .checkbox {
-  background-color: value(B50);
+  background-color: #E5F1FF;
 }
 
 .root:checkboxhover .checkbox {

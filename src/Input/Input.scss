@@ -13,9 +13,10 @@ $double-gap: 12px;
   border-radius: 6px;
   @include BoxSizing();
   @include FontRoman();
+
   &.readOnly {
-    border: solid 1px $D60;
-    background-color: $D70;
+    border: solid 1px #E9EAEC;
+    background-color: #F7F4F7;
     @include ThemeHover($backgroundColor: $B50);
   }
 
@@ -44,10 +45,12 @@ $double-gap: 12px;
 .size-large {
   .input-wrapper {
     padding: 0 $double-gap;
+
     .input {
       padding: 18px $gap;
     }
   }
+
   &.roundInput {
     .menu-arrow {
       padding: 0 $double-gap 0 $gap;
@@ -113,17 +116,21 @@ $double-gap: 12px;
 }
 
 .roundInput {
+
   // `medium` is the new `normal` by Zeplin. For now supporting both
   &.size-normal,
   &.size-medium {
     @include BorderRadius(18px);
   }
+
   &.size-small {
     @include BorderRadius(15px);
+
     .menu-arrow {
       padding: 0 $gap;
     }
   }
+
   &.size-large {
     @include BorderRadius(30px);
   }
@@ -143,22 +150,27 @@ $double-gap: 12px;
   &-small {
     @include Size($height: 30px, $fontSize: 14px);
   }
+
   &-small-with-selection {
     @include Size($height: 28px, $fontSize: 14px);
   }
+
   // `medium` is the new `normal` by Zeplin. For now supporting both
   &-normal,
   &-medium {
     @include Size($height: 36px, $fontSize: 16px);
   }
+
   // `medium` is the new `normal` by Zeplin. For now supporting both
   &-normal-with-selection,
   &-medium-with-selection {
     @include Size($height: 34px, $fontSize: 16px);
   }
+
   &-large {
     @include Size($height: 60px, $fontSize: 16px);
   }
+
   &-large-with-selection {
     @include Size($height: 58px, $fontSize: 16px);
   }
@@ -166,18 +178,22 @@ $double-gap: 12px;
 
 // RTL layout based on global style set on document body or parent element.
 @include withRTL() {
+
   .root,
   .input-wrapper,
   .suffixes {
     direction: rtl;
   }
+
   .input {
     direction: rtl;
   }
+
   .roundInput {
     .menu-arrow {
       padding: 0 $gap 0 $double-gap;
     }
+
     &.size-small {
       .menu-arrow {
         padding: 0 $gap;
@@ -189,16 +205,20 @@ $double-gap: 12px;
 // RTL layout based on a property passed directly to the component.
 .rtl.root {
   direction: rtl;
+
   .suffixes {
     direction: rtl;
   }
+
   .input {
     direction: rtl;
   }
+
   &.roundInput {
     .menu-arrow {
       padding: 0 $gap 0 $double-gap;
     }
+
     &.size-small {
       .menu-arrow {
         padding: 0 $gap;
@@ -219,6 +239,7 @@ $double-gap: 12px;
   height: 100%;
   padding: 0 $gap;
   margin-top: 1px;
+
   path {
     fill: $B10;
   }

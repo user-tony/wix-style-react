@@ -5,8 +5,8 @@
 
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: B10, F00, B20,  R10, R20, P10, P20, G10, G20, D80, B50, D40,
-  D10, D20, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-30, D80-70, D10-30;
+  -st-named: B10, F00, B20, R10, R20, P10, P20, G10, G20, D80, B50, D40,
+    D10, D20, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-30, D80-70, D10-30;
 }
 
 :import {
@@ -37,7 +37,9 @@
   border-radius: 18px;
   padding: 0 23px;
 
-  background-color: value(B10);
+  /*change button color here*/
+  background-color: #1F6CFF;
+  /*value(B10)*/
   border-color: value(B10);
   color: value(D80);
 
@@ -52,8 +54,8 @@
 }
 
 .root:hover {
-  background-color: value(B20);
-  border-color: value(B20);
+  background-color: #0F59E6;
+  border-color: #0F59E6;
   color: value(D80);
 }
 
@@ -79,19 +81,19 @@
 
 .root:priority(secondary) {
   background-color: transparent;
-  border-color: value(B10);
-  color: value(B10);
+  border-color: #0F59E6;
+  color: #0F59E6;
 }
 
 .root:priority(secondary):hover {
   color: value(D80);
   border-color: transparent;
-  background-color: value(B20);
+  background-color: #1F6CFF;
 }
 
 .root:priority(secondary):active {
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #1F6CFF;
+  border-color: #1F6CFF;
   color: value(D80);
 }
 
@@ -106,18 +108,18 @@
 .root:skin(inverted) {
   border-color: value(D80);
   background-color: value(D80);
-  color: value(B20);
+  color: #1F6CFF;
 }
 
 .root:skin(inverted):hover {
   color: value(D80);
   border-color: transparent;
-  background-color: value(B20);
+  background-color: #1F6CFF;
 }
 
 .root:skin(inverted):active {
-  background-color: value(B10);
-  border-color: value(B10);
+  background-color: #1F6CFF;
+  border-color: #1F6CFF;
   color: value(D80);
 }
 
@@ -132,18 +134,18 @@
 .root:skin(light) {
   border-color: value(D80);
   background-color: value(D80);
-  color: value(B20);
+  color: #1F6CFF;
 }
 
 .root:skin(light):hover {
-  background-color: value(B50);
-  color: value(B10);
-  border-color: value(B50);
+  background-color: #EBF4FF;
+  color: #0F59E6;
+  border-color: #EBF4FF;
 }
 
 .root:skin(light):active {
-  background-color: value(B40);
-  color: value(B10);
+  background-color: #EBF4FF;
+  color: #0F59E6;
 }
 
 .root:skin(light):disabled {
@@ -161,40 +163,41 @@
 }
 
 .root:skin(light):priority(secondary):hover {
-  background-color: value(B50);
-  color: value(B10);
-  border-color: value(B50);
+  background-color: #EBF4FF;
+  color: #0F59E6;
+  border-color: #EBF4FF;
 }
 
 .root:skin(light):priority(secondary):active {
-  background-color: value(B40);
-  border: solid 1px value(B40);
-  color: value(B10);
+  background-color: #EBF4FF;
+  border: solid 1px #EBF4FF;
+  color: #0F59E6;
 }
 
 .root:skin(light):priority(secondary):disabled {
   color: value(D80-70);
-  background-color:transparent;
+  background-color: transparent;
   border-color: value(D80-70);
 }
 
 /* skin: destructive */
 
 .root:skin(destructive) {
-  background-color: value(R10);
-  border-color: value(R10);
+  background-color: #D12D14;
+  /*value(R10) */
+  border-color: #D12D14;
   color: value(D80);
 }
 
 .root:skin(destructive):hover {
-  background-color: value(R20);
-  border-color: value(R20);
+  background-color: #BA2712;
+  border-color: #BA2712;
   color: value(D80);
 }
 
 .root:skin(destructive):active {
-  background-color: value(R10);
-  border-color: value(R10);
+  background-color: #BA2712;
+  border-color: #BA2712;
   color: value(D80);
 }
 
@@ -207,14 +210,14 @@
 /* skin: destructive - secondary */
 
 .root:skin(destructive):priority(secondary) {
-  border: solid 1px value(R10);
+  border: solid 1px #D12D14;
   background: transparent;
-  color: value(R10);
+  color: #D12D14;
 }
 
 .root:skin(destructive):priority(secondary):hover {
-  background-color: value(R20);
-  border-color: value(R20);
+  background-color: #BA2712;
+  border-color: #BA2712;
   color: value(D80);
 }
 
@@ -233,25 +236,25 @@
 /* skin: premium */
 
 .root:skin(premium) {
-  background-color: value(P10);
-  border-color: value(P10);
+  background-color: #9F42BD;
+  border-color: #9F42BD;
   color: value(D80);
 }
 
 .root:skin(premium):hover {
-  background-color: value(P20);
-  border-color: value(P20);
+  background-color: #8D21B0;
+  border-color: #8D21B0;
   color: value(D80);
 }
 
 .root:skin(premium):active {
-  background-color: value(P10);
-  border-color: value(P10);
+  background-color: #8D21B0;
+  border-color: #8D21B0;
   color: value(D80);
 }
 
 .root:skin(premium):disabled {
-  color:value(D80);
+  color: value(D80);
   background-color: value(D10-30);
   border-color: transparent;
 }
@@ -259,9 +262,9 @@
 /* skin: premium - secondary */
 
 .root:skin(premium):priority(secondary) {
-  border: solid 1px value(P10);
+  border: solid 1px #9F42BD;
   background: transparent;
-  color: value(P10);
+  color: #9F42BD;
 }
 
 .root:skin(premium):priority(secondary):hover {
@@ -270,7 +273,7 @@
   color: value(D80);
 }
 
-.root:skin(premium):priority(secondary):active{
+.root:skin(premium):priority(secondary):active {
   background-color: value(P10);
   border-color: value(P10);
   color: value(D80);
@@ -286,25 +289,25 @@
 /* skin: premium-light - primary */
 
 .root:skin(premium-light) {
-  background-color: value(P10);
-  border-color: value(P10);
+  background-color: #9F42BD;
+  border-color: #9F42BD;
   color: value(D80);
 }
 
 .root:skin(premium-light):hover {
-  background-color: value(P20);
-  border-color: value(P20);
+  background-color: #8D21B0;
+  border-color: #8D21B0;
   color: value(D80);
 }
 
 .root:skin(premium-light):active {
-  background-color: value(P10);
-  border-color: value(P10);
+  background-color: #8D21B0;
+  border-color: #8D21B0;
   color: value(D80);
 }
 
 .root:skin(premium-light):disabled {
-  color:value(D80);
+  color: value(D80);
   background-color: value(D80-30);
   border-color: transparent;
 }
@@ -319,9 +322,9 @@
 }
 
 .root:skin(premium-light):priority(secondary):hover {
-  background-color: value(D80);
-  border-color: value(D80);
-  color: value(P10);
+  background-color: #F4E9F7;
+  border-color: #F4E9F7;
+  color: #8D21B0;
 }
 
 .root:skin(premium-light):priority(secondary):active {
@@ -332,7 +335,7 @@
 
 .root:skin(premium-light):priority(secondary):disabled {
   color: value(D80-70);
-  background-color:transparent;
+  background-color: transparent;
   border-color: value(D80-70);
 }
 
@@ -346,8 +349,8 @@
 
 .root:skin(dark):hover {
   color: value(D80);
-  background-color: value(D20);
-  border-color: value(D20);
+  background-color: #0d1b25;
+  border-color: #0d1b25;
 }
 
 .root:skin(dark):active {
@@ -366,14 +369,16 @@
 
 .root:skin(dark):priority(secondary) {
   background-color: transparent;
-  border: solid 1px value(D40);
+  border: solid 1px value(D10);
   color: value(D10);
 }
 
 .root:skin(dark):priority(secondary):hover {
   color: value(D80);
-  background-color: value(D20);
-  border-color: value(D20);
+  background-color:
+    #0d1b25;
+  border-color:
+    #0d1b25;
 }
 
 .root:skin(dark):priority(secondary):active {
@@ -453,24 +458,24 @@
 }
 
 .root:size(small) {
-    height: 30px;
-    min-width: 72px;
+  height: 30px;
+  min-width: 72px;
 
-    -st-mixin:text-small-normal;
+  -st-mixin: text-small-normal;
 
-    border-radius: 15px;
-    padding: 0 17px;
+  border-radius: 15px;
+  padding: 0 17px;
 }
 
 .root:size(tiny) {
-    height: 24px;
-    min-width: 60px;
+  height: 24px;
+  min-width: 60px;
 
-    -st-mixin: text-tiny-normal;
+  -st-mixin: text-tiny-normal;
 
-    line-height: 16px;
-    border-radius: 18px;
-    padding: 0 11px;
+  line-height: 16px;
+  border-radius: 18px;
+  padding: 0 11px;
 }
 
 .root:size(tiny)[data-madefor="true"] {

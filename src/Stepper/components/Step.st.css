@@ -88,7 +88,7 @@
   line-height: 30px;
 }
 
-.root:styleType(text) .text  {
+.root:styleType(text) .text {
   line-height: 24px;
 }
 
@@ -96,7 +96,7 @@
   color: value(D40);
 }
 
-.root:type(disabled):styleType(text) .text  {
+.root:type(disabled):styleType(text) .text {
   color: value(D10-30);
 }
 

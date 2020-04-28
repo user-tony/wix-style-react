@@ -11,11 +11,11 @@
 
 $typography_headers: (
   /*    (font-family, font-size, line-height, color, uppercase, letter-spacing) */
-  "h1": ($FontMedium, 36px, 48px, ($D10, $D80), null     , null , bold),
-  "h2": ($FontMedium, 28px, 36px, ($D10, $D80), null     , null , bold),
-  "h3": ($FontRoman , 20px, 24px, ($D10, $D80), null     , null , null),
-  "h4": ($FontRoman , 18px, 24px, ($D10, $D80), null     , null , null),
-  "h5": ($FontMedium, 12px, 24px, ($D20, $D50), UPPERCASE, 1px  , bold),
+  "h1": ($FontMedium, 36px, 48px, ($D10, $D80), null, null, bold),
+  "h2": ($FontMedium, 28px, 36px, ($D10, $D80), null, null, bold),
+  "h3": ($FontRoman, 20px, 24px, ($D10, $D80), null, null, null),
+  "h4": ($FontRoman, 18px, 24px, ($D10, $D80), null, null, null),
+  "h5": ($FontMedium, 12px, 24px, ($D50, $D50), UPPERCASE, 1px, bold),
   "h6": ($FontMedium, 10px, 18px, ($D10, $D50), UPPERCASE, 1.2px, bold),
 );
 
@@ -26,20 +26,25 @@ $typography_headers: (
   font-size: nth($heading, 2);
   line-height: nth($heading, 3);
 
-  @if nth($heading,5) == UPPERCASE {
+  @if nth($heading, 5)==UPPERCASE {
     text-transform: uppercase;
   }
 
-  $letterSpacing: nth($heading,6);
-  @if $letterSpacing != null {
+  $letterSpacing: nth($heading, 6);
+
+  @if $letterSpacing !=null {
     letter-spacing: $letterSpacing;
   }
 
-  @if nth($heading,5) == bold {
-    font-weight: 400; /* IE11 */
+  @if nth($heading, 5)==bold {
+    font-weight: 400;
+    /* IE11 */
     font-weight: var(--wsr-font-weight-bold, 400);
-  } @else {
-    font-weight: 400; /* IE11 */
+  }
+
+  @else {
+    font-weight: 400;
+    /* IE11 */
     font-weight: var(--wsr-font-weight-regular, 400);
   }
 
@@ -47,11 +52,13 @@ $typography_headers: (
 }
 
 @mixin HeadingColor($tagName, $light) {
-  $colors: nth(map-get($typography_headers, $tagName),4);
+  $colors: nth(map-get($typography_headers, $tagName), 4);
 
   @if $light {
     color: nth($colors, 2);
-  } @else {
+  }
+
+  @else {
     color: nth($colors, 1);
   }
 }
@@ -69,37 +76,42 @@ $DEFAULT_WEIGHT: thin;
 $DEFAULT_SKIN: standard;
 
 /* SIZE AND FONT-FAMILY */
-$typography_textSize: (
-  tiny: (12px, 15px),
+$typography_textSize: (tiny: (12px, 15px),
   small: (14px, 18px),
-  medium: (16px, 24px)
-);
+  medium: (16px, 24px));
 
 @mixin TextSize($size: $DEFAULT_SIZE) {
   @if map-has-key($typography_textSize, $size) {
     font-size: nth(map-get($typography_textSize, $size), 1);
     line-height: nth(map-get($typography_textSize, $size), 2);
-  } @else {
+  }
+
+  @else {
     @error "size value of `#{$size}` is invalid";
   }
 }
 
-$typography_textFontFamily: (
-  tiny:   (bold: $FontBold,   normal: $FontMedium, thin: $FontRoman),
-  small:  (bold: $FontMedium, normal: $FontRoman,  thin: $FontLight),
-  medium: (bold: $FontMedium, normal: $FontRoman,  thin: $FontLight),
+$typography_textFontFamily: (tiny: (bold: $FontBold, normal: $FontMedium, thin: $FontRoman),
+  small: (bold: $FontMedium, normal: $FontRoman, thin: $FontLight),
+  medium: (bold: $FontMedium, normal: $FontRoman, thin: $FontLight),
 );
 
 @mixin TextFontFamily($size: $DEFAULT_SIZE, $weight: $DEFAULT_WEIGHT) {
   @if map-has-key($typography_textFontFamily, $size) {
     $weights: map-get($typography_textFontFamily, $size);
+
     @if map-has-key($weights, $weight) {
-      font-family: map-get($weights, $weight); /* IE11 */
+      font-family: map-get($weights, $weight);
+      /* IE11 */
       font-family: var(--wsr-font-family, map-get($weights, $weight));
-    } @else {
+    }
+
+    @else {
       @error "weight value of `#{$weight}` is invalid";
     }
-  } @else {
+  }
+
+  @else {
     @error "size value of `#{$size}` is invalid";
   }
 }
@@ -111,45 +123,55 @@ $typography_textFontFamily: (
 
 /* COLORS */
 @function getTextColor($light: false, $secondary: false, $skin: $DEFAULT_SKIN, $link: false) {
-  @if $skin == success {
+  @if $skin==success {
     @return $G10;
-  } @else if $skin == error {
+  }
+
+  @else if $skin==error {
     @return $R10;
-  } @else if $skin == premium {
+  }
+
+  @else if $skin==premium {
     @return $P10;
-  } @else if $link {
+  }
+
+  @else if $link {
     @return $B10;
-  } @else if $light and $secondary {
+  }
+
+  @else if $light and $secondary {
     @return $D40;
-  } @else if $light {
+  }
+
+  @else if $light {
     @return $D80;
-  } @else if $secondary {
+  }
+
+  @else if $secondary {
     @return $D20;
-  } @else {
+  }
+
+  @else {
     @return $D10;
   }
 }
 
 @mixin TextColor($light: false, $secondary: false, $skin: $DEFAULT_SKIN, $link: false) {
-  color: getTextColor(
-    $light: $light,
-    $secondary: $secondary,
-    $skin: $skin,
-    $link: $link);
+  color: getTextColor($light: $light,
+      $secondary: $secondary,
+      $skin: $skin,
+      $link: $link);
 }
 
 /* TEXT */
-@mixin Text(
-  $size: $DEFAULT_SIZE,
+@mixin Text($size: $DEFAULT_SIZE,
   $weight: $DEFAULT_WEIGHT,
   $light: false,
   $secondary: false,
   $skin: $DEFAULT_SKIN,
-  $link: false
-  ) {
-  @include TextSizeAndFontFamily($size: $size,$weight: $weight);
-  @include TextColor(
-    $light: $light,
+  $link: false) {
+  @include TextSizeAndFontFamily($size: $size, $weight: $weight);
+  @include TextColor($light: $light,
     $secondary: $secondary,
     $skin: $skin,
     $link: $link);
