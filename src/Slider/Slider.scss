@@ -9,7 +9,7 @@ $sliderMarkLine: 6px;
 $sliderMarkTextMarginTop: 12px;
 $sliderMarkTextSize: 18px;
 
-:global(.wix-style-react-slider) :global(.rc-slider) {
+:global(.wsr-slider) {
   position: relative;
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding});
   width: 100%;
@@ -17,7 +17,7 @@ $sliderMarkTextSize: 18px;
   box-sizing: border-box;
   margin: $sliderMarginTop 0 $sliderMarginBottom 0;
 
-  &:not(:global(.rc-slider-disabled)){
+  &:not(:global(.wsr-slider-disabled)){
     cursor: pointer;
   }
 
@@ -32,7 +32,7 @@ $sliderMarkTextSize: 18px;
   }
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-with-marks) {
+:global(.wsr-slider-with-marks) {
   height: calc(#{$sliderRailHeight} + 2 * #{$sliderPadding} + #{$sliderMarginBottom} + #{$sliderMarkLine} + #{$sliderMarkTextMarginTop} +  #{$sliderMarkTextSize});
   margin-bottom: 0;
 
@@ -47,7 +47,7 @@ $sliderMarkTextSize: 18px;
   }
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-rail) {
+:global(.wsr-slider-rail) {
   position: absolute;
   width: 100%;
   background-color: $B40;
@@ -56,7 +56,7 @@ $sliderMarkTextSize: 18px;
   margin: $sliderPadding 0;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-track) {
+:global(.wsr-slider-track) {
   position: absolute;
   left: 0;
   background-color: $B10;
@@ -66,14 +66,14 @@ $sliderMarkTextSize: 18px;
   //transition: width 80ms; /* Animation */
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-mark) {
+:global(.wsr-slider-mark) {
   position: absolute;
   top: calc(#{$sliderRailHeight} + #{$sliderMarkLine} + #{$sliderPadding} + #{$sliderMarginBottom});
   left: 0;
   width: 100%;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-mark-text) {
+:global(.wsr-slider-mark-text) {
   position: absolute;
   display: inline-block;
   vertical-align: middle;
@@ -81,11 +81,11 @@ $sliderMarkTextSize: 18px;
   color: $D10;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-mark-text-active) {
+:global(.wsr-slider-mark-text-active) {
   color: $D10;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-step) {
+:global(.wsr-slider-step) {
   position: absolute;
   width: 100%;
   height: $sliderRailHeight;
@@ -93,15 +93,15 @@ $sliderMarkTextSize: 18px;
   margin: $sliderPadding 0;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-rail) {
+:global(.wsr-slider-disabled .wsr-slider-rail) {
   background-color: $D10-10;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-track) {
+:global(.wsr-slider-disabled .wsr-slider-track) {
   background-color: $D50;
 }
 
-:global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-handle) {
+:global(.wsr-slider-disabled .wsr-slider-handle) {
   color: $D50;
 }
 

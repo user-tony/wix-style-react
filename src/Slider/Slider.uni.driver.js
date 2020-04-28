@@ -4,7 +4,7 @@ import { dataHooks } from './constants';
 export const sliderUniDriverFactory = base => {
   const $sliderHandles = () =>
     base.$$(`[data-hook="${dataHooks.sliderHandle}"]`);
-  const $sliderDots = () => base.$$('.rc-slider-dot');
+  const $sliderDots = () => base.$$('.wsr-slider-dot');
   const $sliderMarks = () =>
     base.$$(`[data-hook="${dataHooks.sliderMarkLabel}"]`);
 
@@ -14,7 +14,7 @@ export const sliderUniDriverFactory = base => {
     isDotSelected: number =>
       $sliderDots()
         .get(number - 1)
-        .hasClass('rc-slider-dot-active'),
+        .hasClass('wsr-slider-dot-active'),
     /** returns number of slider grades */
     numOfSliderDots: () => $sliderDots().count(),
     /** returns number of slider handles */
@@ -39,7 +39,7 @@ export const sliderUniDriverFactory = base => {
     },
     /** returns if the slider is disabled */
     isDisabled: async () => {
-      return !!(await base.$('.rc-slider-disabled'));
+      return !!(await base.$('.wsr-slider-disabled'));
     },
   };
 };

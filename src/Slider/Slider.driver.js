@@ -4,7 +4,7 @@ import { dataHooks } from './constants';
 const sliderDriverFactory = ({ element }) => {
   const $sliderHandles = () =>
     element.querySelectorAll(`[data-hook="${dataHooks.sliderHandle}"]`);
-  const $sliderDots = () => element.querySelectorAll('.rc-slider-dot');
+  const $sliderDots = () => element.querySelectorAll('.wsr-slider-dot');
   const $sliderMarks = () =>
     element.querySelectorAll(`[data-hook="${dataHooks.sliderMarkLabel}"]`);
 
@@ -15,7 +15,7 @@ const sliderDriverFactory = ({ element }) => {
     isDotSelected: number =>
       $sliderDots()
         .item(number - 1)
-        .classList.contains('rc-slider-dot-active'),
+        .classList.contains('wsr-slider-dot-active'),
     /** returns number of slider grades */
     numOfSliderDots: () => $sliderDots().length,
     /** returns number of slider handles */
@@ -42,7 +42,7 @@ const sliderDriverFactory = ({ element }) => {
 
     /** returns if the slider is disabled */
     isDisabled: () => {
-      return !!element.querySelector('.rc-slider-disabled');
+      return !!element.querySelector('.wsr-slider-disabled');
     },
   };
 };

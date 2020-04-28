@@ -110,6 +110,7 @@ export default class Slider extends Component {
     return Array.isArray(value) && value.length > 1 ? (
       <Slide.Range
         {...rest}
+        prefixCls="wsr-slider"
         handle={this._renderHandle}
         marks={displayMarks ? this._getMarks() : {}}
         value={value}
@@ -119,6 +120,7 @@ export default class Slider extends Component {
     ) : (
       <Slide
         {...rest}
+        prefixCls="wsr-slider"
         startPoint={startPoint}
         handle={this._renderHandle}
         marks={displayMarks ? this._getMarks() : {}}
@@ -130,7 +132,7 @@ export default class Slider extends Component {
   render() {
     const { dataHook, id } = this.props;
     return (
-      <div className="wix-style-react-slider" id={id} data-hook={dataHook}>
+      <div id={id} data-hook={dataHook}>
         {this._renderSlider()}
       </div>
     );
