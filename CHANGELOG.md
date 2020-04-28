@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.5.0 - 2020-04-28
+
 ### Added
 - `<TimeInput/>` - custom suffix - [#5408](https://github.com/wix/wix-style-react/pull/5408)
 - `<Timeline/>` - create new component [#5387](https://github.com/wix/wix-style-react/pull/5387)
