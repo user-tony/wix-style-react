@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<Slider/>`- fixed global styles override [#5418](https://github.com/wix/wix-style-react/pull/5418)
+
+
 ## 8.5.0 - 2020-04-28
 
 ### Added
