@@ -22,5 +22,12 @@ interface ComposerHeaderSaveStatusProps {
   size?: 'small' | 'medium';
 }
 
-declare const ComposerHeaderActions: React.SFC;
-declare const ComposerHeaderMainActions: React.SFC;
+declare const ComposerHeaderActions: React.SFC<ComposerHeaderActionsProps>;
+interface ComposerHeaderActionsProps {
+  justifyContent?: React.CSSProperties['justifyContent'];
+  dataHook?: string;
+}
+declare const ComposerHeaderMainActions: React.SFC<ComposerHeaderMainActionsProps>;
+interface ComposerHeaderMainActionsProps {
+  dataHook?: string;
+}
