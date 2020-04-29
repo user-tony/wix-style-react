@@ -18,12 +18,14 @@ function ToggleButtonWithAllProps() {
       disabled
       onClick={_ev => {}}
       selected
-      skin="dark"
+      skin="inverted"
       tooltipProps={{}}
       labelEllipsis
       labelPlacement="tooltip"
       labelValue="hello"
       size="medium"
+      shape="square"
+      border
       children={<div />}
     />
   );

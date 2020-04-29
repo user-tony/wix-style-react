@@ -22,13 +22,18 @@ class Icon extends PureComponent {
     const {
       children,
       size,
+      shape,
+      border,
       tooltipProps,
       tooltipDisabled,
       labelValue,
+      labelPlacement,
       focusableOnBlur,
       focusableOnFocus,
     } = this.props;
     const iconSize = iconChildSize[size];
+    const isLabelOutside = shape === 'round' && labelPlacement === 'end';
+    const labelContainerStyle = isLabelOutside ? styles('labelContainer') : {};
 
     const [icon, label] = React.Children.map(
       children,
@@ -40,15 +45,16 @@ class Icon extends PureComponent {
     return (
       children && (
         <Tooltip
+          {...styles('tooltip')}
           {...tooltipProps}
           dataHook="toggle-button-tooltip"
           size="small"
           content={labelValue}
           disabled={tooltipDisabled || tooltipProps.disabled}
         >
-          <span>
+          <span {...labelContainerStyle}>
             <div
-              {...styles('icon', { size }, this.props)}
+              {...styles('icon', { size, shape, border }, this.props)}
               tabIndex={1}
               onBlur={focusableOnBlur}
               onFocus={focusableOnFocus}
@@ -57,8 +63,9 @@ class Icon extends PureComponent {
                 width: iconSize,
                 height: iconSize,
               })}
-              {label}
+              {!isLabelOutside && label}
             </div>
+            {isLabelOutside && label}
           </span>
         </Tooltip>
       )
@@ -76,9 +83,11 @@ class ToggleButton extends PureComponent {
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
     children: node,
     /** Button skins */
-    skin: oneOf(['standard', 'dark']),
+    skin: oneOf(['standard', 'dark', 'inverted']),
     /** Button size */
     size: oneOf(['tiny', 'small', 'medium', 'large']),
+    /** Button shape */
+    shape: oneOf(['square', 'round']),
     /** Label content */
     labelValue: node,
     /** Label placement */
@@ -91,6 +100,8 @@ class ToggleButton extends PureComponent {
     selected: bool,
     /** Applies disabled styles */
     disabled: bool,
+    /** Applies border */
+    border: bool,
     /** String based data hook */
     dataHook: string,
     /** Tooltip props for label. Applied only when `labelPlacement` is `tooltip`. */
@@ -100,6 +111,8 @@ class ToggleButton extends PureComponent {
   static defaultProps = {
     skin: 'standard',
     size: 'medium',
+    shape: 'square',
+    border: false,
     disabled: false,
     labelValue: '',
     labelPlacement: 'tooltip',
@@ -134,6 +147,7 @@ class ToggleButton extends PureComponent {
     const {
       children,
       size,
+      shape,
       skin,
       tooltipProps,
       labelValue,
@@ -142,6 +156,7 @@ class ToggleButton extends PureComponent {
       labelPlacement,
       labelEllipsis,
       disabled,
+      border,
       ...rest
     } = this.props;
 
@@ -158,8 +173,11 @@ class ToggleButton extends PureComponent {
       >
         <ToggleButtonIcon
           size={size}
+          shape={shape}
+          border={border}
           tooltipProps={tooltipProps}
           labelValue={labelValue}
+          labelPlacement={labelPlacement}
           tooltipDisabled={labelPlacement !== 'tooltip'}
         >
           {children}

@@ -12,8 +12,10 @@ export type ToggleButtonProps = ButtonWithAsProp<{
   labelPlacement?: 'tooltip' | 'bottom' | 'end';
   labelEllipsis?: boolean;
   tooltipProps?: TooltipCommonProps;
+  border?: boolean;
+  shape?: 'square' | 'round';
 }>;
 
 export default class ToggleButton extends React.Component<ToggleButtonProps> {}
 
-export type ToggleButtonSkin = 'standard' | 'dark';
+export type ToggleButtonSkin = 'standard' | 'dark' | 'inverted';

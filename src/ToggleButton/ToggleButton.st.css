@@ -10,13 +10,13 @@
 
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: B10, D55, D80, B20, B50, B40, F00, D10, D20, D30;
+  -st-named: B10, B20, D55, D80, B20, B50, B40, F00, D10, D20, D30, D60, D10-30, D80-70, B30;
 }
 
 /* root */
 .root {
   -st-extends: ButtonNext;
-  -st-states: selected, disabled, skin(enum(standard, dark)),
+  -st-states: selected, disabled, skin(enum(standard, dark, inverted)),
     labelPlacement(enum(tooltip, end, bottom));
 
   padding: 0;
@@ -70,6 +70,17 @@
   background-color: value(D80);
 }
 
+.root:disabled:selected .icon {
+  color: value(D80-70);
+  background-color: value(D10-30);
+}
+
+.root:labelPlacement(end),
+.root:labelPlacement(bottom) {
+  display: block;
+  max-width: 100%;
+}
+
 /* skin Dark */
 .root:skin(dark):hover:not(:disabled),
 .root:skin(dark):hover:not(:disabled) .label {
@@ -114,10 +125,23 @@
   background-color: value(D80);
 }
 
+/* skin Inverted */
+.root:skin(inverted):selected:hover:not(:disabled),
+.root:skin(inverted):selected:not(:disabled) {
+  color: value(D80);
+}
+.root:skin(inverted):selected:not(:disabled) .icon {
+  background-color: value(B10);
+}
+.root:skin(inverted):selected:hover:not(:disabled) .icon {
+  background-color: value(B20);
+}
+
 /* icon */
 .icon {
   -st-extends: Focusable;
-  -st-states: size(enum(tiny, small, medium, large));
+  -st-states: border, size(enum(tiny, small, medium, large)),
+    shape(enum(square, round));
 
   display: flex;
   align-items: center;
@@ -151,6 +175,32 @@
   padding: 9px;
 }
 
+.icon:size(tiny):border {
+  padding: 2px;
+}
+
+.icon:size(small):border {
+  padding: 5px;
+}
+
+.icon:size(medium):border {
+  padding: 5px;
+}
+
+.icon:size(large):border {
+  padding: 8px;
+}
+
+/* shape Round */
+.icon:shape(round) {
+  border-radius: 100%;
+}
+
+.root:labelPlacement(end) .icon,
+.root:labelPlacement(bottom) .icon {
+  max-width: 100%;
+}
+
 /* label */
 .label {
   -st-states: placement(enum(tooltip, end, bottom)),
@@ -174,4 +224,50 @@
 
 .label:placement(bottom) {
   margin-top: 9px;
+}
+
+.root:skin(inverted):shape(square):labelPlacement(end):active:not(:disabled) .label,
+.root:skin(inverted):shape(square):labelPlacement(end):selected:not(:disabled) .label {
+  color: value(D80);
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tooltip {
+  max-width: 100%;
+}
+
+/* Border */
+.icon:border {
+  border: solid 1px value(D60);
+}
+
+.root:hover .icon:border {
+  border: solid 1px value(B40);
+}
+
+.root:active .icon:border,
+.root:selected .icon:border,
+.root:selected:hover .icon:border {
+  border: solid 1px value(B30);
+}
+
+.root:disabled .icon:border {
+  border: solid 1px value(D10-30);
+}
+
+.root:selected:skin(inverted) .icon:border {
+  border: solid 1px value(B10);
+}
+
+.root:selected:skin(inverted):hover .icon:border {
+  border: solid 1px value(B20);
+}
+
+.root:disabled:selected .icon:border {
+  border: solid 1px transparent;
 }

@@ -15,7 +15,7 @@ export const disabled = `
   <ToggleButton labelValue="Crop & Rotate" disabled>
     <Icons.CropRotate />
   </ToggleButton>
-  <ToggleButton labelValue="Crop & Rotate" skin="dark" disabled>
+  <ToggleButton labelValue="Crop & Rotate" skin="inverted" disabled>
     <Icons.CropRotate />
   </ToggleButton>
 </Layout>
@@ -57,6 +57,17 @@ export const sizes = `
   </Cell>
   <Cell span="1">
     <ToggleButton size="large" labelValue="Large"><Icons.CropRotate /></ToggleButton>
+  </Cell>
+</Layout>
+`;
+
+export const shapes = `
+<Layout cols={2} gap={0} justifyItems="center" alignItems="center">
+  <Cell span="1">
+    <ToggleButton shape="square" labelValue="Square"><Icons.CropRotateSmall /></ToggleButton>
+  </Cell>
+  <Cell span="1">
+    <ToggleButton shape="round" border={true} labelValue="Round"><Icons.CropRotateSmall /></ToggleButton>
   </Cell>
 </Layout>
 `;
