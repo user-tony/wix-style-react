@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Table/>` - Sticky columns and horizontal scroll support [#5405](https://github.com/wix/wix-style-react/pull/5405)
+
 ### Fixed
 - `<Slider/>`- fixed global styles override [#5418](https://github.com/wix/wix-style-react/pull/5418)
 
