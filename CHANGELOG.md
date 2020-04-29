@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
+- `<ToggleButton/>` - Added `shape` & `border` props [#5400](https://github.com/wix/wix-style-react/pull/5400)
 - `<Table/>` - Sticky columns and horizontal scroll support [#5405](https://github.com/wix/wix-style-react/pull/5405)
 
 ### Fixed
