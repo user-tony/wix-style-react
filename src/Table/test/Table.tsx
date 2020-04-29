@@ -49,6 +49,8 @@ function tableWithAllProps() {
       virtualizedLineHeight={10}
       virtualizedListRef={_ref => {}}
       virtualizedTableHeight={10}
+      horizontalScroll
+      stickyColumns={2}
       width="10"
       withWrapper
       columns={[

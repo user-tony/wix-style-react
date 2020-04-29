@@ -32,6 +32,7 @@ import TableInfiniteScrollWithBulkSelectionExampleRaw from '!raw-loader!./exampl
 import TableHighlightedRowsExampleRaw from '!raw-loader!./examples/TableHighlightedRowsExample';
 import TableAlignedColumnsExampleRaw from '!raw-loader!./examples/TableAlignedColumnsExample';
 import TableVirtualizationExampleRaw from '!raw-loader!./examples/TableVirtualizationExample';
+import TableStickyScrollExampleRaw from '!raw-loader!./examples/TableStickyScrollExample';
 
 const code = config =>
   baseCode({
@@ -152,6 +153,13 @@ export default {
               description:
                 'This example demonstrates how to render `<TableActionCell/>` in a column. The primary actions are rendered as buttons, whereas the secondary actions are rendered as icons. In case we use `numOfVisibleSecondaryActions`, the hidden icons would appear inside a popover menu.',
               source: TableActionCellExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Sticky Columns and Horizontal Scroll',
+              description:
+                'Horizontal scroll can be enabled by providing `horizontalScroll` prop and defining `width` prop for all table columns. Combined column size should exceed available table size. In addition, you can "sticky" a number of columns from the left using `stickyColumns` prop. Sticky columns will remain and will not scroll with the rest of table columns.',
+              source: TableStickyScrollExampleRaw,
               compact: true,
             },
             {

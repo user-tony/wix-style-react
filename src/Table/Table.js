@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import defaultTo from 'lodash/defaultTo';
 import classNames from 'classnames';
+import { ScrollSync } from 'react-scroll-sync';
 
 import style from './Table.st.css';
 import DataTable from './DataTable';
@@ -54,7 +55,9 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
           </div>
         );
       },
-      width: '12px',
+      // Apply different column width when just the single selection column is marked
+      // as sticky (looks weird otherwise when stickied with default 12px width).
+      width: tableProps.stickyColumns === 1 ? '34px' : '12px',
       style: (_, row) => (row.unselectable ? undefined : { cursor: 'pointer' }),
     };
   };
@@ -90,6 +93,20 @@ export class Table extends React.Component {
   static EmptyState = TableEmptyState;
   static BulkSelectionCheckbox = TableBulkSelectionCheckbox;
 
+  state = {
+    leftShadowVisible: false,
+    rightShadowVisible: false,
+  };
+
+  _handleUpdateScrollShadows = (leftShadowVisible, rightShadowVisible) => {
+    if (leftShadowVisible !== this.state.leftShadowVisible) {
+      this.setState({ leftShadowVisible });
+    }
+    if (rightShadowVisible !== this.state.rightShadowVisible) {
+      this.setState({ rightShadowVisible });
+    }
+  };
+
   shouldComponentUpdate() {
     // Table is not really a PureComponent
     return true;
@@ -124,6 +141,7 @@ export class Table extends React.Component {
       totalSelectableCount,
       onSelectionChanged,
       hasMore,
+      horizontalScroll,
     } = this.props;
     let hasUnselectables = null;
     let allIds = data.map((rowData, rowIndex) =>
@@ -136,8 +154,16 @@ export class Table extends React.Component {
       allIds = allIds.filter(rowId => rowId !== hasUnselectablesSymbol);
     }
 
-    return (
-      <TableContext.Provider value={this.props}>
+    const { leftShadowVisible, rightShadowVisible } = this.state;
+    const contextValue = {
+      ...this.props,
+      leftShadowVisible,
+      rightShadowVisible,
+      onUpdateScrollShadows: this._handleUpdateScrollShadows,
+    };
+
+    const table = (
+      <TableContext.Provider value={contextValue}>
         {showSelection ? (
           <BulkSelection
             ref={_ref => (this.bulkSelection = _ref)}
@@ -158,6 +184,14 @@ export class Table extends React.Component {
         )}
       </TableContext.Provider>
     );
+
+    return horizontalScroll ? (
+      <ScrollSync proportional={false} horizontal vertical={false}>
+        {table}
+      </ScrollSync>
+    ) : (
+      table
+    );
   }
 }
 
@@ -170,6 +204,8 @@ Table.defaultProps = {
   children: [<Table.Content key="content" />],
   withWrapper: true,
   showLastRowDivider: false,
+  horizontalScroll: false,
+  stickyColumns: 0,
 };
 
 Table.propTypes = {
@@ -250,9 +286,9 @@ Table.propTypes = {
       sortable: PropTypes.bool,
       sortDescending: PropTypes.bool,
       infoTooltipProps: PropTypes.shape(TooltipCommonProps),
-      style: PropTypes.oneOf([PropTypes.object, PropTypes.func]),
+      style: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
       align: PropTypes.oneOf(['start', 'center', 'end']),
-      width: PropTypes.string,
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       important: PropTypes.bool,
     }),
   ).isRequired,
@@ -313,6 +349,10 @@ Table.propTypes = {
   width: PropTypes.string,
   /** Table styling. Supports `standard` and `neutral`. */
   skin: PropTypes.oneOf(['standard', 'neutral']),
+  /** Enable horizontal scroll. */
+  horizontalScroll: PropTypes.bool,
+  /** Number of columns to sticky from the left (should be used with horizontal scroll). */
+  stickyColumns: PropTypes.number,
 };
 
 // export default Table;

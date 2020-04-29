@@ -8,5 +8,9 @@ export const tablePrivateDriverFactory = args => {
     getInnerHtml: () => publicDriver.element.innerHTML,
     getCellTextAt: (rowIndex, cellIndex) =>
       publicDriver.getCell(rowIndex, cellIndex).textContent,
+    scrollHorizontallyTo: x =>
+      publicDriver.element
+        .querySelector('[data-hook="table-content"]')
+        .scroll(x, 0),
   };
 };

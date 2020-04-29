@@ -8,6 +8,13 @@ $headerShadowLastChildNeutral: inset -1px 1px 0 0 $D60, inset 0 -1px 0 0 $D60;
 $columnShadow: inset 0 -1px 0 0 $D60;
 $activeColumnShadow: inset 0 -1px 0 0 $D70;
 $rowShadow: inset 0 1px 0 0 $D70;
+$cellHorizontalPadding: 12px;
+$cellHorizontalEdgePadding: 30px;
+
+:export {
+  cellHorizontalPadding: $cellHorizontalPadding;
+  cellHorizontalEdgePadding: $cellHorizontalEdgePadding;
+}
 
 .table {
   border-collapse: collapse;
@@ -55,17 +62,22 @@ $rowShadow: inset 0 1px 0 0 $D70;
 }
 
 .table td, .table th {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: $cellHorizontalPadding;
+  padding-right: $cellHorizontalPadding;
+
+  &.sticky {
+    position: sticky;
+    z-index: 1;
+  }
 
   &:last-child {
-    padding-left: 12px;
-    padding-right: 30px;
+    padding-left: $cellHorizontalPadding;
+    padding-right: $cellHorizontalEdgePadding;
   }
 
   &:first-child {
-    padding-left: 30px;
-    padding-right: 12px;
+    padding-left: $cellHorizontalEdgePadding;
+    padding-right: $cellHorizontalPadding;
   }
 }
 
@@ -150,6 +162,10 @@ $rowShadow: inset 0 1px 0 0 $D70;
     text-align: right;
     text-align: end; // not supported in IE11 & Edge; 'right' as fallback
   }
+
+  &.sticky {
+    background-color: $D80;
+  }
 }
 
 .table.showLastRowDivider td {
@@ -189,11 +205,29 @@ $rowShadow: inset 0 1px 0 0 $D70;
   td {
     font-weight: 600;
     color: $D10;
+
+    &.sticky {
+      background-color: $B60;
+    }
   }
 }
 
 .selected {
-  box-shadow: inset 2px 0px 0px 0px $B10;
+  td:first-child {
+    &:not(.sticky) {
+      position: relative;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background-color: $B10;
+    }
+  }
 }
 
 .sortArrow {
@@ -223,5 +257,51 @@ $rowShadow: inset 0 1px 0 0 $D70;
     td {
       box-shadow: $rowShadow;
     }
+  }
+}
+
+.tableHeaderScrollContent {
+  overflow-x: hidden;
+}
+
+.tableBodyScrollContent {
+  overflow-x: auto;
+}
+
+.scrollWrapper {
+  position: relative;
+
+  &::before,
+  &::after,
+  .lastSticky::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 150ms linear;
+  }
+
+  &.leftShadowVisible {
+    &:not(.withStickyColumns)::before,
+    .lastSticky::after {
+      background-image: linear-gradient(to right, rgba($D10, 0.08), rgba($D80, 0));
+      left: 0;
+      opacity: 1;
+    }
+
+    .lastSticky::after {
+      left: auto;
+      right: -30px;
+    }
+  }
+
+  &.rightShadowVisible::after {
+    background-image: linear-gradient(to left, $D10-10, rgba($D80, 0));
+    right: 0;
+    opacity: 1;
   }
 }

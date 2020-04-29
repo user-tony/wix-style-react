@@ -1,4 +1,5 @@
 import shallowEqual from 'shallowequal';
+import styles from './DataTable.scss';
 
 export function virtualRowsAreEqual(prevProps, nextProps) {
   const {
@@ -25,3 +26,23 @@ export function virtualRowsAreEqual(prevProps, nextProps) {
     shallowEqual(prevRest, nextRest)
   );
 }
+
+const CELL_PADDING = parseInt(styles.cellHorizontalPadding, 10);
+const CELL_EDGE_PADDING = parseInt(styles.cellHorizontalEdgePadding, 10);
+
+export const getStickyColumnStyle = (columns, column) => {
+  let left = 0;
+
+  for (let i = 0; i < columns.length; i++) {
+    const col = columns[i];
+    if (col === column) {
+      break;
+    }
+
+    const horizontalPadding =
+      i === 0 ? CELL_EDGE_PADDING + CELL_PADDING : 2 * CELL_PADDING;
+    left += parseInt(col.width, 10) + horizontalPadding;
+  }
+
+  return { left };
+};

@@ -36,6 +36,8 @@ export interface DataTableProps<RowData = RowDataDefaultType> {
   virtualizedLineHeight?: number;
   virtualizedListRef?: React.LegacyRef<any>;
   selectedRowsIds?: (string | number)[];
+  horizontalScroll?: boolean;
+  stickyColumns?: number;
 }
 
 export default class DataTable<
@@ -52,7 +54,7 @@ export type DataTableRowVerticalPadding = 'medium' | 'large';
 export type DataTableColumn<RowData = RowDataDefaultType> = {
   title: React.ReactNode;
   render: (row: RowData, rowNum: number) => React.ReactNode;
-  width?: string;
+  width?: string | number;
   important?: boolean;
   sortable?: boolean;
   sortDescending?: boolean;

@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.root:isRowClickable .tableRow:hover {
+.root:isRowClickable .tableRow:hover td {
   background-color: value(B50);
 }
 
