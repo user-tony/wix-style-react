@@ -111,7 +111,7 @@ const javascriptFiles = [
   ['FillButton.bundle.min.js', 53],
   ['BarChart.bundle.min.js', 43],
   ['InputWithLabel.bundle.min.js', 64],
-  ['AutoCompleteWithLabel.bundle.min.js', 69],
+  ['AutoCompleteWithLabel.bundle.min.js', 70],
   ['Divider.bundle.min.js', 4],
   ['LabelledElement.bundle.min.js', 10],
   ['PreviewWidget.bundle.min.js', 6],
