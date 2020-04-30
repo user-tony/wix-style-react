@@ -25,6 +25,7 @@ Types of changes:
 ### Fixed
 - `<Slider/>`- fixed global styles override [#5418](https://github.com/wix/wix-style-react/pull/5418)
 - `<ComposerHeader/>` - added missing types [#5421](https://github.com/wix/wix-style-react/pull/5421)
+- `<Timeline/>` - fix driver types - missing index [#5422](https://github.com/wix/wix-style-react/pull/5422)
 
 
 
