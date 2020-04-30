@@ -20,6 +20,7 @@ Types of changes:
 - `<ToggleButton/>` - Added `shape` & `border` props [#5400](https://github.com/wix/wix-style-react/pull/5400)
 - `<Table/>` - Sticky columns and horizontal scroll support [#5405](https://github.com/wix/wix-style-react/pull/5405)
 - `<ModalSelectorLayout/>` - Add UniDriver [#5420](https://github.com/wix/wix-style-react/pull/5420)
+- `<BadgeSelect/>` - expose popoverCommonProps [#5333](https://github.com/wix/wix-style-react/pull/5333)
 
 
 ### Fixed
