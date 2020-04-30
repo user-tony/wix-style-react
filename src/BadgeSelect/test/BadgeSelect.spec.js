@@ -30,6 +30,9 @@ describe('BadgeSelect', () => {
       const combinedProps = {
         options,
         selectedId: initialOptionId.toString(),
+        popoverProps: {
+          appendTo: 'window',
+        },
         ...props,
       };
 
