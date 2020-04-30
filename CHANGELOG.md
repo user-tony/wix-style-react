@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.6.0 - 2020-04-30
+
 ### Added
 - `<ToggleButton/>` - Added `shape` & `border` props [#5400](https://github.com/wix/wix-style-react/pull/5400)
 - `<Table/>` - Sticky columns and horizontal scroll support [#5405](https://github.com/wix/wix-style-react/pull/5405)
@@ -27,8 +29,6 @@ Types of changes:
 - `<Slider/>`- fixed global styles override [#5418](https://github.com/wix/wix-style-react/pull/5418)
 - `<ComposerHeader/>` - added missing types [#5421](https://github.com/wix/wix-style-react/pull/5421)
 - `<Timeline/>` - fix driver types - missing index [#5422](https://github.com/wix/wix-style-react/pull/5422)
-
-
 
 ## 8.5.0 - 2020-04-28
 

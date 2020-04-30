@@ -1,7 +1,7 @@
 {
   "name": "wix-style-react",
   "description": "wix-style-react",
-  "version": "8.5.0",
+  "version": "8.6.0",
   "main": "./dist/src/index.js",
   "module": "./dist/es/src/index.js",
   "typings": "./dist/es/src/index.d.ts",
@@ -233,8 +233,8 @@
     "slick-carousel": "^1.8.1",
     "wix-animations": "^1.0.286",
     "wix-eventually": "^2.3.0",
-    "wix-ui-core": "^2.0.930",
-    "wix-ui-icons-common": "^2.0.160",
+    "wix-ui-core": "^2.0.935",
+    "wix-ui-icons-common": "^2.0.166",
     "wix-ui-test-utils": "^1.0.172"
   },
   "lint-staged": {
