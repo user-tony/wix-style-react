@@ -19,10 +19,12 @@ Types of changes:
 ### Added
 - `<ToggleButton/>` - Added `shape` & `border` props [#5400](https://github.com/wix/wix-style-react/pull/5400)
 - `<Table/>` - Sticky columns and horizontal scroll support [#5405](https://github.com/wix/wix-style-react/pull/5405)
+- `<ModalSelectorLayout/>` - Add UniDriver [#5420](https://github.com/wix/wix-style-react/pull/5420)
+
 
 ### Fixed
 - `<Slider/>`- fixed global styles override [#5418](https://github.com/wix/wix-style-react/pull/5418)
-- `<ComposerHeader/>` - added missing types #5421
+- `<ComposerHeader/>` - added missing types [#5421](https://github.com/wix/wix-style-react/pull/5421)
 
 
 
