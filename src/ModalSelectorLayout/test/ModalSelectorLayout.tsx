@@ -1,11 +1,10 @@
 import * as React from 'react';
-import ModalSelectorLayout, {
-  ModalSelectorLayoutItem
-} from '..';
+import ModalSelectorLayout, { ModalSelectorLayoutItem } from '..';
 import { modalSelectorLayoutTestkitFactory } from '../../../testkit';
 import { modalSelectorLayoutTestkitFactory as modalSelectorLayoutEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
+import { modalSelectorLayoutTestkitFactory as modalSelectorLayoutPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 
 function ModalSelectorLayoutWithMandatoryProps() {
   return (
@@ -25,19 +24,19 @@ function ModalSelectorLayoutWithAllProps() {
           items: [
             {
               id: 1,
-              title: <div/>,
+              title: <div />,
               subtitle: 'test',
-              subtitleNode: <div/>,
+              subtitleNode: <div />,
               extraText: 'test',
-              extraNode: <div/>,
+              extraNode: <div />,
               disabled: true,
               selected: true,
-              image: <div/>,
-              belowNode: <div/>,
+              image: <div />,
+              belowNode: <div />,
               showBelowNodeOnSelect: true,
-            }
+            },
           ],
-          totalCount: 0
+          totalCount: 0,
         })
       }
       emptyState={<div />}
@@ -98,11 +97,18 @@ function ShouldSupportSingleSelection() {
 async function testkits() {
   const testkit = modalSelectorLayoutTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = modalSelectorLayoutEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
+  });
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  const puppeteerTestkit = await modalSelectorLayoutPuppeteerTestkitFactory({
+    dataHook: 'hook',
+    page,
   });
 }
