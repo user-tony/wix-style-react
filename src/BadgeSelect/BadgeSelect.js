@@ -9,6 +9,8 @@ import Badge from '../Badge';
 import { badgeSelectItemBuilder } from '../BadgeSelectItemBuilder';
 import * as DATA_ATTR from './DataAttr';
 
+import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
+
 class BadgeSelect extends React.Component {
   _isControlled = () => {
     return typeof this.props.selectedId !== 'undefined';
@@ -99,7 +101,7 @@ class BadgeSelect extends React.Component {
   }
 
   render() {
-    const { type, size, uppercase, dataHook } = this.props;
+    const { type, size, uppercase, dataHook, popoverProps } = this.props;
     const { visible, selectedBadge } = this.state;
 
     return (
@@ -109,6 +111,7 @@ class BadgeSelect extends React.Component {
         placement="bottom"
         onKeyDown={this._onKeyDown}
         onClickOutside={this.hideDropdown}
+        {...popoverProps}
         {...style('root', {}, this.props)}
       >
         <Popover.Element>
@@ -186,6 +189,9 @@ BadgeSelect.propTypes = {
 
   /** Applied as data-hook HTML attribute that can be used to create driver in testing */
   dataHook: PropTypes.string,
+
+  /** common popover props */
+  popoverProps: PropTypes.shape(PopoverCommonProps),
 };
 
 BadgeSelect.defaultProps = {};
