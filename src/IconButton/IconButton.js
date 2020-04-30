@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 
-import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { iconChildSize } from './constants';
 
 import { generateDataAttr } from '../utils/generateDataAttr';
@@ -13,23 +13,33 @@ class IconButton extends PureComponent {
 
   static propTypes = {
     /** render as some other component or DOM tag */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     /** Classes to be applied to the root element */
-    className: string,
+    className: PropTypes.string,
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
-    children: node,
+    children: PropTypes.node,
     /** Button skins */
-    skin: oneOf(['standard', 'inverted', 'light', 'transparent', 'premium']),
+    skin: PropTypes.oneOf([
+      'standard',
+      'inverted',
+      'light',
+      'transparent',
+      'premium',
+    ]),
     /** Button priority */
-    priority: oneOf(['primary', 'secondary']),
+    priority: PropTypes.oneOf(['primary', 'secondary']),
     /** Button size */
-    size: oneOf(['tiny', 'small', 'medium', 'large']),
+    size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
     /** Click event handler  */
-    onClick: func,
+    onClick: PropTypes.func,
     /** Applies disabled styles */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** String based data hook */
-    dataHook: string,
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {

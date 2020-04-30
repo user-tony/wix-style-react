@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import defaultTo from 'lodash/defaultTo';
 import DataTable from '../DataTable';
 import { getDataTableProps, createColumns } from '../Table';
@@ -53,8 +53,8 @@ export const TableContent = ({ titleBarVisible, dataHook, ...rest }) => {
 };
 TableContent.displayName = 'Table.Content';
 TableContent.propTypes = {
-  titleBarVisible: bool,
-  dataHook: string,
+  titleBarVisible: PropTypes.bool,
+  dataHook: PropTypes.string,
 };
 TableContent.defaultProps = {
   titleBarVisible: true,

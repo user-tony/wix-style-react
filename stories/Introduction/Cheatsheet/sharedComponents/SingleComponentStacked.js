@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, node, string, array, object, oneOfType } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Row, Col } from 'wix-style-react/Grid';
 
 import ComponentNaming from './ComponentNaming';
@@ -35,13 +35,13 @@ SingleComponentStacked.defaultProps = {
 
 SingleComponentStacked.propTypes = {
   /** storybook name */
-  name: oneOfType([string, object]),
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /** names of the used components */
-  componentsNames: array,
+  componentsNames: PropTypes.array,
   /** any node to render inside */
-  children: node,
+  children: PropTypes.node,
   /** size of the children column. Can be one of "singleComponentSizes" constant */
-  size: number,
+  size: PropTypes.number,
 };
 
 SingleComponentStacked.Preview = Preview;

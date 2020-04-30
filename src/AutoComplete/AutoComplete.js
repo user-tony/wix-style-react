@@ -1,4 +1,4 @@
-import { func, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 
 class AutoComplete extends InputWithOptions {
@@ -8,10 +8,10 @@ class AutoComplete extends InputWithOptions {
     ...InputWithOptions.propTypes,
 
     /** Callback predicate for the filtering options function */
-    predicate: func,
+    predicate: PropTypes.func,
 
     /** The message to be displayed instead of options, when no options exist, or no options pass the predicate filter function */
-    emptyStateMessage: string,
+    emptyStateMessage: PropTypes.string,
   };
 
   static defaultProps = {

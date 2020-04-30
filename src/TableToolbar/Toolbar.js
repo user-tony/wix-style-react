@@ -1,5 +1,5 @@
 import React from 'react';
-import { any, oneOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import s from './Toolbar.scss';
 import Text from '../Text';
@@ -11,7 +11,7 @@ export const Toolbar = props => {
 Toolbar.displayName = 'Toolbar';
 
 Toolbar.propTypes = {
-  children: any, // TODO: validate children are of type <ItemGroup>
+  children: PropTypes.any, // TODO: validate children are of type <ItemGroup>
 };
 
 export const ItemGroup = props => {
@@ -29,8 +29,8 @@ export const ItemGroup = props => {
 ItemGroup.displayName = 'Toolbar.ItemGroup';
 
 ItemGroup.propTypes = {
-  children: any, // TODO: validate children are either <Item> od <Divider>
-  position: oneOf(['start', 'end']),
+  children: PropTypes.any, // TODO: validate children are either <Item> od <Divider>
+  position: PropTypes.oneOf(['start', 'end']),
 };
 
 ItemGroup.defaultProps = {
@@ -51,8 +51,8 @@ export const Item = props => {
 Item.displayName = 'Toolbar.Item';
 
 Item.propTypes = {
-  children: any,
-  layout: oneOf(['button']),
+  children: PropTypes.any,
+  layout: PropTypes.oneOf(['button']),
 };
 
 /**
@@ -72,7 +72,7 @@ export const Label = props => {
 Label.displayName = 'Toolbar.Label';
 
 Label.propTypes = {
-  children: any,
+  children: PropTypes.any,
 };
 
 export const Divider = () => {

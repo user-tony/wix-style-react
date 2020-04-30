@@ -6,7 +6,7 @@ import CloseLarge from 'wix-ui-icons-common/system/CloseLarge';
 import { SIZES } from './constants';
 import cx from 'classnames';
 
-import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './CloseButton.st.css';
 
 class CloseButton extends PureComponent {
@@ -14,13 +14,17 @@ class CloseButton extends PureComponent {
 
   static propTypes = {
     /** render as some other component or DOM tag */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     /** additional css classes */
-    className: string,
+    className: PropTypes.string,
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
-    children: node,
+    children: PropTypes.node,
     /** skins of closebutton */
-    skin: oneOf([
+    skin: PropTypes.oneOf([
       'standard',
       'standardFilled',
       'light',
@@ -29,13 +33,13 @@ class CloseButton extends PureComponent {
       'transparent',
     ]),
     /** size of closebutton */
-    size: oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     /** Click event handler  */
-    onClick: func,
+    onClick: PropTypes.func,
     /** applies disabled styles */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** string based data hook for testing */
-    dataHook: string,
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {

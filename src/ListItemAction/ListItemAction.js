@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { oneOfType, func, object, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './ListItemAction.st.css';
 import Text from '../Text';
@@ -10,7 +10,11 @@ class ListItemActionComponent extends React.PureComponent {
 
   static propTypes = {
     /** render as some other element */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
 
     /** Data attribute for testing purposes */
     dataHook: PropTypes.string,

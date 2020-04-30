@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, bool, func, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Tabs from '../Tabs';
@@ -19,14 +19,14 @@ const tabs = [
 
 export default class ColorPickerConverter extends WixComponent {
   static propTypes = {
-    current: object.isRequired,
-    showConverter: bool.isRequired,
-    showInput: bool.isRequired,
-    onChange: func.isRequired,
-    onEnter: func.isRequired,
-    onAdd: func,
-    allowEmpty: bool,
-    hexPlaceholder: string,
+    current: PropTypes.object.isRequired,
+    showConverter: PropTypes.bool.isRequired,
+    showInput: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onEnter: PropTypes.func.isRequired,
+    onAdd: PropTypes.func,
+    allowEmpty: PropTypes.bool,
+    hexPlaceholder: PropTypes.string,
   };
 
   state = {

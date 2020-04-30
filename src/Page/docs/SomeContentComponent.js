@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 import times from '../../utils/operators/times';
 
 export const LongTextContent = props => {
@@ -68,8 +68,8 @@ LongTextContent.defaultProps = {
 
 export default class SomeContentComponent extends React.Component {
   static propTypes = {
-    shortContent: bool,
-    stretchVertically: bool,
+    shortContent: PropTypes.bool,
+    stretchVertically: PropTypes.bool,
   };
 
   getBody() {

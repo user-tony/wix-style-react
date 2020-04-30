@@ -1,14 +1,5 @@
 import React, { cloneElement, PureComponent } from 'react';
-import {
-  bool,
-  func,
-  node,
-  object,
-  oneOf,
-  oneOfType,
-  string,
-  shape,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './ToggleButton.st.css';
@@ -79,33 +70,37 @@ class ToggleButton extends PureComponent {
   static displayName = 'ToggleButton';
   static propTypes = {
     /** render as some other component or DOM tag */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
-    children: node,
+    children: PropTypes.node,
     /** Button skins */
-    skin: oneOf(['standard', 'dark', 'inverted']),
+    skin: PropTypes.oneOf(['standard', 'dark', 'inverted']),
     /** Button size */
-    size: oneOf(['tiny', 'small', 'medium', 'large']),
+    size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
     /** Button shape */
-    shape: oneOf(['square', 'round']),
+    shape: PropTypes.oneOf(['square', 'round']),
     /** Label content */
-    labelValue: node,
+    labelValue: PropTypes.node,
     /** Label placement */
-    labelPlacement: oneOf(['tooltip', 'bottom', 'end']),
+    labelPlacement: PropTypes.oneOf(['tooltip', 'bottom', 'end']),
     /** Whether label should have ellipsis */
-    labelEllipsis: bool,
+    labelEllipsis: PropTypes.bool,
     /** Click event handler  */
-    onClick: func,
+    onClick: PropTypes.func,
     /** Applies selected styles */
-    selected: bool,
+    selected: PropTypes.bool,
     /** Applies disabled styles */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** Applies border */
-    border: bool,
+    border: PropTypes.bool,
     /** String based data hook */
-    dataHook: string,
+    dataHook: PropTypes.string,
     /** Tooltip props for label. Applied only when `labelPlacement` is `tooltip`. */
-    tooltipProps: shape(TooltipCommonProps),
+    tooltipProps: PropTypes.shape(TooltipCommonProps),
   };
 
   static defaultProps = {

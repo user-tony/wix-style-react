@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, oneOf, node, bool, func, number } from 'prop-types';
+import PropTypes from 'prop-types';
 import Text from '../Text';
 import TextButton from '../TextButton';
 import styles from './VerticalTabsItem.st.css';
@@ -11,25 +11,25 @@ class VerticalTabsItem extends React.PureComponent {
 
   static propTypes = {
     /** type of vertical tab item. can be of the following: 'tab' (default), 'action', 'title' */
-    type: oneOf(['tab', 'action', 'title']),
+    type: PropTypes.oneOf(['tab', 'action', 'title']),
 
     /** Data attribute for testing purposes */
-    dataHook: string,
+    dataHook: PropTypes.string,
 
     /** Prefix Icon - should be <code>Icon</code>*/
-    prefixIcon: node,
+    prefixIcon: PropTypes.node,
 
     /** Suffix Icon - should be <code>Icon</code> or <code>IconButton</code> with the <code>size="tiny"</code> prop*/
-    suffixIcon: node,
+    suffixIcon: PropTypes.node,
 
     /** Children - only single child is allowed here */
-    children: node,
+    children: PropTypes.node,
 
     /** Disabled */
-    disabled: bool,
+    disabled: PropTypes.bool,
 
     /** identifier to help identify the current selected tab */
-    id: number,
+    id: PropTypes.number,
   };
 
   static defaultProps = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneOf, bool, any, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import ellipsisHOC from '../common/EllipsisHOC';
 import style from './Heading.st.css';
 
@@ -30,15 +30,15 @@ const Heading = ({ light, appearance, children, ...rest }) => {
 Heading.displayName = 'Heading';
 
 Heading.propTypes = {
-  dataHook: string,
+  dataHook: PropTypes.string,
   /** any nodes to be rendered (usually text nodes) */
-  children: any,
+  children: PropTypes.any,
 
   /** is the text has dark or light skin */
-  light: bool,
+  light: PropTypes.bool,
 
   /** typography of the heading */
-  appearance: oneOf(Object.keys(APPEARANCES)),
+  appearance: PropTypes.oneOf(Object.keys(APPEARANCES)),
 
   ...ellipsisHOC.propTypes,
 };

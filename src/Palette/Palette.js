@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import FillPreview from '../FillPreview/FillPreview';
 import styles from './Palette.st.css';
 
@@ -9,9 +9,9 @@ class Palette extends React.PureComponent {
 
   static propTypes = {
     /** hook for testing purposes */
-    dataHook: string,
+    dataHook: PropTypes.string,
     /** Fill list for items in palette */
-    fill: array,
+    fill: PropTypes.array,
   };
 
   static defaultProps = {

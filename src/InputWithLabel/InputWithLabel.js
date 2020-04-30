@@ -4,7 +4,7 @@ import StatusAlertSmall from 'wix-ui-icons-common/StatusAlertSmall';
 import LabelledElement from '../LabelledElement';
 import Input from '../Input';
 import Text from '../Text';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './InputWithLabel.st.css';
 import dataHooks from './dataHooks';
 import classNames from 'classnames';
@@ -25,50 +25,56 @@ const getSuffixContainer = suffix =>
 class InputWithLabel extends React.Component {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests */
-    dataHook: PropTypes.string,
+    dataHook: PropTypes.PropTypes.string,
     /** Array of suffix icons */
-    suffix: PropTypes.arrayOf(PropTypes.element),
+    suffix: PropTypes.PropTypes.arrayOf(PropTypes.PropTypes.element),
     /** Text of rendered label */
-    label: PropTypes.string,
+    label: PropTypes.PropTypes.string,
     /** Input value */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.PropTypes.oneOfType([
+      PropTypes.PropTypes.string,
+      PropTypes.PropTypes.number,
+    ]),
     /** Input status - use to display an status indication for the user. for example: 'error', 'warning' or 'loading' */
-    status: PropTypes.oneOf([
+    status: PropTypes.PropTypes.oneOf([
       Input.StatusError,
       Input.StatusWarning,
       Input.StatusLoading,
     ]),
     /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
-    statusMessage: PropTypes.node,
+    statusMessage: PropTypes.PropTypes.node,
     /** Standard input onFocus callback */
-    onFocus: PropTypes.func,
+    onFocus: PropTypes.PropTypes.func,
     /** Standard input onBlur callback */
-    onBlur: PropTypes.func,
+    onBlur: PropTypes.PropTypes.func,
     /** Standard input onChange callback */
-    onChange: PropTypes.func,
-    name: PropTypes.string,
-    type: PropTypes.string,
-    ariaLabel: PropTypes.string,
+    onChange: PropTypes.PropTypes.func,
+    name: PropTypes.PropTypes.string,
+    type: PropTypes.PropTypes.string,
+    ariaLabel: PropTypes.PropTypes.string,
     /** Standard React Input autoFocus (focus the element on mount) */
-    autoFocus: PropTypes.bool,
+    autoFocus: PropTypes.PropTypes.bool,
     /** Sets value of autocomplete attribute (consult the [HTML spec](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete) for possible values  */
-    autocomplete: PropTypes.string,
+    autocomplete: PropTypes.PropTypes.string,
     /** when set to true this component is disabled */
-    disabled: PropTypes.bool,
+    disabled: PropTypes.PropTypes.bool,
     /** A single CSS class name to be passed to the Input element. */
-    className: PropTypes.string,
+    className: PropTypes.PropTypes.string,
     /** Input max length */
-    maxLength: PropTypes.number,
+    maxLength: PropTypes.PropTypes.number,
     /** Placeholder to display */
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.PropTypes.string,
     /** Use a customized input component instead of the default html input tag */
-    customInput: PropTypes.elementType
-      ? PropTypes.oneOfType([
-          PropTypes.func,
-          PropTypes.node,
-          PropTypes.elementType,
+    customInput: PropTypes.PropTypes.elementType
+      ? PropTypes.PropTypes.oneOfType([
+          PropTypes.PropTypes.func,
+          PropTypes.PropTypes.node,
+          PropTypes.PropTypes.elementType,
         ])
-      : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+      : PropTypes.PropTypes.oneOfType([
+          PropTypes.PropTypes.func,
+          PropTypes.PropTypes.node,
+        ]),
   };
 
   static defaultProps = {

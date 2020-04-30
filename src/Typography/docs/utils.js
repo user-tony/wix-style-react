@@ -1,5 +1,5 @@
 import React from 'react';
-import { any, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Text from 'wix-style-react/Text';
 
@@ -33,6 +33,6 @@ export const ExampleWrapper = ({ children, label }) => (
   </div>
 );
 ExampleWrapper.propTypes = {
-  children: any,
-  label: string,
+  children: PropTypes.any,
+  label: PropTypes.string,
 };

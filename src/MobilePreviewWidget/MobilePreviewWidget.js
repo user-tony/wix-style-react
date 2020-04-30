@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, string, oneOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import { dataHooks } from './constants';
 import style from './MobilePreviewWidget.st.css';
 
@@ -11,22 +11,22 @@ class MobilePreviewWidget extends React.PureComponent {
 
   static propTypes = {
     /** Mobile preview widget data hook*/
-    dataHook: string,
+    dataHook: PropTypes.string,
 
     /** Background skin. To use `custom` skin, set it to `custom` and use the `backgroundColor` prop*/
-    skin: oneOf(['neutral', 'gradient', 'custom']),
+    skin: PropTypes.oneOf(['neutral', 'gradient', 'custom']),
 
     /** Mobile preview widget background color. Can be set with `design system` colors*/
-    backgroundColor: string,
+    backgroundColor: PropTypes.string,
 
     /** Sets the height of the component.*/
-    height: string,
+    height: PropTypes.string,
 
     /** Sets the width of the component */
-    width: string,
+    width: PropTypes.string,
 
     /** Node to preview */
-    children: node.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {

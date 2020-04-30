@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func, object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './ColorPickerHistory.scss';
 import { DataHooks } from './constants';
@@ -24,10 +24,10 @@ const ColorPickerHistory = ({ show, current, previous, onClick }) => {
 };
 
 ColorPickerHistory.propTypes = {
-  show: bool.isRequired,
-  previous: object.isRequired,
-  current: object.isRequired,
-  onClick: func.isRequired,
+  show: PropTypes.bool.isRequired,
+  previous: PropTypes.object.isRequired,
+  current: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ColorPickerHistory;

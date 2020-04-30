@@ -1,15 +1,7 @@
 import React from 'react';
 
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import {
-  bool,
-  func,
-  node,
-  oneOfType,
-  string,
-  number,
-  object,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 import Proportion from '../Proportion';
 
 import { parseColor, parseGradient, parseUrl, parseElement } from './utils';
@@ -95,28 +87,28 @@ class FillPreview extends React.PureComponent {
 
 FillPreview.propTypes = {
   /** Hook for testing purposes. */
-  dataHook: string,
+  dataHook: PropTypes.string,
 
   /** render as some other component or DOM tag */
-  as: oneOfType([func, object, string]),
+  as: PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.string]),
 
   /** control focusability */
-  tabIndex: number,
+  tabIndex: PropTypes.number,
 
   /** Color, gradient, image url or svg to be rendered as a preview content */
-  fill: oneOfType([string, node]),
+  fill: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Outlines the border when set to true */
-  selected: bool,
+  selected: PropTypes.bool,
 
   /** Pass your handler for click event */
-  onClick: func,
+  onClick: PropTypes.func,
 
   /** Puts the component into a disabled state */
-  disabled: bool,
+  disabled: PropTypes.bool,
 
   /** Control elements aspect ratio value:  */
-  aspectRatio: oneOfType([string, number]),
+  aspectRatio: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 FillPreview.defaultProps = {

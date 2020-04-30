@@ -1,5 +1,5 @@
 import React from 'react';
-import { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import X from 'wix-ui-icons-common/X';
 import Check from 'wix-ui-icons-common/Check';
 
@@ -29,8 +29,8 @@ const ColorPickerActions = ({ onCancel, onConfirm, disabled }) => (
 );
 
 ColorPickerActions.propTypes = {
-  onCancel: func.isRequired,
-  onConfirm: func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
 };
 
 export default ColorPickerActions;

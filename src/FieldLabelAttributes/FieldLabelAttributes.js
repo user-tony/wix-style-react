@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, node } from 'prop-types';
+import PropTypes from 'prop-types';
 import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 import styles from './FieldLabelAttributes.scss';
 import WixComponent from '../BaseComponents/WixComponent';
@@ -57,10 +57,10 @@ FieldLabelAttributes.defaultProps = {
 };
 
 FieldLabelAttributes.propTypes = {
-  required: bool,
-  info: node,
-  appendToParent: bool,
-  tooltip: node,
+  required: PropTypes.bool,
+  info: PropTypes.node,
+  appendToParent: PropTypes.bool,
+  tooltip: PropTypes.node,
 };
 
 export default FieldLabelAttributes;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, func } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
@@ -10,9 +10,9 @@ import { safeColor, getHsbOrEmpty } from './utils';
 
 export default class ColorPickerConverterHsb extends WixComponent {
   static propTypes = {
-    current: object.isRequired,
-    onChange: func.isRequired,
-    onAdd: func,
+    current: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onAdd: PropTypes.func,
   };
 
   constructor(props) {

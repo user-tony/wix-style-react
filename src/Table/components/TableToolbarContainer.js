@@ -1,5 +1,5 @@
 import React from 'react';
-import { any } from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   BulkSelectionConsumer,
   BulkSelectionContextPropTypes,
@@ -17,7 +17,7 @@ export const TableToolbarContainer = props => {
 };
 TableToolbarContainer.displayName = 'Table.ToolbarContainer';
 TableToolbarContainer.propTypes = {
-  children: any,
+  children: PropTypes.any,
 };
 
 /** Helper for PropTypes for components which consume the SelectionContext */

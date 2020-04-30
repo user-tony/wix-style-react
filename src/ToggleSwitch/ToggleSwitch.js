@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, oneOf, bool, func, number } from 'prop-types';
+import PropTypes from 'prop-types';
 import { ToggleSwitch as CoreToggleSwitch } from 'wix-ui-core/dist/src/components/toggle-switch';
 import ToggleOff from 'wix-ui-icons-common/system/ToggleOff';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
@@ -27,28 +27,28 @@ class ToggleSwitch extends React.PureComponent {
 
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests*/
-    dataHook: string,
+    dataHook: PropTypes.string,
 
     /** ToggleSwitch skin */
-    skin: oneOf(['standard', 'success', 'error']),
+    skin: PropTypes.oneOf(['standard', 'success', 'error']),
 
     /** Toggle Switch size*/
-    size: oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 
     /** is Toggle Switch checked */
-    checked: bool,
+    checked: PropTypes.bool,
 
     /** is Toggle Switch disabled */
-    disabled: bool,
+    disabled: PropTypes.bool,
 
     /** Toggle Switch id */
-    id: string,
+    id: PropTypes.string,
 
     /** onChange event */
-    onChange: func,
+    onChange: PropTypes.func,
 
     /** Standard component tabIndex */
-    tabIndex: number,
+    tabIndex: PropTypes.number,
   };
 
   static defaultProps = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, node, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Content from './Content';
@@ -33,16 +33,16 @@ Card.displayName = 'Card';
 
 Card.propTypes = {
   /** any node to render inside card */
-  children: node,
+  children: PropTypes.node,
   /** any node that controls card e.g. a close button */
-  controls: node,
+  controls: PropTypes.node,
   /** makes the card stretch to max height in a container */
-  stretchVertically: bool,
+  stretchVertically: PropTypes.bool,
   /** makes the card's overflow content to be hidden */
-  hideOverflow: bool,
+  hideOverflow: PropTypes.bool,
   /** additional css classes */
-  className: string,
-  dataHook: string,
+  className: PropTypes.string,
+  dataHook: PropTypes.string,
 };
 
 Card.defaultProps = {

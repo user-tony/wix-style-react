@@ -1,6 +1,6 @@
 import React from 'react';
 import DataTable from '..';
-import { any, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import './Example.scss';
 
 const baseData = [
@@ -13,8 +13,8 @@ const baseData = [
 
 class DataTableSortableExample extends React.Component {
   static propTypes = {
-    style: any,
-    dataHook: string,
+    style: PropTypes.any,
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {

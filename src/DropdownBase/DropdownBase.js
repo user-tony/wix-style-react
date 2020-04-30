@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { oneOfType, number, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import style from './DropdownBase.st.css';
 
 import Popover, { placements } from '../Popover';
@@ -37,7 +37,7 @@ class DropdownBase extends React.PureComponent {
     /** The maximum width applied to the list */
     maxWidth: PropTypes.number,
     /** maximum height of dropdown box */
-    maxHeight: oneOfType([number, string]),
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
     /**
      * The target component to be rendered. If a regular node is passed, it'll be rendered as-is.

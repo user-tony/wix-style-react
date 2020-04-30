@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { number } from 'prop-types';
+import PropTypes from 'prop-types';
 import ClosablePopover from './ClosablePopover/ClosablePopover';
 import FloatingHelperContent from './FloatingHelperContent/FloatingHelperContent';
 import styles from './FloatingHelper.st.css';

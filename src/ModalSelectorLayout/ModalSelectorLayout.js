@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func, node, number, oneOf, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Loader from '../Loader/Loader';
@@ -29,19 +29,19 @@ export default class ModalSelectorLayout extends WixComponent {
 
   static propTypes = {
     /** Title of the modal */
-    title: node,
+    title: PropTypes.node,
 
     /** Fixed text displayed above the list */
-    subtitle: node,
+    subtitle: PropTypes.node,
 
     /** OK button callback, called with the currently selected item  */
-    onOk: func,
+    onOk: PropTypes.func,
 
     /** X button callback */
-    onClose: func,
+    onClose: PropTypes.func,
 
     /** Cancel button callback */
-    onCancel: func,
+    onCancel: PropTypes.func,
 
     /**
      * paging function that should have a signature of
@@ -68,16 +68,22 @@ export default class ModalSelectorLayout extends WixComponent {
      * `limit` - number of items requested<br>
      * `totalCount` - total number of items that suffice the current search query
      * */
-    dataSource: func.isRequired,
+    dataSource: PropTypes.func.isRequired,
 
     /** Cancel button's text */
-    cancelButtonText: string,
+    cancelButtonText: PropTypes.string,
 
     /** OK button's text */
-    okButtonText: string,
+    okButtonText: PropTypes.string,
 
     /** Image icon size */
-    imageSize: oneOf(['tiny', 'small', 'portrait', 'large', 'cinema']),
+    imageSize: PropTypes.oneOf([
+      'tiny',
+      'small',
+      'portrait',
+      'large',
+      'cinema',
+    ]),
 
     /**
      * Image icon shape, `rectangular` or `circle`.<br>
@@ -95,53 +101,53 @@ export default class ModalSelectorLayout extends WixComponent {
     },
 
     /** Placeholder text of the search input */
-    searchPlaceholder: string,
+    searchPlaceholder: PropTypes.string,
 
     /**
      * Component/element that will be rendered when there is nothing to display,
      * i.e. empty `{items:[], totalCount: 0}` was returned on the first call to `dataSource`
      * */
-    emptyState: node.isRequired,
+    emptyState: PropTypes.node.isRequired,
 
     /**
      * Function that will get the current `searchQuery` and should return the component/element
      * that will be rendered when there are no items that suffice the entered search query
      *  */
-    noResultsFoundStateFactory: func,
+    noResultsFoundStateFactory: PropTypes.func,
 
     /** Number of items loaded each time the user scrolls down */
-    itemsPerPage: number,
+    itemsPerPage: PropTypes.number,
 
     /** Whether to display the search input or not */
-    withSearch: bool,
+    withSearch: PropTypes.bool,
 
     /** Search debounce in milliseconds */
-    searchDebounceMs: number,
+    searchDebounceMs: PropTypes.number,
 
     /** Height CSS property, sets the height of the modal */
-    height: string,
+    height: PropTypes.string,
 
     /** Max-height CSS property, sets the maximum height of the modal. */
-    maxHeight: string,
+    maxHeight: PropTypes.string,
 
     /** display checkbox and allow multi selection */
-    multiple: bool,
+    multiple: PropTypes.bool,
 
     /** string to be displayed in footer when `multiple` prop is used and no items are selected  */
-    selectAllText: string,
+    selectAllText: PropTypes.string,
 
     /** string to be displayed in footer when `multiple` prop is used and some or all items ar selected */
-    deselectAllText: string,
+    deselectAllText: PropTypes.string,
 
     /** to disable confirm button */
-    disableConfirmation: bool,
+    disableConfirmation: PropTypes.bool,
 
     /** callback that triggers on select and return selected item object*/
-    onSelect: func,
+    onSelect: PropTypes.func,
 
     /** Used to display some side component in the footer.
      * Will override element select all in the footer when multiple=true */
-    sideActions: node,
+    sideActions: PropTypes.node,
   };
 
   static defaultProps = {

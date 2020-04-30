@@ -1,14 +1,6 @@
 import React from 'react';
 
-import {
-  bool,
-  oneOf,
-  oneOfType,
-  element,
-  func,
-  string,
-  number,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * Here we need to use loadable for now because React.lazy is
@@ -88,35 +80,35 @@ const Comp /** @autodocs-component */ = Component => {
 
 Comp.propTypes = {
   /** should the text get ellipsed with tooltip, or should it get broken into lines when it reaches the end of its container */
-  ellipsis: bool,
+  ellipsis: PropTypes.bool,
   /** `ellipsis` prop. Tooltip content calculation relation to a dom element. Can be either:
    *  `'window', 'scrollParent', 'viewport', 'parent'`, `element` or
    * `function` based predicate i.e. (elm) =>
    *  elm.getAttribute('data-hook') === 'value'
    */
-  appendTo: oneOfType([
-    oneOf(['window', 'scrollParent', 'viewport', 'parent']),
-    element,
-    func,
+  appendTo: PropTypes.oneOfType([
+    PropTypes.oneOf(['window', 'scrollParent', 'viewport', 'parent']),
+    PropTypes.element,
+    PropTypes.func,
   ]),
   /** `ellipsis` prop. Whether to enable the flip behaviour. This behaviour is used to flip the Tooltips placement when it starts to overlap the target element. */
-  flip: bool,
+  flip: PropTypes.bool,
   /** `ellipsis` prop. Whether to enable the fixed behaviour. This behaviour is used to keep the Tooltip at it's original placement even when it's being positioned outside the boundary. */
-  fixed: bool,
+  fixed: PropTypes.bool,
   /** `ellipsis` prop. Tooltip content placement in relation to target element */
-  placement: string,
+  placement: PropTypes.string,
   /** `ellipsis` prop. Tooltip timeout value. */
-  timeout: number,
+  timeout: PropTypes.number,
   /** `ellipsis` prop. Tooltip content max width value. */
-  maxWidth: oneOfType([string, number]),
+  maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** `ellipsis` prop. Tooltip content zIndex. */
-  zIndex: number,
+  zIndex: PropTypes.number,
   /** `ellipsis` prop. Tooltip hide delay. */
-  hideDelay: number,
+  hideDelay: PropTypes.number,
   /** `ellipsis` prop. Tooltip show delay. */
-  showDelay: number,
+  showDelay: PropTypes.number,
   /** `ellipsis` prop. Whether to enable the tooltip when an ellipsis is necessary */
-  showTooltip: bool,
+  showTooltip: PropTypes.bool,
 };
 
 export default Comp;

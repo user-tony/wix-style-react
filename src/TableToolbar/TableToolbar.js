@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Toolbar, ItemGroup, Item, Label, Divider } from './Toolbar';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -15,8 +15,8 @@ export const Title = props => {
 
 Title.displayName = 'TableToolbar.Title';
 Title.propTypes = {
-  children: node,
-  dataHook: string,
+  children: PropTypes.node,
+  dataHook: PropTypes.string,
 };
 
 export const SelectedCount = props => {
@@ -29,8 +29,8 @@ export const SelectedCount = props => {
 };
 SelectedCount.displayName = 'TableToolbar.SelectedCount';
 SelectedCount.propTypes = {
-  children: node,
-  dataHook: string,
+  children: PropTypes.node,
+  dataHook: PropTypes.string,
 };
 
 export const TableToolbar = Toolbar;

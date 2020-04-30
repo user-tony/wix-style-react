@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, string, oneOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import { skins, dataHooks } from './constants';
 import colors from '../Foundation/stylable/colors.st.css';
 
@@ -13,25 +13,25 @@ class PreviewWidget extends React.PureComponent {
 
   static propTypes = {
     /** Preview widget data hook*/
-    dataHook: string,
+    dataHook: PropTypes.string,
 
     /** Background skin. To use `custom` skin, set it to custom and use the backgroundColor prop*/
-    skin: oneOf(['neutral', 'gradient', 'custom']),
+    skin: PropTypes.oneOf(['neutral', 'gradient', 'custom']),
 
     /** Preview widget background color. Can be set with `design system` colors*/
-    backgroundColor: string,
+    backgroundColor: PropTypes.string,
 
     /** Content area outline*/
-    contentOutline: oneOf(['shadow', 'border']),
+    contentOutline: PropTypes.oneOf(['shadow', 'border']),
 
     /** Sets the height of the component */
-    height: string,
+    height: PropTypes.string,
 
     /** Sets the width of the component */
-    width: string,
+    width: PropTypes.string,
 
     /** Node to preview */
-    children: node.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {

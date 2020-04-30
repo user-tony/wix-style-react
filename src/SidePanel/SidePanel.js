@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { node } from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './SidePanel.st.css';
 import Header from './Header';
 import Content from './Content';
@@ -18,7 +18,7 @@ class SidePanel extends React.PureComponent {
     /** Callback for close button */
     onCloseButtonClick: PropTypes.func,
     /** SidePanel.Header, SidePanel.Content, SidePanel.Footer or Any element to be rendered inside */
-    children: node,
+    children: PropTypes.node,
   };
 
   static defaultProps = {

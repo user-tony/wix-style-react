@@ -1,18 +1,18 @@
 import React from 'react';
-import { object, func, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
 
 import css from './ColorPickerConverter.st.css';
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
-import { safeColor, getHexOrEmpty, isTransparent } from './utils';
+import { safeColor, getHexOrEmpty } from './utils';
 
 export default class ColorPickerConverterHex extends WixComponent {
   static propTypes = {
-    current: object.isRequired,
-    onChange: func.isRequired,
-    placeholder: string,
+    current: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
   };
 
   constructor(props) {

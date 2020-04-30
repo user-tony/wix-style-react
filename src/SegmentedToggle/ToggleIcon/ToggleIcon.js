@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 
 import Tooltip from '../../Tooltip';
@@ -35,11 +35,11 @@ class ToggleIcon extends React.Component {
   static displayName = 'SegmentedToggle.Icon';
 
   static propTypes = {
-    children: node,
-    selected: bool,
-    value: string,
-    tooltipText: string,
-    disabled: bool,
+    children: PropTypes.node,
+    selected: PropTypes.bool,
+    value: PropTypes.string,
+    tooltipText: PropTypes.string,
+    disabled: PropTypes.bool,
   };
 
   render() {

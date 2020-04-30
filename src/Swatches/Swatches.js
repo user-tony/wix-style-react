@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, bool, func, node, number, oneOf, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import AddColor from './AddColor';
 import Tooltip from '../Tooltip';
@@ -86,49 +86,49 @@ const Swatches = props => {
 
 Swatches.propTypes = {
   /** Array of colors to be shown as swatches */
-  colors: array,
+  colors: PropTypes.array,
 
   /** Selected color */
-  selected: string,
+  selected: PropTypes.string,
 
   /** Data-hook for testing */
-  dataHook: string,
+  dataHook: PropTypes.string,
 
   /** Callback function when user clicks on a swatch. Returns color HEX string representation. */
-  onClick: func,
+  onClick: PropTypes.func,
 
   /** Size of swatches */
-  size: oneOf(['small', 'medium']),
+  size: PropTypes.oneOf(['small', 'medium']),
 
   /** If true shows no color option */
-  showClear: bool,
+  showClear: PropTypes.bool,
 
   /** optional message to display in tooltip when showClear is true */
-  showClearMessage: node,
+  showClearMessage: PropTypes.node,
 
   /** Callback function when user clicks on Add button and selects a color to be added. Returns color HEX string representation. */
-  onAdd: func,
+  onAdd: PropTypes.func,
 
   /** Callback function when user changes color in Color Picker. Returns color HEX string representation. */
-  onChange: func,
+  onChange: PropTypes.func,
 
   /** Callback function when user closes Color Picker without picking color. */
-  onCancel: func,
+  onCancel: PropTypes.func,
 
   /** If true shows add button which triggers colors picker*/
-  showAddButton: bool,
+  showAddButton: PropTypes.bool,
 
   /** Text for add button tooltip*/
-  addButtonMessage: string,
+  addButtonMessage: PropTypes.string,
 
   /** Size of Plus icon inside add button */
-  addButtonIconSize: oneOf(['small', 'medium']),
+  addButtonIconSize: PropTypes.oneOf(['small', 'medium']),
 
   /** Number of maximum columns. Default value is 6 */
-  columns: number,
+  columns: PropTypes.number,
 
   /** Gap between swatches. Default value is 12 */
-  gap: number,
+  gap: PropTypes.number,
 };
 
 Swatches.defaultProps = {

@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  string,
-  number,
-  arrayOf,
-  oneOfType,
-  func,
-  any,
-  bool,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 import createReactContext from 'create-react-context';
 
 export const BulkSelectionContext = createReactContext();
@@ -26,18 +18,18 @@ export const ChangeType = Object.freeze({
 
 /** Helper for PropTypes for component which consume the BulkSelection context */
 export const BulkSelectionContextPropTypes = {
-  isSelected: func,
-  selectedCount: number,
-  getSelectedIds: func,
-  getNotSelectedIds: func,
-  infiniteBulkSelected: bool,
-  bulkSelectionState: string,
-  toggleSelectionById: func,
-  deselectRowsByDefault: bool,
-  toggleAll: func,
-  selectAll: func,
-  deselectAll: func,
-  setSelectedIds: func,
+  isSelected: PropTypes.func,
+  selectedCount: PropTypes.number,
+  getSelectedIds: PropTypes.func,
+  getNotSelectedIds: PropTypes.func,
+  infiniteBulkSelected: PropTypes.bool,
+  bulkSelectionState: PropTypes.string,
+  toggleSelectionById: PropTypes.func,
+  deselectRowsByDefault: PropTypes.bool,
+  toggleAll: PropTypes.func,
+  selectAll: PropTypes.func,
+  deselectAll: PropTypes.func,
+  setSelectedIds: PropTypes.func,
 };
 
 /**
@@ -280,9 +272,15 @@ export class BulkSelection extends React.Component {
 
 BulkSelection.propTypes = {
   /** Array of item selection boolean states. Should correspond in length to the data prop */
-  selectedIds: oneOfType([arrayOf(string), arrayOf(number)]),
+  selectedIds: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.arrayOf(PropTypes.number),
+  ]),
   /** An array of all selectable item ids (string ids) */
-  allIds: oneOfType([arrayOf(string), arrayOf(number)]).isRequired,
+  allIds: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.arrayOf(PropTypes.number),
+  ]).isRequired,
   /** Called when item selection changes.
    * Receives 2 arguments, the updated selectedIds array, and a `change` object.
    * The `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
@@ -292,13 +290,13 @@ BulkSelection.propTypes = {
    * The `origin` property can be set when selection is updated using a `SelectionContext` method.
    * In case `totalSelectableCount` is set and the list is not fully loaded, and the user did bulk selection ("Select All"), the first parameter (selectedIds) will be null.
    * You can use the selection context's getNotSelectedIds() method to get the items that the user unselected after selecting all items. */
-  onSelectionChanged: func,
+  onSelectionChanged: PropTypes.func,
   /** Are checkboxes disabled */
-  disabled: bool,
+  disabled: PropTypes.bool,
   /** Indicates whether the table is in infinite bulk selection mode (`infiniteScroll` and `totalSelectableCount` props are set) and there are more items to load (`hasMore` prop is `true`) */
-  hasMoreInBulkSelection: bool,
+  hasMoreInBulkSelection: PropTypes.bool,
   /** The table's `totalSelectableCount` prop  */
-  totalCount: number,
+  totalCount: PropTypes.number,
   /** Any - can consume the BulkSelectionProvider context */
-  children: any,
+  children: PropTypes.any,
 };

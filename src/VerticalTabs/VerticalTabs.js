@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number, func, oneOf, node, arrayOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import VerticalTabsItem from '../VerticalTabsItem';
 import VerticalTabsContext from './VerticalTabsContext';
 
@@ -15,7 +15,7 @@ const TabsGroup = ({ title, children }) => (
   </>
 );
 TabsGroup.propTypes = {
-  title: string,
+  title: PropTypes.string,
 };
 TabsGroup.defaultProps = {
   title: '',
@@ -34,19 +34,19 @@ class VerticalTabs extends React.Component {
 
 VerticalTabs.propTypes = {
   /** Text Size (small, medium) */
-  size: oneOf(['small', 'medium']),
+  size: PropTypes.oneOf(['small', 'medium']),
 
   /** Current selected tab id */
-  activeTabId: number,
+  activeTabId: PropTypes.number,
 
   /** Callback function called on tab selection change with the following parameters<code>(id)</code> */
-  onChange: func,
+  onChange: PropTypes.func,
 
   /** Child nodes of this component must be of type <code><VerticalTabs.TabsGroup></code> or <code><VerticalTabs.Footer></code>*/
-  children: arrayOf(node),
+  children: PropTypes.arrayOf(PropTypes.node),
 
   /** Data attribute for testing purposes */
-  dataHook: string,
+  dataHook: PropTypes.string,
 };
 VerticalTabs.defaultProps = {
   size: 'medium',

@@ -1,15 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import {
-  oneOfType,
-  string,
-  node,
-  oneOf,
-  element,
-  object,
-  bool,
-  func,
-} from 'prop-types';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { generateDataAttr } from '../utils/generateDataAttr';
 
@@ -20,31 +11,35 @@ class TextButton extends PureComponent {
 
   static propTypes = {
     /** render as some other component or DOM tag */
-    as: oneOfType([func, object, string]),
+    as: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     /** Additional classes */
-    className: string,
+    className: PropTypes.string,
     /** Skins of TextButton content */
-    skin: oneOf(['standard', 'light', 'premium', 'dark']),
+    skin: PropTypes.oneOf(['standard', 'light', 'premium', 'dark']),
     /** Underline of TextButton content */
-    underline: oneOf(['none', 'onHover', 'always']),
+    underline: PropTypes.oneOf(['none', 'onHover', 'always']),
     /** Weight of TextButton content */
-    weight: oneOf(['thin', 'normal']),
+    weight: PropTypes.oneOf(['thin', 'normal']),
     /** Size of TextButton content */
-    size: oneOf(['tiny', 'small', 'medium']),
+    size: PropTypes.oneOf(['tiny', 'small', 'medium']),
     /** Click event handler  */
-    onClick: func,
+    onClick: PropTypes.func,
     /** Element based icon (svg, image etc.) */
-    suffixIcon: element,
+    suffixIcon: PropTypes.element,
     /** Element based icon (svg, image etc.) */
-    prefixIcon: element,
+    prefixIcon: PropTypes.element,
     /** Applies disabled styles */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** String based node */
-    children: node,
+    children: PropTypes.node,
     /** String based data hook */
-    dataHook: string,
+    dataHook: PropTypes.string,
     /** Stretches text button to its container width */
-    fluid: bool,
+    fluid: PropTypes.bool,
   };
 
   static defaultProps = {

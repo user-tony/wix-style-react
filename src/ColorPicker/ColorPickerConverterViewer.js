@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { func, node, object } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import AddSmall from 'wix-ui-icons-common/AddSmall';
 
@@ -23,9 +23,9 @@ function getContrastColor(bg, light = '#ffffff', dark = '#162d3d') {
 
 class ColorPickerConverterViewer extends PureComponent {
   static propTypes = {
-    color: object,
-    onAdd: func,
-    addTooltipContent: node,
+    color: PropTypes.object,
+    onAdd: PropTypes.func,
+    addTooltipContent: PropTypes.node,
   };
 
   onAddClick = () => {

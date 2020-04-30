@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 
 import styles from './ToggleButton.st.css';
@@ -47,11 +47,11 @@ const ToggleButton = ({
 );
 
 ToggleButton.propTypes = {
-  children: node,
-  prefixIcon: node,
-  value: string,
-  selected: bool,
-  disabled: bool,
+  children: PropTypes.node,
+  prefixIcon: PropTypes.node,
+  value: PropTypes.string,
+  selected: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 ToggleButton.displayName = 'SegmentedToggle.Button';

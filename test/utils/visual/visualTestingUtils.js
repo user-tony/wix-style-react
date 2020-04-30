@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { node } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const createVisualTestsByProp = ({ propName, propValues }) => {
   variablesValidation({ propName, propValues });
@@ -39,7 +39,7 @@ export const renderTestComponents = ({ its }, componentToRender) =>
 
 class VisualTestComponent extends PureComponent {
   static propTypes = {
-    children: node,
+    children: PropTypes.node,
   };
 
   render() {
