@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Markdown from 'wix-storybook-utils/Markdown';
-import LiveCodeExample from '../utils/LiveCodeExample';
+import allComponents from '../utils/allComponents';
+import Playground from 'wix-storybook-utils/Playground';
 import exampleCode from '!raw-loader!./example';
 
 import { Category } from '../storiesHierarchy';
@@ -17,6 +18,12 @@ This playground is a great way to play with the \`wix-style-react\` components a
 storiesOf(Category.PLAYGROUND, module).add('Playground', () => (
   <div>
     <Markdown source={playgroundExplanation} />
-    <LiveCodeExample compact initiallyOpen initialCode={exampleCode} />
+    <Playground
+      compact
+      initiallyOpen
+      initialCode={exampleCode}
+      scope={allComponents}
+      formatSnippetUrl={id => `${window.parent.location.href}&snippet=${id}`}
+    />
   </div>
 ));
