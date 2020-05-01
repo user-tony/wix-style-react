@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+## 8.6.1 - 2020-05-01
+- `<ToggleButton/>` - fixed stylable warning [#5428](https://github.com/wix/wix-style-react/pull/5428)
+
 ## 8.6.0 - 2020-04-30
 
 ### Added
