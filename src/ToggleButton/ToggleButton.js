@@ -45,7 +45,7 @@ class Icon extends PureComponent {
         >
           <span {...labelContainerStyle}>
             <div
-              {...styles('icon', { size, shape, border }, this.props)}
+              {...styles('icon', { size, border }, this.props)}
               tabIndex={1}
               onBlur={focusableOnBlur}
               onFocus={focusableOnFocus}
@@ -158,7 +158,7 @@ class ToggleButton extends PureComponent {
     return (
       <ButtonNext
         {...rest}
-        {...styles('root', { disabled, selected, skin, labelPlacement })}
+        {...styles('root', { disabled, selected, skin, labelPlacement, shape })}
         tabIndex={-1}
         data-hook={dataHook}
         data-placement={labelPlacement}

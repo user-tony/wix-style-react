@@ -17,7 +17,7 @@
 .root {
   -st-extends: ButtonNext;
   -st-states: selected, disabled, skin(enum(standard, dark, inverted)),
-    labelPlacement(enum(tooltip, end, bottom));
+    labelPlacement(enum(tooltip, end, bottom)), shape(enum(square, round));
 
   padding: 0;
 
@@ -140,8 +140,7 @@
 /* icon */
 .icon {
   -st-extends: Focusable;
-  -st-states: border, size(enum(tiny, small, medium, large)),
-    shape(enum(square, round));
+  -st-states: border, size(enum(tiny, small, medium, large));
 
   display: flex;
   align-items: center;
@@ -192,7 +191,7 @@
 }
 
 /* shape Round */
-.icon:shape(round) {
+.root:shape(round) .icon {
   border-radius: 100%;
 }
 
