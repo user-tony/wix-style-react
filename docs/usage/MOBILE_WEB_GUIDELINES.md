@@ -6,11 +6,18 @@ Here's a [demo application](https://apps.wix.com/wix-style-react-mobile) that fo
 
 ## Table of Contents
 
+- [Perquisites](#perquisites)
 - [Fluid Design](#fluid-design)
 - [Responsive Design](#responsive-design)
 - [Native Controls](#native-controls)
 - [Testing](#testing)
 - [Server-Side Rendering](#server-side-rendering)
+
+## Perquisites
+
+These guidelines are aligned with wix-style-react v6.47.0 (and above).
+
+Notice that using `react-responsive`'s `useMediaQuery` hook requires React v16.8.0 - however you can always use `MediaQuery` component for earlier versions.
 
 ## Fluid Design
 
