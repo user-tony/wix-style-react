@@ -1,4 +1,4 @@
-import { editableSelectorUniDriverFactory } from './EditableSelector.uni.driver';
+import { editableSelectorUniDriverFactory } from '../EditableSelector.uni.driver';
 
 export const editableSelectorPrivateUniDriverFactory = base => {
   const publicDriver = editableSelectorUniDriverFactory(base);

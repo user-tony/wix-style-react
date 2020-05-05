@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import TestTabSwitches from '../test/TestTabSwitches';
+import TestTabSwitches from '../docs/tests/TestTabSwitches';
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
+import ExampleInfiniteScroll from '../docs/ExampleInfiniteScroll';
 
 const kind = getTestStoryKind({
   storyName: storySettings.storyName,
@@ -24,12 +25,15 @@ const TestContainer = ({ children }) => (
     {children}
   </div>
 );
-const DropdownTests = storiesOf(kind, module);
 
-DropdownTests.add(testStories.tabsSwitches, () => (
+storiesOf(kind, module).add(testStories.tabsSwitches, () => (
   <TestContainer>
     <input data-hook="input-for-initial-focus" />
     <TestTabSwitches />
     <input style={{ position: 'relative', top: '400px' }} />
   </TestContainer>
+));
+
+storiesOf(kind, module).add(testStories.infiniteScroll, () => (
+  <ExampleInfiniteScroll />
 ));

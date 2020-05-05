@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-
+import './stories.scss';
 import { version } from '../../package.json';
 
 function loadStories() {
@@ -8,8 +8,8 @@ function loadStories() {
     require('./e2e-styles.scss');
   }
 
-  require('./stories.scss');
-  require('../../stories/e2e');
+  const req = require.context('../../src', true, /\.e2eStory\.js$/);
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

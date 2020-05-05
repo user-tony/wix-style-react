@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
 import RichTextInputArea from '../RichTextInputArea';
 
 const kind = getTestStoryKind({

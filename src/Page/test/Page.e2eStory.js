@@ -12,12 +12,12 @@ import PopoverMenu from 'wix-style-react/PopoverMenu';
 import IconButton from 'wix-style-react/IconButton';
 import More from 'wix-ui-icons-common/More';
 
-import * as s from './PageTestStories.scss';
-import './PageStory.scss';
+import * as s from '../docs/PageTestStories.scss';
+import '../docs/PageStory.scss';
 import classNames from 'classnames';
-import { header, tail, fixedContent, content } from './PageChildren';
-import { storySettings } from './storySettings';
-import { LongTextContent } from './SomeContentComponent';
+import { header, tail, fixedContent, content } from '../docs/PageChildren';
+import { storySettings } from '../docs/storySettings';
+import { LongTextContent } from '../docs/SomeContentComponent';
 
 const PageContainer = props => {
   return (

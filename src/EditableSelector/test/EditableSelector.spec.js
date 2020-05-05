@@ -1,11 +1,11 @@
 import React from 'react';
 import sinon from 'sinon';
-import EditableSelector from './EditableSelector';
+import EditableSelector from '..';
 
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 import { editableSelectorPrivateUniDriverFactory } from './EditableSelector.private.uni.driver';
 import { editableSelectorPrivateDriverFactory } from './EditableSelector.private.driver';
 

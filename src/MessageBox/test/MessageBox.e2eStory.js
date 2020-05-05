@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Category, getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
-import Scrollable from './AlertExamples/Scrollable';
-import FullScreenModal from './CustomModalExamples/FullScreenModal';
+import { testStories, storySettings } from '../docs/storySettings';
+import Scrollable from '../docs/AlertExamples/Scrollable';
+import FullScreenModal from '../docs/CustomModalExamples/FullScreenModal';
 
 const getModalKind = storyName =>
   getTestStoryKind({

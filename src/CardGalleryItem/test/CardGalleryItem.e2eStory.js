@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 
-import { testStories, storySettings } from './storySettings';
-import exampleProps from './exampleProps';
+import { testStories, storySettings } from '../docs/storySettings';
+import exampleProps from '../docs/exampleProps';
 import CardGalleryItem from 'wix-style-react/CardGalleryItem';
 
 const kind = getTestStoryKind(storySettings);

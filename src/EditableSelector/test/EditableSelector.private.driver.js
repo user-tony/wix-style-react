@@ -1,4 +1,4 @@
-import editableSelectorDriverFactory from './EditableSelector.driver';
+import editableSelectorDriverFactory from '../EditableSelector.driver';
 
 export const editableSelectorPrivateDriverFactory = base => {
   const publicDriver = editableSelectorDriverFactory(base);

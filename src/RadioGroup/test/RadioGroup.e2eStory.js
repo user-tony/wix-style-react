@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
-import RadioGroupTest from './RadioGroupTest';
+import { storySettings, testStories } from '../docs/storySettings';
+import RadioGroupTest from '../docs/RadioGroupTest';
 
 const kind = getTestStoryKind({
   category: storySettings.category,

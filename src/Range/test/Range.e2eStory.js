@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
-import RangeTemplate from '../test/RangeTemplate';
+import { storySettings, testStories } from '../docs/storySettings';
+import RangeTemplate from './RangeTemplate';
 
 const kind = getTestStoryKind({
   category: storySettings.category,

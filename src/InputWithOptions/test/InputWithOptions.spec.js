@@ -4,10 +4,10 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
-import { makeControlled } from '../../test/utils';
-import InputWithOptions from './InputWithOptions';
-import inputWithOptionsDriverFactory from './InputWithOptions.driver';
+} from '../../../test/utils/react';
+import { makeControlled } from '../../../test/utils';
+import InputWithOptions from '..';
+import inputWithOptionsDriverFactory from '../InputWithOptions.driver';
 import { inputWithOptionsUniDriverFactory } from './InputWithOptions.private.uni.driver';
 import { mount } from 'enzyme';
 import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';

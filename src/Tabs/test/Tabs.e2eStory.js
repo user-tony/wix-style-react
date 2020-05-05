@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
-import TabsExample from './TabsExample';
+import { testStories, storySettings } from '../docs/storySettings';
+import TabsExample from '../docs/TabsExample';
 
 const kind = getTestStoryKind(storySettings);
 

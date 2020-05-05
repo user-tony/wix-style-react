@@ -8,9 +8,9 @@ import {
   storySettings,
   insideFormStorySettings,
   testStories,
-} from './storySettings';
-import TestTabSwitches from './tests/TestTabSwitches';
-import TestInsideWrapperForm from './tests/TestInsideWrapperForm';
+} from '../docs/storySettings';
+import TestTabSwitches from '../docs/tests/TestTabSwitches';
+import TestInsideWrapperForm from '../docs/tests/TestInsideWrapperForm';
 
 const kind = getTestStoryKind({
   storyName: storySettings.storyName,

@@ -2,7 +2,7 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 
-import { storySettings } from './storySettings';
+import { storySettings } from '../docs/storySettings';
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 

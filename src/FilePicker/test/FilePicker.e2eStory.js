@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 
-import { testStories, storySettings } from './storySettings';
+import { testStories, storySettings } from '../docs/storySettings';
 
 import FilePicker from '..';
 

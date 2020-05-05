@@ -3,10 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
 
-import CardWithEditableSelector from './CardWithEditableSelector';
-import PopoverWithEditableSelector from './PopoverWithEditableSelector';
+import CardWithEditableSelector from '../docs/CardWithEditableSelector';
+import PopoverWithEditableSelector from '../docs/PopoverWithEditableSelector';
 
 const kind = getTestStoryKind(storySettings);
 

@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import Avatar from '..';
-import { storySettings } from './storySettings';
-import style from './AvatarStory.scss';
+import { storySettings } from '../docs/storySettings';
+import style from '../docs/AvatarStory.scss';
 
 const kind = getTestStoryKind({
   category: storySettings.category,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from '../test/storySettings';
+import { testStories, storySettings } from './storySettings';
 import Search from '..';
 
 const kind = getTestStoryKind(storySettings);

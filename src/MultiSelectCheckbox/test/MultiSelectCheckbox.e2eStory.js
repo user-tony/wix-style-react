@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
-import MultiSelectCheckboxTest from './MultiSelectCheckboxTest';
-import TestTabSwitches from '../test/TestTabSwitches';
+import { storySettings, testStories } from '../docs/storySettings';
+import MultiSelectCheckboxTest from '../docs/MultiSelectCheckboxTest';
+import TestTabSwitches from './TestTabSwitches';
 
 const kind = getTestStoryKind({
   category: storySettings.category,

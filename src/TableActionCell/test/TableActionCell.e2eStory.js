@@ -3,20 +3,20 @@ import { storiesOf } from '@storybook/react';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
-import style from './TableActionCell.story.st.css';
+import { testStories, storySettings } from '../docs/storySettings';
+import style from '../docs/TableActionCell.story.st.css';
 
-import PrimaryBlueExample from './examples/PrimaryBlueExample';
-import PrimaryWhiteExample from './examples/PrimaryWhiteExample';
-import PrimarySecondaryExample from './examples/PrimarySecondaryExample';
-import PrimarySecondaryHiddenExample from './examples/PrimarySecondaryHiddenExample';
-import PopoverMenuPropsExample from './examples/PopoverMenuPropsExample';
-import AlwaysVisibleSecondaryExample from './examples/AlwaysVisibleSecondaryExample';
-import OnlySecondaryExample from './examples/OnlySecondaryExample';
-import OnlyVisibleSecondaryExample from './examples/OnlyVisibleSecondaryExample';
-import PrimarySecondaryRTLExample from './examples/PrimarySecondaryRTLExample';
-import DisabledSecondaryExample from './examples/DisabledSecondaryExample';
-import DisabledPrimaryExample from './examples/DisabledPrimaryExample';
+import PrimaryBlueExample from '../docs/examples/PrimaryBlueExample';
+import PrimaryWhiteExample from '../docs/examples/PrimaryWhiteExample';
+import PrimarySecondaryExample from '../docs/examples/PrimarySecondaryExample';
+import PrimarySecondaryHiddenExample from '../docs/examples/PrimarySecondaryHiddenExample';
+import PopoverMenuPropsExample from '../docs/examples/PopoverMenuPropsExample';
+import AlwaysVisibleSecondaryExample from '../docs/examples/AlwaysVisibleSecondaryExample';
+import OnlySecondaryExample from '../docs/examples/OnlySecondaryExample';
+import OnlyVisibleSecondaryExample from '../docs/examples/OnlyVisibleSecondaryExample';
+import PrimarySecondaryRTLExample from '../docs/examples/PrimarySecondaryRTLExample';
+import DisabledSecondaryExample from '../docs/examples/DisabledSecondaryExample';
+import DisabledPrimaryExample from '../docs/examples/DisabledPrimaryExample';
 
 const kind = getTestStoryKind(storySettings);
 

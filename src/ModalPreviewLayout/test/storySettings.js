@@ -4,7 +4,4 @@ export const storySettings = {
   category: Category.COMPONENTS,
   storyName: 'ModalPreviewLayout',
   dataHook: 'story-modal-preview-layout',
-  testStoryNames: {
-    modalNavigationButtons: 'Modal Navigation Buttons',
-  },
 };

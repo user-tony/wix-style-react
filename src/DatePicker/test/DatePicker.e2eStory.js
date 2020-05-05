@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
-import ExampleDatePicker from './ExampleDatePicker';
+import { testStories, storySettings } from '../docs/storySettings';
+import ExampleDatePicker from '../docs/ExampleDatePicker';
 
 const kind = getTestStoryKind(storySettings);
 

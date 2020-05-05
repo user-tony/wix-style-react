@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
+import { testStories, storySettings } from '../docs/storySettings';
 
-import Example from './Example';
-import ExampleCallingServer from './ExampleCallingServer';
+import Example from '../docs/Example';
+import ExampleCallingServer from '../docs/ExampleCallingServer';
 
 const kind = getTestStoryKind(storySettings);
 

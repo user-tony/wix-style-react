@@ -1,12 +1,12 @@
-import { inputWithOptionsTestkitFactory } from '../../testkit/protractor';
+import { inputWithOptionsTestkitFactory } from '../../../testkit/protractor';
 import { $, browser } from 'protractor';
 import { isFocused, waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 import {
   storySettings,
   insideFormStorySettings,
   testStories,
-} from './docs/storySettings';
+} from '../docs/storySettings';
 
 describe('InputWithOptions', () => {
   let driver;
