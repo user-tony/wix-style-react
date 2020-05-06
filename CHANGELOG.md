@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<ComposerSidebar/>` - New component [#5426](https://github.com/wix/wix-style-react/pull/5426)
+
 ### Fixed
 - `<Accordion/>`- fix open property of AccordionItems to update dynamically [#5411](https://github.com/wix/wix-style-react/pull/5411)
 
