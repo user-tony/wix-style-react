@@ -1,14 +1,9 @@
-import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
 import { popoverMenuTestkitFactory } from '../../testkit';
 import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
 import buttonDriverFactory from '../Button/Button.legacy.driver';
 
 const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
-  const getPrimaryActionPlaceholder = () =>
-    element.querySelector(
-      `[data-hook="${dataHooks.tableActionCellPlaceholder}"]`,
-    );
   const getVisibleActionsWrapper = () =>
     element.querySelector(
       `[data-hook="${dataHooks.tableActionCellVisibleActions}"]`,
@@ -17,7 +12,7 @@ const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const getPrimaryActionButtonDriver = () =>
     buttonDriverFactory({
       element: element.querySelector(
-        '[data-hook="table-action-cell-primary-action"] button',
+        `[data-hook="${dataHooks.tableActionCellPrimaryAction}"] button`,
       ),
     });
 
@@ -105,12 +100,6 @@ const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
       getHiddenActionsPopoverMenuDriver().clickAtChildByDataHook(
         actionDataHook,
       ),
-
-    /* Private driver */
-    [INTERNAL_DRIVER_SYMBOL]: {
-      /** Whether the primary action placeholder exists */
-      primaryActionPlaceholderExists: () => !!getPrimaryActionPlaceholder(),
-    },
   };
 };
 

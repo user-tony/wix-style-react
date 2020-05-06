@@ -1,10 +1,11 @@
 import React from 'react';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import eventually from 'wix-eventually';
-
+import {
+  createRendererWithDriver,
+  cleanup,
+} from '../../../test/utils/react/index';
 import TableActionCell from '../TableActionCell';
-import tableActionCellDriverFactory from '../TableActionCell.driver';
-import { flattenInternalDriver } from '../../../test/utils/private-drivers';
+import { tableActionCellPrivateDriverFactory } from './TableActionCell.private.driver';
 
 const primaryActionProps = (actionTrigger = () => {}, disabled = false) => ({
   primaryAction: {
@@ -32,245 +33,216 @@ const secondaryActionsProps = ({ actionTriggers, actionDataHooks } = {}) => {
 };
 
 describe('Table Action Cell', () => {
-  afterEach(() => {
-    document.body.innerHTML = '';
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(tableActionCellPrivateDriverFactory));
   });
 
-  const createDriver = (...args) =>
-    flattenInternalDriver(
-      createDriverFactory(tableActionCellDriverFactory)(...args),
-    );
+  function runTests(render) {
+    afterEach(cleanup);
 
-  it("should have a placeholder when there's only a primary action", () => {
-    const driver = createDriver(<TableActionCell {...primaryActionProps()} />);
-    expect(driver.primaryActionPlaceholderExists()).toBe(true);
-  });
+    it("should have a placeholder when there's only a primary action", async () => {
+      const { driver } = render(<TableActionCell {...primaryActionProps()} />);
+      expect(await driver.primaryActionPlaceholderExists()).toBe(true);
+    });
 
-  it('should display the primary action button', () => {
-    const onPrimaryActionTrigger = jest.fn();
+    it('should display the primary action button', async () => {
+      const onPrimaryActionTrigger = jest.fn();
 
-    const driver = createDriver(
-      <TableActionCell {...primaryActionProps(onPrimaryActionTrigger)} />,
-    );
+      const { driver } = render(
+        <TableActionCell {...primaryActionProps(onPrimaryActionTrigger)} />,
+      );
 
-    expect(driver.getPrimaryActionButtonDriver().exists()).toBe(true);
-    expect(
-      driver.getPrimaryActionButtonDriver().getButtonTextContent(),
-    ).toEqual('primary action');
-  });
+      expect(await driver.getPrimaryActionButtonDriver().exists()).toBe(true);
+      expect(
+        await driver.getPrimaryActionButtonDriver().getButtonTextContent(),
+      ).toEqual('primary action');
+    });
 
-  it('should trigger the primary action on primary button click', () => {
-    const onPrimaryActionTrigger = jest.fn();
+    it('should trigger the primary action on primary button click', async () => {
+      const onPrimaryActionTrigger = jest.fn();
 
-    const driver = createDriver(
-      <TableActionCell {...primaryActionProps(onPrimaryActionTrigger)} />,
-    );
+      const { driver } = render(
+        <TableActionCell {...primaryActionProps(onPrimaryActionTrigger)} />,
+      );
 
-    driver.clickPrimaryActionButton();
-    expect(onPrimaryActionTrigger).toHaveBeenCalledTimes(1);
-  });
+      await driver.clickPrimaryActionButton();
+      expect(onPrimaryActionTrigger).toHaveBeenCalledTimes(1);
+    });
 
-  it('should not have a primary action placeholder when there are also secondary actions', () => {
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps()}
-      />,
-    );
+    it('should not have a primary action placeholder when there are also secondary actions', async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps()}
+        />,
+      );
 
-    expect(driver.primaryActionPlaceholderExists()).toBe(false);
-  });
+      expect(await driver.primaryActionPlaceholderExists()).toBe(false);
+    });
 
-  it('should put visible secondary actions in the cell', () => {
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps({
-          actionDataHooks: [undefined, 'data-hook-for-1'],
-        })}
-      />,
-    );
+    it('should put visible secondary actions in the cell', async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps({
+            actionDataHooks: [undefined, 'data-hook-for-1'],
+          })}
+        />,
+      );
 
-    expect(driver.getVisibleActionsCount()).toEqual(2);
+      expect(await driver.getVisibleActionsCount()).toEqual(2);
 
-    expect(
-      driver.getVisibleActionButtonDriver(0).getButtonTextContent(),
-    ).toEqual('Icon 0');
-    expect(
-      driver
-        .getVisibleActionByDataHookButtonDriver('data-hook-for-1')
-        .getButtonTextContent(),
-    ).toEqual('Icon 1');
+      expect(
+        await driver.getVisibleActionButtonDriver(0).getButtonTextContent(),
+      ).toEqual('Icon 0');
+      expect(
+        await driver
+          .getVisibleActionByDataHookButtonDriver('data-hook-for-1')
+          .getButtonTextContent(),
+      ).toEqual('Icon 1');
 
-    const tooltipDriver1 = driver.getVisibleActionTooltipDriver(0);
-    const tooltipDriver2 = driver.getVisibleActionByDataHookTooltipDriver(
-      'data-hook-for-1',
-    );
+      const tooltipDriver1 = await driver.getVisibleActionTooltipDriver(0);
+      const tooltipDriver2 = await driver.getVisibleActionByDataHookTooltipDriver(
+        'data-hook-for-1',
+      );
 
-    expect(tooltipDriver1.getTooltipText()).toEqual('Action 0');
-    expect(tooltipDriver2.getTooltipText()).toEqual('Action 1');
-  });
+      expect(tooltipDriver1.getTooltipText()).toEqual('Action 0');
+      expect(tooltipDriver2.getTooltipText()).toEqual('Action 1');
+    });
 
-  it('should put hidden secondary action in a PopoverMenu', async () => {
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps()}
-      />,
-    );
+    it('should put hidden secondary action in a PopoverMenu', async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps()}
+        />,
+      );
 
-    expect(await driver.getHiddenActionsPopoverMenuDriver().exists()).toEqual(
-      true,
-    );
+      expect(await driver.getHiddenActionsPopoverMenuDriver().exists()).toEqual(
+        true,
+      );
 
-    driver.clickPopoverMenu();
-    await eventually(async () =>
-      expect(await driver.getHiddenActionsCount()).toEqual(2),
-    );
-  });
+      await driver.clickPopoverMenu();
+      await eventually(async () =>
+        expect(await driver.getHiddenActionsCount()).toEqual(2),
+      );
+    });
 
-  it('should trigger secondary action on click', async () => {
-    const actionTriggers = Array(4)
-      .fill()
-      .map(() => jest.fn());
+    it('should trigger secondary action on click', async () => {
+      const actionTriggers = Array(4)
+        .fill()
+        .map(() => jest.fn());
 
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps({
-          actionTriggers,
-          actionDataHooks: [
-            undefined,
-            'data-hook-for-1',
-            undefined,
-            'data-hook-for-3',
-          ],
-        })}
-      />,
-    );
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps({
+            actionTriggers,
+            actionDataHooks: [
+              undefined,
+              'data-hook-for-1',
+              undefined,
+              'data-hook-for-3',
+            ],
+          })}
+        />,
+      );
 
-    driver.clickVisibleAction(0);
-    driver.clickVisibleActionByDataHook('data-hook-for-1');
+      await driver.clickVisibleAction(0);
+      await driver.clickVisibleActionByDataHook('data-hook-for-1');
 
-    driver.clickPopoverMenu();
-    await eventually(() => driver.clickHiddenAction(0));
+      await driver.clickPopoverMenu();
+      await eventually(() => driver.clickHiddenAction(0));
 
-    driver.clickPopoverMenu();
-    await eventually(() =>
-      driver.clickHiddenActionByDataHook('data-hook-for-3'),
-    );
+      await driver.clickPopoverMenu();
+      await eventually(
+        async () => await driver.clickHiddenActionByDataHook('data-hook-for-3'),
+      );
 
-    await eventually(() =>
-      actionTriggers.forEach(async actionTrigger => {
-        await expect(actionTrigger).toHaveBeenCalledTimes(1);
-      }),
-    );
-  });
+      await eventually(() =>
+        actionTriggers.forEach(async actionTrigger => {
+          await expect(actionTrigger).toHaveBeenCalledTimes(1);
+        }),
+      );
+    });
 
-  it('should render disabled hidden actions', async () => {
-    const actionTrigger = jest.fn();
-    const disabledAction = {
-      text: `Disabled Action`,
-      icon: <span>Icon</span>,
-      onClick: actionTrigger,
-      disabled: true,
-    };
-    const driver = createDriver(
-      <TableActionCell
-        upgrade
-        {...primaryActionProps()}
-        secondaryActions={[disabledAction]}
-        numOfVisibleSecondaryActions={0}
-      />,
-    );
-
-    driver.clickPopoverMenu();
-
-    await eventually(() => driver.clickHiddenAction(0));
-
-    expect(actionTrigger).not.toHaveBeenCalled();
-  });
-
-  it('should allow to change the number of visible secondary actions', async () => {
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps()}
-        numOfVisibleSecondaryActions={3}
-      />,
-    );
-
-    expect(driver.getVisibleActionsCount()).toEqual(3);
-
-    driver.clickPopoverMenu();
-    await eventually(async () =>
-      expect(await driver.getHiddenActionsCount()).toEqual(1),
-    );
-  });
-
-  it('should allow to have no visible secondary actions', async () => {
-    const driver = createDriver(
-      <TableActionCell
-        {...primaryActionProps()}
-        {...secondaryActionsProps()}
-        numOfVisibleSecondaryActions={0}
-      />,
-    );
-
-    expect(driver.getVisibleActionsCount()).toEqual(0);
-
-    driver.clickPopoverMenu();
-    await eventually(async () =>
-      expect(await driver.getHiddenActionsCount()).toEqual(4),
-    );
-  });
-
-  it('should mark the primary action as disabled', () => {
-    const driver = createDriver(
-      <TableActionCell {...primaryActionProps(() => {}, true)} />,
-    );
-
-    expect(driver.getIsPrimaryActionButtonDisabled()).toBe(true);
-  });
-
-  describe('when a secondary action is disabled', () => {
-    it('should mark the a visible secondary actions as disabled', () => {
+    it('should render disabled hidden actions', async () => {
       const actionTrigger = jest.fn();
-
       const disabledAction = {
         text: `Disabled Action`,
         icon: <span>Icon</span>,
         onClick: actionTrigger,
         disabled: true,
       };
-
-      const driver = createDriver(
+      const { driver } = render(
         <TableActionCell
           {...primaryActionProps()}
           secondaryActions={[disabledAction]}
-          numOfVisibleSecondaryActions={1}
+          numOfVisibleSecondaryActions={0}
         />,
       );
 
-      const isDisabled = driver
-        .getVisibleActionButtonDriver(0)
-        .isButtonDisabled();
-      expect(isDisabled).toBe(true);
+      await driver.clickPopoverMenu();
+
+      await eventually(async () => await driver.clickHiddenAction(0));
+
+      expect(actionTrigger).not.toHaveBeenCalled();
     });
 
-    describe('when disabledTooltipText is supplied', () => {
-      it('should show correct tooltip text', () => {
+    it('should allow to change the number of visible secondary actions', async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps()}
+          numOfVisibleSecondaryActions={3}
+        />,
+      );
+
+      expect(await driver.getVisibleActionsCount()).toEqual(3);
+
+      await driver.clickPopoverMenu();
+      await eventually(async () =>
+        expect(await driver.getHiddenActionsCount()).toEqual(1),
+      );
+    });
+
+    it('should allow to have no visible secondary actions', async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps()}
+          numOfVisibleSecondaryActions={0}
+        />,
+      );
+
+      expect(await driver.getVisibleActionsCount()).toEqual(0);
+
+      await driver.clickPopoverMenu();
+      await eventually(async () =>
+        expect(await driver.getHiddenActionsCount()).toEqual(4),
+      );
+    });
+
+    it('should mark the primary action as disabled', async () => {
+      const { driver } = render(
+        <TableActionCell {...primaryActionProps(() => {}, true)} />,
+      );
+
+      expect(await driver.getIsPrimaryActionButtonDisabled()).toBe(true);
+    });
+
+    describe('when a secondary action is disabled', () => {
+      it('should mark the a visible secondary actions as disabled', async () => {
         const actionTrigger = jest.fn();
 
         const disabledAction = {
           text: `Disabled Action`,
           icon: <span>Icon</span>,
           onClick: actionTrigger,
-          disabled: false,
-          disabledDescription: 'disabled item tooltip text',
+          disabled: true,
         };
 
-        const driver = createDriver(
+        const { driver } = render(
           <TableActionCell
             {...primaryActionProps()}
             secondaryActions={[disabledAction]}
@@ -278,33 +250,60 @@ describe('Table Action Cell', () => {
           />,
         );
 
-        const tooltipDriver = driver.getVisibleActionTooltipDriver(0);
-        expect(tooltipDriver.getTooltipText()).toEqual('Disabled Action');
+        const isDisabled = await driver
+          .getVisibleActionButtonDriver(0)
+          .isButtonDisabled();
+        expect(isDisabled).toBe(true);
+      });
+
+      describe('when disabledTooltipText is supplied', () => {
+        it('should show correct tooltip text', async () => {
+          const actionTrigger = jest.fn();
+
+          const disabledAction = {
+            text: `Disabled Action`,
+            icon: <span>Icon</span>,
+            onClick: actionTrigger,
+            disabled: false,
+            disabledDescription: 'disabled item tooltip text',
+          };
+
+          const { driver } = render(
+            <TableActionCell
+              {...primaryActionProps()}
+              secondaryActions={[disabledAction]}
+              numOfVisibleSecondaryActions={1}
+            />,
+          );
+
+          const tooltipDriver = await driver.getVisibleActionTooltipDriver(0);
+          expect(tooltipDriver.getTooltipText()).toEqual('Disabled Action');
+        });
+      });
+
+      describe('when disabledTooltipText is not supplied', () => {
+        it('should show correct tooltip text', async () => {
+          const actionTrigger = jest.fn();
+
+          const disabledAction = {
+            text: `Disabled Action`,
+            icon: <span>Icon</span>,
+            onClick: actionTrigger,
+            disabled: false,
+          };
+
+          const { driver } = render(
+            <TableActionCell
+              {...primaryActionProps()}
+              secondaryActions={[disabledAction]}
+              numOfVisibleSecondaryActions={1}
+            />,
+          );
+
+          const tooltipDriver = await driver.getVisibleActionTooltipDriver(0);
+          expect(tooltipDriver.getTooltipText()).toEqual('Disabled Action');
+        });
       });
     });
-
-    describe('when disabledTooltipText is not supplied', () => {
-      it('should show correct tooltip text', () => {
-        const actionTrigger = jest.fn();
-
-        const disabledAction = {
-          text: `Disabled Action`,
-          icon: <span>Icon</span>,
-          onClick: actionTrigger,
-          disabled: false,
-        };
-
-        const driver = createDriver(
-          <TableActionCell
-            {...primaryActionProps()}
-            secondaryActions={[disabledAction]}
-            numOfVisibleSecondaryActions={1}
-          />,
-        );
-
-        const tooltipDriver = driver.getVisibleActionTooltipDriver(0);
-        expect(tooltipDriver.getTooltipText()).toEqual('Disabled Action');
-      });
-    });
-  });
+  }
 });
