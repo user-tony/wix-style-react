@@ -47,5 +47,19 @@ class MyComponent extends React.Component {
 `;
 
 export const expandable = `
-<Search debounceMs={250} expandable/>
+class MyComponent extends React.Component {
+  state = { text: '' };
+
+  render() {
+    const { text } = this.state;
+    return (
+      <Search
+        debounceMs={250}
+        value={text}
+        onChange={e => this.setState({ text: e.target.value })}
+        expandable
+      />
+    );
+  }
+}
 `;
