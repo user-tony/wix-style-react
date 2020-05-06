@@ -7,6 +7,8 @@ import { accordionPrivateDriverFactory } from './Accordion.private.uni.driver';
 import { eventually } from '../../test/utils/unit/eventually';
 import { buttonTypes } from './constants';
 
+import { createRendererWithUniDriver } from '../../test/utils/react';
+
 describe('Accordion', () => {
   const FakeIcon = () => <div>fake icon</div>;
   const createDriver = createUniDriverFactory(accordionPrivateDriverFactory);
@@ -141,6 +143,36 @@ describe('Accordion', () => {
         expect(await driver.isItemExpandedAt(0)).toBe(false),
       );
       expect(await driver.isItemExpandedAt(1)).toBe(true);
+    });
+    it('should update AccordionItems open prop dynamically', async () => {
+      const render = createRendererWithUniDriver(accordionPrivateDriverFactory);
+      const accordionItemsProps = {
+        title: 'First Row',
+        children: 'first row',
+      };
+      const { driver, rerender } = render(
+        <Accordion
+          items={[
+            {
+              ...accordionItemsProps,
+              open: false,
+            },
+          ]}
+        />,
+      );
+      expect(await driver.isItemExpandedAt(0)).toBe(false);
+
+      rerender(
+        <Accordion
+          items={[
+            {
+              ...accordionItemsProps,
+              open: true,
+            },
+          ]}
+        />,
+      );
+      expect(await driver.isItemExpandedAt(0)).toBe(true);
     });
   });
 });

@@ -36,15 +36,38 @@ class Accordion extends React.Component {
     skin: 'standard',
   };
 
+  _findOpenIndexes = items =>
+    items
+      .map((item, index) => (item.open ? index : null))
+      .filter(index => index !== null);
+
   constructor(props) {
     super(props);
 
     this.state = {
-      openIndexes: this.props.items
-        .filter(({ open }) => open)
-        .map((item, index) => index),
+      openIndexes: this._findOpenIndexes(this.props.items),
     };
   }
+
+  _compareOpenItems = (currentItems, prevItems) => {
+    if (prevItems.length !== currentItems.length) {
+      return false;
+    }
+    for (let i = 0; i < prevItems.length; i++) {
+      if (prevItems[i].open !== currentItems[i].open) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  componentDidUpdate = prevProps => {
+    if (!this._compareOpenItems(this.props.items, prevProps.items)) {
+      this.setState({
+        openIndexes: this._findOpenIndexes(this.props.items),
+      });
+    }
+  };
 
   _toggle = index => () =>
     this.setState(({ openIndexes }) => ({
