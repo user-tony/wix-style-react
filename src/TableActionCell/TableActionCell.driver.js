@@ -6,9 +6,13 @@ import buttonDriverFactory from '../Button/Button.legacy.driver';
 
 const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const getPrimaryActionPlaceholder = () =>
-    element.querySelector('[data-hook="table-action-cell-placeholder"]');
+    element.querySelector(
+      `[data-hook="${dataHooks.tableActionCellPlaceholder}"]`,
+    );
   const getVisibleActionsWrapper = () =>
-    element.querySelector('[data-hook="table-action-cell-visible-actions"]');
+    element.querySelector(
+      `[data-hook="${dataHooks.tableActionCellVisibleActions}"]`,
+    );
 
   const getPrimaryActionButtonDriver = () =>
     buttonDriverFactory({
@@ -20,7 +24,7 @@ const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const getVisibleActionTooltipDriver = actionIndex =>
     tooltipDriverFactory({
       element: getVisibleActionsWrapper().querySelectorAll(
-        '[data-hook="table-action-cell-visible-action-tooltip"]',
+        `[data-hook="${dataHooks.tableActionCellVisibleActionTooltip}"]`,
       )[actionIndex],
       eventTrigger,
     });
@@ -50,7 +54,7 @@ const tableActionCellDriverFactory = ({ element, wrapper, eventTrigger }) => {
   const getHiddenActionsPopoverMenuDriver = () =>
     popoverMenuTestkitFactory({
       wrapper,
-      dataHook: 'table-action-cell-popover-menu',
+      dataHook: dataHooks.tableActionCellPopoverMenu,
     });
 
   return {

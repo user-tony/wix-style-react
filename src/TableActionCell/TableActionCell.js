@@ -37,7 +37,7 @@ function renderVisibleActions(actions) {
     ) => (
       <Tooltip
         key={index}
-        dataHook={dataHook || 'table-action-cell-visible-action-tooltip'}
+        dataHook={dataHook || dataHooks.tableActionCellVisibleActionTooltip}
         content={
           disabled && Boolean(disabledDescription) ? disabledDescription : text
         }
@@ -60,7 +60,7 @@ function renderVisibleActions(actions) {
 function renderHiddenActions(actions, popoverMenuProps) {
   return (
     <PopoverMenu
-      dataHook="table-action-cell-popover-menu"
+      dataHook={dataHooks.tableActionCellPopoverMenu}
       appendTo="parent"
       placement="top"
       textSize="small"
@@ -76,7 +76,7 @@ function renderHiddenActions(actions, popoverMenuProps) {
           !divider ? (
             <PopoverMenu.MenuItem
               key={index}
-              dataHook={dataHook || 'table-action-cell-popover-menu-item'}
+              dataHook={dataHook || dataHooks.tableActionCellPopoverMenuItem}
               prefixIcon={icon}
               onClick={() => onClick()}
               text={text}
@@ -119,7 +119,7 @@ const TableActionCell = props => {
       {primaryAction && (
         <HoverSlot
           display="onHover"
-          data-hook="table-action-cell-primary-action"
+          data-hook={dataHooks.tableActionCellPrimaryAction}
         >
           {renderPrimaryAction(primaryAction)}
         </HoverSlot>
@@ -128,7 +128,7 @@ const TableActionCell = props => {
       {visibleActions.length > 0 && (
         <HoverSlot
           display={alwaysShowSecondaryActions ? 'always' : 'onHover'}
-          data-hook="table-action-cell-visible-actions"
+          data-hook={dataHooks.tableActionCellVisibleActions}
         >
           {renderVisibleActions(visibleActions)}
         </HoverSlot>
@@ -146,7 +146,7 @@ const TableActionCell = props => {
         <HoverSlot
           display="notOnHover"
           className={style.placeholderIcon}
-          data-hook="table-action-cell-placeholder"
+          data-hook={dataHooks.tableActionCellPlaceholder}
         >
           {renderPlaceholder()}
         </HoverSlot>
