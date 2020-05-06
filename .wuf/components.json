@@ -92,6 +92,9 @@
   "ComposerHeader": {
     "path": "src/ComposerHeader"
   },
+  "ComposerSidebar": {
+    "path": "src/ComposerSidebar"
+  },
   "ContactItemBuilder": {
     "path": "src/ContactItemBuilder",
     "missingFiles": [

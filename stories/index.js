@@ -37,6 +37,7 @@ require('../src/Collapse/docs/index.story');
 require('../src/ColorInput/docs/index.story');
 require('../src/ColorPicker/docs/index.story');
 require('../src/ComposerHeader/docs/index.story');
+require('../src/ComposerSidebar/docs/index.story');
 require('../src/ContactItemBuilder/docs');
 require('../src/CounterBadge/docs/index.story');
 require('../src/CustomModalLayout/docs/index.story');

@@ -410,3 +410,6 @@ export * from './VerticalTabsItem';
 
 export { default as clients } from './clients';
 export * from './clients';
+
+export { default as ComposerSidebar } from './ComposerSidebar';
+export * from './ComposerSidebar'
