@@ -1,7 +1,7 @@
 {
   "name": "wix-style-react",
   "description": "wix-style-react",
-  "version": "8.6.1",
+  "version": "8.7.0",
   "main": "./dist/src/index.js",
   "module": "./dist/es/src/index.js",
   "typings": "./dist/es/src/index.d.ts",
@@ -115,7 +115,7 @@
   },
   "homepage": "https://github.com/wix/wix-style-react#readme",
   "devDependencies": {
-    "@applitools/eyes-storybook": "^3.4.0",
+    "@applitools/eyes-storybook": "^3.5.3",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/parser": "^7.9.4",
@@ -182,11 +182,11 @@
     "webpack-cli": "^3.3.11",
     "wix-storybook-utils": "^3.0.117",
     "wix-ui-framework": "^3.5.1",
-    "yoshi": "^4.61.0",
-    "yoshi-config": "^4.58.0",
-    "yoshi-helpers": "^4.58.0",
+    "yoshi": "^4.68.1",
+    "yoshi-config": "^4.61.2",
+    "yoshi-helpers": "^4.65.0",
     "yoshi-runtime": "^1.0.732",
-    "yoshi-style-dependencies": "^4.37.1"
+    "yoshi-style-dependencies": "^4.61.2"
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -231,10 +231,10 @@
     "react-window": "^1.8.5",
     "shallowequal": "^1.1.0",
     "slick-carousel": "^1.8.1",
-    "wix-animations": "^1.0.286",
+    "wix-animations": "^1.0.300",
     "wix-eventually": "^2.3.0",
     "wix-ui-core": "^2.0.935",
-    "wix-ui-icons-common": "^2.0.166",
+    "wix-ui-icons-common": "^2.0.170",
     "wix-ui-test-utils": "^1.0.172"
   },
   "lint-staged": {
