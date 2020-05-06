@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import styles from './Skeleton.scss';
+import styles from './Skeleton.st.css';
+import { dataHooks } from './constants';
 
 /**
  * Skeleton is a “placeholder” component.
@@ -9,20 +9,25 @@ import styles from './Skeleton.scss';
  */
 class Skeleton extends React.PureComponent {
   render() {
-    const { dataHook, content, alignment, spacing, className } = this.props;
+    const { dataHook, content, alignment, spacing } = this.props;
     return (
-      <div data-hook={dataHook} className={className}>
-        {content.map((item, key) => (
+      <div
+        data-hook={dataHook}
+        data-alignment={alignment}
+        data-spacing={spacing}
+        {...styles('root', { alignment, spacing }, this.props)}
+      >
+        {content.map(({ type, size }, key) => (
           <div
             key={key}
-            data-hook="placeholder-line"
-            className={classnames(styles.placeholderLine, styles[spacing], {
-              [styles.middle]: alignment === 'middle',
-            })}
+            data-hook={dataHooks.line}
+            {...styles('line', { alignment, spacing }, this.props)}
           >
             <div
-              data-hook="placeholder-chunk"
-              className={classnames(styles.chunk, styles[item.size])}
+              data-hook={dataHooks.chunk}
+              data-type={type}
+              data-size={size}
+              {...styles('chunk', { size }, this.props)}
             />
           </div>
         ))}
@@ -37,6 +42,9 @@ Skeleton.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
 
+  /** A single CSS class name to be appended to the root element. */
+  className: PropTypes.string,
+
   /** The type of the skeleton */
   content: PropTypes.arrayOf(
     PropTypes.shape({
@@ -50,9 +58,6 @@ Skeleton.propTypes = {
 
   /** The space between the first and second lines */
   spacing: PropTypes.oneOf(['small', 'medium', 'large']),
-
-  /** A single CSS class name to be appended to the root element. */
-  className: PropTypes.string,
 };
 
 Skeleton.defaultProps = {

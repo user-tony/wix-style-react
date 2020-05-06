@@ -1,4 +1,4 @@
-import styles from './Skeleton.scss';
+import { dataHooks } from './constants';
 
 const selector = element => hook =>
   element.querySelectorAll(`[data-hook="${hook}"]`);
@@ -10,17 +10,18 @@ export default ({ element }) => {
     exists: () => !!element,
 
     /** return number of lines rendered */
-    getNumLines: () => byHook('placeholder-line').length,
+    getNumLines: () => byHook(dataHooks.line).length,
 
     /** return boolean representing whether given spacing is rendered */
-    hasSpacing: spacing =>
-      byHook('placeholder-line')[0].classList.contains(styles[spacing]),
+    hasSpacing: spacing => element.getAttribute('data-spacing') === spacing,
 
     /** return boolean representing whether given list of sizes is rendered */
     hasSizes: sizes => {
-      const [assertions] = Array.from(byHook('placeholder-chunk')).reduce(
+      const [assertions] = Array.from(byHook(dataHooks.chunk)).reduce(
         ([result, [expectedSize, ...restSizes]], chunkElement) => [
-          result.concat(chunkElement.classList.contains(styles[expectedSize])),
+          result.concat(
+            chunkElement.getAttribute('data-size') === expectedSize,
+          ),
           restSizes,
         ],
         [[], sizes],
@@ -31,6 +32,6 @@ export default ({ element }) => {
 
     /** return boolean representing whether given alignment is rendered */
     hasAlignment: alignment =>
-      byHook('placeholder-line')[0].classList.contains(styles[alignment]),
+      element.getAttribute('data-alignment') === alignment,
   };
 };

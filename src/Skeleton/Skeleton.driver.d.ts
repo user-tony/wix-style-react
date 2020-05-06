@@ -1,9 +1,5 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
-import {
-  SkeletonSpacing,
-  SkeletonContentSize,
-  SkeletonAlignment,
-} from './index';
+import { SkeletonSpacing, SkeletonContentSize, SkeletonAlignment } from '.';
 
 export interface SkeletonDriver extends BaseDriver {
   getNumLines: () => number;

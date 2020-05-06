@@ -336,9 +336,6 @@ module.exports = {
   Skeleton: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noProtractorTestkit: true,
-    noPuppeteerTestkit: true,
   },
 
   SortableList: {
