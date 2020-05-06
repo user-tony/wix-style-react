@@ -5,7 +5,7 @@
  */
 
 require('./Introduction');
-require('./Playground/Playground');
+require('./Playground/Playground.story');
 
 // Components API
 require('../src/Accordion/docs/index.story');
