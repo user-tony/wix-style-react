@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { oneOfType, oneOf, shape, arrayOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './ComposerSidebar.st.css';
 import { dataHooks } from './constants';
@@ -69,18 +69,18 @@ ComposerSidebar.propTypes = {
   className: PropTypes.string,
 
   /** Different layout options. Places label to the right of the button or below it. */
-  labelPlacement: oneOf(['bottom', 'end']),
+  labelPlacement: PropTypes.oneOf(['bottom', 'end']),
 
   /** Size of the component */
-  size: oneOf(['medium', 'large']),
+  size: PropTypes.oneOf(['medium', 'large']),
 
   /** Selected item id */
-  selectedId: oneOfType([PropTypes.string, PropTypes.number]),
+  selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /** Array of button items to show on the sidebar */
-  items: arrayOf(
-    shape({
-      id: oneOfType([PropTypes.string, PropTypes.number]),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       label: PropTypes.string,
       icon: PropTypes.node,
       disabled: PropTypes.bool,
