@@ -4,6 +4,7 @@ import Text from '../Text';
 import { Item, ItemGroup, Toolbar } from '../TableToolbar';
 import Calendar from '../Calendar';
 import Button from '../Button';
+import Box from '../Box';
 
 class CalendarPanelFooter extends React.PureComponent {
   static displayName = 'CalendarPanelFooter';
@@ -73,24 +74,25 @@ class CalendarPanelFooter extends React.PureComponent {
             </Item>
           </ItemGroup>
           <ItemGroup position="end">
-            <Item>
+            <Box>
               <Button
+                size="small"
                 priority="secondary"
                 dataHook="secondary-action-button"
                 onClick={secondaryActionOnClick}
               >
                 {secondaryActionLabel}
               </Button>
-            </Item>
-            <Item>
+              <Box margin="0 6px" />
               <Button
+                size="small"
                 disabled={primaryActionDisabled}
                 dataHook="primary-action-button"
                 onClick={primaryActionOnClick}
               >
                 {primaryActionLabel}
               </Button>
-            </Item>
+            </Box>
           </ItemGroup>
         </Toolbar>
       </div>
