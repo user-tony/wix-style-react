@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
 import { generateDataAttr } from '../utils/generateDataAttr';
 import { SKIN, TYPE, SIZE } from './constants';
-import style from './Badge.st.css';
+import { st, classes } from './Badge.st.css';
 import Caption from '../Text/Caption';
 
 class Badge extends React.PureComponent {
@@ -87,21 +87,23 @@ class Badge extends React.PureComponent {
         data-hook={dataHook}
         onClick={onClick}
         {...this._getFocusableProps()}
-        {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}
+        className={st(classes.root, { clickable: !!onClick, ...rest })}
         {...generateDataAttr(this.props, ['type', 'skin', 'size', 'uppercase'])}
         data-clickable={!!onClick}
+        /* TODO: this prop used to come from stylable v1 spread and is used for testing. Update component testkit to use stylable testkit instead */
+        data-is-inverted={rest['data-is-inverted']}
       >
         {prefixIcon &&
           React.cloneElement(prefixIcon, {
-            className: style.prefix,
+            className: classes.prefix,
             'data-prefix-icon': true,
           })}
-        <Caption className={style.text} caption="c1" ellipsis>
+        <Caption className={classes.text} caption="c1" ellipsis>
           {children}
         </Caption>
         {suffixIcon &&
           React.cloneElement(suffixIcon, {
-            className: style.suffix,
+            className: classes.suffix,
             'data-suffix-icon': true,
           })}
       </div>

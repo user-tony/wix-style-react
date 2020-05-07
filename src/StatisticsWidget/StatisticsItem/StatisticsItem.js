@@ -12,7 +12,7 @@ import AdaptiveHeading from '../../utils/AdaptiveHeading';
 import DataHooks from '../dataHooks';
 import DataAttrs from '../dataAttrs';
 
-import styles from './StatisticsItem.st.css';
+import { st, classes } from './StatisticsItem.st.css';
 import { SIZES } from '../constants';
 
 const sizeToAppearance = {
@@ -64,7 +64,7 @@ class StatisticsItem extends React.PureComponent {
     }
 
     return (
-      <div className={styles.description}>
+      <div className={classes.description}>
         <Heading ellipsis dataHook={DataHooks.description} appearance="H5">
           {description}
         </Heading>
@@ -76,7 +76,7 @@ class StatisticsItem extends React.PureComponent {
             content={subtitleContentInfo}
           >
             <InfoCircleSmall
-              className={styles.info}
+              className={classes.info}
               data-hook={DataHooks.info}
             />
           </Tooltip>
@@ -113,10 +113,10 @@ class StatisticsItem extends React.PureComponent {
         {...badgeProps}
         {...styles('percentage ', { clickable: !!this.props.onClick })}
       >
-        <div className={styles.percentageInner}>
+        <div className={classes.percentageInner}>
           {!!percentage && (
             <span
-              className={styles.trendIndicator}
+              className={classes.trendIndicator}
               data-hook={DataHooks.trendIndicator}
             >
               {trendIcon}
@@ -147,11 +147,15 @@ class StatisticsItem extends React.PureComponent {
 
     const attrs = {
       ...this._getFocusableProps(),
-      ...styles('item', { clickable: !!onClick, size }, this.props),
       'data-hook': DataHooks.stat,
       onKeyDown: onClick ? this._getSpaceOrEnterHandler(onClick) : undefined,
       onClick,
       ...rest,
+      className: st(
+        classes.item,
+        { clickable: !!onClick, size },
+        this.props.className,
+      ),
     };
 
     return (

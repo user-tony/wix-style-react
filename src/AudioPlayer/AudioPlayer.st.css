@@ -3,6 +3,10 @@
   -st-named: B10, D10-30;
 }
 
+:vars {
+  audio-player-position: 0%;
+}
+
 .root {
   width: 100%;
   min-width: 120px;
@@ -18,7 +22,6 @@
 }
 
 .slider {
-  --audio-player-position: 0%;
   user-select: none;
   width: 100%;
   position: relative;
