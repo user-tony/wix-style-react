@@ -17,8 +17,9 @@ Types of changes:
 ## Next
 
 ### Fixed
-- `<Notification/>` - added DEFAULT_TIMEOUT to type [#5443](https://github.com/wix/wix-style-react/pull/5426)
-- `Madefor` - Fix Heading font-family definition [#5444](https://github.com/wix/wix-style-react/pull/5426)
+- `<Notification/>` - added DEFAULT_TIMEOUT to type [#5443](https://github.com/wix/wix-style-react/pull/5443)
+- `Madefor` - Fix Heading font-family definition [#5444](https://github.com/wix/wix-style-react/pull/5444)
+- `<InputArea/>` - fix autoGrow on mount [#5446](https://github.com/wix/wix-style-react/pull/5446)
 
 ## 8.7.0 - 2020-05-06
 ### Added
