@@ -23,6 +23,7 @@ export default class Notification extends React.Component<NotificationProps> {
 
 declare const TextLabel: React.SFC;
 declare const ActionButton: React.SFC<ActionButtonProps>;
+declare const DEFAULT_TIMEOUT: number;
 
 interface TextLinkActionButton {
   type: 'textLink';
