@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 - `<Notification/>` - added DEFAULT_TIMEOUT to type [#5443](https://github.com/wix/wix-style-react/pull/5426)
+- `Madefor` - Fix Heading font-family definition [#5444](https://github.com/wix/wix-style-react/pull/5426)
 
 ## 8.7.0 - 2020-05-06
 ### Added
