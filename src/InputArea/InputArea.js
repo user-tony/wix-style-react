@@ -13,20 +13,7 @@ import { dataHooks } from './constants';
  * General inputArea container
  */
 class InputArea extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this._onKeyDown = this._onKeyDown.bind(this);
-    this._onChange = this._onChange.bind(this);
-    this._onInput = this._onInput.bind(this);
-    this._onFocus = this._onFocus.bind(this);
-    this._onBlur = this._onBlur.bind(this);
-    this.focus = this.focus.bind(this);
-    this.blur = this.blur.bind(this);
-    this.select = this.select.bind(this);
-    this._computedStyle = null;
-  }
-
+  _computedStyle = null;
   state = {
     focus: false,
     counter: (this.props.value || this.props.defaultValue || '').length,
@@ -37,7 +24,12 @@ class InputArea extends React.PureComponent {
   static MIN_ROWS = 2;
 
   componentDidMount() {
-    this.props.autoFocus && this._onFocus();
+    const { autoFocus, autoGrow } = this.props;
+
+    autoFocus && this._onFocus();
+    if (autoGrow) {
+      this._calculateComputedRows();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -165,19 +157,19 @@ class InputArea extends React.PureComponent {
     );
   }
 
-  focus() {
+  focus = () => {
     this.textArea && this.textArea.focus();
-  }
+  };
 
-  blur() {
+  blur = () => {
     this.textArea && this.textArea.blur();
-  }
+  };
 
-  select() {
+  select = () => {
     this.textArea && this.textArea.select();
-  }
+  };
 
-  _onFocus(e) {
+  _onFocus = e => {
     this.setState({ focus: true });
     this.props.onFocus && this.props.onFocus(e);
 
@@ -187,14 +179,14 @@ class InputArea extends React.PureComponent {
       // is on. So setTimeout ensures we have the ref.input needed in select)
       setTimeout(() => this.select(), 0);
     }
-  }
+  };
 
-  _onBlur(e) {
+  _onBlur = e => {
     this.setState({ focus: false });
     this.props.onBlur && this.props.onBlur(e);
-  }
+  };
 
-  _onKeyDown(e) {
+  _onKeyDown = e => {
     this.props.onKeyDown && this.props.onKeyDown(e);
 
     if (e.key === 'Enter') {
@@ -202,18 +194,18 @@ class InputArea extends React.PureComponent {
     } else if (e.key === 'Escape') {
       this.props.onEscapePressed && this.props.onEscapePressed();
     }
-  }
+  };
 
-  _onChange(e) {
+  _onChange = e => {
     this.props.hasCounter && this.setState({ counter: e.target.value.length });
     this.props.onChange && this.props.onChange(e);
-  }
+  };
 
-  _onInput() {
+  _onInput = () => {
     this._calculateComputedRows();
-  }
+  };
 
-  _calculateComputedRows() {
+  _calculateComputedRows = () => {
     this.setState({ computedRows: 1 }, () => {
       const rowsCount = this._getRowsCount();
       const computedRows = Math.max(this.props.minRowsAutoGrow, rowsCount);
@@ -221,7 +213,7 @@ class InputArea extends React.PureComponent {
         computedRows,
       });
     });
-  }
+  };
 
   _updateComputedStyle = debounce(
     () => {
@@ -231,12 +223,12 @@ class InputArea extends React.PureComponent {
     { leading: true },
   );
 
-  _getComputedStyle() {
+  _getComputedStyle = () => {
     this._updateComputedStyle();
     return this._computedStyle;
-  }
+  };
 
-  _getRowsCount() {
+  _getRowsCount = () => {
     const computedStyle = this._getComputedStyle();
     const fontSize = parseInt(computedStyle.getPropertyValue('font-size'), 10);
     const lineHeight = parseInt(
@@ -247,9 +239,9 @@ class InputArea extends React.PureComponent {
       ? this._getDefaultLineHeight() * fontSize
       : lineHeight;
     return Math.floor(this.textArea.scrollHeight / lineHeightValue);
-  }
+  };
 
-  _getDefaultLineHeight() {
+  _getDefaultLineHeight = () => {
     if (!this._defaultLineHeight) {
       const { parentNode } = this.textArea;
       const computedStyles = this._getComputedStyle();
@@ -270,7 +262,7 @@ class InputArea extends React.PureComponent {
     }
 
     return this._defaultLineHeight;
-  }
+  };
 }
 
 InputArea.displayName = 'InputArea';
