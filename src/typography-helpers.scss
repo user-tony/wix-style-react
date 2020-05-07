@@ -22,7 +22,8 @@ $typography_headers: (
 @mixin HeadingNoColor($tagName) {
   $heading: map-get($typography_headers, $tagName);
 
-  font-family: nth($heading, 1);
+  font-family: nth($heading, 1); /* IE11 */
+  font-family: var(--wsr-font-family, nth($heading, 1));
   font-size: nth($heading, 2);
   line-height: nth($heading, 3);
 

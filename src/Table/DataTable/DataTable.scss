@@ -17,9 +17,9 @@ $cellHorizontalEdgePadding: 30px;
 }
 
 .table {
+  @include FontRoman();
   border-collapse: collapse;
   border-spacing: 0px;
-  font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, sans-serif;
   table-layout: fixed;
   background-color: white;
 
