@@ -37,9 +37,15 @@ export default {
   },
 
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    onLoad: () => 'I was called',
+    onLoadError: message => `I was called with ${message}`,
+    onEnd: () => 'I was called',
+    onPause: () => 'I was called!',
+    onPlay: () => 'I was called!',
+    onSeek: () => 'I was called!',
   },
+
+  hiddenProps: ['dataHook', 'className'],
 
   sections: [
     header({
