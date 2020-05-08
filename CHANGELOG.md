@@ -16,6 +16,7 @@ Types of changes:
 
 ## Next
 
+## 8.8.0 - 2020-05-08
 ### Added
 - `<AudioPlayer/>` - new component [#5419](https://github.com/wix/wix-style-react/pull/5419)
 
