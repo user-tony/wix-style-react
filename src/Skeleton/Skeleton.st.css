@@ -14,7 +14,7 @@
   background: value(D80);
 }
 
-.line:after {
+.line::after {
   background: linear-gradient(
     to right,
     transparent,
@@ -83,7 +83,7 @@
   width: 100%;
 }
 
-:global([dir='rtl']) .line:after {
+:global([dir='rtl']) .line::after {
   animation-direction: reverse;
 }
 
