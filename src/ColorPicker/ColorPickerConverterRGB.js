@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
+<<<<<<< HEAD
 import css from './ColorPickerConverter.st.css';
+=======
+
+import { st, classes } from './ColorPickerConverter.st.css';
+>>>>>>> 2ef14b682... chore(*): stylable migration
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getRgbOrEmpty } from './utils';
 

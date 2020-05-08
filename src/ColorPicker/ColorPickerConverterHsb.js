@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
+<<<<<<< HEAD
 import css from './ColorPickerConverter.st.css';
+=======
+
+import { st, classes } from './ColorPickerConverter.st.css';
+>>>>>>> 2ef14b682... chore(*): stylable migration
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getHsbOrEmpty } from './utils';
 
@@ -23,28 +28,33 @@ export default class ColorPickerConverterHsb extends React.PureComponent {
   render() {
     const { dataHook } = this.props;
     return (
+<<<<<<< HEAD
       <div {...css('root', {}, this.props)} data-hook={dataHook}>
         <div {...css('distribute', {}, this.props)}>
+=======
+      <div className={st(classes.root)}>
+        <div className={classes.distribute}>
+>>>>>>> 2ef14b682... chore(*): stylable migration
           <Input
             size="small"
             value={this.state.h}
             onChange={e => this.change('h', e)}
             placeholder={'H'}
-            {...css('distributedItem', {}, this.props)}
+            className={classes.distributedItem}
           />
           <Input
             size="small"
             value={this.state.s}
             onChange={e => this.change('s', e)}
             placeholder={'S'}
-            {...css('distributedItem', {}, this.props)}
+            className={classes.distributedItem}
           />
           <Input
             size="small"
             value={this.state.l}
             onChange={e => this.change('l', e)}
             placeholder={'B'}
-            {...css('distributedItem', {}, this.props)}
+            className={classes.distributedItem}
           />
         </div>
         <ColorPickerConverterViewer
