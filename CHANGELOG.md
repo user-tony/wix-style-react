@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<AudioPlayer/>` - new component [#5419](https://github.com/wix/wix-style-react/pull/5419)
+
 ### Fixed
 - `<Notification/>` - added DEFAULT_TIMEOUT to type [#5443](https://github.com/wix/wix-style-react/pull/5443)
 - `Madefor` - Fix Heading font-family definition [#5444](https://github.com/wix/wix-style-react/pull/5444)
