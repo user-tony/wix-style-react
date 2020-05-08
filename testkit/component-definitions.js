@@ -28,6 +28,11 @@ import PopoverMenu from '../src/PopoverMenu';
  */
 
 export default {
+  AudioPlayer: {
+    props: {
+      src: 'example.mp3',
+    },
+  },
   ColorPicker: {
     props: {
       value: '#000',
