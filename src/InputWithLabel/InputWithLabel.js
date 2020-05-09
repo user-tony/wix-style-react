@@ -25,56 +25,50 @@ const getSuffixContainer = suffix =>
 class InputWithLabel extends React.Component {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests */
-    dataHook: PropTypes.PropTypes.string,
+    dataHook: PropTypes.string,
     /** Array of suffix icons */
-    suffix: PropTypes.PropTypes.arrayOf(PropTypes.PropTypes.element),
+    suffix: PropTypes.arrayOf(PropTypes.element),
     /** Text of rendered label */
-    label: PropTypes.PropTypes.string,
+    label: PropTypes.string,
     /** Input value */
-    value: PropTypes.PropTypes.oneOfType([
-      PropTypes.PropTypes.string,
-      PropTypes.PropTypes.number,
-    ]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Input status - use to display an status indication for the user. for example: 'error', 'warning' or 'loading' */
-    status: PropTypes.PropTypes.oneOf([
+    status: PropTypes.oneOf([
       Input.StatusError,
       Input.StatusWarning,
       Input.StatusLoading,
     ]),
     /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
-    statusMessage: PropTypes.PropTypes.node,
+    statusMessage: PropTypes.node,
     /** Standard input onFocus callback */
-    onFocus: PropTypes.PropTypes.func,
+    onFocus: PropTypes.func,
     /** Standard input onBlur callback */
-    onBlur: PropTypes.PropTypes.func,
+    onBlur: PropTypes.func,
     /** Standard input onChange callback */
-    onChange: PropTypes.PropTypes.func,
-    name: PropTypes.PropTypes.string,
-    type: PropTypes.PropTypes.string,
-    ariaLabel: PropTypes.PropTypes.string,
+    onChange: PropTypes.func,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    ariaLabel: PropTypes.string,
     /** Standard React Input autoFocus (focus the element on mount) */
-    autoFocus: PropTypes.PropTypes.bool,
+    autoFocus: PropTypes.bool,
     /** Sets value of autocomplete attribute (consult the [HTML spec](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete) for possible values  */
-    autocomplete: PropTypes.PropTypes.string,
+    autocomplete: PropTypes.string,
     /** when set to true this component is disabled */
-    disabled: PropTypes.PropTypes.bool,
+    disabled: PropTypes.bool,
     /** A single CSS class name to be passed to the Input element. */
-    className: PropTypes.PropTypes.string,
+    className: PropTypes.string,
     /** Input max length */
-    maxLength: PropTypes.PropTypes.number,
+    maxLength: PropTypes.number,
     /** Placeholder to display */
-    placeholder: PropTypes.PropTypes.string,
+    placeholder: PropTypes.string,
     /** Use a customized input component instead of the default html input tag */
-    customInput: PropTypes.PropTypes.elementType
-      ? PropTypes.PropTypes.oneOfType([
-          PropTypes.PropTypes.func,
-          PropTypes.PropTypes.node,
-          PropTypes.PropTypes.elementType,
+    customInput: PropTypes.elementType
+      ? PropTypes.oneOfType([
+          PropTypes.func,
+          PropTypes.node,
+          PropTypes.elementType,
         ])
-      : PropTypes.PropTypes.oneOfType([
-          PropTypes.PropTypes.func,
-          PropTypes.PropTypes.node,
-        ]),
+      : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   };
 
   static defaultProps = {
