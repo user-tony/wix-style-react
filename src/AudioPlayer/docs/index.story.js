@@ -22,6 +22,28 @@ import AudioPlayer from '..';
 const example = config => baseExample({ components: allComponents, ...config });
 const code = config => baseCode({ components: allComponents, ...config });
 
+const audioFiles = [
+  {
+    label: 'Sample 1',
+    value:
+      'https://music.wixstatic.com/preview/84770f_29a80480c24f4946a477c8ad03b92cbc-128.mp3',
+  },
+  {
+    label: 'Sample 2',
+    value:
+      'https://music.wixstatic.com/preview/84770f_eb1f6dd925cb4b608e5c86027962b27d-128.mp3',
+  },
+  {
+    label: 'Sample 3',
+    value:
+      'https://music.wixstatic.com/preview/84770f_954ba2388ca147ff80a873d9cc72ea84-128.mp3',
+  },
+  {
+    label: 'Sample 4',
+    value:
+      'https://music.wixstatic.com/preview/84770f_85eb27843ea94bd9b484c9f4afb24e6a-128.mp3',
+  },
+];
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
@@ -30,8 +52,7 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    src:
-      'https://music.wixstatic.com/preview/84770f_29a80480c24f4946a477c8ad03b92cbc-128.mp3',
+    src: audioFiles[0].value,
     lazyLoad: false,
     html5Audio: false,
   },
@@ -43,6 +64,7 @@ export default {
     onPause: () => 'I was called!',
     onPlay: () => 'I was called!',
     onSeek: () => 'I was called!',
+    src: audioFiles,
   },
 
   hiddenProps: ['dataHook', 'className'],
@@ -80,7 +102,7 @@ export default {
             title: 'Lazy load',
             text: 'The given file is not loaded until play is pressed.',
             source:
-              '<AudioPlayer lazyLoad src="https://music.wixstatic.com/preview/84770f_29a80480c24f4946a477c8ad03b92cbc-128.mp3" />',
+              '<AudioPlayer lazyLoad src="https://music.wixstatic.com/preview/84770f_954ba2388ca147ff80a873d9cc72ea84-128.mp3" />',
           }),
         ],
       }),
