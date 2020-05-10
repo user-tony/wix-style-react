@@ -16,7 +16,8 @@ Types of changes:
 
 ## Next
 ### Fixed
-- `<AudioPlayer/>` - fix onLoadError callback. [#5449](https://github.com/wix/wix-style-react/pull/5449)
+- `<AudioPlayer/>` - fix onLoadError callback [#5449](https://github.com/wix/wix-style-react/pull/5449)
+- `<AudioPlayer/>` - fix JSDOM tests by consuming howler directly from [#5450](https://github.com/wix/wix-style-react/pull/5450)
 
 ## 8.8.0 - 2020-05-08
 ### Added
