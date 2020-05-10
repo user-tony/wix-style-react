@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Howl } from 'howler';
+import { Howl } from './howler';
 
 // A callback that keeps its instance and won't make Howler to re create every time
 const useStableCallback = callback => {
@@ -78,11 +78,13 @@ export const useAudioManager = ({
 
   const _destroy = useCallback(() => {
     if (audioManager.current) {
+      setLoadingState('unloaded');
+      setWasEverPlayed(false);
       audioManager.current.stop();
       audioManager.current.unload();
       audioManager.current = null;
     }
-  }, []);
+  }, [setLoadingState, setWasEverPlayed]);
 
   const _onLoad = useCallback(() => {
     // Keeping a duplicate state because when Howler state changes it won't cause a render
@@ -116,7 +118,8 @@ export const useAudioManager = ({
         _load();
       }
 
-      if (loadingState === 'loaded') {
+      // to prevent playing twice we're checking if there is already a audio that is playing.
+      if (loadingState === 'loaded' && !audioManager.current.playing()) {
         setWasEverPlayed(true);
         audioManager.current.play();
       }
