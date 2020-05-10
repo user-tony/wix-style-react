@@ -13,7 +13,10 @@ const useStableCallback = callback => {
   const callbackRef = useRef();
   callbackRef.current = callback;
 
-  return useCallback(() => callbackRef.current && callbackRef.current(), []);
+  return useCallback(
+    (...args) => callbackRef.current && callbackRef.current(...args),
+    [],
+  );
 };
 
 const useRaf = ({ callback, enabled }) => {
@@ -58,12 +61,12 @@ export const useAudioManager = ({
   const stableOnPlay = useStableCallback(onPlay);
   const stableOnPause = useStableCallback(onPause);
   const stableOnSeek = useStableCallback(onSeek);
-  const stableOnLoadError = useStableCallback((_, errorMsg) =>
-    onLoadError(errorMsg),
-  );
+  const stableOnLoadError = useStableCallback(onLoadError);
+
   const audioManager = useRef();
   const [_seek, _setSeek] = useState(0);
   const [loadingState, setLoadingState] = useState('unloaded');
+  const [wasEverPlayed, setWasEverPlayed] = useState(false);
 
   const duration = useMemo(() => {
     if (!audioManager.current || loadingState !== 'loaded') {
@@ -93,6 +96,13 @@ export const useAudioManager = ({
     stableOnEnd();
   }, [stableOnEnd, _setSeek]);
 
+  const _onLoadError = useCallback(
+    (_, errorMsg) => {
+      stableOnLoadError(errorMsg);
+    },
+    [stableOnLoadError],
+  );
+
   const _load = useCallback(() => {
     if (audioManager.current) {
       audioManager.current.load();
@@ -107,10 +117,11 @@ export const useAudioManager = ({
       }
 
       if (loadingState === 'loaded') {
+        setWasEverPlayed(true);
         audioManager.current.play();
       }
     }
-  }, [loadingState, _load]);
+  }, [loadingState, _load, setWasEverPlayed]);
 
   const _pause = useCallback(() => {
     if (audioManager.current) {
@@ -171,7 +182,7 @@ export const useAudioManager = ({
         html5: html5,
         onend: _onEnd,
         onplay: stableOnPlay,
-        onloaderror: stableOnLoadError,
+        onloaderror: _onLoadError,
         onpause: stableOnPause,
         onseek: stableOnSeek,
       });
@@ -187,8 +198,8 @@ export const useAudioManager = ({
     src,
     _onEnd,
     _onLoad,
+    _onLoadError,
     stableOnPlay,
-    stableOnLoadError,
     stableOnPause,
     stableOnSeek,
   ]);
@@ -196,10 +207,12 @@ export const useAudioManager = ({
   useEffect(() => {
     if (playing) {
       _play();
-    } else {
+    }
+
+    if (!playing && wasEverPlayed) {
       _pause();
     }
-  }, [_pause, _play, playing]);
+  }, [_pause, _play, playing, wasEverPlayed]);
 
   return useMemo(
     () => ({

@@ -43,6 +43,10 @@ const audioFiles = [
     value:
       'https://music.wixstatic.com/preview/84770f_85eb27843ea94bd9b484c9f4afb24e6a-128.mp3',
   },
+  {
+    label: 'Broken link',
+    value: 'broken-example.mp3',
+  },
 ];
 export default {
   category: storySettings.category,
@@ -59,7 +63,7 @@ export default {
 
   exampleProps: {
     onLoad: () => 'I was called',
-    onLoadError: message => `I was called with ${message}`,
+    onLoadError: message => `I was called with: \"${message}\"`,
     onEnd: () => 'I was called',
     onPause: () => 'I was called!',
     onPlay: () => 'I was called!',
