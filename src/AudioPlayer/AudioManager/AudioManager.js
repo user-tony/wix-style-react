@@ -66,6 +66,7 @@ export const useAudioManager = ({
   const audioManager = useRef();
   const [_seek, _setSeek] = useState(0);
   const [loadingState, setLoadingState] = useState('unloaded');
+  const [wasEverPlayed, setWasEverPlayed] = useState(false);
 
   const duration = useMemo(() => {
     if (!audioManager.current || loadingState !== 'loaded') {
@@ -116,10 +117,11 @@ export const useAudioManager = ({
       }
 
       if (loadingState === 'loaded') {
+        setWasEverPlayed(true);
         audioManager.current.play();
       }
     }
-  }, [loadingState, _load]);
+  }, [loadingState, _load, setWasEverPlayed]);
 
   const _pause = useCallback(() => {
     if (audioManager.current) {
@@ -205,10 +207,12 @@ export const useAudioManager = ({
   useEffect(() => {
     if (playing) {
       _play();
-    } else {
+    }
+
+    if (!playing && wasEverPlayed) {
       _pause();
     }
-  }, [_pause, _play, playing]);
+  }, [_pause, _play, playing, wasEverPlayed]);
 
   return useMemo(
     () => ({

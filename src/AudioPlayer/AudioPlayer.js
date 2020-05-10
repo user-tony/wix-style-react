@@ -247,7 +247,7 @@ AudioPlayer.propTypes = {
   onPlay: PropTypes.func,
 
   /**
-   Will be called when audio is paused (also when loaded and ended).
+   Will be called when audio is paused.
    */
   onPause: PropTypes.func,
 
