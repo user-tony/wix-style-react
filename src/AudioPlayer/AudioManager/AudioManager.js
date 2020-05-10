@@ -13,7 +13,10 @@ const useStableCallback = callback => {
   const callbackRef = useRef();
   callbackRef.current = callback;
 
-  return useCallback(() => callbackRef.current && callbackRef.current(), []);
+  return useCallback(
+    (...args) => callbackRef.current && callbackRef.current(...args),
+    [],
+  );
 };
 
 const useRaf = ({ callback, enabled }) => {
@@ -58,9 +61,8 @@ export const useAudioManager = ({
   const stableOnPlay = useStableCallback(onPlay);
   const stableOnPause = useStableCallback(onPause);
   const stableOnSeek = useStableCallback(onSeek);
-  const stableOnLoadError = useStableCallback((_, errorMsg) =>
-    onLoadError(errorMsg),
-  );
+  const stableOnLoadError = useStableCallback(onLoadError);
+
   const audioManager = useRef();
   const [_seek, _setSeek] = useState(0);
   const [loadingState, setLoadingState] = useState('unloaded');
@@ -92,6 +94,13 @@ export const useAudioManager = ({
     _setSeek(0);
     stableOnEnd();
   }, [stableOnEnd, _setSeek]);
+
+  const _onLoadError = useCallback(
+    (_, errorMsg) => {
+      stableOnLoadError(errorMsg);
+    },
+    [stableOnLoadError],
+  );
 
   const _load = useCallback(() => {
     if (audioManager.current) {
@@ -171,7 +180,7 @@ export const useAudioManager = ({
         html5: html5,
         onend: _onEnd,
         onplay: stableOnPlay,
-        onloaderror: stableOnLoadError,
+        onloaderror: _onLoadError,
         onpause: stableOnPause,
         onseek: stableOnSeek,
       });
@@ -187,8 +196,8 @@ export const useAudioManager = ({
     src,
     _onEnd,
     _onLoad,
+    _onLoadError,
     stableOnPlay,
-    stableOnLoadError,
     stableOnPause,
     stableOnSeek,
   ]);

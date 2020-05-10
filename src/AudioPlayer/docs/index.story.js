@@ -59,7 +59,7 @@ export default {
 
   exampleProps: {
     onLoad: () => 'I was called',
-    onLoadError: message => `I was called with ${message}`,
+    onLoadError: message => `I was called with: \"${message}\"`,
     onEnd: () => 'I was called',
     onPause: () => 'I was called!',
     onPlay: () => 'I was called!',
