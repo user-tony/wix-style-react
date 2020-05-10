@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.8.1 - 2020-05-11
 ### Fixed
 - `<AudioPlayer/>` - fix onLoadError callback [#5449](https://github.com/wix/wix-style-react/pull/5449)
 - `<AudioPlayer/>` - fix JSDOM tests by consuming howler directly from [#5450](https://github.com/wix/wix-style-react/pull/5450)
