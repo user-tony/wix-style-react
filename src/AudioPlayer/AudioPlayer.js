@@ -33,6 +33,11 @@ const AudioPlayer = memo(
     const [playing, setPlaying] = useState(false);
     const [showDuration, setShowDuration] = useState(true);
 
+    const _onDestroy = useCallback(() => {
+      setPlaying(false);
+      setShowDuration(true);
+    }, [setPlaying, setShowDuration]);
+
     const _onEnd = useCallback(() => {
       setShowDuration(true);
       setPlaying(false);
@@ -50,6 +55,7 @@ const AudioPlayer = memo(
       onSeek,
       onPause,
       playing,
+      onDestroy: _onDestroy,
       onEnd: _onEnd,
       allowSeekLoop: isSliderLocked,
     });
