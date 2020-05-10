@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Fixed
+- `<AudioPlayer/>` - fix onLoadError callback. [#5449](https://github.com/wix/wix-style-react/pull/5449)
 
 ## 8.8.0 - 2020-05-08
 ### Added
