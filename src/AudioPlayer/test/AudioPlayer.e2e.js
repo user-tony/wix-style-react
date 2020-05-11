@@ -179,6 +179,7 @@ describe('AudioPlayer', () => {
       await driver.clickOnPlayPauseButton();
 
       const testWrapper = $(`[data-hook="audio-player-test-div"]`);
+      await sleep(100);
       await eventually(async () =>
         expect(await testWrapper.getAttribute('data-paused')).toBe('true'),
       );
