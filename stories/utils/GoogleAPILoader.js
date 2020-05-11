@@ -16,6 +16,7 @@ export default class GoogleMapsLoader extends React.Component {
 
   static propTypes = {
     children: PropTypes.node.isRequired,
+    onLoad: PropTypes.func,
   };
 
   componentDidMount() {
@@ -24,7 +25,11 @@ export default class GoogleMapsLoader extends React.Component {
       googleScript.src =
         '//maps.googleapis.com/maps/api/js?key=AIzaSyCZodLeNCWC7pnp6-5CoRfW2MjcyM7sijY&libraries=places&language=iwp';
       googleScript.onload = () =>
-        this.setState({ dependencyStatus: STATUS.success });
+        this.setState({ dependencyStatus: STATUS.success }, () => {
+          if (this.props.onLoad) {
+            this.props.onLoad();
+          }
+        });
       googleScript.onerror = () =>
         this.setState({ dependencyStatus: STATUS.error });
       document.head.appendChild(googleScript);

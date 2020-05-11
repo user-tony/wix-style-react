@@ -99,6 +99,7 @@ class GoogleAddressInput extends React.Component {
           }
           suffix={suffix}
           selectedHighlight={false}
+          menuArrow={false}
         />
       </div>
     );
