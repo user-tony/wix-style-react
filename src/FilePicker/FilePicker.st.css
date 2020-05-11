@@ -1,13 +1,14 @@
-@import '../common.scss';
-
-$content-width: 250px;
+:import {
+  -st-from: '../Foundation/stylable/colors.st.css';
+  -st-named: B40, B10
+}
 
 .content > span {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: $content-width;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
 }
 
 .label {
@@ -15,17 +16,15 @@ $content-width: 250px;
   display: inline-flex;
   flex-direction: row;
   cursor: pointer;
+}
 
-  svg {
-    padding: 3px;
-  }
+.label svg {
+  padding: 3px;
+}
 
-  &:hover {
-    svg {
-      border-radius: 50%;
-      background: $B40;
-    }
-  }
+.label:hover svg {
+  border-radius: 50%;
+  background: value(B40);
 }
 
 .info {
@@ -44,6 +43,6 @@ $content-width: 250px;
 
 .icon {
   margin-right: 10px;
-  color: $B10;
+  color: value(B10);
   padding-top: 3px;
 }

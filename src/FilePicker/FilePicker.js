@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Add from 'wix-ui-icons-common/Add';
 import uniqueId from 'lodash/uniqueId';
 
-import styles from './FilePicker.scss';
+import styles from './FilePicker.st.css';
 import FormField from '../FormField';
 import TextButton from '../TextButton';
 import Text from '../Text';
