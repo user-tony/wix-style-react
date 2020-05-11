@@ -12,33 +12,34 @@ export const loaderUniDriverFactory = (base, body) => {
     component: () => base.getNative(), // eslint-disable-line no-restricted-properties
 
     /** returns the loader color ('blue' or 'white') */
-    getColor: async () => ((await base.hasClass('blue')) ? 'blue' : 'white'),
+    getColor: () => base.attr('data-color'),
 
     /** returns the element text */
     getText: () => getTextElement(base).text(),
+
     /** true if the element has text */
     hasText: () => getTextElement(base).exists(),
 
     /** true when using the large loader */
-    isLarge: () => base.hasClass('large'),
+    isLarge: async () => (await base.attr('data-size')) === 'large',
 
     /** true when using the medium loader */
-    isMedium: () => base.hasClass('medium'),
+    isMedium: async () => (await base.attr('data-size')) === 'medium',
 
     /** true when using the small loader */
-    isSmall: () => base.hasClass('small'),
+    isSmall: async () => (await base.attr('data-size')) === 'small',
 
     /** true when using the tiny loader */
-    isTiny: () => base.hasClass('tiny'),
+    isTiny: async () => (await base.attr('data-size')) === 'tiny',
 
     /** true when loader is in loading status */
-    isLoading: () => base.hasClass('loading'),
+    isLoading: async () => (await base.attr('data-status')) === 'loading',
 
     /** true when loader is in error status */
-    isError: () => base.hasClass('error'),
+    isError: async () => (await base.attr('data-status')) === 'error',
 
     /** true when loader is in success status */
-    isSuccess: () => base.hasClass('success'),
+    isSuccess: async () => (await base.attr('data-status')) === 'success',
 
     /** trigger the tooltip and returns the value of the tooltip message (async function) */
     getStatusMessage: () => {

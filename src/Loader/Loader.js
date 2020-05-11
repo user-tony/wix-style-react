@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
 import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheckSmall';
 import Arc from './Arc';
-import css from './Loader.scss';
 import Heading from '../Heading';
 import Tooltip from '../Tooltip';
+import styles from './Loader.st.css';
 
 const arcsAngles = {
   tiny: {
@@ -104,7 +103,7 @@ class Loader extends React.PureComponent {
 
     const loader = (
       <div
-        className={css.arcsContainer}
+        className={styles.arcsContainer}
         style={{
           width: `${sizeInPx}px`,
           height: `${sizeInPx}px`,
@@ -112,18 +111,18 @@ class Loader extends React.PureComponent {
       >
         <Arc
           angle={lightArcAngle}
-          className={css.lightArc}
+          className={styles.lightArc}
           strokeWidth={strokeWidth}
           viewBoxSize={sizeInPx}
         />
         <Arc
           angle={darkArcAngle}
-          className={css.darkArc}
+          className={styles.darkArc}
           strokeWidth={strokeWidth}
           viewBoxSize={sizeInPx}
         />
         {status !== 'loading' && (
-          <div className={css.statusIndicator}>
+          <div className={styles.statusIndicator}>
             {status === 'success' && successIcon}
             {status === 'error' && errorIcon}
           </div>
@@ -133,13 +132,11 @@ class Loader extends React.PureComponent {
 
     return (
       <div
+        {...styles('root', { size, color, status }, {})}
         data-hook={dataHook}
-        className={classNames(
-          css.loaderContainer,
-          css[size],
-          css[color],
-          css[status],
-        )}
+        data-size={size}
+        data-color={color}
+        data-status={status}
       >
         {statusMessage ? (
           <Tooltip
@@ -155,7 +152,7 @@ class Loader extends React.PureComponent {
 
         {/* Footer Text */}
         {shouldShowText && text && (
-          <div className={css.text}>
+          <div className={styles.text}>
             <Heading appearance="H6" dataHook="loader-text">
               {this.props.text}
             </Heading>

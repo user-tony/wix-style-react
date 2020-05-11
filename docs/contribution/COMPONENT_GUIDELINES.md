@@ -46,7 +46,7 @@ We still have to stay backward compatible and to achieve this we use one of the 
 1. Next - A recreation of an existing component with an improved changed api, will be the official component in the next major version. Will have the same component name but will sit under `next` dir. For example:
 
 * old component - `import Button from 'wix-style-react/Button'`;
-* new comopnent - `import Button from 'wix-style-react/next/Button'`;
+* new component - `import Button from 'wix-style-react/next/Button'`;
 
 2. Upgrade flag - In cases we want to change some of the features of the component but not reconstruct the whole component - usually be used for small sized changes.
 

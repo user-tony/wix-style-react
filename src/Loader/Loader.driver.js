@@ -15,7 +15,7 @@ const loaderDriverFactory = ({ element }) => {
     exists: () => !!element,
 
     /** returns the loader color ('blue' or 'white') */
-    getColor: () => (isClassExists(element, 'blue') ? 'blue' : 'white'),
+    getColor: () => element.getAttribute('data-color'),
 
     /** returns the element text */
     getText: () => getTextElement(element).textContent,
@@ -24,25 +24,25 @@ const loaderDriverFactory = ({ element }) => {
     hasText: () => !!getTextElement(element),
 
     /** true when using the large loader */
-    isLarge: () => isClassExists(element, 'large'),
+    isLarge: () => element.getAttribute('data-size') === 'large',
 
     /** true when using the medium loader */
-    isMedium: () => isClassExists(element, 'medium'),
+    isMedium: () => element.getAttribute('data-size') === 'medium',
 
     /** true when using the small loader */
-    isSmall: () => isClassExists(element, 'small'),
+    isSmall: () => element.getAttribute('data-size') === 'small',
 
     /** true when using the tiny loader */
-    isTiny: () => isClassExists(element, 'tiny'),
+    isTiny: () => element.getAttribute('data-size') === 'tiny',
 
     /** true when loader is in loading status */
-    isLoading: () => isClassExists(element, 'loading'),
+    isLoading: () => element.getAttribute('data-status') === 'loading',
 
     /** true when loader is in error status */
-    isError: () => isClassExists(element, 'error'),
+    isError: () => element.getAttribute('data-status') === 'error',
 
     /** true when loader is in success status */
-    isSuccess: () => isClassExists(element, 'success'),
+    isSuccess: () => element.getAttribute('data-status') === 'success',
 
     /** trigger the tooltip and returns the value of the tooltip message (async function) */
     getStatusMessage: () => {
