@@ -303,6 +303,7 @@ const colorsTable = [
     units: [
       {
         name: 'F00',
+        description: 'Focus',
       },
     ],
   },
