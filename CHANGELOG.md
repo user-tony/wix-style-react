@@ -17,6 +17,8 @@ Types of changes:
 ## Next
 ### Fixed
 - `<GoogleAddressInput/>` - remove accidentally added menu arrow [#5447](https://github.com/wix/wix-style-react/pull/5447)
+- `<InputWithOptions/>` - Fix click outside when inside a <Popover/> [#5456](https://github.com/wix/wix-style-react/pull/5456)
+
 
 ## 8.8.1 - 2020-05-11
 ### Fixed
