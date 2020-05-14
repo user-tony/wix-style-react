@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+
 export interface TimeInputProps {
   dashesWhenDisabled?: boolean;
   dataHook?: string;

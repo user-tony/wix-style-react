@@ -5,7 +5,7 @@ import {
   cleanup,
 } from '../../../test/utils/react';
 
-import TimePicker from '../TimeInput';
+import TimeInput from '../TimeInput';
 import timeInputDriverFactory from '../TimeInput.driver';
 import { timeInputUniDriverFactory } from '../TimeInput.uni.driver';
 
@@ -29,19 +29,19 @@ describe('TimeInput', () => {
   });
 
   function runTests(render) {
-    afterEach(() => cleanup());
+    afterEach(cleanup);
 
     describe('Time display', () => {
       it(`should render the given default value`, async () => {
         const props = {
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.getValue()).toBe(format12Hours(props.defaultValue));
       });
 
       it(`should render the current time if no default value were passed `, async () => {
-        const { driver } = render(<TimePicker />);
+        const { driver } = render(<TimeInput />);
         const currentTime = defaultMoment;
         const currentTimeHours = format12Hours(currentTime).substring(0, 2);
         const currentTimeMinutes = format12Hours(currentTime).substring(3, 5);
@@ -59,7 +59,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMoment,
           disableAmPm: true,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.getValue()).toBe(format24Hours(props.defaultValue));
       });
 
@@ -68,7 +68,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMoment,
           disableAmPm: false,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.isAmPmIndicatorExist()).toBe(true);
       });
 
@@ -77,7 +77,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMomentWithAM,
           disableAmPm: false,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.getAmPmIndicatorText()).toBe('am');
       });
 
@@ -86,7 +86,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMomentWithPM,
           disableAmPm: false,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.getAmPmIndicatorText()).toBe('pm');
       });
 
@@ -94,7 +94,7 @@ describe('TimeInput', () => {
         const customSuffix = 'Custom Suffix';
         const props = { customSuffix };
 
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
 
         const customSuffixNode = await driver.getCustomSuffix();
         expect(customSuffixNode).toBe(customSuffix);
@@ -106,7 +106,7 @@ describe('TimeInput', () => {
         const props = {
           onChange: sinon.spy(),
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.isDisabled()).toBe(false);
         await driver.clickTickerUp();
         await driver.clickTickerDown();
@@ -118,7 +118,7 @@ describe('TimeInput', () => {
           onChange: sinon.spy(),
           disabled: true,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
 
         await driver.clickTickerUp();
         await driver.clickTickerDown();
@@ -132,7 +132,7 @@ describe('TimeInput', () => {
           onChange: sinon.spy(),
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.setValue('12:00');
         await driver.blur();
         expect(props.onChange.called).toBe(true);
@@ -142,7 +142,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.clickTickerUp();
         expect(await driver.getValue()).toBe(
           format12Hours(props.defaultValue.add(20, 'minutes')),
@@ -153,7 +153,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.clickTickerDown();
         expect(await driver.getValue()).toBe(
           format12Hours(props.defaultValue.subtract(20, 'minutes')),
@@ -166,7 +166,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMoment,
           minutesStep,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.clickTickerUp();
         expect(await driver.getValue()).toBe(
           format12Hours(props.defaultValue.add(minutesStep, 'minutes')),
@@ -179,7 +179,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMoment,
           minutesStep,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.clickTickerDown();
         expect(await driver.getValue()).toBe(
           format12Hours(props.defaultValue.subtract(minutesStep, 'minutes')),
@@ -190,7 +190,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.setValue('12:00');
         await driver.blur();
         expect(await driver.getValue()).toBe('12:00');
@@ -200,7 +200,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMomentWithAM,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.setValue('blabla');
         await driver.blur();
         expect(await driver.getValue()).toBe(format12Hours(props.defaultValue));
@@ -210,7 +210,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMomentWithAM,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.setValue('99:99');
         await driver.blur();
         expect(await driver.getValue()).toBe(format12Hours(props.defaultValue));
@@ -221,7 +221,7 @@ describe('TimeInput', () => {
           defaultValue: defaultMomentWithPM,
           disableAmPm: false,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.getAmPmIndicatorText()).toBe('pm');
         await driver.toggleAmPmIndicator();
         expect(await driver.getAmPmIndicatorText()).toBe('am');
@@ -231,7 +231,7 @@ describe('TimeInput', () => {
         const props = {
           defaultValue: defaultMoment,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         await driver.setValue('11:01');
         await driver.setValue('10a:02');
         expect(await driver.getValue()).toBe('11:01');
@@ -241,7 +241,7 @@ describe('TimeInput', () => {
     describe('Styling', () => {
       it(`should not be created in rtl mode by default`, async () => {
         const props = {};
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.isRtl()).toBe(false);
       });
 
@@ -249,7 +249,7 @@ describe('TimeInput', () => {
         const props = {
           rtl: true,
         };
-        const { driver } = render(<TimePicker {...props} />);
+        const { driver } = render(<TimeInput {...props} />);
         expect(await driver.isRtl()).toBe(true);
       });
     });
