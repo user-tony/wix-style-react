@@ -29,7 +29,7 @@
 
   background-color: value(B10);
   border-color: value(B10);
-  color: white;
+  color: value(D80);
 }
 
 .root:hover {

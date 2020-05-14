@@ -10,7 +10,7 @@
 
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: D10;
+  -st-named: D10, D80;
 }
 
 :import {
@@ -54,7 +54,7 @@
   padding: 12px 24px;
 
 
-  color: white;
+  color: value(D80);
   background: value(D10);
 }
 
@@ -71,7 +71,7 @@
   padding: 8px 12px 7px 12px;
 
 
-  color: white;
+  color: value(D80);
   background: value(D10);
 }
 

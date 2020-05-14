@@ -48,17 +48,6 @@
   letter-spacing: 1.2px;
 }
 
-.root:appearance(H1):light,
-.root:appearance(H2):light,
-.root:appearance(H3):light,
-.root:appearance(H4):light {
-  color: white;
-}
-
-.root:appearance(H5):light {
-  color: value(D80);
-}
-
-.root:appearance(H6):light {
+.root:light {
   color: value(D80);
 }

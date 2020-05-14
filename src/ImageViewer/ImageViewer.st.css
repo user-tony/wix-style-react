@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B50, B40, R10, D50, Y10;
+  -st-named: B50, B40, R10, D50, D80, Y10;
 }
 
 :import {
@@ -60,7 +60,7 @@
 
 .buttons {
   display: flex;
-  color: white;
+  color: value(D80);
   justify-content: center;
   margin: auto;
   align-items: baseline;

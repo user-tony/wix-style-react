@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D10;
+  -st-named: D10, D80;
 }
 
 :import {
@@ -131,7 +131,7 @@
 
 /* Dark theme */
 .root:theme(dark)::popoverContent {
-  color: white;
+  color: value(D80);
   background: value(D10);
 }
 

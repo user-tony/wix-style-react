@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G10, B20, R10, D20, R30, G30, B30, D40, O10, Y10, D70, Y30, P10;
+  -st-named: G10, B20, R10, D20, R30, G30, B30, D40, D80, O10, Y10, D70, Y30, P10;
 }
 
 :import {
@@ -18,7 +18,7 @@
   width: 18px;
   height: 10px;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px #ffffff;
+  box-shadow: 0 0 0 2px value(D80);
   box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
@@ -49,7 +49,7 @@
 
 .root:skin(backgroundSecondary) .marker,
 .root:skin(primaryLightText) .marker {
-  background-color: white;
+  background-color: value(D80);
 }
 
 .root:skin(success) .marker {
@@ -86,7 +86,7 @@
 .root:skin(neutralLight) .marker {
   background-color: value(D70)
 }
- 
+
 .root:skin(warningLight) .marker {
   background-color: value(Y30)
 }
