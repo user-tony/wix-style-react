@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 - `<TimeInput/>`- fix component methods not to be public methods & display name [#5462](https://github.com/wix/wix-style-react/pull/5462)
+- `<Breadcrumbs/>`- fix item max width [#5464](https://github.com/wix/wix-style-react/pull/5464)
 
 ## 8.9.0 - 2020-05-14
 ### Added
