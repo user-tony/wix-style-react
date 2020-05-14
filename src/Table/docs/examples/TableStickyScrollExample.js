@@ -31,7 +31,6 @@ class TableStickyScrollExample extends React.Component {
             triggerElement:({ toggle, open, close }) => (
               <IconButton
                 onClick={toggle}
-                onMouseEnter={open}
                 onMouseLeave={close}
                 skin="inverted"
               >
