@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<Page.Header/>` - breadcrumbs prop can now be a function [#5461](https://github.com/wix/wix-style-react/pull/5461)
+
 ### Fixed
 - `<GoogleAddressInput/>` - remove accidentally added menu arrow [#5447](https://github.com/wix/wix-style-react/pull/5447)
 - `<InputWithOptions/>` - Fix click outside when inside a <Popover/> [#5456](https://github.com/wix/wix-style-react/pull/5456)
