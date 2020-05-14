@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<TimeInput/>`- fix component methods not to be public methods & display name [#5462](https://github.com/wix/wix-style-react/pull/5462)
+
 ## 8.9.0 - 2020-05-14
 ### Added
 - `<Page.Header/>` - breadcrumbs prop can now be a function [#5461](https://github.com/wix/wix-style-react/pull/5461)
