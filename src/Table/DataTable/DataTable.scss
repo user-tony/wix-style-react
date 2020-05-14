@@ -276,7 +276,7 @@ $cellHorizontalEdgePadding: 30px;
   .lastSticky::after {
     content: '';
     display: block;
-    width: 30px;
+    width: 24px;
     height: 100%;
     position: absolute;
     top: 0;
@@ -295,7 +295,7 @@ $cellHorizontalEdgePadding: 30px;
 
     .lastSticky::after {
       left: auto;
-      right: -30px;
+      right: -24px;
     }
   }
 
