@@ -26,6 +26,7 @@ class CustomModalLayout extends React.PureComponent {
     title: '',
     subtitle: '',
     removeContentPadding: false,
+    footnoteAlignment: 'left',
   };
 
   render() {

@@ -17,6 +17,7 @@ export interface BaseModalLayoutProps {
   onCloseButtonClick?: () => void;
   removeContentPadding?: boolean;
   footnote?: React.ReactNode;
+  footnoteAlignment?: 'left' | 'center' | 'right';
   sideActions?: React.ReactNode;
   children: React.ReactNode;
   additionalButtons?: React.ReactNode;

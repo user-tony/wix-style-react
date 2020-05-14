@@ -19,11 +19,11 @@
 
 :import {
   -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing12;
+  -st-named: spacing12, spacing30;
 }
 
 .root {
-  -st-states: removeContentPadding;
+  -st-states: removeContentPadding, footnoteAlignment(enum(left, center, right));
   background-color: value(D80);
   position: relative;
   width: 100%;
@@ -95,11 +95,18 @@
 /* Footer - end */
 
 .footnote {
-  padding: value(spacing12) 0;
+  padding: value(spacing12) value(spacing30);
   display: flex;
   justify-content: center;
 }
 
+.root:footnoteAlignment(left) .footnote {
+  justify-content: flex-start;
+}
+
+.root:footnoteAlignment(right) .footnote {
+  justify-content: flex-end;
+}
 
 /* Header - start */
 .header {

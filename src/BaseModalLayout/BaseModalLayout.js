@@ -44,6 +44,8 @@ class BaseModalLayout extends React.PureComponent {
     removeContentPadding: PropTypes.bool,
     /** a footnote node, to be rendered at the very bottom of the modal */
     footnote: PropTypes.node,
+    /** determines the alignment of the given footnote node */
+    footnoteAlignment: PropTypes.oneOf(['left', 'right', 'center']),
     /** side actions node, to be rendered as the first element on the same row as the action buttons */
     sideActions: PropTypes.node,
     /** the children / content of the modal */
@@ -56,6 +58,7 @@ class BaseModalLayout extends React.PureComponent {
     title: '',
     subtitle: '',
     removeContentPadding: false,
+    footnoteAlignment: 'center',
   };
 
   _renderHeaderLayout = () => {
@@ -136,13 +139,20 @@ class BaseModalLayout extends React.PureComponent {
       footnote,
       onCloseButtonClick,
       linkText,
+      footnoteAlignment,
     } = this.props;
 
     const hasFooter =
       sideActions || primaryButtonText || secondaryButtonText || linkText;
 
     return (
-      <div {...styles('root', { removeContentPadding }, this.props)}>
+      <div
+        {...styles(
+          'root',
+          { removeContentPadding, footnoteAlignment },
+          this.props,
+        )}
+      >
         {title && this._renderHeaderLayout()}
         {children && <div className={styles.contentWrapper}>{children}</div>}
         {hasFooter && this._renderFooterLayout()}

@@ -76,6 +76,7 @@ MessageModalLayout.defaultProps = {
   theme: 'standard',
   primaryButtonProps: {},
   secondaryButtonProps: {},
+  footnoteAlignment: 'left',
 };
 
 export default MessageModalLayout;

@@ -73,8 +73,3 @@
 .root .contentWrapper {
   padding: 0 value(spacing30);
 }
-
-.root .footnote {
-  display: block;
-  padding-left: value(spacing30);
-}
