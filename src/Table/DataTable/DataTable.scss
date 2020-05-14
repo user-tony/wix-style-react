@@ -305,3 +305,41 @@ $cellHorizontalEdgePadding: 30px;
     opacity: 1;
   }
 }
+
+/* sticky action cell */
+.stickyActionCell {
+  position: sticky;
+  right: 0;
+}
+
+.stickyActionCell [data-hook="table-action-cell-placeholder"] {
+   display: none;
+}
+
+.stickyActionCell [data-hook="table-action-cell-popover-menu"] {
+  visibility: hidden;
+}
+
+.table {
+  tr:hover {
+    .stickyActionCell {
+        background-color: $D80;
+    }
+
+    .clickableDataRow:hover {
+      .stickyActionCell {
+          background-color: $B50;
+      }
+    }
+
+    .stickyActionCell [data-hook="table-action-cell-popover-menu"] {
+      visibility: visible;
+    }
+  }
+
+  tr:hover.highlight{
+    .stickyActionCell {
+      background-color: $B60;
+    }
+  }
+}
