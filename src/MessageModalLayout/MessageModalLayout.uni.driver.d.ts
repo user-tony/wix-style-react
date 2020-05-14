@@ -1,9 +1,8 @@
 import { BaseModalLayoutUniDriver } from '../BaseModalLayout/BaseModalLayout.uni.driver';
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 
-export interface messageModalLayoutDriverFactory
-  extends BaseModalLayoutUniDriver {}
+export interface MessageModalLayoutUniDriver extends BaseModalLayoutUniDriver {}
 
 export const messageModalLayoutDriverFactory: (
   base: BaseUniDriver,
-) => messageModalLayoutDriverFactory;
+) => MessageModalLayoutUniDriver;
