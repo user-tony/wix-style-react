@@ -309,4 +309,39 @@ function runTests(render) {
       expect(await driver.breadcrumbsText()).toBe(altTitle);
     });
   });
+
+  describe('should initialize component with render props breadcrumbs', () => {
+    const altBreadcrumbsContent = 'This is a different breadcrumb';
+    const altBreadcrumbs = generateBreadcrumbs(altBreadcrumbsContent);
+    const BreadcrumbsComponent = props =>
+      props.minimized ? altBreadcrumbs : breadcrumbs;
+    BreadcrumbsComponent.propTypes = { minimized: PropTypes.bool };
+
+    it('not minimized', async () => {
+      const pageHeader = (
+        <PageHeader
+          breadcrumbs={minimized => (
+            <BreadcrumbsComponent minimized={minimized} />
+          )}
+        />
+      );
+      const { driver } = render(pageHeader);
+      expect(await driver.isBreadcrumbsExists()).toBe(true);
+      expect(await driver.breadcrumbsText()).toBe(title);
+    });
+
+    it('minimized', async () => {
+      const pageHeader = (
+        <PageHeader
+          minimized
+          breadcrumbs={minimized => (
+            <BreadcrumbsComponent minimized={minimized} />
+          )}
+        />
+      );
+      const { driver } = render(pageHeader);
+      expect(await driver.isBreadcrumbsExists()).toBe(true);
+      expect(await driver.breadcrumbsText()).toBe(altBreadcrumbsContent);
+    });
+  });
 }

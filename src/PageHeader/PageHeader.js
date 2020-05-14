@@ -31,6 +31,9 @@ const generateDefaultBreadcrumbs = (title, hasBackgroundImage, minimized) => (
   />
 );
 
+const getBreadcrumbs = (breadcrumbs, minimized) =>
+  typeof breadcrumbs === 'function' ? breadcrumbs(minimized) : breadcrumbs;
+
 const generateThemedBreadcrumbs = (
   breadcrumbs,
   title,
@@ -38,7 +41,7 @@ const generateThemedBreadcrumbs = (
   minimized,
 ) => {
   if (breadcrumbs) {
-    return React.cloneElement(breadcrumbs, {
+    return React.cloneElement(getBreadcrumbs(breadcrumbs, minimized), {
       theme: getBreadcrumbsTheme(hasBackgroundImage, minimized),
     });
   }
@@ -231,7 +234,7 @@ PageHeader.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
   /** Wix-Style-React Breadcrumbs component */
-  breadcrumbs: PropTypes.node,
+  breadcrumbs: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   /** The main title text */
   title: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   /** The subtitle text */
