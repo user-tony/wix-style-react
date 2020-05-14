@@ -132,7 +132,7 @@ const javascriptFiles = [
   ['ToggleButton.bundle.min.js', 43],
   ['ToggleSwitch.bundle.min.js', 17],
   ['Tooltip.bundle.min.js', 40],
-  ['VariableInput.bundle.min.js', 107],
+  ['VariableInput.bundle.min.js', 111],
   ['VerticalTabs.bundle.min.js', 13],
   ['VerticalTabsItem.bundle.min.js', 13],
   ['WarningIndicator.bundle.min.js', 40],
