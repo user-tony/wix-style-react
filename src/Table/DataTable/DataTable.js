@@ -343,6 +343,7 @@ class DataTable extends React.Component {
 
   renderCell = (rowData, column, rowNum, colNum) => {
     const { virtualized, stickyColumns, columns } = this.props;
+
     const classes = classNames({
       [this.style.important]: column.important,
       [this.style.largeVerticalPadding]:
@@ -355,6 +356,7 @@ class DataTable extends React.Component {
       [this.style.alignEnd]: column.align === 'end',
       [this.style.sticky]: colNum < stickyColumns,
       [this.style.lastSticky]: colNum === stickyColumns - 1,
+      [this.style.stickyActionCell]: column.stickyActionCell,
     });
 
     const width =
@@ -638,6 +640,10 @@ DataTable.propTypes = {
       infoTooltipProps: PropTypes.shape(TooltipCommonProps),
       sortDescending: PropTypes.bool,
       align: PropTypes.oneOf(['start', 'center', 'end']),
+      important: PropTypes.bool,
+      style: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+      width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      stickyActionCell: PropTypes.bool,
     }),
   ).isRequired,
   /** Should the table show the header when data is empty */
