@@ -50,7 +50,7 @@
 :vars {
   backgroundColor: grey;
   borderColor: grey;
-  color: white;
+  color: value(D80);
   padding: 5px 12px;
   medium: 5px 12px;
   small: 2px 6px;

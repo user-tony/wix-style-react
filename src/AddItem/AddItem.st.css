@@ -2,7 +2,7 @@
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named:
     B10, B20, B30, B40, B50,
-    D60, D70,
+    D60, D70, D80,
     D10-05, D10-30,
     F00,
 }
@@ -58,7 +58,7 @@
 /* Theme plain */
 
 .root:theme(plain) {
-  background-color: white;
+  background-color: value(D80);
   border: none;
 }
 
