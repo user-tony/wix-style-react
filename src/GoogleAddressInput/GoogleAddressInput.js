@@ -13,6 +13,8 @@ import {
 } from './google2address';
 import styles from './GoogleAddressInput.scss';
 
+import { dataHooks } from './constants';
+
 export const GoogleAddressInputHandler = {
   geocode: 'geocode',
   places: 'places',
@@ -22,24 +24,18 @@ export const GoogleAddressInputHandler = {
  * Address input box (using Google Maps)
  */
 class GoogleAddressInput extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    suggestions: [],
+    value: this.props.value || '',
+  };
 
-    this.state = {
-      suggestions: [],
-      value: props.value || '',
-    };
+  autoCompleteRequestId = 0;
+  geocodeRequestId = 0;
+  client = new this.props.Client();
 
-    this.autoCompleteRequestId = 0;
-    this.geocodeRequestId = 0;
-    this.client = new props.Client();
-
-    this.onChange = this.onChange.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.onFocus = this.onFocus.bind(this);
-    this.onSet = this.onSet.bind(this);
-    this.onManuallyInput = this.onManuallyInput.bind(this);
-  }
+  static getGoogleFooter = () => (
+    <div className={styles.googleFooter} data-hook={dataHooks.googleFooter} />
+  );
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
@@ -54,60 +50,11 @@ class GoogleAddressInput extends React.Component {
     }
   }
 
-  render() {
-    const { suggestions, value } = this.state;
-    const { magnifyingGlass } = this.props;
-
-    const options = [
-      ...suggestions.map(({ description, id }) => ({ id, value: description })),
-
-      ...(this.props.footer
-        ? [
-            {
-              id: suggestions.length,
-              value: this.props.footer,
-              ...this.props.footerOptions,
-            },
-          ]
-        : []),
-    ];
-
-    const suffix = magnifyingGlass ? (
-      <Input.IconAffix>
-        <Search data-hook="search-icon" />
-      </Input.IconAffix>
-    ) : (
-      undefined
-    );
-
-    return (
-      <div>
-        <InputWithOptions
-          ref={autocomplete => (this.autocomplete = autocomplete)}
-          {...this.props}
-          onInput={this.onChange}
-          onBlur={this.onBlur}
-          onFocus={this.onFocus}
-          onSelect={option => this.onSet(option.value)}
-          onManuallyInput={this.onManuallyInput}
-          value={value}
-          options={options}
-          fixedFooter={
-            suggestions.length && this.props.poweredByGoogle
-              ? GoogleAddressInput.getGoogleFooter()
-              : null
-          }
-          suffix={suffix}
-          selectedHighlight={false}
-          menuArrow={false}
-        />
-      </div>
-    );
+  componentWillUnmount() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
   }
-
-  static getGoogleFooter = () => (
-    <div className={styles.googleFooter} data-hook="google-footer" />
-  );
 
   focus() {
     this.autocomplete.focus();
@@ -117,7 +64,7 @@ class GoogleAddressInput extends React.Component {
     this.autocomplete.select();
   }
 
-  onChange(e) {
+  _onChange = e => {
     const value = e.target.value;
     this.props.onChange && this.props.onChange(e);
     this.props.onSet && this.props.onSet(null);
@@ -135,9 +82,9 @@ class GoogleAddressInput extends React.Component {
         // Nothing really to do...
         this.setState({ suggestions: [] });
       });
-  }
+  };
 
-  onBlur() {
+  _onBlur = () => {
     this.props.onBlur && this.props.onBlur();
 
     if (this.props.clearSuggestionsOnBlur) {
@@ -145,13 +92,11 @@ class GoogleAddressInput extends React.Component {
         this.setState({ suggestions: [] });
       }, 250);
     }
-  }
+  };
 
-  onFocus() {
-    this.props.onFocus && this.props.onFocus();
-  }
+  _onFocus = () => this.props.onFocus && this.props.onFocus();
 
-  onSet(value) {
+  _onSet = value => {
     const { countryCode, handler } = this.props;
 
     const suggestion = this.state.suggestions.find(
@@ -226,9 +171,9 @@ class GoogleAddressInput extends React.Component {
         );
         this.props.onSet && this.props.onSet(null);
       });
-  }
+  };
 
-  onManuallyInput(inputValue) {
+  _onManuallyInput = inputValue => {
     const { value, fallbackToManual, onSet } = this.props;
     if (fallbackToManual) {
       this._getSuggestions(inputValue, typeof value !== 'undefined').then(
@@ -236,7 +181,7 @@ class GoogleAddressInput extends React.Component {
           if (suggestions.length === 0) {
             // No suggestion to the text entered
             if (inputValue) {
-              this.onSet(inputValue);
+              this._onSet(inputValue);
             } else {
               onSet && onSet(null);
             }
@@ -244,13 +189,7 @@ class GoogleAddressInput extends React.Component {
         },
       );
     }
-  }
-
-  componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-  }
+  };
 
   _getSuggestions(value, skipSetState) {
     const { valuePrefix = '', countryCode, types, filterTypes } = this.props;
@@ -296,6 +235,57 @@ class GoogleAddressInput extends React.Component {
 
         return Promise.resolve(results);
       });
+  }
+
+  render() {
+    const { suggestions, value } = this.state;
+    const { magnifyingGlass } = this.props;
+
+    const options = [
+      ...suggestions.map(({ description, id }) => ({ id, value: description })),
+
+      ...(this.props.footer
+        ? [
+            {
+              id: suggestions.length,
+              value: this.props.footer,
+              ...this.props.footerOptions,
+            },
+          ]
+        : []),
+    ];
+
+    const suffix = magnifyingGlass ? (
+      <Input.IconAffix>
+        <Search data-hook={dataHooks.searchIcon} />
+      </Input.IconAffix>
+    ) : (
+      undefined
+    );
+
+    return (
+      <div>
+        <InputWithOptions
+          ref={autocomplete => (this.autocomplete = autocomplete)}
+          {...this.props}
+          onInput={this._onChange}
+          onBlur={this._onBlur}
+          onFocus={this._onFocus}
+          onSelect={option => this._onSet(option.value)}
+          onManuallyInput={this._onManuallyInput}
+          value={value}
+          options={options}
+          fixedFooter={
+            suggestions.length && this.props.poweredByGoogle
+              ? GoogleAddressInput.getGoogleFooter()
+              : null
+          }
+          suffix={suffix}
+          selectedHighlight={false}
+          menuArrow={false}
+        />
+      </div>
+    );
   }
 }
 

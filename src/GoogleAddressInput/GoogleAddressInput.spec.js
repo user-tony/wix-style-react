@@ -11,6 +11,8 @@ import {
   GmapsTestClientWithFields,
 } from './gmapsTestClient';
 
+import { dataHooks } from './constants';
+
 const buildResult = originValue => {
   return {
     originValue,
@@ -33,7 +35,9 @@ describe('GoogleAddressInput', () => {
   describe('appearance', () => {
     it('should show magnifying glass by default', () => {
       const component = createMount({ Client: GmapsTestClient }).getDOMNode();
-      expect(component.querySelector('[data-hook="search-icon"]')).toBeTruthy();
+      expect(
+        component.querySelector(`[data-hook="${dataHooks.searchIcon}"]`),
+      ).toBeTruthy();
     });
 
     it('should allow hiding magnifying glass', () => {
@@ -41,7 +45,9 @@ describe('GoogleAddressInput', () => {
         Client: GmapsTestClient,
         magnifyingGlass: false,
       }).getDOMNode();
-      expect(component.querySelector('[data-hook="search-icon"]')).toBe(null);
+      expect(
+        component.querySelector(`[data-hook="${dataHooks.searchIcon}"]`),
+      ).toBe(null);
     });
 
     it('should allow the input to be readOnly', () => {
@@ -88,9 +94,9 @@ describe('GoogleAddressInput', () => {
         component.setState({
           suggestions: ['a', 'b', 'c'].map(s => ({ description: s, id: s })),
         });
-        expect(component.find('[data-hook="google-footer"]').exists()).toEqual(
-          true,
-        );
+        expect(
+          component.find(`[data-hook="${dataHooks.googleFooter}"]`).exists(),
+        ).toEqual(true);
       });
 
       it('should not show google footer if `state.suggestions.length === 0`', () => {
@@ -99,18 +105,18 @@ describe('GoogleAddressInput', () => {
           poweredByGoogle: true,
         });
         component.setState({ suggestions: [] });
-        expect(component.find('[data-hook="google-footer"]').exists()).toEqual(
-          false,
-        );
+        expect(
+          component.find(`[data-hook="${dataHooks.googleFooter}"]`).exists(),
+        ).toEqual(false);
       });
     });
 
     describe('is falsy', () => {
       it('should not show the powered by google footer', () => {
         const component = createShallow({ Client: GmapsTestClient });
-        expect(component.find('[data-hook="google-footer"]').exists()).toEqual(
-          false,
-        );
+        expect(
+          component.find(`[data-hook="${dataHooks.googleFooter}"]`).exists(),
+        ).toEqual(false);
       });
     });
   });
