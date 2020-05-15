@@ -45,7 +45,7 @@ class GooglePreview extends React.PureComponent {
           size="tiny"
           light={false}
           className={classes.googlePreviewUrl}
-          data-hook={'googlePreview-previewUrl'}
+          dataHook={'googlePreview-previewUrl'}
           ellipsis
         >
           {this.props.previewUrl}
