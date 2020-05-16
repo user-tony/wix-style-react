@@ -33,7 +33,20 @@ export const shapes = `
 </Layout>
 `;
 
-export const clearButton = ``;
+export const clearButton = `
+<Layout>
+  <Cell>
+    <GoogleAPILoader>
+    <GoogleAddressInput Client={clients.GoogleMapsClient}/>
+    </GoogleAPILoader>
+  </Cell>
+    <Cell>
+       <GoogleAPILoader>
+    <GoogleAddressInput Client={clients.GoogleMapsClient}/>
+    </GoogleAPILoader>
+  </Cell>
+</Layout>
+`;
 
 export const controlledGoogleAddressInput = `
 class ControlledGoogleAddress extends React.PureComponent {

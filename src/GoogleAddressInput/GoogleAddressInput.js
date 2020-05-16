@@ -12,7 +12,7 @@ import {
 } from './google2address';
 import styles from './GoogleAddressInput.scss';
 
-import { dataHooks, inputShape } from './constants';
+import { dataHooks } from './constants';
 
 export const GoogleAddressInputHandler = {
   geocode: 'geocode',
@@ -57,7 +57,6 @@ class GoogleAddressInput extends React.Component {
   }
 
   /** select */
-
   select() {
     this.autocomplete.select();
   }
@@ -262,7 +261,7 @@ class GoogleAddressInput extends React.Component {
         : []),
     ];
 
-    const suffix = magnifyingGlass ? (
+    const prefix = magnifyingGlass ? (
       <Input.IconAffix>
         <Search data-hook={dataHooks.searchIcon} />
       </Input.IconAffix>
@@ -285,7 +284,7 @@ class GoogleAddressInput extends React.Component {
         fixedFooter={
           suggestions.length && poweredByGoogle ? this._renderFooter() : null
         }
-        suffix={suffix}
+        prefix={prefix}
         selectedHighlight={false}
         menuArrow={false}
       />

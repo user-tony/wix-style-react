@@ -89,6 +89,12 @@ export default {
           }),
 
           example({
+            title: 'Clear Button',
+            text: 'Clear Button',
+            source: examples.clearButton,
+          }),
+
+          example({
             title: 'Controlled Google Address Input',
             source: examples.controlledGoogleAddressInput,
           }),
