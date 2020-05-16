@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import castArray from 'lodash/castArray';
 import Search from 'wix-ui-icons-common/Search';
-
 import Input from '../Input';
 import InputWithOptions from '../InputWithOptions';
 import {
@@ -13,7 +12,7 @@ import {
 } from './google2address';
 import styles from './GoogleAddressInput.scss';
 
-import { dataHooks } from './constants';
+import { dataHooks, inputShape } from './constants';
 
 export const GoogleAddressInputHandler = {
   geocode: 'geocode',
@@ -32,10 +31,6 @@ class GoogleAddressInput extends React.Component {
   autoCompleteRequestId = 0;
   geocodeRequestId = 0;
   client = new this.props.Client();
-
-  static getGoogleFooter = () => (
-    <div className={styles.googleFooter} data-hook={dataHooks.googleFooter} />
-  );
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
@@ -56,9 +51,12 @@ class GoogleAddressInput extends React.Component {
     }
   }
 
+  /** focus*/
   focus() {
     this.autocomplete.focus();
   }
+
+  /** select */
 
   select() {
     this.autocomplete.select();
@@ -237,19 +235,28 @@ class GoogleAddressInput extends React.Component {
       });
   }
 
+  _renderFooter = () => (
+    <div className={styles.googleFooter} data-hook={dataHooks.googleFooter} />
+  );
+
   render() {
     const { suggestions, value } = this.state;
-    const { magnifyingGlass } = this.props;
+    const {
+      magnifyingGlass,
+      poweredByGoogle,
+      footer,
+      footerOptions,
+      roundInput,
+    } = this.props;
 
     const options = [
       ...suggestions.map(({ description, id }) => ({ id, value: description })),
-
-      ...(this.props.footer
+      ...(footer
         ? [
             {
               id: suggestions.length,
-              value: this.props.footer,
-              ...this.props.footerOptions,
+              value: footer,
+              ...footerOptions,
             },
           ]
         : []),
@@ -264,27 +271,24 @@ class GoogleAddressInput extends React.Component {
     );
 
     return (
-      <div>
-        <InputWithOptions
-          ref={autocomplete => (this.autocomplete = autocomplete)}
-          {...this.props}
-          onInput={this._onChange}
-          onBlur={this._onBlur}
-          onFocus={this._onFocus}
-          onSelect={option => this._onSet(option.value)}
-          onManuallyInput={this._onManuallyInput}
-          value={value}
-          options={options}
-          fixedFooter={
-            suggestions.length && this.props.poweredByGoogle
-              ? GoogleAddressInput.getGoogleFooter()
-              : null
-          }
-          suffix={suffix}
-          selectedHighlight={false}
-          menuArrow={false}
-        />
-      </div>
+      <InputWithOptions
+        ref={autocomplete => (this.autocomplete = autocomplete)}
+        {...this.props}
+        roundInput={roundInput}
+        onInput={this._onChange}
+        onBlur={this._onBlur}
+        onFocus={this._onFocus}
+        onSelect={({ value }) => this._onSet(value)}
+        onManuallyInput={this._onManuallyInput}
+        value={value}
+        options={options}
+        fixedFooter={
+          suggestions.length && poweredByGoogle ? this._renderFooter() : null
+        }
+        suffix={suffix}
+        selectedHighlight={false}
+        menuArrow={false}
+      />
     );
   }
 }
@@ -299,9 +303,14 @@ GoogleAddressInput.defaultProps = {
   fallbackToManual: false,
   poweredByGoogle: false,
   handler: GoogleAddressInputHandler.geocode,
+  roundInput: true,
 };
 
 GoogleAddressInput.propTypes = {
+  ...InputWithOptions.propTypes,
+  /** When set to true, the input will be rounded */
+  roundInput: PropTypes.oneOf([true, false]),
+
   /** Placeholder for the input box */
   placeholder: PropTypes.string,
 
