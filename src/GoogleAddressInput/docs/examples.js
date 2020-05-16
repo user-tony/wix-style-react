@@ -33,8 +33,10 @@ export const shapes = `
 </Layout>
 `;
 
+export const clearButton = ``;
+
 export const controlledGoogleAddressInput = `
-class ControlledGoogleAddress extends React.Component {
+class ControlledGoogleAddress extends React.PureComponent {
 
   state = { value: '' }
 
