@@ -1,6 +1,7 @@
 /* These styles try to imitate the current BusinessManager's styles.
    Created by running the business-manager-test-app and copying the relevant DOM structure and styles.
  */
+@import '../../common.scss';
 
 $headerHeight: 48px;
 $sideBarWidth: 220px;
@@ -18,7 +19,7 @@ $sideBarWidth: 220px;
   height: $headerHeight;
   justify-content: space-between;
   position: relative;
-  background-color: #fff;
+  background-color: $D80;
   z-index: 2000
 }
 
