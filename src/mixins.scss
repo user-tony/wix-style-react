@@ -3,7 +3,7 @@
 @mixin default-scroll-bar() {
   &::-webkit-scrollbar {
     width: 18px;
-    background-color: #fff;
+    background-color: $D80;
   }
   &::-webkit-scrollbar-button {
     display: none;

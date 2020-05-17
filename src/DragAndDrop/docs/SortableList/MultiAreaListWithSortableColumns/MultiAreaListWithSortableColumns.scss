@@ -1,3 +1,5 @@
+@import '../../../../common.scss';
+
 .root {
   display: flex;
   justify-content: space-between;
@@ -18,7 +20,7 @@
 }
 
 .columnPlaceholder {
-  background-color: #fff;
+  background-color: $D80;
   div div {
     visibility: hidden;
   }
