@@ -160,7 +160,7 @@ const AudioPlayer = memo(
     }, [duration, hoverPosition, isSliderLocked, setSeek]);
 
     return (
-      <div {...styles('root', {}, className)} data-hook={dataHook}>
+      <div {...styles('root', {}, this.props)} data-hook={dataHook}>
         <IconButton
           size="small"
           onClick={_togglePlayPause}
