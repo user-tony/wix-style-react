@@ -187,7 +187,13 @@ class Search extends Component {
   };
 
   render() {
-    const { defaultValue, dataHook, expandWidth, ...restProps } = this.props;
+    const {
+      defaultValue,
+      dataHook,
+      expandWidth,
+      size,
+      ...restProps
+    } = this.props;
     const { expandable } = restProps;
     const { collapsed, inputValue } = this.state;
 
@@ -195,6 +201,10 @@ class Search extends Component {
       [styles.expandableStyles]: expandable,
       [styles.collapsed]: collapsed && expandable,
       [styles.expanded]: !collapsed && expandable,
+    });
+
+    const inputClasses = classNames(styles.input, {
+      [styles.large]: size === 'large',
     });
 
     const contentStyle =
@@ -218,6 +228,7 @@ class Search extends Component {
                 <SearchIcon />
               </Input.IconAffix>
             }
+            className={inputClasses}
             dataHook="search-inputwithoptions"
             menuArrow={false}
             closeOnSelect
