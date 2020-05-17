@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 8.10.0 - 2020-05-17
 
 ### Fixed
 - `<TimeInput/>`- fix component methods not to be public methods & display name [#5462](https://github.com/wix/wix-style-react/pull/5462)
