@@ -14,14 +14,15 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 8. Notifications
-import Notification from 'wix-style-react/Notification';
-import FloatingNotification from 'wix-style-react/FloatingNotification';
-import SectionHelper from 'wix-style-react/SectionHelper';
-
-// Assets
-import { Layout, Cell } from 'wix-style-react/Layout';
 import Delete from 'wix-ui-icons-common/Delete';
+
+import {
+  Notification,
+  FloatingNotification,
+  SectionHelper,
+  Layout,
+  Cell,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.notificationBars;
 

@@ -6,19 +6,15 @@ import { createLinkedComponentsNames } from '../../../sharedComponents/utils';
 import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/layoutFamily';
 import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 
-import Table from 'wix-style-react/Table';
-import TableActionCell from 'wix-style-react/TableActionCell';
-import Card from 'wix-style-react/Card';
-import Search from 'wix-style-react/Search';
 import Star from 'wix-ui-icons-common/Star';
-import Avatar from 'wix-style-react/Avatar';
-
 import {
+  Table,
+  TableActionCell,
+  Card,
+  Search,
+  Avatar,
   TableToolbar,
-  ItemGroup,
-  Item,
-  Title,
-} from 'wix-style-react/TableToolbar';
+} from 'wix-style-react';
 
 class TablePageExample extends Component {
   state = {
@@ -102,16 +98,16 @@ class TablePageExample extends Component {
 const TableToolbarExample = () => (
   <Card>
     <TableToolbar>
-      <ItemGroup position="start">
-        <Item>
-          <Title>Table title</Title>
-        </Item>
-      </ItemGroup>
-      <ItemGroup position="end">
-        <Item>
+      <TableToolbar.ItemGroup position="start">
+        <TableToolbar.Item>
+          <TableToolbar.Title>Table title</TableToolbar.Title>
+        </TableToolbar.Item>
+      </TableToolbar.ItemGroup>
+      <TableToolbar.ItemGroup position="end">
+        <TableToolbar.Item>
           <Search placeholder="Search..." />
-        </Item>
-      </ItemGroup>
+        </TableToolbar.Item>
+      </TableToolbar.ItemGroup>
     </TableToolbar>
   </Card>
 );

@@ -16,18 +16,6 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 7. Tooltip
-import Tooltip from 'wix-style-react/Tooltip';
-import Popover from 'wix-style-react/Popover';
-import PopoverMenu from 'wix-style-react/PopoverMenu';
-import FloatingHelper from 'wix-style-react/FloatingHelper';
-
-// Assets
-import Text from 'wix-style-react/Text';
-import Box from 'wix-style-react/Box';
-import TextButton from 'wix-style-react/TextButton';
-import { Layout } from 'wix-style-react/Layout';
-
 // icons
 import Add from 'wix-ui-icons-common/Add';
 import Edit from 'wix-ui-icons-common/Edit';
@@ -37,6 +25,17 @@ import AddSmall from 'wix-ui-icons-common/AddSmall';
 import EditSmall from 'wix-ui-icons-common/EditSmall';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import { Category } from '../../../storiesHierarchy';
+
+import {
+  Tooltip,
+  Popover,
+  PopoverMenu,
+  FloatingHelper,
+  Text,
+  Box,
+  TextButton,
+  Layout,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.tooltipPopovers;
 

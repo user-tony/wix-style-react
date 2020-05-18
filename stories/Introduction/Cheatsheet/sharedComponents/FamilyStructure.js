@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Container, Row, Col } from 'wix-style-react/Grid';
-import Card from 'wix-style-react/Card';
-import Heading from 'wix-style-react/Heading';
+import { Container, Row, Col, Card, Heading } from 'wix-style-react';
 
 const FamilyStructure = ({ title, children, showPreview }) => (
   <Card>

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'wix-style-react/Grid';
-
 import ComponentNaming from './ComponentNaming';
-import Preview from './Preview';
 
+import Preview from './Preview';
 import singleComponentSizes from './constants';
+
+import { Row, Col } from 'wix-style-react';
 
 const SingleComponentStacked = ({
   name,

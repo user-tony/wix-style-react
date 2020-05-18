@@ -17,33 +17,34 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 9. Modals
+import More from 'wix-ui-icons-common/More';
+import Print from 'wix-ui-icons-common/Print';
+import ascendInvoice from '../../../../test/assets/ascend-invoice.jpg';
+import { Category } from '../../../storiesHierarchy';
+
 import {
   MessageBoxFunctionalLayout,
   MessageBoxMarketerialLayout,
-} from 'wix-style-react/MessageBox';
-import Modal from 'wix-style-react/Modal';
-import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';
-import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';
-import CustomModalLayout from 'wix-style-react/CustomModalLayout';
-
-// Assets
-import Button from 'wix-style-react/Button';
-import Box from 'wix-style-react/Box';
-import Text from 'wix-style-react/Text';
-import FormField from 'wix-style-react/FormField';
-import Input from 'wix-style-react/Input';
-import NumberInput from 'wix-style-react/NumberInput';
-import RichTextInputArea from 'wix-style-react/RichTextInputArea';
-import Checkbox from 'wix-style-react/Checkbox';
-import TextButton from 'wix-style-react/TextButton';
-import { Layout, Cell } from 'wix-style-react/Layout';
-import IconButton from 'wix-style-react/IconButton';
-import More from 'wix-ui-icons-common/More';
-import Print from 'wix-ui-icons-common/Print';
-import { Container, Row, Col } from 'wix-style-react/Grid';
-import ascendInvoice from '../../../../test/assets/ascend-invoice.jpg';
-import { Category } from '../../../storiesHierarchy';
+  Modal,
+  ModalPreviewLayout,
+  ModalMobileLayout,
+  CustomModalLayout,
+  Button,
+  Box,
+  Text,
+  FormField,
+  Input,
+  NumberInput,
+  RichTextInputArea,
+  Checkbox,
+  TextButton,
+  Layout,
+  Cell,
+  IconButton,
+  Container,
+  Row,
+  Col,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.modals;
 

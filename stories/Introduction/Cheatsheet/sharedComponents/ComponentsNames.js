@@ -1,7 +1,6 @@
 import React from 'react';
 
-import TextButton from 'wix-style-react/TextButton';
-import Box from 'wix-style-react/Box';
+import { TextButton, Box } from 'wix-style-react';
 
 const ComponentsNames = ({ componentsNames }) => (
   <Box flexWrap="wrap">

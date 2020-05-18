@@ -10,16 +10,19 @@ import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMappi
 import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 import { SingleComponentStacked, Preview } from '../../../sharedComponents';
 
-import SidePanel from 'wix-style-react/SidePanel';
-import Tabs from 'wix-style-react/Tabs';
-import Accordion from 'wix-style-react/Accordion';
-import RadioGroup from 'wix-style-react/RadioGroup';
-import DatePicker from 'wix-style-react/DatePicker';
-import Search from 'wix-style-react/Search';
-import ListItemSelect from 'wix-style-react/ListItemSelect';
-import Box from 'wix-style-react/Box';
-import Button from 'wix-style-react/Button';
 import Toolbox from 'wix-ui-icons-common/Toolbox';
+
+import {
+  SidePanel,
+  Tabs,
+  Accordion,
+  RadioGroup,
+  DatePicker,
+  Search,
+  ListItemSelect,
+  Box,
+  Button,
+} from 'wix-style-react';
 
 const AdvancedSidePanelExample = () => (
   <Preview>
