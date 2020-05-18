@@ -6,6 +6,8 @@ import requestAnimationFramePolyfill from '../utils/request-animation-frame';
 import PropTypes from 'prop-types';
 
 import style from './Popover.st.css';
+import { FontUpgradeContext } from '../FontUpgrade/context';
+import FontUpgrade from '../FontUpgrade';
 
 export { placements } from './constants';
 /**
@@ -21,11 +23,27 @@ if (process.env.NODE_ENV === 'test') {
 const ANIMATION_ENTER = 150;
 const ANIMATION_EXIT = 100;
 
+const ContentElement = ({ children }) => {
+  return (
+    <FontUpgradeContext.Consumer>
+      {context => {
+        return (
+          <FontUpgrade active={context.active}>
+            <CorePopover.Content children={children} />
+          </FontUpgrade>
+        );
+      }}
+    </FontUpgradeContext.Consumer>
+  );
+};
+
+ContentElement.displayName = 'Popover.Content';
+
 class Popover extends React.Component {
   static displayName = 'Popover';
 
   static Element = CorePopover.Element;
-  static Content = CorePopover.Content;
+  static Content = ContentElement;
 
   static propTypes = {
     ...CorePopover.propTypes,
