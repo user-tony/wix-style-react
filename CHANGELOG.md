@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<SortableGrid/>` - new component [#5467](https://github.com/wix/wix-style-react/pull/5467)
+
 ### Fixed
 - `<Popover/>` - wrap content with `<FontUpgrade/>` [#5479](https://github.com/wix/wix-style-react/pull/5479)
 - `<SectionHelper/>` - fix close button position in without a title [#5475](https://github.com/wix/wix-style-react/pull/5475)
