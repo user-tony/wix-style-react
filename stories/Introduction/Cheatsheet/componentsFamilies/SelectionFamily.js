@@ -18,23 +18,25 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 4. Selection
-import Dropdown from 'wix-style-react/Dropdown';
-import MultiSelectCheckbox from 'wix-style-react/MultiSelectCheckbox';
-import Checkbox from 'wix-style-react/Checkbox';
-import RadioGroup from 'wix-style-react/RadioGroup';
-import ToggleSwitch from 'wix-style-react/ToggleSwitch';
-import SegmentedToggle from 'wix-style-react/SegmentedToggle';
-import Thumbnail from 'wix-style-react/Thumbnail';
-import Slider from 'wix-style-react/Slider';
-import FormField from 'wix-style-react/FormField';
-
 // Assets
 import LockLocked from 'wix-ui-icons-common/LockLocked';
 import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
-import { Layout, Cell } from 'wix-style-react/Layout';
-import Box from 'wix-style-react/Box';
 import { Category } from '../../../storiesHierarchy';
+
+import {
+  Dropdown,
+  MultiSelectCheckbox,
+  Checkbox,
+  RadioGroup,
+  ToggleSwitch,
+  SegmentedToggle,
+  Thumbnail,
+  Slider,
+  FormField,
+  Layout,
+  Cell,
+  Box,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.selection;
 

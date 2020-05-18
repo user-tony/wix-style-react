@@ -9,12 +9,10 @@ import {
 import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/layoutFamily';
 import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 
-import Card from 'wix-style-react/Card';
-
-import Box from 'wix-style-react/Box';
-import TextButton from 'wix-style-react/TextButton';
 import Add from 'wix-ui-icons-common/Add';
 import { Category } from '../../../../../storiesHierarchy';
+
+import { Card, Box, TextButton } from 'wix-style-react';
 
 const CardExamples = () => {
   const symbol = layoutSymbols.cardLayout;

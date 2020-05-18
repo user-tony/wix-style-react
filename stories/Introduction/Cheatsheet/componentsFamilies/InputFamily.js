@@ -20,28 +20,29 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// Assets
-import Box from 'wix-style-react/Box';
-import TextButton from 'wix-style-react/TextButton';
 import GoogleMapsClient from 'wix-style-react/clients/GoogleMapsClient';
 import GoogleAPILoader from '../../../utils/GoogleAPILoader';
 
-// 3. Inputs
-import Input from 'wix-style-react/Input';
-import InputArea from 'wix-style-react/InputArea';
-import RichTextInputArea from 'wix-style-react/RichTextInputArea';
-import NumberInput from 'wix-style-react/NumberInput';
-import TimeInput from 'wix-style-react/TimeInput';
-import ColorInput from 'wix-style-react/ColorInput';
-import MultiSelect from 'wix-style-react/MultiSelect';
-import FormField from 'wix-style-react/FormField';
-import GoogleAddressInput from 'wix-style-react/GoogleAddressInput';
-import Search from 'wix-style-react/Search';
-import ImageViewer from 'wix-style-react/ImageViewer';
 import { Category } from '../../../storiesHierarchy';
-import VariableInput from 'wix-style-react/VariableInput';
-import PopoverMenu from 'wix-style-react/PopoverMenu';
 import { Add } from 'wix-ui-icons-common';
+
+import {
+  Box,
+  TextButton,
+  Input,
+  InputArea,
+  RichTextInputArea,
+  NumberInput,
+  TimeInput,
+  ColorInput,
+  MultiSelect,
+  FormField,
+  GoogleAddressInput,
+  Search,
+  ImageViewer,
+  VariableInput,
+  PopoverMenu,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.inputs;
 

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   FamilyStructure,
   SingleComponentSideBySide,
-  Preview,
   singleComponentSizes,
 } from '../sharedComponents';
 
@@ -15,25 +14,28 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 11. Other
-import Avatar from 'wix-style-react/Avatar';
-import Badge, { TYPE } from 'wix-style-react/Badge';
-import BadgeSelect from 'wix-style-react/BadgeSelect';
-import CounterBadge from 'wix-style-react/CounterBadge';
-import Tag from 'wix-style-react/Tag';
-import Loader from 'wix-style-react/Loader';
-import LinearProgressBar from 'wix-style-react/LinearProgressBar';
-import CircularProgressBar from 'wix-style-react/CircularProgressBar';
-import Image from 'wix-style-react/Image';
-import Palette from 'wix-style-react/Palette';
-import Skeleton from 'wix-style-react/Skeleton';
-
-// Assets
-import { Layout, Cell } from 'wix-style-react/Layout';
-import Box from 'wix-style-react/Box';
 import InfoSmall from 'wix-ui-icons-common/InfoSmall';
 import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
-import { Facebook } from 'wix-ui-icons-common';
+import Facebook from 'wix-ui-icons-common/Facebook';
+
+import { TYPE } from '../../../../src/Badge/constants';
+
+import {
+  Avatar,
+  Badge,
+  BadgeSelect,
+  CounterBadge,
+  Tag,
+  Loader,
+  LinearProgressBar,
+  CircularProgressBar,
+  Image,
+  Palette,
+  Skeleton,
+  Layout,
+  Cell,
+  Box,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.other;
 

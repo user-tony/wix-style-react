@@ -10,19 +10,24 @@ import {
   createLinkedComponentsNames,
 } from '../../../sharedComponents/utils';
 
-import Card from 'wix-style-react/Card';
-import Page from 'wix-style-react/Page';
-import Box from 'wix-style-react/Box';
-import { Row, Col, Container } from 'wix-style-react/Grid';
-import Button from 'wix-style-react/Button';
-import TextButton from 'wix-style-react/TextButton';
 import Add from 'wix-ui-icons-common/Add';
 import More from 'wix-ui-icons-common/More';
-import Breadcrumbs from 'wix-style-react/Breadcrumbs';
-import PopoverMenu from 'wix-style-react/PopoverMenu';
-import IconButton from 'wix-style-react/IconButton';
-import EmptyState from 'wix-style-react/EmptyState';
 import { Category } from '../../../../../storiesHierarchy';
+
+import {
+  Card,
+  Page,
+  Box,
+  Row,
+  Col,
+  Container,
+  Button,
+  TextButton,
+  Breadcrumbs,
+  PopoverMenu,
+  IconButton,
+  EmptyState,
+} from 'wix-style-react';
 
 class ExamplePageWithCard extends Component {
   renderHeader() {

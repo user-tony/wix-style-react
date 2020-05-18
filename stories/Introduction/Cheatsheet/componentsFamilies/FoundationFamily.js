@@ -18,10 +18,6 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// 1. Foundation
-import Text from 'wix-style-react/Text';
-import Heading from 'wix-style-react/Heading';
-
 // Icons
 import Edit from 'wix-ui-icons-common/Edit';
 import Delete from 'wix-ui-icons-common/Delete';
@@ -36,11 +32,9 @@ import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import HeartFilled from 'wix-ui-icons-common/HeartFilled';
 import FlagFilled from 'wix-ui-icons-common/FlagFilled';
 
-// Assets
-import { Layout, Cell } from 'wix-style-react/Layout';
-import Box from 'wix-style-react/Box';
 import { capitalize } from '../../../../src/Typography/docs/utils.js';
-import colors from '../../../../src/colors.scss';
+
+import { Text, Heading, Layout, Cell, Box } from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.foundation;
 

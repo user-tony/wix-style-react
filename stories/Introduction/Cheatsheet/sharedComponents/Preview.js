@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Card from 'wix-style-react/Card';
-import Box from 'wix-style-react/Box';
+import { Card, Box } from 'wix-style-react';
 
 const Preview = props => {
   const { children, wrapWithCard, wrapWithCardContent, stretch } = props;

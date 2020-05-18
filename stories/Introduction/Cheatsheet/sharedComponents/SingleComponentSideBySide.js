@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Row, Col } from 'wix-style-react/Grid';
 import ComponentNaming from './ComponentNaming';
-
 import singleComponentSizes from './constants';
+
+import { Row, Col } from 'wix-style-react';
 
 const SingleComponentSideBySide = ({
   name,

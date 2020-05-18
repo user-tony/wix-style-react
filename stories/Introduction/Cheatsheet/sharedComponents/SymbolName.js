@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Text from 'wix-style-react/Text';
-import Box from 'wix-style-react/Box';
-import TextButton from 'wix-style-react/TextButton';
+import { Text, Box, TextButton } from 'wix-style-react';
 
 const SymbolName = ({ name, isDeveloped }) => (
   <Box marginBottom="6px">

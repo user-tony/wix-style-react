@@ -1,6 +1,4 @@
 import React from 'react';
-import { Container, Row } from 'wix-style-react/Grid';
-import Page from 'wix-style-react/Page';
 
 // importing components by family type
 import FoundationFamily from './componentsFamilies/FoundationFamily';
@@ -15,6 +13,8 @@ import ModalFamily from './componentsFamilies/ModalFamily';
 import PickerFamily from './componentsFamilies/PickerFamily';
 import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
+
+import { Container, Row, Page } from 'wix-style-react';
 
 class ComponentsCheatsheet extends React.Component {
   render() {

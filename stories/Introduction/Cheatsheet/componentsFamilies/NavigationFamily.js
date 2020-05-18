@@ -20,12 +20,6 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// Assets
-import Button from 'wix-style-react/Button';
-import ToggleButton from 'wix-style-react/ToggleButton';
-import TextButton from 'wix-style-react/TextButton';
-import Box from 'wix-style-react/Box';
-import CounterBadge from 'wix-style-react/CounterBadge';
 import Edit from 'wix-ui-icons-common/Edit';
 import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
 import CircleSmallFilled from 'wix-ui-icons-common/CircleSmallFilled';
@@ -34,17 +28,25 @@ import Undo from 'wix-ui-icons-common/Undo';
 import Redo from 'wix-ui-icons-common/Redo';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 
-// 6. Navigation
-import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
-import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';
-import SidebarSectionTitle from 'wix-style-react/SidebarSectionTitle';
-import SidebarHeader from 'wix-style-react/SidebarHeader';
-import SidebarDivider from 'wix-style-react/SidebarDivider';
-import Tabs from 'wix-style-react/Tabs';
-import Stepper from 'wix-style-react/Stepper';
-import VerticalTabs from 'wix-style-react/VerticalTabs';
-import ComposerHeader from 'wix-style-react/ComposerHeader';
 import { Category } from '../../../storiesHierarchy';
+
+import {
+  Button,
+  ToggleButton,
+  TextButton,
+  Box,
+  CounterBadge,
+  Sidebar,
+  SidebarItemContextConsumer,
+  SidebarSectionItem,
+  SidebarSectionTitle,
+  SidebarHeader,
+  SidebarDivider,
+  Tabs,
+  Stepper,
+  VerticalTabs,
+  ComposerHeader,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.navigation;
 

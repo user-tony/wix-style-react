@@ -19,18 +19,18 @@ import {
 
 import times from '../../../../src/utils/operators/times';
 
-// 10. Picker
-import EditableSelector from 'wix-style-react/EditableSelector';
-import ModalSelectorLayout from 'wix-style-react/ModalSelectorLayout';
-import ColorPicker from 'wix-style-react/ColorPicker';
-import Calendar from 'wix-style-react/Calendar';
-import CalendarPanel from 'wix-style-react/CalendarPanel';
-import CalendarPanelFooter from 'wix-style-react/CalendarPanelFooter';
-import Swatches from 'wix-style-react/Swatches';
-
-// Assets
-import { Layout } from 'wix-style-react/Layout';
 import singleComponentSizes from '../sharedComponents/constants';
+
+import {
+  EditableSelector,
+  ModalSelectorLayout,
+  ColorPicker,
+  Calendar,
+  CalendarPanel,
+  CalendarPanelFooter,
+  Swatches,
+  Layout,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.pickers;
 

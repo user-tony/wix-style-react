@@ -17,17 +17,19 @@ import {
 // Assets
 import More from 'wix-ui-icons-common/More';
 import CropRotate from 'wix-ui-icons-common/CropRotate';
-import { Layout, Cell } from 'wix-style-react/Layout';
-import Box from 'wix-style-react/Box';
 
-// 5. Button
-import Button from 'wix-style-react/Button';
-import IconButton from 'wix-style-react/IconButton';
-import TextButton from 'wix-style-react/TextButton';
-import CloseButton from 'wix-style-react/CloseButton';
-import AddItem from 'wix-style-react/AddItem';
-import ToggleButton from 'wix-style-react/ToggleButton';
-import SocialButton from 'wix-style-react/SocialButton';
+import {
+  Layout,
+  Cell,
+  Box,
+  Button,
+  IconButton,
+  TextButton,
+  CloseButton,
+  AddItem,
+  ToggleButton,
+  SocialButton,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.buttons;
 
