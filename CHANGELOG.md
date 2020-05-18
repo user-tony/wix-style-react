@@ -16,7 +16,7 @@ Types of changes:
 
 ## Next
 ### Fixed
-- `<Popover/>` - wrap content with <FontUpgrade/> [#5479](https://github.com/wix/wix-style-react/pull/5479)
+- `<Popover/>` - wrap content with `<FontUpgrade/>` [#5479](https://github.com/wix/wix-style-react/pull/5479)
 - `<SectionHelper/>` - fix close button position in without a title [#5475](https://github.com/wix/wix-style-react/pull/5475)
 
 ## 8.10.0 - 2020-05-17
