@@ -362,6 +362,12 @@
   "SocialPreview": {
     "path": "src/SocialPreview"
   },
+  "SortableGrid": {
+    "path": "src/SortableGrid",
+    "missingFiles": [
+      "docs"
+    ]
+  },
   "SortableList": {
     "path": "src/SortableList",
     "missingFiles": [
