@@ -10,7 +10,6 @@ import {
 } from './components';
 
 import {
-  foundationSymbols,
   inputsSymbols,
   navigationSymbols,
   tooltipPopoverSymbols,
@@ -29,7 +28,10 @@ export const getSymbolUrl = ({ groupSymbol, symbol }) =>
  * For misspelled Components stories or Compound components (Card.Header story part of Card story)
  */
 const componentActualUrl = {
-  [sharedComponentsNames.Icon]: linkTo(Category.FOUNDATION, '1.4 Icons'),
+  [sharedComponentsNames.Icon]: linkTo(
+    Category.FOUNDATION,
+    '1.4 General Use Icons',
+  ),
 
   [inputsComponentsNames.MultiSelect]: linkTo(
     Category.COMPONENTS,
@@ -70,8 +72,6 @@ const componentActualUrl = {
  * This is mapping the good names to the bad UX Story names that are actually in the storybook (9.4 Announcement instead of 9.3 Marketing)
  */
 const symbolActualUrl = {
-  [foundationSymbols.icons]: linkTo(Category.FOUNDATION, '1.4 Icons'),
-
   [inputsSymbols.tagsInput]: linkTo(Category.INPUTS, '3.12 Tags'),
 
   [navigationSymbols.sidebarMenu]: linkTo(Category.NAVIGATION, '6.1 Sidebar'),

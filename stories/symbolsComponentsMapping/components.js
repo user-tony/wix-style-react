@@ -170,4 +170,5 @@ export const contentWidgetsComponentsNames = {
   MobilePreviewWidget: 'MobilePreviewWidget',
   MarketingLayout: 'MarketingLayout',
   BarChart: 'BarChart',
+  Timeline: 'Timeline',
 };

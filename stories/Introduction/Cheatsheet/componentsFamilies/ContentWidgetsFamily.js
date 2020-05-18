@@ -17,29 +17,32 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-// Assets
-import Text from 'wix-style-react/Text';
-import Box from 'wix-style-react/Box';
-import CardGalleryItem from 'wix-style-react/CardGalleryItem';
-import Badge from 'wix-style-react/Badge';
-import { Container, Row, Col } from 'wix-style-react/Grid';
 import Hint from 'wix-ui-icons-common/Hint';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
-import Card from 'wix-style-react/Card';
-import DropdownBase from 'wix-style-react/DropdownBase';
-import TextButton from 'wix-style-react/TextButton';
-import Button from 'wix-style-react/Button';
 
-// 12. Content Widgets
-import EmptyState from 'wix-style-react/EmptyState';
-import StatisticsWidget from 'wix-style-react/StatisticsWidget';
-import Carousel from 'wix-style-react/Carousel';
-import Accordion from 'wix-style-react/Accordion';
-import PreviewWidget from 'wix-style-react/PreviewWidget';
-import MobilePreviewWidget from 'wix-style-react/MobilePreviewWidget';
-import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';
-import MarketingLayout from 'wix-style-react/MarketingLayout';
-import BarChart from 'wix-style-react/BarChart';
+import {
+  Text,
+  Box,
+  CardGalleryItem,
+  Badge,
+  Container,
+  Row,
+  Col,
+  Card,
+  DropdownBase,
+  TextButton,
+  Button,
+  EmptyState,
+  StatisticsWidget,
+  Carousel,
+  Accordion,
+  PreviewWidget,
+  MobilePreviewWidget,
+  BrowserPreviewWidget,
+  MarketingLayout,
+  BarChart,
+  Timeline,
+} from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.contentWidgets;
 
@@ -565,6 +568,75 @@ const ArenaChartExample = () => {
   );
 };
 
+const TimelineExample = () => {
+  const symbol = contentWidgetsSymbols.timeline;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  const items = [
+    {
+      label:
+        'New Order: 1 item, $4.99 this will be a longer text that will be two lines or a very very long text for a vertical that needs a lot of text that will be three lines',
+      suffix: (
+        <TextButton weight="normal" size="small">
+          suffix button
+        </TextButton>
+      ),
+      labelAction: (
+        <TextButton weight="normal" size="small">
+          View Order
+        </TextButton>
+      ),
+    },
+    {
+      label:
+        'New Order: 1 item, $4.99 this will be a longer text that will be two lines or a very very long text for a vertical that needs a lot of text that will be three lines',
+      suffix: 'Jan 1, 2019 12:03 AM',
+      labelAction: (
+        <TextButton weight="normal" size="small">
+          View Order
+        </TextButton>
+      ),
+    },
+    {
+      id: 1,
+      label: 'Quote #8 Accepted: Website setup, $7.00',
+    },
+    {
+      label:
+        'New Order: 1 item, $4.99 this will be a longer text that will be two lines or a very very long text for a vertical that needs a lot of text that will be three lines',
+      labelAction: (
+        <TextButton weight="normal" size="small">
+          View Order
+        </TextButton>
+      ),
+    },
+    {
+      label:
+        'New Order: 1 item, $4.99 this will be a longer text that will be two lines or a very very long text for a vertical that needs a lot of text that will be three lines',
+      suffix: 'Jan 1, 2019 12:03 AM',
+      labelAction: (
+        <TextButton weight="normal" size="small">
+          View Order
+        </TextButton>
+      ),
+    },
+  ];
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <Preview wrapWithCardContent>
+        <Timeline items={items} />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
+
 const ContentWidgetsFamily = () => (
   <FamilyStructure title={groupSymbol}>
     <ImageWidgetExample />
@@ -578,6 +650,7 @@ const ContentWidgetsFamily = () => (
     <MarketingLayoutCardExample />
     <BarChartExample />
     <ArenaChartExample />
+    <TimelineExample />
   </FamilyStructure>
 );
 

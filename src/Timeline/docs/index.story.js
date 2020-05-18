@@ -46,28 +46,7 @@ export default {
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${Timeline.displayName}/`,
       component: (
-        <Timeline
-          items={[
-            {
-              label: 'Quote #8 Accepted: Website setup, $7.00',
-              suffix: 'Jan 1, 2019 12:03 AM',
-              labelAction: (
-                <TextButton weight="normal" size="small">
-                  View Order
-                </TextButton>
-              ),
-            },
-            {
-              label: 'Quote #8 Accepted: Website setup, $7.00',
-              suffix: 'Jan 1, 2019 12:03 AM',
-              labelAction: (
-                <TextButton weight="normal" size="small">
-                  View Order
-                </TextButton>
-              ),
-            },
-          ]}
-        />
+        <Timeline items={[{ label: 'Item 1' }, { label: 'Item 2' }]} />
       ),
     }),
 

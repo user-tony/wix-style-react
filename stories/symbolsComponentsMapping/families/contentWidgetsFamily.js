@@ -3,6 +3,7 @@ import {
   contentWidgetsComponentsNames,
   sharedComponentsNames,
   layoutComponentsNames,
+  buttonsComponentsNames,
 } from '../components';
 
 /**
@@ -41,4 +42,9 @@ export const contentWidgetsSymbolsToComponents = {
   [contentWidgetsSymbols.barChart]: [contentWidgetsComponentsNames.BarChart],
 
   [contentWidgetsSymbols.arenaChart]: [],
+
+  [contentWidgetsSymbols.timeline]: [
+    contentWidgetsComponentsNames.Timeline,
+    buttonsComponentsNames.TextButton,
+  ],
 };
