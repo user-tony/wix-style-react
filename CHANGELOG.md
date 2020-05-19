@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<RadioGroup/>` - Added UniDrivers to `RadioGroup` and `RadioButton`, fixed a bug in the existing `RadioButton` driver that prevented it from returing correct values. [#5459](https://github.com/wix/wix-style-react/pull/5459)
+
 ## 8.11.0 - 2020-05-19
 ### Added
 - `<SortableGrid/>` - new component [#5467](https://github.com/wix/wix-style-react/pull/5467)
