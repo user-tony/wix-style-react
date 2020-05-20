@@ -94,6 +94,8 @@ class LabelledElement extends React.Component {
               onFocus: this._handleFocus,
               onBlur: this._handleBlur,
               onChange: this._handleOnChange,
+              /** should have a different height than regular large input */
+              className: styles.inputContainer,
               placeholder: children.props.placeholder
                 ? this._getPlaceholder(children.props.placeholder)
                 : undefined,

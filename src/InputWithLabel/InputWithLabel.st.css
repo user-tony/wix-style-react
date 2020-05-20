@@ -30,14 +30,6 @@
   left: 0;
 }
 
-.inputContainer {
-  height: value(input-height) !important;
-}
-
-.inputContainer input {
-  padding: 18px 0 0 9px !important;
-}
-
 .statusMessagePlaceholder {
   padding-bottom: value(status-message-height);
 }
@@ -46,7 +38,6 @@
   display: flex;
   align-items: center;
   line-height: value(status-message-height) !important;
-  align-items: flex-start;
   margin-top: 2px;
 }
 
