@@ -8,6 +8,11 @@
 }
 
 :import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12
+}
+
+:import {
   -st-from: "../Foundation/stylable/border.st.css";
   -st-named: radius08;
 }
@@ -18,105 +23,44 @@
 }
 
 :import {
-  -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing12, spacing30;
+  -st-from: "./LayoutBlocks/Header/Header.st.css";
+  -st-default: Header;
+}
+
+:import {
+  -st-from: "./LayoutBlocks/Content/Content.st.css";
+  -st-default: Content;
+}
+
+:import {
+  -st-from: "./LayoutBlocks/Footer/Footer.st.css";
+  -st-default: Footer;
+}
+
+:import {
+  -st-from: "./LayoutBlocks/Footnote/Footnote.st.css";
+  -st-default: Footnote;
+}
+
+:import {
+  -st-from: "./LayoutBlocks/Illustration/Illustration.st.css";
+  -st-default: Illustration;
 }
 
 .root {
-  -st-states: removeContentPadding, footnoteAlignment(enum(left, center, right));
+  -st-states: theme(enum(standard, premium, destructive));
   background-color: value(D80);
   position: relative;
   width: 100%;
+  max-height: calc(100% - (value(modalBoxPadding) * 2));
+  max-width: calc(100% - (value(modalBoxPadding) * 2) );
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-radius: value(radius08);
+  box-shadow: value(shadow40);
 }
 
-
-:import {
-  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
-  -st-named: defaultScrollBar;
-}
-
-.contentWrapper {
-  height: 100%;
-  overflow-y: auto;
-  -st-mixin: defaultScrollBar;
-}
-
-
-
-.root:removeContentPadding .contentWrapper {
-  padding: 0;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-
-
-
-/* Footer - start */
-.buttons {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-.buttons > :first-of-type:not(:last-of-type) {
-  margin-right: value(spacing12);
-}
-
-.sideActions {
-  margin-right: value(spacing12);
-}
-
-
-
-/* rtl */
-:global(.rtl) .buttons {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-:global(.rtl) .buttons > :first-of-type:not(:last-of-type) {
-  margin-left: value(spacing12);
-  margin-right: 0;
-}
-
-:global(.rtl) .sideActions {
-  margin-left: value(spacing12);
-  margin-right: 0;
-}
-
-/* Footer - end */
-
-.footnote {
-  padding: value(spacing12) value(spacing30);
-  display: flex;
-  justify-content: center;
-}
-
-.root:footnoteAlignment(left) .footnote {
-  justify-content: flex-start;
-}
-
-.root:footnoteAlignment(right) .footnote {
-  justify-content: flex-end;
-}
-
-/* Header - start */
-.header {
-
-}
-.title{
-
-}
-
-/* Header - end */
 .closeButton {
   position: absolute;
   right: value(spacing12);
@@ -128,7 +72,9 @@
   right: unset;
 }
 
-
-.footerDivider {
-  display: none;
-}
+/* Exposing the top-level blocks of the BaseModalLayout for overriding options */
+.Header{}
+.Content{}
+.Footer{}
+.Footnote{}
+.Illustration{}
