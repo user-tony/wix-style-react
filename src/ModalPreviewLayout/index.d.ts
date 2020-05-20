@@ -7,6 +7,9 @@ export interface ModalPreviewLayoutProps {
   children: React.ReactNode;
   onClose: () => void;
   shouldCloseOnOverlayClick?: boolean;
+  closeButtonTooltipText?: string;
+  prevButtonTooltipText?: string;
+  nextButtonTooltipText?: string;
 }
 
 export default class ModalPreviewLayout extends React.PureComponent<
