@@ -2,13 +2,14 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import * as Composite from '../Composite';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
 import css from './Notification.scss';
+import StatusComplete from 'wix-ui-icons-common/StatusComplete';
+import StatusWarning from 'wix-ui-icons-common/StatusWarning';
+import StatusAlert from 'wix-ui-icons-common/StatusAlert';
 
 export const LOCAL_NOTIFICATION = 'local';
 export const GLOBAL_NOTIFICATION = 'global';
@@ -25,6 +26,12 @@ export const notificationTypeToPosition = {
 const animationsTimeouts = {
   enter: 500,
   exit: 350,
+};
+
+const themeIcon = {
+  error: <StatusAlert className={css.iconStyling} />,
+  success: <StatusComplete className={css.iconStyling} />,
+  warning: <StatusWarning className={css.iconStyling} />,
 };
 
 function FirstChild(props) {
@@ -52,9 +59,7 @@ function mapChildren(children) {
   }, {});
 }
 
-class Notification extends WixComponent {
-  static displayName = 'Notification';
-
+class Notification extends React.PureComponent {
   closeTimeout;
 
   constructor(props) {
@@ -152,6 +157,7 @@ class Notification extends WixComponent {
           aria-labelledby="notification-label"
           aria-live="polite"
         >
+          {themeIcon[theme]}
           <div
             id="notification-label"
             className={css.label}
@@ -179,8 +185,9 @@ class Notification extends WixComponent {
   }
 
   render() {
+    const { dataHook } = this.props;
     return (
-      <div className={css.root}>
+      <div data-hook={dataHook} className={css.root}>
         <TransitionGroup component={FirstChild}>
           {this.shouldShowNotification() ? this.renderNotification() : null}
         </TransitionGroup>
@@ -191,6 +198,8 @@ class Notification extends WixComponent {
 
 const Close = props => <CloseButton skin="lightFilled" {...props} />;
 Close.displayName = 'Notification.CloseButton';
+
+Notification.displayName = 'Notification';
 
 Notification.propTypes = {
   show: PropTypes.bool,
