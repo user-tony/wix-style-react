@@ -20,7 +20,7 @@ Types of changes:
 - `<RadioGroup/>` - Added UniDrivers to `RadioGroup` and `RadioButton`, fixed a bug in the existing `RadioButton` driver that prevented it from returing correct values. [#5459](https://github.com/wix/wix-style-react/pull/5459)
 - `<ModalPreviewLayout/>` - Fix props types [#5482](https://github.com/wix/wix-style-react/pull/5482)
 
-### Fixed
+### Changed
 - `Input` & `Selection` families- changing large size [#5457](https://github.com/wix/wix-style-react/pull/5457)
 
 ## 8.11.0 - 2020-05-19
