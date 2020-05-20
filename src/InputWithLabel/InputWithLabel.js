@@ -7,7 +7,6 @@ import Text from '../Text';
 import PropTypes from 'prop-types';
 import styles from './InputWithLabel.st.css';
 import dataHooks from './dataHooks';
-import classNames from 'classnames';
 
 const getSuffixContainer = suffix =>
   suffix.map((item, index) => {
@@ -121,8 +120,8 @@ class InputWithLabel extends React.Component {
             onFocus={onFocus}
             onBlur={onBlur}
             dataHook={dataHooks.input}
-            className={classNames(className, styles.inputContainer)}
-            size="medium"
+            className={className}
+            size="large"
             value={value}
             suffix={suffix ? getSuffixContainer(suffix) : []}
             status={status}

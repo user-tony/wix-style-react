@@ -47,7 +47,6 @@ class RangeInputWithLabelComposite extends PureComponent {
 
     const childrenArr = Children.toArray(children);
     const rangeType = children[1].type.displayName;
-
     const label =
       children.length === 3 ? (
         <div className={styles.label}>
@@ -75,6 +74,9 @@ class RangeInputWithLabelComposite extends PureComponent {
       onKeyDown: e => this._doKeyDown(e),
       onFocus: e => this._handleFocusFirst(e),
       onBlur: e => this._handleBlurFirst(e),
+      ...(rangeType === 'DatePicker' &&
+        !!firstInput.props.inputProps &&
+        firstInput.props.inputProps),
     };
 
     const additionalLastInputProps = {
@@ -84,7 +86,11 @@ class RangeInputWithLabelComposite extends PureComponent {
       onKeyDown: e => this._doKeyDown(e),
       onFocus: e => this._handleFocusLast(e),
       onBlur: e => this._handleBlurLast(e),
+      ...(rangeType === 'DatePicker' &&
+        !!lastInput.props.inputProps &&
+        lastInput.props.inputProps),
     };
+
     const inputWrapperClassNames = classNames({
       [styles.hasFocusFirst]: hasFocusFirst,
       [styles.hasFocusLast]: hasFocusLast,

@@ -87,10 +87,14 @@ class InputWithTags extends React.Component {
       onBlur,
       menuArrow,
       onInputClicked,
+      size,
       ...desiredProps
     } = inputProps;
-    const fontSize =
-      desiredProps.size && desiredProps.size === 'small' ? '14px' : '16px';
+
+    const suffixStyles = classNames(styles.inputSuffix, {
+      [styles.sizeSmall]: size === 'small',
+      [styles.sizeLarge]: size === 'large',
+    });
 
     let rowMultiplier;
     if (tags.length && tags[0].size === 'large') {
@@ -131,16 +135,20 @@ class InputWithTags extends React.Component {
             </Tag>
           ))
         )}
-
         <span
           className={classNames(styles.input, !tags.length)}
           data-hook="inner-input-with-tags"
         >
-          <div className={styles.hiddenDiv} style={{ fontSize }}>
+          <div
+            className={classNames(styles.hiddenDiv, {
+              [styles.smallFont]: size === 'small',
+            })}
+          >
             {this.state.inputValue}
           </div>
 
           <Input
+            size={size}
             width={this.props.width}
             ref={input => (this.input = input)}
             onFocus={this.handleInputFocus}
@@ -170,7 +178,7 @@ class InputWithTags extends React.Component {
         </span>
 
         {(isSelectMode || status) && (
-          <div className={styles.inputSuffix}>
+          <div className={suffixStyles}>
             <InputSuffix
               disabled={disabled}
               status={status}
