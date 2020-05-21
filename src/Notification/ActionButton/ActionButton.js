@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Button';
 import TextButton from '../../TextButton';
+import { dataHooks } from '../constants';
 
 const ActionButton = ({ children, onClick, type, link, target }) => {
   const commonProps = {
-    dataHook: 'notification-cta-button',
+    dataHook: dataHooks.notificationCtaButton,
     onClick,
   };
 
