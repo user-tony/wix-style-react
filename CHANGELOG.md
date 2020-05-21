@@ -26,6 +26,7 @@ Types of changes:
 
 ### Changed
 - `Input` & `Selection` families- changing large size [#5457](https://github.com/wix/wix-style-react/pull/5457)
+- `<Notification/>`- migrating styles to stylable and updating drivers accordingly [#5484](https://github.com/wix/wix-style-react/pull/5484)
 
 ## 8.11.0 - 2020-05-19
 ### Added
