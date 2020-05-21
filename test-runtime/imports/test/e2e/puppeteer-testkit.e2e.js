@@ -2,6 +2,7 @@ import {
   buttonTestkitFactory,
   headingTestkitFactory,
 } from '../../../../dist/testkit/puppeteer';
+import axios from 'axios';
 
 describe('React application to be interacted with puppeteer testkit', () => {
   beforeAll(async () => {
@@ -26,5 +27,16 @@ describe('React application to be interacted with puppeteer testkit', () => {
     });
 
     expect(await approvalTextDriver.getValue()).toContain('It was clicked!');
+  });
+
+  // This test makes sure that no css files or similar are imported by the drivers. kind of an SSR test
+  it('should be imported in node-env', async () => {
+    let error;
+    try {
+      await axios.get('http://localhost:3105/puppeteer-testkit-require');
+    } catch (e) {
+      error = `${e.response.data.errorMessage} ${e.response.data.errorLog}`;
+    }
+    expect(error).not.toBeDefined();
   });
 });
