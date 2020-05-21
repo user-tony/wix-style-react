@@ -140,6 +140,7 @@
     "@types/react-dom": "^16.9.8",
     "@ui-autotools/registry": "^3.4.0",
     "@ui-autotools/sanity": "^2.8.4",
+    "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-preset-yoshi": "^4.76.0",
