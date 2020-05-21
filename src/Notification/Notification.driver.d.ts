@@ -9,8 +9,6 @@ export interface NotificationDriver extends BaseDriver {
   isSuccessNotification: () => boolean;
   isWarningNotification: () => boolean;
   isPremiumNotification: () => boolean;
-  isSmallSize: () => boolean;
-  isBigSize: () => boolean;
   getLabelText: () => string;
   hasActionButton: () => boolean;
   getActionButtonText: () => string;

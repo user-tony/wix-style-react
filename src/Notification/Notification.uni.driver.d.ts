@@ -9,8 +9,6 @@ export interface NotificationUniDriver extends BaseUniDriver {
   isSuccessNotification: () => Promise<boolean>;
   isWarningNotification: () => Promise<boolean>;
   isPremiumNotification: () => Promise<boolean>;
-  isSmallSize: () => Promise<boolean>;
-  isBigSize: () => Promise<boolean>;
   getLabelText: () => Promise<string>;
   hasActionButton: () => Promise<boolean>;
   getActionButtonText: () => Promise<string>;

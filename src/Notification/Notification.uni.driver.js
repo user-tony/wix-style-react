@@ -1,37 +1,44 @@
-import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import { baseUniDriverFactory } from '../../test/utils/unidriver';
+import { dataHooks, THEMES, TYPE_POSITIONS_MAP } from './constants';
 
 export const notificationUniDriverFactory = base => {
-  const notificationWrapperSelector = '[data-hook="notification-wrapper"]';
-  const labelTextSelector = '[data-hook="notification-label"]';
-  const actionButtonSelector = '[data-hook="notification-cta-button"]';
-  const closeButtonSelector = '[data-hook="notification-close-button"]';
+  const getElementByDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
 
-  const classExists = className =>
-    base.$(notificationWrapperSelector).hasClass(className);
+  const notificationWrapper = getElementByDataHook(
+    dataHooks.notificationWrapper,
+  );
+  const labelText = getElementByDataHook(dataHooks.notificationLabel);
+  const actionButton = getElementByDataHook(dataHooks.notificationCtaButton);
+  const closeButton = getElementByDataHook(dataHooks.notificationCloseButton);
+
+  const classExists = className => notificationWrapper.hasClass(className);
+
+  const getTheme = async () => await base.attr('data-theme');
+  const getType = async () => await base.attr('data-type');
 
   return {
     ...baseUniDriverFactory(base),
-    visible: () => base.$(notificationWrapperSelector).exists(),
-    hasTheme: theme => classExists(`${theme}Theme`),
-    isStandardNotification: () => classExists('standardTheme'),
-    isErrorNotification: () => classExists('errorTheme'),
-    isSuccessNotification: () => classExists('successTheme'),
-    isWarningNotification: () => classExists('warningTheme'),
-    isPremiumNotification: () => classExists('premiumTheme'),
-    isSmallSize: () => classExists('smallSize'),
-    isBigSize: () => classExists('bigSize'),
-    getLabelText: () => base.$(labelTextSelector).text(),
-    hasActionButton: () => base.$(actionButtonSelector).exists(),
-    getActionButtonText: () => base.$(actionButtonSelector).text(),
-    hasCloseButton: () =>
-      base.$('[data-hook="notification-close-button"]').exists(),
-    isRelativelyPositioned: () => classExists('relativePosition'),
-    isFixedPositioned: () => classExists('fixedPosition'),
-    isAbsolutePositioned: () => classExists('absolutePosition'),
-    clickOnCloseButton: () => base.$(closeButtonSelector).click(),
-    clickOnActionButton: () => base.$(actionButtonSelector).click(),
+    visible: () => notificationWrapper.exists(),
+    hasTheme: async () => !!(await getTheme()),
+    isStandardNotification: async () => (await getTheme()) === THEMES.standard,
+    isErrorNotification: async () => (await getTheme()) === THEMES.error,
+    isSuccessNotification: async () => (await getTheme()) === THEMES.success,
+    isWarningNotification: async () => (await getTheme()) === THEMES.warning,
+    isPremiumNotification: async () => (await getTheme()) === THEMES.premium,
+    getLabelText: () => labelText.text(),
+    hasActionButton: () => actionButton.exists(),
+    getActionButtonText: () => actionButton.text(),
+    hasCloseButton: () => closeButton.exists(),
+    isRelativelyPositioned: async () =>
+      (await getType()) === TYPE_POSITIONS_MAP.relative,
+    isFixedPositioned: async () =>
+      (await getType()) === TYPE_POSITIONS_MAP.fixed,
+    isAbsolutePositioned: async () =>
+      (await getType()) === TYPE_POSITIONS_MAP.absolute,
+    clickOnCloseButton: () => closeButton.click(),
+    clickOnActionButton: () => actionButton.click(),
     getZIndex: async () => {
-      const style = await base.$(notificationWrapperSelector)._prop('style');
+      const style = await notificationWrapper._prop('style');
       return Number(style['z-index']);
     },
   };

@@ -1,15 +1,15 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import classNames from 'classnames';
 import * as Composite from '../Composite';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
-import css from './Notification.scss';
+import styles from './Notification.st.css';
 import StatusComplete from 'wix-ui-icons-common/StatusComplete';
 import StatusWarning from 'wix-ui-icons-common/StatusWarning';
 import StatusAlert from 'wix-ui-icons-common/StatusAlert';
+import { dataHooks } from './constants';
 
 export const LOCAL_NOTIFICATION = 'local';
 export const GLOBAL_NOTIFICATION = 'global';
@@ -17,21 +17,15 @@ export const STICKY_NOTIFICATION = 'sticky';
 export const DEFAULT_AUTO_HIDE_TIMEOUT = 6000;
 export const DEFAULT_TIMEOUT = DEFAULT_AUTO_HIDE_TIMEOUT;
 
-export const notificationTypeToPosition = {
-  [LOCAL_NOTIFICATION]: 'absolute',
-  [GLOBAL_NOTIFICATION]: 'relative',
-  [STICKY_NOTIFICATION]: 'fixed',
-};
-
 const animationsTimeouts = {
   enter: 500,
   exit: 350,
 };
 
 const themeIcon = {
-  error: <StatusAlert className={css.iconStyling} />,
-  success: <StatusComplete className={css.iconStyling} />,
-  warning: <StatusWarning className={css.iconStyling} />,
+  error: <StatusAlert className={styles.iconStyling} />,
+  success: <StatusComplete className={styles.iconStyling} />,
+  warning: <StatusWarning className={styles.iconStyling} />,
 };
 
 function FirstChild(props) {
@@ -69,26 +63,26 @@ class Notification extends React.PureComponent {
       hideByTimer: false,
     };
 
-    this.startCloseTimer(props);
+    this._startCloseTimer(props);
   }
 
-  startCloseTimer({ autoHideTimeout }) {
+  _startCloseTimer({ autoHideTimeout }) {
     if (autoHideTimeout) {
       this.closeTimeout = setTimeout(
-        () => this.hideNotificationOnTimeout(),
+        () => this._hideNotificationOnTimeout(),
         autoHideTimeout || DEFAULT_AUTO_HIDE_TIMEOUT,
       );
     }
   }
 
-  clearCloseTimeout() {
+  _clearCloseTimeout() {
     if (this.closeTimeout) {
       clearTimeout(this.closeTimeout);
       this.closeTimeout = null;
     }
   }
 
-  hideNotificationOnCloseClick = () => {
+  _hideNotificationOnCloseClick = () => {
     this.setState({ hideByCloseClick: true });
 
     setTimeout(
@@ -97,7 +91,7 @@ class Notification extends React.PureComponent {
     );
   };
 
-  hideNotificationOnTimeout = () => {
+  _hideNotificationOnTimeout = () => {
     this.setState({ hideByTimer: true });
 
     setTimeout(
@@ -106,7 +100,7 @@ class Notification extends React.PureComponent {
     );
   };
 
-  bypassCloseFlags() {
+  _bypassCloseFlags() {
     this.setState({
       hideByCloseClick: false,
       hideByTimer: false,
@@ -115,44 +109,40 @@ class Notification extends React.PureComponent {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.show) {
-      this.bypassCloseFlags();
-      this.clearCloseTimeout();
-      this.startCloseTimer(nextProps);
+      this._bypassCloseFlags();
+      this._clearCloseTimeout();
+      this._startCloseTimer(nextProps);
     }
   }
 
   componentWillUnmount() {
-    this.clearCloseTimeout();
+    this._clearCloseTimeout();
   }
 
-  shouldShowNotification() {
+  _shouldShowNotification() {
     return (
       this.props.show && !this.state.hideByCloseClick && !this.state.hideByTimer
     );
   }
 
-  renderNotification() {
-    const { zIndex, children, type, theme } = this.props;
+  _renderNotification() {
+    const { zIndex, children, theme } = this.props;
     const childrenComponents = mapChildren(children);
 
     return (
       <CSSTransition
         classNames={{
-          enter: css.notificationAnimationEnter,
-          enterActive: css.notificationAnimationEnterActive,
-          exit: css.notificationAnimationExit,
-          exitActive: css.notificationAnimationExitActive,
+          enter: styles.notificationAnimationEnter,
+          enterActive: styles.notificationAnimationEnterActive,
+          exit: styles.notificationAnimationExit,
+          exitActive: styles.notificationAnimationExitActive,
         }}
         timeout={animationsTimeouts}
       >
         <div
-          data-hook="notification-wrapper"
+          data-hook={dataHooks.notificationWrapper}
           style={{ zIndex }}
-          className={classNames(
-            css.notification,
-            css[`${theme}Theme`],
-            css[`${notificationTypeToPosition[type]}Position`],
-          )}
+          className={styles.notification}
           role="alert"
           aria-labelledby="notification-label"
           aria-live="polite"
@@ -160,22 +150,22 @@ class Notification extends React.PureComponent {
           {themeIcon[theme]}
           <div
             id="notification-label"
-            className={css.label}
+            className={styles.label}
             children={childrenComponents.label}
           />
 
           {childrenComponents.ctaButton && (
             <div
-              className={css.button}
+              className={styles.button}
               children={childrenComponents.ctaButton}
             />
           )}
 
           {childrenComponents.closeButton && (
             <div
-              data-hook="notification-close-button"
-              className={css.closeButton}
-              onClick={this.hideNotificationOnCloseClick}
+              data-hook={dataHooks.notificationCloseButton}
+              className={styles.closeButton}
+              onClick={this._hideNotificationOnCloseClick}
               children={childrenComponents.closeButton}
             />
           )}
@@ -185,11 +175,16 @@ class Notification extends React.PureComponent {
   }
 
   render() {
-    const { dataHook } = this.props;
+    const { dataHook, theme, type } = this.props;
     return (
-      <div data-hook={dataHook} className={css.root}>
+      <div
+        {...styles('root', { theme, type }, this.props)}
+        data-hook={dataHook}
+        data-theme={theme}
+        data-type={type}
+      >
         <TransitionGroup component={FirstChild}>
-          {this.shouldShowNotification() ? this.renderNotification() : null}
+          {this._shouldShowNotification() ? this._renderNotification() : null}
         </TransitionGroup>
       </div>
     );

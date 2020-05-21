@@ -1,46 +1,39 @@
 import ReactTestUtils from 'react-dom/test-utils';
+import { dataHooks, THEMES, TYPE_POSITIONS_MAP } from './constants';
 
 const notificationDriverFactory = ({ element }) => {
-  const notificationWrapperSelector = '[data-hook="notification-wrapper"]';
-  const labelTextSelector = '[data-hook="notification-label"]';
-  const actionButtonSelector = '[data-hook="notification-cta-button"]';
-  const closeButtonSelector = '[data-hook="notification-close-button"]';
+  const getElementByDataHook = dataHook =>
+    element.querySelector(`[data-hook="${dataHook}"]`);
 
-  const classExists = className =>
-    element
-      .querySelector(notificationWrapperSelector)
-      .classList.contains(className);
+  const notificationWrapper = getElementByDataHook(
+    dataHooks.notificationWrapper,
+  );
+  const labelText = getElementByDataHook(dataHooks.notificationLabel);
+  const actionButton = getElementByDataHook(dataHooks.notificationCtaButton);
+  const closeButton = getElementByDataHook(dataHooks.notificationCloseButton);
+
+  const getTheme = () => element.getAttribute('data-theme');
+  const getType = () => element.getAttribute('data-type');
 
   return {
     exists: () => !!element,
-    visible: () => !!element.querySelector(notificationWrapperSelector),
-    hasTheme: theme => classExists(`${theme}Theme`),
-    isStandardNotification: () => classExists('standardTheme'),
-    isErrorNotification: () => classExists('errorTheme'),
-    isSuccessNotification: () => classExists('successTheme'),
-    isWarningNotification: () => classExists('warningTheme'),
-    isPremiumNotification: () => classExists('premiumTheme'),
-    isSmallSize: () => classExists('smallSize'),
-    isBigSize: () => classExists('bigSize'),
-    getLabelText: () => element.querySelector(labelTextSelector).textContent,
-    hasActionButton: () => !!element.querySelector(actionButtonSelector),
-    getActionButtonText: () =>
-      element.querySelector(actionButtonSelector).textContent,
-    hasCloseButton: () =>
-      !!element.querySelector('[data-hook="notification-close-button"]'),
-    isRelativelyPositioned: () => classExists('relativePosition'),
-    isFixedPositioned: () => classExists('fixedPosition'),
-    isAbsolutePositioned: () => classExists('absolutePosition'),
-    clickOnCloseButton: () =>
-      ReactTestUtils.Simulate.click(element.querySelector(closeButtonSelector)),
-    clickOnActionButton: () =>
-      ReactTestUtils.Simulate.click(
-        element.querySelector(actionButtonSelector),
-      ),
-    getZIndex: () =>
-      Number(
-        element.querySelector(notificationWrapperSelector).style['z-index'],
-      ),
+    visible: () => !!getElementByDataHook(dataHooks.notificationWrapper),
+    hasTheme: () => !!getTheme(),
+    isStandardNotification: () => getTheme() === THEMES.standard,
+    isErrorNotification: () => getTheme() === THEMES.error,
+    isSuccessNotification: () => getTheme() === THEMES.success,
+    isWarningNotification: () => getTheme() === THEMES.warning,
+    isPremiumNotification: () => getTheme() === THEMES.premium,
+    getLabelText: () => labelText.textContent,
+    hasActionButton: () => !!actionButton,
+    getActionButtonText: () => actionButton.textContent,
+    hasCloseButton: () => !!closeButton,
+    isRelativelyPositioned: () => getType() === TYPE_POSITIONS_MAP.relative,
+    isFixedPositioned: () => getType() === TYPE_POSITIONS_MAP.fixed,
+    isAbsolutePositioned: () => getType() === TYPE_POSITIONS_MAP.absolute,
+    clickOnCloseButton: () => ReactTestUtils.Simulate.click(closeButton),
+    clickOnActionButton: () => ReactTestUtils.Simulate.click(actionButton),
+    getZIndex: () => Number(notificationWrapper.style['z-index']),
   };
 };
 

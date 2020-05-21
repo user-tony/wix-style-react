@@ -12,9 +12,14 @@ import {
   cleanup,
 } from '../../test/utils/unit';
 
-import Notification from './Notification';
+import Notification, {
+  LOCAL_NOTIFICATION,
+  GLOBAL_NOTIFICATION,
+  STICKY_NOTIFICATION,
+} from './Notification';
 import Button from '../Button';
 import TextButton from '../TextButton';
+import eventually from 'wix-eventually';
 
 const renderNotificationWithProps = (props = {}) => (
   <Notification {...props}>
@@ -33,69 +38,63 @@ describe('Notification', () => {
   });
 
   function runTests(render) {
-    afterEach(() => cleanup());
-    const createDriver = jsx => render(jsx).driver;
+    afterEach(cleanup);
 
     describe('Visibility', () => {
       it('should verify component exists', async () => {
-        const driver = createDriver(renderNotificationWithProps());
+        const { driver } = render(renderNotificationWithProps());
         expect(await driver.exists()).toBe(true);
       });
 
       it('should be visible', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true }),
-        );
+        const { driver } = render(renderNotificationWithProps({ show: true }));
         expect(await driver.visible()).toBe(true);
       });
 
       it('should not be visible', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: false }),
-        );
+        const { driver } = render(renderNotificationWithProps({ show: false }));
         expect(await driver.visible()).toBe(false);
       });
     });
 
     describe('Themes', () => {
       it('should support default theme', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true }),
-        );
+        const { driver } = render(renderNotificationWithProps({ show: true }));
+
         expect(await driver.isStandardNotification()).toBe(true);
         expect(await driver.hasTheme('standard')).toBe(true);
       });
 
       it('should support standard theme', async () => {
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, theme: 'standard' }),
         );
         expect(await driver.isStandardNotification()).toBe(true);
       });
 
       it('should support error theme', async () => {
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, theme: 'error' }),
         );
         expect(await driver.isErrorNotification()).toBe(true);
       });
 
       it('should support success theme', async () => {
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, theme: 'success' }),
         );
         expect(await driver.isSuccessNotification()).toBe(true);
       });
 
       it('should support warning theme', async () => {
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, theme: 'warning' }),
         );
         expect(await driver.isWarningNotification()).toBe(true);
       });
 
       it('should support premium theme', async () => {
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, theme: 'premium' }),
         );
         expect(await driver.isPremiumNotification()).toBe(true);
@@ -106,7 +105,7 @@ describe('Notification', () => {
       describe('Label', () => {
         it('should show have a text to show', async () => {
           const labelText = 'Label Text';
-          const driver = createDriver(
+          const { driver } = render(
             <Notification show>
               <Notification.TextLabel>{labelText}</Notification.TextLabel>
               <Notification.CloseButton />
@@ -119,7 +118,7 @@ describe('Notification', () => {
       describe('Action Button', () => {
         it('should have an action button', async () => {
           const actionButtonText = 'Action Button Text';
-          const driver = createDriver(
+          const { driver } = render(
             <Notification show>
               <Notification.TextLabel>label</Notification.TextLabel>
               <Notification.ActionButton>
@@ -132,7 +131,7 @@ describe('Notification', () => {
         });
 
         it('should not have an action button', async () => {
-          const driver = createDriver(
+          const { driver } = render(
             renderNotificationWithProps({ show: true }),
           );
           expect(await driver.hasActionButton()).toBe(false);
@@ -141,7 +140,7 @@ describe('Notification', () => {
         it('should call the supplied onClick handler when clicked', async () => {
           const onClickMock = jest.fn();
 
-          const driver = createDriver(
+          const { driver } = render(
             <Notification show>
               <Notification.TextLabel>label</Notification.TextLabel>
               <Notification.ActionButton onClick={onClickMock}>
@@ -159,14 +158,14 @@ describe('Notification', () => {
 
       describe('Close Button', () => {
         it('should have a close button (with action button)', async () => {
-          const driver = createDriver(
+          const { driver } = render(
             renderNotificationWithProps({ show: true }),
           );
           expect(await driver.hasCloseButton()).toBe(true);
         });
 
         it('should have a close button (without action button)', async () => {
-          const driver = createDriver(
+          const { driver } = render(
             renderNotificationWithProps({ show: true }),
           );
           expect(await driver.hasActionButton()).toBe(false);
@@ -175,7 +174,7 @@ describe('Notification', () => {
 
         it('should allow no CloseButton', async () => {
           const labelText = 'Label Text';
-          const driver = createDriver(
+          const { driver } = render(
             <Notification show>
               <Notification.TextLabel>{labelText}</Notification.TextLabel>
             </Notification>,
@@ -187,47 +186,49 @@ describe('Notification', () => {
 
     describe('Type', () => {
       it('should set default type to global and position relative', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true }),
-        );
+        const { driver } = render(renderNotificationWithProps({ show: true }));
         expect(await driver.isRelativelyPositioned()).toBe(true);
       });
 
       it('should set the type to global and position relative', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true, type: 'global' }),
+        const { driver } = render(
+          renderNotificationWithProps({
+            show: true,
+            type: GLOBAL_NOTIFICATION,
+          }),
         );
         expect(await driver.isRelativelyPositioned()).toBe(true);
       });
 
       it('should set the type to local and position absolute', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true, type: 'local' }),
+        const { driver } = render(
+          renderNotificationWithProps({ show: true, type: LOCAL_NOTIFICATION }),
         );
         expect(await driver.isAbsolutePositioned()).toBe(true);
       });
 
       it('should set the type to sticky and position fixed', async () => {
-        const driver = createDriver(
-          renderNotificationWithProps({ show: true, type: 'sticky' }),
+        const { driver } = render(
+          renderNotificationWithProps({
+            show: true,
+            type: STICKY_NOTIFICATION,
+          }),
         );
         expect(await driver.isFixedPositioned()).toBe(true);
       });
     });
 
     describe(`Closing`, () => {
-      beforeEach(() => {
-        jest.useFakeTimers();
-      });
-
       describe('Closing when clicking on close button', () => {
         it('should close the notification', async () => {
           const { driver } = render(
             renderNotificationWithProps({ show: true }),
           );
           await driver.clickOnCloseButton();
-          jest.runAllTimers(); // for animations
-          expect(await driver.visible()).toBe(false);
+
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
         });
 
         it('should allow reopening the notification after closed by close button', async () => {
@@ -235,10 +236,16 @@ describe('Notification', () => {
             renderNotificationWithProps({ show: true }),
           );
           await driver.clickOnCloseButton();
-          jest.runAllTimers(); // for animations
-          expect(await driver.visible()).toBe(false);
+
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
+
           rerender(renderNotificationWithProps({ show: true }));
-          expect(await driver.visible()).toBe(true);
+
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(true),
+          );
         });
       });
 
@@ -248,15 +255,16 @@ describe('Notification', () => {
           renderNotificationWithProps({ ...props });
 
         it(`should keep notification shown regardless of any timers`, async () => {
-          const driver = createDriver(renderNewNotification({ show: true }));
-          jest.runAllTimers();
-
+          const { driver } = render(renderNewNotification({ show: true }));
           expect(await driver.visible()).toBe(true);
-          expect(setTimeout).not.toBeCalled();
+          setTimeout(
+            async () => expect(await driver.visible()).toBe(true),
+            someTimeout,
+          );
         });
 
         it('should auto-hide after a given timeout', async () => {
-          const driver = createDriver(
+          const { driver } = render(
             renderNewNotification({
               show: true,
               autoHideTimeout: someTimeout,
@@ -264,8 +272,9 @@ describe('Notification', () => {
           );
 
           expect(await driver.visible()).toBe(true);
-          jest.runAllTimers();
-          expect(await driver.visible()).toBe(false);
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
         });
 
         it('should be able to show notification again after timeout', async () => {
@@ -276,9 +285,9 @@ describe('Notification', () => {
             }),
           );
 
-          jest.runAllTimers();
-          expect(await driver.visible()).toBe(false);
-          jest.clearAllTimers();
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
 
           rerender(
             renderNewNotification({
@@ -297,8 +306,10 @@ describe('Notification', () => {
             }),
           );
 
-          jest.runAllTimers();
-          expect(await driver.visible()).toBe(false);
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
+
           rerender(
             renderNewNotification({
               show: true,
@@ -306,20 +317,18 @@ describe('Notification', () => {
             }),
           );
           expect(await driver.visible()).toBe(true);
-          jest.runAllTimers();
-          expect(await driver.visible()).toBe(false);
-        });
-      });
 
-      afterEach(() => {
-        jest.clearAllTimers();
+          await eventually(async () =>
+            expect(await driver.visible()).toBe(false),
+          );
+        });
       });
     });
 
     describe('Style', () => {
       it('should accept a z-index', async () => {
         const zIndex = 999;
-        const driver = createDriver(
+        const { driver } = render(
           renderNotificationWithProps({ show: true, zIndex }),
         );
         expect(await driver.getZIndex()).toEqual(zIndex);
