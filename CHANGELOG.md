@@ -15,9 +15,13 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
-## Next 
+## Next
 ### Fixed:
 -`<Notification/>`- driver fix [#5491](https://github.com/wix/wix-style-react/pull/5491)
+
+### Breaking
+- `<AudioPlayer>` - Renamed prop `html5Audio` to `webAudioAPI` which makes the player to be html5 by default [#5488](https://github.com/wix/wix-style-react/pull/5488)
+- `<AudioPlayer>` - Changed prop `lazyLoad` (boolean) to be `preload` ('auto', 'metadata' or 'none') defaults to 'metadata'. (lazyLoad=false equals to prelaod=auto) [#5488](https://github.com/wix/wix-style-react/pull/5488)
 
 ## 8.12.0 - 2020-05-21
 
@@ -32,10 +36,6 @@ Types of changes:
 ### Changed
 - `Input` & `Selection` families- changing large size [#5457](https://github.com/wix/wix-style-react/pull/5457)
 - `<Notification/>`- migrating styles to stylable and updating drivers accordingly [#5484](https://github.com/wix/wix-style-react/pull/5484)
-
-### Breaking
-- `<AudioPlayer>` - Renamed prop `html5Audio` to `webAudioAPI` which makes the player to be html5 by default [#5488](https://github.com/wix/wix-style-react/pull/5488)
-- `<AudioPlayer>` - Changed prop `lazyLoad` (boolean) to be `preload` ('auto', 'metadata' or 'none') defaults to 'metadata'. (lazyLoad=false equals to prelaod=auto) [#5488](https://github.com/wix/wix-style-react/pull/5488)
 
 ## 8.11.0 - 2020-05-19
 ### Added
