@@ -14,6 +14,9 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Fixed:
+- `<GooglePreview/>`- Use hard codded arial font [#5469](https://github.com/wix/wix-style-react/pull/5469)
 
 ## 8.13.0 - 2020-05-24
 ### Fixed:
