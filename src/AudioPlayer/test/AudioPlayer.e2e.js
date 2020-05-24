@@ -166,23 +166,23 @@ describe('AudioPlayer', () => {
     it('should call onPlay when started playing', async () => {
       await driver.waitForFileToLoad();
       await driver.clickOnPlayPauseButton();
+      await sleep(100);
 
-      const testWrapper = $(`[data-hook="audio-player-test-div"]`);
-      await eventually(async () =>
-        expect(await testWrapper.getAttribute('data-played')).toBe('true'),
-      );
+      await eventually(async () => {
+        const testWrapper = $(`[data-hook="audio-player-test-div"]`);
+        expect(await testWrapper.getAttribute('data-played')).toBe('true');
+      });
     });
 
     it('should call onPause when paused', async () => {
-      await driver.waitForFileToLoad();
       await driver.clickOnPlayPauseButton();
       await driver.clickOnPlayPauseButton();
-
-      const testWrapper = $(`[data-hook="audio-player-test-div"]`);
       await sleep(100);
-      await eventually(async () =>
-        expect(await testWrapper.getAttribute('data-paused')).toBe('true'),
-      );
+
+      await eventually(async () => {
+        const testWrapper = $(`[data-hook="audio-player-test-div"]`);
+        expect(await testWrapper.getAttribute('data-paused')).toBe('true');
+      });
     });
 
     it('should call onEnd when ended', async () => {
@@ -218,7 +218,7 @@ describe('AudioPlayer', () => {
     });
   });
 
-  describe('Lazy Load', () => {
+  describe('preload = none with webAudioAPI', () => {
     beforeEach(async () => {
       await navigateToTestUrl(testStories.audioPlayerLazyLoad);
 

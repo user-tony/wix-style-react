@@ -18,8 +18,8 @@ const AudioPlayer = memo(
     className,
     src,
     format,
-    lazyLoad,
-    html5Audio,
+    preload,
+    webAudioAPI,
     onLoad,
     onLoadError,
     onPlay,
@@ -47,8 +47,8 @@ const AudioPlayer = memo(
     const { loadingState, duration, seek, setSeek } = useAudioManager({
       src,
       format,
-      lazyLoad,
-      html5Audio,
+      preload,
+      webAudioAPI,
       onLoad,
       onLoadError,
       onPlay,
@@ -228,14 +228,17 @@ AudioPlayer.propTypes = {
   format: PropTypes.string,
 
   /**
-   Disables automatic download of the audio file when the component is rendered.
+   Determines if file should be downloaded completely, only its metadata or none at all when the component is rendered.
+   when webAudioAPI = true one can only set either 'auto' or 'none'.
+   when webAudioAPI = false one can set either 'auto', 'metadata' or 'none'
    */
-  lazyLoad: PropTypes.bool,
+  preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
   /**
-   Set to true to force HTML5 Audio. This should be used for large audio files so that you don't have to wait for the full file to be downloaded and decoded before playing.
+   Set to true to force web audio API. This should be used for relatively small audio files because then you have to wait for the full file to be downloaded and decoded before playing.
+   Web Audio API allows advanced capabilities as described in [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
    */
-  html5Audio: PropTypes.bool,
+  webAudioAPI: PropTypes.bool,
 
   /**
    Will be called when audio is loaded.
@@ -269,8 +272,8 @@ AudioPlayer.propTypes = {
 };
 
 AudioPlayer.defaultProps = {
-  lazyLoad: false,
-  html5Audio: false,
+  preload: 'metadata',
+  webAudioAPI: false,
 };
 
 export default AudioPlayer;

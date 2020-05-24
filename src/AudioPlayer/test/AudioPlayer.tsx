@@ -17,8 +17,8 @@ function audioPlayerWithAllProps() {
       className="className"
       src="example.mp3"
       format="mp3"
-      html5Audio
-      lazyLoad
+      webAudioAPI={false}
+      preload="metadata"
       onLoad={() => {}}
       onLoadError={(_msg: string) => {}}
       onEnd={() => {}}

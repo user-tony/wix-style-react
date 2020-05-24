@@ -57,8 +57,8 @@ export default {
 
   componentProps: {
     src: audioFiles[0].value,
-    lazyLoad: false,
-    html5Audio: false,
+    preload: 'metadata',
+    webAudioAPI: false,
   },
 
   exampleProps: {
@@ -106,7 +106,7 @@ export default {
             title: 'Lazy load',
             text: 'The given file is not loaded until play is pressed.',
             source:
-              '<AudioPlayer lazyLoad src="https://music.wixstatic.com/preview/84770f_954ba2388ca147ff80a873d9cc72ea84-128.mp3" />',
+              '<AudioPlayer preload="none" src="https://music.wixstatic.com/preview/84770f_954ba2388ca147ff80a873d9cc72ea84-128.mp3" />',
           }),
         ],
       }),

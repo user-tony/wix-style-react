@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Howl } from './howler';
+import { Howl } from 'howler';
 
 // A callback that keeps its instance and won't make Howler to re create every time
 const useStableCallback = callback => {
@@ -46,8 +46,8 @@ export const useAudioManager = ({
   src,
   playing,
   format,
-  lazyLoad,
-  html5Audio: html5,
+  preload,
+  webAudioAPI,
   allowSeekLoop,
   onEnd,
   onLoad,
@@ -183,9 +183,10 @@ export const useAudioManager = ({
       audioManager.current = new Howl({
         src: src,
         format: format,
-        preload: !lazyLoad,
+        preload:
+          preload === 'none' ? false : preload === 'auto' ? true : preload,
         onload: _onLoad,
-        html5: html5,
+        html5: !webAudioAPI,
         onend: _onEnd,
         onplay: stableOnPlay,
         onloaderror: _onLoadError,
@@ -199,8 +200,6 @@ export const useAudioManager = ({
     audioManager,
     _destroy,
     format,
-    html5,
-    lazyLoad,
     src,
     _onEnd,
     _onLoad,
@@ -208,6 +207,8 @@ export const useAudioManager = ({
     stableOnPlay,
     stableOnPause,
     stableOnSeek,
+    preload,
+    webAudioAPI,
   ]);
 
   useEffect(() => {
