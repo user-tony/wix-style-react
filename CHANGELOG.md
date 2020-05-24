@@ -17,7 +17,7 @@ Types of changes:
 
 ## Next
 ### Fixed:
--`<Notification/>`- driver fix [#5491](https://github.com/wix/wix-style-react/pull/5491)
+- `<Notification/>`- driver fix [#5491](https://github.com/wix/wix-style-react/pull/5491)
 
 ### Breaking
 - `<AudioPlayer>` - Renamed prop `html5Audio` to `webAudioAPI` which makes the player to be html5 by default [#5488](https://github.com/wix/wix-style-react/pull/5488)
