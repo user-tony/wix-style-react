@@ -5,8 +5,8 @@ export interface AudioPlayerProps {
   className?: string;
   src: string;
   format?: string;
-  lazyLoad?: boolean;
-  html5Audio?: boolean;
+  preload?: 'metadata' | 'auto' | 'none';
+  webAudioAPI?: boolean;
   onLoad?(): void;
   onLoadError?(errorMsg: string): void;
   onPlay?(): void;

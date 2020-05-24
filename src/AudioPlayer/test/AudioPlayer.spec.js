@@ -17,7 +17,7 @@ describe(AudioPlayer.displayName, () => {
   });
 
   it('should show --:-- when not loaded', async () => {
-    const { driver } = render(<AudioPlayer src={src} lazyLoad />);
+    const { driver } = render(<AudioPlayer src={src} preload="none" />);
 
     expect(await driver.timeIndicatorText()).toBe('--:--');
   });
