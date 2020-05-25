@@ -15,7 +15,7 @@
   text-align: center;
   box-sizing: border-box;
   padding-top: value(spacing48);
-  min-width: 600px;
+  width: 600px;
 }
 
 .announcementModalLayout .link {
@@ -24,7 +24,7 @@
 
 .announcementModalLayout .bottomSpacing {
   width: 100%;
-  height: value(spacing42);
+  height: value(spacing48);
 }
 
 /* Overriding of BaseModalLayout Blocks*/
@@ -42,7 +42,7 @@
   padding: 0 value(spacing78);
 }
 
-.announcementModalLayout Footer {
+.announcementModalLayout Footer::innerContent {
   padding: value(spacing42) value(spacing78) 0 value(spacing78);
 }
 
