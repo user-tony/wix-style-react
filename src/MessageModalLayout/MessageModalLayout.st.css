@@ -16,7 +16,7 @@
 .root {
   -st-extends: BaseModalLayout;
   -st-states: hasIllustration;
-  min-width: 510px;
+  width: 510px;
 }
 
 .mainContainer {
