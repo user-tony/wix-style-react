@@ -1,12 +1,19 @@
 import * as React from 'react';
-import { BaseModalLayoutProps } from '../BaseModalLayout';
+import {
+  BaseModalLayoutProps,
+  HeaderProps,
+  ContentProps,
+  FooterProps,
+  FootnoteProps,
+} from '../BaseModalLayout';
 
-export interface CustomModalLayoutProps extends BaseModalLayoutProps {
-  className?: string;
-  dataHook?: string;
+export interface CustomModalLayoutProps
+  extends BaseModalLayoutProps,
+    HeaderProps,
+    ContentProps,
+    FooterProps,
+    FootnoteProps {
   width?: string;
 }
 
-export default class CustomModalLayout extends React.PureComponent<
-  CustomModalLayoutProps
-> {}
+export const CustomModalLayout: React.FunctionComponent<CustomModalLayoutProps>;

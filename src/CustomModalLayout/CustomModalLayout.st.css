@@ -1,22 +1,3 @@
-:vars {
-  modalBoxPadding: 48px;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D80;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/border.st.css";
-  -st-named: radius08;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/shadows.st.css";
-  -st-named: shadow40;
-}
-
 :import {
   -st-from: "../Foundation/stylable/spacing.st.css";
   -st-named: spacing24, spacing30, spacing42;
@@ -24,27 +5,23 @@
 
 :import {
   -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
-  -st-named: buttons, root as baseModal, actions, header, contentWrapper;
+  -st-named: root as BaseModalLayout, Header, Content, Footnote
 }
 
 .root {
+  -st-extends: BaseModalLayout;
   -st-states: removeContentPadding;
-  background-color: value(D80);
-  position: relative;
   min-width: 510px;
-  max-width: calc(100% - (value(modalBoxPadding) * 2) );
-  max-height: calc(100% - (value(modalBoxPadding) * 2) );
-  display: flex;
-  flex-direction: column;
-  border-radius: value(radius08);
-  box-shadow: value(shadow40);
-  overflow: hidden;
 }
 
-.root .header {
+.root:not(:removeContentPadding) Content::innerContent {
+  padding: 0 value(spacing30);
+}
+
+.root Header {
   padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
 }
 
-.root .contentWrapper {
-  padding: 0 value(spacing30);
+.root Footnote::innerContent {
+  justify-content: flex-start;
 }
