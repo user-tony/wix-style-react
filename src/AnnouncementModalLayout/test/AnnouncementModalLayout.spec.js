@@ -3,141 +3,76 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
 import AnnouncementModalLayout from '../AnnouncementModalLayout';
 import { announcementModalLayoutPrivateDriverFactory } from './AnnouncementModalLayout.private.uni.driver';
-import { dataHooks } from '../constants';
 
 describe('AnnouncementModalLayout', () => {
   const render = createRendererWithUniDriver(
     announcementModalLayoutPrivateDriverFactory,
   );
 
-  const commonProps = {
-    dataHook: dataHooks.announcementModalLayout,
-    primaryButtonText: 'Start Now',
-    primaryButtonProps: { dataHook: dataHooks.primaryButton },
-    secondaryButtonText: 'Skip',
-    secondaryButtonProps: { dataHook: dataHooks.secondaryButton },
-  };
-
   afterEach(() => {
     cleanup();
   });
 
-  describe('Render', () => {
-    it('should render', async () => {
-      const { driver } = render(
-        <AnnouncementModalLayout {...commonProps}>
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      expect(await driver.exists()).toBe(true);
-      expect(await driver.getPrimaryButtonText()).toEqual(
-        commonProps.primaryButtonText,
-      );
-      expect(await driver.getSecondaryButtonText()).toEqual(
-        commonProps.secondaryButtonText,
-      );
-    });
-
-    it('should render children', async () => {
-      const children = <div data-hook="child">Child div</div>;
-      const { driver } = render(
-        <AnnouncementModalLayout>{children}</AnnouncementModalLayout>,
-      );
-
-      expect(await driver.childExists('[data-hook=child]')).toBe(true);
-    });
+  it('should render the Illustration component when illustration-related props are passed', async () => {
+    const illustration = 'some illustration';
+    const { driver } = render(
+      <AnnouncementModalLayout illustration={illustration} />,
+    );
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.illustration.exists()).toBe(true);
   });
 
-  describe('Title', () => {
-    it('Node provided - should render with that node', async () => {
-      const title = <div data-hook={dataHooks.title}>Title</div>;
-      const { driver } = render(
-        <AnnouncementModalLayout title={title}>
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      expect(
-        await driver.childExists('[data-hook=' + dataHooks.title + ']'),
-      ).toBe(true);
-    });
-    it('String provided - should render wrapped in H2', async () => {
-      const title = 'Title';
-      const { driver } = render(
-        <AnnouncementModalLayout title={title}>
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      expect(
-        await driver.childExists('h2[data-hook=' + dataHooks.title + ']'),
-      ).toBe(true);
-    });
+  it('should render the Header component when header-related props are passed', async () => {
+    const title = 'some title';
+    const { driver } = render(<AnnouncementModalLayout title={title} />);
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.header.exists()).toBe(true);
+    expect(await driver.header.getHeaderText()).toBe(title);
+    expect(await driver.header._getTitleAppearance()).toBe('H2');
   });
 
-  describe('Illustration', () => {
-    it('Should render illustration', async () => {
-      const illustration = <div data-hook={dataHooks.illustration}></div>;
-      const { driver } = render(
-        <AnnouncementModalLayout illustration={illustration}>
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      expect(
-        await driver.childExists('[data-hook=' + dataHooks.illustration + ']'),
-      ).toBe(true);
-    });
+  it('should render the Content component with provided children', async () => {
+    const children = 'Child';
+    const { driver } = render(
+      <AnnouncementModalLayout>{children}</AnnouncementModalLayout>,
+    );
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.content.exists()).toBe(true);
+    expect(await driver.content.getContentText()).toBe(children);
   });
 
-  describe('Link', () => {
-    it('Should render', async () => {
-      const { driver } = render(
-        <AnnouncementModalLayout linkText="Learn More">
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      expect(
-        await driver.childExists('[data-hook=' + dataHooks.link + ']'),
-      ).toBe(true);
-    });
-    it('Click should trigger linkOnClick', async () => {
-      const linkOnClick = jest.fn();
-      const { driver } = render(
-        <AnnouncementModalLayout
-          linkText="Learn More"
-          linkOnClick={linkOnClick}
-        >
-          Content
-        </AnnouncementModalLayout>,
-      );
-
-      await driver.clickLink(), expect(linkOnClick).toHaveBeenCalledTimes(1);
-    });
+  it('should render the Footer component when footer-related props are passed', async () => {
+    const pButtonText = 'pButtonText';
+    const { driver } = render(
+      <AnnouncementModalLayout primaryButtonText={pButtonText} />,
+    );
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.footer.exists()).toBe(true);
+    expect(await driver.footer.getPrimaryButtonText()).toBe(pButtonText);
   });
 
-  describe('Theme', () => {
-    it('Default - Standard theme', async () => {
-      const { driver } = render(
-        <AnnouncementModalLayout {...commonProps}>
-          Content
-        </AnnouncementModalLayout>,
-      );
+  it('should render the Footnote component when footnote-related props are passed', async () => {
+    const footnote = 'footnote text';
+    const { driver } = render(<AnnouncementModalLayout footnote={footnote} />);
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.footnote.exists()).toBe(true);
+    expect(await driver.footnote.getFootnoteText()).toBe(footnote);
+  });
 
-      expect(await driver.primaryButtonHasSkin('standard')).toBe(true);
-      expect(await driver.secondaryButtonHasSkin('standard')).toBe(true);
-    });
-    it('Premium theme', async () => {
-      const { driver } = render(
-        <AnnouncementModalLayout {...commonProps} theme="premium">
-          Content
-        </AnnouncementModalLayout>,
-      );
+  it('should render the Link component when link-related props are passed', async () => {
+    const linkText = 'link text';
+    const { driver } = render(<AnnouncementModalLayout linkText={linkText} />);
+    expect(await driver.exists()).toBe(true);
+    expect(await driver.link.exists()).toBe(true);
+    expect(await driver.link.getLinkText()).toBe(linkText);
+  });
 
-      expect(await driver.primaryButtonHasSkin('premium')).toBe(true);
-      expect(await driver.secondaryButtonHasSkin('premium')).toBe(true);
-    });
+  it('should trigger the `linkOnClick` handler when link clicked', async () => {
+    const linkOnClickSpy = jest.fn();
+    const { driver } = render(
+      <AnnouncementModalLayout linkOnClick={linkOnClickSpy} />,
+    );
+    await driver.link.clickLink();
+    expect(linkOnClickSpy).toHaveBeenCalled();
   });
 });
