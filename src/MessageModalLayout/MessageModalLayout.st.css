@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
-  -st-named: root as BaseModalLayout, Header, Content, Footer, Footnote, Illustration
+  -st-named: root as BaseModalLayout, Header, Content, Footnote, Illustration
 }
 
 .root {
