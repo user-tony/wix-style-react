@@ -12,13 +12,13 @@ import Box from '../Box';
 /** MessageModalLayout */
 const MessageModalLayout = ({ children, ...restProps }) => {
   const { illustration } = restProps;
-  const [showDivider, setShowDivider] = useState(false);
+  const [showFooterDivider, setShowFooterDivider] = useState(false);
 
   const onContentScrollPositionChanged = useCallback(({ position }) => {
     const { y: scrollPosition } = position;
     const newShowDivider =
       scrollPosition === 'top' || scrollPosition === 'middle';
-    setShowDivider(newShowDivider);
+    setShowFooterDivider(newShowDivider);
   }, []);
 
   const getScrollPositionChangedHandler = useCallback(
@@ -30,9 +30,9 @@ const MessageModalLayout = ({ children, ...restProps }) => {
 
   const getShowDividerState = useCallback(
     () => ({
-      ...(!!illustration ? { showDivider } : {}),
+      ...(!!illustration ? { showFooterDivider } : {}),
     }),
-    [illustration, showDivider],
+    [illustration, showFooterDivider],
   );
 
   const hasIllustration = !!illustration;

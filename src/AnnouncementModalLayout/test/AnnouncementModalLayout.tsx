@@ -24,7 +24,7 @@ function baseModalLayoutWithAllProps() {
       contentHideDividers
       onContentScrollPositionChanged={() => {}}
       actionsSize="small"
-      showDivider
+      showFooterDivider
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',

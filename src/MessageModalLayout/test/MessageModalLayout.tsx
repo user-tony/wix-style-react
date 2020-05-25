@@ -28,7 +28,7 @@ function messageModalLayoutWithAllProps() {
       contentHideDividers
       onContentScrollPositionChanged={() => {}}
       actionsSize="small"
-      showDivider
+      showFooterDivider
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',

@@ -217,7 +217,11 @@ describe('BaseModalLayout', () => {
     describe('Footer', () => {
       it('should not render `footer` when no actions-related props passed', async () => {
         const { driver } = render(
-          <BaseModalLayout theme={'standard'} actionsSize={'large'} showDivider>
+          <BaseModalLayout
+            theme={'standard'}
+            actionsSize={'large'}
+            showFooterDivider
+          >
             <Footer />
           </BaseModalLayout>,
         );
@@ -313,7 +317,7 @@ describe('BaseModalLayout', () => {
         expect(await driver.footer._primaryButtonExists()).toBe(true);
       });
 
-      it('should not render the `footer-divider` when `showDivider` is not passed', async () => {
+      it('should not render the `footer-divider` when `showFooterDivider` is not passed', async () => {
         const { driver } = render(
           <BaseModalLayout primaryButtonText={'text'}>
             <Footer />
@@ -322,9 +326,9 @@ describe('BaseModalLayout', () => {
         expect(await driver.footer._dividerExists()).toBe(false);
       });
 
-      it('should render the `footer-divider` when `showDivider` passed', async () => {
+      it('should render the `footer-divider` when `showFooterDivider` passed', async () => {
         const { driver } = render(
-          <BaseModalLayout primaryButtonText={'text'} showDivider>
+          <BaseModalLayout primaryButtonText={'text'} showFooterDivider>
             <Footer />
           </BaseModalLayout>,
         );

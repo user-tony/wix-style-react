@@ -12,7 +12,7 @@ interface FooterProps {
   secondaryButtonOnClick?(): void;
   actionsSize?: ButtonSize;
   sideActions?: React.ReactNode;
-  showDivider?: boolean;
+  showFooterDivider?: boolean;
   theme?: ModalTheme;
 }
 

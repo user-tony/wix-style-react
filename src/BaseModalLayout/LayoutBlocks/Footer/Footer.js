@@ -10,7 +10,7 @@ export const Footer = props => {
   const {
     theme,
     actionsSize,
-    showDivider,
+    showFooterDivider,
     sideActions,
     secondaryButtonText,
     secondaryButtonOnClick,
@@ -27,9 +27,9 @@ export const Footer = props => {
   return (
     (hasFooter && (
       <div
-        {...styles('root', { showDivider })}
+        {...styles('root', { showDivider: showFooterDivider })}
         data-hook={dataHooks.footer}
-        data-divider={showDivider}
+        data-divider={showFooterDivider}
       >
         <Divider
           className={styles.divider}
@@ -104,11 +104,11 @@ Footer.propTypes = {
   /** side actions node, to be rendered as the first element on the same row as the action buttons */
   sideActions: PropTypes.node,
   /** shows the footer divider */
-  showDivider: PropTypes.bool,
+  showFooterDivider: PropTypes.bool,
 };
 
 Footer.defaultProps = {
   theme: 'standard',
   actionsSize: 'small',
-  showDivider: false,
+  showFooterDivider: false,
 };
