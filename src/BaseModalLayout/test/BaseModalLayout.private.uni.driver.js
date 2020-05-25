@@ -2,7 +2,10 @@ import { mergeDrivers } from '../../../test/utils/private-drivers';
 import { baseModalLayoutDriverFactory } from '../BaseModalLayout.uni.driver';
 import { buttonPrivateDriverFactory } from '../../Button/test/Button.private.uni.driver';
 import { headingUniDriverFactory } from '../../Heading/Heading.uni.driver';
-import { fDataHooks } from '../constants';
+import { dataHooks } from '../constants';
+import { getFormattedHooks } from '../../utils/dataHooksUtils';
+
+const fDataHooks = getFormattedHooks(dataHooks);
 
 export const baseModalLayoutPrivateDriverFactory = base => {
   const getTitleHeading = () =>
