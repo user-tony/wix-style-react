@@ -7,17 +7,55 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function messageModalLayoutWithMandatoryProps() {
-  return <MessageModalLayout illustration="" theme="standard" children="" />;
+  return <MessageModalLayout />;
 }
 
 function messageModalLayoutWithAllProps() {
   return (
     <MessageModalLayout
-      dataHook="string"
-      className="className"
-      illustration=""
+      className="cn"
+      dataHook="dh"
       theme="standard"
-      children=""
+      onCloseButtonClick={() => {}}
+      illustration={<div />}
+      illustrationSize="small"
+      title="title"
+      titleAppearance="H1"
+      subtitle="subtitle"
+      content={<div />}
+      children={<div />}
+      contentMaxHeight={20}
+      contentHideDividers
+      onContentScrollPositionChanged={() => {}}
+      actionsSize="small"
+      showDivider
+      primaryButtonText="primaryButtonText"
+      primaryButtonProps={{
+        as: 'a',
+        className: 'cls',
+        disabled: true,
+        fullWidth: true,
+        prefixIcon: <div />,
+        priority: 'primary',
+        skin: 'dark',
+        size: 'small',
+        suffixIcon: <div />,
+      }}
+      primaryButtonOnClick={() => {}}
+      secondaryButtonText="secondaryButtonText"
+      secondaryButtonProps={{
+        as: 'a',
+        className: 'cls',
+        disabled: true,
+        fullWidth: true,
+        prefixIcon: <div />,
+        skin: 'dark',
+        size: 'small',
+        suffixIcon: <div />,
+      }}
+      secondaryButtonOnClick={() => {}}
+      sideActions={<div />}
+      footnote={<div />}
     />
   );
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import BaseModalLayout from '..';
 
 function baseModalLayoutWithMandatoryProps() {
-  return <BaseModalLayout children="" />;
+  return <BaseModalLayout />;
 }
 
 function baseModalLayoutWithAllProps() {

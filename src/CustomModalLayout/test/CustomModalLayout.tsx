@@ -6,9 +6,14 @@ import { customModalLayoutTestkitFactory as customModalLayoutPuppeteerTestkitFac
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 import AnnouncementModalLayout from '..';
+import { ModalTheme } from '../../BaseModalLayout';
+import { HeadingAppearance } from '../../Heading';
+import { ScrollChangedData } from '../../common/ScrollableContainer';
+import { OmitPolyfill } from '../../common';
+import { ButtonProps, ButtonSize } from '../../Button';
 
 function customModalLayoutWithMandatoryProps() {
-  return <CustomModalLayout children={<div />} />;
+  return <CustomModalLayout />;
 }
 
 function customModalLayoutWithAllProps() {
@@ -16,8 +21,18 @@ function customModalLayoutWithAllProps() {
     <CustomModalLayout
       className="cn"
       dataHook="dh"
+      theme="standard"
+      onCloseButtonClick={() => {}}
       title="title"
+      titleAppearance="H1"
       subtitle="subtitle"
+      content={<div />}
+      children={<div />}
+      contentMaxHeight={20}
+      contentHideDividers
+      onContentScrollPositionChanged={() => {}}
+      actionsSize="small"
+      showDivider
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',
@@ -43,11 +58,9 @@ function customModalLayoutWithAllProps() {
         suffixIcon: <div />,
       }}
       secondaryButtonOnClick={() => {}}
-      onCloseButtonClick={() => {}}
-      footnote={<div />}
       sideActions={<div />}
+      footnote={<div />}
       width="3px"
-      children={<div />}
     />
   );
 }

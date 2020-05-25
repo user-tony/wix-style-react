@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AnnouncementModalLayout from '..';
+import CustomModalLayout from '../../CustomModalLayout';
 
 function baseModalLayoutWithMandatoryProps() {
   return <AnnouncementModalLayout children="" />;
@@ -8,8 +9,22 @@ function baseModalLayoutWithMandatoryProps() {
 function baseModalLayoutWithAllProps() {
   return (
     <AnnouncementModalLayout
+      className="cn"
+      dataHook="dh"
+      theme="standard"
+      onCloseButtonClick={() => {}}
+      illustration={<div />}
+      illustrationSize="small"
       title="title"
+      titleAppearance="H1"
       subtitle="subtitle"
+      content={<div />}
+      children={<div />}
+      contentMaxHeight={20}
+      contentHideDividers
+      onContentScrollPositionChanged={() => {}}
+      actionsSize="small"
+      showDivider
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',
@@ -35,14 +50,8 @@ function baseModalLayoutWithAllProps() {
         suffixIcon: <div />,
       }}
       secondaryButtonOnClick={() => {}}
-      onCloseButtonClick={() => {}}
-      footnote={<div />}
       sideActions={<div />}
-      children={<div />}
-      className="cn"
-      dataHook="dh"
-      illustration={<div />}
-      theme="standard"
+      footnote={<div />}
       linkText="lt"
       linkOnClick={() => {}}
     />
