@@ -44,12 +44,10 @@ function customModalLayoutWithAllProps() {
       }}
       secondaryButtonOnClick={() => {}}
       onCloseButtonClick={() => {}}
-      removeContentPadding
       footnote={<div />}
       sideActions={<div />}
       width="3px"
       children={<div />}
-      additionalButtons={<div />}
     />
   );
 }

@@ -2,7 +2,7 @@ import styles from './Content.st.css';
 import React, { useState, useCallback } from 'react';
 import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
-import ScrollableContainer from '../../../common/ScrollableContainer/ScrollableContainer';
+import ScrollableContainer from '../../../common/ScrollableContainer';
 import { dataHooks } from '../../constants';
 import { useBaseModalLayoutContext } from '../../BaseModalLayoutContext';
 

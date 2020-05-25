@@ -36,11 +36,9 @@ function baseModalLayoutWithAllProps() {
       }}
       secondaryButtonOnClick={() => {}}
       onCloseButtonClick={() => {}}
-      removeContentPadding
       footnote={<div />}
       sideActions={<div />}
       children={<div />}
-      additionalButtons={<div />}
       className="cn"
       dataHook="dh"
       illustration={<div />}
