@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 import CustomModalLayout from '../CustomModalLayout';
 import Text from '../../Text/Text';
-import { dataHooks } from '../constants';
 import Box from '../../Box';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { customModalLayoutPrivateDriverFactory } from './CustomModalLayout.private.uni.driver';
@@ -48,12 +47,12 @@ const SHORT_CONTENT = (
 );
 
 const commonProps = {
-  dataHook: dataHooks.customModalLayout,
   primaryButtonText: 'Confirm',
   secondaryButtonText: 'Cancel',
   title: 'Title',
   subtitle: 'Subtitle',
   children: SHORT_CONTENT,
+  onCloseButtonClick: () => {},
 };
 
 const tests = [
@@ -88,6 +87,7 @@ const tests = [
         props: {
           title: 'Title',
           children: SHORT_CONTENT,
+          onCloseButtonClick: () => {},
         },
       },
       {

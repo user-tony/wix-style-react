@@ -51,7 +51,6 @@
   -st-states: theme(enum(standard, premium, destructive));
   background-color: value(D80);
   position: relative;
-  width: 100%;
   max-height: calc(100% - (value(modalBoxPadding) * 2));
   max-width: calc(100% - (value(modalBoxPadding) * 2) );
   display: flex;
