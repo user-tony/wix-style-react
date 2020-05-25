@@ -1,91 +1,90 @@
 import styles from './Content.st.css';
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
 import ScrollableContainer from '../../../common/ScrollableContainer/ScrollableContainer';
 import { dataHooks } from '../../constants';
-import { BaseModalLayoutContext } from '../../BaseModalLayoutContext';
+import { useBaseModalLayoutContext } from '../../BaseModalLayoutContext';
 
-export class Content extends React.Component {
-  state = {
-    scrollPosition: 'none',
-  };
+export const Content = props => {
+  const {
+    children,
+    content = children,
+    contentMaxHeight,
+    contentHideDividers,
+    onContentScrollPositionChanged,
+  } = useBaseModalLayoutContext(props);
 
-  getScrollPositionChangedHandler = () => {
-    const { contentHideDividers, onContentScrollPositionChanged } = this.props;
-    return !contentHideDividers || !!onContentScrollPositionChanged
-      ? { onScrollPositionChanged: this.handleScrollPositionChanged }
-      : {};
-  };
+  const [scrollPosition, setScrollPosition] = useState('none');
 
-  handleScrollPositionChanged = ({ position, target }) => {
-    const { contentHideDividers } = this.props;
-    if (!contentHideDividers && this.state.scrollPosition !== position.y) {
-      this.setState({ scrollPosition: position.y }, () => {
-        this.notifyContentScrollPositionChanged({ position, target });
-      });
-    } else {
-      this.notifyContentScrollPositionChanged({ position, target });
-    }
-  };
-
-  notifyContentScrollPositionChanged = data =>
-    this.props.onContentScrollPositionChanged &&
-    this.props.onContentScrollPositionChanged(data);
-
-  isTopDividerHidden = () =>
-    this.props.contentHideDividers ||
-    this.state.scrollPosition === 'top' ||
-    this.state.scrollPosition === 'none';
-
-  isBottomDividerHidden = () =>
-    this.props.contentHideDividers ||
-    this.state.scrollPosition === 'bottom' ||
-    this.state.scrollPosition === 'none';
-
-  render() {
-    return (
-      <BaseModalLayoutContext.Consumer>
-        {({
-          content = this.props.content || this.props.children,
-          contentMaxHeight = this.props.contentMaxHeight,
-          contentHideDividers = this.props.contentHideDividers,
-        }) =>
-          (content && (
-            <div
-              data-hook={dataHooks.content}
-              data-hidedividers={contentHideDividers}
-              {...styles(
-                'root',
-                {
-                  hideTopDivider: this.isTopDividerHidden(),
-                  hideBottomDivider: this.isBottomDividerHidden(),
-                },
-                this.props,
-              )}
-            >
-              {!contentHideDividers && (
-                <Divider className={styles.topDivider} />
-              )}
-              <ScrollableContainer
-                dataHook={dataHooks.contentWrapper}
-                className={styles.innerContent}
-                maxHeight={contentMaxHeight}
-                {...this.getScrollPositionChangedHandler()}
-              >
-                {content}
-              </ScrollableContainer>
-              {!contentHideDividers && (
-                <Divider className={styles.bottomDivider} />
-              )}
-            </div>
-          )) ||
-          null
+  const handleScrollPositionChanged = useCallback(
+    ({ position, target }) => {
+      if (scrollPosition !== position.y) {
+        if (!contentHideDividers) {
+          setScrollPosition(position.y);
         }
-      </BaseModalLayoutContext.Consumer>
-    );
-  }
-}
+        onContentScrollPositionChanged &&
+          onContentScrollPositionChanged({ position, target });
+      }
+    },
+    [contentHideDividers, onContentScrollPositionChanged, scrollPosition],
+  );
+
+  const getScrollPositionChangedHandler = useCallback(() => {
+    return !contentHideDividers || !!onContentScrollPositionChanged
+      ? { onScrollPositionChanged: handleScrollPositionChanged }
+      : {};
+  }, [
+    contentHideDividers,
+    handleScrollPositionChanged,
+    onContentScrollPositionChanged,
+  ]);
+
+  const isTopDividerHidden = useCallback(
+    () =>
+      contentHideDividers ||
+      scrollPosition === 'top' ||
+      scrollPosition === 'none',
+    [contentHideDividers, scrollPosition],
+  );
+
+  const isBottomDividerHidden = useCallback(
+    () =>
+      contentHideDividers ||
+      scrollPosition === 'bottom' ||
+      scrollPosition === 'none',
+    [contentHideDividers, scrollPosition],
+  );
+
+  return (
+    (content && (
+      <div
+        data-hook={dataHooks.content}
+        data-hidedividers={contentHideDividers}
+        {...styles(
+          'root',
+          {
+            hideTopDivider: isTopDividerHidden(),
+            hideBottomDivider: isBottomDividerHidden(),
+          },
+          props,
+        )}
+      >
+        {!contentHideDividers && <Divider className={styles.topDivider} />}
+        <ScrollableContainer
+          dataHook={dataHooks.contentWrapper}
+          className={styles.innerContent}
+          maxHeight={contentMaxHeight}
+          {...getScrollPositionChangedHandler()}
+        >
+          {content}
+        </ScrollableContainer>
+        {!contentHideDividers && <Divider className={styles.bottomDivider} />}
+      </div>
+    )) ||
+    null
+  );
+};
 
 Content.displayName = 'BaseModalLayout.Content';
 

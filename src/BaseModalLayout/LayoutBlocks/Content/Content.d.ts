@@ -8,4 +8,4 @@ export interface ContentProps {
   onContentScrollPositionChanged?(scrollChangedData: ScrollChangedData): void;
 }
 
-export class Content extends React.Component<ContentProps> {}
+export const Content: React.FunctionComponent<ContentProps>;
