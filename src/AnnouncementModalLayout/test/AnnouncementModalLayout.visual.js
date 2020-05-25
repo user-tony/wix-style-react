@@ -1,16 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AnnouncementModalLayout from '../AnnouncementModalLayout';
-import Text from '../../Text';
 
 const commonProps = {
   title: 'All Your Info In One Place',
-  children: (
-    <Text>
-      Meet your brand new General Info page. <br />
-      We brought all your business information together here.
-    </Text>
-  ),
+  children: 'Meet your brand new General Info page.',
   primaryButtonText: 'Start Now',
   linkText: 'Learn More',
   onCloseButtonClick: () => {},
@@ -55,11 +49,7 @@ const tests = [
       {
         it: 'with footnote',
         props: {
-          footnote: (
-            <Text size="small">
-              By sending an invite, you agree to the <a>Wix Terms of Use</a>
-            </Text>
-          ),
+          footnote: 'By sending an invite, you agree to the Wix Terms of Use',
         },
       },
     ],
