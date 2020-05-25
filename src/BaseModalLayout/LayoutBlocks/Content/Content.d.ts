@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollChangedData } from '../../../common/ScrollableContainer/ScrollableContainer';
+import { ScrollChangedData } from '../../../common/ScrollableContainer';
 
 export interface ContentProps {
   content?: string | React.ReactNode;
