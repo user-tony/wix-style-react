@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { ScrollChangedData } from '../../../common/ScrollableContainer/ScrollableContainer';
 
-interface ContentProps {
+export interface ContentProps {
   content?: string | React.ReactNode;
   contentMaxHeight?: string | number;
   contentHideDividers?: boolean;
   onContentScrollPositionChanged?(scrollChangedData: ScrollChangedData): void;
 }
 
-export default class Content extends React.Component<ContentProps> {}
+export class Content extends React.Component<ContentProps> {}

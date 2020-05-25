@@ -1,13 +1,19 @@
 import * as React from 'react';
-import { BaseModalLayoutProps } from '../BaseModalLayout';
+import {
+  BaseModalLayoutProps,
+  IllustrationProps,
+  HeaderProps,
+  ContentProps,
+  FooterProps,
+  FootnoteProps,
+} from '../BaseModalLayout';
 
-export interface MessageModalLayoutProps extends BaseModalLayoutProps {
-  className?: string;
-  dataHook?: string;
-  illustration: React.ReactNode;
-  theme: 'standard' | 'destructive' | 'premium';
-}
+export interface MessageModalLayoutProps
+  extends BaseModalLayoutProps,
+    IllustrationProps,
+    HeaderProps,
+    ContentProps,
+    FooterProps,
+    FootnoteProps {}
 
-export default class MessageModalLayout extends React.PureComponent<
-  MessageModalLayoutProps
-> {}
+export const MessageModalLayout: React.FunctionComponent<MessageModalLayoutProps>;

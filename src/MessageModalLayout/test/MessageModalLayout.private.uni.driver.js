@@ -1,9 +1,9 @@
-import { messageModalLayoutDriverFactory as publicDriverFactory } from '../MessageModalLayout.uni.driver';
+import { messageModalLayoutDriverFactory } from '../MessageModalLayout.uni.driver';
 import { baseModalLayoutPrivateDriverFactory } from '../../BaseModalLayout/test/BaseModalLayout.private.uni.driver';
 
-export const messageModalLayoutPrivateDriverFactory = (base, body) => {
+export const messageModalLayoutPrivateDriverFactory = base => {
   return {
-    ...publicDriverFactory(base, body),
+    ...messageModalLayoutDriverFactory(base),
     ...baseModalLayoutPrivateDriverFactory(base),
   };
 };

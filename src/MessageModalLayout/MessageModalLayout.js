@@ -1,82 +1,75 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useState, useCallback } from 'react';
 import styles from './MessageModalLayout.st.css';
-import BaseModalLayout from '../BaseModalLayout';
+import BaseModalLayout, {
+  Header,
+  Content,
+  Footer,
+  Footnote,
+  Illustration,
+} from '../BaseModalLayout';
+import Box from '../Box';
 
 /** MessageModalLayout */
-class MessageModalLayout extends React.PureComponent {
-  _renderIllustration() {
-    const { illustration } = this.props;
+const MessageModalLayout = ({ children, ...restProps }) => {
+  const { illustration } = restProps;
+  const [showDivider, setShowDivider] = useState(false);
 
-    return (
-      <div className={styles.illustrationContainer}>
-        <div className={styles.imageWrapper}>
-          {typeof illustration === 'string' ? (
-            <img src={illustration} width="100%" />
-          ) : (
-            illustration
-          )}
+  const onContentScrollPositionChanged = useCallback(({ position }) => {
+    const { y: scrollPosition } = position;
+    const newShowDivider =
+      scrollPosition === 'top' || scrollPosition === 'middle';
+    setShowDivider(newShowDivider);
+  }, []);
+
+  const getScrollPositionChangedHandler = useCallback(
+    () => ({
+      ...(!!illustration ? { onContentScrollPositionChanged } : {}),
+    }),
+    [illustration, onContentScrollPositionChanged],
+  );
+
+  const getShowDividerState = useCallback(
+    () => ({
+      ...(!!illustration ? { showDivider } : {}),
+    }),
+    [illustration, showDivider],
+  );
+
+  const hasIllustration = !!illustration;
+
+  return (
+    <BaseModalLayout
+      {...styles('root', { hasIllustration }, restProps)}
+      {...restProps}
+      contentHideDividers={hasIllustration}
+    >
+      <Box>
+        <Illustration />
+        <div className={styles.mainContainer}>
+          <Header />
+          <Content {...getScrollPositionChangedHandler()}>{children}</Content>
         </div>
-      </div>
-    );
-  }
-
-  render() {
-    const {
-      dataHook,
-      theme,
-      illustration,
-      primaryButtonProps,
-      secondaryButtonProps,
-    } = this.props;
-
-    const width = illustration ? '630px' : '510px';
-
-    const new_theme = ['standard', 'premium', 'destructive'].includes(theme)
-      ? theme
-      : 'standard';
-
-    primaryButtonProps['skin'] = new_theme;
-    secondaryButtonProps['skin'] = new_theme;
-
-    return (
-      <div
-        {...styles('root', { theme: new_theme }, this.props)}
-        data-hook={dataHook}
-        style={{ width }}
-      >
-        {illustration && this._renderIllustration()}
-        <BaseModalLayout
-          {...this.props}
-          secondaryButtonProps={secondaryButtonProps}
-          primaryButtonProps={primaryButtonProps}
-        />
-      </div>
-    );
-  }
-}
+      </Box>
+      <Footer {...getShowDividerState()} />
+      <Footnote />
+    </BaseModalLayout>
+  );
+};
 
 MessageModalLayout.displayName = 'MessageModalLayout';
 
 MessageModalLayout.propTypes = {
   ...BaseModalLayout.propTypes,
-  /** additional css classes */
-  className: PropTypes.string,
-  /** data hook for testing */
-  dataHook: PropTypes.string,
-  /** Illustration URL or custom element. */
-  illustration: PropTypes.node,
-  /** Theme will affect the buttons skins and illustration bg color. */
-  theme: PropTypes.oneOf(['standard', 'premium', 'destructive']),
+  ...Header.propTypes,
+  ...Content.propTypes,
+  ...Footer.propTypes,
+  ...Footnote.propTypes,
+  ...Illustration.propTypes,
 };
 
 MessageModalLayout.defaultProps = {
   ...BaseModalLayout.defaultProps,
-  theme: 'standard',
-  primaryButtonProps: {},
-  secondaryButtonProps: {},
-  footnoteAlignment: 'left',
+  contentMaxHeight: 300,
 };
 
 export default MessageModalLayout;
