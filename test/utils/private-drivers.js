@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 /**
  * Symbol for accessing driver methods which are internal
  * (we don't want to expose them to WSR consumers)
@@ -19,10 +20,7 @@ export function mergeDrivers(target, source) {
     );
   }
 
-  return {
-    ...target,
-    ...source,
-  };
+  return merge(target, source);
 }
 
 /**
