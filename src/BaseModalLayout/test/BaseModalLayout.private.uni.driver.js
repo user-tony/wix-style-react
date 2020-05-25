@@ -1,4 +1,4 @@
-import { mergeDrivers } from '../../../test/utils/private-drivers';
+import merge from 'lodash/merge';
 import { baseModalLayoutDriverFactory } from '../BaseModalLayout.uni.driver';
 import { buttonPrivateDriverFactory } from '../../Button/test/Button.private.uni.driver';
 import { headingUniDriverFactory } from '../../Heading/Heading.uni.driver';
@@ -17,7 +17,7 @@ export const baseModalLayoutPrivateDriverFactory = base => {
   const getSecondaryButton = () =>
     buttonPrivateDriverFactory(base.$(fDataHooks.footerSecondaryButton));
 
-  return mergeDrivers(baseModalLayoutDriverFactory(base), {
+  return merge(baseModalLayoutDriverFactory(base), {
     // Add here driver methods that considered "private"
     _hasClass: className => base.hasClass(className),
     _childExists: dataHook => base.$(`[data-hook="${dataHook}"]`).exists(),

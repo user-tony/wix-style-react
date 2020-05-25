@@ -1,9 +1,9 @@
 import { messageModalLayoutDriverFactory } from '../MessageModalLayout.uni.driver';
 import { baseModalLayoutPrivateDriverFactory } from '../../BaseModalLayout/test/BaseModalLayout.private.uni.driver';
-import { mergeDrivers } from '../../../test/utils/private-drivers';
+import merge from 'lodash/merge';
 
 export const messageModalLayoutPrivateDriverFactory = base => {
-  return mergeDrivers(
+  return merge(
     baseModalLayoutPrivateDriverFactory(base),
     messageModalLayoutDriverFactory(base),
   );
