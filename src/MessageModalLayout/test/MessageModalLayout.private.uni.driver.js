@@ -3,7 +3,7 @@ import { baseModalLayoutPrivateDriverFactory } from '../../BaseModalLayout/test/
 
 export const messageModalLayoutPrivateDriverFactory = base => {
   return {
-    ...messageModalLayoutDriverFactory(base),
     ...baseModalLayoutPrivateDriverFactory(base),
+    ...messageModalLayoutDriverFactory(base),
   };
 };

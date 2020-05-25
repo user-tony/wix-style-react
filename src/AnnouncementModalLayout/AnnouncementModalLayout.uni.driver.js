@@ -3,7 +3,7 @@ import { textButtonDriverFactory } from '../TextButton/TextButton.uni.driver';
 import { dataHooks } from './constants';
 import { getFormattedHooks } from '../utils/dataHooksUtils';
 
-export const fDataHooks = getFormattedHooks(dataHooks);
+const fDataHooks = getFormattedHooks(dataHooks);
 
 export const announcementModalLayoutDriverFactory = base => {
   const getLink = () => textButtonDriverFactory(base.$(fDataHooks.link));

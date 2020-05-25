@@ -1,9 +1,9 @@
-import { announcementModalLayoutDriverFactory as publicDriverFactory } from '../AnnouncementModalLayout.uni.driver';
-import { baseModalLayoutPrivateDriverFactory } from '../../BaseModalLayout/test/BaseModalLayout.private.uni.driver';
+import { announcementModalLayoutDriverFactory } from '../AnnouncementModalLayout.uni.driver';
+import { baseModalLayoutDriverFactory } from '../../BaseModalLayout/BaseModalLayout.uni.driver';
 
-export const announcementModalLayoutPrivateDriverFactory = (base, body) => {
+export const announcementModalLayoutPrivateDriverFactory = base => {
   return {
-    ...publicDriverFactory(base, body),
-    ...baseModalLayoutPrivateDriverFactory(base),
+    ...baseModalLayoutDriverFactory(base),
+    ...announcementModalLayoutDriverFactory(base),
   };
 };
