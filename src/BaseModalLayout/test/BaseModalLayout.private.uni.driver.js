@@ -1,19 +1,48 @@
-import { baseModalLayoutDriverFactory as publicDriverFactory } from '../BaseModalLayout.uni.driver';
-import { buttonDriverFactory } from '../../Button/Button.uni.driver';
-import { dataHooks } from '../constants';
+import { mergeDrivers } from '../../../test/utils/private-drivers';
+import { baseModalLayoutDriverFactory } from '../BaseModalLayout.uni.driver';
+import { buttonPrivateDriverFactory } from '../../Button/test/Button.private.uni.driver';
+import { headingUniDriverFactory } from '../../Heading/Heading.uni.driver';
+import { fDataHooks } from '../constants';
 
-export const baseModalLayoutPrivateDriverFactory = (base, body) => {
+export const baseModalLayoutPrivateDriverFactory = base => {
+  const getTitleHeading = () =>
+    headingUniDriverFactory(base.$(fDataHooks.headerTitle));
+
   const getPrimaryButton = () =>
-    buttonDriverFactory(base.$(`[data-hook="${dataHooks.primaryButton}"]`));
-  const getSecondaryButton = () =>
-    buttonDriverFactory(base.$(`[data-hook="${dataHooks.secondaryButton}"]`));
-  return {
-    ...publicDriverFactory(base, body),
+    buttonPrivateDriverFactory(base.$(fDataHooks.footerPrimaryButton));
 
+  const getSecondaryButton = () =>
+    buttonPrivateDriverFactory(base.$(fDataHooks.footerSecondaryButton));
+
+  return mergeDrivers(baseModalLayoutDriverFactory(base), {
     // Add here driver methods that considered "private"
-    hasClass: className => base.hasClass(className),
-    childExists: selector => base.$(selector).exists(),
-    primaryButtonHasSkin: async skin => getPrimaryButton().hasSkin(skin),
-    secondaryButtonHasSkin: async skin => getSecondaryButton().hasSkin(skin),
-  };
+    _hasClass: className => base.hasClass(className),
+    _childExists: dataHook => base.$(`[data-hook="${dataHook}"]`).exists(),
+    _closeButtonExists: () => base.$(fDataHooks.closeButton).exists(),
+    _getText: async () => base.text(),
+
+    header: {
+      _titleExists: async () => base.$(fDataHooks.headerTitle).exists(),
+      _subtitleExists: async () => base.$(fDataHooks.headerSubtitle).exists(),
+      _getTitleAppearance: async () => getTitleHeading().getAppearance(),
+    },
+
+    footer: {
+      _sideActionsExists: async () =>
+        base.$(fDataHooks.footerSideActions).exists(),
+      _primaryButtonExists: async () =>
+        base.$(fDataHooks.footerPrimaryButton).exists(),
+      _secondaryButtonExists: async () =>
+        base.$(fDataHooks.footerSecondaryButton).exists(),
+      _primaryButtonHasSkin: async skin => getPrimaryButton().hasSkin(skin),
+      _secondaryButtonHasSkin: async skin => getSecondaryButton().hasSkin(skin),
+      _getPrimaryButtonSize: async () => getPrimaryButton()._getSize(),
+      _getSecondaryButtonSize: async () => getPrimaryButton()._getSize(),
+      _getPrimaryButtonPriority: async () => getPrimaryButton()._getPriority(),
+      _getSecondaryButtonPriority: async () =>
+        getSecondaryButton()._getPriority(),
+      _dividerExists: async () =>
+        (await base.$(fDataHooks.footer).attr('data-divider')) === 'true',
+    },
+  });
 };

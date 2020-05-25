@@ -1,28 +1,14 @@
 import * as React from 'react';
-import { ButtonProps } from '../Button';
-import { OmitPolyfill } from '../common';
+
+export type ModalTheme = 'standard' | 'premium' | 'destructive';
 
 export interface BaseModalLayoutProps {
-  title?: React.ReactNode;
-  subtitle?: string;
-  primaryButtonText?: string;
-  primaryButtonProps?: OmitPolyfill<ButtonProps, 'dataHook' | 'onClick'>;
-  primaryButtonOnClick?: () => void;
-  secondaryButtonText?: string;
-  secondaryButtonProps?: OmitPolyfill<
-    ButtonProps,
-    'dataHook' | 'onClick' | 'priority'
-  >;
-  secondaryButtonOnClick?: () => void;
-  onCloseButtonClick?: () => void;
-  removeContentPadding?: boolean;
-  footnote?: React.ReactNode;
-  footnoteAlignment?: 'left' | 'center' | 'right';
-  sideActions?: React.ReactNode;
-  children: React.ReactNode;
-  additionalButtons?: React.ReactNode;
+  className?: string;
+  dataHook?: string;
+  theme?: ModalTheme;
+  onCloseButtonClick?(): void;
 }
 
-export default class BaseModalLayout extends React.PureComponent<
-  BaseModalLayoutProps
-> {}
+export const BaseModalLayout: React.FunctionComponent<BaseModalLayoutProps>;
+
+export * from './LayoutBlocks';
