@@ -16,4 +16,5 @@ export interface MessageModalLayoutProps
     FooterProps,
     FootnoteProps {}
 
-export const MessageModalLayout: React.FunctionComponent<MessageModalLayoutProps>;
+declare const MessageModalLayout: React.FC<MessageModalLayoutProps>;
+export default MessageModalLayout;

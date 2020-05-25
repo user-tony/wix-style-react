@@ -9,6 +9,7 @@ export interface BaseModalLayoutProps {
   onCloseButtonClick?(): void;
 }
 
-export const BaseModalLayout: React.FunctionComponent<BaseModalLayoutProps>;
+declare const BaseModalLayout: React.FC<BaseModalLayoutProps>;
+export default BaseModalLayout;
 
 export * from './LayoutBlocks';

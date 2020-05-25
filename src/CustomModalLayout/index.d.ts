@@ -16,4 +16,5 @@ export interface CustomModalLayoutProps
   width?: string;
 }
 
-export const CustomModalLayout: React.FunctionComponent<CustomModalLayoutProps>;
+declare const CustomModalLayout: React.FC<CustomModalLayoutProps>;
+export default CustomModalLayout;

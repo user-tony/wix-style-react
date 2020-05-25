@@ -19,4 +19,5 @@ export interface AnnouncementModalLayoutProps
   linkOnClick?: () => void;
 }
 
-export const AnnouncementModalLayout: React.FunctionComponent<AnnouncementModalLayoutProps>;
+declare const AnnouncementModalLayout: React.FC<AnnouncementModalLayoutProps>;
+export default AnnouncementModalLayout;
