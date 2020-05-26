@@ -28,7 +28,7 @@ const ContentElement = ({ children }) => {
     <FontUpgradeContext.Consumer>
       {context => {
         return (
-          <FontUpgrade active={context.active}>
+          <FontUpgrade active={!!context.active}>
             <CorePopover.Content children={children} />
           </FontUpgrade>
         );

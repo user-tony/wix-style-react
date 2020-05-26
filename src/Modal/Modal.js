@@ -166,7 +166,7 @@ class Modal extends React.PureComponent {
                 closeTimeoutMS={closeTimeoutMS}
                 parentSelector={parentSelector}
               >
-                <FontUpgrade active={context.active}>
+                <FontUpgrade active={!!context.active}>
                   {isOpen &&
                     shouldDisplayCloseButton &&
                     this.renderCloseButton()}
