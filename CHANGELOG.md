@@ -15,7 +15,10 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.13.1 - 2020-05-26
 ### Fixed:
+- `<FontUpgrade/>` - Fix Modal/Popover/Tooltip content [#5498](https://github.com/wix/wix-style-react/pull/5498)
 - `<GooglePreview/>`- Use hard codded arial font [#5469](https://github.com/wix/wix-style-react/pull/5469)
 
 ## 8.13.0 - 2020-05-24
