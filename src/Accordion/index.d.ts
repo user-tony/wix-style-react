@@ -10,6 +10,7 @@ import { AccordionItemProps } from './AccordionItem';
 export interface AccordionProps {
   dataHook?: string;
   multiple?: boolean;
+<<<<<<< HEAD
   items?: AccordionItem[];
 <<<<<<< HEAD
   skin?: AccordionSkinType;
@@ -36,4 +37,10 @@ export interface AccordionItem {
 export type AccordionItemButtonType = 'textButton' | 'button';
 
 >>>>>>> f42c5708b... chore(*): accept className prop in components that extend Focusable
+=======
+  items?: AccordionItemProps[];
+  skin?: 'light' | 'standard';
+}
+
+>>>>>>> 7bdc34a64... chore(*): stylable migration
 export default class Accordion extends React.Component<AccordionProps> {}
