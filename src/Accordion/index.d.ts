@@ -1,12 +1,17 @@
 import * as React from 'react';
 
+<<<<<<< HEAD
 export type AccordionItemButtonType = 'textButton' | 'button';
 export type AccordionSkinType = 'standard' | 'light';
+=======
+import { AccordionItemProps } from './AccordionItem';
+>>>>>>> f42c5708b... chore(*): accept className prop in components that extend Focusable
 
 export interface AccordionProps {
   dataHook?: string;
   multiple?: boolean;
   items?: AccordionItem[];
+<<<<<<< HEAD
   skin?: AccordionSkinType;
   hideShadow?: boolean;
 }
@@ -24,4 +29,11 @@ export interface AccordionItem {
   onToggle?: React.MouseEventHandler<HTMLElement>;
 }
 
+=======
+  skin?: 'light' | 'standard';
+}
+
+export type AccordionItemButtonType = 'textButton' | 'button';
+
+>>>>>>> f42c5708b... chore(*): accept className prop in components that extend Focusable
 export default class Accordion extends React.Component<AccordionProps> {}
