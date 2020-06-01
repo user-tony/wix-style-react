@@ -28,6 +28,9 @@ class MultiSelectCheckbox extends InputWithOptions {
               disabled={option.disabled}
               title={option.value}
               highlighted={props.hovered}
+              prefix={option.prefix}
+              suffix={option.suffix}
+              ellipsis={option.ellipsis}
               onClick={e => e.preventDefault()} // This is prevented because there's an event listener wrapping the option
             />
           ),
