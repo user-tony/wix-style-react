@@ -18,6 +18,9 @@ Types of changes:
 ### Added
 - `<MultiSelectCheckbox/>` - expose prefix, suffix, and ellipsis [#5509](https://github.com/wix/wix-style-react/pull/5509)
 
+### Fixed
+- `<InputWithOptions/>` - fix use of excludeClass prop [#5499](https://github.com/wix/wix-style-react/pull/5499)
+
 ## 8.13.1 - 2020-05-26
 ### Fixed:
 - `<FontUpgrade/>` - Fix Modal/Popover/Tooltip content [#5498](https://github.com/wix/wix-style-react/pull/5498)
