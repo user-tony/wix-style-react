@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<MultiSelectCheckbox/>` - expose prefix, suffix, and ellipsis [#5509](https://github.com/wix/wix-style-react/pull/5509)
 
 ## 8.13.1 - 2020-05-26
 ### Fixed:
