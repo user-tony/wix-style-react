@@ -11,6 +11,7 @@ import { chainEventHandlers } from '../utils/ChainEventHandlers';
 import styles from './InputWithOptions.st.css';
 import nativeStyles from './InputWithOptions.scss';
 import { placements } from '../Popover/constants';
+import uniqueId from 'lodash/uniqueId';
 
 import Popover from '../Popover';
 
@@ -49,6 +50,7 @@ class InputWithOptions extends Component {
       isEditing: false,
     };
 
+    this.uniqueId = uniqueId('InputWithOptions');
     this._onSelect = this._onSelect.bind(this);
     this._onFocus = this._onFocus.bind(this);
     this._onBlur = this._onBlur.bind(this);
@@ -160,7 +162,7 @@ class InputWithOptions extends Component {
 
     return (
       <div
-        className={this.dropdownClasses()}
+        className={`${this.uniqueId} ${this.dropdownClasses()}`}
         style={customStyle}
         data-hook="dropdown-layout-wrapper"
       >
@@ -226,6 +228,7 @@ class InputWithOptions extends Component {
         {...styles('root', {}, this.props)}
         {...DEFAULT_POPOVER_PROPS}
         dynamicWidth={body}
+        excludeClass={this.uniqueId}
         {...popoverProps}
         width={dropdownWidth}
         placement={placement}
@@ -233,7 +236,6 @@ class InputWithOptions extends Component {
         onKeyDown={this._onKeyDown}
         onClickOutside={this.onClickOutside}
         shown={this.isDropdownLayoutVisible()}
-        excludeClass={styles.root}
       >
         <Popover.Element>
           <div data-input-parent className={this.inputClasses()}>
