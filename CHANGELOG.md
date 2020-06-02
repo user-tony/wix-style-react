@@ -22,6 +22,9 @@ Types of changes:
 ### Fixed
 - `<InputWithOptions/>` - fix use of excludeClass prop [#5499](https://github.com/wix/wix-style-react/pull/5499)
 
+### Removed
+- `<Dropdown/>` - remove withArrow prop [#5507](https://github.com/wix/wix-style-react/pull/5507)
+
 ## 8.13.1 - 2020-05-26
 ### Fixed:
 - `<FontUpgrade/>` - Fix Modal/Popover/Tooltip content [#5498](https://github.com/wix/wix-style-react/pull/5498)
