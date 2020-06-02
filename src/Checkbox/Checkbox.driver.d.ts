@@ -10,11 +10,11 @@ export interface CheckboxDriver extends BaseDriver {
    * @deprecated
    */
   hasFocusState(): string | null;
-  isChecked(): () => boolean;
-  isDisabled(): () => boolean;
-  isIndeterminate(): () => boolean;
+  isChecked(): boolean;
+  isDisabled(): boolean;
+  isIndeterminate(): boolean;
   hasError(): boolean;
   getLabel(): string;
-  getLabelSize(): CheckboxLabelSize,
+  getLabelSize(): CheckboxLabelSize;
   getErrorMessage(): Promise<string>;
 }

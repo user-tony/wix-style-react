@@ -1,5 +1,5 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
-import { CheckboxLabelSize } from "./index";
+import { CheckboxLabelSize } from './index';
 
 export interface CheckboxUniDriver extends BaseUniDriver {
   click: () => Promise<void>;
