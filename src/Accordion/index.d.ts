@@ -15,6 +15,7 @@ export interface AccordionItem {
   collapseLabel?: React.ReactNode;
   buttonType?: AccordionItemButtonType;
   skin?: "light" | "standard";
+  hideShadow?: boolean;
 }
 
 export type AccordionItemButtonType = "textButton" | "button";

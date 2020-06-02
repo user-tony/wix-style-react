@@ -110,6 +110,30 @@ storiesOf('Accordion', module).add('skins', () => (
   </Layout>
 ));
 
+storiesOf('Accordion', module).add('skins and shadow', () => (
+  <Layout>
+    {Object.values(skins).map(skinColor =>
+      Object.values([false, true]).map(hideShadow => (
+        <Cell span={4}>
+          <Accordion
+            multiple
+            skin={skinColor}
+            hideShadow={hideShadow}
+            items={[
+              {
+                title: 'First Initially Open Row',
+                children: <Text>${text}</Text>,
+                open: true,
+                collapseLabel: 'Less',
+              },
+            ]}
+          />
+        </Cell>
+      )),
+    )}
+  </Layout>
+));
+
 storiesOf('Accordion', module).add('inCard', () => (
   <Card>
     <Card.Header title="Card with Accordion" />

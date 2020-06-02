@@ -13,7 +13,7 @@ describe('Accordion', () => {
   const FakeIcon = () => <div>fake icon</div>;
   const createDriver = createUniDriverFactory(accordionPrivateDriverFactory);
 
-  describe('items items', () => {
+  describe('items', () => {
     it('should render a list of items', async () => {
       const items = [
         {
@@ -144,6 +144,7 @@ describe('Accordion', () => {
       );
       expect(await driver.isItemExpandedAt(1)).toBe(true);
     });
+
     it('should update AccordionItems open prop dynamically', async () => {
       const render = createRendererWithUniDriver(accordionPrivateDriverFactory);
       const accordionItemsProps = {

@@ -8,8 +8,8 @@
   -st-named: shadow30;
 }
 
-.root { 
-  -st-states: hover, disabled, open, skin( enum( standard, light )) ;
+.root {
+  -st-states: hover, disabled, open, skin( enum( standard, light )), hideShadow ;
   overflow: hidden;
   background-color: transparent;
 }
@@ -34,6 +34,10 @@
   box-shadow: value(shadow30);
 }
 
+.root:open:hideShadow .header {
+  box-shadow: none;
+}
+
 .root:disabled .header .arrow {
   color: value(D10);
 }
@@ -48,7 +52,7 @@
   min-width: 0;
 }
 
-.children{
+.children {
   padding: 24px 30px 30px;
   background-color: value(B60);
 }
@@ -59,6 +63,10 @@
 
 .root:skin(light) .children{
   background-color: value(D80);
+}
+
+.root:skin(light):hideShadow .children{
+  padding-top: 0;
 }
 
 .toggleButton {

@@ -25,6 +25,7 @@ function AccordionWithAllProps() {
           icon: <div />,
           title: <div />,
           skin: 'light',
+          hideShadow: false,
         },
       ]}
     />

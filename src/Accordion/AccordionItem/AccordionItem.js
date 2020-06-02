@@ -25,6 +25,7 @@ class AccordionItem extends React.PureComponent {
     disabled: PropTypes.bool,
     onToggle: PropTypes.func,
     skin: PropTypes.oneOf(['standard', 'light']),
+    hideShadow: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -108,11 +109,18 @@ class AccordionItem extends React.PureComponent {
       onToggle,
       disabled,
       skin,
+      hideShadow,
     } = this.props;
     const { hover } = this.state;
 
     return (
-      <div {...style('root', { disabled, hover, open, skin }, this.props)}>
+      <div
+        {...style(
+          'root',
+          { disabled, hover, open, skin, hideShadow },
+          this.props,
+        )}
+      >
         <div data-hook={dataHooks.item}>
           <div
             onClick={!disabled ? onToggle : null}
