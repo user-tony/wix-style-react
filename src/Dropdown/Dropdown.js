@@ -4,7 +4,7 @@ import isEqual from 'lodash/isEqual';
 import sortBy from 'lodash/sortBy';
 import { allValidators, extendPropTypes } from '../utils/propTypes';
 
-import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import InputWithOptions from '../InputWithOptions';
 import DropdownLayout from '../DropdownLayout';
 import styles from './Dropdown.scss';
 
@@ -99,6 +99,7 @@ class Dropdown extends InputWithOptions {
       selectedId: this.getSelectedId(),
       value: this.state.value,
       tabIndex: -1,
+      withArrow: false,
     };
   }
 
@@ -128,6 +129,8 @@ class Dropdown extends InputWithOptions {
 
 Dropdown.propTypes = {
   ...InputWithOptions.propTypes,
+  /** THIS PROP WAS REMOVED */
+  withArrow: DropdownLayout.propTypes.withArrow,
   /** Sets the selected option id. (Implies Controlled mode) */
   selectedId: DropdownLayout.propTypes.selectedId,
   /** An initial selected option id. (Implies Uncontrolled mode) */
