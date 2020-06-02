@@ -217,7 +217,7 @@
     "hoist-non-react-methods": "^1.1.0",
     "howler": "^2.2.0",
     "lodash": "^4.17.15",
-    "moment": "2.22.2",
+    "moment": "^2.26.0",
     "omit": "^1.0.1",
     "prop-types": "^15.7.2",
     "rc-slider": "9.2.4",
