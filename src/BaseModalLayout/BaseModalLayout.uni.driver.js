@@ -1,38 +1,41 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+import { buttonDriverFactory } from '../Button/Button.uni.driver';
 import { dataHooks } from './constants';
+import { getFormattedDataHooks } from '../../test/utils';
 
-export const baseModalLayoutDriverFactory = (base, body) => {
+const fDataHooks = getFormattedDataHooks(dataHooks);
+
+export const baseModalLayoutDriverFactory = base => {
+  const getButtonDriver = dataHook =>
+    buttonDriverFactory(base.$(`[data-hook="${dataHook}"]`));
+
   return {
-    ...baseUniDriverFactory(base, body),
+    ...baseUniDriverFactory(base),
+
+    /** Returns the modal theme */
+    getTheme: async () => base.attr('data-theme'),
+
+    /** Click the modal close-button */
+    clickCloseButton: async () => base.$(fDataHooks.closeButton).click(),
+
+    /** Checks that a node with the provided dataHook exists */
+    childExists: async dataHook => base.$(`[data-hook="${dataHook}"]`).exists(),
 
     /** Get the title's text */
-    getTitleText: async () => base.$(`[data-hook="${dataHooks.title}"]`).text(),
+    getTitleText: async () => base.$(fDataHooks.headerTitle).text(),
 
     /** Get the subtitle's text */
-    getSubtitleText: async () =>
-      base.$(`[data-hook="${dataHooks.subtitle}"]`).text(),
+    getSubtitleText: async () => base.$(fDataHooks.headerSubtitle).text(),
 
-    /** Click the primary button */
-    clickPrimaryButton: async () =>
-      base.$(`[data-hook="${dataHooks.primaryButton}"]`).click(),
+    /** Return the secondary button driver*/
+    getSecondaryButtonDriver: async () =>
+      getButtonDriver(dataHooks.footerSecondaryButton),
 
-    /** Click the secondary button */
-    clickSecondaryButton: async () =>
-      base.$(`[data-hook="${dataHooks.secondaryButton}"]`).click(),
+    /** Return the secondary button driver */
+    getPrimaryButtonDriver: async () =>
+      getButtonDriver(dataHooks.footerPrimaryButton),
 
-    /** Click the secondary button */
-    clickCloseButton: async () =>
-      base.$(`[data-hook="${dataHooks.closeButton}"]`).click(),
-
-    /** Get the primary button's text */
-    getPrimaryButtonText: async () =>
-      base.$(`[data-hook="${dataHooks.primaryButton}"]`).text(),
-
-    /** Get the secondary button's text */
-    getSecondaryButtonText: async () =>
-      base.$(`[data-hook="${dataHooks.secondaryButton}"]`).text(),
-
-    /** Get the modal's width from the wrapping div style */
-    getModalWidth: async () => (await base._prop('style')).width,
+    getIllustrationSrc: async () =>
+      base.$(fDataHooks.illustrationSrc).attr('src'),
   };
 };

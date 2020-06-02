@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -26,11 +26,14 @@ import MarketingExample from '!raw-loader!./examples/MarketingExample';
 import CustomModalLayout from '..';
 import Checkbox from '../../Checkbox';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
+
+  component: CustomModalLayout,
+  componentPath: '..',
 
   componentProps: {
     title: 'Modal title',
@@ -39,9 +42,8 @@ export default {
     secondaryButtonText: 'Cancel',
     sideActions: <Checkbox>Check</Checkbox>,
     footnote: 'footnote text',
+    onCloseButtonClick: () => {},
   },
-  component: CustomModalLayout,
-  componentPath: '..',
 
   sections: [
     header({
@@ -72,76 +74,38 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Basic Usage',
-              text: 'A Basic example with compact preview',
-            }),
-
-            code({
-              compact: true,
-              source: BasicExample,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Footnote Example',
-              text:
-                'Same as the basic example, with the addition of a footnote',
-            }),
-
-            code({
-              compact: true,
-              source: FootnoteExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Opening in a modal',
-              text:
-                'Opening the CustomModalLayout is done with the Modal component, usually in the regular size of full-screen',
-            }),
-
-            code({
-              compact: true,
-              source: ModalExample,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Table example - No content padding',
-              text:
-                'A simple example with a table as the content and without content padding',
-            }),
-
-            code({
-              compact: true,
-              source: TableExmaple,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Marketing Layout example',
-              text: 'A custom modal example with a marketing layout',
-            }),
-
-            code({
-              compact: true,
-              source: MarketingExample,
-            }),
-          ]),
-          columns([
-            description({
-              title: 'Custom Page Example',
-              text: 'Open a custom page in a modal',
-            }),
-
-            code({
-              compact: true,
-              source: PageExample,
-            }),
-          ]),
+          example({
+            title: 'Basic Usage',
+            text: 'A Basic example with compact preview',
+            source: BasicExample,
+          }),
+          example({
+            title: 'Footnote Example',
+            text: 'Same as the basic example, with the addition of a footnote',
+            source: FootnoteExample,
+          }),
+          example({
+            title: 'Opening in a modal',
+            text:
+              'Opening the CustomModalLayout is done with the Modal component, usually in the regular size of full-screen',
+            source: ModalExample,
+          }),
+          example({
+            title: 'Table example - No content padding',
+            text:
+              'A simple example with a table as the content and without content padding',
+            source: TableExmaple,
+          }),
+          example({
+            title: 'Marketing Layout example',
+            text: 'A custom modal example with a marketing layout',
+            source: MarketingExample,
+          }),
+          example({
+            title: 'Custom Page Example',
+            text: 'Open a custom page in a modal',
+            source: PageExample,
+          }),
         ],
       }),
 

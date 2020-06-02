@@ -13,3 +13,15 @@ export const resolveIn = timeout =>
   });
 
 export const ASSET_PREFIX = 'http://localhost/';
+
+/**
+ * Formatting all your dataHooks object properties to their query syntax ie. `[data-hook="${value}"]`
+ * @param dataHooks
+ */
+export const getFormattedDataHooks = dataHooks => {
+  const formattedDataHooks = {};
+  Object.entries(dataHooks).map(
+    ([entry, value]) => (formattedDataHooks[entry] = `[data-hook="${value}"]`),
+  );
+  return formattedDataHooks;
+};

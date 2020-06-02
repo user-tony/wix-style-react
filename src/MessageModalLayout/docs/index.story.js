@@ -8,7 +8,7 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  example as baseExample,
   playground,
   api,
   testkit,
@@ -22,8 +22,11 @@ import Checkbox from '../../Checkbox';
 
 import BasicExample from '!raw-loader!./examples/BasicExample';
 import FootnoteExample from '!raw-loader!./examples/FootnoteExample';
+import IllustrationExample from '!raw-loader!./examples/IllustrationExample';
+import DestructiveThemeExample from '!raw-loader!./examples/DestructiveThemeExample';
+import ThemeExample from '!raw-loader!./examples/ThemeExample';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -39,6 +42,7 @@ export default {
     secondaryButtonText: 'Cancel',
     sideActions: <Checkbox>Check</Checkbox>,
     footnote: 'footnote text',
+    onCloseButtonClick: () => {},
   },
 
   exampleProps: {
@@ -56,48 +60,42 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'Use this component inside a <Modal /> to display content in the MessageModalLayout. You may place a title and/or a footer with actions relevant to the displayed content',
-            }),
-          ]),
-
-          columns([
-            importExample(
-              "import { MessageModalLayout } from 'wix-style-react';",
-            ),
-          ]),
-
-          divider(),
-
-          title('Examples'),
-
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'A simple example with compact preview',
-            }),
-
-            code({
-              compact: true,
-              source: BasicExample,
-            }),
-          ]),
-
-          code({
-            title: 'Illustration Example',
-            description: 'A simple example with illustration',
-            compact: true,
-            source: FootnoteExample,
+          description({
+            title: 'Description',
+            text:
+              'Use this component inside a <Modal /> to display content in the MessageModalLayout. You may place a title and/or a footer with actions relevant to the displayed content',
           }),
 
-          code({
+          importExample(
+            "import { MessageModalLayout } from 'wix-style-react';",
+          ),
+          divider(),
+          title('Examples'),
+          example({
+            title: 'Simple Usage',
+            text: 'A simple example with compact preview',
+            source: BasicExample,
+          }),
+          example({
             title: 'Footnote Example',
-            description: 'A non compact version of same code example as above',
-            compact: true,
+            description: 'A simple example with Footnote',
             source: FootnoteExample,
+          }),
+          example({
+            title: 'Illustration Example',
+            description: 'A simple example with illustration',
+            source: IllustrationExample,
+          }),
+          example({
+            title: 'Destructive Theme Example',
+            description:
+              'A simple example with destructive theme and illustration',
+            source: DestructiveThemeExample,
+          }),
+          example({
+            title: 'Premium Theme Example',
+            text: 'A simple example with premium theme and illustration',
+            source: ThemeExample,
           }),
         ],
       }),

@@ -1,5 +1,5 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
-import {ButtonSkin} from './index';
+import { ButtonSkin } from './index';
 
 export interface ButtonUniDriver extends BaseUniDriver {
   getButtonTextContent: () => Promise<string>;
@@ -7,3 +7,5 @@ export interface ButtonUniDriver extends BaseUniDriver {
   isFocused: () => Promise<boolean>;
   hasSkin: (skinName: ButtonSkin) => Promise<boolean>;
 }
+
+export const buttonDriverFactory: (base: BaseUniDriver) => ButtonUniDriver;

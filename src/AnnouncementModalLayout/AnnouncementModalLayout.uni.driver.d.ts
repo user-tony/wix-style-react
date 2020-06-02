@@ -1,13 +1,17 @@
-import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
+import { BaseModalLayoutUniDriver } from '../BaseModalLayout/BaseModalLayout.uni.driver';
+import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 
-export interface AnnouncementModalLayoutUniDriver extends BaseUniDriver {
-  getTitleText: () => Promise<string>,
-  getSubtitleText: () => Promise<string>,
-  clickPrimaryButton: () => Promise<void>,
-  clickSecondaryButton: () => Promise<void>,
-  clickLink: () => Promise<void>,
-  clickCloseButton: () => Promise<void>,
-  getPrimaryButtonText: () => Promise<string>,
-  getSecondaryButtonText: () => Promise<string>,
-  getModalWidth: () => Promise<string>,
+export interface LinkBlockUniDriver {
+  exists(): Promise<boolean>;
+  getLinkText(): Promise<string>;
+  clickLink(): Promise<void>;
 }
+
+export interface AnnouncementModalLayoutUniDriver
+  extends BaseModalLayoutUniDriver {
+  link: LinkBlockUniDriver;
+}
+
+export const announcementModalLayoutDriverFactory: (
+  base: BaseUniDriver,
+) => AnnouncementModalLayoutUniDriver;

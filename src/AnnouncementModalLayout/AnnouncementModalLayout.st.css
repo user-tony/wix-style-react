@@ -1,88 +1,57 @@
-:vars {
-  modalBoxPadding: 48px;
-}
-
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B40, P40, D80;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/border.st.css";
-  -st-named: radius08;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/shadows.st.css";
-  -st-named: shadow40;
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12, spacing18, spacing24, spacing30, spacing42, spacing48, spacing78;
 }
 
 :import {
   -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
-  -st-named: buttons, root as baseModal, actions, header, contentWrapper, footnote;
+  -st-default: BaseModalLayout
 }
 
-:import {
-  -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing12, spacing18, spacing24, spacing30, spacing42;
-}
-
-
-.root {
-  background-color: value(D80);
-  position: relative;
-  display: flex;
+/** Extending BaseModalLayout */
+.announcementModalLayout {
+  -st-extends: BaseModalLayout;
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex-direction: column;
-  max-height: calc(100% - (value(modalBoxPadding) * 2) );
-  border-radius: value(radius08);
-  box-shadow: value(shadow40);
-  overflow: hidden;
   box-sizing: border-box;
-  padding-top: 48px;
+  padding-top: value(spacing48);
   width: 600px;
 }
 
-.imageWrapper {
-  margin-bottom: value(spacing18);
-  width: 300px;
-  height: 200px;
+/** Styling proprietary components */
+.announcementModalLayout .link {
+  margin-top: value(spacing18);
 }
 
-.messageContainer {
-  display: flex;
-  flex-direction: column;
+.announcementModalLayout .bottomSpacing {
+  width: 100%;
+  height: value(spacing48);
 }
 
-.root .actions {
-  display: block;
-  padding: 48px 0;
+/* Extending BaseModalLayout Blocks */
+.announcementModalLayout::illustration {
+  margin-bottom: value(spacing30);
+  max-height: 200px;
+  min-height: 120px;
+  max-width: 444px;
+  overflow: hidden;
 }
 
-.root .buttons {
-  justify-content: center;
-  margin-left: unset;
+.announcementModalLayout::header {
+  padding: 0 value(spacing78);
+  margin-bottom: value(spacing12);
 }
 
-.additionalButtons {
-  padding-top: value(spacing18);
-
+.announcementModalLayout::content {
+  padding: 0 value(spacing78);
 }
 
-.root .baseModal {
-  position: unset;
+.announcementModalLayout::footer::innerContent {
+  padding: value(spacing42) value(spacing78) 0 value(spacing78);
 }
 
-.root .header {
-  padding: 0 78px value(spacing12);
-}
-
-.root .contentWrapper {
-  padding: 0 78px;
-}
-
-.root .footnote {
-  padding: value(spacing12) 78px;
+.announcementModalLayout::footnote::innerContent {
+  padding-right: value(spacing78);
+  padding-left: value(spacing78);
 }

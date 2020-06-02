@@ -8,8 +8,16 @@ function baseModalLayoutWithMandatoryProps() {
 function baseModalLayoutWithAllProps() {
   return (
     <AnnouncementModalLayout
+      className="cn"
+      dataHook="dh"
+      theme="standard"
+      onCloseButtonClick={() => {}}
+      illustration={<div />}
       title="title"
       subtitle="subtitle"
+      content={<div />}
+      children={<div />}
+      actionsSize="small"
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',
@@ -35,16 +43,8 @@ function baseModalLayoutWithAllProps() {
         suffixIcon: <div />,
       }}
       secondaryButtonOnClick={() => {}}
-      onCloseButtonClick={() => {}}
-      removeContentPadding
-      footnote={<div />}
       sideActions={<div />}
-      children={<div />}
-      additionalButtons={<div />}
-      className="cn"
-      dataHook="dh"
-      illustration={<div />}
-      theme="standard"
+      footnote={<div />}
       linkText="lt"
       linkOnClick={() => {}}
     />

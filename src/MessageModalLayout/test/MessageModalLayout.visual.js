@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import MessageModalLayout from '../MessageModalLayout';
-import { dataHooks } from '../constants';
 import Text from '../../Text/Text';
 import { BASE64_IMAGE } from './data/base64Image';
 
@@ -13,12 +12,12 @@ const SHORT_CONTENT = (
 );
 
 const commonProps = {
-  dataHook: dataHooks.messageModalLayout,
   primaryButtonText: 'Confirm',
   secondaryButtonText: 'Cancel',
   title: 'Title',
   subtitle: 'Subtitle',
   children: SHORT_CONTENT,
+  onCloseButtonClick: () => {},
 };
 
 const tests = [
@@ -40,14 +39,14 @@ const tests = [
         it: 'with illustration',
         props: {
           ...commonProps,
-          illustration: BASE64_IMAGE,
+          illustration: <img src={BASE64_IMAGE} height={120} width={120} />,
         },
       },
       {
         it: 'premium with illustration',
         props: {
           ...commonProps,
-          illustration: BASE64_IMAGE,
+          illustration: <img src={BASE64_IMAGE} height={120} width={120} />,
           theme: 'premium',
         },
       },
@@ -55,7 +54,7 @@ const tests = [
         it: 'destructive with illustration',
         props: {
           ...commonProps,
-          illustration: BASE64_IMAGE,
+          illustration: <img src={BASE64_IMAGE} height={120} width={120} />,
           theme: 'destructive',
         },
       },

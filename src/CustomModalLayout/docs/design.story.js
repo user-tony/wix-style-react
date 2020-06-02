@@ -42,6 +42,7 @@ export default {
     secondaryButtonText: 'Cancel',
     sideActions: <Checkbox>Check</Checkbox>,
     footnote: 'footnote text',
+    onCloseButtonClick: () => {},
   },
   component: CustomModalLayout,
   componentPath: '..',

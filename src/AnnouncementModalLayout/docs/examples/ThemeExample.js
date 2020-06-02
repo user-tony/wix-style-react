@@ -5,18 +5,18 @@ class ThemeExample extends React.Component {
   render() {
     return (
       <AnnouncementModalLayout
-        primaryButtonText="Start Now"
+        theme="premium"
+        illustration={'generic_upgrade.svg'}
+        title="Start Accepting Online Payments"
+        primaryButtonText="Upgrade"
         linkText="Learn More"
-        title="All Your Info In One Place"
-        // This illustration is only an example with a relative path asset. Replace with your image
-        illustration={"announcement_illustration.svg"}
-        theme='premium'
+        onCloseButtonClick={() => {}}
       >
         <Text>
-          Meet your brand new General Info page.<br/>
-          We brought all your business information together here.
+          Upgrade your site with a business and ecommerce premium plan to start
+          accepting payments.
         </Text>
       </AnnouncementModalLayout>
-    )
+    );
   }
 }

@@ -5,10 +5,9 @@ import { customModalLayoutTestkitFactory as customModalLayoutEnzymeTestkitFactor
 import { customModalLayoutTestkitFactory as customModalLayoutPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
-import AnnouncementModalLayout from '..';
 
 function customModalLayoutWithMandatoryProps() {
-  return <CustomModalLayout children={<div />} />;
+  return <CustomModalLayout />;
 }
 
 function customModalLayoutWithAllProps() {
@@ -16,8 +15,13 @@ function customModalLayoutWithAllProps() {
     <CustomModalLayout
       className="cn"
       dataHook="dh"
+      theme="standard"
+      onCloseButtonClick={() => {}}
       title="title"
       subtitle="subtitle"
+      content={<div />}
+      children={<div />}
+      actionsSize="small"
       primaryButtonText="primaryButtonText"
       primaryButtonProps={{
         as: 'a',
@@ -43,13 +47,9 @@ function customModalLayoutWithAllProps() {
         suffixIcon: <div />,
       }}
       secondaryButtonOnClick={() => {}}
-      onCloseButtonClick={() => {}}
-      removeContentPadding
-      footnote={<div />}
       sideActions={<div />}
+      footnote={<div />}
       width="3px"
-      children={<div />}
-      additionalButtons={<div />}
     />
   );
 }

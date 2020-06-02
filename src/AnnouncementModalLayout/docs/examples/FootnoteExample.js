@@ -5,20 +5,22 @@ class FootnoteExample extends React.Component {
   render() {
     return (
       <AnnouncementModalLayout
+        illustration={'generic_post.svg'}
         primaryButtonText="Start Now"
         linkText="Learn More"
-        title="All Your Info In One Place"
-        // This illustration is only an example with a relative path asset. Replace with your image
-        illustration={"announcement_illustration.svg"}
+        title="Import Posts From WordPress"
+        onCloseButtonClick={() => {}}
         footnote={
-            <Text size="small">By sending an invite, you agree to the <a>Wix Terms of Use</a></Text>
+          <Text size="small">
+            By sending an invite, you agree to the <a>Wix Terms of Use</a>
+          </Text>
         }
       >
         <Text>
-          Meet your brand new General Info page.<br/>
-          We brought all your business information together here.
+          Your public posts, images and videos will be copied and added to your
+          Wix blog. Your site and current posts won't be affected.
         </Text>
       </AnnouncementModalLayout>
-    )
+    );
   }
 }

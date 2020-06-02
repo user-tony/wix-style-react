@@ -1,13 +1,14 @@
 /* eslint-disable */
 import React from 'react';
 import Box from 'wix-style-react/Box';
-import Checkbox from "wix-style-react/Checkbox";
+import Checkbox from 'wix-style-react/Checkbox';
 
 class NoHeaderExample extends React.Component {
   render() {
     return (
       <Box>
         <CustomModalLayout
+          onCloseButtonClick={() => {}}
           primaryButtonText="Save"
           secondaryButtonText="Cancel"
           sideActions={(<Checkbox>Checkbox</Checkbox>)}

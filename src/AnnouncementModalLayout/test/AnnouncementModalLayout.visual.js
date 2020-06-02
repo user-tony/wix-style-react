@@ -7,6 +7,7 @@ const commonProps = {
   children: 'Meet your brand new General Info page.',
   primaryButtonText: 'Start Now',
   linkText: 'Learn More',
+  onCloseButtonClick: () => {},
 };
 
 const tests = [
@@ -48,7 +49,7 @@ const tests = [
       {
         it: 'with footnote',
         props: {
-          footnote: 'By sending an invite, you agree to the Wix Terms of Use.',
+          footnote: 'By sending an invite, you agree to the Wix Terms of Use',
         },
       },
     ],

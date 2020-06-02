@@ -1,81 +1,120 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useState, useCallback } from 'react';
 import styles from './MessageModalLayout.st.css';
+
 import BaseModalLayout from '../BaseModalLayout';
+import Box from '../Box';
+import PropTypes from 'prop-types';
+import { APPEARANCES } from '../Heading';
+import Button from '../Button';
 
 /** MessageModalLayout */
-class MessageModalLayout extends React.PureComponent {
-  _renderIllustration() {
-    const { illustration } = this.props;
+const MessageModalLayout = ({ children, ...restProps }) => {
+  const { illustration } = restProps;
+  const [showFooterDivider, setShowFooterDivider] = useState(false);
 
-    return (
-      <div className={styles.illustrationContainer}>
-        <div className={styles.imageWrapper}>
-          {typeof illustration === 'string' ? (
-            <img src={illustration} width="100%" />
-          ) : (
-            illustration
-          )}
+  const onContentScrollPositionChanged = useCallback(({ position }) => {
+    const { y: scrollPosition } = position;
+    const newShowDivider =
+      scrollPosition === 'top' || scrollPosition === 'middle';
+    setShowFooterDivider(newShowDivider);
+  }, []);
+
+  const getScrollPositionChangedHandler = useCallback(
+    () => ({
+      ...(!!illustration ? { onContentScrollPositionChanged } : {}),
+    }),
+    [illustration, onContentScrollPositionChanged],
+  );
+
+  const getShowDividerState = useCallback(
+    () => ({
+      ...(!!illustration ? { showFooterDivider } : {}),
+    }),
+    [illustration, showFooterDivider],
+  );
+
+  const hasIllustration = !!illustration;
+
+  return (
+    <BaseModalLayout
+      {...styles('root', { hasIllustration }, restProps)}
+      {...restProps}
+    >
+      <div className={styles.topAreaContainer}>
+        <BaseModalLayout.Illustration />
+        <div className={styles.contentAreaContainer}>
+          <BaseModalLayout.Header />
+          <BaseModalLayout.Content
+            contentHideDividers
+            {...getScrollPositionChangedHandler()}
+          >
+            {children}
+          </BaseModalLayout.Content>
         </div>
       </div>
-    );
-  }
-
-  render() {
-    const {
-      dataHook,
-      theme,
-      illustration,
-      primaryButtonProps,
-      secondaryButtonProps,
-    } = this.props;
-
-    const width = illustration ? '630px' : '510px';
-
-    const new_theme = ['standard', 'premium', 'destructive'].includes(theme)
-      ? theme
-      : 'standard';
-
-    primaryButtonProps['skin'] = new_theme;
-    secondaryButtonProps['skin'] = new_theme;
-
-    return (
-      <div
-        {...styles('root', { theme: new_theme }, this.props)}
-        data-hook={dataHook}
-        style={{ width }}
-      >
-        {illustration && this._renderIllustration()}
-        <BaseModalLayout
-          {...this.props}
-          secondaryButtonProps={secondaryButtonProps}
-          primaryButtonProps={primaryButtonProps}
-        />
-      </div>
-    );
-  }
-}
+      <BaseModalLayout.Footer {...getShowDividerState()} />
+      <BaseModalLayout.Footnote />
+    </BaseModalLayout>
+  );
+};
 
 MessageModalLayout.displayName = 'MessageModalLayout';
 
 MessageModalLayout.propTypes = {
-  ...BaseModalLayout.propTypes,
+  /** ...BaseModalLayout.propTypes, */
   /** additional css classes */
   className: PropTypes.string,
   /** data hook for testing */
   dataHook: PropTypes.string,
-  /** Illustration URL or custom element. */
-  illustration: PropTypes.node,
-  /** Theme will affect the buttons skins and illustration bg color. */
+  /** callback for when the close button is clicked */
+  onCloseButtonClick: PropTypes.func,
+  /** a global theme for the modal, will be applied as stylable state and will affect footer buttons skin */
   theme: PropTypes.oneOf(['standard', 'premium', 'destructive']),
+
+  /** ...Header.propTypes, */
+  /** The modal's title */
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+
+  /** ...Content.propTypes, */
+  /** the content you want to render in the modal, children passed directly will be treated as `content` as well */
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+
+  /** ...Footer.propTypes, */
+  /** will determine the action buttons size*/
+  actionsSize: Button.propTypes.size,
+  /** a text for the primary action button */
+  primaryButtonText: PropTypes.string,
+  /** a callback for when the primary action button is clicked */
+  primaryButtonOnClick: PropTypes.func,
+  /** Passed to the primary action button as props without any filter / mutation */
+  primaryButtonProps: (() => {
+    const { dataHook, ...buttonProps } = Button.propTypes;
+    return PropTypes.shape(buttonProps);
+  })(),
+  /** a text for the secondary action button */
+  secondaryButtonText: PropTypes.string,
+  /** callback for when the secondary action button is clicked */
+  secondaryButtonOnClick: PropTypes.func,
+  /** Passed to the secondary button as props without any filter / mutation */
+  secondaryButtonProps: (() => {
+    const { dataHook, ...buttonProps } = Button.propTypes;
+    return PropTypes.shape(buttonProps);
+  })(),
+  /** side actions node, to be rendered as the first element on the same row as the action buttons */
+  sideActions: PropTypes.node,
+
+  /** ...Footnote.propTypes, */
+  /** a footnote node, to be rendered at the very bottom of the modal */
+  footnote: PropTypes.node,
+
+  /** ...Illustration.propTypes, */
+  /** The illustration src or the illustration node itself */
+  illustration: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 MessageModalLayout.defaultProps = {
-  ...BaseModalLayout.defaultProps,
   theme: 'standard',
-  primaryButtonProps: {},
-  secondaryButtonProps: {},
+  actionsSize: 'small',
 };
 
 export default MessageModalLayout;

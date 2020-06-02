@@ -1,8 +1,5 @@
 /* eslint-disable */
 import React from 'react';
-import Modal from 'wix-style-react/Modal';
-import Button from 'wix-style-react/Button';
-import Box from 'wix-style-react/Box';
 
 class PageExample extends React.Component {
   state = {
@@ -18,8 +15,13 @@ class PageExample extends React.Component {
     return (
       <>
         <Button onClick={this.openModal}>Open Modal</Button>
-        <Modal isOpen={isModalOpened} onRequestClose={this.closeModal} shouldCloseOnOverlayClick >
-          <CustomModalLayout width="1254px"
+        <Modal
+          isOpen={isModalOpened}
+          onRequestClose={this.closeModal}
+          shouldCloseOnOverlayClick
+        >
+          <CustomModalLayout
+            width="1254px"
             title="Title"
             removeContentPadding
             primaryButtonText="Save"
@@ -37,7 +39,9 @@ class PageExample extends React.Component {
                         <Card>
                           <Card.Header title="Card 1" />
                           <Card.Divider />
-                          <Card.Content><Text size="medium">Lorem ipsum dolor</Text></Card.Content>
+                          <Card.Content>
+                            <Text size="medium">Lorem ipsum dolor</Text>
+                          </Card.Content>
                         </Card>
                       </Col>
                     </Row>
@@ -46,7 +50,9 @@ class PageExample extends React.Component {
                         <Card>
                           <Card.Header title="Card 2" />
                           <Card.Divider />
-                          <Card.Content><Text size="medium">Lorem ipsum dolor</Text></Card.Content>
+                          <Card.Content>
+                            <Text size="medium">Lorem ipsum dolor</Text>
+                          </Card.Content>
                         </Card>
                       </Col>
                     </Row>
@@ -60,4 +66,3 @@ class PageExample extends React.Component {
     );
   }
 }
-

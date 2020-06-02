@@ -1,21 +1,21 @@
 /* eslint-disable */
 import React from 'react';
-import Checkbox from "wix-style-react/Checkbox";
+import Checkbox from 'wix-style-react/Checkbox';
 
 class FootnoteExample extends React.Component {
   render() {
     return (
       <CustomModalLayout
         primaryButtonText="Save"
-        primaryButtonOnClick={this.closeModal}
         secondaryButtonText="Cancel"
-        secondaryButtonOnClick={this.closeModal}
-        onCloseButtonClick={this.closeModal}
+        onCloseButtonClick={() => {}}
         title="Create New Coupon"
         subtitle="Make customers come back to your store with coupons"
-        sideActions={(<Checkbox>Checkbox</Checkbox>)}
+        sideActions={<Checkbox>Checkbox</Checkbox>}
         footnote={
-            <Text size="small">By sending an invite, you agree to the <a>Wix Terms of Use</a></Text>
+          <Text size="small">
+            By sending an invite, you agree to the <a>Wix Terms of Use</a>
+          </Text>
         }
       >
         <Text>
@@ -23,6 +23,6 @@ class FootnoteExample extends React.Component {
           sure you want to leave?
         </Text>
       </CustomModalLayout>
-    )
+    );
   }
 }

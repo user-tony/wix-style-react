@@ -1,13 +1,26 @@
 import * as React from 'react';
-import { BaseModalLayoutProps } from '../BaseModalLayout';
+import { ModalTheme } from '../BaseModalLayout';
+import { OmitPolyfill } from '../common';
+import { ButtonProps, ButtonSize } from '../Button';
 
-export interface MessageModalLayoutProps extends BaseModalLayoutProps {
+export interface MessageModalLayoutProps {
   className?: string;
   dataHook?: string;
-  illustration: React.ReactNode;
-  theme: 'standard' | 'destructive' | 'premium';
+  theme?: ModalTheme;
+  onCloseButtonClick?(): void;
+  title?: string;
+  content?: string | React.ReactNode;
+  primaryButtonText?: string;
+  primaryButtonProps?: OmitPolyfill<ButtonProps, 'dataHook'>;
+  primaryButtonOnClick?(): void;
+  secondaryButtonText?: string;
+  secondaryButtonProps?: OmitPolyfill<ButtonProps, 'dataHook'>;
+  secondaryButtonOnClick?(): void;
+  actionsSize?: ButtonSize;
+  sideActions?: React.ReactNode;
+  footnote?: React.ReactNode;
+  illustration?: string | React.ReactNode;
 }
 
-export default class MessageModalLayout extends React.PureComponent<
-  MessageModalLayoutProps
-> {}
+declare const MessageModalLayout: React.FC<MessageModalLayoutProps>;
+export default MessageModalLayout;

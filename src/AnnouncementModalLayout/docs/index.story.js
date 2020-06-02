@@ -23,6 +23,7 @@ import FootnoteExample from '!raw-loader!./examples/FootnoteExample';
 import SecondaryButtonExample from '!raw-loader!./examples/SecondaryButtonExample';
 import NoIllustrationExample from '!raw-loader!./examples/NoIllustrationExample';
 import ThemeExample from '!raw-loader!./examples/ThemeExample';
+import Text from '../../Text';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -44,6 +45,8 @@ export default {
     ),
     primaryButtonText: 'Start Now',
     linkText: 'Link',
+    onCloseButtonClick: () => {},
+    illustration: 'generic_upgrade.svg',
   },
 
   exampleProps: {
@@ -67,7 +70,7 @@ export default {
               'Use this component inside a <Modal /> to display content in the AnnouncementModalLayout. You may place a title and/or a footer with actions relevant to the displayed content',
           }),
           importExample(
-            "import AnnouncementModalLayout from 'wix-style-react/AnnouncementModalLayout';",
+            "import { AnnouncementModalLayout } from 'wix-style-react';",
           ),
           divider(),
           title('Examples'),

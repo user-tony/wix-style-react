@@ -3,48 +3,37 @@
 }
 
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D80;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/border.st.css";
-  -st-named: radius08;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/shadows.st.css";
-  -st-named: shadow40;
-}
-
-:import {
   -st-from: "../Foundation/stylable/spacing.st.css";
   -st-named: spacing24, spacing30, spacing42;
 }
 
 :import {
   -st-from: "../BaseModalLayout/BaseModalLayout.st.css";
-  -st-named: buttons, root as baseModal, actions, header, contentWrapper;
+  -st-default: BaseModalLayout
 }
 
+/* Extending BaseModalLayout */
 .root {
+  -st-extends: BaseModalLayout;
   -st-states: removeContentPadding;
-  background-color: value(D80);
-  position: relative;
+  width: calc(100% - (value(modalBoxPadding) * 2) );
+  max-width: 1254px;
   min-width: 510px;
-  max-width: calc(100% - (value(modalBoxPadding) * 2) );
-  max-height: calc(100% - (value(modalBoxPadding) * 2) );
-  display: flex;
-  flex-direction: column;
-  border-radius: value(radius08);
-  box-shadow: value(shadow40);
-  overflow: hidden;
 }
 
-.root .header {
+/* Extending of BaseModalLayout Blocks */
+.root:not(:removeContentPadding)::content::innerContent {
+  padding: 0 value(spacing30);
+}
+
+.root::header {
   padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
 }
 
-.root .contentWrapper {
-  padding: 0 value(spacing30);
+:global(.rtl) .root::header {
+  padding: value(spacing24) value(spacing30) value(spacing24) value(spacing42);
+}
+
+.root::footnote::innerContent {
+  justify-content: flex-start;
 }
