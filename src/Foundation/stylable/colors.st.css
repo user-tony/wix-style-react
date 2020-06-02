@@ -100,6 +100,7 @@
   D10-10: calc_rgba(value(D10), 0.1);
   D10-20: calc_rgba(value(D10), 0.2);
   D10-30: calc_rgba(value(D10), 0.3);
+  D10-66: calc_rgba(value(D10), 0.66);
 
   D20-48: calc_rgba(value(D20), 0.48); /*  new transparent color */
   D20-54: calc_rgba(value(D20), 0.54); /* hovered */

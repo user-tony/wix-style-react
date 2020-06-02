@@ -1,6 +1,6 @@
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: B10, D10-30, D20, D80, D60, D10;
+  -st-named: B10, D10-03, D10-30, D20, D80, D60, D10;
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
@@ -16,7 +16,6 @@
 }
 
 :vars {
-  notDroppableColor: #f8f8f9;
   headerHeight: 59px;
 }
 
@@ -55,7 +54,7 @@
 }
 
 .root:dragging .column:not(:droppable) {
-  background-color: value(notDroppableColor);
+  background-color: value(D10-03);
 }
 
 .column:addItemEnabled:not(:addItemVisible) {
@@ -99,10 +98,10 @@
 .root:dragging .header:not(:droppable) {
   background-image: linear-gradient(
     to top,
-    calc_rgba(value(notDroppableColor), 0),
-    calc_rgba(value(notDroppableColor), 0.97) 12%,
-    calc_rgba(value(notDroppableColor), 0.96) 28%,
-    value(notDroppableColor)
+    calc_rgba(value(D10-03), 0),
+    calc_rgba(value(D10-03), 0.97) 12%,
+    calc_rgba(value(D10-03), 0.96) 28%,
+    value(D10-03)
   );
 }
 

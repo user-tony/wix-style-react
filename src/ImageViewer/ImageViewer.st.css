@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B50, B40, R10, D50, D80, Y10;
+  -st-named: D10-66, B50, B40, R10, D50, D80, Y10;
 }
 
 :import {
@@ -13,9 +13,6 @@
   -st-named: Focusable;
 }
 
-:vars {
-  overlayColor: rgba(32, 69, 94, 0.8);
-}
 
 .root {
   -st-states: status(enum(error, warning)),
@@ -95,7 +92,7 @@
   -st-states: removeRadius;
   transition: all 0.1s linear;
   border-radius: value(radius08);
-  background-color: value(overlayColor);
+  background-color: value(D10-66);
   position: absolute;
   top: 0;
   height: 100%;

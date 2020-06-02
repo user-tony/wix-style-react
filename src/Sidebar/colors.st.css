@@ -12,7 +12,7 @@
   selectedBackgroundColor:#3b3f57;
   selectedTextColor: value(B10);
   disabledBackgroundColor:#23263c;
-  dividerColor: #434567;
+  dividerColor: value(D20);
 
   /* Light skin */
   sidebarLightBackgroundColor: value(D80);

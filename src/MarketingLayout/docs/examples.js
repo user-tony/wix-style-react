@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../Button';
+import Image from '../../Image';
 
 export const description = {
   title: 'Description',
@@ -12,6 +13,7 @@ export const sizeSmall = `
     title="Small Size Layout"
     description="This layout requires less attention. It can promote side features that might add value, but are not mandatory to achieve main goals."
     actions={<Button size="small">Get Started</Button>}
+    image={<Image/>}
   />
 `;
 
@@ -21,6 +23,7 @@ export const sizeMedium = `
     description="This layout is big enough to be noticed and can be used to promote big things while still leaving plenty of space."
     actions={<Button size="medium">Get Started</Button>}
     size="medium"
+    image={<Image/>}
   />
 `;
 
@@ -30,6 +33,7 @@ export const sizeLarge = `
     description="This layout is very prominent, use it to promote apps or things like staff featured templates."
     actions={<Button size="large">Get Started</Button>}
     size="large"
+    image={<Image/>}
   />
 `;
 
@@ -40,6 +44,7 @@ export const inverted = `
     description="This layout has an image on the left side."
     actions={<Button size="medium">Get Started</Button>}
     size="medium"
+    image={<Image/>}
   />
 `;
 
@@ -50,6 +55,7 @@ export const imageBackgroundColor = `
     actions={<Button size="medium">Get Started</Button>}
     size="medium"
     imageBackgroundColor="B50"
+    image={<Image/>}
   />
 `;
 

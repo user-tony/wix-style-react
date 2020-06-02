@@ -7,6 +7,10 @@
   -st-from: "../Foundation/stylable/shadows.st.css";
   -st-named: shadow30;
 }
+:import {
+  -st-from: '../Foundation/stylable/gradients.st.css';
+  -st-named: GR1;
+}
 
 .root{
   -st-states: skin(enum(neutral, gradient, custom)), contentOutline(enum(shadow, border));
@@ -23,7 +27,7 @@
 }
 
 .root:skin(gradient){
-  background-image: linear-gradient(307deg, #d4e5f2 10%, #eee8e5);
+  background-image: value(GR1);
 }
 
 .contentArea {
