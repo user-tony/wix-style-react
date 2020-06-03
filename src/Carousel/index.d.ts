@@ -18,4 +18,4 @@ export default class Carousel extends React.Component<CarouselProps> {}
 
 export type CarouselButtonSkin = 'standard' | 'inverted';
 
-export type CarouselImage = { src: string };
+export type CarouselImage = Partial<HTMLImageElement> & { src: string };
