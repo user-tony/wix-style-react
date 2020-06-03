@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.15.0 - 2020-06-03
 ### Changed
 - `<MessageModalLayout />`, `<CustomModalLayout />`, `<AnnouncemenetModalLayout />` - All new modal layouts were refactored according to accomodate the new UX requirements ([DSM-538](https://jira.wixpress.com/browse/DSM-534)), [#5509](https://github.com/wix/wix-style-react/pull/5496)
 
