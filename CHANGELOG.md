@@ -16,6 +16,11 @@ Types of changes:
 
 ## Next
 
+## 8.15.1 - 2020-06-03
+### Fixed
+- `<MessageModalLayout />` - fix missing export in index.d.ts
+- `<AnnouncemenetModalLayout />` - fixing types in uni-driver [#5514](https://github.com/wix/wix-style-react/pull/5514)
+
 ## 8.15.0 - 2020-06-03
 ### Changed
 - `<MessageModalLayout />`, `<CustomModalLayout />`, `<AnnouncemenetModalLayout />` - All new modal layouts were refactored according to accomodate the new UX requirements ([DSM-538](https://jira.wixpress.com/browse/DSM-534)), [#5509](https://github.com/wix/wix-style-react/pull/5496)
