@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import styles from './Header.st.css';
+import { st, classes } from './Header.st.css';
 import ModalHeading from './ModalHeading';
 import { dataHooks } from '../../constants';
 import Text from '../../../Text';
@@ -18,6 +18,7 @@ export const Header = ({
   className = classNames(headerClassName, className);
   return (
     ((title || subtitle) && (
+<<<<<<< HEAD
       <div data-hook={dataHook} {...styles('root', {}, { className })}>
         <div className={styles.innerContent}>
           {typeof title === 'string' ? (
@@ -42,6 +43,29 @@ export const Header = ({
           )}
         </div>
         {showHeaderDivider && <Divider />}
+=======
+      <div data-hook={dataHook} className={st(classes.root, className)}>
+        {typeof title === 'string' ? (
+          <ModalHeading
+            className={classes.title}
+            dataHook={dataHooks.headerTitle}
+            headingAppearance={titleAppearance}
+          >
+            {title}
+          </ModalHeading>
+        ) : (
+          title
+        )}
+        {subtitle && (
+          <Text
+            className={classes.subtitle}
+            secondary
+            dataHook={dataHooks.headerSubtitle}
+          >
+            {subtitle}
+          </Text>
+        )}
+>>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
       </div>
     )) ||
     null
