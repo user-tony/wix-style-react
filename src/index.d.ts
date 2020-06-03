@@ -96,6 +96,9 @@ export * from './CounterBadge';
 export { default as CustomModalLayout } from './CustomModalLayout';
 export * from './CustomModalLayout';
 
+export { default as MessageModalLayout } from './MessageModalLayout';
+export * from './MessageModalLayout';
+
 export { default as DatePicker } from './DatePicker';
 export * from './DatePicker';
 
@@ -385,7 +388,7 @@ export { default as TimeInput } from './TimeInput';
 export * from './TimeInput';
 
 export { default as Timeline } from './Timeline';
-export * from './Timeline'
+export * from './Timeline';
 
 export { default as TimeTable } from './TimeTable';
 export * from './TimeTable';
@@ -419,4 +422,4 @@ export { default as ComposerSidebar } from './ComposerSidebar';
 export { default as SortableGrid } from './SortableGrid';
 export * from './SortableGrid';
 
-export * from './ComposerSidebar'
+export * from './ComposerSidebar';
