@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import styles from './Content.st.css';
 import React, { useState, useCallback } from 'react';
+=======
+import { st, classes } from './Content.st.css';
+import React from 'react';
+>>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
 import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -58,15 +63,16 @@ export const Content = ({
       <div
         data-hook={dataHook}
         data-hidedividers={contentHideDividers}
-        {...styles(
-          'root',
+        className={st(
+          classes.root,
           {
             hideTopDivider: isTopDividerHidden(),
             hideBottomDivider: isBottomDividerHidden(),
           },
-          { className },
+          className,
         )}
       >
+<<<<<<< HEAD
         {!contentHideDividers && <Divider className={styles.topDivider} />}
         <ScrollableContainer
           dataHook={dataHooks.contentWrapper}
@@ -79,6 +85,13 @@ export const Content = ({
           {content}
         </ScrollableContainer>
         {!contentHideDividers && <Divider className={styles.bottomDivider} />}
+=======
+        {!contentHideDividers && <Divider className={classes.topDivider} />}
+        <div className={classes.innerContentWrapper}>
+          <div className={classes.innerContent}>{content}</div>
+        </div>
+        {!contentHideDividers && <Divider className={classes.bottomDivider} />}
+>>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
       </div>
     )) ||
     null
