@@ -98,10 +98,10 @@
 .root:dragging .header:not(:droppable) {
   background-image: linear-gradient(
     to top,
-    calc_rgba(value(D10-03), 0),
-    calc_rgba(value(D10-03), 0.97) 12%,
-    calc_rgba(value(D10-03), 0.96) 28%,
-    value(D10-03)
+    calc_rgba(#f8f8f9, 0),
+    calc_rgba(#f8f8f9, 0.97) 12%,
+    calc_rgba(#f8f8f9, 0.96) 28%,
+    #f8f8f9
   );
 }
 
@@ -113,7 +113,8 @@
   -st-mixin: text-tiny-normal;
 }
 
-.title, .subtitle {
+.title,
+.subtitle {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -170,7 +171,8 @@
   width: 100%;
 }
 
-.column, .header {
+.column,
+.header {
   border-left: 1px solid value(D60);
 }
 
@@ -179,13 +181,13 @@
   border-left: none;
 }
 
-:global([dir="rtl"]) .column:last-child,
-:global([dir="rtl"]) .header:last-child {
+:global([dir='rtl']) .column:last-child,
+:global([dir='rtl']) .header:last-child {
   border-left: none;
 }
 
-:global([dir="rtl"]) .column:first-child,
-:global([dir="rtl"]) .header:first-child {
+:global([dir='rtl']) .column:first-child,
+:global([dir='rtl']) .header:first-child {
   border-left: 1px solid value(D60);
 }
 
