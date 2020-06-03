@@ -18,6 +18,9 @@ Types of changes:
 ### Changed
 - `<MessageModalLayout />`, `<CustomModalLayout />`, `<AnnouncemenetModalLayout />` - All new modal layouts were refactored according to accomodate the new UX requirements ([DSM-538](https://jira.wixpress.com/browse/DSM-534)), [#5509](https://github.com/wix/wix-style-react/pull/5496)
 
+### Fixed
+- `<Carousel/>` - Fix indicators color and margin-top [#5431](https://github.com/wix/wix-style-react/pull/5431)
+
 ## 8.14.0 - 2020-06-02
 ### Added
 - `<MultiSelectCheckbox/>` - Expose prefix, suffix, and ellipsis [#5509](https://github.com/wix/wix-style-react/pull/5509)
