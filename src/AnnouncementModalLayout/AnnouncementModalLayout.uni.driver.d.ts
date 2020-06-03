@@ -8,9 +8,8 @@ export interface LinkBlockUniDriver {
 }
 
 export interface AnnouncementModalLayoutUniDriver
-  extends BaseModalLayoutUniDriver {
-  link: LinkBlockUniDriver;
-}
+  extends BaseModalLayoutUniDriver,
+    LinkBlockUniDriver {}
 
 export const announcementModalLayoutDriverFactory: (
   base: BaseUniDriver,
