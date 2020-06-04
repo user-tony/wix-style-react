@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 ### Fixed
 - `<Search/>` - fix wrong width when size small [#5513](https://github.com/wix/wix-style-react/pull/5513)
-
+- `<EllipsisHOC/>` - add children to dependencies [#5518](https://github.com/wix/wix-style-react/pull/5518)
 
 ## 8.15.1 - 2020-06-03
 ### Fixed

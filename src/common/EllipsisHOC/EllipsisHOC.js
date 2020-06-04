@@ -16,6 +16,7 @@ export default React.forwardRef(({ Component, props }, ref) => {
     showDelay,
     ellipsis,
     showTooltip = true,
+    children,
     ...rest
   } = props;
 
@@ -30,6 +31,7 @@ export default React.forwardRef(({ Component, props }, ref) => {
     zIndex,
     hideDelay,
     showDelay,
+    children,
   };
 
   const EllipsedComponent = useMemo(
@@ -42,5 +44,5 @@ export default React.forwardRef(({ Component, props }, ref) => {
     [...Object.values(tooltipProps), Component, showTooltip],
   );
 
-  return <EllipsedComponent ref={ref} {...rest} />;
+  return <EllipsedComponent ref={ref} children={children} {...rest} />;
 });
