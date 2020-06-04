@@ -40,7 +40,7 @@ export default {
 
     description({
       title: 'Description',
-      text: `The recommended way to use \`wix-style-react\` typography is with \`<Text/>\` and \`<Heading/>\` components. Not only they provide correct styling but also feature ellipsis and tooltip, when necessary.`,
+      text: `The recommended way to usee \`wix-style-react\` typography is with \`<Text/>\` and \`<Heading/>\` components. Not only they provide correct styling but also feature ellipsis and tooltip, when necessary.`,
     }),
 
     columns([
