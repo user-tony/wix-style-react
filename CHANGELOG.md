@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes are documented in this file.
+All notable changes are being documented in this file.
 
 Types of changes:
 
