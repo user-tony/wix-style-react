@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Fixed
+- `<Search/>` - fix wrong width when size small [#5513](https://github.com/wix/wix-style-react/pull/5513)
+
 
 ## 8.15.1 - 2020-06-03
 ### Fixed
