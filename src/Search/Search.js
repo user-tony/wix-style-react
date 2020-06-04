@@ -188,13 +188,14 @@ class Search extends Component {
 
   render() {
     const { defaultValue, dataHook, expandWidth, ...restProps } = this.props;
-    const { expandable } = restProps;
+    const { expandable, size } = restProps;
     const { collapsed, inputValue } = this.state;
 
     const wrapperClasses = classNames({
       [styles.expandableStyles]: expandable,
       [styles.collapsed]: collapsed && expandable,
       [styles.expanded]: !collapsed && expandable,
+      [styles.small]: size === 'small',
     });
 
     const contentStyle =

@@ -33,6 +33,12 @@
   }
 }
 
+.small.collapsed{
+  .content {
+    width: 30px;
+  }
+}
+
 .expanded {
   display: block !important;
 }
