@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Changed
+- `<Calendar/>` - Create a new story page [#5523](https://github.com/wix/wix-style-react/pull/5523)
 
 ## 8.16.0 - 2020-06-07
 ### Fixed
