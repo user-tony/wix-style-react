@@ -1,17 +1,28 @@
-import React from 'react';
-import addDays from 'date-fns/add_days';
-import CodeExample from 'wix-storybook-utils/CodeExample';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  importExample,
+  title,
+  divider,
+  example as baseExample,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
 
-import { Container, Row, Col } from 'wix-style-react/Grid';
+import addDays from 'date-fns/add_days';
+
 import Calendar from '..';
 
-import ExampleStandard from './ExampleStandard';
-import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
-
-import ExampleYearMonths from './ExampleYearMonths';
-import ExampleYearMonthsRaw from '!raw-loader!./ExampleYearMonths';
-
 import { storySettings } from './storySettings';
+
+import allComponents from '../../../stories/utils/allComponents';
+
+import { ExampleYearMonths, ExampleStandard } from './examples';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -30,6 +41,7 @@ export default {
     selectionMode: 'day',
     dataHook: storySettings.dataHook,
   }),
+
   exampleProps: {
     value: [
       {
@@ -50,23 +62,44 @@ export default {
       },
     ],
   },
-  examples: (
-    <Container>
-      <Row>
-        <Col span={4}>
-          <CodeExample title="Standard" code={ExampleStandardRaw}>
-            <ExampleStandard />
-          </CodeExample>
-        </Col>
-        <Col span={4}>
-          <CodeExample
-            title="With Years and Months selection"
-            code={ExampleYearMonthsRaw}
-          >
-            <ExampleYearMonths />
-          </CodeExample>
-        </Col>
-      </Row>
-    </Container>
-  ),
+
+  sections: [
+    header({
+      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${Calendar.displayName}/`,
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description({
+            title: 'Description',
+            text: 'A single/double calendar panel, displayed in monthly view.',
+          }),
+
+          importExample("import { Calendar } from 'wix-style-react'"),
+
+          divider(),
+
+          title('Examples'),
+
+          example({
+            title: 'Standard',
+            source: ExampleStandard,
+          }),
+
+          example({
+            title: 'With Years and Months selection',
+            source: ExampleYearMonths,
+          }),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
