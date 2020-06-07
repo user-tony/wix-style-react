@@ -1,4 +1,18 @@
 import React from 'react';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  importExample,
+  title,
+  divider,
+  example as baseExample,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
+import allComponents from '../../../stories/utils/allComponents';
 import addDays from 'date-fns/add_days';
 import addMonths from 'date-fns/add_months';
 import startOfMonth from 'date-fns/start_of_month';
@@ -9,6 +23,10 @@ import CalendarPanelFooter, {
 } from '../../CalendarPanelFooter';
 
 import CalendarPanel from '..';
+
+import * as examples from './examples';
+
+const example = config => baseExample({ components: allComponents, ...config });
 
 // We don't actually show today because tests are done on the auto-example and we want them to be consistent.
 const TODAY = new Date(2018, 0, 10);
@@ -103,4 +121,40 @@ export default {
       },
     ],
   },
+
+  sections: [
+    header({
+      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${CalendarPanel.displayName}/`,
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description({
+            title: 'Description',
+            text:
+              'CalendarPanel extends a double Calendar with presets and a footer.',
+          }),
+
+          importExample("import { CalendarPanel } from 'wix-style-react'"),
+
+          divider(),
+
+          title('Examples'),
+
+          example({
+            title: 'Standard',
+            source: examples.standard,
+          }),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
