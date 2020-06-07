@@ -5,7 +5,5 @@ export const tablePrivateUniDriverFactory = (base, ...args) => {
   return {
     ...publicDriver,
     getInnerHtml: () => base._prop('innerHTML'),
-    getCellTextAt: async (rowIndex, cellIndex) =>
-      (await publicDriver.getCell(rowIndex, cellIndex))._prop('textContent'),
   };
 };

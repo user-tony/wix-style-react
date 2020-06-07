@@ -7,6 +7,7 @@ export interface TableDriver<T> extends DataTableDriver {
   getBulkSelectionCheckboxDriver: () => CheckboxDriver;
   isBulkSelectionDisabled: () => boolean;
   isRowSelectionDisabled: (index: number) => boolean;
+  getCellTextValue: (row?: number, column?: number) => string;
   /**
    * @deprecated
    */

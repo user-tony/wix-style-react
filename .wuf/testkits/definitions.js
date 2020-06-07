@@ -26,8 +26,6 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerLegacyTestkit: true,
-    puppeteerTypeImportName: 'TablePuppeteerDriver',
   },
 
   TableActionCell: {

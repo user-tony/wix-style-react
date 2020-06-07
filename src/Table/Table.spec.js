@@ -43,6 +43,17 @@ describe('Table', () => {
   function runTests(render) {
     afterEach(() => cleanup());
 
+    it('should render the table', async () => {
+      const { driver } = render(<Table {...defaultProps} />);
+      expect(await driver.getRowsCount()).toBe(2);
+      expect(await driver.getCellTextValue(0, 1)).toBe('0');
+      expect(await driver.getCellTextValue(0, 2)).toBe(defaultProps.data[0].a);
+      expect(await driver.getCellTextValue(0, 3)).toBe(defaultProps.data[0].b);
+      expect(await driver.getCellTextValue(1, 1)).toBe('1');
+      expect(await driver.getCellTextValue(1, 2)).toBe(defaultProps.data[1].a);
+      expect(await driver.getCellTextValue(1, 3)).toBe(defaultProps.data[1].b);
+    });
+
     it('should pass id prop to child', async () => {
       const { driver } = render(<Table {...defaultProps} />);
       expect(await driver.hasChildWithId(defaultProps.id)).toBe(true);
@@ -229,7 +240,7 @@ describe('Table', () => {
         const ROW_INDEX = 0;
         data[ROW_INDEX].a = newValue;
         rerender(<Table {...props} data={data} />);
-        expect(await driver.getCellTextAt(ROW_INDEX, COLUMN_A_INDEX)).toBe(
+        expect(await driver.getCellTextValue(ROW_INDEX, COLUMN_A_INDEX)).toBe(
           newValue,
         );
       });

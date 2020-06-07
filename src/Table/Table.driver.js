@@ -76,6 +76,8 @@ const tableDriverFactory = ({ element, eventTrigger }) => {
     },
     /** Get title-bar (column titles) */
     getTitlebar,
+    getCellTextValue: (rowIndex, cellIndex) =>
+      dataTableDriver.getCell(rowIndex, cellIndex).textContent,
   };
 };
 

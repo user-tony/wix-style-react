@@ -68,5 +68,7 @@ export const tableUniDriverFactory = base => {
     },
     /** Get title-bar (column titles) */
     getTitlebar: () => getElement(base.$('[data-hook="table-title-bar"]')),
+    getCellTextValue: async (row = 0, column = 0) =>
+      (await dataTableDriver.getCell(row, column))._prop('textContent'),
   };
 };
