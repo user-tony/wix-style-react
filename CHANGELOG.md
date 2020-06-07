@@ -18,6 +18,7 @@ Types of changes:
 ### Changed
 - `<Calendar/>` - Create a new story page [#5523](https://github.com/wix/wix-style-react/pull/5523)
 - `<CalendarPanel/>` - Create a new story page [#5524](https://github.com/wix/wix-style-react/pull/5524)
+- `<CalendarPanelFooter/>` - Create a new story page [#5525](https://github.com/wix/wix-style-react/pull/5525)
 
 ## 8.16.0 - 2020-06-07
 ### Fixed
