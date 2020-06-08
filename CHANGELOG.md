@@ -15,7 +15,11 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
 ### Changed
+- Set `react-modal` dependency to 3.10.1 [#5506](https://github.com/wix/wix-style-react/pull/5506)
+
+### Docs
 - `<Calendar/>` - Create a new story page [#5523](https://github.com/wix/wix-style-react/pull/5523)
 - `<CalendarPanel/>` - Create a new story page [#5524](https://github.com/wix/wix-style-react/pull/5524)
 - `<CalendarPanelFooter/>` - Create a new story page [#5525](https://github.com/wix/wix-style-react/pull/5525)
