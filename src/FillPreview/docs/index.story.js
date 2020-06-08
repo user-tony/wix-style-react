@@ -30,7 +30,11 @@ export default {
   component: FillPreview,
   componentPath: '..',
 
-  componentProps: {},
+  componentProps: {
+    fill: null,
+    selected: false,
+    disabled: false,
+  },
 
   exampleProps: {
     // Put here presets of props, for more info:

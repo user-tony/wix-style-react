@@ -41,7 +41,7 @@ export default {
   },
 
   exampleProps: {
-    onClick: () => 'Clicked!',
+    onClick: () => 'I was called!',
     as: ['button', 'a', 'span', 'div'],
     children: [
       { label: 'No children', value: null },

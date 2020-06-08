@@ -29,7 +29,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     initialValue: 'Some title',
     defaultValue: undefined,
   },

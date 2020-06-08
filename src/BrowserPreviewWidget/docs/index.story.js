@@ -43,7 +43,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: 'browser-preview-widget-story',
     skin: skins.neutral,
     backgroundColor: '',
     browserBarSize: browserBarSizes.size12,

@@ -9,7 +9,6 @@ import { storySettings } from './storySettings';
 import {
   api,
   example as baseExample,
-  columns,
   description,
   divider,
   header,
@@ -32,12 +31,11 @@ export default {
   componentPath: '../PageHeader.js',
 
   componentProps: {
-    onBackClicked: () => {},
     title: 'Page Header',
-    dataHook: 'story-page-header',
   },
 
   exampleProps: {
+    onBackClicked: () => 'I was called!',
     breadcrumbs: [{ label: 'Breadcrumbs', value: Breadcrumbs }],
     actionsBar: [
       { label: 'Button', value: <Button>Action</Button> },

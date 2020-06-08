@@ -31,7 +31,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     children: (
       <img
         src={IMG_URL}

@@ -41,7 +41,6 @@ export default {
   componentPath: '..',
 
   componentProps: setState => ({
-    dataHook: storySettings.dataHook,
     steps,
     type: Type.Circle,
     fit: FitMode.Compact,
@@ -51,7 +50,7 @@ export default {
 
   exampleProps: {
     steps: [{ label: '3 steps', value: steps }],
-    onClick: stepIndex => undefined, // eslint-disable-line
+    onClick: stepIndex => `I was called with ${stepIndex}`,
   },
 
   sections: [

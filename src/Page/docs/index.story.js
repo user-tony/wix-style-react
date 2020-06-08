@@ -15,9 +15,6 @@ import {
 } from 'wix-storybook-utils/Sections';
 
 import Page from '..';
-import { Layout, Cell } from '../../Layout';
-import SectionHelper from '../../SectionHelper';
-import Text from '../../Text';
 
 import { storySettings } from './storySettings';
 import allComponents from '../../../stories/utils/allComponents';
@@ -53,7 +50,6 @@ export default {
 
   componentProps: {
     children: [headerExample(), tailExample, contentExample(false)],
-    dataHook: 'story-page-playground',
     gradientClassName: 'background-gradient',
   },
 

@@ -97,8 +97,6 @@ export default {
   componentPath: '..',
 
   componentProps: (setProps, getProps) => ({
-    dataHook: storySettings.dataHook,
-
     children: children[1].value,
     showArrow: true,
     animate: true,
@@ -112,7 +110,6 @@ export default {
 
   exampleProps: {
     children,
-
     appendTo: [
       { label: 'window', value: window },
       { label: 'scrollParent', value: 'scrollParent' },
@@ -120,11 +117,10 @@ export default {
       { label: 'parent', value: 'parent' },
       { label: 'null', value: null },
     ],
-
     hideDelay: null,
     showDelay: null,
-
     placement: placements,
+    onClickOutside: () => 'I was called!',
   },
 
   examples: (

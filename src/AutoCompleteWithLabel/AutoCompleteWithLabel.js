@@ -23,6 +23,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
     };
   }
 
+  static displayName = 'AutoCompleteWithLabel';
+
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
@@ -42,8 +44,11 @@ class AutoCompleteWithLabel extends React.PureComponent {
     onBlur: PropTypes.func,
     /** Standard input onChange callback */
     onChange: PropTypes.func,
+    /** Used to reference element data when a form is submitted. */
     name: PropTypes.string,
+    /** Specifies the type of <input> element to display.default is text. */
     type: PropTypes.string,
+    /** Used to define a string that labels the current element in case where a text label is not visible on the screen. */
     ariaLabel: PropTypes.string,
     /** Standard React Input autoFocus (focus the element on mount) */
     autoFocus: PropTypes.bool,

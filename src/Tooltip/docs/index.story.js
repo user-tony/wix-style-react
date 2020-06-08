@@ -15,7 +15,7 @@ import {
 import Tooltip from '..';
 import allComponents from '../../../stories/utils/allComponents';
 import AddItem from '../../AddItem';
-import { placements } from '../../Popover/Popover';
+import { placements } from '../../Popover';
 import Text from '../../Text';
 import TextButton from '../../TextButton';
 import { storySettings } from '../test/storySettings';

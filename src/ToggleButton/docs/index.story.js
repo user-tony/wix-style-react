@@ -46,6 +46,7 @@ export default {
     labelPlacement: 'tooltip',
     tooltipProps: { placement: 'top' },
   },
+
   exampleProps: {
     onClick: () => 'Clicked!',
     children: icons,

@@ -38,6 +38,8 @@ export default {
   componentProps: {
     title: 'List item Section title',
     suffix: 'Suffix',
+    type: 'title',
+    ellipsis: false,
   },
 
   sections: [

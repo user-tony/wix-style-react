@@ -41,8 +41,7 @@ export default {
   exampleProps: {
     size: Object.keys(SIZES),
     skin: Object.keys(SKINS),
-
-    onChange: () => 'changed',
+    onChange: () => 'I was called!',
   },
 
   sections: [

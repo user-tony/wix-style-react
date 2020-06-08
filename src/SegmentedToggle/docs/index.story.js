@@ -10,6 +10,7 @@ import {
   api,
   header,
   tabs,
+  playground,
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from '../test/storySettings';
@@ -41,7 +42,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     defaultSelected: 'locked',
     children: [
       <SegmentedToggle.Button value="locked" prefixIcon={<LockLocked />}>
@@ -142,6 +142,11 @@ export default {
       tab({
         title: 'Testkit',
         sections: [description(testkit)],
+      }),
+
+      tab({
+        title: 'Playground',
+        sections: [playground()],
       }),
     ]),
   ],

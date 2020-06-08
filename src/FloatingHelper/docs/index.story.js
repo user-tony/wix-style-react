@@ -1,6 +1,6 @@
 import React from 'react';
 import FloatingHelper from '..';
-import { placementOptions } from '../constants';
+import { floatingHelperAppearance, placementOptions } from '../constants';
 import Image from 'wix-ui-icons-common/Image';
 import { storySettings } from '../test/storySettings';
 import LinkTo from '@storybook/addon-links/react';
@@ -26,7 +26,6 @@ import { Category } from '../../../stories/storiesHierarchy';
 const example = config => baseExample({ components: allComponents, ...config });
 
 const componentProps = {
-  dataHook: storySettings.dataHook,
   content: (
     <FloatingHelper.Content
       title="Don’t forget to setup payments"
@@ -36,6 +35,7 @@ const componentProps = {
   target: <span>I am a FloatingHelper target</span>,
   placement: 'right',
   initiallyOpened: true,
+  appearance: floatingHelperAppearance.light,
 };
 
 const exampleProps = {
@@ -63,7 +63,7 @@ const exampleProps = {
           title="Don’t forget to setup payments"
           body="In order to sell your music you need to choose a payment method."
           actionText="Ok, Take Me There"
-          onActionClick={() => null}
+          onActionClick={() => 'I was Called!'}
           image={<Image width="102" height="102" />}
         />
       ),

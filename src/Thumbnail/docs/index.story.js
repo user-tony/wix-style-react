@@ -38,7 +38,6 @@ export default {
   componentPath: '../Thumbnail.js',
 
   componentProps: (setState, getState) => ({
-    dataHook: storySettings.dataHook,
     title: 'I am a Thumbnail',
     description: 'And I can do this and that',
     image: examples.image,

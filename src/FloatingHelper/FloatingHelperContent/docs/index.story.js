@@ -6,7 +6,6 @@ import { storySettings } from './storySettings';
 import Image from 'wix-ui-icons-common/Image';
 import * as examples from './examples';
 import LinkTo from '@storybook/addon-links/react';
-import { actionButtonTheme } from '../constants';
 
 import {
   header,
@@ -33,7 +32,9 @@ const componentProps = {
   title: 'This is the title',
   body: 'This is the a long text which is passed in the "body" property',
   actionText: 'Ok, Take Me There!',
-  onActionClick: () => null,
+  onActionClick: () => 'I was called!',
+  appearance: 'light',
+  actionTheme: 'standard',
 };
 
 const previewProps = {
@@ -46,8 +47,7 @@ const previewProps = {
 };
 
 const exampleProps = {
-  onActionClick: () => 'Action clicked!',
-  actionTheme: Object.values(actionButtonTheme),
+  onActionClick: () => 'I was called!',
   image: [{ label: 'with image', value: image }],
   footer: [
     {

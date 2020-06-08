@@ -6,7 +6,6 @@ import NoBorderInput from '..';
 import {
   api,
   example as baseExample,
-  columns,
   description,
   divider,
   header,
@@ -30,10 +29,9 @@ export default {
   componentPath: '..',
 
   componentProps: setState => ({
-    dataHook: storySettings.dataHook,
     value: '',
-    label: '',
-    placeholder: '',
+    label: 'No border input',
+    placeholder: 'This is a placeholder',
     onChange: e => setState({ value: e.target.value }),
     size: 'normal',
     statusMessage: undefined,

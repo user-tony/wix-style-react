@@ -102,7 +102,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     primaryAction: primaryActionOptions1,
     secondaryActions: secondaryActionsOption,
     numOfVisibleSecondaryActions: 2,

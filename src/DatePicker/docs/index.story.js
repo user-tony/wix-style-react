@@ -18,6 +18,7 @@ import React from 'react';
 import * as examples from './examples';
 import allComponents from '../../../stories/utils/allComponents';
 import { columns } from 'wix-storybook-utils/Sections';
+import { commonPopoverPropsExample } from '../../../stories/utils/playgroundUtils';
 
 const defaultValue = new Date('2017/05/01');
 const today = new Date();
@@ -39,7 +40,6 @@ export default {
   componentProps: setState => ({
     onChange: value => setState({ value }),
     dateFormat: 'YYYY/MM/DD',
-    dataHook: 'storybook-datepicker',
     placeholderText: 'Select Date',
     value: defaultValue,
     shouldCloseOnSelect: true,
@@ -64,6 +64,7 @@ export default {
         value: date => date.getDate(),
       },
     ],
+    popoverProps: commonPopoverPropsExample,
   },
 
   sections: [

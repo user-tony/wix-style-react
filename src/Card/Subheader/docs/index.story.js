@@ -24,6 +24,8 @@ export default {
 
   componentProps: {
     title: 'Card Subheader',
+    suffix: '',
+    skin: 'standard',
   },
 
   sections: [

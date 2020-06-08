@@ -18,6 +18,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import ListItemEditable from '..';
 import * as examples from './examples';
+import { commonTooltipPropsExample } from '../../../stories/utils/playgroundUtils';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -32,12 +33,15 @@ export default {
     placeholder: 'Value',
     cancelButtonTooltipContent: 'Cancel',
     approveButtonTooltipContent: 'Approve',
+    margins: 'none',
   },
 
   exampleProps: {
     status: ['error', 'warning', 'loading'],
     statusMessage: '',
     size: ['small', 'medium'],
+    cancelButtonTooltipProps: commonTooltipPropsExample,
+    approveButtonTooltipProps: commonTooltipPropsExample,
   },
 
   sections: [

@@ -6,7 +6,6 @@ import {
   description,
   importExample,
   title,
-  columns,
   divider,
   example as baseExample,
   playground,
@@ -22,6 +21,7 @@ import sizeExample from '!raw-loader!./examples/size';
 import inlineTextExample from '!raw-loader!./examples/inlineText';
 import headingExample from '!raw-loader!./examples/heading';
 import InfoIcon from '..';
+import { commonTooltipPropsExample } from '../../../stories/utils/playgroundUtils';
 
 const content = 'Tooltip content!';
 const example = config => baseExample({ components: allComponents, ...config });
@@ -33,12 +33,16 @@ export default {
   component: InfoIcon,
   componentPath: '..',
 
+  componentWrapper: ({ component }) => <Box align="center">{component}</Box>,
+
   componentProps: {
     size: 'medium',
     content,
   },
 
-  componentWrapper: ({ component }) => <Box align="center">{component}</Box>,
+  exampleProps: {
+    tooltipProps: commonTooltipPropsExample,
+  },
 
   sections: [
     header({

@@ -41,6 +41,7 @@ export default {
     size: 'medium',
     disabled: false,
   },
+
   exampleProps: {
     onClick: () => 'Clicked!',
     prefixIcon: icons,

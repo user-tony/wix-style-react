@@ -42,7 +42,6 @@ export default {
     <GoogleAPILoader>{component}</GoogleAPILoader>
   ),
   componentProps: setProps => ({
-    dataHook: storySettings.dataHook,
     Client: clients.GoogleMapsClient,
     value: '',
     onChange: e => setProps({ value: e.target.value }),

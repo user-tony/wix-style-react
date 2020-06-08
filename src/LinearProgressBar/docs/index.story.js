@@ -36,6 +36,7 @@ export default {
     light: false,
     error: false,
     showProgressIndication: false,
+    skin: 'standard',
   },
 
   sections: [

@@ -35,7 +35,6 @@ function createTag({ countryName, countryCode }) {
 
 export default {
   componentProps: (setState, getState) => ({
-    dataHook: storySettings.dataHook,
     value: '',
     tags: [],
     options,

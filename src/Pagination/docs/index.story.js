@@ -31,10 +31,10 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     totalPages: 13,
     currentPage: 5,
   },
+
   sections: [
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',

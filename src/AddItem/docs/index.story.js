@@ -24,6 +24,7 @@ import { storySettings } from './storySettings';
 
 import themes from './themes.md';
 import sizes from './sizes.md';
+import { commonTooltipPropsExample } from '../../../stories/utils/playgroundUtils';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -37,12 +38,16 @@ export default {
     children: 'Add Item',
     theme: 'dashes',
     alignItems: 'center',
-    dataHook: storySettings.dataHook,
     tooltipContent: 'tooltip content',
+    size: 'tiny',
+    disabled: false,
+    showIcon: true,
+    removePadding: false,
   },
 
   exampleProps: {
     children: '',
+    tooltipProps: commonTooltipPropsExample,
   },
 
   sections: [

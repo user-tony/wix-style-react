@@ -16,11 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
 import * as examples from './examples';
-
-import TextButton from '../../TextButton';
-import Card from '../../Card';
 import Timeline from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
@@ -37,10 +33,7 @@ export default {
     items: [],
   },
 
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
+  exampleProps: {},
 
   sections: [
     header({

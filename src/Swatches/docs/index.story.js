@@ -36,11 +36,7 @@ export default {
     colors: colors3,
   }),
 
-  hiddenProps: ['size'],
-
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
     colors: [
       { label: colors3.toString(), value: colors3 },
       { label: colors6.toString(), value: colors6 },
@@ -54,6 +50,8 @@ export default {
       { label: 'false', value: false },
     ],
   },
+
+  hiddenProps: ['size'],
 
   sections: [
     header({

@@ -8,7 +8,6 @@ import {
   header,
   example as baseExample,
   divider,
-  columns,
   title,
   playground,
   description,
@@ -43,7 +42,7 @@ export default {
   },
 
   exampleProps: {
-    onClick: () => 'Clicked!',
+    onClick: () => 'I was called!',
     prefixIcon: icons,
     suffixIcon: icons,
     fullWidth: false,

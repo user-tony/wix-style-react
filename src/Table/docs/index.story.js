@@ -78,7 +78,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     id: 'id',
     data,
     columns: columnsOption1,

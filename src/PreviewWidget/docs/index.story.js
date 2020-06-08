@@ -43,7 +43,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: 'preview-story',
     skin: skins.neutral,
     contentOutline: contentOutlines.shadow,
     backgroundColor: '',

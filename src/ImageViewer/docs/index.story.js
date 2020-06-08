@@ -44,7 +44,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: 'story-image-viewer',
     imageUrl: exampleImageUrl[0].value,
   },
 

@@ -5,7 +5,6 @@ import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrap
 import {
   api,
   example as baseExample,
-  columns,
   description,
   divider,
   header,
@@ -41,13 +40,14 @@ import { storySettings } from './storySettings';
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
-
   component: createAutoExampleWrapper(TagWrapper),
   componentPath: '..',
+
   componentProps: {
     children: 'Hello World',
     dataHook: storySettings.dataHook,
   },
+
   exampleProps: {
     onRemove: id => `ID: ${id} Removed!`,
     onClick: id => `ID: ${id} Clicked!`,
@@ -58,6 +58,7 @@ export default {
       },
     ],
   },
+
   sections: [
     header({
       component: <Tag id="tag">Hello World</Tag>,

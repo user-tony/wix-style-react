@@ -83,8 +83,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
-
     children: children[1].value,
     options: options[0].value,
     open: undefined,
@@ -99,9 +97,10 @@ export default {
     placement: placements,
 
     onSelect: selectedOption =>
-      `Triggered with: ${JSON.stringify(selectedOption)}`,
-    onClickOutside: () => 'Triggered!',
+      `I was called with: ${JSON.stringify(selectedOption)}`,
+    onClickOutside: () => 'I was called!',
   },
+
   sections: [
     header({
       component: (

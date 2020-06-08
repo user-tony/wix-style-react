@@ -30,7 +30,6 @@ export default {
   componentProps: (setState, getState) => ({
     options: examples.options,
     selectedOptions: [],
-    onClickOutside: () => {},
     onDeselect: selectedOption => {
       setState({
         selectedOptions: getState().selectedOptions.filter(
@@ -43,7 +42,6 @@ export default {
         selectedOptions: [...getState().selectedOptions, selectedOption],
       });
     },
-    dataHook: storySettings.dataHook,
   }),
 
   exampleProps: {
@@ -51,6 +49,7 @@ export default {
       { label: 'One option', value: [{ id: 0, value: 'Just me here' }] },
       { label: `${examples.options.length} options`, value: examples.options },
     ],
+    onClickOutside: () => 'I was called!',
   },
 
   sections: [

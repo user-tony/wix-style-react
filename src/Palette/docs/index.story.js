@@ -44,11 +44,13 @@ export default {
   componentProps: {
     fill: colors3,
   },
+
   componentWrapper: ({ component }) => (
     <Box width="100px" height="24px">
       {component}
     </Box>
   ),
+
   exampleProps: {
     fill: [
       { label: colors3.toString(), value: colors3 },

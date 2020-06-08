@@ -38,7 +38,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     theme: 'page',
     title: "You don't have any items yet",
     subtitle:

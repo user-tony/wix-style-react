@@ -30,20 +30,16 @@ export default {
   exampleProps: {
     status: [
       {
-        label: 'Valid',
-        value: undefined,
-      },
-      {
-        label: 'Loading',
-        value: Input.StatusLoading,
+        label: 'Error',
+        value: Input.StatusError,
       },
       {
         label: 'Warning',
         value: Input.StatusWarning,
       },
       {
-        label: 'Error',
-        value: Input.StatusError,
+        label: 'Loading',
+        value: Input.StatusLoading,
       },
     ],
   },

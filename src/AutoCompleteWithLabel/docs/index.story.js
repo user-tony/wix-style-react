@@ -6,7 +6,6 @@ import {
   description,
   importExample,
   title,
-  columns,
   divider,
   code,
   playground,
@@ -20,6 +19,7 @@ import allComponents from '../../../stories/utils/allComponents';
 import AutoCompleteWithLabel from '..';
 
 import * as examples from './examples';
+import { createOptions } from '../../../stories/utils/playgroundUtils';
 
 const liveCode = config =>
   code({
@@ -32,53 +32,50 @@ const liveCode = config =>
 
 const example = props => liveCode(props);
 
-const options = [
-  { id: 0, value: 'Option 1' },
-  { id: 1, value: 'Option 2' },
-  { id: 2, value: 'Option 3' },
-  { id: 3, value: 'Option 4' },
-];
+const options4 = createOptions(4);
+const options10 = createOptions(10);
 
 export default {
   category: storySettings.category,
-  storyName: 'AutoCompleteWithLabel',
+  storyName: storySettings.storyName,
 
   component: AutoCompleteWithLabel,
   componentPath: '..',
 
-  componentProps: {
-    value: '',
+  componentProps: setState => ({
     label: 'my label',
-  },
+    options: options4,
+    onSelect: option => setState({ value: option.value }),
+  }),
 
   exampleProps: {
-    options: [{ label: 'options', value: options }],
+    onSelect: () => 'I was called!',
+    options: [
+      { label: '4 options', value: options4 },
+      { label: '10 options', value: options10 },
+    ],
   },
+
+  hiddenProps: ['value'],
 
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/AutoCompleteWithLabel/',
+      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${AutoCompleteWithLabel.displayName}/`,
     }),
 
     tabs([
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'AutoComplete component that uses the same design as in InputWithLabel with built in label.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'AutoComplete component that uses the same design as in InputWithLabel with built in label.',
+          }),
 
-          columns([
-            importExample(
-              "import { AutoCompleteWithLabel } from 'wix-style-react';",
-            ),
-          ]),
+          importExample(
+            "import { AutoCompleteWithLabel } from 'wix-style-react';",
+          ),
 
           divider(),
 

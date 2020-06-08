@@ -31,7 +31,6 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: storySettings.dataHook,
     primaryActionDisabled: false,
     primaryActionOnClick: () => null,
     secondaryActionOnClick: () => null,

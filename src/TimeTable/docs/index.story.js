@@ -51,8 +51,8 @@ export default {
 
   exampleProps: {
     columns: [{ label: '4 days', value: defaultColumns }],
-    onChange: (columns, details) => undefined, // eslint-disable-line
-    onAdd: columnIndex => undefined, // eslint-disable-line
+    onChange: (cols, details) => `I was called with (${cols},${details})`,
+    onAdd: columnIndex => `I was called with ${columnIndex}`,
   },
 
   sections: [

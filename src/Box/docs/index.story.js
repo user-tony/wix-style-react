@@ -88,7 +88,6 @@ export default {
     minHeight: 200,
     color: 'P00',
     backgroundColor: 'B50',
-    dataHook: storySettings.dataHook,
   }),
 
   exampleProps: {

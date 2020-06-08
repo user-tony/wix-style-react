@@ -71,8 +71,6 @@ export default {
     src: audioFiles,
   },
 
-  hiddenProps: ['dataHook', 'className'],
-
   sections: [
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${AudioPlayer.displayName}/`,

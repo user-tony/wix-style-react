@@ -2,7 +2,6 @@ import React from 'react';
 import {
   header,
   description,
-  columns,
   importExample,
   title,
   example as baseExample,
@@ -18,6 +17,7 @@ import { Layout, Cell } from '../../Layout';
 import { storySettings } from './storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
+import { createOptions } from '../../../stories/utils/playgroundUtils';
 
 const example = config =>
   baseExample({
@@ -25,12 +25,8 @@ const example = config =>
     ...config,
   });
 
-const options = [
-  { id: 0, value: 'Option 1' },
-  { id: 1, value: 'Option 2' },
-  { id: 2, value: 'Option 3' },
-  { id: 3, value: 'Option 4' },
-];
+const options4 = createOptions(4);
+const options10 = createOptions(10);
 
 export default {
   category: storySettings.category,
@@ -39,14 +35,22 @@ export default {
   component: AutoComplete,
   componentPath: '..',
 
-  componentProps: {
-    dataHook: storySettings.dataHook,
+  componentProps: setState => ({
     placeholder: 'This is a placeholder',
-    options,
-  },
+    options: options4,
+    onSelect: option => setState({ value: option.value }),
+    size: 'normal',
+  }),
+
   exampleProps: {
-    options: [{ label: 'simple', value: options }],
+    onSelect: () => 'I was called!',
+    options: [
+      { label: '4 options', value: options4 },
+      { label: '10 options', value: options10 },
+    ],
   },
+
+  hiddenProps: ['value'],
 
   sections: [
     header({
@@ -60,24 +64,26 @@ export default {
                 { id: 1, value: 'Right' },
                 { id: 2, value: 'Ambidextrous' },
               ]}
+              popoverProps={{
+                appendTo: 'window',
+              }}
             />
           </Cell>
         </Layout>
       ),
     }),
+
     tabs([
       tab({
         title: 'Description',
         sections: [
-          columns([
-            description({
-              title: 'Description',
-              text:
-                'A Dropdown presents a list of options and allows a user to select one of the options.',
-            }),
-          ]),
+          description({
+            title: 'Description',
+            text:
+              'A Dropdown presents a list of options and allows a user to select one of the options.',
+          }),
 
-          importExample("import { AutoComplete } from 'wix-style-react'"),
+          importExample(),
 
           divider(),
 

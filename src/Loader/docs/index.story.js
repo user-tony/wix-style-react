@@ -4,7 +4,6 @@ import Loader from '..';
 import {
   api,
   example as baseExample,
-  columns,
   description,
   divider,
   header,
@@ -29,10 +28,11 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: 'storybook-loader',
     status: 'loading',
     statusMessage: 'some message here',
     text: '',
+    size: 'medium',
+    color: 'blue',
   },
 
   sections: [

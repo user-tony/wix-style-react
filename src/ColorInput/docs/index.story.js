@@ -8,7 +8,6 @@ import {
   description,
   divider,
   importExample,
-  columns,
   header,
   title,
   example as baseExample,

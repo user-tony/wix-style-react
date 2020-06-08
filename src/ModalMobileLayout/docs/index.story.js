@@ -120,8 +120,6 @@ export default {
     footer: footerExamples,
   },
 
-  hiddenProps: ['dataHook'],
-
   sections: [
     header({
       component: <HeaderComponent />,
