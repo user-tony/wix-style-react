@@ -9,7 +9,7 @@ import Button from '../../Button';
 import TextButton from '../../TextButton';
 import { buttonTypes, dataHooks } from '../constants';
 
-import style from './AccordionItem.st.css';
+import { st, classes } from './AccordionItem.st.css';
 
 class AccordionItem extends React.PureComponent {
   static displayName = 'AccordionItem';
@@ -26,6 +26,7 @@ class AccordionItem extends React.PureComponent {
     onToggle: PropTypes.func,
     skin: PropTypes.oneOf(['standard', 'light']),
     hideShadow: PropTypes.bool,
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -110,34 +111,35 @@ class AccordionItem extends React.PureComponent {
       disabled,
       skin,
       hideShadow,
+      className,
     } = this.props;
     const { hover } = this.state;
 
     return (
       <div
-        {...style(
-          'root',
+        className={st(
+          classes.root,
           { disabled, hover, open, skin, hideShadow },
-          this.props,
+          className,
         )}
       >
         <div data-hook={dataHooks.item}>
           <div
             onClick={!disabled ? onToggle : null}
-            className={style.header}
+            className={classes.header}
             data-hook="header"
             onMouseEnter={this._onMouseEnter}
             onMouseLeave={this._onMouseLeave}
           >
             {icon && (
-              <div className={style.icon} data-hook="icon">
+              <div className={classes.icon} data-hook="icon">
                 {icon}
               </div>
             )}
             {title && (
-              <div className={style.title} data-hook="titleContainer">
+              <div className={classes.title} data-hook="titleContainer">
                 {typeof title === 'string' ? (
-                  <Text data-hook="title" ellipsis weight="normal">
+                  <Text dataHook="title" ellipsis weight="normal">
                     {title}
                   </Text>
                 ) : (
@@ -146,7 +148,7 @@ class AccordionItem extends React.PureComponent {
               </div>
             )}
             <div
-              className={style.toggleButton}
+              className={classes.toggleButton}
               data-hook="toggle-accordion-wrapper"
               children={
                 open ? this._renderCloseButton() : this._renderOpenButton()
@@ -155,7 +157,7 @@ class AccordionItem extends React.PureComponent {
           </div>
 
           <Animator show={open} height>
-            <div data-hook="children" className={style.children}>
+            <div data-hook="children" className={classes.children}>
               {children}
             </div>
           </Animator>
