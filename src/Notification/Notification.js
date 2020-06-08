@@ -1,7 +1,6 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import * as Composite from '../Composite';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
@@ -147,19 +146,12 @@ class Notification extends React.PureComponent {
           aria-labelledby="notification-label"
           aria-live="polite"
         >
-          {themeIcon[theme]}
-          <div
-            id="notification-label"
-            className={classes.label}
-            children={childrenComponents.label}
-          />
+          {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
 
-          {childrenComponents.ctaButton && (
-            <div
-              className={classes.button}
-              children={childrenComponents.ctaButton}
-            />
-          )}
+          <div className={classes.labelWrapper}>
+            {childrenComponents.label}
+            {childrenComponents.ctaButton}
+          </div>
 
           {childrenComponents.closeButton && (
             <div
@@ -197,7 +189,9 @@ Close.displayName = 'Notification.CloseButton';
 Notification.displayName = 'Notification';
 
 Notification.propTypes = {
+  /** when set to `true`, notification is shown */
   show: PropTypes.bool,
+  /** Notification theme */
   theme: PropTypes.oneOf([
     'standard',
     'error',
@@ -205,6 +199,11 @@ Notification.propTypes = {
     'warning',
     'premium',
   ]),
+  /** Sets how <Notification/> should be displayed:
+   * - `type="global"` will take up space and push the content down.
+   * - `type="local"` will not take up space and will be displayed on top of content
+   * - `type="sticky"` will not take up space and will be displayed at the top of whole page and on top of content (position: fixed;)
+   * */
   type: PropTypes.oneOf([
     GLOBAL_NOTIFICATION,
     LOCAL_NOTIFICATION,
@@ -212,13 +211,15 @@ Notification.propTypes = {
   ]),
   /** When provided, then the Notification will be hidden after the specified timeout. */
   autoHideTimeout: PropTypes.number,
+  /** Notification z-index */
   zIndex: PropTypes.number,
+
   onClose: PropTypes.func,
-  children: Composite.children(
-    Composite.once(TextLabel),
-    Composite.optional(ActionButton),
-    Composite.optional(Close),
-  ),
+  /** Can be either:
+   * - `<Notification.TextLabel/>` (required)
+   * - `<Notification.CloseButton/>`
+   * -`<Notification.ActionButton/>` */
+  children: PropTypes.node,
 };
 
 Notification.defaultProps = {

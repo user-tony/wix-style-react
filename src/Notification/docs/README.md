@@ -10,6 +10,7 @@
   | propName   | propType   | defaultValue   | isRequired   | description         |
   | ---------- | ---------- | -------------- | ------------ | -------------       |
   | children   | string     | -              | -            | The text to display |
+  | ellipsis   | boolean    | true           | -            | The label text could be either with or without ellipsis |
 </details>
 
 <details>
@@ -33,5 +34,5 @@
   | type       | string (button, textLink) | -              | button                  | A Button component or TextLink component |
   | onClick    | function                  | -              | e => e.preventDefault() | -                                        |
   | link       | string                    | -              | -                       | A url to navigate to on click            |
-  | target   | string                    | `_self`              | -                       | The `target` attribute to be set on the `a` tag (for `textLink` type)                      |
+  | target     | string                    | `_self`        | -                       | The `target` attribute to be set on the `a` tag (for `textLink` type)                      |
 </details>

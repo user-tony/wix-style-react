@@ -11,8 +11,6 @@ export const notificationUniDriverFactory = base => {
   const actionButton = getElementByDataHook(dataHooks.notificationCtaButton);
   const closeButton = getElementByDataHook(dataHooks.notificationCloseButton);
 
-  const classExists = className => notificationWrapper.hasClass(className);
-
   const getTheme = async () => await base.attr('data-theme');
   const getType = async () => await base.attr('data-type');
 

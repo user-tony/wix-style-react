@@ -1,24 +1,24 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import notificationDriverFactory from './Notification.driver';
-import { notificationUniDriverFactory } from './Notification.uni.driver';
+import notificationDriverFactory from '../Notification.driver';
+import { notificationUniDriverFactory } from '../Notification.uni.driver';
 import {
   notificationTestkitFactory as enzymeNotificationTestkitFactory,
   buttonTestkitFactory as enzymeButtonTestkitFactory,
-} from '../../testkit/enzyme';
+} from '../../../testkit/enzyme';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
+} from '../../../test/utils/unit';
 
 import Notification, {
   LOCAL_NOTIFICATION,
   GLOBAL_NOTIFICATION,
   STICKY_NOTIFICATION,
-} from './Notification';
-import Button from '../Button';
-import TextButton from '../TextButton';
+} from '../Notification';
+import Button from '../../Button';
+import TextButton from '../../TextButton';
 import eventually from 'wix-eventually';
 
 const renderNotificationWithProps = (props = {}) => (

@@ -20,11 +20,10 @@
 .notification {
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 12px;
-  height: 48px;
+  padding: 3px 12px;
+  min-height: 48px;
   z-index: value(zIndex_NOTIFICATION);
 }
 
@@ -67,19 +66,36 @@
   top: 0;
 }
 
-.label {
-  max-width: 70%;
-  margin-right: 12px;
+.labelWrapper {
   display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.label {
+  max-width: 720px;
+  margin-right: 12px;
+  padding: 9px 0;
+}
+
+.button {
+  margin: 6px 0;
+}
+
+.textLink {
+  margin: 8px 0;
+}
+
+.iconStyling{
+  color: value(D80);
+  padding-right: 12px;
+  margin-top: 9px;
 }
 
 .closeButton {
   position: absolute;
-  top: 50%;
-  bottom: 50%;
+  top: 15px;
   right: 12px;
-  display: flex;
-  align-items: center;
 }
 
 /* Animations */
@@ -139,9 +155,4 @@
 .notificationAnimationExitActive .closeButton {
   transition: all 0.12s value(easeInOutSine);
   opacity: 0;
-}
-
-.iconStyling{
-  color: value(D80);
-  padding-right: 12px;
 }
