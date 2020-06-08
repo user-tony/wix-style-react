@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Notification/>` - exposing ellipsis prop to `<Notification.TextLabel/>` [#5508](https://github.com/wix/wix-style-react/pull/5508)
+
 ## 8.17.0 - 2020-06-08
 ### Changed
 - Set `react-modal` dependency to 3.10.1 [#5506](https://github.com/wix/wix-style-react/pull/5506)
