@@ -8,4 +8,5 @@ export const storySettings = {
 
 export const testStories = {
   modalBackgroundScroll: 'Prevent modal background scroll',
+  a11yTabInsideModal: 'A11Y - Allow tab navigation',
 };
