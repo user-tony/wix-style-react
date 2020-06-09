@@ -20,7 +20,7 @@
 .root:direction(vertical) {
   display: inline-block;
   min-height: 100%;
-  width: 1px;
+  min-width: 1px;
 }
 
 .root:skin(light) {
