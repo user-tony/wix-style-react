@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
 import Content from './Content';
 import Header from './Header';
 import Subheader from './Subheader';
 import Divider from './Divider';
-import styles from './Card.scss';
+import { st, classes } from './Card.st.css';
 
 const Card = ({
   stretchVertically,
@@ -17,14 +15,11 @@ const Card = ({
   dataHook,
 }) => (
   <div
-    className={classNames(styles.card, className, {
-      [styles.stretchVertically]: stretchVertically,
-      [styles.hideOverflow]: hideOverflow,
-    })}
+    className={st(classes.card, { stretchVertically, hideOverflow }, className)}
     children={children}
     data-hook={dataHook}
   >
-    {controls && <div className={styles.controls}>{controls}</div>}
+    {controls && <div className={classes.controls}>{controls}</div>}
     {children}
   </div>
 );

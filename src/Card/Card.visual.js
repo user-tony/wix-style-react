@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Card from '.';
 import Button from '../Button';
 import CloseButton from '../CloseButton';
+import EmptyState from '../EmptyState';
 import Text from '../Text';
 import { Col, Container, Row } from '../Grid';
 
@@ -109,6 +110,29 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'content empty state',
+    its: [
+      {
+        it: 'with empty state',
+        props: {
+          childrenContent: (
+            <EmptyState
+              title="You don't have any items yet"
+              subtitle="Create your product item in an easy & fast way to display it on your site"
+              theme="section"
+            />
+          ),
+        },
+      },
+      {
+        it: 'without empty state',
+        props: {
+          childrenContent: 'hello',
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
@@ -125,7 +149,9 @@ tests.forEach(({ describe, its }) => {
                   suffix={props.suffix}
                 />
                 <Card.Divider />
-                <Card.Content size={props.contentSize}>sdf</Card.Content>
+                <Card.Content size={props.contentSize}>
+                  {props.childrenContent ? props.childrenContent : 'sdf'}
+                </Card.Content>
               </Card>
             </Col>
           </Row>
