@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Popover/Popover.st.css";
-  -st-default: Popover;
+  -st-named: Popover;
 }
 
 .root {

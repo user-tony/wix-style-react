@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
 import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 
-import { st, classes } from './SidebarSectionItem.st.css';
+import styles from './SidebarSectionItem.st.css';
 import { dataHooks } from './constants';
 import Text from '../Text';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
@@ -17,7 +17,6 @@ class SidebarSectionItem extends React.PureComponent {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests */
     dataHook: PropTypes.string,
-    className: PropTypes.string,
     /** Usually plain text, but could be any node */
     children: PropTypes.node.isRequired,
     /** An element to appear at the beginning of the text */
@@ -47,7 +46,6 @@ class SidebarSectionItem extends React.PureComponent {
       prefix,
       suffix,
       onClick,
-      className,
       focusableOnFocus,
       focusableOnBlur,
     } = this.props;
@@ -64,29 +62,29 @@ class SidebarSectionItem extends React.PureComponent {
               disabled={disabled}
               type="button"
               tabIndex="0"
-              className={st(
-                classes.root,
+              {...styles(
+                'root',
                 {
                   selected,
                   disabled,
-                  prefix: Boolean(prefix),
-                  suffix: Boolean(suffix),
+                  prefix,
+                  suffix,
                   drillable,
                   skin,
                   alwaysDisplayChevron,
                 },
-                className,
+                this.props,
               )}
             >
               {prefix && (
-                <span data-hook={dataHooks.prefix} className={classes.prefix}>
+                <span data-hook={dataHooks.prefix} className={styles.prefix}>
                   {prefix}
                 </span>
               )}
               <FontUpgradeContext.Consumer>
                 {context => (
                   <Text
-                    className={classes.text}
+                    className={styles.text}
                     size="small"
                     weight={context.active ? 'normal' : 'bold'}
                     secondary={skin === sidebarSkins.light}
@@ -98,11 +96,11 @@ class SidebarSectionItem extends React.PureComponent {
                 )}
               </FontUpgradeContext.Consumer>
               {!disabled && (suffix || drillable) && (
-                <span data-hook={dataHooks.suffix} className={classes.suffix}>
+                <span data-hook={dataHooks.suffix} className={styles.suffix}>
                   {suffix || (
                     <ChevronRight
                       data-hook="chevron"
-                      className={classes.chevron}
+                      className={styles.chevron}
                     />
                   )}
                 </span>

@@ -4,7 +4,7 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC'
 import AddSmall from 'wix-ui-icons-common/AddSmall';
 
 import Color from 'color';
-import { st, classes } from './ColorPickerConverter.st.css';
+import styles from './ColorPickerConverter.st.css';
 import Tooltip from '../Tooltip';
 import { DataHooks } from './constants';
 
@@ -50,15 +50,14 @@ class ColorPickerConverterViewer extends PureComponent {
   };
 
   render() {
-    const {
-      color,
-      onAdd,
-      focusableOnFocus,
-      focusableOnBlur,
-      className,
-    } = this.props;
+    const { color, onAdd, focusableOnFocus, focusableOnBlur } = this.props;
     const noColorSelected = color.alpha() === 0;
     const clickable = !!onAdd && !noColorSelected;
+
+    const styleProps = {
+      clickable,
+      noColorSelected,
+    };
 
     const viewer = React.createElement(
       clickable ? 'button' : 'div',
@@ -69,14 +68,7 @@ class ColorPickerConverterViewer extends PureComponent {
         'data-hook': DataHooks.addColor,
         onFocus: focusableOnFocus,
         onBlur: focusableOnBlur,
-        className: st(
-          classes.preview,
-          {
-            clickable,
-            noColorSelected,
-          },
-          className,
-        ),
+        ...styles('preview', styleProps, this.props),
         onClick: this.onAddClick,
       },
       clickable && (

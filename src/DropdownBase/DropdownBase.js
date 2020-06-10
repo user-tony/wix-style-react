@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { st, classes } from './DropdownBase.st.css';
+import style from './DropdownBase.st.css';
 
 import Popover, { placements } from '../Popover';
 import DropdownLayout from '../DropdownLayout';
@@ -333,14 +333,12 @@ class DropdownBase extends React.PureComponent {
       maxHeight,
       fluid,
       animate,
-      className,
     } = this.props;
 
     const { open, selectedId } = this.state;
 
     return (
       <Popover
-        {...this.props}
         animate={animate}
         dataHook={dataHook}
         shown={open}
@@ -357,13 +355,13 @@ class DropdownBase extends React.PureComponent {
         fixed={fixed}
         flip={flip}
         fluid={fluid}
-        className={st(
-          classes.root,
+        {...style(
+          'root',
           {
             withWidth: Boolean(minWidth || maxWidth),
             withArrow: showArrow,
           },
-          className,
+          this.props,
         )}
       >
         <Popover.Element>{this._renderChildren()}</Popover.Element>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from '../Text';
-import { st, classes } from './ListItemSelect.st.css';
+import styles from './ListItemSelect.st.css';
 
 import Checkbox from '../Checkbox';
 import Box from '../Box';
@@ -81,8 +81,8 @@ class ListItemSelect extends React.PureComponent {
 
     return (
       <div
-        className={st(
-          classes.root,
+        {...styles(
+          styles.root,
           { checkbox, selected, highlighted, disabled },
           className,
         )}
@@ -93,7 +93,7 @@ class ListItemSelect extends React.PureComponent {
         {checkbox ? (
           <Checkbox
             dataHook={dataHooks.CHECKBOX}
-            className={classes.fullWidthContent}
+            className={styles.fullWidthContent}
             size={size}
             checked={selected}
             disabled={disabled}
@@ -137,10 +137,10 @@ class ListItemSelect extends React.PureComponent {
     };
 
     return (
-      <Box width="100%" className={classes.textsWrapper}>
+      <Box width="100%" className={styles.textsWrapper}>
         {prefix && (
           <Text
-            className={st(classes.prefix, { subtitle: Boolean(subtitle) })}
+            {...styles(styles.prefix, { subtitle })}
             dataHook={dataHooks.PREFIX}
             {...textProps}
             ellipsis={false}
@@ -153,7 +153,7 @@ class ListItemSelect extends React.PureComponent {
           display="grid"
           margin={1}
           direction={'vertical'}
-          className={classes.title}
+          className={styles.title}
           lineHeight="initial"
           fontSize="initial"
         >
@@ -174,7 +174,7 @@ class ListItemSelect extends React.PureComponent {
         {suffix && (
           <Text
             dataHook={dataHooks.SUFFIX}
-            className={classes.suffix}
+            className={styles.suffix}
             {...secondaryTextProps}
           >
             {suffix}

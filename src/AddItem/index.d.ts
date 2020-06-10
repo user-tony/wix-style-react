@@ -8,7 +8,6 @@ export interface AddItemProps {
   size?: AddItemSize;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   dataHook?: string;
-  className?: string;
   tooltipContent?: React.ReactNode;
   tooltipProps?: TooltipCommonProps;
   showIcon?: boolean;

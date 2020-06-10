@@ -4,7 +4,7 @@ import { Editor, EditorState } from 'draft-js';
 
 import EditorUtilities from './EditorUtilities';
 import { sizeTypes, inputToTagsSize, dataHooks } from './constants';
-import { st, classes, vars } from './VariableInput.st.css';
+import styles from './VariableInput.st.css';
 import StatusIndicator from '../StatusIndicator';
 
 /** Input with variables as tags */
@@ -35,7 +35,6 @@ class VariableInput extends React.PureComponent {
       placeholder,
       status,
       statusMessage,
-      className,
     } = this.props;
     const singleLineProps = {
       handlePastedText: this._handlePastedText,
@@ -44,17 +43,12 @@ class VariableInput extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        className={st(
-          classes.root,
-          {
-            disabled,
-            size,
-            status,
-            singleLine: !multiline,
-          },
-          className,
+        {...styles(
+          'root',
+          { disabled, size, status, singleLine: !multiline },
+          this.props,
         )}
-        style={{ [vars.rows]: rows }}
+        style={{ '--rows': rows }}
       >
         <Editor
           ref="editor"
@@ -67,7 +61,7 @@ class VariableInput extends React.PureComponent {
 
         {/* Status */}
         {status && (
-          <span className={classes.indicatorWrapper}>
+          <span className={styles.indicatorWrapper}>
             <StatusIndicator
               dataHook={dataHooks.indicator}
               status={status}

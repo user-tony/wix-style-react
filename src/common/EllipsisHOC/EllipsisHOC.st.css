@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/EllipsedTooltip/EllipsedTooltip.st.css";
-  -st-default: EllipsedTooltip;
+  -st-from: "wix-ui-core/hocs.st.css";
+  -st-named: EllipsedTooltip;
 }
 
 :import {

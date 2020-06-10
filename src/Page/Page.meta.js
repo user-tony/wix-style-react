@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Page);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Page/Page.js',
-};
+});

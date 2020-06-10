@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Search);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Search/Search.js',
-};
+});

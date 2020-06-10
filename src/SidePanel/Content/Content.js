@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { st, classes } from './Content.st.css';
+import styles from './Content.st.css';
 import { dataHooks } from '../constants';
 
 class Content extends React.PureComponent {
@@ -18,10 +18,10 @@ class Content extends React.PureComponent {
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children } = this.props;
     return (
       <div
-        className={st(classes.root, className)}
+        {...styles('root', {}, this.props)}
         data-hook={dataHooks.sidePanelContent}
       >
         {children}

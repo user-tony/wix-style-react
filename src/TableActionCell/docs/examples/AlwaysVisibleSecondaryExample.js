@@ -3,10 +3,10 @@ import TableActionCell from 'wix-style-react/TableActionCell';
 import Duplicate from 'wix-ui-icons-common/Duplicate';
 import Print from 'wix-ui-icons-common/Print';
 
-import { classes } from '../TableActionCell.story.st.css';
+import style from '../TableActionCell.story.st.css';
 
 const Example = () => (
-  <div className={classes.exampleRow}>
+  <div className={style.exampleRow}>
     <TableActionCell
       dataHook="story-always-visible-secondary"
       secondaryActions={[

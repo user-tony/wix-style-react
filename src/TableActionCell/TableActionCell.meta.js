@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(TableActionCell);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/TableActionCell/TableActionCell.js',
-};
+});

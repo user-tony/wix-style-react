@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(CounterBadge);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/CounterBadge/CounterBadge.js',
-};
+});

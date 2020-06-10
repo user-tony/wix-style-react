@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { generateDataAttr } from '../utils/generateDataAttr';
 import { FontUpgradeContext } from '../FontUpgrade/context';
-import { st, classes } from './Button.st.css';
+import styles from './Button.st.css';
 import PropTypes from 'prop-types';
 
 class Button extends PureComponent {
@@ -73,10 +73,10 @@ class Button extends PureComponent {
             data-madefor={context.active}
             {...rest}
             {...generateDataAttr(this.props, ['skin', 'size', 'priority'])}
-            className={st(
-              classes.root,
+            {...styles(
+              'root',
               { fluid: fullWidth, skin, priority, size },
-              className,
+              this.props,
             )}
             data-hook={dataHook}
           >

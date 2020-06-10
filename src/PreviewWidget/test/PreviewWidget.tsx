@@ -20,7 +20,6 @@ function previewWidgetWithAllProps() {
       height="3px"
       width="3px"
       children=""
-      className=""
     />
   );
 }

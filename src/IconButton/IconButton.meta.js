@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(IconButton);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/IconButton/IconButton.js',
-};
+});

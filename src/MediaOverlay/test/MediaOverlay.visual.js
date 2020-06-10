@@ -185,7 +185,7 @@ visualize('MediaOverlay', () => {
           <MediaOverlayWrapper
             {...commonProps}
             {...props}
-            dataHook={storySettings.dataHook}
+            data-hook={storySettings.dataHook}
             componentDidMount={() => {
               componentDidMount && componentDidMount(done);
             }}

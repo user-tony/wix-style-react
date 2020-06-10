@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(RadioGroup);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/RadioGroup/RadioGroup.js',
-};
+});

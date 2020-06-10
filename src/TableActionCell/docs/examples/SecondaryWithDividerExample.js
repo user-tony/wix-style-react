@@ -2,10 +2,10 @@ import React from 'react';
 import TableActionCell from 'wix-style-react/TableActionCell';
 import Download from 'wix-ui-icons-common/Download';
 import Duplicate from 'wix-ui-icons-common/Duplicate';
-import { classes } from '../TableActionCell.story.st.css';
+import style from '../TableActionCell.story.st.css';
 
 const Example = () => (
-  <div className={classes.exampleRow}>
+  <div className={style.exampleRow}>
     <TableActionCell
       secondaryActions={[
         {

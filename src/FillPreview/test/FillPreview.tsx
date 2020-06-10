@@ -22,7 +22,6 @@ function FillPreviewWithAllProps() {
       fill="blue"
       selected
       onClick={() => {}}
-      className="test"
     />
   );
 }

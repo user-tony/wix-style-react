@@ -16,8 +16,8 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
-  -st-default: Focusable;
+  -st-from: "wix-ui-core/hocs.st.css";
+  -st-named: Focusable;
 }
 
 :import {
@@ -121,8 +121,7 @@
   transition: all .5s;
 }
 
-.root:suffix,
-.root:drillable {
+.root:suffix, .root:drillable {
   padding: 0 18px 0 24px;
 }
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
 
-import { st, classes } from './ColorPickerConverter.st.css';
+import css from './ColorPickerConverter.st.css';
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getRgbOrEmpty } from './utils';
 
@@ -27,28 +27,28 @@ export default class ColorPickerConverterRGB extends WixComponent {
 
   render() {
     return (
-      <div className={st(classes.root)}>
-        <div className={classes.distribute}>
+      <div {...css('root', {}, this.props)}>
+        <div {...css('distribute', {}, this.props)}>
           <Input
             size="small"
             value={this.state.r}
             onChange={e => this.change('r', e)}
             placeholder="R"
-            className={classes.distributedItem}
+            {...css('distributedItem', {}, this.props)}
           />
           <Input
             size="small"
             value={this.state.g}
             onChange={e => this.change('g', e)}
             placeholder="G"
-            className={classes.distributedItem}
+            {...css('distributedItem', {}, this.props)}
           />
           <Input
             size="small"
             value={this.state.b}
             onChange={e => this.change('b', e)}
             placeholder="B"
-            className={classes.distributedItem}
+            {...css('distributedItem', {}, this.props)}
           />
         </div>
         <ColorPickerConverterViewer

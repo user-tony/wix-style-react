@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(BarChart);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/BarChart/BarChart.js',
-};
+});

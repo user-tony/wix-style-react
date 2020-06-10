@@ -2,7 +2,6 @@ import * as React from 'react';
 
 export interface ThumbnailProps {
   dataHook?: string;
-  className?: string;
   title?: React.ReactNode;
   description?: React.ReactNode;
   image?: React.ReactNode;

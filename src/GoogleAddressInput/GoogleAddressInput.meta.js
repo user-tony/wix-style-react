@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(GoogleAddressInput);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/GoogleAddressInput/GoogleAddressInput.js',
-};
+});

@@ -4,7 +4,7 @@ import Delete from 'wix-ui-icons-common/Delete';
 import Replace from 'wix-ui-icons-common/Replace';
 import StatusIndicator from '../StatusIndicator';
 import Loader from '../Loader';
-import { st, classes } from './ImageViewer.st.css';
+import styles from './ImageViewer.st.css';
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import AddItem from '../AddItem/AddItem';
@@ -72,9 +72,9 @@ class ImageViewer extends Component {
     return (
       <img
         className={classnames([
-          classes.image,
-          classes.stretch,
-          shouldDisplay && classes.imageVisible,
+          styles.image,
+          styles.stretch,
+          shouldDisplay && styles.imageVisible,
         ])}
         src={imageUrl}
         onLoad={onLoad}
@@ -127,7 +127,7 @@ class ImageViewer extends Component {
     const generateKey = (imageName, imageUrl) => `${imageName}-${imageUrl}`;
     return (
       <div
-        className={st(classes.imageContainer, {
+        {...styles('imageContainer', {
           /** hide container when no image provided, so AddItem behind it can be clickable */
           shouldDisplay: shouldDisplayContainer,
         })}
@@ -219,7 +219,7 @@ class ImageViewer extends Component {
     const { showUpdateButton, showRemoveButton } = this.props;
 
     return (
-      <div className={classes.buttons}>
+      <div className={styles.buttons}>
         {showUpdateButton && this._renderUpdateButton()}
         {showRemoveButton && this._renderRemoveButton()}
       </div>
@@ -231,7 +231,11 @@ class ImageViewer extends Component {
 
     return (
       <div
-        className={st(classes.overlay, { removeRadius: removeRoundedBorders })}
+        {...styles(
+          'overlay',
+          { removeRadius: removeRoundedBorders },
+          this.props,
+        )}
         data-remove-radius={removeRoundedBorders}
         data-hook={dataHooks.overlay}
       >
@@ -251,7 +255,6 @@ class ImageViewer extends Component {
       imageUrl,
       status,
       statusMessage,
-      className,
     } = this.props;
     const { imageLoading, previousImageUrl } = this.state;
 
@@ -274,7 +277,7 @@ class ImageViewer extends Component {
 
     return (
       <div
-        className={st(classes.root, cssStates, className)}
+        {...styles('root', cssStates, this.props)}
         style={{ width, height }}
         {...rootDataAttributes}
       >
@@ -291,7 +294,7 @@ class ImageViewer extends Component {
 
         {/* Status */}
         {status && !disabled && (
-          <div className={classes.statusContainer}>
+          <div className={styles.statusContainer}>
             <StatusIndicator
               status={status}
               message={statusMessage}

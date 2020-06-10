@@ -10,7 +10,7 @@ import Proportion from '../Proportion';
 import Tooltip from '../Tooltip';
 import MediaOverlay from '../MediaOverlay';
 import { DataHook } from './constants';
-import { st, classes } from './CardGalleryItem.st.css';
+import styles from './CardGalleryItem.st.css';
 
 class CardGalleryItem extends React.PureComponent {
   static displayName = 'CardGalleryItem';
@@ -85,7 +85,7 @@ class CardGalleryItem extends React.PureComponent {
 
   _renderBadge() {
     return (
-      <div className={classes.badgeWrapper} data-hook={DataHook.Badge}>
+      <div className={styles.badgeWrapper} data-hook={DataHook.Badge}>
         {this.props.badge}
       </div>
     );
@@ -96,7 +96,7 @@ class CardGalleryItem extends React.PureComponent {
     return (
       <>
         <Card.Divider />
-        <div className={classes.footer}>
+        <div className={styles.footer}>
           <Heading appearance="H3" ellipsis dataHook={DataHook.Title}>
             {title}
           </Heading>
@@ -121,7 +121,7 @@ class CardGalleryItem extends React.PureComponent {
     );
 
     return (
-      <div className={classes.primaryAction} data-hook={DataHook.HoverContent}>
+      <div className={styles.primaryAction} data-hook={DataHook.HoverContent}>
         {disabled && disabledMessage ? (
           <Tooltip disabled={!disabled} content={disabledMessage}>
             {primaryAction}
@@ -130,7 +130,7 @@ class CardGalleryItem extends React.PureComponent {
           primaryAction
         )}
 
-        <div className={classes.secondaryAction}>
+        <div className={styles.secondaryAction}>
           <TextButton
             skin="light"
             onClick={event => {
@@ -165,7 +165,7 @@ class CardGalleryItem extends React.PureComponent {
     return (
       <Proportion dataHook={dataHook}>
         <div
-          className={st(classes.root, { withFooter: !!this._hasFooter() })}
+          {...styles('root', { withFooter: !!this._hasFooter() }, this.props)}
           onMouseEnter={this._onMouseEnter}
           onMouseLeave={this._onMouseLeave}
           onClick={primaryActionProps.onClick}
@@ -174,7 +174,7 @@ class CardGalleryItem extends React.PureComponent {
           <Card stretchVertically>
             <MediaOverlay
               media={backgroundImageUrl || backgroundImageNode || ''}
-              className={classes.overlay}
+              className={styles.overlay}
               hoverSkin="dark"
               hovered={this.state.isHovered}
               dataHook={DataHook.HoverComponent}

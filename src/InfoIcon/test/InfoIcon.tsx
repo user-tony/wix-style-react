@@ -44,7 +44,6 @@ function InfoIconWithAllProps() {
       tooltipProps={{
         placement: 'right',
       }}
-      className="test"
     />
   );
 }

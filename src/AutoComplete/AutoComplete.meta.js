@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(AutoComplete);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/AutoComplete/AutoComplete.js',
-};
+});

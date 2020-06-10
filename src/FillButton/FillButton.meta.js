@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(FillButton);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/FillButton/FillButton.js',
-};
+});

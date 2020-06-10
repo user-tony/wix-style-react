@@ -4,7 +4,7 @@ import Popover from '../../Popover';
 import ColorPicker from '../../ColorPicker';
 import DATA_HOOKS from '../DataHooks';
 
-import { st, classes } from './ColorViewer.st.css';
+import styles from './ColorViewer.st.css';
 import Color from 'color';
 
 export class ColorViewer extends React.Component {
@@ -51,13 +51,13 @@ export class ColorViewer extends React.Component {
             data-hook={DATA_HOOKS.COLOR_INPUT_VIEWER}
             onClick={disabled ? undefined : onClick}
             style={{ backgroundColor: value }}
-            className={st(classes.root, { size })}
+            {...styles('root', { size })}
             data-size={size}
           >
             {value === '' && (
               <div
                 data-hook={DATA_HOOKS.COLOR_INPUT_VIEWER_LINE}
-                className={classes.line}
+                {...styles('line')}
               />
             )}
           </div>

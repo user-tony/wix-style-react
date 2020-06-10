@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(MultiSelectCheckbox);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/MultiSelectCheckbox/MultiSelectCheckbox.js',
-};
+});

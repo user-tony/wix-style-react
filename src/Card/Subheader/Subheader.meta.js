@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Subheader);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Card/Subheader/Subheader.js',
-};
+});

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { st, classes } from './Header.st.css';
+import styles from './Header.st.css';
 import ModalHeading from './ModalHeading';
 import { dataHooks } from '../../constants';
 import Text from '../../../Text';
@@ -12,10 +12,10 @@ export const Header = ({ dataHook, className, titleAppearance }) => {
   className = classNames(headerClassName, className);
   return (
     ((title || subtitle) && (
-      <div data-hook={dataHook} className={st(classes.root, className)}>
+      <div data-hook={dataHook} {...styles('root', {}, { className })}>
         {typeof title === 'string' ? (
           <ModalHeading
-            className={classes.title}
+            className={styles.title}
             dataHook={dataHooks.headerTitle}
             headingAppearance={titleAppearance}
           >
@@ -26,7 +26,7 @@ export const Header = ({ dataHook, className, titleAppearance }) => {
         )}
         {subtitle && (
           <Text
-            className={classes.subtitle}
+            className={styles.subtitle}
             secondary
             dataHook={dataHooks.headerSubtitle}
           >

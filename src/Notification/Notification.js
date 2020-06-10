@@ -1,10 +1,11 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import * as Composite from '../Composite';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
-import { st, classes } from './Notification.st.css';
+import styles from './Notification.st.css';
 import StatusComplete from 'wix-ui-icons-common/StatusComplete';
 import StatusWarning from 'wix-ui-icons-common/StatusWarning';
 import StatusAlert from 'wix-ui-icons-common/StatusAlert';
@@ -22,9 +23,9 @@ const animationsTimeouts = {
 };
 
 const themeIcon = {
-  error: <StatusAlert className={classes.iconStyling} />,
-  success: <StatusComplete className={classes.iconStyling} />,
-  warning: <StatusWarning className={classes.iconStyling} />,
+  error: <StatusAlert className={styles.iconStyling} />,
+  success: <StatusComplete className={styles.iconStyling} />,
+  warning: <StatusWarning className={styles.iconStyling} />,
 };
 
 function FirstChild(props) {
@@ -131,32 +132,39 @@ class Notification extends React.PureComponent {
     return (
       <CSSTransition
         classNames={{
-          enter: classes.notificationAnimationEnter,
-          enterActive: classes.notificationAnimationEnterActive,
-          exit: classes.notificationAnimationExit,
-          exitActive: classes.notificationAnimationExitActive,
+          enter: styles.notificationAnimationEnter,
+          enterActive: styles.notificationAnimationEnterActive,
+          exit: styles.notificationAnimationExit,
+          exitActive: styles.notificationAnimationExitActive,
         }}
         timeout={animationsTimeouts}
       >
         <div
           data-hook={dataHooks.notificationWrapper}
           style={{ zIndex }}
-          className={classes.notification}
+          className={styles.notification}
           role="alert"
           aria-labelledby="notification-label"
           aria-live="polite"
         >
-          {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
+          {themeIcon[theme]}
+          <div
+            id="notification-label"
+            className={styles.label}
+            children={childrenComponents.label}
+          />
 
-          <div className={classes.labelWrapper}>
-            {childrenComponents.label}
-            {childrenComponents.ctaButton}
-          </div>
+          {childrenComponents.ctaButton && (
+            <div
+              className={styles.button}
+              children={childrenComponents.ctaButton}
+            />
+          )}
 
           {childrenComponents.closeButton && (
             <div
               data-hook={dataHooks.notificationCloseButton}
-              className={classes.closeButton}
+              className={styles.closeButton}
               onClick={this._hideNotificationOnCloseClick}
               children={childrenComponents.closeButton}
             />
@@ -170,7 +178,7 @@ class Notification extends React.PureComponent {
     const { dataHook, theme, type } = this.props;
     return (
       <div
-        className={st(classes.root, { theme, type })}
+        {...styles('root', { theme, type }, this.props)}
         data-hook={dataHook}
         data-theme={theme}
         data-type={type}
@@ -189,9 +197,7 @@ Close.displayName = 'Notification.CloseButton';
 Notification.displayName = 'Notification';
 
 Notification.propTypes = {
-  /** when set to `true`, notification is shown */
   show: PropTypes.bool,
-  /** Notification theme */
   theme: PropTypes.oneOf([
     'standard',
     'error',
@@ -199,11 +205,6 @@ Notification.propTypes = {
     'warning',
     'premium',
   ]),
-  /** Sets how <Notification/> should be displayed:
-   * - `type="global"` will take up space and push the content down.
-   * - `type="local"` will not take up space and will be displayed on top of content
-   * - `type="sticky"` will not take up space and will be displayed at the top of whole page and on top of content (position: fixed;)
-   * */
   type: PropTypes.oneOf([
     GLOBAL_NOTIFICATION,
     LOCAL_NOTIFICATION,
@@ -211,15 +212,13 @@ Notification.propTypes = {
   ]),
   /** When provided, then the Notification will be hidden after the specified timeout. */
   autoHideTimeout: PropTypes.number,
-  /** Notification z-index */
   zIndex: PropTypes.number,
-
   onClose: PropTypes.func,
-  /** Can be either:
-   * - `<Notification.TextLabel/>` (required)
-   * - `<Notification.CloseButton/>`
-   * -`<Notification.ActionButton/>` */
-  children: PropTypes.node,
+  children: Composite.children(
+    Composite.once(TextLabel),
+    Composite.optional(ActionButton),
+    Composite.optional(Close),
+  ),
 };
 
 Notification.defaultProps = {

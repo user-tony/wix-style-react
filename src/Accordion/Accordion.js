@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { st, classes } from './Accordion.st.css';
+import styles from './Accordion.st.css';
 import AccordionItem from './AccordionItem';
 
 class Accordion extends React.Component {
@@ -90,9 +90,11 @@ class Accordion extends React.Component {
       <div data-hook={dataHook}>
         {items.map((item, index, allItems) => (
           <AccordionItem
-            className={st(classes.item, {
-              last: index === allItems.length - 1,
-            })}
+            {...styles(
+              'item',
+              { last: index === allItems.length - 1 },
+              this.props,
+            )}
             key={index}
             onToggle={this._toggle(index)}
             {...item}

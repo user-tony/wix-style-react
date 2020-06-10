@@ -5,13 +5,13 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
 import { generateDataAttr } from '../utils/generateDataAttr';
 
 import { SKIN, TYPE, SIZE } from './constants';
-import { st, classes } from './Badge.st.css';
+import style from './Badge.st.css';
 
 import ellipsisHOC from '../common/EllipsisHOC';
 
 const BadgeContent = ({ children, className, ...restProps }) => {
   return (
-    <span className={classNames(classes.text, className)} {...restProps}>
+    <span className={classNames(style.text, className)} {...restProps}>
       {children}
     </span>
   );
@@ -97,7 +97,6 @@ class Badge extends React.PureComponent {
       prefixIcon,
       suffixIcon,
       onClick,
-      className,
       dataHook,
       ...rest
     } = this.getProps();
@@ -107,24 +106,19 @@ class Badge extends React.PureComponent {
         data-hook={dataHook}
         onClick={onClick}
         {...this._getFocusableProps()}
-        className={st(
-          classes.root,
-          { clickable: !!onClick, ...rest },
-          className,
-        )}
+        {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}
         {...generateDataAttr(this.props, ['type', 'skin', 'size', 'uppercase'])}
-        data-is-inverted={this.props['data-is-inverted']}
         data-clickable={!!onClick}
       >
         {prefixIcon &&
           React.cloneElement(prefixIcon, {
-            className: classes.prefix,
+            className: style.prefix,
             'data-prefix-icon': true,
           })}
         {this._renderContent(children)}
         {suffixIcon &&
           React.cloneElement(suffixIcon, {
-            className: classes.suffix,
+            className: style.suffix,
             'data-suffix-icon': true,
           })}
       </div>

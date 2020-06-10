@@ -14,7 +14,7 @@ import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 import { dataHooks } from './constants';
 import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 
-import { st, classes } from './AddItem.st.css';
+import style from './AddItem.st.css';
 
 const ICONS = {
   large: <AddItemLarge />,
@@ -47,8 +47,6 @@ class AddItem extends Component {
 
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
-
-    className: PropTypes.string,
 
     /** When provided, hover will display a tooltip - relevant only for theme `image` */
     tooltipContent: PropTypes.node,
@@ -90,7 +88,7 @@ class AddItem extends Component {
     const textSize = size === 'tiny' ? 'small' : 'medium';
 
     return (
-      <div className={st(classes.text, { size })}>
+      <div {...style('text', { size })}>
         <Text
           weight="thin"
           size={textSize}
@@ -119,7 +117,7 @@ class AddItem extends Component {
 
     const container = (
       <div
-        className={st(classes.content, {
+        {...style('content', {
           theme,
           size,
           alignItems,
@@ -137,7 +135,7 @@ class AddItem extends Component {
         {...tooltipProps}
         content={content}
         dataHook={dataHooks.itemTooltip}
-        className={classes.tooltip}
+        className={style.tooltip}
       >
         {container}
       </Tooltip>
@@ -155,12 +153,11 @@ class AddItem extends Component {
       focusableOnFocus,
       focusableOnBlur,
       removePadding,
-      className,
     } = this.props;
 
     return (
       <button
-        className={st(classes.root, { theme, removePadding }, className)}
+        {...style('root', { theme, removePadding }, this.props)}
         data-hook={dataHook}
         disabled={disabled}
         type="button"

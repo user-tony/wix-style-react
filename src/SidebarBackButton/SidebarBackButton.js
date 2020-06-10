@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
 
 import Text from '../Text';
-import { st, classes } from './SidebarBackButton.st.css';
+import styles from './SidebarBackButton.st.css';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
 import { sidebarSkins } from '../Sidebar/constants';
 
@@ -28,7 +28,6 @@ class SidebarBackButton extends React.PureComponent {
       animateArrow,
       onClick,
       dataHook,
-      className,
       focusableOnFocus,
       focusableOnBlur,
     } = this.props;
@@ -39,12 +38,10 @@ class SidebarBackButton extends React.PureComponent {
           const skin = (context && context.getSkin()) || sidebarSkins.dark;
           return (
             <button
-              className={st(
-                classes.BackButton,
-                {
-                  lightSkin: skin === sidebarSkins.light,
-                },
-                className,
+              {...styles(
+                'BackButton',
+                { lightSkin: skin === sidebarSkins.light },
+                this.props,
               )}
               data-hook={dataHook}
               onClick={onClick}
@@ -54,7 +51,7 @@ class SidebarBackButton extends React.PureComponent {
               tabIndex="0"
             >
               <ChevronLeft
-                className={st(classes.arrow, { animated: animateArrow })}
+                {...styles('arrow', { animated: animateArrow }, this.props)}
               />
               <Text
                 weight="bold"

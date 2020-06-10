@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(DatePicker);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/DatePicker/DatePicker.js',
-};
+});

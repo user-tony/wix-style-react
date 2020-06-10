@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(MediaOverlay);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/MediaOverlay/MediaOverlay.js',
-};
+});

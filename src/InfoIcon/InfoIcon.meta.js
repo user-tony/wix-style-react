@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(InfoIcon);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/InfoIcon/InfoIcon.js',
-};
+});

@@ -5,7 +5,6 @@ export type PreviewWidgetContentOutline = 'shadow' | 'border';
 
 export interface PreviewWidgetProps {
   dataHook?: string;
-  className?: string;
   skin?: PreviewWidgetSkin;
   contentOutline?: PreviewWidgetContentOutline;
   backgroundColor?: string;

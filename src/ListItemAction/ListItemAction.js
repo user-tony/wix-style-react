@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import { st, classes } from './ListItemAction.st.css';
+import styles from './ListItemAction.st.css';
 import Text from '../Text';
 
 /** ListItemAction */
@@ -60,7 +60,7 @@ class ListItemActionComponent extends React.PureComponent {
     const { title, size, ellipsis, tooltipModifiers } = this.props;
     return (
       <Text
-        className={classes.text}
+        className={styles.text}
         weight="normal"
         size={size}
         dataHook="list-item-action-title"
@@ -77,7 +77,7 @@ class ListItemActionComponent extends React.PureComponent {
     const { prefixIcon, size } = this.props;
     return React.cloneElement(prefixIcon, {
       size: size === 'medium' ? 24 : 18,
-      className: classes.prefixIcon,
+      className: styles.prefixIcon,
       'data-hook': 'list-item-action-prefix-icon',
     });
   };
@@ -103,12 +103,11 @@ class ListItemActionComponent extends React.PureComponent {
       onKeyDown,
       autoFocus,
       highlighted,
-      className,
     } = this.props;
 
     return (
       <Component
-        className={st(classes.root, { skin, disabled, highlighted }, className)}
+        {...styles('root', { skin, disabled, highlighted }, this.props)}
         data-skin={skin}
         data-disabled={disabled}
         tabIndex={tabIndex}

@@ -17,7 +17,8 @@ import Notification from '..';
 import Text from 'wix-style-react/Text';
 
 import * as examples from './examples.js';
-import CompoundComponentsRaw from '!raw-loader!./README.md';
+import readme from '../README.md';
+import typesReadme from './types.readme.md';
 
 const exampleChildren = [
   {
@@ -83,13 +84,13 @@ export default {
     tab({
       title: 'Description',
       sections: [
-        description({
-          title: 'Description',
-          text:
-            'A sticky toast bar that appears on top of the screen notifying about system changes.',
-        }),
+        description(
+          'A sticky toast bar that appears on top of the screen notifying about system changes.',
+        ),
 
         importExample("import { Notification } from 'wix-style-react';"),
+
+        description(readme),
 
         title('Examples'),
 
@@ -107,27 +108,15 @@ export default {
           components: { Notification },
         }),
 
-        code({
-          title: 'Label Text Ellipsis',
-          compact: true,
-          source: examples.ellipsis,
-          components: { Notification },
+        description({
+          title: 'Ways to display Notification',
+          text: typesReadme,
         }),
       ],
     }),
 
     ...[
       { title: 'API', sections: [api()] },
-      {
-        title: 'Compound Components API',
-
-        sections: [
-          description({
-            title: 'Compound Components APIs',
-            text: CompoundComponentsRaw,
-          }),
-        ],
-      },
       { title: 'Testkit', sections: [testkit()] },
       { title: 'Playground', sections: [playground()] },
     ].map(tab),

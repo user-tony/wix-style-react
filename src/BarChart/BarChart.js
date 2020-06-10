@@ -5,7 +5,7 @@ import Tooltip from '../Tooltip';
 import Heading from '../Heading';
 import AdaptiveHeading from '../utils/AdaptiveHeading';
 
-import { st, classes, vars } from './BarChart.st.css';
+import styles from './BarChart.st.css';
 import dataHooks from './dataHooks';
 
 class BarChart extends React.PureComponent {
@@ -80,12 +80,12 @@ class BarChart extends React.PureComponent {
         onShow={onDescriptionInfoShown}
         zIndex={5999}
       >
-        <div className={classes.value}>
+        <div className={styles.value}>
           {showText && <AdaptiveHeading {...headingProps} emptyLast />}
         </div>
       </Tooltip>
     ) : (
-      <div className={classes.value}>
+      <div className={styles.value}>
         {showText && <AdaptiveHeading {...headingProps} />}
       </div>
     );
@@ -105,13 +105,12 @@ class BarChart extends React.PureComponent {
 
     return (
       <div
-        className={st(classes.item)}
+        {...styles('item', {}, this.props)}
         key={key}
         data-hook={dataHooks.bar}
         style={{
           // avoid too big numbers from getting into a css
-          [vars.barValue]:
-            value / 10 ** (calculatedTotal.toString().length - 1),
+          '--barValue': value / 10 ** (calculatedTotal.toString().length - 1),
         }}
       >
         {this._renderValue({
@@ -121,8 +120,8 @@ class BarChart extends React.PureComponent {
           labelShort,
           showText,
         })}
-        <div className={classes.description}>
-          <Heading ellipsis dataHook={dataHooks.description} appearance="H5">
+        <div className={styles.description}>
+          <Heading ellipsis data-hook={dataHooks.description} appearance="H5">
             {showText && description}
           </Heading>
         </div>
@@ -139,10 +138,10 @@ class BarChart extends React.PureComponent {
       <div
         data-hook={dataHook}
         ref={elem => (this.node = elem)}
-        className={classes.wrapper}
+        className={styles.wrapper}
       >
         <div
-          className={classes.root}
+          className={styles.root}
           style={{
             width: `${width}%`,
           }}

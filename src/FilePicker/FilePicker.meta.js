@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(FilePicker);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/FilePicker/FilePicker.js',
-};
+});

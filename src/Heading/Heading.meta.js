@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Heading);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Heading/Heading.js',
-};
+});

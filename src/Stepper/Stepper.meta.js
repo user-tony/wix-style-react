@@ -4,9 +4,9 @@ import Registry from '@ui-autotools/registry';
 const metadata = Registry.getComponentMetadata(Stepper);
 metadata.nonReactStrictModeCompliant = true;
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Stepper/Stepper.js',
-};
+});
 
 metadata.addSim({
   title: 'Simulation of long step texts that are rendered with ellipsis',

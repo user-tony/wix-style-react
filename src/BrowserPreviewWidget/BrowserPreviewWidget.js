@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { dataHooks } from './constants';
 import PreviewWidget from '../PreviewWidget';
-import { st, classes } from './BrowserPreviewWidget.st.css';
+import styles from './BrowserPreviewWidget.st.css';
 
 /** Browser preview widget */
 class BrowserPreviewWidget extends React.PureComponent {
@@ -51,24 +51,22 @@ class BrowserPreviewWidget extends React.PureComponent {
 
     return (
       <PreviewWidget
-        className={st(classes.root, {
-          skin,
-          backgroundColor,
-          height,
-          width,
-          browserBarSize,
-        })}
+        {...styles(
+          'root',
+          { skin, backgroundColor, height, width, browserBarSize },
+          this.props,
+        )}
         dataHook={dataHook}
         skin={skin}
         backgroundColor={backgroundColor}
         height={height}
         width={width}
       >
-        <div data-hook={dataHooks.browserBar} className={classes.browserBar}>
-          <div className={classes.circlesContainer}>
-            <div className={classes.circle} />
-            <div className={classes.circle} />
-            <div className={classes.circle} />
+        <div data-hook={dataHooks.browserBar} className={styles.browserBar}>
+          <div className={styles.circlesContainer}>
+            <div className={styles.circle} />
+            <div className={styles.circle} />
+            <div className={styles.circle} />
           </div>
         </div>
         <div data-hook={dataHooks.browserContent}>{children}</div>

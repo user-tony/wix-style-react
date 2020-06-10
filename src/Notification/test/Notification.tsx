@@ -30,7 +30,7 @@ function NotificationWithAllProps() {
       <Notification.ActionButton>
         Another action button
       </Notification.ActionButton>
-      <Notification.TextLabel ellipsis={false}>hello</Notification.TextLabel>
+      <Notification.TextLabel>hello</Notification.TextLabel>
       <Notification.CloseButton type={"button"}/>
     </Notification>
   );

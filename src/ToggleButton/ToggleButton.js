@@ -2,7 +2,7 @@ import React, { cloneElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import { st, classes } from './ToggleButton.st.css';
+import styles from './ToggleButton.st.css';
 import Tooltip from '../Tooltip';
 import Text from '../Text';
 import { iconChildSize } from './constants';
@@ -21,10 +21,10 @@ class Icon extends PureComponent {
       labelPlacement,
       focusableOnBlur,
       focusableOnFocus,
-      className,
     } = this.props;
     const iconSize = iconChildSize[size];
     const isLabelOutside = shape === 'round' && labelPlacement === 'end';
+    const labelContainerStyle = isLabelOutside ? styles('labelContainer') : {};
 
     const [icon, label] = React.Children.map(
       children,
@@ -36,16 +36,16 @@ class Icon extends PureComponent {
     return (
       children && (
         <Tooltip
-          className={st(classes.tooltip)}
+          {...styles('tooltip')}
           {...tooltipProps}
           dataHook="toggle-button-tooltip"
           size="small"
           content={labelValue}
           disabled={tooltipDisabled || tooltipProps.disabled}
         >
-          <span className={isLabelOutside ? classes.labelContainer : ''}>
+          <span {...labelContainerStyle}>
             <div
-              className={st(classes.icon, { size, border }, className)}
+              {...styles('icon', { size, border }, this.props)}
               tabIndex={1}
               onBlur={focusableOnBlur}
               onFocus={focusableOnFocus}
@@ -127,7 +127,7 @@ class ToggleButton extends PureComponent {
     } = this.props;
     return (
       <Text
-        className={st(classes.label, { placement: labelPlacement, size })}
+        {...styles('label', { placement: labelPlacement, size }, this.props)}
         disabled={disabled}
         dataHook="togglebutton-label"
         size="tiny"
@@ -158,13 +158,7 @@ class ToggleButton extends PureComponent {
     return (
       <ButtonNext
         {...rest}
-        className={st(classes.root, {
-          disabled,
-          selected,
-          skin,
-          labelPlacement,
-          shape,
-        })}
+        {...styles('root', { disabled, selected, skin, labelPlacement, shape })}
         tabIndex={-1}
         data-hook={dataHook}
         data-placement={labelPlacement}

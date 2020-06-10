@@ -1,12 +1,14 @@
 import React, { useState, useCallback } from 'react';
-import { st, classes } from './MessageModalLayout.st.css';
+import styles from './MessageModalLayout.st.css';
 
 import BaseModalLayout from '../BaseModalLayout';
+import Box from '../Box';
 import PropTypes from 'prop-types';
+import { APPEARANCES } from '../Heading';
 import Button from '../Button';
 
 /** MessageModalLayout */
-const MessageModalLayout = ({ children, className, ...restProps }) => {
+const MessageModalLayout = ({ children, ...restProps }) => {
   const { illustration } = restProps;
   const [showFooterDivider, setShowFooterDivider] = useState(false);
 
@@ -35,12 +37,12 @@ const MessageModalLayout = ({ children, className, ...restProps }) => {
 
   return (
     <BaseModalLayout
+      {...styles('root', { hasIllustration }, restProps)}
       {...restProps}
-      className={st(classes.root, { hasIllustration }, className)}
     >
-      <div className={classes.topAreaContainer}>
+      <div className={styles.topAreaContainer}>
         <BaseModalLayout.Illustration />
-        <div className={classes.contentAreaContainer}>
+        <div className={styles.contentAreaContainer}>
           <BaseModalLayout.Header />
           <BaseModalLayout.Content
             contentHideDividers

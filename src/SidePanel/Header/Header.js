@@ -1,7 +1,7 @@
 import React from 'react';
 import { SidePanelContext } from '../SidePanelAPI';
 import PropTypes from 'prop-types';
-import { st, classes } from './Header.st.css';
+import styles from './Header.st.css';
 import { dataHooks } from '../constants';
 import Heading from '../../Heading';
 import Divider from '../../Divider';
@@ -58,13 +58,13 @@ class Header extends React.PureComponent {
     const isStringTitle = typeof title === 'string';
 
     return (
-      <div className={classes.titleContainer}>
-        <div className={classes.title}>
+      <div className={styles.titleContainer}>
+        <div className={styles.title}>
           {isStringTitle ? this.renderStringTitle() : title}
         </div>
         <CloseButton
           dataHook={dataHooks.sidePanelHeaderCloseButton}
-          className={classes.closeButton}
+          className={styles.closeButton}
           size="large"
           onClick={onCloseButtonClick}
         />
@@ -73,12 +73,12 @@ class Header extends React.PureComponent {
   }
 
   render() {
-    const { children, showDivider, className } = this.props;
+    const { children, showDivider } = this.props;
     return (
       <SidePanelContext.Consumer>
         {context => (
           <div
-            className={st(classes.root, className)}
+            {...styles('root', {}, this.props)}
             data-hook={dataHooks.sidePanelHeader}
           >
             {this.renderTitle(context.onCloseButtonClick)}

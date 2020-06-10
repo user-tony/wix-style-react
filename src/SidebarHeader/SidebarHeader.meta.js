@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(SidebarHeader);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/SidebarHeader/SidebarHeader.js',
-};
+});

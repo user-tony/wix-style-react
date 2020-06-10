@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Modal);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Modal/Modal.js',
-};
+});

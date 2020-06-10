@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(ComposerSidebar);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/ComposerSidebar/ComposerSidebar.js',
-};
+});

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Text from '../Text';
 import Button from '../Button';
-import { st, classes } from './<%= ComponentName %>.st.css';
+import styles from './<%= ComponentName %>.st.css';
 import { dataHooks } from './constants';
 
 /** <%= description %> */
@@ -20,23 +20,23 @@ class <%= ComponentName %> extends React.PureComponent {
 
   render() {
     const { count } = this.state;
-    const { dataHook, buttonText, className } = this.props;
+    const { dataHook, buttonText } = this.props;
     const isEven = count % 2 === 0;
 
     return (
       <div
-        className={st(classes.root, { even: isEven, odd: !isEven }, className)}
+        {...styles('root', { even: isEven, odd: !isEven }, this.props)}
         data-hook={dataHook}
       >
         <Text dataHook={dataHooks.<%= componentName %>Count}>
           You clicked this button {isEven ? 'even' : 'odd'} number (
-          <span className={classes.number}>
+          <span className={styles.number}>
             {count}
           </span>
           ) of times
         </Text>
 
-        <div className={classes.button}>
+        <div className={styles.button}>
           <Button
             onClick={this._handleClick}
             dataHook={dataHooks.<%= componentName %>Button}

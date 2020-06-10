@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classes } from './Header.st.css';
+import styles from './Header.scss';
 import Heading from '../../Heading';
 import Text from '../../Text';
-import { DataHooks } from './hooks';
 
 const isString = a => typeof a === 'string';
 
@@ -33,33 +32,25 @@ class Header extends React.PureComponent {
 
     return (
       <div data-hook={dataHook}>
-        <div className={classes.wrapper}>
-          <div className={classes.titleWrapper}>
+        <div className={styles.wrapper}>
+          <div className={styles.titleWrapper}>
             {isString(title) ? (
-              <Heading
-                dataHook={DataHooks.title}
-                appearance="H3"
-                children={title}
-              />
+              <Heading dataHook="title" appearance="H3" children={title} />
             ) : (
-              <span data-hook={DataHooks.title}>{title}</span>
+              <span data-hook="title">{title}</span>
             )}
 
             {subtitle && isString(subtitle) ? (
-              <Text
-                dataHook={DataHooks.subtitle}
-                children={subtitle}
-                secondary
-              />
+              <Text dataHook="subtitle" children={subtitle} secondary />
             ) : (
-              <span data-hook={DataHooks.subtitle}>{subtitle}</span>
+              <span data-hook="subtitle">{subtitle}</span>
             )}
           </div>
 
           {suffix && (
             <div
-              data-hook={DataHooks.suffix}
-              className={classes.suffix}
+              data-hook="suffix"
+              className={styles.suffix}
               children={suffix}
             />
           )}

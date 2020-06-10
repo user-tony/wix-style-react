@@ -1,6 +1,6 @@
 :import {
-  -st-from: 'wix-ui-core/dist/src/components/tooltip/Tooltip.st.css';
-  -st-default: Tooltip;
+  -st-from: 'wix-ui-core/index.st.css';
+  -st-named: Tooltip;
 }
 
 :import {
@@ -23,11 +23,6 @@
   -st-named: text-small-normal, text-tiny-thin;
 }
 
-:import {
-  -st-from: "wix-ui-core/dist/src/components/popover/Popover.st.css";
-  -st-named: arrow, withArrow, popoverContent;
-}
-
 :vars {
   contentArrowSize: 8px;
 }
@@ -46,7 +41,7 @@
 
 /* Popover Content */
 
-.root .popoverContent {
+.root::popoverContent {
   border: none;
 
   border-radius: 8px;
@@ -63,7 +58,7 @@
   background: value(D10);
 }
 
-.root:size(small) .popoverContent {
+.root:size(small)::popoverContent {
   border: none;
 
   border-radius: 8px;
@@ -82,7 +77,7 @@
 
 /* Popover Arrow  */
 
-.root::popover .arrow {
+.root::popover::arrow {
   box-sizing: border-box;
 
   width: value(contentArrowSize);
@@ -95,7 +90,7 @@
   box-shadow: 3px 3px 6px rgba(0, 0, 0, .1);
 }
 
-.root::popover[data-placement] .arrow {
+.root::popover[data-placement]::arrow {
   border-width: 5px;
   border-color: transparent value(D10) value(D10) transparent;
   margin: 0;
@@ -103,14 +98,14 @@
 
 /* Right side */
 
-.root:size(small)::popover[data-placement*="right"] .arrow  {
+.root:size(small)::popover[data-placement*="right"]::arrow  {
     display: none;
 }
-.root::popover[data-placement*="right"].withArrow {
+.root::popover[data-placement*="right"].root::withArrow {
   padding-left: calc(value(contentArrowSize) - 2px);
 }
 
-.root::popover[data-placement*="right"] .arrow {
+.root::popover[data-placement*="right"]::arrow {
   transform: rotateZ(135deg);
   left: calc(value(contentArrowSize) / 2 - 2px);
 
@@ -120,15 +115,15 @@
 
 /* Left side */
 
-.root:size(small)::popover[data-placement*="left"] .arrow  {
+.root:size(small)::popover[data-placement*="left"]::arrow  {
   display: none;
 }
 
-.root::popover[data-placement*="left"].withArrow {
+.root::popover[data-placement*="left"].root::withArrow {
   padding-right: calc(value(contentArrowSize) - 2px);
 }
 
-.root::popover[data-placement*="left"] .arrow {
+.root::popover[data-placement*="left"]::arrow {
   transform: rotateZ(-45deg);
   right: calc(value(contentArrowSize) / 2 - 2px);
 
@@ -138,15 +133,15 @@
 
 /* Top arrow */
 
-.root:size(small)::popover[data-placement*="top"] .arrow  {
+.root:size(small)::popover[data-placement*="top"]::arrow  {
   display: none;
 }
 
-.root::popover[data-placement*="top"].withArrow {
+.root::popover[data-placement*="top"].root::withArrow {
   padding-bottom: calc(value(contentArrowSize) - 2px);
 }
 
-.root::popover[data-placement*="top"] .arrow {
+.root::popover[data-placement*="top"]::arrow {
   transform: rotateZ(45deg);
   bottom: calc(value(contentArrowSize) / 2 - 2px);
 
@@ -156,15 +151,15 @@
 
 /* Bottom arrow */
 
-.root:size(small)::popover[data-placement*="bottom"] .arrow {
+.root:size(small)::popover[data-placement*="bottom"]::arrow {
   display: none;
 }
 
-.root::popover[data-placement*="bottom"].withArrow {
+.root::popover[data-placement*="bottom"].root::withArrow {
   padding-top: calc(value(contentArrowSize) - 2px);
 }
 
-.root::popover[data-placement*="bottom"] .arrow {
+.root::popover[data-placement*="bottom"]::arrow {
   transform: rotateZ(-135deg);
   top: calc(value(contentArrowSize) / 2 - 2px);
 

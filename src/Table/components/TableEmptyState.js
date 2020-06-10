@@ -1,10 +1,10 @@
 import React from 'react';
 import EmptyState from '../../EmptyState';
 
-import { classes } from '../Table.st.css';
+import style from '../Table.st.css';
 
 export const TableEmptyState = props => (
-  <div className={classes.emptyStateContainer}>
+  <div className={style.emptyStateContainer}>
     <EmptyState {...props} />
   </div>
 );

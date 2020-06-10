@@ -14,7 +14,6 @@ function MediaOverlayWithAllProps() {
       dataHook="hook"
       hovered
       onClick={() => undefined}
-      className="test"
     >
       <MediaOverlay.Content>Test</MediaOverlay.Content>
       <MediaOverlay.Content visible="always">Test</MediaOverlay.Content>

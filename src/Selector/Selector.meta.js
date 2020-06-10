@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Selector);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Selector/Selector.js',
-};
+});

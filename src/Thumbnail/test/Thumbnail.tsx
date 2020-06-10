@@ -24,7 +24,6 @@ function ThumbnailWithAllProps() {
       onClick={_ev => {}}
       width={"10px"}
       height={"10px"}
-      className="tsx"
     />
   );
 }

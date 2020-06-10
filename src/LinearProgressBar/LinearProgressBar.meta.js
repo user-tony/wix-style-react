@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(LinearProgressBar);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/LinearProgressBar/LinearProgressBar.js',
-};
+});

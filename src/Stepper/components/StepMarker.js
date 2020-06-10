@@ -4,7 +4,7 @@ import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall'
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
 
 import { Type, StepType } from '../constants';
-import { st, classes } from './StepMarker.st.css';
+import styles from './StepMarker.st.css';
 
 const StepMarker = ({
   number,
@@ -13,7 +13,6 @@ const StepMarker = ({
   styleType,
   hovered,
   disabled,
-  className,
   ...otherProps
 }) => {
   const renderCompleted = () => <Confirm />;
@@ -27,15 +26,15 @@ const StepMarker = ({
 
   return (
     <div
-      className={st(
-        classes.root,
+      {...styles(
+        'root',
         {
           type,
           styleType,
           selected: active,
           hovered,
         },
-        className,
+        otherProps,
       )}
     >
       {type === StepType.Error

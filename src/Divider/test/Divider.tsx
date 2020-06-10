@@ -16,7 +16,6 @@ function dividerWithAllProps() {
       dataHook="dataHook"
       direction="horizontal"
       skin="dark"
-      className="test"
     />
   );
 }

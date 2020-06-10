@@ -8,7 +8,7 @@ import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheck
 import Arc from './Arc';
 import Heading from '../Heading';
 import Tooltip from '../Tooltip';
-import { st, classes } from './Loader.st.css';
+import styles from './Loader.st.css';
 
 const arcsAngles = {
   tiny: {
@@ -103,7 +103,7 @@ class Loader extends React.PureComponent {
 
     const loader = (
       <div
-        className={classes.arcsContainer}
+        className={styles.arcsContainer}
         style={{
           width: `${sizeInPx}px`,
           height: `${sizeInPx}px`,
@@ -111,18 +111,18 @@ class Loader extends React.PureComponent {
       >
         <Arc
           angle={lightArcAngle}
-          className={classes.lightArc}
+          className={styles.lightArc}
           strokeWidth={strokeWidth}
           viewBoxSize={sizeInPx}
         />
         <Arc
           angle={darkArcAngle}
-          className={classes.darkArc}
+          className={styles.darkArc}
           strokeWidth={strokeWidth}
           viewBoxSize={sizeInPx}
         />
         {status !== 'loading' && (
-          <div className={classes.statusIndicator}>
+          <div className={styles.statusIndicator}>
             {status === 'success' && successIcon}
             {status === 'error' && errorIcon}
           </div>
@@ -132,7 +132,7 @@ class Loader extends React.PureComponent {
 
     return (
       <div
-        className={st(classes.root, { size, color, status })}
+        {...styles('root', { size, color, status }, {})}
         data-hook={dataHook}
         data-size={size}
         data-color={color}
@@ -152,7 +152,7 @@ class Loader extends React.PureComponent {
 
         {/* Footer Text */}
         {shouldShowText && text && (
-          <div className={classes.text}>
+          <div className={styles.text}>
             <Heading appearance="H6" dataHook="loader-text">
               {this.props.text}
             </Heading>

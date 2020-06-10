@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(InputWithLabel);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/InputWithLabel/InputWithLabel.js',
-};
+});

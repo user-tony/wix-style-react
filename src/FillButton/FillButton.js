@@ -5,7 +5,7 @@ import IconAdd from 'wix-ui-icons-common/Add';
 import IconAddSmall from 'wix-ui-icons-common/AddSmall';
 import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
 
-import { st, classes } from './FillButton.st.css';
+import styles from './FillButton.st.css';
 import Tooltip from '../Tooltip';
 import Proportion from '../Proportion';
 import { dataHooks } from './constants';
@@ -20,7 +20,6 @@ class FillButton extends React.PureComponent {
   static propTypes = {
     /** Hook for testing purposes. */
     dataHook: PropTypes.string,
-    className: PropTypes.string,
     /** click handler */
     onClick: PropTypes.func,
     /** supports `small` and `medium` add icon size */
@@ -75,7 +74,6 @@ class FillButton extends React.PureComponent {
       iconSize,
       tooltipContent,
       tooltipProps = {},
-      className,
       ...rest
     } = this.props;
     const background = this._getBackground(fill);
@@ -92,14 +90,10 @@ class FillButton extends React.PureComponent {
         dataHook={dataHook}
         size="small"
       >
-        <Proportion className={classes.proportion}>
+        <Proportion className={styles.proportion}>
           <button
             {...rest}
-            className={st(
-              classes.root,
-              { disabled, fill: !!background },
-              className,
-            )}
+            {...styles('root', { disabled, fill: !!background }, this.props)}
             style={{ ...background }}
             data-hook={dataHooks.button}
             onFocus={focusableOnFocus}

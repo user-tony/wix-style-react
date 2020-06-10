@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { st, classes } from './AnnouncementModalLayout.st.css';
+import styles from './AnnouncementModalLayout.st.css';
 import TextButton from '../TextButton';
 import { dataHooks } from './constants';
 
@@ -9,11 +9,8 @@ import BaseModalLayout from '../BaseModalLayout';
 import Button from '../Button';
 
 /** A layout for announcement modals, to be used inside a &lt;Modal /&gt; */
-const AnnouncementModalLayout = ({ children, className, ...restProps }) => (
-  <BaseModalLayout
-    className={st(classes.announcementModalLayout, className)}
-    {...restProps}
-  >
+const AnnouncementModalLayout = ({ children, ...restProps }) => (
+  <BaseModalLayout className={styles.announcementModalLayout} {...restProps}>
     <BaseModalLayout.Illustration />
     <BaseModalLayout.Header titleAppearance={'H2'} />
     <BaseModalLayout.Content contentHideDividers>
@@ -21,14 +18,14 @@ const AnnouncementModalLayout = ({ children, className, ...restProps }) => (
     </BaseModalLayout.Content>
     <BaseModalLayout.Footer />
     <Link {...restProps} />
-    <div className={classes.bottomSpacing} />
+    <div className={styles.bottomSpacing} />
     <BaseModalLayout.Footnote />
   </BaseModalLayout>
 );
 
 const Link = ({ linkText, linkOnClick, theme }) =>
   ((linkText || linkOnClick) && (
-    <div className={classes.link}>
+    <div className={styles.link}>
       <TextButton
         size="small"
         weight="normal"

@@ -5,9 +5,6 @@ import Notification from '..';
 
 const themes = Object.values(THEMES);
 const actions = Object.values(ACTION_BUTTON_TYPES);
-const longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'.repeat(
-  4,
-);
 
 const tests = [
   {
@@ -54,39 +51,6 @@ const tests = [
           children: (
             <Notification.TextLabel>Notification Text</Notification.TextLabel>
           ),
-        },
-      },
-    ],
-  },
-  {
-    describe: 'text label ellipsis',
-    its: [
-      {
-        it: 'exists',
-        props: {
-          theme: 'error',
-          children: [
-            <Notification.TextLabel>{longText}</Notification.TextLabel>,
-            <Notification.ActionButton onClick={() => null}>
-              button
-            </Notification.ActionButton>,
-            <Notification.CloseButton />,
-          ],
-        },
-      },
-      {
-        it: 'does not exist',
-        props: {
-          theme: 'error',
-          children: [
-            <Notification.TextLabel ellipsis={false}>
-              {longText}
-            </Notification.TextLabel>,
-            <Notification.ActionButton onClick={() => null}>
-              button
-            </Notification.ActionButton>,
-            <Notification.CloseButton />,
-          ],
         },
       },
     ],

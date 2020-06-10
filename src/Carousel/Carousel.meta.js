@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Carousel);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Carousel/Carousel.js',
-};
+});

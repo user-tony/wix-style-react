@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { st, classes } from './ComposerSidebar.st.css';
+import styles from './ComposerSidebar.st.css';
 import { dataHooks } from './constants';
 import { ToggleButton, Box } from '..';
 
 /** ComposerSidebar */
 class ComposerSidebar extends React.PureComponent {
   _renderItem(item) {
-    const { selectedId, labelPlacement, size, onClick, className } = this.props;
+    const { selectedId, labelPlacement, size, onClick } = this.props;
     const { label, id, icon, disabled, rest } = item;
     const selected = selectedId === id;
     const onClickHandler = item.onClick || onClick;
@@ -16,7 +16,7 @@ class ComposerSidebar extends React.PureComponent {
     return (
       <div
         key={`sidebar-item-${id}`}
-        className={st(classes.item, { labelPlacement }, className)}
+        {...styles('item', { labelPlacement }, this.props)}
       >
         <ToggleButton
           {...rest}
@@ -50,7 +50,7 @@ class ComposerSidebar extends React.PureComponent {
         <div
           data-hook="composer-sidebar-items-container"
           data-selected-id={selectedId}
-          className={classes.itemsContainer}
+          className={styles.itemsContainer}
         >
           {items.map(item => this._renderItem(item))}
         </div>

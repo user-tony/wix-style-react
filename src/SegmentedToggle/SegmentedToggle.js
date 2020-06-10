@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { st, classes } from './SegmentedToggle.st.css';
+import styles from './SegmentedToggle.st.css';
 import ToggleButton from './ToggleButton/ToggleButton';
 import ToggleIcon from './ToggleIcon/ToggleIcon';
 
@@ -57,7 +57,7 @@ class SegmentedToggle extends React.Component {
       const divider = (
         <div
           key={`divider-${i}`}
-          className={st(classes.divider, { disabled, transparent })}
+          {...styles('divider', { disabled, transparent })}
         />
       );
 
@@ -100,7 +100,7 @@ class SegmentedToggle extends React.Component {
       <div
         {...rest}
         data-hook={dataHook}
-        className={st(classes.root, { disabled })}
+        {...styles('root', { disabled }, rest)}
       >
         {childrenNodes}
       </div>

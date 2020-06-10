@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import { iconChildSize } from './constants';
 
 import { generateDataAttr } from '../utils/generateDataAttr';
-import { st, classes } from './IconButton.st.css';
+import cx from 'classnames';
+import styles from './IconButton.st.css';
 
 class IconButton extends PureComponent {
   static displayName = 'IconButton';
@@ -51,7 +52,7 @@ class IconButton extends PureComponent {
   render() {
     const {
       skin,
-      className,
+      className: userClassName,
       priority,
       size,
       children,
@@ -61,12 +62,16 @@ class IconButton extends PureComponent {
 
     const childSize = iconChildSize[size];
 
+    const { className } = styles('root', { skin, priority, size });
+    const classNames = cx(className, userClassName);
+
     return (
       <ButtonNext
         {...rest}
-        className={st(classes.root, { skin, priority, size }, className)}
+        {...styles('root', { skin, priority, size }, this.props)}
         {...generateDataAttr(this.props, ['skin', 'priority', 'size'])}
         data-hook={dataHook}
+        className={classNames}
       >
         {children &&
           React.cloneElement(children, {

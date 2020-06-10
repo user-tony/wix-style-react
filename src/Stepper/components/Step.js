@@ -5,7 +5,7 @@ import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 import Text from '../../Text';
 import StepMarker from './StepMarker';
 import { Type, StepType, DataHook } from '../constants';
-import { st, classes } from './Step.st.css';
+import styles from './Step.st.css';
 
 class Step extends React.PureComponent {
   static displayName = 'Step';
@@ -67,7 +67,6 @@ class Step extends React.PureComponent {
       last,
       number,
       text,
-      className,
       ...otherProps
     } = this.props;
     const { isHovered, transitionSequence } = this.state;
@@ -75,8 +74,8 @@ class Step extends React.PureComponent {
 
     return (
       <button
-        className={st(
-          classes.root,
+        {...styles(
+          'root',
           {
             type,
             styleType,
@@ -84,7 +83,7 @@ class Step extends React.PureComponent {
             hovered: isHovered,
             clickable: isClickable,
           },
-          className,
+          otherProps,
         )}
         data-hook={DataHook.Step}
         data-type={type}
@@ -95,14 +94,14 @@ class Step extends React.PureComponent {
         onTransitionEnd={this._handleTransitionEnd}
         {...this._getFocusProps()}
       >
-        <div className={classes.content}>
+        <div className={styles.content}>
           <StepMarker
             number={number}
             active={active}
             type={type}
             styleType={styleType}
             hovered={isHovered && isClickable}
-            className={classes.marker}
+            className={styles.marker}
           />
           <Text
             key={transitionSequence}
@@ -111,12 +110,12 @@ class Step extends React.PureComponent {
             size={styleType === Type.Text ? 'medium' : 'small'}
             showTooltip={!active}
             dataHook={DataHook.StepText}
-            className={classes.text}
+            className={styles.text}
           >
             {text}
           </Text>
         </div>
-        {!last && <ChevronRight className={classes.arrow} />}
+        {!last && <ChevronRight className={styles.arrow} />}
       </button>
     );
   }

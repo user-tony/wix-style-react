@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(SidebarBackButton);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/SidebarBackButton/SidebarBackButton.js',
-};
+});

@@ -12,7 +12,7 @@ import AdaptiveHeading from '../../utils/AdaptiveHeading';
 import DataHooks from '../dataHooks';
 import DataAttrs from '../dataAttrs';
 
-import { st, classes } from './StatisticsItem.st.css';
+import styles from './StatisticsItem.st.css';
 
 class StatisticsItem extends React.PureComponent {
   static displayName = 'StatisticsItem';
@@ -54,19 +54,19 @@ class StatisticsItem extends React.PureComponent {
     }
 
     return (
-      <div className={classes.description}>
-        <Heading ellipsis dataHook={DataHooks.description} appearance="H5">
+      <div className={styles.description}>
+        <Heading ellipsis data-hook={DataHooks.description} appearance="H5">
           {description}
         </Heading>
         {subtitleContentInfo && (
           <Tooltip
             textAlign="start"
-            className={classes.tooltip}
+            {...styles('tooltip', {}, this.props)}
             dataHook={DataHooks.tooltip}
             content={subtitleContentInfo}
           >
             <InfoCircleSmall
-              className={classes.info}
+              className={styles.info}
               data-hook={DataHooks.info}
             />
           </Tooltip>
@@ -101,12 +101,12 @@ class StatisticsItem extends React.PureComponent {
     return (
       <Badge
         {...badgeProps}
-        className={st(classes.percentage, { clickable: !!this.props.onClick })}
+        {...styles('percentage ', { clickable: !!this.props.onClick })}
       >
-        <div className={classes.percentageInner}>
+        <div className={styles.percentageInner}>
           {!!percentage && (
             <span
-              className={classes.trendIndicator}
+              className={styles.trendIndicator}
               data-hook={DataHooks.trendIndicator}
             >
               {trendIcon}
@@ -136,7 +136,7 @@ class StatisticsItem extends React.PureComponent {
 
     const attrs = {
       ...this._getFocusableProps(),
-      className: st(classes.item, { clickable: !!onClick }, className),
+      ...styles('item', { clickable: !!onClick }, this.props),
       'data-hook': DataHooks.stat,
       onKeyDown: onClick ? this._getSpaceOrEnterHandler(onClick) : undefined,
       onClick,

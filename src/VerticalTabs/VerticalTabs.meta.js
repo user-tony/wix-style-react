@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(VerticalTabs);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/VerticalTabs/VerticalTabs.js',
-};
+});

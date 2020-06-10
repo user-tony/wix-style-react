@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ellipsisHOC from '../common/EllipsisHOC';
-import { st, classes } from './Text.st.css';
+import style from './Text.st.css';
 
 /*
  * Temporary fix: SIZES, SKINS, WEIGHTS constants are copied here from constants.js
@@ -42,7 +42,6 @@ const Text = ({
   weight,
   tagName,
   children,
-  className,
   ...rest
 }) => {
   /* eslint-disable no-unused-vars */
@@ -62,7 +61,7 @@ const Text = ({
     {
       ...textProps,
       'data-hook': dataHook,
-      className: st(classes.root, styleAttributes, className),
+      ...style('root', styleAttributes, rest),
       ...styleDataAttributes,
     },
     children,

@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(ComposerHeader);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/ComposerHeader/ComposerHeader.js',
-};
+});

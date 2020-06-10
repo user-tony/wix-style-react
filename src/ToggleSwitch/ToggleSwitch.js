@@ -7,7 +7,7 @@ import ToggleOffSmall from 'wix-ui-icons-common/system/ToggleOffSmall';
 import ToggleOnSmall from 'wix-ui-icons-common/system/ToggleOnSmall';
 import { generateDataAttr } from '../utils/generateDataAttr';
 import { SIZES } from './constants';
-import { st, classes } from './ToggleSwitch.st.css';
+import styles from './ToggleSwitch.st.css';
 
 const checkedIconMap = {
   [SIZES.small]: undefined,
@@ -62,7 +62,7 @@ class ToggleSwitch extends React.PureComponent {
 
     return (
       <CoreToggleSwitch
-        className={st(classes.root, { skin, size })}
+        {...styles('root', { skin, size }, this.props)}
         {...generateDataAttr(this.props, ['skin', 'size'])}
         data-hook={dataHook}
         checkedIcon={checkedIconMap[size]}

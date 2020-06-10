@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { st, classes } from './Thumbnail.st.css';
+import styles from './Thumbnail.st.css';
 import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
 import Text from '../Text';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
@@ -19,8 +19,6 @@ class Thumbnail extends React.PureComponent {
 
   static propTypes = {
     dataHook: PropTypes.string,
-
-    className: PropTypes.string,
 
     /** Children to render inside thumbnail. If children passed then title will be rendered below thumbnail */
     children: PropTypes.node,
@@ -73,7 +71,7 @@ class Thumbnail extends React.PureComponent {
 
     return (
       <Text
-        className={st(classes.bottomTitle, { selected, disabled })}
+        {...styles('bottomTitle', { selected, disabled }, this.props)}
         dataHook={dataHooks.thumbnailBottomTitle}
         size={size}
         tagName="div"
@@ -89,7 +87,7 @@ class Thumbnail extends React.PureComponent {
 
     return isString(this.props.backgroundImage) ? (
       <div
-        className={st(classes.backgroundImage, { disabled })}
+        {...styles('backgroundImage', { disabled }, this.props)}
         data-hook={dataHooks.thumbnailBackgroundImage}
         style={{ backgroundImage: `url(${this.props.backgroundImage})` }}
       />
@@ -105,7 +103,7 @@ class Thumbnail extends React.PureComponent {
       <div>
         {image && (
           <div
-            className={classes.image}
+            className={styles.image}
             data-hook={dataHooks.thumbnailImage}
             children={isString(image) ? <img src={image} /> : image}
           />
@@ -113,7 +111,7 @@ class Thumbnail extends React.PureComponent {
 
         {title && (
           <Text
-            className={classes.title}
+            className={styles.title}
             dataHook={dataHooks.thumbnailTitle}
             size={size}
             tagName="div"
@@ -124,7 +122,7 @@ class Thumbnail extends React.PureComponent {
 
         {description && (
           <Text
-            className={classes.description}
+            className={styles.description}
             dataHook={dataHooks.thumbnailDescription}
             size={size}
             weight="thin"
@@ -144,7 +142,9 @@ class Thumbnail extends React.PureComponent {
 
     if (hasChildren) {
       return (
-        <div className={st(classes.customChild, { disabled })}>{children}</div>
+        <div {...styles('customChild', { disabled }, this.props)}>
+          {children}
+        </div>
       );
     }
 
@@ -157,7 +157,7 @@ class Thumbnail extends React.PureComponent {
 
   _renderSelectedIcon = () => (
     <div
-      className={classes.selectedIcon}
+      className={styles.selectedIcon}
       data-hook={dataHooks.thumbnailSelectedIcon}
     >
       <CheckboxChecked height="7.8" width="10" />
@@ -183,7 +183,6 @@ class Thumbnail extends React.PureComponent {
       height,
       focusableOnFocus,
       focusableOnBlur,
-      className,
     } = this.props;
 
     const hasChildren = !!children;
@@ -193,23 +192,17 @@ class Thumbnail extends React.PureComponent {
     return (
       <div
         style={{ width }}
-        className={st(classes.root, { disabled })}
+        {...styles('root', { disabled }, this.props)}
         onClick={disabled ? null : onClick}
         onKeyDown={disabled ? null : this._onKeyDown}
         data-hook={dataHook}
       >
         <div
           style={{ height }}
-          className={st(
-            classes.thumbnail,
-            {
-              selected,
-              disabled,
-              size,
-              hasBackground,
-              hasChildren,
-            },
-            className,
+          {...styles(
+            'thumbnail',
+            { selected, disabled, size, hasBackground, hasChildren },
+            this.props,
           )}
           data-selected={selected}
           data-disabled={disabled}

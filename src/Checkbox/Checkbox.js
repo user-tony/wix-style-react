@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
 import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndeterminate';
-import { st, classes } from './Checkbox.st.css';
+import styles from './Checkbox.st.css';
 import Text from '../Text';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 
@@ -39,34 +39,32 @@ class Checkbox extends React.PureComponent {
       errorMessage,
       selectionArea,
       vAlign,
+      hover,
       size,
       onChange,
       children,
       dataHook,
       focusableOnFocus,
       focusableOnBlur,
-      className,
     } = this.props;
+
+    const rootStyles = {
+      vAlign,
+      selectionArea,
+      disabled,
+      error: hasError && !disabled,
+      selection: indeterminate
+        ? 'indeterminate'
+        : checked
+        ? 'checked'
+        : 'unchecked',
+      indeterminate,
+    };
 
     return (
       <div
         data-hook={dataHook}
-        className={st(
-          classes.root,
-          {
-            vAlign,
-            selectionArea,
-            disabled,
-            error: hasError && !disabled,
-            selection: indeterminate
-              ? 'indeterminate'
-              : checked
-              ? 'checked'
-              : 'unchecked',
-            indeterminate,
-          },
-          className,
-        )}
+        {...styles('root', rootStyles, this.props)}
         onFocus={focusableOnFocus}
         onBlur={focusableOnBlur}
         tabIndex={disabled ? null : 0}
@@ -85,7 +83,7 @@ class Checkbox extends React.PureComponent {
         <label
           htmlFor={id}
           data-hook={dataHooks.label}
-          className={classes.label}
+          className={styles.label}
         >
           <Tooltip
             dataHook={dataHooks.boxTooltip}
@@ -97,10 +95,10 @@ class Checkbox extends React.PureComponent {
             hideDelay={150}
             zIndex={10000}
           >
-            <div className={classes.outer}>
-              <div data-hook={dataHooks.box} className={classes.checkbox}>
+            <div className={styles.outer}>
+              <div data-hook={dataHooks.box} className={styles.checkbox}>
                 <div
-                  className={classes.inner}
+                  className={styles.inner}
                   onClick={e => e.stopPropagation()}
                 >
                   {indeterminate ? (
@@ -119,7 +117,7 @@ class Checkbox extends React.PureComponent {
               skin={disabled ? 'disabled' : 'standard'}
               weight="thin"
               dataHook={dataHooks.children}
-              className={classes.children}
+              className={styles.children}
             >
               {children}
             </Text>

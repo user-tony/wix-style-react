@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(NoBorderInput);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/NoBorderInput/NoBorderInput.js',
-};
+});

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Add from 'wix-ui-icons-common/Add';
 import uniqueId from 'lodash/uniqueId';
 
-import { classes } from './FilePicker.st.css';
+import styles from './FilePicker.st.css';
 import FormField from '../FormField';
 import TextButton from '../TextButton';
 import Text from '../Text';
@@ -46,19 +46,19 @@ class FilePicker extends React.PureComponent {
 
     return (
       <FormField label={header} dataHook={dataHook}>
-        <label className={classes.label} htmlFor={this.id}>
+        <label className={styles.label} htmlFor={this.id}>
           {/* Icon */}
-          <div className={classes.icon}>
+          <div className={styles.icon}>
             <Add />
           </div>
 
-          <div className={classes.content}>
+          <div className={styles.content}>
             {/* Title */}
             <TextButton dataHook="main-label">{mainLabel}</TextButton>
 
             {/* Subtitle */}
             <Text
-              className={classes.info}
+              className={styles.info}
               size="small"
               secondary
               dataHook="sub-label"
@@ -76,7 +76,7 @@ class FilePicker extends React.PureComponent {
         </label>
         <input
           id={this.id}
-          className={classes.input}
+          className={styles.input}
           type="file"
           accept={supportedFormats}
           onChange={e => this.onChooseFile(e.target.files[0])}

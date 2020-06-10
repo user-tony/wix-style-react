@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Slider);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Slider/Slider.js',
-};
+});

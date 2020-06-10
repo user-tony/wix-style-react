@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { st, classes } from './AudioPlayer.st.css';
+import styles from './AudioPlayer.st.css';
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import Loader from '../Loader';
@@ -160,34 +160,31 @@ const AudioPlayer = memo(
     }, [duration, hoverPosition, isSliderLocked, setSeek]);
 
     return (
-      <div className={st(classes.root, className)} data-hook={dataHook}>
+      <div {...styles('root', {}, { className })} data-hook={dataHook}>
         <IconButton
           size="small"
           onClick={_togglePlayPause}
           dataHook={dataHooks.audioPlayerPlayPause}
-          className={classes.playPauseButton}
+          className={styles.playPauseButton}
         >
           {_playPauseButtonContent}
         </IconButton>
         <div
           data-hook={dataHooks.audioPlayerSlider}
-          className={classes.slider}
+          className={styles.slider}
           style={{ '--audio-player-position': `${_seekPercentage}%` }}
           onMouseDown={_handleSliderMouseDown}
           onMouseMove={_handleSliderMouseMove}
         >
-          <div className={classes.track} />
-          <div
-            className={classes.tooltip}
-            style={{ left: `${hoverPosition}%` }}
-          >
+          <div className={styles.track} />
+          <div className={styles.tooltip} style={{ left: `${hoverPosition}%` }}>
             <Tooltip content={`${_hoverISO}`}>
-              <div className={classes.tooltipTarget} />
+              <div className={styles.tooltipTarget} />
             </Tooltip>
           </div>
           <div
             data-hook={dataHooks.audioPlayerSliderHandle}
-            className={st(classes.handle, {
+            {...styles('handle', {
               grow:
                 isLoaded &&
                 (!isSliderLocked ||
@@ -199,7 +196,7 @@ const AudioPlayer = memo(
         </div>
         <Heading
           appearance="H5"
-          className={classes.timer}
+          className={styles.timer}
           dataHook={dataHooks.audioTimeIndicator}
         >
           {showDuration

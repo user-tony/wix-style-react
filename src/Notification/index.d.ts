@@ -21,7 +21,7 @@ export default class Notification extends React.Component<NotificationProps> {
   static CloseButton: typeof CloseButton;
 }
 
-declare const TextLabel: React.SFC<TextLabelProps>;
+declare const TextLabel: React.SFC;
 declare const ActionButton: React.SFC<ActionButtonProps>;
 declare const DEFAULT_TIMEOUT: number;
 
@@ -38,8 +38,3 @@ interface ButtonActionButtonProps {
 }
 
 type ActionButtonProps = ButtonActionButtonProps | TextLinkActionButton;
-
-type TextLabelProps = {
-  ellipsis?: boolean;
-  children: React.ReactNode;
-}

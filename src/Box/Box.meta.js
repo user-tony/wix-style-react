@@ -3,6 +3,6 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Box);
 
-metadata.exportInfo = {
+metadata.exportedFrom({
   path: 'src/Box/Box.js',
-};
+});

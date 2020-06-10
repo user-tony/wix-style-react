@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { st, classes } from './ListItemSection.st.css';
+import styles from './ListItemSection.st.css';
 import Divider from '../Divider';
 import Text from '../Text';
 import TextButton from '../TextButton';
@@ -69,7 +69,7 @@ class ListItemSection extends React.PureComponent {
     const { dataHook, type } = this.props;
     return (
       <div
-        className={st(classes.root, { [type]: true })}
+        {...styles(styles.root, { [type]: true })}
         data-hook={dataHook}
         onClick={e => e.stopPropagation()}
         children={children}
@@ -89,8 +89,8 @@ class ListItemSection extends React.PureComponent {
     } = this.props;
     return (
       <div
-        className={st(
-          classes.root,
+        {...styles(
+          styles.root,
           { subheader: type === TYPES.SUBHEADER },
           className,
         )}
@@ -101,7 +101,7 @@ class ListItemSection extends React.PureComponent {
           dataHook={dataHooks.TITLE}
           tagName="div"
           size="small"
-          className={classes.title}
+          className={styles.title}
           ellipsis={ellipsis}
           showDelay="300"
         >
@@ -112,7 +112,7 @@ class ListItemSection extends React.PureComponent {
         {suffix && (
           <TextButton
             onClick={onClick}
-            className={st(classes.suffix, { ellipsis })}
+            {...styles(styles.suffix, { ellipsis })}
             dataHook={dataHooks.SUFFIX}
             size="tiny"
           >

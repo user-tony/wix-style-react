@@ -5,7 +5,6 @@ export interface HeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     EllipsisHOCProps {
   dataHook?: string;
-  className?: string;
   light?: boolean;
   appearance?: HeadingAppearance;
 }

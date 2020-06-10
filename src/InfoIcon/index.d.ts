@@ -7,7 +7,6 @@ export interface InfoIconProps {
   content: React.ReactNode;
   size?: InfoIconSize;
   dataHook?: string;
-  className?: string;
   tooltipProps?: TooltipCommonProps;
 }
 
