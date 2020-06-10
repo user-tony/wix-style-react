@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 7.58.1 - 2020-06-10
+### Fixed
+- Madefor - fix in modal/tooltip/popover - [#5536](https://github.com/wix/wix-style-react/pull/5536)
+
 ## 7.58.0 - 2020-04-28
 ### Added
 - `<TimeInput/>` - custom suffix - [#5097](https://github.com/wix/wix-style-react/pull/5097)

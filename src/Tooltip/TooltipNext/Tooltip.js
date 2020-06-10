@@ -86,7 +86,7 @@ class Tooltip extends React.PureComponent {
         {context => {
           return (
             <div style={{ textAlign }}>
-              <FontUpgrade active={context.active}>
+              <FontUpgrade active={!!context.active}>
                 {typeof content === 'string' ? (
                   <Text
                     dataHook="tooltip-text"
