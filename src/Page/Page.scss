@@ -165,6 +165,18 @@ $minimizedHeaderContainerZIndex: $stickyZIndex + $zIndexLayerStep;
   padding-right: 0;
 }
 
+.horizontalScroll {
+  overflow-x: auto;
+
+  // keep the padding effect when there is horizontal scroll
+  padding-right: 0;
+
+  .contentFloating {
+    display: inline-block;
+    margin-right: $page-side-padding;
+  }
+}
+
 .sticky {
   position: sticky;
   z-index: $stickyZIndex;

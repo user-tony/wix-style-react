@@ -14,6 +14,7 @@ export type PageProps = WixComponentProps & {
   gradientClassName?: string;
   scrollableContentRef?: (ref: HTMLElement) => void;
   zIndex?: number;
+  horizontalScroll?: boolean;
 };
 
 export default class Page extends WixComponent<PageProps> {

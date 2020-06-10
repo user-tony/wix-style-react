@@ -211,6 +211,27 @@ export default {
               compact: true,
             },
             {
+              title: 'Horizontal Scroll',
+              description: 'Allows for horizontal scrolling without set width',
+              source: `
+                <Page height="40vh" horizontalScroll>
+                  <Page.Header title="Page Header" actionsBar={<Button>Click me</Button>}/>
+                  <Page.Content>
+                    <Box directon="horizontal">
+                      {
+                        Array.from(Array(7)).map((_, idx) => 
+                          <Box key={idx} backgroundColor="lightyellow" marginRight="12px" padding="12px" minWidth="200px" height="1000px">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </Box>
+                        )
+                      }
+                    </Box>
+                  </Page.Content>
+                </Page>
+              `,
+              compact: true,
+            },
+            {
               title: 'Header Tail elements',
               description:
                 'elements can be sticked to the header when scrolled. Tabs are a good example for usage.',

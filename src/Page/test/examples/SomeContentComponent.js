@@ -4,7 +4,7 @@ import times from '../../../utils/operators/times';
 
 export const LongTextContent = props => {
   const pages = times(props.numOfPages, (x, i) => (
-    <div key={i}>
+    <div key={i} style={{ maxWidth: props.maxWidth }}>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis
         molestie magna vitae pellentesque. Ut elementum accumsan nibh, ut
@@ -69,6 +69,7 @@ LongTextContent.defaultProps = {
 export default class SomeContentComponent extends React.Component {
   static propTypes = {
     shortContent: PropTypes.bool,
+    wideContent: PropTypes.bool,
     stretchVertically: PropTypes.bool,
   };
 
@@ -82,9 +83,13 @@ export default class SomeContentComponent extends React.Component {
         style={{
           backgroundColor: 'white',
           minHeight: this.props.stretchVertically ? 'inherit' : undefined,
+          width: this.props.wideContent ? 'max-content' : undefined,
         }}
       >
-        <LongTextContent numOfPages={this.props.shortContent ? 1 : undefined} />
+        <LongTextContent
+          numOfPages={this.props.shortContent ? 1 : undefined}
+          maxWidth={this.props.wideContent ? '4000px' : undefined}
+        />
       </div>
     );
   }

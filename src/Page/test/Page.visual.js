@@ -49,6 +49,14 @@ const tests = [
         },
       },
       {
+        it: 'Should render content with horizontal scroll',
+        props: {
+          ...baseProps,
+          horizontalScroll: true,
+          children: [renderHeader(), renderContent({ wideContent: true })],
+        },
+      },
+      {
         it: 'Should render with a tail',
         props: {
           ...baseProps,

@@ -261,9 +261,10 @@ class Page extends WixComponent {
     const { PageContent } = this._getNamedChildren();
     const contentFullScreen = PageContent && PageContent.props.fullScreen;
 
-    const { className, ...rest } = props;
+    const { className, horizontalScroll, ...rest } = props;
     const mergedClassNames = classNames(className, s.contentHorizontalLayout, {
       [s.contentFullWidth]: contentFullScreen,
+      [s.horizontalScroll]: horizontalScroll,
     });
 
     const pageDimensionsStyle = this._getPageDimensionsStyle();
@@ -441,6 +442,7 @@ class Page extends WixComponent {
       >
         {this._renderContentHorizontalLayout({
           className: s.contentContainer,
+          horizontalScroll: this.props.horizontalScroll,
           children: (
             <div
               style={{
@@ -512,6 +514,8 @@ Page.propTypes = {
   maxWidth: PropTypes.number,
   /** Sets the min width of the content (Both in header and body) NOT including the page padding */
   minWidth: PropTypes.number,
+  /** Allow the page to scroll horizontally for large width content */
+  horizontalScroll: PropTypes.bool,
   /** Sets the height of the page (in px/vh/etc.) */
   height: PropTypes.string,
   /** Sets padding of the sides of the page */

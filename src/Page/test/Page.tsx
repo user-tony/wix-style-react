@@ -24,6 +24,7 @@ function PageWithAllProps() {
       sidePadding={10}
       styles="font: 14px"
       zIndex={2}
+      horizontalScroll
     >
       <Page.Header className="cls" />
       <Page.Content fullScreen>asd</Page.Content>
