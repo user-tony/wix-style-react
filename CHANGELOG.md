@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+## 8.18.0 - 2020-06-09
+### Changed
+- internal upgrade of Stylable from v1 to v3
+
 ### Added
 - `<Notification/>` - exposing ellipsis prop to `<Notification.TextLabel/>` [#5508](https://github.com/wix/wix-style-react/pull/5508)
 
