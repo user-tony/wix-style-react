@@ -16,6 +16,19 @@ Types of changes:
 
 ## Next
 
+## 8.19.0 - 2020-06-10
+Due to dependency issues, this release reverts changes done in 8.18.0 [#5534](https://github.com/wix/wix-style-react/pull/5534)
+
+## 8.18.0 - 2020-06-09
+### Changed
+- internal upgrade of Stylable from v1 to v3
+
+### Added
+- `<Notification/>` - exposing ellipsis prop to `<Notification.TextLabel/>` [#5508](https://github.com/wix/wix-style-react/pull/5508)	
+
+### Changed
+- `<Card/>`- migrating styling to stylable [#5493](https://github.com/wix/wix-style-react/pull/5493)	
+
 ## 8.17.0 - 2020-06-08
 ### Changed
 - Set `react-modal` dependency to 3.10.1 [#5506](https://github.com/wix/wix-style-react/pull/5506)
