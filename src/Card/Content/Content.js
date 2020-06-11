@@ -1,7 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './Content.scss';
+import styles from './Content.st.css';
 
 class Content extends React.Component {
   static propTypes = {
@@ -14,14 +13,11 @@ class Content extends React.Component {
 
   render() {
     const { children, size } = this.props;
+    const isEmptyStateContent = this._getChildName(children) === 'EmptyState';
 
     return (
       <div
-        className={
-          this._getChildName(children) === 'EmptyState'
-            ? styles.emptyStateContent
-            : classNames(styles.root, styles[size])
-        }
+        {...styles('root', { size, emptyStateContent: isEmptyStateContent })}
       >
         {children}
       </div>
