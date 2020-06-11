@@ -18,6 +18,9 @@ Types of changes:
 ### Added
 - `<MessageModalLayout/>` & `<CustomModalLayout/>` - Added support for dynamic scrolling, content area will now have top/bottom dividiers emphasising the scroll position by default
 
+### Changed
+- `<Card/>`- stylable migration [#5543](https://github.com/wix/wix-style-react/pull/5543)
+
 ## 8.20.0 - 2020-06-11
 ### Added
 - `<Page/>` - support content horizontal scroll [#5497](https://github.com/wix/wix-style-react/pull/5497)
