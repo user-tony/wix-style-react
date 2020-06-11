@@ -90,6 +90,11 @@ export const useAudioManager = ({
     }
   }, [setLoadingState, setWasEverPlayed, _setSeek, stableOnDestroy]);
 
+  const _onPlay = useCallback(() => {
+    setWasEverPlayed(true);
+    stableOnPlay();
+  }, [stableOnPlay, setWasEverPlayed]);
+
   const _onLoad = useCallback(() => {
     // Keeping a duplicate state because when Howler state changes it won't cause a render
     // and we want to react to this change.
@@ -123,11 +128,10 @@ export const useAudioManager = ({
       }
 
       if (loadingState === 'loaded' && !audioManager.current.playing()) {
-        setWasEverPlayed(true);
         audioManager.current.play();
       }
     }
-  }, [loadingState, _load, setWasEverPlayed]);
+  }, [loadingState, _load]);
 
   const _pause = useCallback(() => {
     if (audioManager.current) {
@@ -188,7 +192,7 @@ export const useAudioManager = ({
         onload: _onLoad,
         html5: !webAudioAPI,
         onend: _onEnd,
-        onplay: stableOnPlay,
+        onplay: _onPlay,
         onloaderror: _onLoadError,
         onpause: stableOnPause,
         onseek: stableOnSeek,
@@ -209,6 +213,7 @@ export const useAudioManager = ({
     stableOnSeek,
     preload,
     webAudioAPI,
+    _onPlay,
   ]);
 
   useEffect(() => {
