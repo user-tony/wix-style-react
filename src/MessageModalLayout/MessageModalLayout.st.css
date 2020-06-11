@@ -51,7 +51,7 @@
   flex: 1;
 }
 
-.root::content::innerContentWrapper {
+.root::content::innerContent {
   padding-bottom: value(spacing06);
   padding-right: value(spacing30);
   padding-left: value(spacing30);

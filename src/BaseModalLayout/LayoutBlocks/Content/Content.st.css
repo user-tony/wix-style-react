@@ -11,13 +11,9 @@
   flex-direction: column;
 }
 
-.innerContentWrapper {
+.innerContent {
   overflow-y: auto;
   -st-mixin: defaultScrollBar;
-}
-
-.innerContent {
-  height: 100%;
 }
 
 .root:hideTopDivider .topDivider {

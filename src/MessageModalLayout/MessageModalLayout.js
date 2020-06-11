@@ -2,9 +2,7 @@ import React, { useState, useCallback } from 'react';
 import styles from './MessageModalLayout.st.css';
 
 import BaseModalLayout from '../BaseModalLayout';
-import Box from '../Box';
 import PropTypes from 'prop-types';
-import { APPEARANCES } from '../Heading';
 import Button from '../Button';
 
 /** MessageModalLayout */
@@ -19,20 +17,6 @@ const MessageModalLayout = ({ children, ...restProps }) => {
     setShowFooterDivider(newShowDivider);
   }, []);
 
-  const getScrollPositionChangedHandler = useCallback(
-    () => ({
-      ...(!!illustration ? { onContentScrollPositionChanged } : {}),
-    }),
-    [illustration, onContentScrollPositionChanged],
-  );
-
-  const getShowDividerState = useCallback(
-    () => ({
-      ...(!!illustration ? { showFooterDivider } : {}),
-    }),
-    [illustration, showFooterDivider],
-  );
-
   const hasIllustration = !!illustration;
 
   return (
@@ -45,14 +29,18 @@ const MessageModalLayout = ({ children, ...restProps }) => {
         <div className={styles.contentAreaContainer}>
           <BaseModalLayout.Header />
           <BaseModalLayout.Content
-            contentHideDividers
-            {...getScrollPositionChangedHandler()}
+            contentHideDividers={hasIllustration}
+            onContentScrollPositionChanged={
+              (hasIllustration && onContentScrollPositionChanged) || null
+            }
           >
             {children}
           </BaseModalLayout.Content>
         </div>
       </div>
-      <BaseModalLayout.Footer {...getShowDividerState()} />
+      <BaseModalLayout.Footer
+        showFooterDivider={hasIllustration && showFooterDivider}
+      />
       <BaseModalLayout.Footnote />
     </BaseModalLayout>
   );

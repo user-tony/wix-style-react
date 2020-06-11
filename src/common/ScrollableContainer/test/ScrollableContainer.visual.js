@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import ScrollableContainer from '../ScrollableContainer';
 import { scrollableContainerPrivateDriverFactory } from './ScrollableContainer.private.driver';
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
+import { positionY } from '../constants';
 
 const commonProps = {
   style: {
@@ -35,17 +36,17 @@ const tests = [
         props: {
           children: 'short text',
         },
-        expected: 'none',
+        expected: positionY.NONE,
       },
       {
         it: 'scrolled to top',
         props: {},
-        expected: 'top',
+        expected: positionY.TOP,
       },
       {
         it: 'scrolled to middle',
         props: {},
-        expected: 'middle',
+        expected: positionY.MIDDLE,
         componentDidMount: () => {
           createDriver()._scrollContentTo({ y: 375 });
         },
@@ -53,7 +54,7 @@ const tests = [
       {
         it: 'scrolled to bottom',
         props: {},
-        expected: 'bottom',
+        expected: positionY.BOTTOM,
         componentDidMount: () => {
           createDriver()._scrollContentTo({ y: 99999 });
         },
@@ -64,7 +65,7 @@ const tests = [
     describe: 'scroll-y information',
     its: [
       {
-        it: 'scrolled to middle',
+        it: 'scrolled to 500',
         props: {},
         expected: 500,
         componentDidMount: () => {

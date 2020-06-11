@@ -22,9 +22,7 @@ const CustomModalLayout = ({
       {...restProps}
     >
       <BaseModalLayout.Header />
-      <BaseModalLayout.Content contentHideDividers>
-        {children}
-      </BaseModalLayout.Content>
+      <BaseModalLayout.Content>{children}</BaseModalLayout.Content>
       <BaseModalLayout.Footer />
       <BaseModalLayout.Footnote />
     </BaseModalLayout>
