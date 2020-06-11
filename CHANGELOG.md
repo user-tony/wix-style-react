@@ -16,13 +16,13 @@ Types of changes:
 
 ## Next
 ### Added
-`<Page/>` - support content horizontal scroll [#5497](https://github.com/wix/wix-style-react/pull/5497)
+- `<Page/>` - support content horizontal scroll [#5497](https://github.com/wix/wix-style-react/pull/5497)
 
 ### Fixed
 - `<AudioPlayer/>` - fix audio file can be played twice [#5533](https://github.com/wix/wix-style-react/pull/5533)
 
 ## 8.19.0 - 2020-06-10
-Due to dependency issues, this release reverts changes done in 8.18.0 [#5534](https://github.com/wix/wix-style-react/pull/5534)
+**Due to dependency issues, this release reverts changes done in 8.18.0** [#5534](https://github.com/wix/wix-style-react/pull/5534)
 
 ## 8.18.0 - 2020-06-09
 ### Changed
