@@ -37,3 +37,27 @@ export const actions = `
   </Notification>
 </div>
 `;
+
+export const ellipsis = `
+<div>
+    <Notification show>
+      <Notification.TextLabel>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+      </Notification.TextLabel>
+      <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+      button
+    </Notification.ActionButton>
+      <Notification.CloseButton />
+    </Notification>
+    <br/>
+    <Notification show>
+      <Notification.TextLabel ellipsis={false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+      </Notification.TextLabel>
+      <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+      button
+    </Notification.ActionButton>
+      <Notification.CloseButton />
+    </Notification>
+</div>
+`;
