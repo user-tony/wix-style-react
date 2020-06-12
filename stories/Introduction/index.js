@@ -9,6 +9,7 @@ import Contributing from '../../CONTRIBUTING.md';
 import TestingReadme from '../../docs/usage/testing.md';
 import TroubleshootingReadme from '../../docs/usage/Troubleshooting.md';
 import UsageWithoutYoshiReadme from '../../docs/usage-without-yoshi.md';
+import UsageWithoutYoshiBetaReadme from '../../docs/usage-without-yoshi-beta.md';
 
 import ComponentsCheatsheet from './Cheatsheet/ComponentsCheatsheet';
 
@@ -31,6 +32,11 @@ storiesOf(Category.GETTINGSTARTED, module).add('Contributing', () => (
 storiesOf(Category.GETTINGSTARTED, module).add('Usage Without Yoshi', () => (
   <Markdown source={UsageWithoutYoshiReadme} />
 ));
+
+storiesOf(Category.GETTINGSTARTED, module).add(
+  'Usage Without Yoshi (Beta)',
+  () => <Markdown source={UsageWithoutYoshiBetaReadme} />,
+);
 
 storiesOf(Category.CHEATSHEET, module).add('Components Cheatsheet', () => (
   <ComponentsCheatsheet />
