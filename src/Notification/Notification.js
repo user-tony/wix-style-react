@@ -52,7 +52,7 @@ function mapChildren(children) {
 }
 
 class Notification extends React.PureComponent {
-  margin;
+  notificationContentHeight;
 
   constructor(props) {
     super(props);
@@ -63,13 +63,13 @@ class Notification extends React.PureComponent {
     };
   }
   componentDidMount() {
-    this.margin = `-${this.notificationContent.current.clientHeight}px`;
+    this.notificationContentHeight = `-${this.notificationContent.current.clientHeight}px`;
   }
 
   componentDidUpdate = (prevProps, prevState) => {
     if (
-      prevState.marginTop === this.margin &&
-      this.state.marginTop !== this.margin
+      prevState.marginTop === this.notificationContentHeight &&
+      this.state.marginTop !== this.notificationContentHeight
     ) {
       setTimeout(() => this.setState({ marginTop: 0 }), 1);
     }
@@ -78,12 +78,12 @@ class Notification extends React.PureComponent {
   closeNotification = () =>
     this.setState({
       showContent: false,
-      marginTop: this.margin,
+      marginTop: this.notificationContentHeight,
     });
 
   updateAfterTransition = () => {
     if (this.state.showContent) {
-      this.setState({ marginTop: this.margin });
+      this.setState({ marginTop: this.notificationContentHeight });
     }
   };
 
