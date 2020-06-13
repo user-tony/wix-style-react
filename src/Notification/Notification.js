@@ -71,7 +71,7 @@ class Notification extends React.PureComponent {
       prevState.marginTop === this.notificationContentHeight &&
       this.state.marginTop !== this.notificationContentHeight
     ) {
-      setTimeout(() => this.setState({ marginTop: 0 }), 1);
+      this.setState({ marginTop: 0 });
     }
   };
 
