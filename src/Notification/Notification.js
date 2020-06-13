@@ -52,20 +52,18 @@ function mapChildren(children) {
 }
 
 class Notification extends React.PureComponent {
-  closeTimeout;
-
   margin;
 
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
+    this.notificationContent = React.createRef();
     this.state = {
       showContent: false,
       marginTop: 0,
     };
   }
   componentDidMount() {
-    this.margin = `-${this.myRef.current.clientHeight}px`;
+    this.margin = `-${this.notificationContent.current.clientHeight}px`;
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -96,7 +94,7 @@ class Notification extends React.PureComponent {
 
     return (
       <div
-        ref={this.myRef}
+        ref={this.notificationContent}
         data-hook={dataHooks.notificationWrapper}
         onTransitionEnd={this.updateAfterTransition()}
         style={{ zIndex, marginTop }}
