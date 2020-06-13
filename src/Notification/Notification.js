@@ -95,33 +95,31 @@ class Notification extends React.PureComponent {
     const childrenComponents = mapChildren(children);
 
     return (
-      <div style={{ overflow: 'hidden' }}>
-        <div
-          ref={this.myRef}
-          data-hook={dataHooks.notificationWrapper}
-          onTransitionEnd={this.updateAfterTransition()}
-          style={{ zIndex, marginTop, transition: 'margin-top 300ms ease-in' }}
-          className={styles.notification}
-          role="alert"
-          aria-labelledby="notification-label"
-          aria-live="polite"
-        >
-          {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
+      <div
+        ref={this.myRef}
+        data-hook={dataHooks.notificationWrapper}
+        onTransitionEnd={this.updateAfterTransition()}
+        style={{ zIndex, marginTop }}
+        className={styles.notification}
+        role="alert"
+        aria-labelledby="notification-label"
+        aria-live="polite"
+      >
+        {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
 
-          <div className={styles.labelWrapper}>
-            {childrenComponents.label}
-            {childrenComponents.ctaButton}
-          </div>
-
-          {childrenComponents.closeButton && (
-            <div
-              data-hook={dataHooks.notificationCloseButton}
-              className={styles.closeButton}
-              onClick={this.closeNotification}
-              children={childrenComponents.closeButton}
-            />
-          )}
+        <div className={styles.labelWrapper}>
+          {childrenComponents.label}
+          {childrenComponents.ctaButton}
         </div>
+
+        {childrenComponents.closeButton && (
+          <div
+            data-hook={dataHooks.notificationCloseButton}
+            className={styles.closeButton}
+            onClick={this.closeNotification}
+            children={childrenComponents.closeButton}
+          />
+        )}
       </div>
     );
   }
@@ -137,7 +135,6 @@ class Notification extends React.PureComponent {
         data-type={type}
       >
         {this._renderNotification()}
-        sdfdfsdgdfgdg
       </div>
     );
   }

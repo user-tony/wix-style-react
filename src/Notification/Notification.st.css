@@ -15,6 +15,7 @@
 .root {
   -st-states: theme(enum(standard, error, success,warning,premium )), type(enum(local, global, sticky));
   position: relative;
+  overflow: hidden;
 }
 
 .notification {
@@ -24,6 +25,7 @@
   padding: 3px 12px;
   min-height: 48px;
   z-index: value(zIndex_NOTIFICATION);
+  transition: margin-top 300ms ease-in;
 }
 
 .root:theme(standard) .notification{
@@ -95,63 +97,4 @@
   position: absolute;
   top: 15px;
   right: 12px;
-}
-
-/* Animations */
-.notificationAnimationEnter {
-  transition: all 0.4s cubic-bezier(0.895, 0.03, 0.685, 0.22);
-  max-height: 0;
-}
-
-.notificationAnimationEnter .label {
-  transition: all 0.4s value(easeOutQuint) 0.1s;
-  opacity: 0;
-  transform: translateY(-70px);
-}
-
-.notificationAnimationEnter .button {
-  transition: all 0.16s value(easeOutQuint) 0.2s;
-  transform: scale(0.6);
-  opacity: 0.5;
-}
-
-.notificationAnimationEnterActive {
-  max-height: 500px;
-}
-
-.notificationAnimationEnterActive .label {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.notificationAnimationEnterActive  .button {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.notificationAnimationExit {
-  max-height: 500px;
-}
-
-.notificationAnimationExit .label,
-.notificationAnimationExit .button,
-.notificationAnimationExit .closeButton {
-  opacity: 1;
-}
-
-.notificationAnimationExitActive {
-  transition: all 0.25s value(easeInOutSine) 0.1s;
-  max-height: 0;
-}
-
-.notificationAnimationExitActive .label {
-  transition: all 0.25s value(easeInOutSine);
-  opacity: 0.5;
-  transform: translateY(-70px);
-}
-
-.notificationAnimationExitActive .button,
-.notificationAnimationExitActive .closeButton {
-  transition: all 0.12s value(easeInOutSine);
-  opacity: 0;
 }
