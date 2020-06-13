@@ -21,7 +21,6 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   padding: 3px 12px;
   min-height: 48px;
   z-index: value(zIndex_NOTIFICATION);

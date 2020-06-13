@@ -1,6 +1,5 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
@@ -55,92 +54,53 @@ function mapChildren(children) {
 class Notification extends React.PureComponent {
   closeTimeout;
 
+  margin;
+
   constructor(props) {
     super(props);
+    this.myRef = React.createRef();
     this.state = {
-      hideByCloseClick: false,
-      hideByTimer: false,
+      showContent: false,
+      marginTop: 0,
     };
-
-    this._startCloseTimer(props);
+  }
+  componentDidMount() {
+    this.margin = `-${this.myRef.current.clientHeight}px`;
   }
 
-  _startCloseTimer({ autoHideTimeout }) {
-    if (autoHideTimeout) {
-      this.closeTimeout = setTimeout(
-        () => this._hideNotificationOnTimeout(),
-        autoHideTimeout || DEFAULT_AUTO_HIDE_TIMEOUT,
-      );
+  componentDidUpdate = (prevProps, prevState) => {
+    if (
+      prevState.marginTop === this.margin &&
+      this.state.marginTop !== this.margin
+    ) {
+      setTimeout(() => this.setState({ marginTop: 0 }), 1);
     }
-  }
-
-  _clearCloseTimeout() {
-    if (this.closeTimeout) {
-      clearTimeout(this.closeTimeout);
-      this.closeTimeout = null;
-    }
-  }
-
-  _hideNotificationOnCloseClick = () => {
-    this.setState({ hideByCloseClick: true });
-
-    setTimeout(
-      () => this.props.onClose && this.props.onClose('hide-by-close-click'),
-      animationsTimeouts.exit + 100,
-    );
   };
 
-  _hideNotificationOnTimeout = () => {
-    this.setState({ hideByTimer: true });
-
-    setTimeout(
-      () => this.props.onClose && this.props.onClose('hide-by-timer'),
-      animationsTimeouts.exit + 100,
-    );
-  };
-
-  _bypassCloseFlags() {
+  closeNotification = () =>
     this.setState({
-      hideByCloseClick: false,
-      hideByTimer: false,
+      showContent: false,
+      marginTop: this.margin,
     });
-  }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.show) {
-      this._bypassCloseFlags();
-      this._clearCloseTimeout();
-      this._startCloseTimer(nextProps);
+  updateAfterTransition = () => {
+    if (this.state.showContent) {
+      this.setState({ marginTop: this.margin });
     }
-  }
-
-  componentWillUnmount() {
-    this._clearCloseTimeout();
-  }
-
-  _shouldShowNotification() {
-    return (
-      this.props.show && !this.state.hideByCloseClick && !this.state.hideByTimer
-    );
-  }
+  };
 
   _renderNotification() {
     const { zIndex, children, theme } = this.props;
+    const { marginTop } = this.state;
     const childrenComponents = mapChildren(children);
 
     return (
-      <CSSTransition
-        classNames={{
-          enter: styles.notificationAnimationEnter,
-          enterActive: styles.notificationAnimationEnterActive,
-          exit: styles.notificationAnimationExit,
-          exitActive: styles.notificationAnimationExitActive,
-        }}
-        timeout={animationsTimeouts}
-      >
+      <div style={{ overflow: 'hidden' }}>
         <div
+          ref={this.myRef}
           data-hook={dataHooks.notificationWrapper}
-          style={{ zIndex }}
+          onTransitionEnd={this.updateAfterTransition()}
+          style={{ zIndex, marginTop, transition: 'margin-top 300ms ease-in' }}
           className={styles.notification}
           role="alert"
           aria-labelledby="notification-label"
@@ -157,17 +117,18 @@ class Notification extends React.PureComponent {
             <div
               data-hook={dataHooks.notificationCloseButton}
               className={styles.closeButton}
-              onClick={this._hideNotificationOnCloseClick}
+              onClick={this.closeNotification}
               children={childrenComponents.closeButton}
             />
           )}
         </div>
-      </CSSTransition>
+      </div>
     );
   }
 
   render() {
     const { dataHook, theme, type } = this.props;
+
     return (
       <div
         {...styles('root', { theme, type })}
@@ -175,9 +136,8 @@ class Notification extends React.PureComponent {
         data-theme={theme}
         data-type={type}
       >
-        <TransitionGroup component={FirstChild}>
-          {this._shouldShowNotification() ? this._renderNotification() : null}
-        </TransitionGroup>
+        {this._renderNotification()}
+        sdfdfsdgdfgdg
       </div>
     );
   }
