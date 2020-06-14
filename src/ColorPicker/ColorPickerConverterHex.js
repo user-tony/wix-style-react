@@ -1,32 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
-
 import css from './ColorPickerConverter.st.css';
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getHexOrEmpty } from './utils';
 
-export default class ColorPickerConverterHex extends WixComponent {
+export default class ColorPickerConverterHex extends React.PureComponent {
   static propTypes = {
     current: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
   };
 
-  constructor(props) {
-    super(props);
-    this.change = this.change.bind(this);
-    this.state = {
-      hex: getHexOrEmpty(props.current),
-      inFocus: false,
-    };
-  }
+  state = {
+    hex: getHexOrEmpty(this.props.current),
+    inFocus: false,
+  };
 
   render() {
+    const { dataHook } = this.props;
     return (
-      <div {...css('root', {}, this.props)}>
+      <div {...css('root', {}, this.props)} data-hook={dataHook}>
         <Input
           size="small"
           value={this.state.hex}
@@ -54,14 +48,14 @@ export default class ColorPickerConverterHex extends WixComponent {
     }
   }
 
-  change({ target: { value } }) {
+  change = ({ target: { value } }) => {
     this.setState({ hex: value }, () => {
       const _color = safeColor(value, this.props.allowEmpty);
       if (_color) {
         this.props.onChange(_color);
       }
     });
-  }
+  };
 
   handleOnFocus = () => {
     this.setState({

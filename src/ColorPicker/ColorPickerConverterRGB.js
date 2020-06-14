@@ -1,24 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
-
 import css from './ColorPickerConverter.st.css';
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getRgbOrEmpty } from './utils';
 
-export default class ColorPickerConverterRGB extends WixComponent {
+export default class ColorPickerConverterRGB extends React.PureComponent {
   static propTypes = {
+    dataHook: PropTypes.string,
     current: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onAdd: PropTypes.func,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = getRgbOrEmpty(props.current);
-  }
+  state = getRgbOrEmpty(this.props.current);
 
   isInputsEmpty() {
     const { r, g, b } = this.state;
@@ -26,8 +21,9 @@ export default class ColorPickerConverterRGB extends WixComponent {
   }
 
   render() {
+    const { dataHook } = this.props;
     return (
-      <div {...css('root', {}, this.props)}>
+      <div {...css('root', {}, this.props)} data-hook={dataHook}>
         <div {...css('distribute', {}, this.props)}>
           <Input
             size="small"
