@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 
-export interface RadioGroupProps extends WixComponentProps {
+export interface RadioGroupProps {
+  dataHook?: string;
   onChange?: RadioButtonProps['onChange'];
   value?: RadioButtonProps['value'];
   disabledRadios?: Array<RadioButtonProps['value']>;
@@ -14,13 +14,14 @@ export interface RadioGroupProps extends WixComponentProps {
   lineHeight?: string;
 }
 
-export default class RadioGroup extends WixComponent<RadioGroupProps> {
+export default class RadioGroup extends React.PureComponent<RadioGroupProps> {
   static Radio: typeof RadioButton;
 }
 
 export type RadioGroupDisplay = 'vertical' | 'horizontal';
 
-export interface RadioButtonProps extends WixComponentProps {
+export interface RadioButtonProps {
+  dataHook?: string;
   value?: string | number;
   vAlign?: RadioButtonVAlign;
   name?: string;
@@ -39,4 +40,4 @@ export type RadioButtonVAlign = 'center' | 'top';
 export type RadioButtonType = 'default' | 'button';
 export type RadioButtonSelectionArea = 'none' | 'hover' | 'always';
 
-export class RadioButton extends WixComponent<RadioButtonProps> {}
+export class RadioButton extends React.PureComponent<RadioButtonProps> {}

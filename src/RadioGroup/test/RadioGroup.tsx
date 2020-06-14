@@ -1,9 +1,10 @@
 import * as React from 'react';
 import RadioGroup from '..';
-import { radioGroupTestkitFactory } from '../../../testkit';
-import { radioGroupTestkitFactory as radioGroupEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
+import { radioGroupTestkitFactory } from '../../../testkit';
+import { radioGroupTestkitFactory as radioGroupEnzymeTestkitFactory } from '../../../testkit/enzyme';
+import { radioGroupTestkitFactory as radioGroupPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 
 function RadioGroupWithMandatoryProps() {
   return <RadioGroup />;
@@ -20,10 +21,10 @@ function RadioGroupWithAllProps() {
       onChange={_value => {}}
       selectionArea="always"
       spacing="20px"
-      styles="font: 14px"
       type="button"
       vAlign="center"
-      value={1}>
+      value={1}
+    >
       <RadioGroup.Radio
         checked
         content={<div />}
@@ -34,7 +35,6 @@ function RadioGroupWithAllProps() {
         onChange={_value => {}}
         selectionArea="always"
         style={{ paddingTop: '10px' }}
-        styles="font: 14px"
         tabIndex={1}
         type="button"
         vAlign="center"
@@ -47,11 +47,18 @@ function RadioGroupWithAllProps() {
 async function testkits() {
   const testkit = radioGroupTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = radioGroupEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
+  });
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  const puppeteerTestkit = await radioGroupPuppeteerTestkitFactory({
+    dataHook: 'hook',
+    page,
   });
 }

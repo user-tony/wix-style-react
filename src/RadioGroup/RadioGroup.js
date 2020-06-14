@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import RadioButton from './RadioButton/RadioButton';
 import styles from './RadioGroup.scss';
-import WixComponent from '../BaseComponents/WixComponent';
 import { dataHooks } from './constants';
 
 /**
@@ -13,7 +12,7 @@ import { dataHooks } from './constants';
  *
  * similar to HTML `<input type="radio"/>` except you don't need to handle `name` or click handlers
  */
-class RadioGroup extends WixComponent {
+class RadioGroup extends React.PureComponent {
   constructor(props) {
     super(props);
     this.name = uniqueId('RadioGroup_');
@@ -21,6 +20,7 @@ class RadioGroup extends WixComponent {
 
   render() {
     const {
+      dataHook,
       onChange,
       disabled,
       disabledRadios,
@@ -33,6 +33,7 @@ class RadioGroup extends WixComponent {
     } = this.props;
     return (
       <div
+        data-hook={dataHook}
         className={classNames(styles[display], {
           [styles.selectionAreaAlways]: selectionArea === 'always',
           [styles.selectionAreaHover]: selectionArea === 'hover',
@@ -73,6 +74,9 @@ class RadioGroup extends WixComponent {
 }
 
 RadioGroup.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
+
   /** Callback function when user selects a different value */
   onChange: PropTypes.func,
 
