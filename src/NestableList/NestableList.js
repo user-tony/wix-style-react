@@ -1,5 +1,4 @@
 import React from 'react';
-import WixComponent from '../BaseComponents/WixComponent';
 import { removeFromTree, addToTree } from './utils';
 
 import CustomDragLayer from './DragLayer';
@@ -38,7 +37,7 @@ function getRealNextPosition(prev, next) {
   return next;
 }
 
-class NestableList extends WixComponent {
+class NestableList extends React.PureComponent {
   static defaultProps = {
     items: [],
     isRenderDraggingChildren: false,
@@ -109,6 +108,7 @@ class NestableList extends WixComponent {
   render() {
     const { items } = this.state;
     const {
+      dataHook,
       renderItem,
       childrenProperty,
       childrenStyle,
@@ -120,7 +120,7 @@ class NestableList extends WixComponent {
     } = this.props;
 
     return (
-      <div>
+      <div data-hook={dataHook}>
         <NestableListContext.Provider
           value={{
             useDragHandle,

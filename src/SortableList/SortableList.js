@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import { Draggable } from '../DragAndDrop/Draggable';
 import Container from '../DragAndDrop/Draggable/components/Container';
-
 import times from '../utils/operators/times';
 import withDNDContext from './withDNDContext';
 
 /**
  * Attaches Drag and Drop behavior to a list of items
  */
-class SortableList extends WixComponent {
+class SortableList extends React.PureComponent {
   static defaultProps = {
     animationDuration: 0,
     animationTiming: '',
@@ -273,6 +270,7 @@ class SortableList extends WixComponent {
 
   render() {
     const {
+      dataHook,
       className,
       contentClassName,
       groupName,
@@ -299,6 +297,7 @@ class SortableList extends WixComponent {
 
     return (
       <Container
+        dataHook={dataHook}
         className={className}
         onDrop={this.handleDrop}
         total={this.state.items.length}

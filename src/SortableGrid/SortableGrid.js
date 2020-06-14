@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WixComponent from '../BaseComponents/WixComponent';
 import Container from '../DragAndDrop/Draggable/components/Container';
 import { Draggable } from '../DragAndDrop/Draggable';
 import withDNDContext from './withDNDContext';
@@ -9,7 +8,7 @@ import styles from './SortableGrid.st.css';
 import { dataHooks, StripPosition } from './constants';
 
 /** component allow you to implement drag and drop in grid layout */
-class SortableGrid extends WixComponent {
+class SortableGrid extends React.PureComponent {
   static defaultProps = {
     animationDuration: 0,
     animationTiming: '',
@@ -164,6 +163,7 @@ class SortableGrid extends WixComponent {
 
   render() {
     const {
+      dataHook,
       className,
       contentClassName,
       groupName,
@@ -198,6 +198,7 @@ class SortableGrid extends WixComponent {
 
     return (
       <Container
+        dataHook={dataHook}
         className={className}
         onDrop={this.handleDrop}
         total={this.state.items.length}

@@ -19,7 +19,6 @@ function sortableGridWithAllProps() {
       dragPreview
       items={[{ id: '1', text: 'text' }]}
       usePortal
-      styles="font: 14px"
       animationDuration={10}
       animationTiming="aa"
       canDrag={_params => {}}

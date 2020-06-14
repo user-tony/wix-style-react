@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 
-export interface NestableListProps extends WixComponentProps {
+export interface NestableListProps {
+  dataHook?: string;
   items?: object[];
   isRenderDraggingChildren?: boolean;
   childrenProperty?: string;
@@ -21,4 +21,6 @@ export interface NestableListProps extends WixComponentProps {
   }) => React.ReactNode;
 }
 
-export default class NestableList extends WixComponent<NestableListProps> {}
+export default class NestableList extends React.PureComponent<
+  NestableListProps
+> {}

@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 import SortableList from '..';
 import { sortableListTestkitFactory } from '../../../testkit';
 import { sortableListTestkitFactory as sortableListEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import * as enzyme from "enzyme";
+import * as enzyme from 'enzyme';
 
 function SortableListWithMandatoryProps() {
   return <SortableList />;
@@ -11,14 +11,13 @@ function SortableListWithMandatoryProps() {
 function SortableListWithAllProps() {
   return (
     <SortableList
+      dataHook="hook"
       className="cls"
       contentClassName="cls"
-      dataHook="hook"
       dragPreview
       insertPosition="any"
-      items={[{ id: "1", text: "text" }]}
+      items={[{ id: '1', text: 'text' }]}
       usePortal
-      styles="font: 14px"
       animationDuration={10}
       animationTiming="aa"
       canDrag={_params => {}}
@@ -46,12 +45,12 @@ function SortableListWithAllProps() {
 
 async function testkits() {
   const testkit = sortableListTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = sortableListEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 }

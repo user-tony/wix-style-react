@@ -1,7 +1,8 @@
-import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
+import * as React from 'react';
 import { DraggableProps } from '../DragAndDrop/Draggable';
 
-export interface SortableListProps extends WixComponentProps, DraggableProps {
+export interface SortableListProps extends DraggableProps {
+  dataHook?: string;
   insertPosition?: SortableListInsertPosition;
   usePortal?: boolean;
   dragPreview?: boolean;
@@ -10,6 +11,8 @@ export interface SortableListProps extends WixComponentProps, DraggableProps {
   contentClassName?: string;
 }
 
-export default class SortableList extends WixComponent<SortableListProps> {}
+export default class SortableList extends React.PureComponent<
+  SortableListProps
+> {}
 
 export type SortableListInsertPosition = 'start' | 'end' | 'any';

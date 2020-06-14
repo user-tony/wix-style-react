@@ -1,5 +1,4 @@
 import React from 'react';
-import WixComponent from '../../../BaseComponents/WixComponent';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
 
@@ -109,23 +108,25 @@ const target = {
   },
 };
 
-class Container extends WixComponent {
+class Container extends React.PureComponent {
   setRootRef = node => (this.rootNode = node);
   setChildRef = node => (this.childNode = node);
 
   render() {
-    if (!this.props.connectDropTarget) {
+    const { dataHook, className, connectDropTarget, children } = this.props;
+    if (!connectDropTarget) {
       return null;
     }
-    return this.props.connectDropTarget(
-      <div className={this.props.className} ref={this.setRootRef}>
-        {React.cloneElement(this.props.children, { ref: this.setChildRef })}
+    return connectDropTarget(
+      <div data-hook={dataHook} className={className} ref={this.setRootRef}>
+        {React.cloneElement(children, { ref: this.setChildRef })}
       </div>,
     );
   }
 }
 
 Container.propTypes = {
+  dataHook: PropTypes.string,
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
   containerId: PropTypes.string,
