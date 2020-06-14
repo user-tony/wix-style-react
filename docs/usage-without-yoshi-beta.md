@@ -3,6 +3,8 @@
 `wix-style-react` works best when [Yoshi](https://github.com/wix/yoshi) is used as build tool.
 if you do not wish or cannot use it, you can use webpack. However, at the moment additional configuration is required.
 
+_Note: This guide is in BETA, it is relevant to `wix-style-react@8.18.0` only! When we release `wix-style-react@9.x.x`, it will be released as the default guide._
+
 Follow these steps in order to configure your own wix-style-react project:
 
 1. Create a new project:
