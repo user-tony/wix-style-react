@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 export interface EditableSelectorProps {
   dataHook?: string;
   styles?: string;
@@ -18,4 +19,6 @@ export type EditableSelectorOption = {
   isSelected?: boolean;
 };
 
-export default class EditableSelector extends React.Component<EditableSelectorProps> {}
+export default class EditableSelector extends React.Component<
+  EditableSelectorProps
+> {}

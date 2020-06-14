@@ -57,7 +57,7 @@ import {
  * Tooltip is hard-coded-ly using a selector like this: [data-class="page-scrollable-content"]
  */
 
-class Page extends WixComponent {
+class Page extends React.PureComponent {
   static defaultProps = {
     minWidth: GRID_MIN_WIDTH,
     maxWidth: GRID_MAX_WIDTH,
@@ -83,7 +83,6 @@ class Page extends WixComponent {
   }
 
   componentDidMount() {
-    super.componentDidMount();
     this._calculateComponentsHeights();
     this.contentResizeListener = new ResizeSensor(
       this._getScrollContainer().childNodes[0],
@@ -100,12 +99,10 @@ class Page extends WixComponent {
   }
 
   componentDidUpdate(prevProps) {
-    super.componentDidUpdate(prevProps);
     this._calculateComponentsHeights();
   }
 
   componentWillUnmount() {
-    super.componentWillUnmount();
     window.removeEventListener('resize', this._handleWindowResize);
     this.contentResizeListener.detach(this._handleResize);
   }
@@ -464,11 +461,11 @@ class Page extends WixComponent {
   }
 
   render() {
-    const { className, minWidth, zIndex, height } = this.props;
+    const { dataHook, className, minWidth, zIndex, height } = this.props;
 
     return (
       <div
-        data-hook="wsr-page-wrapper"
+        data-hook={dataHook}
         className={classNames(s.pageWrapper, className)}
         style={{ zIndex, height }}
       >
@@ -508,6 +505,8 @@ const allowedChildren = [
 ];
 
 Page.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
   /** Background image url of the header background */
   backgroundImageUrl: PropTypes.string,
   /** Sets the max width of the content (Both in header and body) NOT including the page padding */

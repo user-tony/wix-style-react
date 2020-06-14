@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import Tabs from '../Tabs';
 import ColorPickerConverterHex from './ColorPickerConverterHex';
 import ColorPickerConverterRGB from './ColorPickerConverterRGB';
@@ -17,7 +15,7 @@ const tabs = [
   { id: HSB, title: HSB },
 ];
 
-export default class ColorPickerConverter extends WixComponent {
+export default class ColorPickerConverter extends React.PureComponent {
   static propTypes = {
     current: PropTypes.object.isRequired,
     showConverter: PropTypes.bool.isRequired,
@@ -40,6 +38,7 @@ export default class ColorPickerConverter extends WixComponent {
 
   render() {
     const {
+      dataHook,
       current,
       showConverter,
       showInput,
@@ -75,7 +74,7 @@ export default class ColorPickerConverter extends WixComponent {
     const { activeTab } = this.state;
 
     return (
-      <div>
+      <div data-hook={dataHook}>
         <Tabs
           minWidth={0}
           items={tabs}

@@ -22,7 +22,6 @@ function PageWithAllProps() {
       minWidth={100}
       scrollableContentRef={_ref => {}}
       sidePadding={10}
-      styles="font: 14px"
       zIndex={2}
       horizontalScroll
     >

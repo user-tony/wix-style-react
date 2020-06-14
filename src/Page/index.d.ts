@@ -1,10 +1,8 @@
 import * as React from 'react';
-import WixComponent, {
-  WixComponentProps,
-} from '../BaseComponents/WixComponent';
 import PageHeader from '../PageHeader';
 
-export type PageProps = WixComponentProps & {
+export type PageProps = {
+  dataHook?: string;
   backgroundImageUrl?: string;
   maxWidth?: number;
   minWidth?: number;
@@ -16,14 +14,6 @@ export type PageProps = WixComponentProps & {
   zIndex?: number;
   horizontalScroll?: boolean;
 };
-
-export default class Page extends WixComponent<PageProps> {
-  static Header: typeof PageHeader;
-  static Content: typeof Content;
-  static FixedContent: typeof FixedContent;
-  static Tail: typeof Tail;
-  static Sticky: typeof Sticky;
-}
 
 export interface ContentProps {
   children: React.ReactNode;
@@ -51,3 +41,11 @@ type StickyChildrenRenderFn = (data: {
   className: string;
 }) => React.ReactElement;
 declare const Sticky: React.SFC<StickyProps>;
+
+export default class Page extends React.PureComponent<PageProps> {
+  static Header: typeof PageHeader;
+  static Content: typeof Content;
+  static FixedContent: typeof FixedContent;
+  static Tail: typeof Tail;
+  static Sticky: typeof Sticky;
+}

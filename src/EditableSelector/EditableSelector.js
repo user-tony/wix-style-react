@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Add from 'wix-ui-icons-common/Add';
 import Delete from 'wix-ui-icons-common/Delete';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import Selector from '../Selector';
 import Text from '../Text';
 import Button from '../Button';
@@ -12,8 +10,9 @@ import TextButton from '../TextButton';
 import EditableRow from './EditableRow/EditableRow';
 import styles from './EditableSelector.scss';
 
-class EditableSelector extends WixComponent {
+class EditableSelector extends React.PureComponent {
   static propTypes = {
+    dataHook: PropTypes.string,
     title: PropTypes.string,
     toggleType: PropTypes.oneOf(['checkbox', 'radio']),
     newRowLabel: PropTypes.string,
@@ -84,11 +83,17 @@ class EditableSelector extends WixComponent {
   };
 
   render() {
-    const { title, newRowLabel, editButtonText, toggleType } = this.props;
+    const {
+      dataHook,
+      title,
+      newRowLabel,
+      editButtonText,
+      toggleType,
+    } = this.props;
     let { options } = this.props;
     options = options || [];
     return (
-      <div>
+      <div data-hook={dataHook}>
         {title && (
           <div className={styles.title} data-hook="editable-selector-title">
             <Text weight="normal">{title}</Text>
