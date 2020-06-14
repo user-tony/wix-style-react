@@ -43,7 +43,7 @@
   margin-bottom: value(spacing12);
 }
 
-.announcementModalLayout::content {
+.announcementModalLayout::content::innerContent {
   padding: 0 value(spacing78);
 }
 

@@ -1,13 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AnnouncementModalLayout from '../AnnouncementModalLayout';
+import { BASE64_IMAGE } from './data/base64Image';
 
 const commonProps = {
+  onCloseButtonClick: () => {},
   title: 'All Your Info In One Place',
   children: 'Meet your brand new General Info page.',
   primaryButtonText: 'Start Now',
   linkText: 'Learn More',
-  onCloseButtonClick: () => {},
+  illustration: <img src={BASE64_IMAGE} height={120} width={120} />,
 };
 
 const tests = [
@@ -27,7 +29,7 @@ const tests = [
         it: 'with secondary button instead of link',
         props: {
           secondaryButtonText: 'Skip',
-          link: false,
+          linkText: false,
         },
       },
     ],
@@ -50,6 +52,67 @@ const tests = [
         it: 'with footnote',
         props: {
           footnote: 'By sending an invite, you agree to the Wix Terms of Use',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'layout',
+    its: [
+      {
+        it: 'without title',
+        props: {
+          title: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'layout',
+    its: [
+      {
+        it: 'without children',
+        props: {
+          children: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'layout',
+    its: [
+      {
+        it: 'without illustration',
+        props: {
+          illustration: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'layout',
+    its: [
+      {
+        it: 'without actions',
+        props: {
+          primaryButtonText: '',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'layout',
+    its: [
+      {
+        it: 'without link',
+        props: {
+          linkText: '',
+        },
+      },
+      {
+        it: 'max height',
+        props: {
+          children: new Array(50).fill(commonProps.children).join(' '),
         },
       },
     ],
