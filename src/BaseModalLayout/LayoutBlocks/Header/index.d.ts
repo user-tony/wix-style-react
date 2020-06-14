@@ -7,6 +7,7 @@ export interface HeaderProps {
   title?: string | React.ReactNode;
   titleAppearance?: headingAppearance;
   subtitle?: string;
+  showHeaderDivider?: boolean;
 }
 
 export const Header: React.FunctionComponent<HeaderProps>;

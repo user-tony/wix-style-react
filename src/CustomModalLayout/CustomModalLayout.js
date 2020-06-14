@@ -10,6 +10,8 @@ import Button from '../Button';
 const CustomModalLayout = ({
   children,
   removeContentPadding,
+  showHeaderDivider,
+  hideContentDividers,
   width,
   ...restProps
 }) => {
@@ -21,8 +23,10 @@ const CustomModalLayout = ({
       {...styles('root', { removeContentPadding }, restProps)}
       {...restProps}
     >
-      <BaseModalLayout.Header />
-      <BaseModalLayout.Content>{children}</BaseModalLayout.Content>
+      <BaseModalLayout.Header showHeaderDivider={showHeaderDivider} />
+      <BaseModalLayout.Content contentHideDividers={hideContentDividers}>
+        {children}
+      </BaseModalLayout.Content>
       <BaseModalLayout.Footer />
       <BaseModalLayout.Footnote />
     </BaseModalLayout>
@@ -85,12 +89,18 @@ CustomModalLayout.propTypes = {
   removeContentPadding: PropTypes.bool,
   /** The modal desired width */
   width: PropTypes.string,
+  /** Shows a divider at the bottom of the Header*/
+  showHeaderDivider: PropTypes.bool,
+  /** Hides dividers that shows above/below the content while scrolling */
+  hideContentDividers: PropTypes.bool,
 };
 
 CustomModalLayout.defaultProps = {
   theme: 'standard',
   actionsSize: 'small',
   removeContentPadding: false,
+  showHeaderDivider: false,
+  hideContentDividers: false,
 };
 
 export default CustomModalLayout;

@@ -26,7 +26,7 @@
   padding: 0 value(spacing30);
 }
 
-.root::header {
+.root::header::innerContent {
   padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
 }
 

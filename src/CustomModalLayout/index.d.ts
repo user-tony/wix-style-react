@@ -22,6 +22,8 @@ export interface CustomModalLayoutProps {
   footnote?: React.ReactNode;
   width?: string;
   removeContentPadding?: boolean;
+  showHeaderDivider?: boolean;
+  contentHideDividers?: boolean;
 }
 
 declare const CustomModalLayout: React.FC<CustomModalLayoutProps>;
