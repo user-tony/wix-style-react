@@ -30,7 +30,13 @@
 .actions {
   display: flex;
   align-items: center;
+  margin-left: auto;
   flex-shrink: 0;
+}
+
+:global(.rtl) .actions {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .actions > :first-of-type:not(:last-of-type) {
