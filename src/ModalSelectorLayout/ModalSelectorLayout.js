@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import WixComponent from '../BaseComponents/WixComponent';
 import Loader from '../Loader/Loader';
 import HeaderLayout from '../MessageBox/FunctionalLayout/HeaderLayout';
 import FooterLayout from '../MessageBox/FunctionalLayout/FooterLayout';
@@ -24,10 +22,13 @@ const DEFAULT_EMPTY = (
  * Use this component when needed to select one / multiple items having complex descriptions.
  * E.g.: choosing products to promote via ShoutOuts
  */
-export default class ModalSelectorLayout extends WixComponent {
+export default class ModalSelectorLayout extends React.PureComponent {
   static displayName = 'ModalSelectorLayout';
 
   static propTypes = {
+    /** applied as data-hook HTML attribute that can be used to create driver in testing */
+    dataHook: PropTypes.string,
+
     /** Title of the modal */
     title: PropTypes.node,
 
@@ -184,6 +185,7 @@ export default class ModalSelectorLayout extends WixComponent {
 
   render() {
     const {
+      dataHook,
       title,
       subtitle,
       onClose,
@@ -206,7 +208,11 @@ export default class ModalSelectorLayout extends WixComponent {
     } = this.state;
 
     return (
-      <div className={css.modalContent} style={{ height, maxHeight }}>
+      <div
+        data-hook={dataHook}
+        className={css.modalContent}
+        style={{ height, maxHeight }}
+      >
         <HeaderLayout title={title} onCancel={onClose} />
 
         {isLoaded && !isEmpty && (

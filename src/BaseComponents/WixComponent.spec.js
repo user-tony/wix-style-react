@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createRendererWithDriver, cleanup } from '../../test/utils/react';
-import WixComponent from './WixComponent';
 
-class Fixture extends WixComponent {
+class Fixture extends React.PureComponent {
   static propTypes = {
     dataHook: PropTypes.string,
   };
   render() {
-    return <div>Fixture</div>;
+    const { dataHook } = this.props;
+
+    return <div data-hook={dataHook}>Fixture</div>;
   }
 }
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
 
 export type ModalSelectorLayoutSingleProps = {
   onOk?: (selectedItem: ModalSelectorLayoutItem) => void;
@@ -11,11 +10,11 @@ export type ModalSelectorLayoutMultipleProps = {
   multiple: true;
 };
 
-export type ModalSelectorLayoutProps = WixComponentProps &
-  ModalSelectorLayoutCommonProps &
+export type ModalSelectorLayoutProps = ModalSelectorLayoutCommonProps &
   (ModalSelectorLayoutSingleProps | ModalSelectorLayoutMultipleProps);
 
 export type ModalSelectorLayoutCommonProps = {
+  dataHook?: string;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
@@ -40,7 +39,7 @@ export type ModalSelectorLayoutCommonProps = {
   sideActions?: React.ReactNode;
 };
 
-export default class ModalSelectorLayout extends WixComponent<
+export default class ModalSelectorLayout extends React.PureComponent<
   ModalSelectorLayoutProps
 > {}
 

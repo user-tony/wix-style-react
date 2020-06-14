@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 import styles from './FieldLabelAttributes.scss';
-import WixComponent from '../BaseComponents/WixComponent';
 import Tooltip from '../Tooltip';
 
-class FieldLabelAttributes extends WixComponent {
+class FieldLabelAttributes extends React.PureComponent {
   static tooltipDefaultProps = {
     moveBy: { x: 0, y: -1 },
     minWidth: '150px',
@@ -35,8 +34,10 @@ class FieldLabelAttributes extends WixComponent {
   };
 
   render() {
+    const { dataHook } = this.props;
+
     return (
-      <div className={styles.root} data-hook="field-label-attributes">
+      <div data-hook={dataHook} className={styles.root}>
         {this.props.required && (
           <span data-hook="required" className={styles.required}>
             *
@@ -57,6 +58,7 @@ FieldLabelAttributes.defaultProps = {
 };
 
 FieldLabelAttributes.propTypes = {
+  dataHook: PropTypes.string,
   required: PropTypes.bool,
   info: PropTypes.node,
   appendToParent: PropTypes.bool,

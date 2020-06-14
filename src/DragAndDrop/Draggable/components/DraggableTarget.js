@@ -1,5 +1,4 @@
 import React from 'react';
-import WixComponent from '../../../BaseComponents/WixComponent';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
 
@@ -83,17 +82,20 @@ const collect = connect => ({
   connectDropTarget: connect.dropTarget(),
 });
 
-class DraggableTarget extends WixComponent {
+class DraggableTarget extends React.PureComponent {
   registerNode = node => {
     this.props.setWrapperNode(node, this.props.index, this.props.item);
   };
 
   render() {
-    if (!this.props.connectDropTarget) {
-      return null;
-    }
-    return this.props.connectDropTarget(
-      <div ref={this.registerNode}>{this.props.children}</div>,
+    const { dataHook, children, connectDropTarget } = this.props;
+
+    if (!connectDropTarget) return null;
+
+    return connectDropTarget(
+      <div data-hook={dataHook} ref={this.registerNode}>
+        {children}
+      </div>,
     );
   }
 }
@@ -103,6 +105,7 @@ DraggableTarget.defaultProps = {
 };
 
 DraggableTarget.propTypes = {
+  dataHook: PropTypes.string,
   children: PropTypes.any,
   connectDropTarget: PropTypes.func, // from react-dnd
   containerId: PropTypes.string,

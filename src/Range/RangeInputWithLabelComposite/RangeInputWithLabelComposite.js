@@ -53,6 +53,7 @@ class RangeInputWithLabelComposite extends PureComponent {
           {children[0]}
           {this.props.required || this.props.info || this.props.tooltip ? (
             <FieldLabelAttributes
+              dataHook="field-label-attributes"
               required={this.props.required}
               info={this.props.info}
               tooltip={this.props.tooltip}

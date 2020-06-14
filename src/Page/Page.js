@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ResizeSensor } from 'css-element-queries';
 import s from './Page.scss';
-import WixComponent from '../BaseComponents/WixComponent';
 import { PageContext } from './PageContext';
 import PageHeader from '../PageHeader';
 import Content from './Content';
