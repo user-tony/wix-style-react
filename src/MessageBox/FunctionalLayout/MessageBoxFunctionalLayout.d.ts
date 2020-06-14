@@ -1,11 +1,11 @@
 import * as React from 'react';
-import WixComponent, {
-  WixComponentProps,
-} from '../../BaseComponents/WixComponent';
 import { IconElement } from '../../common';
 import { ButtonSize } from '../../Button';
 
-export interface MessageBoxFunctionalLayoutProps extends WixComponentProps {
+export type MessageBoxFunctionalLayoutTheme = 'red' | 'blue' | 'purple';
+
+export interface MessageBoxFunctionalLayoutProps {
+  dataHook?: string;
   hideFooter?: boolean;
   confirmText?: React.ReactNode;
   confirmPrefixIcon?: IconElement;
@@ -33,8 +33,6 @@ export interface MessageBoxFunctionalLayoutProps extends WixComponentProps {
   image?: React.ReactNode;
 }
 
-export default class MessageBoxFunctionalLayout extends WixComponent<
+export default class MessageBoxFunctionalLayout extends React.PureComponent<
   MessageBoxFunctionalLayoutProps
 > {}
-
-export type MessageBoxFunctionalLayoutTheme = 'red' | 'blue' | 'purple';

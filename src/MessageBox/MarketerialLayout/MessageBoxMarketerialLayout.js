@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import WixComponent from '../../BaseComponents/WixComponent';
 import Heading from '../../Heading';
 import Text from '../../Text';
 import TextButton from '../../TextButton';
@@ -17,9 +16,10 @@ const buttonSkinByTheme = {
   white: 'dark',
 };
 
-class MessageBoxMarketerialLayout extends WixComponent {
+class MessageBoxMarketerialLayout extends React.PureComponent {
   render() {
     const {
+      dataHook,
       title,
       content,
       primaryButtonLabel,
@@ -46,7 +46,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
     const shouldDisplayBodyPadding = !noBodyPadding;
 
     return (
-      <div className={styles.root} style={{ width }}>
+      <div className={styles.root} style={{ width }} data-hook={dataHook}>
         <div className={headerClasses}>
           <div className={styles.close}>
             <CloseButton
@@ -145,6 +145,8 @@ class MessageBoxMarketerialLayout extends WixComponent {
 }
 
 MessageBoxMarketerialLayout.propTypes = {
+  /** applied as data-hook HTML attribute that can be used to create driver in testing */
+  dataHook: PropTypes.string,
   title: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   primaryButtonLabel: PropTypes.string,

@@ -18,7 +18,6 @@ function GenericModalLayoutWithAllProps() {
       footer={<div />}
       fullscreen
       header={<div />}
-      styles="font: 14px"
     />
   );
 }

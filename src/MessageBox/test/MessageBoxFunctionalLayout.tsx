@@ -1,7 +1,7 @@
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 import * as React from 'react';
-import {  MessageBoxFunctionalLayout } from '..';
+import { MessageBoxFunctionalLayout } from '..';
 import { messageBoxFunctionalLayoutTestkitFactory } from '../../../testkit';
 import { messageBoxFunctionalLayoutTestkitFactory as messageBoxFunctionalLayoutEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { messageBoxFunctionalLayoutTestkitFactory as messageBoxFunctionalLayoutPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
@@ -35,7 +35,6 @@ function MessageBoxFunctionalLayoutWithAllProps() {
       onClose={_ev => {}}
       onOk={_ev => {}}
       sideActions={<div />}
-      styles="font: 14px"
       theme="blue"
       title="title"
       width="10"
@@ -43,7 +42,6 @@ function MessageBoxFunctionalLayoutWithAllProps() {
     />
   );
 }
-
 
 async function testkits() {
   const testkit = messageBoxFunctionalLayoutTestkitFactory({

@@ -1,9 +1,7 @@
 import * as React from 'react';
-import WixComponent, {
-  WixComponentProps,
-} from '../BaseComponents/WixComponent';
 
-export interface PageHeaderProps extends WixComponentProps {
+export interface PageHeaderProps {
+  dataHook?: string;
   minimized?: boolean;
   hasBackgroundImage?: boolean;
   className?: string;
@@ -15,7 +13,7 @@ export interface PageHeaderProps extends WixComponentProps {
   actionsBar?: React.ReactNode | ActionsBarRenderFn;
 }
 
-export default class PageHeader extends WixComponent<PageHeaderProps> {}
+export default class PageHeader extends React.PureComponent<PageHeaderProps> {}
 
 type TitleRenderFn = (minimized: boolean) => React.ReactNode;
 type BreadcrumbsRenderFn = (minimized: boolean) => React.ReactNode;

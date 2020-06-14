@@ -21,7 +21,6 @@ function PageHeaderWithAllProps() {
       minimized
       onBackClicked={_ev => {}}
       showBackButton
-      styles="font: 14px"
       subtitle={<div />}
       title={<div />}
     />
@@ -39,7 +38,6 @@ function PageHeaderWithRenderFunctions() {
       minimized
       onBackClicked={_ev => {}}
       showBackButton
-      styles="font: 14px"
       subtitle={<div />}
       title={_minimized => {}}
     />
@@ -49,18 +47,18 @@ function PageHeaderWithRenderFunctions() {
 async function testkits() {
   const testkit = pageHeaderTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = pageHeaderEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await pageHeaderPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

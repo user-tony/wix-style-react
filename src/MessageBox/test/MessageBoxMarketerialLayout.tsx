@@ -34,7 +34,6 @@ function MessageBoxMarketerialLayoutWithAllProps() {
       primaryButtonNode={<div />}
       removeButtonsPadding
       secondaryButtonLabel="label"
-      styles="font: 14px"
       theme="blue"
       width="300px"
       noBodyPadding

@@ -1,4 +1,3 @@
-
 import MessageBoxFunctionalLayout, {
   MessageBoxFunctionalLayoutProps,
   MessageBoxFunctionalLayoutTheme,

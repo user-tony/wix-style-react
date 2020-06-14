@@ -6,10 +6,9 @@ import throttle from 'lodash/throttle';
 import { generateDataAttr } from '../../utils/generateDataAttr';
 import HeaderLayout from './HeaderLayout';
 import FooterLayout from './FooterLayout';
-import WixComponent from '../../BaseComponents/WixComponent';
 import styles from './MessageBoxFunctionalLayout.scss';
 
-class MessageBoxFunctionalLayout extends WixComponent {
+class MessageBoxFunctionalLayout extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -90,6 +89,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
   render() {
     const { theme } = this.props;
     const {
+      dataHook,
       title,
       onCancel,
       onOk,
@@ -126,6 +126,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
 
     return (
       <div
+        data-hook={dataHook}
         className={contentClassName}
         style={{ width, margin }}
         {...generateDataAttr(this.props, ['noBodyPadding', 'theme'])}
@@ -168,6 +169,8 @@ class MessageBoxFunctionalLayout extends WixComponent {
 }
 
 MessageBoxFunctionalLayout.propTypes = {
+  /** applied as data-hook HTML attribute that can be used to create driver in testing */
+  dataHook: PropTypes.string,
   /** Hides the footer that contains the action buttons */
   hideFooter: PropTypes.bool,
   /** Defines the main action button text */

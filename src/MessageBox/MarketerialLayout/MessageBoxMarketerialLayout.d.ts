@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps } from '../../BaseComponents/WixComponent';
 
-export interface MessageBoxMarketerialLayoutProps extends WixComponentProps {
+export interface MessageBoxMarketerialLayoutProps {
+  dataHook?: string;
   title: React.ReactNode;
   content: React.ReactNode;
   primaryButtonLabel?: string;
@@ -21,7 +21,7 @@ export interface MessageBoxMarketerialLayoutProps extends WixComponentProps {
   noBodyPadding?: boolean;
 }
 
-export default class MessageBoxMarketerialLayout extends WixComponent<
+export default class MessageBoxMarketerialLayout extends React.PureComponent<
   MessageBoxMarketerialLayoutProps
 > {}
 

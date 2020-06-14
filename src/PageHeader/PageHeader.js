@@ -1,7 +1,6 @@
 import s from './PageHeader.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
-import WixComponent from '../BaseComponents/WixComponent';
 import classNames from 'classnames';
 import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
 import Breadcrumbs from '../Breadcrumbs';
@@ -52,7 +51,7 @@ const generateThemedBreadcrumbs = (
 /**
  * A header that sticks at the top of the container which minimizes on scroll
  */
-export default class PageHeader extends WixComponent {
+export default class PageHeader extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -108,6 +107,7 @@ export default class PageHeader extends WixComponent {
 
   render() {
     const {
+      dataHook,
       breadcrumbs,
       onBackClicked,
       title,
@@ -124,7 +124,10 @@ export default class PageHeader extends WixComponent {
     const _title = getTitle(title, minimized);
 
     return (
-      <div className={classNames(s.headerContainer, className)}>
+      <div
+        className={classNames(s.headerContainer, className)}
+        data-hook={dataHook}
+      >
         <div className={s.header}>
           <div>
             {this._animateComponent(
