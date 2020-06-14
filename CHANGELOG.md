@@ -22,6 +22,7 @@ Types of changes:
 
 ### Changed
 - `<Card/>`- stylable migration [#5543](https://github.com/wix/wix-style-react/pull/5543)
+- `<Slider/>` - stylable migration [#5552](https://github.com/wix/wix-style-react/pull/5552)
 
 ## 8.20.0 - 2020-06-11
 ### Added
