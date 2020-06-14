@@ -24,7 +24,6 @@ function CheckboxWithAllProps() {
       onChange={_ev => {}}
       selectionArea="hover"
       size="medium"
-      styles="font: 14px"
       vAlign="center"
       className="some-class"
     />
@@ -34,18 +33,18 @@ function CheckboxWithAllProps() {
 async function testkits() {
   const testkit = checkboxTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = checkboxEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await checkboxPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

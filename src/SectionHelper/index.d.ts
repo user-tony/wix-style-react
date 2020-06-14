@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 
-export interface SectionHelperProps extends WixComponentProps {
+export interface SectionHelperProps {
+  dataHook?: string;
   appearance?: SectionHelperAppearance;
   title?: React.ReactNode;
   showCloseButton?: boolean;
@@ -11,7 +11,9 @@ export interface SectionHelperProps extends WixComponentProps {
   fullWidth?: boolean;
 }
 
-export default class SectionHelper extends WixComponent<SectionHelperProps> {}
+export default class SectionHelper extends React.PureComponent<
+  SectionHelperProps
+> {}
 
 export type SectionHelperAppearance =
   | 'warning'

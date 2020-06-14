@@ -16,7 +16,6 @@ function SectionHelperWithAllProps() {
       actionText="text"
       appearance="danger"
       dataHook="hook"
-      styles="font: 14px"
       fullWidth
       onAction={_ev => {}}
       onClose={_ev => {}}

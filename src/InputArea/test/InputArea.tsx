@@ -44,7 +44,6 @@ function InputAreaWithAllProps() {
       readOnly
       resizable
       size="normal"
-      styles="font: 14px"
       tabIndex={4}
       tooltipPlacement="top"
       value="value"

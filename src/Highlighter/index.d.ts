@@ -1,7 +1,10 @@
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
+import * as React from 'react';
 
-export interface HighlighterProps extends WixComponentProps {
+export interface HighlighterProps {
+  dataHook?: string;
   match?: string;
 }
 
-export default class Highlighter extends WixComponent<HighlighterProps> {}
+export default class Highlighter extends React.PureComponent<
+  HighlighterProps
+> {}

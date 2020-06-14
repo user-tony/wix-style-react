@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { WixComponentProps } from '../../BaseComponents/WixComponent';
 
-export interface HeaderProps extends WixComponentProps {
+export interface HeaderProps {
+  dataHook?: string;
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   suffix?: React.ReactNode;

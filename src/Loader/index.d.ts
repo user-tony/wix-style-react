@@ -1,9 +1,7 @@
 import * as React from 'react';
-import WixComponent, {
-  WixComponentProps,
-} from '../BaseComponents/WixComponent';
 
-export interface LoaderProps extends WixComponentProps {
+export interface LoaderProps {
+  dataHook?: string;
   size?: LoaderSize;
   color?: LoaderColor;
   text?: React.ReactNode;
@@ -11,7 +9,7 @@ export interface LoaderProps extends WixComponentProps {
   statusMessage?: string;
 }
 
-export default class Loader extends WixComponent<LoaderProps> {}
+export default class Loader extends React.PureComponent<LoaderProps> {}
 
 export type LoaderSize = 'tiny' | 'small' | 'medium' | 'large';
 

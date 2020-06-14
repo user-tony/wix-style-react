@@ -1,6 +1,7 @@
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
+import * as React from 'react';
 
-export interface FilePickerProps extends WixComponentProps {
+export interface FilePickerProps {
+  dataHook?: string;
   header?: string;
   onChange?: (file: File) => void;
   mainLabel?: string;
@@ -13,4 +14,4 @@ export interface FilePickerProps extends WixComponentProps {
   name?: string;
 }
 
-export default class FilePicker extends WixComponent<FilePickerProps> {}
+export default class FilePicker extends React.PureComponent<FilePickerProps> {}

@@ -1,13 +1,10 @@
 import * as React from 'react';
-import WixComponent, {
-  WixComponentProps,
-} from '../BaseComponents/WixComponent';
 import { InputStatus } from '../Input';
 import { TooltipProps } from '../Tooltip';
 
 export type InputAreaStatus = InputStatus;
 
-export interface InputAreaProps extends WixComponentProps {
+export interface InputAreaProps {
   ariaControls?: string;
   ariaDescribedby?: string;
   ariaLabel?: string;
@@ -46,7 +43,7 @@ export interface InputAreaProps extends WixComponentProps {
   statusMessage?: React.ReactNode;
 }
 
-export default class InputArea extends WixComponent<InputAreaProps> {
+export default class InputArea extends React.PureComponent<InputAreaProps> {
   static MIN_ROWS: 2;
 
   focus: () => void;

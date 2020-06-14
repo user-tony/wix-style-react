@@ -14,7 +14,6 @@ function FilePickerWithAllProps() {
   return (
     <FilePicker
       dataHook="hook"
-      styles="font: 14px"
       error
       errorMessage="msg"
       header="header"
@@ -32,18 +31,18 @@ function FilePickerWithAllProps() {
 async function testkits() {
   const testkit = filePickerTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = filePickerEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await filePickerPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

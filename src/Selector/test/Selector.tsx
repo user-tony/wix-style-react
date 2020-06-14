@@ -9,13 +9,9 @@ function SelectorWithMandatoryProps() {
 }
 
 function SelectorWithAllProps() {
-  const ExtraText = (
-    <Selector.ExtraText dataHook="hook" styles="font: 14px" text="text" />
-  );
+  const ExtraText = <Selector.ExtraText dataHook="hook" text="text" />;
 
-  const Progressbar = (
-    <Selector.ProgressBar dataHook="hook" styles="font: 14px" progress={1} />
-  );
+  const Progressbar = <Selector.ProgressBar dataHook="hook" progress={1} />;
 
   return (
     <Selector
@@ -28,13 +24,12 @@ function SelectorWithAllProps() {
       isDisabled
       isSelected
       onToggle={_id => {}}
-      styles="font: 14px"
       subtitle="text"
       title="title"
       toggleType="checkbox"
       showBelowNodeOnSelect
-      belowNode={<div/>}
-      subtitleNode={<div/>}
+      belowNode={<div />}
+      subtitleNode={<div />}
     />
   );
 }
@@ -42,11 +37,11 @@ function SelectorWithAllProps() {
 async function testkits() {
   const testkit = selectorTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = selectorEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 }

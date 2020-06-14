@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
 
-export interface ModalProps extends WixComponentProps {
+export interface ModalProps {
+  dataHook?: string;
   isOpen: boolean;
   borderRadius?: number;
   contentLabel?: string;
@@ -24,7 +24,7 @@ export interface ModalProps extends WixComponentProps {
   onOk?: () => void;
 }
 
-export default class Modal extends WixComponent<ModalProps> {}
+export default class Modal extends React.PureComponent<ModalProps> {}
 
 export type ModalTheme = 'blue' | 'red' | 'green' | 'white';
 export type ModalHorizontalPostion = 'start' | 'center' | 'end';

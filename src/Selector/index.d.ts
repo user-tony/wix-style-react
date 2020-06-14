@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
 
-export interface SelectorProps extends WixComponentProps {
+export interface SelectorProps {
+  dataHook?: string;
   id: string | number;
   title: string;
   image?: React.ReactNode;
@@ -18,22 +18,26 @@ export interface SelectorProps extends WixComponentProps {
   subtitleNode?: React.ReactNode;
 }
 
-export default class Selector extends WixComponent<SelectorProps> {
+export interface SelectorExtraTextProps {
+  dataHook?: string;
+  text: string;
+}
+export class SelectorExtraText extends React.PureComponent<
+  SelectorExtraTextProps
+> {}
+
+export interface SelectorProgressBarProps {
+  dataHook?: string;
+  progress: number;
+}
+export class SelectorProgressBar extends React.PureComponent<
+  SelectorProgressBarProps
+> {}
+
+export default class Selector extends React.PureComponent<SelectorProps> {
   static ExtraText: typeof SelectorExtraText;
   static ProgressBar: typeof SelectorProgressBar;
 }
-
-export interface SelectorExtraTextProps extends WixComponentProps {
-  text: string;
-}
-export class SelectorExtraText extends WixComponent<SelectorExtraTextProps> {}
-
-export interface SelectorProgressBarProps extends WixComponentProps {
-  progress: number;
-}
-export class SelectorProgressBar extends WixComponent<
-  SelectorProgressBarProps
-> {}
 
 export type SelectorImageSize =
   | 'tiny'

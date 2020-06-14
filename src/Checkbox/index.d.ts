@@ -1,6 +1,7 @@
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
+import * as React from 'react';
 
-export interface CheckboxProps extends WixComponentProps {
+export interface CheckboxProps {
+  dataHook?: string;
   checked?: boolean;
   disabled?: boolean;
   hasError?: boolean;
@@ -15,7 +16,7 @@ export interface CheckboxProps extends WixComponentProps {
   className?: string;
 }
 
-export default class Checkbox extends WixComponent<CheckboxProps> {}
+export default class Checkbox extends React.PureComponent<CheckboxProps> {}
 
 export type CheckboxLabelSize = 'medium' | 'small';
 export type CheckboxSelectionArea = 'none' | 'hover' | 'always';
