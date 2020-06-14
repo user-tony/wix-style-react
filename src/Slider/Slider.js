@@ -4,7 +4,8 @@ import Slide from 'rc-slider';
 import { dataHooks } from './constants';
 import { generateID } from '../utils/generateId';
 import SliderHandle from './SliderHandle';
-import styles from './Slider.scss';
+import Text from '../Text';
+import styles from './Slider.st.css';
 
 const range = ({ min, max, step }) => {
   const arr = [];
@@ -24,7 +25,7 @@ export default class Slider extends Component {
     if (this._isCustomMarks()) {
       const { marks } = this.props;
 
-      Object.entries(marks).map(([key, value]) => {
+      Object.entries(marks).forEach(([key, value]) => {
         marksLabels[key] = {
           label: this._createMarkNode(value, true),
         };
@@ -32,7 +33,7 @@ export default class Slider extends Component {
     } else {
       const { min, max, step, startPoint } = this.props;
 
-      range({ min, max, step }).map(entry => {
+      range({ min, max, step }).forEach(entry => {
         const shouldRenderMarkLabel =
           entry === min || entry === max || entry === startPoint;
 
@@ -56,12 +57,13 @@ export default class Slider extends Component {
         <div className={styles.markLine} />
         <div className={styles.markValue}>
           {shouldRenderMarkLabel && (
-            <div
-              data-hook={dataHooks.sliderMarkLabel}
-              className={styles.markText}
+            <Text
+              dataHook={dataHooks.sliderMarkLabel}
+              weight="thin"
+              size="small"
             >
               {value}
-            </div>
+            </Text>
           )}
         </div>
       </div>
