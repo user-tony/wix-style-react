@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<MessageModalLayout/>` & `<CustomModalLayout/>` - Added support for dynamic scrolling, content area will now have top/bottom dividiers emphasising the scroll position by default
+- `<CustomModalLayout/>` - Added the ability to show a static divider bellow the modal header [#5542](https://github.com/wix/wix-style-react/pull/5542)
 - `<Notification/>`- exposing ellipsis prop for `<Notification.TextLabel/>` [#5544](https://github.com/wix/wix-style-react/pull/5544)
 
 ### Changed
