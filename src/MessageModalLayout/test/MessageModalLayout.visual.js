@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import MessageModalLayout from '../MessageModalLayout';
 import Text from '../../Text/Text';
@@ -146,12 +146,14 @@ const scrollTests = [
         it: 'scrolled to top',
         props: {
           children: new Array(50).fill(SHORT_CONTENT),
+          wait: 500,
         },
       },
       {
         it: 'scrolled to middle',
         props: {
           children: new Array(50).fill(SHORT_CONTENT),
+          wait: 500,
         },
         componentDidMount: () => {
           createDriver()._scrollContentTo(400);
@@ -161,6 +163,7 @@ const scrollTests = [
         it: 'scrolled to bottom',
         props: {
           children: new Array(50).fill(SHORT_CONTENT),
+          wait: 500,
         },
         componentDidMount: () => {
           createDriver()._scrollContentTo(9999);
@@ -183,18 +186,42 @@ tests = tests
     })),
   );
 
+const InteractiveMessageModalLayout = ({ wait, ...props }) => {
+  const [testStatus, setTestStatus] = useState(false);
+  useEffect(() => {
+    if (wait) {
+      setTimeout(() => setTestStatus(true), wait);
+    } else {
+      setTestStatus(true);
+    }
+  }, [wait]);
+  return (
+    <div data-test-ready={testStatus}>
+      <MessageModalLayout {...props} />
+    </div>
+  );
+};
+
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
     storiesOf(
       `MessageModalLayout${describe ? '/' + describe : ''}`,
       module,
-    ).add(it, () => {
-      useEffect(() => {
-        componentDidMount && componentDidMount();
-      }, []);
-      return (
-        <MessageModalLayout dataHook={dataHook} {...commonProps} {...props} />
-      );
-    });
+    ).add(
+      it,
+      () => {
+        useEffect(() => {
+          componentDidMount && componentDidMount();
+        }, []);
+        return (
+          <InteractiveMessageModalLayout
+            dataHook={dataHook}
+            {...commonProps}
+            {...props}
+          />
+        );
+      },
+      { eyes: { waitBeforeScreenshot: `[data-test-ready="true"]` } },
+    );
   });
 });

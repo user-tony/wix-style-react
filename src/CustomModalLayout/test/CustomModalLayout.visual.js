@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import CustomModalLayout from '../CustomModalLayout';
 import Text from '../../Text/Text';
@@ -45,6 +45,7 @@ const tests = [
         it: 'long text should be scrollable. title and footer should be sticky',
         props: {
           children: LONG_CONTENT,
+          wait: 500,
         },
       },
     ],
@@ -150,11 +151,31 @@ const tests = [
   },
 ];
 
+const InteractiveCustomModalLayout = ({ wait, ...props }) => {
+  const [testReady, setTestReady] = useState(false);
+  useEffect(() => {
+    if (wait) {
+      setTimeout(() => setTestReady(true), wait);
+    } else {
+      setTestReady(true);
+    }
+  }, [wait]);
+  return (
+    <div data-test-ready={testReady}>
+      <CustomModalLayout {...props} />
+    </div>
+  );
+};
+
 tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
+  its.forEach(({ it, props, componentDidMount }) => {
     storiesOf(
       `CustomModalLayout${describe ? '/' + describe : ''}`,
       module,
-    ).add(it, () => <CustomModalLayout {...commonProps} {...props} />);
+    ).add(
+      it,
+      () => <InteractiveCustomModalLayout {...commonProps} {...props} />,
+      { eyes: { waitBeforeScreenshot: `[data-test-ready="true"]` } },
+    );
   });
 });
