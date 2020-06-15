@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
-
-import DropdownLayout from '../../DropdownLayout';
-import Text from '../../Text';
 import styles from './styles.scss';
+import DropdownBase from '../../DropdownBase';
+import TextButton from '../../TextButton';
 
 export default class DropdownPicker extends React.Component {
   static propTypes = {
@@ -15,67 +14,39 @@ export default class DropdownPicker extends React.Component {
     selectedId: PropTypes.number,
   };
 
-  constructor(props) {
-    super(props);
-    this.stopAllEventsThatCanOpenModalInSameEventLoop = false;
-    this.state = {
-      isOpen: false,
-    };
-  }
-
-  onClose = () => {
-    this.setState({
-      isOpen: false,
-    });
-    this.stopAllEventsThatCanOpenModalInSameEventLoop = true;
-    setTimeout(() => {
-      // for next event loop we allow them
-      this.stopAllEventsThatCanOpenModalInSameEventLoop = false;
-    });
-  };
-
   onSelect = data => {
-    this.props.onChange(data);
-    this.onClose();
-  };
+    const { onChange } = this.props;
 
-  toggleDropdown = () => {
-    if (!this.stopAllEventsThatCanOpenModalInSameEventLoop) {
-      this.setState({
-        isOpen: !this.state.isOpen,
-      });
-    }
+    if (typeof onChange === 'function') onChange(data);
   };
 
   render() {
     const { caption, options, dataHook, selectedId } = this.props;
 
-    const { isOpen } = this.state;
-
     return (
-      <div data-hook={dataHook} className={styles.root}>
-        <div className={styles.button} onClick={this.toggleDropdown}>
-          <Text dataHook={`${dataHook}-button`}>{caption}</Text>
-          <div className={styles.icon}>
-            <ChevronDown />
-          </div>
-        </div>
-
-        {isOpen && (
-          <div className={styles.dropdown}>
-            <DropdownLayout
-              dataHook={`${dataHook}-menu`}
-              focusOnSelectedOption
-              visible={isOpen}
-              options={options}
-              onSelect={this.onSelect}
-              onClickOutside={this.onClose}
-              closeOnSelect
-              selectedId={selectedId}
-            />
-          </div>
-        )}
-      </div>
+      <DropdownBase
+        data-hook={dataHook}
+        className={styles.root}
+        options={options}
+        dynamicWidth
+        minWidth={120}
+        selectedId={selectedId}
+        onSelect={this.onSelect}
+        focusOnSelectedOption
+      >
+        {({ toggle }) => {
+          return (
+            <TextButton
+              skin="dark"
+              suffixIcon={<ChevronDown />}
+              onClick={toggle}
+              dataHook={`${dataHook}-button`}
+            >
+              {caption}
+            </TextButton>
+          );
+        }}
+      </DropdownBase>
     );
   }
 }

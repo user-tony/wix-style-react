@@ -489,6 +489,7 @@ export function optionValidator(props, propName, componentName) {
 
 DropdownLayout.propTypes = {
   dropDirectionUp: PropTypes.bool,
+  /** Scroll to the selected option on opening the dropdown */
   focusOnSelectedOption: PropTypes.bool,
   onClose: PropTypes.func,
   /** Callback function called whenever the user selects a different option in the list */
