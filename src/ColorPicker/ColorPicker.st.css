@@ -1,8 +1,11 @@
-@import '../common.scss';
+:import {
+  -st-from: '../Foundation/stylable/colors.st.css';
+  -st-named: D80;
+}
 
 .root {
   width: 240px;
-  background: $D80;
+  background: value(D80);
   border-radius: 8px;
 }
 
