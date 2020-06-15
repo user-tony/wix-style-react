@@ -1,9 +1,13 @@
-@import './../../src/mixins.scss';
 
-.root {
-  @include default-scroll-bar;
-  max-height: 200px;
-  max-width: 300px;
-  border: 1px solid blue;
-  overflow: auto;
+.notification {
+  height: 48px;
+  width: 100%;
+  background-color: red
 }
+
+.button {
+  position: fixed;
+  top: 150px;
+}
+
+enter
