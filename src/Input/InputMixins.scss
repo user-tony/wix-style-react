@@ -25,8 +25,8 @@
 
   .prefix,
   .suffix {
-    height: $height;
-    line-height: $height;
+    height: calc(#{$height} - 2px);
+    line-height: calc(#{$height} - 2px);
   }
 }
 
