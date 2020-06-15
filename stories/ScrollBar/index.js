@@ -1,42 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../../src/Button';
-import style from './ScrollBar.scss';
-
+import { Layout, Cell } from '../../src/Layout';
+import { ExampleMaxHeight } from './examples/MaxHeight.js';
 import { Category } from '../storiesHierarchy';
-
-import { CSSTransition } from 'react-transition-group';
+import Button from '../../src/Button';
+import style from './examples/MaxHeight.scss';
 
 storiesOf(Category.FOUNDATION, module).add('1.8 ScrollBar', () => {
-  const [show, setShow] = React.useState(false);
+  const [showMaxHeight, setMaxHeight] = React.useState(false);
 
   return (
-    <div>
-      <TempNotification show={show} />
-      text text text text text text text text text text text text
-      <Button className={style.button} onClick={() => setShow(!show)}>
-        Toggle
-      </Button>
-    </div>
+    <Layout>
+      <Cell>
+        <ExampleMaxHeight showMaxHeight={showMaxHeight} />
+      </Cell>
+      <Cell>
+        <Button
+          className={style.button}
+          onClick={() => setMaxHeight(!showMaxHeight)}
+        >
+          Close
+        </Button>
+      </Cell>
+    </Layout>
   );
 });
-
-const NotificationBox = () => (
-  <CSSTransition
-    classNames={{
-      enter: style.enter,
-      enterActive: style.enterActive,
-      exit: style.exit,
-      exitActive: style.exitActive,
-    }}
-  >
-    <div className={style.notification}></div>
-  </CSSTransition>
-);
-
-class TempNotification extends React.Component {
-  render() {
-    const { show } = this.props;
-    return show && <NotificationBox />;
-  }
-}
