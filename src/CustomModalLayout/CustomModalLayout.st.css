@@ -30,7 +30,7 @@
   padding: value(spacing24) value(spacing42) value(spacing24) value(spacing30);
 }
 
-:global(.rtl) .root::header {
+:global(.rtl) .root::header::innerContent {
   padding: value(spacing24) value(spacing30) value(spacing24) value(spacing42);
 }
 
