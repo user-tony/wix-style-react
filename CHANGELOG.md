@@ -15,6 +15,10 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Fixed
+- `<Input/>` - fix prefix height [#5541](https://github.com/wix/wix-style-react/pull/5541)
+- `<Accordion/>` - fix missing types [#5558](https://github.com/wix/wix-style-react/pull/5558)
+
 ### Added
 - `<MessageModalLayout/>` & `<CustomModalLayout/>` - Added support for dynamic scrolling, content area will now have top/bottom dividiers emphasising the scroll position by default [#5519](https://github.com/wix/wix-style-react/pull/5519)
 - `<CustomModalLayout/>` - Added the ability to show a static divider bellow the modal header [#5542](https://github.com/wix/wix-style-react/pull/5542)
@@ -132,7 +136,7 @@ Types of changes:
 
 ### Fixed
 - `<GoogleAddressInput/>` - remove accidentally added menu arrow [#5447](https://github.com/wix/wix-style-react/pull/5447)
-- `<InputWithOptions/>` - Fix click outside when inside a <Popover/> [#5456](https://github.com/wix/wix-style-react/pull/5456)
+- `<InputWithOptions/>` - Fix click outside when inside a `<Popover/>` [#5456](https://github.com/wix/wix-style-react/pull/5456)
 
 
 ## 8.8.1 - 2020-05-11
