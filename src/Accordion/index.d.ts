@@ -1,10 +1,14 @@
 import * as React from 'react';
 
+export type AccordionItemButtonType = 'textButton' | 'button';
+export type AccordionSkinType = 'standard' | 'light';
+
 export interface AccordionProps {
   dataHook?: string;
   multiple?: boolean;
   items?: AccordionItem[];
-  skin?: "light" | "standard";
+  skin?: AccordionSkinType;
+  hideShadow?: boolean;
 }
 
 export interface AccordionItem {
@@ -14,10 +18,9 @@ export interface AccordionItem {
   expandLabel?: React.ReactNode;
   collapseLabel?: React.ReactNode;
   buttonType?: AccordionItemButtonType;
-  skin?: "light" | "standard";
-  hideShadow?: boolean;
+  open?: boolean;
+  disabled?: boolean;
+  onToggle?: React.MouseEventHandler<HTMLElement>;
 }
-
-export type AccordionItemButtonType = "textButton" | "button";
 
 export default class Accordion extends React.Component<AccordionProps> {}

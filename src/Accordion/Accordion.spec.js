@@ -4,7 +4,7 @@ import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
 import Accordion from './Accordion';
 import { accordionPrivateDriverFactory } from './Accordion.private.uni.driver';
 
-import { eventually } from '../../test/utils/unit/eventually';
+import { eventually } from '../../test/utils/unit';
 import { buttonTypes } from './constants';
 
 import { createRendererWithUniDriver } from '../../test/utils/react';

@@ -29,6 +29,9 @@ class Accordion extends React.Component {
         expandLabel: PropTypes.node,
         collapseLabel: PropTypes.node,
         buttonType: PropTypes.oneOf(['textButton', 'button']),
+        disabled: PropTypes.bool,
+        onToggle: PropTypes.func,
+        open: PropTypes.bool,
       }),
     ),
   };
@@ -97,8 +100,8 @@ class Accordion extends React.Component {
             )}
             key={index}
             onToggle={this._toggle(index)}
-            {...item}
             open={openIndexes.includes(index)}
+            {...item}
             skin={skin}
             hideShadow={hideShadow}
           />

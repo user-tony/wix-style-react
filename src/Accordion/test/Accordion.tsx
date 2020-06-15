@@ -16,6 +16,7 @@ function AccordionWithAllProps() {
       dataHook="hook"
       multiple
       skin="light"
+      hideShadow
       items={[
         {
           buttonType: 'button',
@@ -24,8 +25,9 @@ function AccordionWithAllProps() {
           expandLabel: <div />,
           icon: <div />,
           title: <div />,
-          skin: 'light',
-          hideShadow: false,
+          disabled: true,
+          onToggle: () => {},
+          open: true,
         },
       ]}
     />
