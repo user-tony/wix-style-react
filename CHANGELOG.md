@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<ColorPicker/>`- migrating to stylable [#5535](https://github.com/wix/wix-style-react/pull/5535)
+
 ## 8.21.0 - 2020-06-15
 ### Fixed
 - `<Input/>` - fix prefix height [#5541](https://github.com/wix/wix-style-react/pull/5541)
