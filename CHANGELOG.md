@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.21.0 - 2020-06-15
 ### Fixed
 - `<Input/>` - fix prefix height [#5541](https://github.com/wix/wix-style-react/pull/5541)
 - `<Accordion/>` - fix missing types [#5558](https://github.com/wix/wix-style-react/pull/5558)
@@ -22,7 +24,7 @@ Types of changes:
 ### Added
 - `<MessageModalLayout/>` & `<CustomModalLayout/>` - Added support for dynamic scrolling, content area will now have top/bottom dividiers emphasising the scroll position by default [#5519](https://github.com/wix/wix-style-react/pull/5519)
 - `<CustomModalLayout/>` - Added the ability to show a static divider bellow the modal header [#5542](https://github.com/wix/wix-style-react/pull/5542)
-- `<Notification/>`- exposing ellipsis prop for `<Notification.TextLabel/>` [#5544](https://github.com/wix/wix-style-react/pull/5544)
+- `<Notification/>`- Exposing ellipsis prop for `<Notification.TextLabel/>` [#5544](https://github.com/wix/wix-style-react/pull/5544)
 
 ### Changed
 - `<Card/>`- stylable migration [#5543](https://github.com/wix/wix-style-react/pull/5543)
@@ -43,10 +45,10 @@ Types of changes:
 - internal upgrade of Stylable from v1 to v3
 
 ### Added
-- `<Notification/>` - exposing ellipsis prop to `<Notification.TextLabel/>` [#5508](https://github.com/wix/wix-style-react/pull/5508)	
+- `<Notification/>` - exposing ellipsis prop to `<Notification.TextLabel/>` [#5508](https://github.com/wix/wix-style-react/pull/5508)
 
 ### Changed
-- `<Card/>`- migrating styling to stylable [#5493](https://github.com/wix/wix-style-react/pull/5493)	
+- `<Card/>`- migrating styling to stylable [#5493](https://github.com/wix/wix-style-react/pull/5493)
 
 ## 8.17.0 - 2020-06-08
 ### Changed
