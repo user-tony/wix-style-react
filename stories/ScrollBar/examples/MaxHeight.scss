@@ -1,4 +1,3 @@
-
 .notification {
   width: 100%;
   background-color: red;
@@ -8,7 +7,7 @@
   align-items: center;
   overflow: hidden;
   padding: 3px 6px;
-  height: auto;
+  height: 48px;
 }
 
 .button {
@@ -16,13 +15,14 @@
   top: 150px;
 }
 
+/* Animations */
 .enterMaxHeight {
   max-height: 0;
 }
 
 .enterActiveMaxHeight {
   max-height: 48px;
-  transition: all 300ms ease-in;
+  transition: max-height 300ms ease-in;
 }
 
 .exitMaxHeight {
@@ -31,7 +31,7 @@
 
 .exitActiveMaxHeight {
   max-height: 0;
-  transition: all 300ms ease-in;
+  transition: max-height 300ms ease-in;
 }
 /* Content */
 .enterMaxHeight .contentMaxHeight {
@@ -40,7 +40,7 @@
 
 .enterActiveMaxHeight .contentMaxHeight {
   margin-top: 0;
-  transition: all 300ms ease-in;
+  transition: margin-top 300ms ease-in;
 }
 
 .exitMaxHeight .contentMaxHeight{
@@ -49,5 +49,5 @@
 
 .exitActiveMaxHeight .contentMaxHeight{
   margin-top: -48px;
-  transition: all 300ms ease-in;
+  transition: margin-top 300ms ease-in;
 }
