@@ -14,10 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 8.22.0 - 2020-06-16
 
 ### Fixed
 - `<InputArea/>` - counter not updated when value prop is changed [#5566](https://github.com/wix/wix-style-react/pull/5566)
+- `<Card/>` - using classnames with stylable [#5570](https://github.com/wix/wix-style-react/pull/5570)
 
 ### Changed
 - `<ColorPicker/>`- migrating to stylable [#5535](https://github.com/wix/wix-style-react/pull/5535)
