@@ -23,13 +23,11 @@ export function ExampleHeightAuto({ show }) {
           <div className={style.contentAutoHeight}>
             <Button>Content</Button>
             <br />
-            fdfdfd
+            dgfdfgdfdfg
             <br />
-            cxcxcx
+            fdsfdfdfg
             <br />
-            fdfdfd
-            <br />
-            dsdsds
+            fdfdf
           </div>
         </div>
       </CSSTransition>

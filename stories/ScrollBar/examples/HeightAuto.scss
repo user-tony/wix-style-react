@@ -21,7 +21,7 @@
 
 .enterActiveAutoHeight {
   max-height: 72px;
-  transition: max-height 300ms ease-in;
+  transition: max-height 300ms cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 .exitAutoHeight {
@@ -30,7 +30,7 @@
 
 .exitActiveAutoHeight {
   max-height: 0;
-  transition: max-height 300ms ease-in;
+  transition: max-height 300ms cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 /* Content */
 .enterAutoHeight .contentAutoHeight {
@@ -39,7 +39,7 @@
 
 .enterActiveAutoHeight .contentAutoHeight {
   margin-top: 0;
-  transition: margin-top 300ms ease-in;
+  transition: margin-top 300ms cubic-bezier(0.4, 0.0, 1, 1);
 }
 
 .exitAutoHeight .contentAutoHeight{
@@ -48,5 +48,5 @@
 
 .exitActiveAutoHeight .contentAutoHeight{
   margin-top: -72px;
-  transition: margin-top 300ms ease-in;
+  transition: margin-top 300ms cubic-bezier(0.4, 0.0, 1, 1);
 }
