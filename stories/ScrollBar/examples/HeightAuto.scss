@@ -7,12 +7,6 @@
   align-items: center;
   overflow: hidden;
   padding: 3px 6px;
-  height: 48px;
-}
-
-.button {
-  position: fixed;
-  top: 650px;
 }
 
 /* Animations */
@@ -21,12 +15,12 @@
 }
 
 .enterActiveMaxHeight {
-  max-height: 48px;
+  max-height: 72px;
   transition: max-height 300ms ease-in;
 }
 
 .exitMaxHeight {
-  max-height: 48px;
+  max-height: 72px;
 }
 
 .exitActiveMaxHeight {
@@ -35,7 +29,7 @@
 }
 /* Content */
 .enterMaxHeight .contentMaxHeight {
-  margin-top: -48px;
+  margin-top: -72px;
 }
 
 .enterActiveMaxHeight .contentMaxHeight {
@@ -48,6 +42,6 @@
 }
 
 .exitActiveMaxHeight .contentMaxHeight{
-  margin-top: -48px;
+  margin-top: -72px;
   transition: margin-top 300ms ease-in;
 }

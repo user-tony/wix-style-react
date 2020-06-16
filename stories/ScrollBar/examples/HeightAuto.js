@@ -1,11 +1,10 @@
-/* Max Height hard coded. Notification Height is hard coded */
-/* when changing the transition function to a different value, the animation is not smooth*/
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Button from '../../../src/Button';
-import style from './MaxHeight.scss';
+import style from './HeightAuto.scss';
 
-export function ExampleMaxHeight({ show }) {
+/* taking in consideration that the height can be maximum of 72 px. */
+export function ExampleHeightAuto({ show }) {
   return (
     <div>
       <CSSTransition
