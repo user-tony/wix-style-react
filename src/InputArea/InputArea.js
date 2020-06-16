@@ -39,6 +39,9 @@ class InputArea extends React.PureComponent {
     ) {
       this._calculateComputedRows();
     }
+    if (this.props.hasCounter && prevProps.value !== this.props.value) {
+      this.setState({ counter: (this.props.value || this.props.defaultValue || '').length })
+    }
   }
 
   render() {
@@ -197,7 +200,6 @@ class InputArea extends React.PureComponent {
   };
 
   _onChange = e => {
-    this.props.hasCounter && this.setState({ counter: e.target.value.length });
     this.props.onChange && this.props.onChange(e);
   };
 

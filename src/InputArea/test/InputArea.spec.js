@@ -103,6 +103,17 @@ describe('InputArea', () => {
         const driver = createDriver(<InputAreaForTesting />);
         expect(await driver.getHasCounter()).toBe(false);
       });
+
+      it('should change counter when value change', async () => {
+        const { driver, rerender } = render(
+          <InputAreaForTesting hasCounter maxLength={30} value="abc" />,
+        );
+        expect(await driver.getCounterValue()).toEqual('3/30');
+        rerender(
+          <InputAreaForTesting hasCounter maxLength={30} value="abcd" />,
+        );
+        expect(await driver.getCounterValue()).toEqual('4/30');
+      });
     });
 
     describe('resizable attribute', () => {
