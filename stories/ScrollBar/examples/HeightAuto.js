@@ -11,16 +11,26 @@ export function ExampleHeightAuto({ show }) {
         in={show}
         timeout={300}
         classNames={{
-          enter: style.enterMaxHeight,
-          enterActive: style.enterActiveMaxHeight,
-          exit: style.exitMaxHeight,
-          exitActive: style.exitActiveMaxHeight,
+          enter: style.enterAutoHeight,
+          enterActive: style.enterActiveAutoHeight,
+          exit: style.exitAutoHeight,
+          exitActive: style.exitActiveAutoHeight,
         }}
         mountOnEnter
         unmountOnExit
       >
         <div className={style.notification}>
-          <Button className={style.contentMaxHeight}>Content</Button>
+          <div className={style.contentAutoHeight}>
+            <Button>Content</Button>
+            <br />
+            fdfdfd
+            <br />
+            cxcxcx
+            <br />
+            fdfdfd
+            <br />
+            dsdsds
+          </div>
         </div>
       </CSSTransition>
       text text text

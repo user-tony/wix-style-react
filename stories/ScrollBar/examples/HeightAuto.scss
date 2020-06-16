@@ -9,44 +9,44 @@
   //padding: 3px 6px;
 }
 
-.contentMaxHeight {
+.contentAutoHeight {
   margin: 3px 6px;
 }
 
 
 /* Animations */
-.enterMaxHeight {
+.enterAutoHeight {
   max-height: 0;
 }
 
-.enterActiveMaxHeight {
+.enterActiveAutoHeight {
   max-height: 72px;
   transition: max-height 300ms ease-in;
 }
 
-.exitMaxHeight {
+.exitAutoHeight {
   max-height: 72px;
 }
 
-.exitActiveMaxHeight {
+.exitActiveAutoHeight {
   max-height: 0;
   transition: max-height 300ms ease-in;
 }
 /* Content */
-.enterMaxHeight .contentMaxHeight {
+.enterAutoHeight .contentAutoHeight {
   margin-top: -72px;
 }
 
-.enterActiveMaxHeight .contentMaxHeight {
+.enterActiveAutoHeight .contentAutoHeight {
   margin-top: 0;
   transition: margin-top 300ms ease-in;
 }
 
-.exitMaxHeight .contentMaxHeight{
+.exitAutoHeight .contentAutoHeight{
   margin-top: 0;
 }
 
-.exitActiveMaxHeight .contentMaxHeight{
+.exitActiveAutoHeight .contentAutoHeight{
   margin-top: -72px;
   transition: margin-top 300ms ease-in;
 }
