@@ -6,6 +6,7 @@ import { Category } from '../storiesHierarchy';
 import Button from '../../src/Button';
 import style from './examples/MaxHeight.scss';
 import { ExampleAnimator } from './examples/Animator';
+import Heading from '../../src/Heading';
 
 storiesOf(Category.FOUNDATION, module).add('1.8 ScrollBar', () => {
   const [showMaxHeight, setMaxHeight] = React.useState(false);
@@ -13,9 +14,13 @@ storiesOf(Category.FOUNDATION, module).add('1.8 ScrollBar', () => {
   return (
     <Layout>
       <Cell>
+        <Heading>Height is known and hard coded</Heading>
         <ExampleMaxHeight showMaxHeight={showMaxHeight} />
       </Cell>
       <Cell>
+        <Heading>
+          Using Animator for both Notification and Notification content
+        </Heading>
         <ExampleAnimator show={showMaxHeight} />
       </Cell>
       <Cell>
