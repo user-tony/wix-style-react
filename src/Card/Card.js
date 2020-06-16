@@ -15,7 +15,7 @@ const Card = ({
   dataHook,
 }) => (
   <div
-    {...styles('card', { stretchVertically, hideOverflow }, className)}
+    {...styles('card', { stretchVertically, hideOverflow }, { className })}
     children={children}
     data-hook={dataHook}
   >
