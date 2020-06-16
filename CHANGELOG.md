@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<InputArea/>` - counter not updated when value prop is changed [#5566](https://github.com/wix/wix-style-react/pull/5566)
+
 ### Changed
 - `<ColorPicker/>`- migrating to stylable [#5535](https://github.com/wix/wix-style-react/pull/5535)
 
