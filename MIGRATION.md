@@ -1431,7 +1431,6 @@ The following props are not supported anymore and should be remove from your cod
 - `active` - Component is uncontrolled component.
 - `bounce` - Not supported by UX guidelines.
 - `color` - Changing Tooltip theming is not supported.
-- `disabled` - Component will read its children props to disable itself.
 - `hideTrigger` - Component is uncontrolled.
 - `lineHeight` - Text alignment is fixed by internal constants.
 - `minWidth`
