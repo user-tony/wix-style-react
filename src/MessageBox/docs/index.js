@@ -11,7 +11,9 @@ import { Category } from '../../../stories/storiesHierarchy';
 
 storiesOf(Category.MODALS, module)
   .add(storySettings.alert.story, () => <Alert />)
-  .add(storySettings.destructive.story, () => <DestructiveAlert />)
+  .add(storySettings.destructive.story, () => <DestructiveAlert />);
+
+storiesOf(Category.DEPRECATED, module)
   .add(storySettings.custom.story, () => <CustomModal />)
   .add(storySettings.announcement.story, () => <Announcement />)
   .add(storySettings.premium.story, () => <PremiumModal />);
