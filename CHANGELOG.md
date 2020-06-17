@@ -18,6 +18,8 @@ Types of changes:
 ### Fixed
 - `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571](https://github.com/wix/wix-style-react/pull/5571)
 
+- `<Accordion/>` - fix behavior to close an initially opened item when clicked [#5575](https://github.com/wix/wix-style-react/pull/5575)
+
 ## 8.22.0 - 2020-06-16
 
 ### Fixed
