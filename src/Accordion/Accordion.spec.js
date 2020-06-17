@@ -54,7 +54,7 @@ describe('Accordion', () => {
   });
 
   describe('expand and collapse behavior', () => {
-    const singleItem = [
+    const collapsedSingleItem = [
       {
         title: 'first item',
         icon: <FakeIcon />,
@@ -64,6 +64,12 @@ describe('Accordion', () => {
         buttonType: buttonTypes.button,
       },
     ];
+
+    const expandedSingleItemProps = {
+      title: 'First Row',
+      children: 'first row',
+      open: true,
+    };
 
     const singleItemWithTextButton = [
       {
@@ -96,18 +102,25 @@ describe('Accordion', () => {
     ];
 
     it('should display a collapsed item by default', async () => {
-      const driver = createDriver(<Accordion items={singleItem} />);
+      const driver = createDriver(<Accordion items={collapsedSingleItem} />);
       expect(await driver.isItemExpandedAt(0)).toBe(false);
     });
 
+    it('should display an expanded item when open prop is true', async () => {
+      const driver = createDriver(
+        <Accordion items={[expandedSingleItemProps]} />,
+      );
+      expect(await driver.isItemExpandedAt(0)).toBe(true);
+    });
+
     it('should expand an item on click', async () => {
-      const driver = createDriver(<Accordion items={singleItem} />);
+      const driver = createDriver(<Accordion items={collapsedSingleItem} />);
       await driver.clickItemAt(0);
       expect(await driver.isItemExpandedAt(0)).toBe(true);
     });
 
     it('should collapse an expanded item on click', async () => {
-      const driver = createDriver(<Accordion items={singleItem} />);
+      const driver = createDriver(<Accordion items={collapsedSingleItem} />);
       await driver.clickItemAt(0);
       expect(await driver.isItemExpandedAt(0)).toBe(true);
       await driver.clickItemAt(0);
@@ -116,8 +129,19 @@ describe('Accordion', () => {
       });
     });
 
+    it('should collapse an initially expanded item on click', async () => {
+      const driver = createDriver(
+        <Accordion items={[expandedSingleItemProps]} />,
+      );
+      expect(await driver.isItemExpandedAt(0)).toBe(true);
+      await driver.clickItemAt(0);
+      await eventually(async () => {
+        expect(await driver.isItemExpandedAt(0)).toBe(false);
+      });
+    });
+
     it('should accept an expand and collapse button labels', async () => {
-      const driver = createDriver(<Accordion items={singleItem} />);
+      const driver = createDriver(<Accordion items={collapsedSingleItem} />);
       await driver.hoverOnItem(0);
       expect(await driver.getToggleButtonLabelAt(0)).toEqual('see more');
       await driver.clickToggleButtonAt(0);
@@ -147,33 +171,32 @@ describe('Accordion', () => {
 
     it('should update AccordionItems open prop dynamically', async () => {
       const render = createRendererWithUniDriver(accordionPrivateDriverFactory);
-      const accordionItemsProps = {
-        title: 'First Row',
-        children: 'first row',
-      };
       const { driver, rerender } = render(
         <Accordion
           items={[
             {
-              ...accordionItemsProps,
+              ...expandedSingleItemProps,
               open: false,
             },
           ]}
         />,
       );
       expect(await driver.isItemExpandedAt(0)).toBe(false);
-
+      rerender(<Accordion items={[expandedSingleItemProps]} />);
+      expect(await driver.isItemExpandedAt(0)).toBe(true);
       rerender(
         <Accordion
           items={[
             {
-              ...accordionItemsProps,
-              open: true,
+              ...expandedSingleItemProps,
+              open: false,
             },
           ]}
         />,
       );
-      expect(await driver.isItemExpandedAt(0)).toBe(true);
+      await eventually(async () => {
+        expect(await driver.isItemExpandedAt(0)).toBe(false);
+      });
     });
   });
 });

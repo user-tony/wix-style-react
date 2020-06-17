@@ -100,8 +100,8 @@ class Accordion extends React.Component {
             )}
             key={index}
             onToggle={this._toggle(index)}
-            open={openIndexes.includes(index)}
             {...item}
+            open={openIndexes.includes(index)}
             skin={skin}
             hideShadow={hideShadow}
           />
