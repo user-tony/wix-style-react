@@ -16,7 +16,7 @@ Types of changes:
 
 ## Next
 ### Fixed
-- `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571] (https://github.com/wix/wix-style-react/pull/5571)
+- `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571](https://github.com/wix/wix-style-react/pull/5571)
 
 ## 8.22.0 - 2020-06-16
 
