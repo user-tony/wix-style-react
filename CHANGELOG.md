@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Changed
+- Rearranging the storybook menu to showcase the new `<AnnouncementModalLayout />` & `<CustomModalLayout />` under the `components` section. Cheatsheet & Design-Guidelines updated accordingly. [#5559](https://github.com/wix/wix-style-react/pull/5559)
+
 ### Fixed
 - `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571](https://github.com/wix/wix-style-react/pull/5571)
 
