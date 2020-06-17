@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Fixed
+- `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571] (https://github.com/wix/wix-style-react/pull/5571)
+
 ## 8.22.0 - 2020-06-16
 
 ### Fixed
