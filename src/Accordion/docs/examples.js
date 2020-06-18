@@ -35,7 +35,7 @@ export const multiple = `
 <Accordion
   multiple
   items={[
-    { title: 'First Initially Open Row', children: <Text>${text}</Text>, open: true, collapseLabel: 'Less' },
+    { title: 'First Initially Open Row', children: <Text>${text}</Text>, initiallyOpen: true, collapseLabel: 'Less' },
     { title: 'Second Row', children: <Text>${text}</Text>, collapseLabel: 'Less', expandLabel: 'More' },
     { title: 'Third Row', children: <Text>${text}</Text>, collapseLabel: 'Less' },
   ]}
@@ -81,7 +81,7 @@ export const skins = `
 <Cell>
   <Accordion
     items={[
-      { title: 'Accordion with standard skin', children: <Text>${text}</Text>, open: true, collapseLabel: 'Less' },
+      { title: 'Accordion with standard skin', children: <Text>${text}</Text>, initiallyOpen: true, collapseLabel: 'Less' },
     ]}
   />
 </Cell>
@@ -89,7 +89,7 @@ export const skins = `
   <Accordion
     skin='light'
     items={[
-      { title: 'Accordion with light skin', children: <Text>${text}</Text>, open: true, collapseLabel: 'Less' },
+      { title: 'Accordion with light skin', children: <Text>${text}</Text>, initiallyOpen: true, collapseLabel: 'Less' },
     ]}
   />
 </Cell>

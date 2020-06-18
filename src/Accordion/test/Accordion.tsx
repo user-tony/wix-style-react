@@ -28,6 +28,7 @@ function AccordionWithAllProps() {
           disabled: true,
           onToggle: () => {},
           open: true,
+          initiallyOpen: true,
         },
       ]}
     />

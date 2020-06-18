@@ -22,6 +22,7 @@ class AccordionItem extends React.PureComponent {
     children: PropTypes.node,
     icon: PropTypes.node,
     open: PropTypes.bool,
+    initiallyOpen: PropTypes.bool,
     disabled: PropTypes.bool,
     onToggle: PropTypes.func,
     skin: PropTypes.oneOf(['standard', 'light']),

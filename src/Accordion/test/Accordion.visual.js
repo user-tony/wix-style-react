@@ -48,7 +48,7 @@ storiesOf('Accordion', module).add('multiple', () => (
       {
         title: 'First Initially Open Row',
         children: <Text>${text}</Text>,
-        open: true,
+        initiallyOpen: true,
         collapseLabel: 'Less',
       },
       {
@@ -83,7 +83,7 @@ storiesOf('Accordion', module).add('skins', () => (
             {
               title: 'First Initially Open Row',
               children: <Text>${text}</Text>,
-              open: true,
+              initiallyOpen: true,
               collapseLabel: 'Less',
             },
             {
@@ -123,7 +123,7 @@ storiesOf('Accordion', module).add('skins and shadow', () => (
               {
                 title: 'First Initially Open Row',
                 children: <Text>${text}</Text>,
-                open: true,
+                initiallyOpen: true,
                 collapseLabel: 'Less',
               },
             ]}

@@ -32,6 +32,7 @@ class Accordion extends React.Component {
         disabled: PropTypes.bool,
         onToggle: PropTypes.func,
         open: PropTypes.bool,
+        initiallyOpen: PropTypes.bool,
       }),
     ),
   };
@@ -43,16 +44,18 @@ class Accordion extends React.Component {
     hideShadow: false,
   };
 
-  _findOpenIndexes = items =>
+  _findOpenIndexes = (items, initial) =>
     items
-      .map((item, index) => (item.open ? index : null))
+      .map((item, index) =>
+        (initial && item.initiallyOpen) || item.open ? index : null,
+      )
       .filter(index => index !== null);
 
   constructor(props) {
     super(props);
 
     this.state = {
-      openIndexes: this._findOpenIndexes(this.props.items),
+      openIndexes: this._findOpenIndexes(this.props.items, true),
     };
   }
 
@@ -100,8 +103,8 @@ class Accordion extends React.Component {
             )}
             key={index}
             onToggle={this._toggle(index)}
-            {...item}
             open={openIndexes.includes(index)}
+            {...item}
             skin={skin}
             hideShadow={hideShadow}
           />

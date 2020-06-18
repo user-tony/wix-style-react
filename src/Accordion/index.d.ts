@@ -19,6 +19,7 @@ export interface AccordionItem {
   collapseLabel?: React.ReactNode;
   buttonType?: AccordionItemButtonType;
   open?: boolean;
+  initiallyOpen?: boolean;
   disabled?: boolean;
   onToggle?: React.MouseEventHandler<HTMLElement>;
 }

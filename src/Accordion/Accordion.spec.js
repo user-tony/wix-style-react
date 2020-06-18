@@ -71,6 +71,12 @@ describe('Accordion', () => {
       open: true,
     };
 
+    const initiallyExpandedSingleItemProps = {
+      title: 'First Row',
+      children: 'first row',
+      initiallyOpen: true,
+    };
+
     const singleItemWithTextButton = [
       {
         title: 'first item',
@@ -131,7 +137,7 @@ describe('Accordion', () => {
 
     it('should collapse an initially expanded item on click', async () => {
       const driver = createDriver(
-        <Accordion items={[expandedSingleItemProps]} />,
+        <Accordion items={[initiallyExpandedSingleItemProps]} />,
       );
       expect(await driver.isItemExpandedAt(0)).toBe(true);
       await driver.clickItemAt(0);
