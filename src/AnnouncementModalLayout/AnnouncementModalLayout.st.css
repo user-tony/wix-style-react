@@ -22,6 +22,8 @@
 
 .root:borderless {
   background-color: unset;
+  max-height: unset;
+  overflow: unset;
   border-radius: unset;
   box-shadow: unset;
 }
