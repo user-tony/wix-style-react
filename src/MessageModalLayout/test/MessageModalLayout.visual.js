@@ -163,7 +163,7 @@ const scrollTests = [
         it: 'scrolled to bottom',
         props: {
           children: new Array(50).fill(SHORT_CONTENT),
-          wait: 500,
+          wait: 1000,
         },
         componentDidMount: () => {
           createDriver()._scrollContentTo(9999);
