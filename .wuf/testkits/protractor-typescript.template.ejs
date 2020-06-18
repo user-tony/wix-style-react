@@ -4,10 +4,15 @@
   .filter(component => !component.noProtractorTestkit)
   .filter(component => !component.manualExport)
   .map(component => {
-    const camelName = utils.toCamel(component.name);
-    const testkitName = component.protractorTestkitExportName || camelName + 'TestkitFactory';
+    // Component Name
+    const componentName = utils.toPascal(component.name);
+    const legacyComponentName = utils.toCamel(component.name);
+    // Export Name
+    const exportName = (component.exportName || componentName) + 'Testkit';
+    const legacyExportName = (component.exportName || legacyComponentName) + 'TestkitFactory';
 %>
-export const <%= testkitName %>: any;<% }) %>
+export const <%= exportName %>: any;
+export const <%= legacyExportName %>: any;<% }) %>
 
 
 

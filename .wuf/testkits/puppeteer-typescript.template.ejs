@@ -19,14 +19,14 @@ type DeprecatedPuppeteerTestkit = any;
 <%
   const deprecated = [
     'Draggable',
-    'FieldLabelAttributes',
+    'FieldLabelAttributes'
   ];
 
-  const defaultExport = [
-    'Avatar',
+  const withGenerics = [
+    'MediaOverlay'
   ]
 
-  const withHTMLElement = [
+  const legacyWithGenerics = [
     'MediaOverlay'
   ]
 
@@ -36,16 +36,28 @@ type DeprecatedPuppeteerTestkit = any;
     .filter(component => !component.manualExport)
     .filter(component => !deprecated.includes(component.name))
     .map(component => {
-      const camelName = utils.toCamel(component.name);
       const isLegacy = component.puppeteerLegacyTestkit;
-      const importName = component.puppeteerTypeImportName || component.name + (isLegacy ? 'Driver' : 'UniDriver')
-      const importPath = component.puppeteerTestkitPath || component.testkitPath || '../src/' + component.name + '/' + component.name + (isLegacy ? '.puppeteer.driver' : '.uni.driver')
-      const wrappedImport = defaultExport.includes(component.name) ? importName : '{' + importName + '}'
-      const exportName = component.puppeteerTestkitExportName || camelName + 'TestkitFactory'
-      const testkitType = isLegacy ? 'PuppeteerTestkitFactory' : 'PuppeteerUniTestkitFactory'
+      // Component Name
+      const componentName = utils.toPascal(component.name) + 'Testkit';
+      const legacyComponentName = utils.toCamel(component.name) + 'TestkitFactory';
+      // Import Name
+      const importName = component.name + 'UniDriver'
+      const legacyImportName = isLegacy ? component.name + 'Driver' : importName
+      // Path
+      const importPath = component.unidriverPath || `../src/${component.name}/${component.name}.uni.driver`
+      const legacyImportPath = component.testkitPath || `../src/${component.name}/${component.name}.driver`
+      // Factory
+      const factory = 'PuppeteerUniTestkitFactory'
+      const legacyFactory = isLegacy ? 'PuppeteerTestkitFactory' : factory
+      // Generics
+      const generics = withGenerics.includes(component.name) ? '<HTMLElement>' : '';
+      const legacyGenerics = legacyWithGenerics.includes(component.name) ? '<HTMLElement>' : '';
 %>
-import <%= wrappedImport %> from '<%= importPath %>';
-export const <%= exportName %>: <%= testkitType %><<%= importName %><%- withHTMLElement.includes(component.name) ?  '<HTMLElement>' : ''%>>;<% }) %>
+<%- !component.noUnidriver ? `import { ${importName} } from '${importPath}';` : ''%>
+<%- isLegacy ? `import { ${legacyImportName} } from '${legacyImportPath}';` : ''%>
+<%- !component.noUnidriver ? `export const ${componentName}: ${factory}<${importName}${generics}>;` : ''%>
+<%- `export const ${legacyComponentName}: ${legacyFactory}<${legacyImportName}${legacyGenerics}>;` %>
+<% }) %>
 
 <%
   components

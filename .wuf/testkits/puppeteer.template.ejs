@@ -24,6 +24,8 @@ const load = module => {
   }
   return defaultOrFirstExport;
 };
+
+// Legacy
 <%
   components
   .filter(component => !component.noTestkit)
@@ -43,3 +45,18 @@ const load = module => {
     const exportName = component.puppeteerTestkitExportName || testkitName;
 %>
 export const <%= exportName %> = <%= factoryName%>(load(require('<%= driverPath %>')));<% }) %>
+
+// Unidriver
+<% components
+        .filter(component => !component.noTestkit)
+        .filter(component => !component.manualExport)
+        .filter(component => !component.noUnidriver)
+.map(component => {
+  const componentName = utils.toPascal(component.name);
+  const driverPath = component.unidriverPath || [
+    '../src',
+    component.name,
+    component.name + '.uni.driver'
+  ].join('\/');
+%>
+export const <%= componentName %>Testkit = puppeteerUniTestkitFactoryCreator(load(require('<%= driverPath %>')));<% }) %>

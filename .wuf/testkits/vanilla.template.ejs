@@ -23,6 +23,8 @@ const load = module => {
   }
   return defaultOrFirstExport;
 };
+
+// Legacy
 <% components
   .filter(component => !component.noTestkit)
   .filter(component => !component.manualExport)
@@ -38,3 +40,18 @@ const load = module => {
     const factoryName = component.vanillaLegacyTestkit ? 'testkitFactoryCreator' : 'uniTestkitFactoryCreator';
 %>
 export const <%= testkitName %> = <%= factoryName%>(load(require('<%= driverPath %>')));<% }) %>
+
+// Unidriver
+<% components
+        .filter(component => !component.noTestkit)
+        .filter(component => !component.manualExport)
+        .filter(component => !component.noUnidriver)
+.map(component => {
+  const componentName = utils.toPascal(component.name);
+  const driverPath = component.unidriverPath || [
+    '../src',
+    component.name,
+    component.name + '.uni.driver'
+  ].join('\/');
+%>
+export const <%= componentName %>Testkit = uniTestkitFactoryCreator(load(require('<%= driverPath %>')));<% }) %>

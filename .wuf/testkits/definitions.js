@@ -33,6 +33,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true, // was not exported before automation, keeping that way for now
+    noUnidriver: true,
   },
 
   MultiSelect: {
@@ -85,12 +86,15 @@ module.exports = {
     // TODO: this is actually  Card.Header, but is exported just as header
     testkitPath: '../src/Card/Header/Header.driver',
     skipSanityTest: true,
+    exportName: 'CardHeader',
 
     protractorTestkitPath: '../src/Card/Header/Header.uni.driver',
     protractorTestkitExportName: 'cardHeaderTestkitFactory',
 
     puppeteerTestkitPath: '../src/Card/Header/Header.uni.driver',
     puppeteerTestkitExportName: 'cardHeaderTestkitFactory',
+
+    unidriverPath: '../src/Card/Header/Header.uni.driver',
   },
 
   Page: {
@@ -161,6 +165,7 @@ module.exports = {
     skipSanityTest: true,
     noProtractorTestkit: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   EditableRow: {
@@ -174,6 +179,9 @@ module.exports = {
 
     puppeteerTestkitPath:
       '../src/EditableSelector/EditableRow/EditableRow.uni.driver',
+
+    unidriverPath:
+      '../src/EditableSelector/EditableRow/EditableRow.uni.driver',
   },
 
   FieldLabelAttributes: {
@@ -183,6 +191,7 @@ module.exports = {
     testkitPath: '../src/FieldLabelAttributes/FieldLabelAttributes.driver',
     skipSanityTest: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   Carousel: {
@@ -203,6 +212,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     skipSanityTest: true, // testkit does not have root `exists` method
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   Dropdown: {
@@ -220,6 +230,8 @@ module.exports = {
       '../src/RadioGroup/RadioButton/RadioButton.protractor.driver',
     skipSanityTest: true,
     puppeteerTestkitPath:
+      '../src/RadioGroup/RadioButton/RadioButton.uni.driver',
+    unidriverPath:
       '../src/RadioGroup/RadioButton/RadioButton.uni.driver',
   },
 
@@ -242,6 +254,9 @@ module.exports = {
 
     puppeteerTestkitPath:
       '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver',
+
+    unidriverPath:
+      '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver',
   },
 
   MessageBoxFunctionalLayout: {
@@ -258,11 +273,16 @@ module.exports = {
 
     puppeteerTestkitPath:
       '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.uni.driver',
+
+    unidriverPath:
+      '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.uni.driver',
   },
 
   CardSubheader: {
     testkitPath: '../src/Card/Subheader/Subheader.uni.driver',
+    unidriverPath: '../src/Card/Subheader/Subheader.uni.driver',
     skipSanityTest: true,
+    exportName: 'CardSubheader',
     protractorTestkitExportName: 'subheaderTestkitFactory',
 
     puppeteerTestkitExportName: 'subheaderTestkitFactory',
@@ -301,6 +321,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
     puppeteerTypeImportName: 'NoBorderInputPuppeteerDriver',
+    noUnidriver: true,
   },
 
   Modal: {
@@ -342,6 +363,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     noProtractorTestkit: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   NestableList: {
@@ -350,6 +372,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     noProtractorTestkit: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   Badge: {
@@ -383,6 +406,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   ColorPicker: {
@@ -502,6 +526,7 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
+    noUnidriver: true,
   },
 
   AutoCompleteWithLabel: {

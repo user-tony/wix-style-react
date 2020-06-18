@@ -3,7 +3,7 @@ import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 import { dataHooks } from './constants';
 import { loaderUniDriverFactory } from '../Loader/Loader.uni.driver';
 
-export default base => {
+export const avatarUniDriverFactory = base => {
   const getIndication = () =>
     iconButtonDriverFactory(base.$(`[data-hook="${dataHooks.indication}"]`));
   const getLoader = () =>
