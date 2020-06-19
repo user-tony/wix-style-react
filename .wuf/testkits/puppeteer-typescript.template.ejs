@@ -42,10 +42,10 @@ type DeprecatedPuppeteerTestkit = any;
       const legacyComponentName = utils.toCamel(component.name) + 'TestkitFactory';
       // Import Name
       const importName = component.name + 'UniDriver'
-      const legacyImportName = isLegacy ? component.name + 'Driver' : importName
+      const legacyImportName = isLegacy ? component.puppeteerTypeImportName || (component.name + 'Driver') : importName
       // Path
       const importPath = component.unidriverPath || `../src/${component.name}/${component.name}.uni.driver`
-      const legacyImportPath = component.testkitPath || `../src/${component.name}/${component.name}.driver`
+      const legacyImportPath = component.testkitPath || `../src/${component.name}/${component.name}.puppeteer.driver`
       // Factory
       const factory = 'PuppeteerUniTestkitFactory'
       const legacyFactory = isLegacy ? 'PuppeteerTestkitFactory' : factory
