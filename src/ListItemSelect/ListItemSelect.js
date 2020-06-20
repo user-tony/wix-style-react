@@ -151,9 +151,9 @@ class ListItemSelect extends React.PureComponent {
 
         <Box
           display="grid"
-          margin={1}
-          direction={'vertical'}
+          margin={subtitle ? '9px 6px' : '6px'}
           className={styles.title}
+          direction="vertical"
           lineHeight="initial"
           fontSize="initial"
         >
