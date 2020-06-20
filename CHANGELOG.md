@@ -15,6 +15,10 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Fixed
+- `<ListItemSelect/>`- fixing item height [#5555](https://github.com/wix/wix-style-react/pull/5555)
+
+
 ## 8.22.1 - 2020-06-18
 ### Changed
 - Rearranging the storybook menu to showcase the new `<AnnouncementModalLayout />` & `<CustomModalLayout />` under the `components` section. Cheatsheet & Design-Guidelines updated accordingly. [#5559](https://github.com/wix/wix-style-react/pull/5559)
