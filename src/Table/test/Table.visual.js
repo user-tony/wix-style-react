@@ -44,26 +44,22 @@ const columns = [
     title: 'Name',
     render: row => <span>{row.name}</span>,
     width: '30%',
-    minWidth: '150px',
     infoTooltipProps: { content: 'This is the name column' },
   },
   {
     title: 'SKU',
     render: row => <span>{row.SKU}</span>,
     width: '20%',
-    minWidth: '100px',
   },
   {
     title: 'Price',
     render: row => <span>{row.price}</span>,
     width: '20%',
-    minWidth: '100px',
   },
   {
     title: 'Inventory',
     render: row => <span>{row.inventory}</span>,
     width: '20%',
-    minWidth: '100px',
   },
 ];
 
@@ -165,7 +161,6 @@ const tests = [
               title: 'Name',
               render: row => <span>{row.name}</span>,
               width: '30%',
-              minWidth: '150px',
             },
             {
               title: 'Visibility',
@@ -178,14 +173,12 @@ const tests = [
                 </span>
               ),
               width: '20%',
-              minWidth: '100px',
               align: 'start',
             },
             {
               title: 'On Sale',
               render: () => <Checkbox />,
               width: '20%',
-              minWidth: '100px',
               align: 'center',
               infoTooltipProps: {
                 content: 'I am a Tooltip!',
@@ -195,7 +188,6 @@ const tests = [
               title: 'Price',
               render: row => <span>{row.price}</span>,
               width: '20%',
-              minWidth: '100px',
               align: 'end',
             },
           ],

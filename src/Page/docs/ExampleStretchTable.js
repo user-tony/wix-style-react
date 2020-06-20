@@ -236,25 +236,21 @@ class ExampleStretchTable extends React.Component {
                 </Highlighter>
               ),
               width: '30%',
-              minWidth: '150px',
             },
             {
               title: 'SKU',
               render: row => row.SKU,
               width: '20%',
-              minWidth: '100px',
             },
             {
               title: 'Price',
               render: row => row.price,
               width: '20%',
-              minWidth: '100px',
             },
             {
               title: 'Inventory',
               render: row => row.inventory,
               width: '20%',
-              minWidth: '100px',
             },
           ]}
           onSelectionChange={selectedIds =>

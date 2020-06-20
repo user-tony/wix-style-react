@@ -48,7 +48,6 @@ class DataTableSortableOldDesignExample extends React.Component {
               title: 'Row Number',
               render: (row, rowNum) => '#' + (rowNum + 1),
               width: '20%',
-              minWidth: '75px',
               important: true,
             },
             {
@@ -57,7 +56,6 @@ class DataTableSortableOldDesignExample extends React.Component {
               sortDescending: !!this.state.sort[1],
               render: row => <span>{row.firstName}</span>,
               width: '40%',
-              minWidth: '100px',
             },
             {
               title: 'Last Name',
@@ -65,7 +63,6 @@ class DataTableSortableOldDesignExample extends React.Component {
               sortDescending: !!this.state.sort[2],
               render: row => <span>{row.lastName}</span>,
               width: '40%',
-              minWidth: '100px',
             },
           ]}
         />

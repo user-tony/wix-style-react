@@ -29,7 +29,6 @@ class TableAlignedColumnsExample extends React.Component {
             title: 'Name',
             render: row => <span>{row.name}</span>,
             width: '40%',
-            minWidth: '150px',
           },
           {
             title: 'Visibility',
@@ -43,7 +42,6 @@ class TableAlignedColumnsExample extends React.Component {
               </Box>
             ),
             width: '20%',
-            minWidth: '100px',
             // Aligns the text to start
             align: 'start',
           },
@@ -56,7 +54,6 @@ class TableAlignedColumnsExample extends React.Component {
               />
             ),
             width: '20%',
-            minWidth: '100px',
             infoTooltipProps: {
               content: 'I am a Tooltip!',
             },
@@ -67,7 +64,6 @@ class TableAlignedColumnsExample extends React.Component {
             title: 'Price',
             render: row => <span>{row.price}</span>,
             width: '20%',
-            minWidth: '100px',
             // Aligns the text to end
             align: 'end',
           },
