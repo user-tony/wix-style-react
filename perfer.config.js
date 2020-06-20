@@ -40,7 +40,7 @@ const javascriptFiles = [
   ['DropdownLayout.bundle.min.js', 48],
   ['EditableSelector.bundle.min.js', 75],
   ['EditableTitle.bundle.min.js', 63],
-  ['EmptyState.bundle.min.js', 10],
+  ['EmptyState.bundle.min.js', 11],
   ['EndorseContentLayout.bundle.min.js', 9],
   ['FilePicker.bundle.min.js', 50],
   ['FillButton.bundle.min.js', 52],
