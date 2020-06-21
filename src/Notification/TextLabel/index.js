@@ -5,14 +5,11 @@ import { dataHooks } from '../constants';
 import styles from '../Notification.st.css';
 
 const TextLabel = ({ children, ellipsis }) => (
-  <Text
-    className={styles.label}
-    ellipsis={ellipsis}
-    light
-    dataHook={dataHooks.notificationLabel}
-  >
-    {children}
-  </Text>
+  <div className={styles.label}>
+    <Text ellipsis={ellipsis} light dataHook={dataHooks.notificationLabel}>
+      {children}
+    </Text>
+  </div>
 );
 
 TextLabel.propTypes = {
