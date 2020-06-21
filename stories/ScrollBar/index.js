@@ -6,6 +6,7 @@ import { Category } from '../storiesHierarchy';
 import Button from '../../src/Button';
 import style from './examples/MaxHeight.scss';
 import { ExampleAnimator } from './examples/Animator';
+import { ExampleAnimator2 } from './examples/Animator2';
 import { ExampleHeightAuto } from './examples/HeightAuto';
 import Heading from '../../src/Heading';
 
@@ -24,9 +25,13 @@ storiesOf(Category.FOUNDATION, module).add('1.8 ScrollBar', () => {
       {/*  </Heading>*/}
       {/*  <ExampleAnimator show={show} />*/}
       {/* </Cell>*/}
+      {/* <Cell>*/}
+      {/*  <Heading>Animation for height 72px</Heading>*/}
+      {/*  <ExampleHeightAuto show={show} />*/}
+      {/* </Cell>*/}
       <Cell>
-        <Heading>Animation for height 72px</Heading>
-        <ExampleHeightAuto show={show} />
+        <Heading>Dynamic height Animation using Animator</Heading>
+        <ExampleAnimator2 show={show} />
       </Cell>
       <Cell>
         <Button className={style.button} onClick={() => setShow(!show)}>

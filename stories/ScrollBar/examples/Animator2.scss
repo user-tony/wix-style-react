@@ -1,0 +1,21 @@
+.animatorContent > * {
+  position: relative;
+}
+
+.wrapper {
+  background-color: red;
+}
+
+.notification {
+  bottom: 0;
+  position: absolute;
+  box-sizing: border-box; /* does not include the margin*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+
+
