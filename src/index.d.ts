@@ -421,6 +421,10 @@ export { default as ComposerSidebar } from './ComposerSidebar';
 export * from './ComposerSidebar';
 
 export { default as SortableGrid } from './SortableGrid';
+
+export { default as Animate } from './Animate';
+export * from './Animate';
+
 export * from './SortableGrid';
 
 export { default as dndStyles } from './dnd-styles';
