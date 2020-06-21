@@ -237,6 +237,29 @@ describe('Search', () => {
         inputDriver.focus();
         expect(await dropdownLayoutDriver.optionsLength()).toBe(1);
       });
+
+      describe('Clearing input', () => {
+        it('should trigger onClear on clearing', async () => {
+          const onClear = jest.fn();
+          const { inputDriver } = createDriver(
+            <Search defaultValue="fox" options={options} onClear={onClear} />,
+          );
+          expect(onClear).toHaveBeenCalledTimes(0);
+          await inputDriver.clickClear();
+          expect(onClear).toHaveBeenCalledTimes(1);
+          expect(onClear.mock.calls[0][0]).toBeTruthy;
+        });
+
+        it('should clear input after clear button click', async () => {
+          const { inputDriver } = createDriver(
+            <Search defaultValue="fox" options={options} />,
+          );
+          await inputDriver.enterText('h');
+          expect(await inputDriver.getText()).toEqual('h');
+          await inputDriver.clickClear();
+          expect(await inputDriver.getText()).toEqual('');
+        });
+      });
     });
 
     describe('Expandable', () => {

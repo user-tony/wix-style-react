@@ -115,12 +115,12 @@ class Search extends Component {
   };
 
   _onClear = event => {
-    const { onClear, expandable } = this.props;
+    const { expandable } = this.props;
     const { collapsed } = this.state;
 
     const stateChanges = {};
 
-    if (this._getIsControlled()) {
+    if (!this._getIsControlled()) {
       stateChanges.inputValue = '';
     }
 
@@ -132,10 +132,18 @@ class Search extends Component {
     if (!isEmpty(stateChanges)) {
       // call onClear only *after* updating the search value
       this.setState(stateChanges, () => {
-        if (onClear) onClear(event);
-        this.searchInput.hideOptions();
+        this._onClearHandler(event);
       });
+    } else {
+      this._onClearHandler(event);
     }
+  };
+
+  _onClearHandler = event => {
+    const { onClear } = this.props;
+
+    if (onClear) onClear(event);
+    this.searchInput.hideOptions();
   };
 
   _currentValue = () => this.state.inputValue;

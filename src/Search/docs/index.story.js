@@ -77,7 +77,8 @@ export default {
 
           example({
             title: 'Simple Usage',
-            text: 'Search component has a basic debounce functionality',
+            text:
+              'Search component has a basic debounce functionality. This is an example for those who wants to use this component as a controlled component.',
             source: examples.simple,
           }),
 

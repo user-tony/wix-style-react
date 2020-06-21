@@ -11,6 +11,7 @@ class MyComponent extends React.Component {
             debounceMs={250}
             value={text}
             onChange={e => this.setState({ text: e.target.value })}
+            onClear={() => this.setState({ text: '' })}
           />
         </Cell>
         <Cell>
@@ -33,6 +34,7 @@ class MyComponent extends React.Component {
       <Search
           value={text}
           onChange={e => this.setState({ text: e.target.value })}
+          onClear={() => this.setState({ text: '' })}
           options={Array(26)
                 .fill(0)
                 .map((_, id) => ({
@@ -48,15 +50,10 @@ class MyComponent extends React.Component {
 
 export const expandable = `
 class MyComponent extends React.Component {
-  state = { text: '' };
 
   render() {
-    const { text } = this.state;
     return (
       <Search
-        debounceMs={250}
-        value={text}
-        onChange={e => this.setState({ text: e.target.value })}
         expandable
       />
     );
