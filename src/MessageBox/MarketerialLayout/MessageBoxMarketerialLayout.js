@@ -9,6 +9,7 @@ import CloseButton from '../../CloseButton';
 import Button from '../../Button';
 
 import * as styles from './MessageBoxMarketerialLayout.scss';
+import deprecationLog from '../../utils/deprecationLog';
 
 const buttonSkinByTheme = {
   blue: 'standard',
@@ -17,6 +18,13 @@ const buttonSkinByTheme = {
 };
 
 class MessageBoxMarketerialLayout extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    deprecationLog(
+      '<MessageBoxMarketerialLayout/> - Component is deprecated and will be removed as part of the next major version, please use <AnnouncementModalLayout /> instead.',
+    );
+  }
   render() {
     const {
       dataHook,

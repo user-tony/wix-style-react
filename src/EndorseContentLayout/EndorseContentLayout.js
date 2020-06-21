@@ -8,7 +8,7 @@ import deprecationLog from '../utils/deprecationLog';
 
 const EndorseContentLayout = ({ head, content, primaryCta, secondaryCta }) => {
   deprecationLog(
-    '<EndorseContentLayout/> - Component is deprecated and will be removed as part of the next major version, please use <AnnouncementModalLayout/> instead.',
+    '<EndorseContentLayout/> - Component is deprecated and will be removed as part of the next major version.',
   );
   return (
     <div className={styles.root}>
