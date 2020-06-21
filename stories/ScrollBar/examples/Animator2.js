@@ -10,9 +10,12 @@ export const ExampleAnimator2 = ({ show }) => (
       show={show}
       childClassName={style.animatorContent}
       height={e => {
+        // this gets the computed height of the `notification` element, the one that is set with `position:absolute`
         const { height } = window.getComputedStyle(e.firstChild);
+        // this will apply the same height to the `wrapper` element, read more about it in the scss file
         e.style.height = height;
-        return Number(height.substr(0, height.length - 2));
+        // this will return the calculated height to animator so it will take that into account in it's calculations
+        return Number(height.replace(/px$/, ''));
       }}
     >
       <div className={style.wrapper}>
