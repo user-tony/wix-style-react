@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { withEllipsedTooltip } from './EllipsedTooltip';
 import { ZIndex } from '../../ZIndex';
-import { classes } from './EllipsisHOC.st.css';
 
 export default React.forwardRef(({ Component, props }, ref) => {
   const {
@@ -21,7 +20,6 @@ export default React.forwardRef(({ Component, props }, ref) => {
   } = props;
 
   const tooltipProps = {
-    className: classes.root,
     appendTo,
     flip,
     fixed,
