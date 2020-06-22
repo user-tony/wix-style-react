@@ -19,6 +19,7 @@ Types of changes:
 - `<ListItemSelect/>`- fixing item height [#5555](https://github.com/wix/wix-style-react/pull/5555)
 - `<Search/>` - Fix the bug that in some cases the clear button doesn't work. FYI after this fix if you use this component as a controlled component you must pass an onClear callback and update the value you send for the component in order to clear the input. [5576](https://github.com/wix/wix-style-react/pull/5576)
 - `<RichTextArea/>`- update min height [#5512](https://github.com/wix/wix-style-react/pull/5512)
+- `<ImageViewer/>`- fix the bug that it breaks in small sizes
 
 
 ## 8.22.1 - 2020-06-18
