@@ -109,6 +109,32 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'With close button',
+    its: [
+      {
+        it: 'small',
+        props: {
+          size: 'small',
+          clearButton: true,
+        },
+      },
+      {
+        it: 'normal',
+        props: {
+          size: 'normal',
+          clearButton: true,
+        },
+      },
+      {
+        it: 'large',
+        props: {
+          size: 'large',
+          clearButton: true,
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

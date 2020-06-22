@@ -10,6 +10,14 @@ import InputSuffix, { getVisibleSuffixCount } from './InputSuffix';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
+import { SIZES } from './constants';
+
+const clearButtonSizeMap = {
+  [SIZES.small]: 'small',
+  [SIZES.medium]: 'medium',
+  [SIZES.normal]: 'medium',
+  [SIZES.large]: 'medium',
+};
 
 class Input extends Component {
   static Ticker = Ticker;
@@ -103,6 +111,7 @@ class Input extends Component {
       hideStatusSuffix,
       customInput,
       pattern,
+      size,
     } = this.props;
     const onIconClicked = e => {
       if (!disabled) {
@@ -199,6 +208,7 @@ class Input extends Component {
               onIconClicked={onIconClicked}
               isClearButtonVisible={isClearButtonVisible}
               onClear={this.handleSuffixOnClear}
+              clearButtonSize={clearButtonSizeMap[size]}
               menuArrow={menuArrow}
               suffix={suffix}
               tooltipPlacement={tooltipPlacement}
