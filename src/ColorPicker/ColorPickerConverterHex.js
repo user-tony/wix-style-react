@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
-<<<<<<< HEAD
-import css from './ColorPickerConverter.st.css';
-=======
 
 import { st, classes } from './ColorPickerConverter.st.css';
->>>>>>> 2ef14b682... chore(*): stylable migration
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getHexOrEmpty } from './utils';
 
@@ -25,11 +21,7 @@ export default class ColorPickerConverterHex extends React.PureComponent {
   render() {
     const { dataHook } = this.props;
     return (
-<<<<<<< HEAD
-      <div {...css('root', {}, this.props)} data-hook={dataHook}>
-=======
-      <div className={st(classes.root)}>
->>>>>>> 2ef14b682... chore(*): stylable migration
+      <div className={st(classes.root)} data-hook={dataHook}>
         <Input
           size="small"
           value={this.state.hex}

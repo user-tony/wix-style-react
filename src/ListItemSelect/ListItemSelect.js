@@ -151,15 +151,9 @@ class ListItemSelect extends React.PureComponent {
 
         <Box
           display="grid"
-<<<<<<< HEAD
           margin={subtitle ? '9px 6px' : '6px'}
-          className={styles.title}
-          direction="vertical"
-=======
-          margin={1}
-          direction={'vertical'}
           className={classes.title}
->>>>>>> a50caa91b... chore(*): stylable migration
+          direction="vertical"
           lineHeight="initial"
           fontSize="initial"
         >

@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
-<<<<<<< HEAD
-import css from './ColorPickerConverter.st.css';
-=======
 
 import { st, classes } from './ColorPickerConverter.st.css';
->>>>>>> 2ef14b682... chore(*): stylable migration
 import ColorPickerConverterViewer from './ColorPickerConverterViewer';
 import { safeColor, getRgbOrEmpty } from './utils';
 
@@ -28,13 +24,8 @@ export default class ColorPickerConverterRGB extends React.PureComponent {
   render() {
     const { dataHook } = this.props;
     return (
-<<<<<<< HEAD
-      <div {...css('root', {}, this.props)} data-hook={dataHook}>
-        <div {...css('distribute', {}, this.props)}>
-=======
-      <div className={st(classes.root)}>
+      <div className={classes.root} data-hook={dataHook}>
         <div className={classes.distribute}>
->>>>>>> 6aed38481... chore(*): stylable migration
           <Input
             size="small"
             value={this.state.r}

@@ -7,12 +7,14 @@ export interface AccordionItemProps {
   expandLabel?: React.ReactNode;
   collapseLabel?: React.ReactNode;
   buttonType?: AccordionItemButtonType;
-  skin?: 'light' | 'standard';
-  className?: string;
-  hideShadow?: boolean;
+  open?: boolean;
+  initiallyOpen?: boolean;
+  disabled?: boolean;
+  onToggle?: React.MouseEventHandler<HTMLElement>;
 }
 
-export type AccordionItemButtonType = 'textButton' | 'button';
+type AccordionItemButtonType = 'textButton' | 'button';
+export type AccordionSkinType = 'standard' | 'light';
 
 export default class AccordionItem extends React.Component<
   AccordionItemProps

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import styles from './Content.st.css';
-import React, { useState, useCallback } from 'react';
-=======
 import { st, classes } from './Content.st.css';
-import React from 'react';
->>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
+import React, { useState, useCallback } from 'react';
 import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -72,11 +67,10 @@ export const Content = ({
           className,
         )}
       >
-<<<<<<< HEAD
-        {!contentHideDividers && <Divider className={styles.topDivider} />}
+        {!contentHideDividers && <Divider className={classes.topDivider} />}
         <ScrollableContainer
           dataHook={dataHooks.contentWrapper}
-          className={styles.innerContent}
+          className={classes.innerContent}
           onScrollPositionChanged={
             (registerToScrollPositionChanges && handleScrollPositionChanged) ||
             null
@@ -84,14 +78,7 @@ export const Content = ({
         >
           {content}
         </ScrollableContainer>
-        {!contentHideDividers && <Divider className={styles.bottomDivider} />}
-=======
-        {!contentHideDividers && <Divider className={classes.topDivider} />}
-        <div className={classes.innerContentWrapper}>
-          <div className={classes.innerContent}>{content}</div>
-        </div>
         {!contentHideDividers && <Divider className={classes.bottomDivider} />}
->>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
       </div>
     )) ||
     null
