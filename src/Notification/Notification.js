@@ -146,14 +146,6 @@ class Notification extends React.PureComponent {
           aria-labelledby="notification-label"
           aria-live="polite"
         >
-<<<<<<< HEAD
-          {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
-
-          <div className={styles.labelWrapper}>
-            {childrenComponents.label}
-            {childrenComponents.ctaButton}
-          </div>
-=======
           {themeIcon[theme]}
           <div
             id="notification-label"
@@ -167,7 +159,6 @@ class Notification extends React.PureComponent {
               children={childrenComponents.ctaButton}
             />
           )}
->>>>>>> 775242b3f... chore(Notification): migrate stylable v3
 
           {childrenComponents.closeButton && (
             <div
@@ -186,11 +177,7 @@ class Notification extends React.PureComponent {
     const { dataHook, theme, type } = this.props;
     return (
       <div
-<<<<<<< HEAD
-        {...styles('root', { theme, type })}
-=======
         className={st(classes.root, { theme, type })}
->>>>>>> 775242b3f... chore(Notification): migrate stylable v3
         data-hook={dataHook}
         data-theme={theme}
         data-type={type}

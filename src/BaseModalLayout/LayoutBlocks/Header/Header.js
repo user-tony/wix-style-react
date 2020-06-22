@@ -18,12 +18,11 @@ export const Header = ({
   className = classNames(headerClassName, className);
   return (
     ((title || subtitle) && (
-<<<<<<< HEAD
-      <div data-hook={dataHook} {...styles('root', {}, { className })}>
-        <div className={styles.innerContent}>
+      <div data-hook={dataHook} className={st(classes.root, className)}>
+        <div className={classes.innerContent}>
           {typeof title === 'string' ? (
             <ModalHeading
-              className={styles.title}
+              className={classes.title}
               dataHook={dataHooks.headerTitle}
               headingAppearance={titleAppearance}
             >
@@ -34,7 +33,7 @@ export const Header = ({
           )}
           {subtitle && (
             <Text
-              className={styles.subtitle}
+              className={classes.subtitle}
               secondary
               dataHook={dataHooks.headerSubtitle}
             >
@@ -43,29 +42,6 @@ export const Header = ({
           )}
         </div>
         {showHeaderDivider && <Divider />}
-=======
-      <div data-hook={dataHook} className={st(classes.root, className)}>
-        {typeof title === 'string' ? (
-          <ModalHeading
-            className={classes.title}
-            dataHook={dataHooks.headerTitle}
-            headingAppearance={titleAppearance}
-          >
-            {title}
-          </ModalHeading>
-        ) : (
-          title
-        )}
-        {subtitle && (
-          <Text
-            className={classes.subtitle}
-            secondary
-            dataHook={dataHooks.headerSubtitle}
-          >
-            {subtitle}
-          </Text>
-        )}
->>>>>>> 1cb0338bc... chore(BaseModalLayout/*): stylable migration
       </div>
     )) ||
     null
