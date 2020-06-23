@@ -19,6 +19,8 @@ Types of changes:
 ## 8.23.0 - 2020-06-22
 ### Internal
 - `<EllipsisHOC/>` - migrate from wix-ui-core [#5586](https://github.com/wix/wix-style-react/pull/5586)
+### Changed
+- `<Loader/>` - Deleting legacy protructor driver since it was faulty, exposed the uni-driver instead and updated internal usages accordingly.
 
 ## 8.22.3 - 2020-06-22
 ### Fixed
@@ -36,11 +38,9 @@ Types of changes:
 
 ### Fixed
 - `<CheckToggle/>` - fix css when box-sizing is set to border-box from outside [#5571](https://github.com/wix/wix-style-react/pull/5571)
-
 - `<Accordion/>` - fix behavior to close an initially opened item when clicked [#5575](https://github.com/wix/wix-style-react/pull/5575)
 
 ## 8.22.0 - 2020-06-16
-
 ### Fixed
 - `<InputArea/>` - counter not updated when value prop is changed [#5566](https://github.com/wix/wix-style-react/pull/5566)
 - `<Card/>` - using classnames with stylable [#5570](https://github.com/wix/wix-style-react/pull/5570)
