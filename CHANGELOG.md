@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Fixed
+- Fix dnd-styles import [#5598](https://github.com/wix/wix-style-react/pull/5598)
 - `<Modal/>` - invoke onRequestClose only if passed as prop [#5600](https://github.com/wix/wix-style-react/pull/5600)
 - `<Accordion/>` - changed hover color for with skin="light" when hideShadow is active [#5579](https://github.com/wix/wix-style-react/pull/5579)
 
