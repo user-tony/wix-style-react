@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<Accordion/>` - changed hover color for with skin="light" when hideShadow is active [#5579](https://github.com/wix/wix-style-react/pull/5579)
+
 ## 8.23.0 - 2020-06-22
 ### Internal
 - `<EllipsisHOC/>` - migrate from wix-ui-core [#5586](https://github.com/wix/wix-style-react/pull/5586)
