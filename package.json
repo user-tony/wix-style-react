@@ -156,7 +156,7 @@
     "husky": "^2.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "jest-yoshi-preset": "^4.85.0",
+    "jest-yoshi-preset": "4.87.0",
     "lint-staged": "^7.3.0",
     "mkdirp": "^0.5.5",
     "ora": "^3.4.0",
@@ -184,11 +184,11 @@
     "webpack-cli": "^3.3.11",
     "wix-storybook-utils": "^3.0.125",
     "wix-ui-framework": "^3.5.2",
-    "yoshi": "^4.85.0",
-    "yoshi-config": "^4.84.0",
-    "yoshi-helpers": "^4.84.0",
-    "yoshi-runtime": "^1.0.732",
-    "yoshi-style-dependencies": "^4.71.0"
+    "yoshi": "4.87.0",
+    "yoshi-config": "4.87.0",
+    "yoshi-helpers": "4.87.0",
+    "yoshi-runtime": "1.0.732",
+    "yoshi-style-dependencies": "4.71.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
