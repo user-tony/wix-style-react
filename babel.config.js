@@ -4,9 +4,7 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: false,
-        targets: {
-          ie: '11',
-        },
+        targets: '>0.25%',
       },
     ],
     '@babel/preset-react',
