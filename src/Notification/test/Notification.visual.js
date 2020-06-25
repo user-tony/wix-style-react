@@ -1,10 +1,13 @@
-import { THEMES, ACTION_BUTTON_TYPES } from '../constants';
+import { THEMES, ACTION_BUTTON_TYPES, TYPE_POSITIONS_MAP } from '../constants';
 import React from 'react';
 import { visualize, story, snap } from 'storybook-snapper';
 import Notification from '..';
+import Text from '../../Text';
 
 const themes = Object.values(THEMES);
 const actions = Object.values(ACTION_BUTTON_TYPES);
+const types = Object.values(TYPE_POSITIONS_MAP);
+
 const longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'.repeat(
   4,
 );
@@ -91,13 +94,30 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'types',
+    its: types.map(type => ({
+      it: type,
+      props: {
+        type,
+        children: (
+          <Notification.TextLabel>Notification Text</Notification.TextLabel>
+        ),
+      },
+    })),
+  },
 ];
 
 visualize('Notification', () => {
   tests.forEach(({ describe, its }) => {
     its.forEach(({ it, props }) => {
       story(describe, () => {
-        snap(it, () => <Notification show {...props} />);
+        snap(it, () => (
+          <div>
+            <Notification show {...props} />
+            <Text>{longText} </Text>
+          </div>
+        ));
       });
     });
   });
