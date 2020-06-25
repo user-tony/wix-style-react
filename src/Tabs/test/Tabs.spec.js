@@ -8,6 +8,7 @@ import {
   cleanup,
 } from '../../../test/utils/unit';
 import { tabsUniDriverFactory } from '../Tabs.uni.driver';
+import tabsTypes from '../core/constants/tab-types';
 
 describe('Tabs component', () => {
   describe('[sync]', () => {
@@ -33,9 +34,7 @@ describe('Tabs component', () => {
       ];
     });
 
-    afterEach(() => {
-      cleanup();
-    });
+    afterEach(cleanup);
 
     it('should render tabs with correct titles', async () => {
       const driver = createComponent({ items });
@@ -73,12 +72,9 @@ describe('Tabs component', () => {
       expect(await driver.isDefaultType()).toBe(true);
     });
 
-    it('should get custom style', async () => {
-      const type = 'compact';
+    it.each(tabsTypes)('should get %s style', async type => {
       const driver = createComponent({ items, type });
-      expect(
-        (await driver.getItemsContainerClassList()).contains('compact'),
-      ).toBe(true);
+      expect(await driver.getItemsContainerType()).toEqual(type);
     });
 
     it('should set tab width, when selected type is Uniform Side', async () => {
@@ -95,6 +91,7 @@ describe('Tabs component', () => {
         </div>
       );
       const driver = createComponent({ items, sideContent });
+
       expect(await driver.getSideContent()).toBeTruthy();
     });
 

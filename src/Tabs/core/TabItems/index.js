@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import * as TabPropTypes from '../constants/tab-prop-types';
 import TabItem from '../TabItem';
 import withItemMaxWidth from '../withItemMaxWidth';
-import styles from '../../Tabs.scss';
+import styles from '../../Tabs.st.css';
 
 class TabItems extends React.Component {
   renderItem(item) {
@@ -30,8 +30,9 @@ class TabItems extends React.Component {
 
     return (
       <ul
-        className={className}
+        data-type={type}
         data-hook={dataHook}
+        className={className}
         style={{ minWidth: this.props.minWidth }}
       >
         {items.map(item => this.renderItem(item))}

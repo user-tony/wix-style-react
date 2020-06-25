@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import pick from '../../../utils/operators/pick';
 import Text from '../../../Text';
 import * as TabPropTypes from '../constants/tab-prop-types';
-import styles from '../../Tabs.scss';
+import styles from '../../Tabs.st.css';
 
 class TabItem extends React.Component {
   getItemStyle() {
@@ -30,7 +30,12 @@ class TabItem extends React.Component {
     };
 
     return (
-      <li {...containerProps} data-hook={item.dataHook} ref={this.createRef}>
+      <li
+        data-active={isActive}
+        data-hook={item.dataHook}
+        {...containerProps}
+        ref={this.createRef}
+      >
         <Text className={styles.tabText} weight="normal" ellipsis>
           {item.title}
         </Text>
