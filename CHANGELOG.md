@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+## Next
+
+## Changed- 
+- `<Tabs/>`- migrating to stylable [#5557](https://github.com/wix/wix-style-react/pull/5557)
+
 ## 8.24.0 - 2020-06-24
 
 ### Changed
