@@ -20,6 +20,7 @@ Please create a pull request with the solution if it worth sharing.
 - [Contributing issues](#%f0%9f%92%81%e2%80%8d%e2%99%82%ef%b8%8f-contributing-issues)
   - [Created a PR but the build is failing on CI, should I do something?](#created-a-pr-but-the-build-is-failing-on-ci-should-i-do-something)
   - [How can I run only one test locally?](#how-can-i-run-only-one-test-locally)
+  - [Unit tests are failing with `renderer.register` error](#unit-tests-are-failing-with-rendererregister-error)
   - [I have a request for a feature or a new component. How can I get it?](#i-have-a-request-for-a-feature-or-a-new-component-how-can-i-get-it)
 
 <br/>
@@ -158,6 +159,10 @@ For e2e tests we're using `protractor`, which uses `jasmine` under the hood. You
 turn to `fdescribe`.
 
 ⚠️ **Make sure to not push focused tests. Your build will fail when you do.**
+
+### Unit tests are failing with `renderer.register` error
+
+This can be a sign of invalid Jest cache that is still in use. Simply `jest --clearCache` to resolve.
 
 ### I have a request for a feature or a new component. How can I get it?
 
