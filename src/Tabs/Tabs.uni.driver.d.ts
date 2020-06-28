@@ -6,7 +6,7 @@ export interface TabsUniDriver extends BaseUniDriver {
   clickTabAt: (index: number) => Promise<void>;
   getActiveTabIndex: () => Promise<number>;
   isDefaultType: () => Promise<boolean>;
-  getItemsContainerClassList: () => Promise<DOMTokenList>;
+  getItemsContainerType: () => Promise<string>;
   getDataHook: () => Promise<string>;
   getItemsWidth: () => Promise<Set<string>>;
   hasDivider: () => Promise<boolean>;

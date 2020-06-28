@@ -6,7 +6,7 @@ export interface TabsDriver extends BaseDriver {
   clickTabAt: (index: number) => void;
   getActiveTabIndex: () => number;
   isDefaultType: () => boolean;
-  getItemsContainerClassList: () => DOMTokenList;
+  getItemsContainerType: () => string;
   getDataHook: () => string;
   getItemsWidth: () => Set<string>;
   hasDivider: () => boolean;
