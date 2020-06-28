@@ -1,6 +1,5 @@
 import React from 'react';
 import { storySettings } from './storySettings';
-import { Category } from '../../../stories/storiesHierarchy';
 
 import NoBorderInput from '..';
 import {
@@ -22,8 +21,8 @@ import * as examples from './examples';
 const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
-  category: Category.COMPONENTS,
-  storyName: 'NoBorderInput',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
 
   component: NoBorderInput,
   componentPath: '..',

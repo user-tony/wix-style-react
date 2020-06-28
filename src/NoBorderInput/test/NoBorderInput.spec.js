@@ -1,73 +1,79 @@
 import React from 'react';
 import noBorderInputDriverFactory from '../NoBorderInput.driver';
-import { createRendererWithDriver, cleanup } from '../../../test/utils/unit';
+import noBorderInputUniDriverFactory from '../NoBorderInput.uni.driver';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../../test/utils/unit';
 import NoBorderInput from '../NoBorderInput';
 
-const renderNoBorderInputWithProps = (props = {}) => (
-  <NoBorderInput {...props} />
-);
-
 describe('NoBorderInput', () => {
-  const render = createRendererWithDriver(noBorderInputDriverFactory);
-  const createDriver = jsx => render(jsx).driver;
-
-  afterEach(() => {
-    cleanup();
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(noBorderInputDriverFactory));
   });
 
-  it('should verify component exists', () => {
-    const driver = createDriver(renderNoBorderInputWithProps());
-    expect(driver.exists()).toBe(true);
+  describe('[async]', () => {
+    runTests(createRendererWithUniDriver(noBorderInputUniDriverFactory));
   });
 
-  it('should render label', () => {
-    const someLabel = 'bob';
-    const driver = createDriver(
-      renderNoBorderInputWithProps({ label: someLabel }),
-    );
-    expect(driver.getLabel()).toEqual(someLabel);
-  });
+  function runTests(render) {
+    afterEach(cleanup);
 
-  it('should not have status', () => {
-    const driver = createDriver(renderNoBorderInputWithProps({}));
-    expect(driver.hasStatus('error')).toBe(false);
-  });
+    it('should verify component exists', async () => {
+      const { driver } = render(<NoBorderInput />);
+      expect(await driver.exists()).toBe(true);
+    });
 
-  it('should render the status message', () => {
-    const someStatusMessage = 'Error!';
-    const driver = createDriver(
-      renderNoBorderInputWithProps({
+    it('should render label', async () => {
+      const props = {
+        label: 'bob',
+      };
+
+      const { driver } = render(<NoBorderInput {...props} />);
+      expect(await driver.getLabel()).toEqual(props.label);
+    });
+
+    it('should not have status', async () => {
+      const { driver } = render(<NoBorderInput />);
+      expect(await driver.hasStatus('error')).toBe(false);
+    });
+
+    it('should render the status message', async () => {
+      const props = {
         status: NoBorderInput.StatusError,
-        statusMessage: someStatusMessage,
-      }),
-    );
-    expect(driver.hasStatus('error')).toBe(true);
-    expect(driver.getStatusMessage()).toEqual(someStatusMessage);
-  });
+        statusMessage: 'Error!',
+      };
+      const { driver } = render(<NoBorderInput {...props} />);
+      expect(await driver.hasStatus('error')).toBe(true);
+      expect(await driver.getStatusMessage()).toEqual(props.statusMessage);
+    });
 
-  it('should auto focus', () => {
-    const driver = createDriver(
-      renderNoBorderInputWithProps({ autoFocus: true }),
-    );
-    expect(driver.isFocus()).toBe(true);
-  });
+    it('should auto focus', async () => {
+      const props = { autoFocus: true };
+      const { driver } = render(<NoBorderInput {...props} />);
+      expect(await driver.isFocus()).toBe(props.autoFocus);
+    });
 
-  it('should invoke onFocus', () => {
-    const onFocus = jest.fn();
-    const driver = createDriver(renderNoBorderInputWithProps({ onFocus }));
+    it('should invoke onFocus', async () => {
+      const props = {
+        onFocus: jest.fn(),
+      };
+      const { driver } = render(<NoBorderInput {...props} />);
 
-    driver.focus();
+      await driver.focus();
+      expect(props.onFocus).toHaveBeenCalled();
+    });
 
-    expect(onFocus).toHaveBeenCalled();
-  });
+    it('should invoke onBlur', async () => {
+      const props = {
+        onBlur: jest.fn(),
+      };
+      const { driver } = render(<NoBorderInput {...props} />);
+      await driver.focus();
+      await driver.blur();
 
-  it('should invoke onBlur', () => {
-    const onBlur = jest.fn();
-    const driver = createDriver(renderNoBorderInputWithProps({ onBlur }));
-
-    driver.focus();
-    driver.blur();
-
-    expect(onBlur).toHaveBeenCalled();
-  });
+      expect(props.onBlur).toHaveBeenCalled();
+    });
+  }
 });

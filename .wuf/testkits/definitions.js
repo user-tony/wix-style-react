@@ -318,10 +318,6 @@ module.exports = {
   NoBorderInput: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    puppeteerLegacyTestkit: true,
-    puppeteerTypeImportName: 'NoBorderInputPuppeteerDriver',
-    noUnidriver: true,
   },
 
   Modal: {
