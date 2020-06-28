@@ -20,6 +20,7 @@ Types of changes:
 
 ### Changed
 - `<Autocomplete/>` emptyMessage proptype [#5609](https://github.com/wix/wix-style-react/pull/5609)
+- `<InputArea/>` - Cancel debounced function on unmount and some other tweaks to reduce noise in tests [#5610](https://github.com/wix/wix-style-react/pull/5610)
 
 ## 8.24.0 - 2020-06-25
 
