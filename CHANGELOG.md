@@ -17,8 +17,11 @@ Types of changes:
 
 ## Next
 
-## Changed- 
+### Changed
 - `<Tabs/>`- migrating to stylable [#5557](https://github.com/wix/wix-style-react/pull/5557)
+
+### Fixed
+- `<Carousel/>`- adding paths to scss file [#5616](https://github.com/wix/wix-style-react/pull/5616)
 
 ## 8.24.0 - 2020-06-24
 
