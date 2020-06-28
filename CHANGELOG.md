@@ -18,6 +18,9 @@ Types of changes:
 ### Added
 - `<NoBorderInput/>` - adding unidriver [#5612](https://github.com/wix/wix-style-react/pull/5612)
 
+### Changed
+- `<Autocomplete/>` emptyMessage proptype [#5609](https://github.com/wix/wix-style-react/pull/5609)
+
 ## 8.24.0 - 2020-06-25
 
 ### Changed
