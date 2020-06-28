@@ -40,8 +40,14 @@ class InputArea extends React.PureComponent {
       this._calculateComputedRows();
     }
     if (this.props.hasCounter && prevProps.value !== this.props.value) {
-      this.setState({ counter: (this.props.value || this.props.defaultValue || '').length })
+      this.setState({
+        counter: (this.props.value || this.props.defaultValue || '').length,
+      });
     }
+  }
+
+  componentWillUnmount() {
+    this._updateComputedStyle.cancel();
   }
 
   render() {
@@ -237,9 +243,18 @@ class InputArea extends React.PureComponent {
       computedStyle.getPropertyValue('line-height'),
       10,
     );
-    const lineHeightValue = isNaN(lineHeight)
-      ? this._getDefaultLineHeight() * fontSize
-      : lineHeight;
+    let lineHeightValue;
+
+    if (isNaN(lineHeight)) {
+      if (isNaN(fontSize)) {
+        return InputArea.MIN_ROWS;
+      }
+
+      lineHeightValue = this._getDefaultLineHeight() * fontSize;
+    } else {
+      lineHeightValue = lineHeight;
+    }
+
     return Math.floor(this.textArea.scrollHeight / lineHeightValue);
   };
 
