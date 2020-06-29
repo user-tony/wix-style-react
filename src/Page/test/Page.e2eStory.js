@@ -4,12 +4,12 @@ import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 
-import Page from 'wix-style-react/Page';
-import Card from 'wix-style-react/Card';
-import Box from 'wix-style-react/Box';
-import Notification from 'wix-style-react/Notification';
-import PopoverMenu from 'wix-style-react/PopoverMenu';
-import IconButton from 'wix-style-react/IconButton';
+import Page from '..';
+import Box from '../../Box';
+import Notification from '../../Notification';
+import PopoverMenu from '../../PopoverMenu';
+import IconButton from '../../IconButton';
+import Card from '../../Card';
 import More from 'wix-ui-icons-common/More';
 
 import * as s from '../docs/PageTestStories.scss';
