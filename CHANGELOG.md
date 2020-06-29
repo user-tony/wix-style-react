@@ -22,7 +22,7 @@ Types of changes:
 - `<Autocomplete/>` emptyMessage proptype [#5609](https://github.com/wix/wix-style-react/pull/5609)
 - `<InputArea/>` - Cancel debounced function on unmount and some other tweaks to reduce noise in tests [#5610](https://github.com/wix/wix-style-react/pull/5610)
 - `<Breadcrumbs/>`- stylable migration [#5592](https://github.com/wix/wix-style-react/pull/5592)
-
+- `<Notificaiton/>`- implementing `<Notification/>` with Animator to fix the component animation issue[#5603](https://github.com/wix/wix-style-react/pull/5603)
 
 ## 8.24.0 - 2020-06-25
 
