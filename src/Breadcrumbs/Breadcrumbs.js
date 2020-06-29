@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Breadcrumbs.scss';
-import classnames from 'classnames';
 import Text from '../Text';
 import BreadcrumbsChevronRight from 'wix-ui-icons-common/system/BreadcrumbsChevronRight';
-import { DATA_HOOKS, DATA_ACTIVE, DATA_POSITION_ID } from './constnats';
+import { DATA_HOOKS, DATA_ATTRIBUTES, THEMES } from './constnats';
 import { FontUpgradeContext } from '../FontUpgrade/context';
+import styles from './Breadcrumbs.st.css';
 
 /**
  * a way to visualise current navigation path
@@ -49,7 +48,8 @@ class Breadcrumbs extends React.PureComponent {
     onClick: () => {},
   };
 
-  createItem({ item, isActive, onClick, className, id }) {
+  _createItem({ item, isActive, onClick, fullWidth, id }) {
+    const active = isActive;
     const breadcrumbText = value => {
       const { theme, size } = this.props;
       const isSmallSize = size === 'medium';
@@ -60,7 +60,7 @@ class Breadcrumbs extends React.PureComponent {
             <Text
               dataHook={DATA_HOOKS.BREADCRUMBS_ITEM}
               weight={isActive ? 'normal' : 'thin'}
-              light={theme === 'onDarkBackground'}
+              light={theme === THEMES.onDarkBackground}
               size={isSmallSize ? 'small' : 'medium'}
               secondary={context.active && !isActive}
             >
@@ -71,36 +71,46 @@ class Breadcrumbs extends React.PureComponent {
       );
     };
 
-    const defaultBreadcrumb = id => (
-      <button
-        type="button"
-        data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
-        className={classnames(styles.item, styles.button, className, {
-          [styles.disabled]: item.disabled,
-          [styles.active]: isActive,
-        })}
-        onClick={onClick}
-        children={breadcrumbText(item.value)}
-      />
-    );
+    const defaultBreadcrumb = id => {
+      const { disabled } = item;
+      const button = true;
+      return (
+        <button
+          type="button"
+          data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
+          {...styles(
+            styles.item,
+            { button, disabled, active, fullWidth },
+            this.props,
+          )}
+          onClick={onClick}
+          children={breadcrumbText(item.value)}
+        />
+      );
+    };
 
-    const linkBreadcrumb = id => (
-      <a
-        href={item.link}
-        data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
-        className={classnames(styles.item, styles.link, className, {
-          [styles.disabled]: item.disabled,
-          [styles.active]: isActive,
-        })}
-        onClick={onClick}
-        children={breadcrumbText(item.value)}
-      />
-    );
+    const linkBreadcrumb = id => {
+      const { disabled } = item;
+      const link = true;
+      return (
+        <a
+          href={item.link}
+          data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
+          {...styles(
+            styles.item,
+            { link, disabled, active, fullWidth },
+            this.props,
+          )}
+          onClick={onClick}
+          children={breadcrumbText(item.value)}
+        />
+      );
+    };
 
     const customBreadcrumb = id => (
       <span
         data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
-        className={classnames(styles.item, className)}
+        {...styles(styles.item, { fullWidth }, this.props)}
         onClick={onClick}
         children={breadcrumbText(item.customElement)}
       />
@@ -124,41 +134,43 @@ class Breadcrumbs extends React.PureComponent {
   _getItemWrapperDataAttributes = ({ position, item }) => {
     return {
       'data-hook': `${DATA_HOOKS.ITEM_WRAPPER}-${position}`,
-      [DATA_ACTIVE]: this._getIsActive(item),
-      [DATA_POSITION_ID]: position,
+      [DATA_ATTRIBUTES.DATA_ACTIVE]: this._getIsActive(item),
+      [DATA_ATTRIBUTES.DATA_POSITION_ID]: position,
     };
   };
 
   render() {
     const { items, size, theme, dataHook } = this.props;
+    const fullWidth = items.length === 1;
 
     return (
       <div
         data-hook={dataHook}
-        className={classnames(styles[size], styles[theme])}
+        {...styles('root', { size, theme }, this.props)}
+        data-size={size}
+        data-theme={theme}
       >
-        {items.map((item, i, allItems) => (
-          <div
-            key={item.id}
-            className={classnames(styles.itemContainer, {
-              [styles.active]: this._getIsActive(item),
-            })}
-            {...this._getItemWrapperDataAttributes({ position: i, item })}
-          >
-            {this.createItem({
-              id: i,
-              item,
-              isActive: this._getIsActive(item),
-              onClick: this._handleItemClick(item),
-              className:
-                i === 0 && allItems.length === 1 ? styles.itemFullWidth : '',
-            })}
-
-            {allItems[i + 1] && (
-              <BreadcrumbsChevronRight className={styles.divider} />
-            )}
-          </div>
-        ))}
+        {items.map((item, i, allItems) => {
+          const active = this._getIsActive(item);
+          return (
+            <div
+              key={item.id}
+              {...styles(styles.itemContainer, { active })}
+              {...this._getItemWrapperDataAttributes({ position: i, item })}
+            >
+              {this._createItem({
+                id: i,
+                item,
+                isActive: active,
+                onClick: this._handleItemClick(item),
+                fullWidth,
+              })}
+              {allItems[i + 1] && (
+                <BreadcrumbsChevronRight className={styles.divider} />
+              )}
+            </div>
+          );
+        })}
       </div>
     );
   }

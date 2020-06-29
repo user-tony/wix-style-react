@@ -6,7 +6,7 @@ import {
 } from '../../../test/utils/react';
 
 import breadcrumbsDriverFactory from '../Breadcrumbs.driver';
-import breadcrumbsPrivateDriverFactory from '../Breadcrumbs.private.driver';
+import breadcrumbsPrivateDriverFactory from './Breadcrumbs.private.driver';
 import { breadcrumbsUniDriverFactory } from '../Breadcrumbs.uni.driver';
 
 import Breadcrumbs from '../Breadcrumbs';
@@ -172,13 +172,17 @@ describe('Breadcrumbs', () => {
     });
   }
 
-  describe('given only one item', () => {
-    it('should take full width', async () => {
+  describe('fullwidth', () => {
+    it('should be true when given only one item', async () => {
       const render = createRendererWithDriver(breadcrumbsPrivateDriverFactory);
-      const { driver } = render(
-        <Breadcrumbs {...{ items: [{ id: 0, value: 'Option 1' }] }} />,
-      );
-      expect(await driver.isItemFullWidthAt(0)).toBe(true);
+      const items = [{ id: 0, value: 'Option 1' }];
+      const { driver } = render(<Breadcrumbs {...{ items }} />);
+      expect(await driver.isItemFullWidth()).toBe(true);
+    });
+    it('should be false when given multiple items', async () => {
+      const render = createRendererWithDriver(breadcrumbsPrivateDriverFactory);
+      const { driver } = render(<Breadcrumbs {...{ items }} />);
+      expect(await driver.isItemFullWidth()).toBe(false);
     });
   });
 });

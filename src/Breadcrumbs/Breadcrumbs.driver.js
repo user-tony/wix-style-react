@@ -1,5 +1,5 @@
 import ReactTestUtils from 'react-dom/test-utils';
-import { isClassExists } from '../../test/utils';
+import { THEMES, SIZES, DATA_HOOKS, DATA_ATTRIBUTES } from './constnats';
 
 const breadcrumbsDriverFactory = ({ element }) => {
   const optionAt = position => element.childNodes[position];
@@ -16,12 +16,16 @@ const breadcrumbsDriverFactory = ({ element }) => {
     /** click on breadcrumb item at position */
     clickBreadcrumbAt: position =>
       ReactTestUtils.Simulate.click(
-        optionAt(position).querySelector('[data-hook^="breadcrumb-clickable"]'),
+        optionAt(position).querySelector(
+          `[data-hook^="${DATA_HOOKS.BREADCRUMB_CLICKABLE}"]`,
+        ),
       ),
 
     /** return the active breadcrumb item position or return null if no active item exists */
     getActiveItemId: () => {
-      const activeItem = element.querySelector('.active');
+      const activeItem = element.querySelector(
+        `[${DATA_ATTRIBUTES.DATA_ACTIVE}="true"]`,
+      );
 
       if (!activeItem) {
         return null;
@@ -31,24 +35,33 @@ const breadcrumbsDriverFactory = ({ element }) => {
     },
 
     /** fulfilled if breadcrumbs component is large */
-    isLarge: () => isClassExists(element, 'large'),
+    isLarge: () =>
+      element.getAttribute(DATA_ATTRIBUTES.DATA_SIZE) === SIZES.large,
 
     /** fulfilled if breadcrumbs component is medium */
-    isMedium: () => isClassExists(element, 'medium'),
+    isMedium: () =>
+      element.getAttribute(DATA_ATTRIBUTES.DATA_SIZE) === SIZES.medium,
 
     /** fulfilled if breadcrumbs component is on white background */
-    isOnWhiteBackground: () => isClassExists(element, 'onWhiteBackground'),
+    isOnWhiteBackground: () =>
+      element.getAttribute(DATA_ATTRIBUTES.DATA_THEME) ===
+      THEMES.onWhiteBackground,
 
     /** fulfilled if breadcrumbs component is on gray background */
-    isOnGrayBackground: () => isClassExists(element, 'onGrayBackground'),
+    isOnGrayBackground: () =>
+      element.getAttribute(DATA_ATTRIBUTES.DATA_THEME) ===
+      THEMES.onGrayBackground,
 
     /** fulfilled if breadcrumbs component is on dark background */
-    isOnDarkBackground: () => isClassExists(element, 'onDarkBackground'),
+    isOnDarkBackground: () =>
+      element.getAttribute(DATA_ATTRIBUTES.DATA_THEME) ===
+      THEMES.onDarkBackground,
 
     /** returns breadcrumbs component classes */
     getLabelClassList: position =>
-      optionAt(position).querySelector('[data-hook="breadcrumbs-item"]')
-        .className,
+      optionAt(position).querySelector(
+        `[data-hook="${DATA_HOOKS.BREADCRUMBS_ITEM}"]`,
+      ).className,
 
     /** returns true if the item is a link */
     isActiveLinkAt: index => !!optionAt(index).querySelector('a'),

@@ -1,5 +1,5 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
-import { DATA_HOOKS, DATA_ACTIVE } from './constnats';
+import { DATA_HOOKS, DATA_ATTRIBUTES, SIZES, THEMES } from './constnats';
 
 export const breadcrumbsUniDriverFactory = base => {
   const optionAt = async position =>
@@ -23,26 +23,36 @@ export const breadcrumbsUniDriverFactory = base => {
 
     /** return the active breadcrumb item position or return null if no active item exists */
     getActiveItemId: async () => {
-      const activeItem = await base.$$(`[${DATA_ACTIVE}="true"]`);
+      const activeItem = await base.$$(
+        `[${DATA_ATTRIBUTES.DATA_ACTIVE}="true"]`,
+      );
       return (await activeItem.count()) === 1
-        ? parseInt(await activeItem.get(0).attr('data-position-id'))
+        ? parseInt(
+            await activeItem.get(0).attr(DATA_ATTRIBUTES.DATA_POSITION_ID),
+          )
         : null;
     },
 
     /** fulfilled if breadcrumbs component is large */
-    isLarge: async () => base.hasClass('large'),
+    isLarge: async () =>
+      (await base.attr(DATA_ATTRIBUTES.DATA_SIZE)) === SIZES.large,
 
     /** fulfilled if breadcrumbs component is medium */
-    isMedium: async () => base.hasClass('medium'),
+    isMedium: async () =>
+      (await base.attr(DATA_ATTRIBUTES.DATA_SIZE)) === SIZES.medium,
 
     /** fulfilled if breadcrumbs component is on white background */
-    isOnWhiteBackground: async () => base.hasClass('onWhiteBackground'),
+    isOnWhiteBackground: async () =>
+      (await base.attr(DATA_ATTRIBUTES.DATA_THEME)) ===
+      THEMES.onWhiteBackground,
 
     /** fulfilled if breadcrumbs component is on gray background */
-    isOnGrayBackground: async () => base.hasClass('onGrayBackground'),
+    isOnGrayBackground: async () =>
+      (await base.attr(DATA_ATTRIBUTES.DATA_THEME)) === THEMES.onGrayBackground,
 
     /** fulfilled if breadcrumbs component is on dark background */
-    isOnDarkBackground: async () => base.hasClass('onDarkBackground'),
+    isOnDarkBackground: async () =>
+      (await base.attr(DATA_ATTRIBUTES.DATA_THEME)) === THEMES.onDarkBackground,
 
     /** returns breadcrumbs component classes */
     getLabelClassList: async position => {

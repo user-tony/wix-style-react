@@ -15,5 +15,9 @@ export const DATA_HOOKS = {
   BREADCRUMBS_ITEM: 'breadcrumbs-item',
 };
 
-export const DATA_ACTIVE = 'data-active';
-export const DATA_POSITION_ID = 'data-position-id';
+export const DATA_ATTRIBUTES = {
+  DATA_ACTIVE: 'data-active',
+  DATA_POSITION_ID: 'data-position-id',
+  DATA_SIZE: 'data-size',
+  DATA_THEME: 'data-theme',
+};

@@ -467,7 +467,6 @@ module.exports = {
   Breadcrumbs: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
   },
 
   DropdownLayout: {
