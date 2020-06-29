@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 
 import TimeTable from '..';
-import {timeTableTestkitFactory} from '../../../testkit';
-import {timeTableTestkitFactory as timeTableEnzymeTestkitFactory} from '../../../testkit/enzyme';
+import { timeTableTestkitFactory } from '../../../testkit';
+import { timeTableTestkitFactory as timeTableEnzymeTestkitFactory } from '../../../testkit/enzyme';
 
 async function testkits() {
   const vanilla = timeTableTestkitFactory({
     dataHook: 'test',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   let number: number;
@@ -32,7 +32,7 @@ async function testkits() {
 
   const enzyme = timeTableEnzymeTestkitFactory({
     dataHook: 'test',
-    wrapper: mount(<div />)
+    wrapper: mount(<div />),
   });
 
   await enzyme.exists();
@@ -79,21 +79,27 @@ function TimeTableWithAllProps() {
               content: <div />,
             },
             {
-              content: ({ Item, disabled, draggable }) =>
-                <Item disabled={disabled} draggable={draggable} />,
-            }
+              content: ({ Item, disabled, draggable }) => (
+                <Item disabled={disabled} draggable={draggable} />
+              ),
+            },
           ],
         },
         {
           title: 'title',
           subtitle: 'subtitle',
           items: [],
-        }
+        },
       ]}
       onAdd={columns => undefined}
       onChange={(
         columns,
-        { addedToColumnIndex, removedFromColumnIndex, addedItemIndex, removedItemIndex }
+        {
+          addedToColumnIndex,
+          removedFromColumnIndex,
+          addedItemIndex,
+          removedItemIndex,
+        },
       ) => undefined}
     />
   );

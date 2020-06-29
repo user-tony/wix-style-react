@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 
 import Image from '..';
-import {imageTestkitFactory} from '../../../testkit';
-import {imageTestkitFactory as imageEnzymeTestkitFactory} from '../../../testkit/enzyme';
+import { imageTestkitFactory } from '../../../testkit';
+import { imageTestkitFactory as imageEnzymeTestkitFactory } from '../../../testkit/enzyme';
 
 async function testkits() {
   const vanilla = imageTestkitFactory({
     dataHook: 'test',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   await vanilla.exists();
@@ -17,7 +17,7 @@ async function testkits() {
 
   const enzyme = imageEnzymeTestkitFactory({
     dataHook: 'test',
-    wrapper: mount(<div />)
+    wrapper: mount(<div />),
   });
 
   await enzyme.exists();

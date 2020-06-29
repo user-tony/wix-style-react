@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {DropdownLayoutValueOption} from "../DropdownLayout";
-import {InputWithOptionsProps} from "../InputWithOptions";
+import { DropdownLayoutValueOption } from '../DropdownLayout';
+import { InputWithOptionsProps } from '../InputWithOptions';
 
 export interface SearchProps extends InputWithOptionsProps {
   expandable?: boolean;

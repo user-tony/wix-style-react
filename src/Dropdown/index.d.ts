@@ -1,5 +1,9 @@
-import {DropdownLayoutProps,} from '../DropdownLayout';
-import InputWithOptions, {InputWithOptionsProps, ManualInputFnSignature, OnSelectFnSignature,} from '../InputWithOptions';
+import { DropdownLayoutProps } from '../DropdownLayout';
+import InputWithOptions, {
+  InputWithOptionsProps,
+  ManualInputFnSignature,
+  OnSelectFnSignature,
+} from '../InputWithOptions';
 
 export interface DropdownPropsControlled extends InputWithOptionsProps {
   selectedId?: DropdownLayoutProps['selectedId'];

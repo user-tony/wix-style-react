@@ -6,7 +6,6 @@ export type ListItemSectionTypes =
   | 'title'
   | 'subheader';
 
-
 export interface ListItemSectionProps {
   dataHook?: string;
   className?: string;
@@ -20,16 +19,16 @@ export interface ListItemSectionProps {
 declare const ListItemSection: React.ComponentClass<ListItemSectionProps>;
 
 export const listItemSectionBuilder: (data: {
-  id: string | number,
-  className?: string,
-  type?: ListItemSectionTypes,
-  title?: string,
-  suffix?: React.ReactNode,
-  ellipsis?: boolean,
+  id: string | number;
+  className?: string;
+  type?: ListItemSectionTypes;
+  title?: string;
+  suffix?: React.ReactNode;
+  ellipsis?: boolean;
 }) => {
-  id: string | number,
-  overrideStyle: true,
-  value: (props?: Partial<ListItemSectionProps>) => React.ReactNode
+  id: string | number;
+  overrideStyle: true;
+  value: (props?: Partial<ListItemSectionProps>) => React.ReactNode;
 };
 
 export default ListItemSection;

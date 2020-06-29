@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ButtonWithAsProp} from '../Button';
+import { ButtonWithAsProp } from '../Button';
 
 export type FillPreviewProps = ButtonWithAsProp<{
   fill?: React.ReactNode;

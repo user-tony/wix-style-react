@@ -1,11 +1,10 @@
 import * as React from 'react';
-import {InputProps} from '../../Input';
-import {LanguageType} from '../../CalendarPanel';
+import { InputProps } from '../../Input';
+import { LanguageType } from '../../CalendarPanel';
 
-import {OmitPolyfill} from '../../common';
+import { OmitPolyfill } from '../../common';
 
-export interface DateInputProps
-  extends OmitPolyfill<InputProps, 'value'> {
+export interface DateInputProps extends OmitPolyfill<InputProps, 'value'> {
   dataHook?: string;
   value?: object | string | number;
   locale?: LanguageType;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ButtonWithAsProp} from '../Button';
+import { ButtonWithAsProp } from '../Button';
 
 export type CloseButtonProps = ButtonWithAsProp<{
   className?: string;

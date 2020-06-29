@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 import Avatar from '..';
-import {avatarTestkitFactory} from '../../../testkit';
-import {avatarTestkitFactory as avatarEnzymeTestkitFactory} from '../../../testkit/enzyme';
+import { avatarTestkitFactory } from '../../../testkit';
+import { avatarTestkitFactory as avatarEnzymeTestkitFactory } from '../../../testkit/enzyme';
 
 async function testkits() {
   const vanilla = avatarTestkitFactory({
     dataHook: 'hi',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   await vanilla.exists();
@@ -15,7 +15,7 @@ async function testkits() {
 
   const enzyme = avatarEnzymeTestkitFactory({
     dataHook: 'shbem',
-    wrapper: mount(<div />)
+    wrapper: mount(<div />),
   });
 }
 
@@ -32,7 +32,7 @@ function AvatarWithAllProps() {
       ariaLabel="asasas"
       color="A1"
       dataHook="sadasd"
-      imgProps={{alt: 'asd'}}
+      imgProps={{ alt: 'asd' }}
       placeholder={<div />}
       text="some text"
       title="some title"

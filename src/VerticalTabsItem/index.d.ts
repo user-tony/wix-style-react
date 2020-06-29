@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IconElement} from '../common';
+import { IconElement } from '../common';
 
 export interface VerticalTabsItemProps {
   type?: VerticalTabsItemType;

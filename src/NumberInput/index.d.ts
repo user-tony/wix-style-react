@@ -1,11 +1,13 @@
 import * as React from 'react';
 
 import { OmitPolyfill } from '../common';
-import {InputProps} from '../Input';
+import { InputProps } from '../Input';
 
 export type NumberInputProps = OmitPolyfill<InputProps, 'onChange'> & {
   strict?: boolean;
   onChange?: (value: number | null) => void;
-}
+};
 
-export default class NumberInput extends React.PureComponent<NumberInputProps> {}
+export default class NumberInput extends React.PureComponent<
+  NumberInputProps
+> {}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {InputStatusError, InputProps} from '../Input';
+import { InputStatusError, InputProps } from '../Input';
 
 export interface NoBorderInputProps extends InputProps {
   label?: string;

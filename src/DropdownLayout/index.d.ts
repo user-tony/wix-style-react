@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {WixComponentClickOutsideEventHandler} from '../common';
-import WixComponent, {WixComponentProps} from '../BaseComponents/WixComponent';
+import { WixComponentClickOutsideEventHandler } from '../common';
+import WixComponent, {
+  WixComponentProps,
+} from '../BaseComponents/WixComponent';
 
 export interface DropdownLayoutProps extends WixComponentProps {
   dropDirectionUp?: boolean;

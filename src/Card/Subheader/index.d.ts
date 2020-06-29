@@ -2,9 +2,9 @@ import * as React from 'react';
 
 export interface SubheaderProps {
   title: React.ReactNode;
-  suffix?: React.ReactNode,
-  dataHook?: string,
-  skin?: SubheaderSkin,
+  suffix?: React.ReactNode;
+  dataHook?: string;
+  skin?: SubheaderSkin;
 }
 
 export type SubheaderSkin = 'standard' | 'neutral';

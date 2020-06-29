@@ -1,11 +1,11 @@
-import {PopoverProps} from "../../Popover";
+import { PopoverProps } from '../../Popover';
 
 export interface EllipsisHOCProps {
   ellipsis?: boolean;
-  appendTo?: PopoverProps["appendTo"];
+  appendTo?: PopoverProps['appendTo'];
   flip?: boolean;
   fixed?: boolean;
-  placement?: PopoverProps["placement"];
+  placement?: PopoverProps['placement'];
   timeout?: number;
   maxWidth?: string | number;
   zIndex?: number;

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {OmitPolyfill} from '../common';
+import { OmitPolyfill } from '../common';
 
-export interface BoxProps extends OmitPolyfill<React.CSSProperties, 'direction'> {
+export interface BoxProps
+  extends OmitPolyfill<React.CSSProperties, 'direction'> {
   inline?: boolean;
   className?: string;
   direction?: BoxDirection;

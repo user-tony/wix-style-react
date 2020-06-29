@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import { mount } from 'enzyme';
 
 import InfoIcon from '..';
-import {infoIconTestkitFactory} from '../../../testkit';
-import {infoIconTestkitFactory as infoIconEnzymeTestkitFactory} from '../../../testkit/enzyme';
+import { infoIconTestkitFactory } from '../../../testkit';
+import { infoIconTestkitFactory as infoIconEnzymeTestkitFactory } from '../../../testkit/enzyme';
 
 async function testkits() {
   const vanilla = infoIconTestkitFactory({
     dataHook: 'test',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   await vanilla.exists();
@@ -20,7 +20,7 @@ async function testkits() {
 
   const enzyme = infoIconEnzymeTestkitFactory({
     dataHook: 'test',
-    wrapper: mount(<div />)
+    wrapper: mount(<div />),
   });
 
   await enzyme.exists();

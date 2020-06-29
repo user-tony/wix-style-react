@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {OmitPolyfill} from '../common';
-import {IconElement} from '../common';
+import { OmitPolyfill, IconElement } from '../common';
+
 export interface SegmentedToggleProps {
   dataHook?: string;
   defaultSelected?: React.ReactNode;
@@ -8,11 +8,6 @@ export interface SegmentedToggleProps {
   onClick?: (event: React.SyntheticEvent, value: string) => void;
   disabled?: boolean;
   children: any[];
-}
-
-export default class SegmentedToggle extends React.Component<SegmentedToggleProps> {
-  static Button: typeof SegmentedToggleButton;
-  static Icon: typeof SegmentedToggleIcon;
 }
 
 export type SegmentedToggleButtonProps = OmitPolyfill<
@@ -46,3 +41,10 @@ export type SegmentedToggleIconProps = OmitPolyfill<
 export class SegmentedToggleIcon extends React.Component<
   SegmentedToggleIconProps
 > {}
+
+export default class SegmentedToggle extends React.Component<
+  SegmentedToggleProps
+> {
+  static Button: typeof SegmentedToggleButton;
+  static Icon: typeof SegmentedToggleIcon;
+}

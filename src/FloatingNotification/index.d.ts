@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {IconElement} from '../common';
-import {ButtonWithAsProp} from '../Button';
+import { IconElement } from '../common';
+import { ButtonWithAsProp } from '../Button';
 
 export interface FloatingNotificationProps {
   dataHook?: string;
