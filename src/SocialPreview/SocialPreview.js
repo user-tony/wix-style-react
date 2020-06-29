@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './SocialPreview.st.css';
-
 import Text from '../Text';
+import Box from '../Box';
 
 /**
  * A displayer for a social post
@@ -28,11 +28,10 @@ class SocialPreview extends React.Component {
     return (
       <div {...style('root', {}, this.props)} data-hook={this.props.dataHook}>
         {media}
-        <div className={style.container}>
+        <Box className={style.container} direction="vertical">
           <Text
             weight="normal"
             size="tiny"
-            light={false}
             dataHook="socialPreview-url"
             className={style.socialPreviewUrl}
             ellipsis
@@ -42,7 +41,6 @@ class SocialPreview extends React.Component {
           <Text
             weight="bold"
             size="small"
-            light={false}
             dataHook="socialPreview-title"
             className={style.socialPreviewTitle}
             ellipsis
@@ -52,14 +50,13 @@ class SocialPreview extends React.Component {
           <Text
             weight="thin"
             size="tiny"
-            light={false}
             dataHook="socialPreview-description"
             className={style.socialPreviewDescription}
             ellipsis
           >
             {description}
           </Text>
-        </div>
+        </Box>
       </div>
     );
   }

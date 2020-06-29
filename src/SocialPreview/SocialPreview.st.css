@@ -34,7 +34,6 @@
 }
 .socialPreviewTitle:size(small) {
   color: value(D10);
-  display: block;
 }
 
 .socialPreviewDescription {
@@ -43,5 +42,4 @@
 
 .socialPreviewDescription:size(tiny) {
   color: value(D20);
-  display: block;
 }

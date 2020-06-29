@@ -44,7 +44,6 @@
 
 .title:size(medium):weight(bold) {
   -st-mixin: text-tiny-bold;
-  display: block;
   font-size: 20px;
   line-height: 24px;
 }
@@ -54,7 +53,6 @@
 }
 
 .subtitle:size(tiny):weight(thin) {
-  display: block;
   margin-top: 3px;
   line-height: 18px;
 }
