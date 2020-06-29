@@ -50,6 +50,38 @@ const tests = [
     describe: 'Sizes',
     its: sizes.map(size => test(size, { size })),
   },
+  {
+    describe: 'Items',
+    its: [
+      {
+        it: 'single item',
+        props: { items: [{ id: 1, value: 'first item' }] },
+      },
+      {
+        it: 'multiple items',
+        props: { items },
+      },
+      {
+        it: 'customElement items',
+        props: {
+          items: items.map(item => ({
+            ...item,
+            customElement: (
+              <div
+                style={{ backgroundColor: 'red' }}
+              >{`${item.value} custom`}</div>
+            ),
+          })),
+        },
+      },
+      {
+        it: 'disabled items',
+        props: {
+          items: items.map(item => ({ ...item, disabled: true })),
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
