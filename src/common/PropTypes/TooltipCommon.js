@@ -1,19 +1,18 @@
-import Tooltip from '../../Tooltip/Tooltip';
+import Tooltip from '../../Tooltip';
 
 export const TooltipCommonProps = {
   appendTo: Tooltip.propTypes['appendTo'],
-  flip: Tooltip.propTypes['flip'],
-  fixed: Tooltip.propTypes['fixed'],
-  placement: Tooltip.propTypes['placement'],
-  timeout: Tooltip.propTypes['timeout'],
-  zIndex: Tooltip.propTypes['zIndex'],
-  moveArrowTo: Tooltip.propTypes['moveArrowTo'],
-  moveBy: Tooltip.propTypes['moveBy'],
+  disabled: Tooltip.propTypes['disabled'],
   enterDelay: Tooltip.propTypes['enterDelay'],
   exitDelay: Tooltip.propTypes['exitDelay'],
+  fixed: Tooltip.propTypes['fixed'],
+  flip: Tooltip.propTypes['flip'],
   maxWidth: Tooltip.propTypes['maxWidth'],
-  textAlign: Tooltip.propTypes['textAlign'],
-  disabled: Tooltip.propTypes['disabled'],
-  onShow: Tooltip.propTypes['onShow'],
+  moveArrowTo: Tooltip.propTypes['moveArrowTo'],
+  moveBy: Tooltip.propTypes['moveBy'],
   onHide: Tooltip.propTypes['onHide'],
+  onShow: Tooltip.propTypes['onShow'],
+  placement: Tooltip.propTypes['placement'],
+  textAlign: Tooltip.propTypes['textAlign'],
+  zIndex: Tooltip.propTypes['zIndex'],
 };

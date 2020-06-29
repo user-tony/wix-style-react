@@ -44,6 +44,13 @@ function TooltipContentWithAllProps() {
       placement="bottom-start"
       textAlign="start"
       zIndex={1999}
+      enterDelay={10}
+      exitDelay={10}
+      fixed
+      flip
+      moveArrowTo={1}
+      close={() => {}}
+      open={() => {}}
     />
   );
 }

@@ -103,7 +103,7 @@ class ListItemSection extends React.PureComponent {
           size="small"
           className={styles.title}
           ellipsis={ellipsis}
-          showDelay="300"
+          showDelay={300}
         >
           {title}
         </Text>

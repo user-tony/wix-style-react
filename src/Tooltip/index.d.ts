@@ -14,6 +14,7 @@ export interface TooltipProps {
   enterDelay?: number;
   exitDelay?: number;
   moveBy?: MoveByOffset;
+  moveArrowTo?: number;
   appendTo?: TooltipAppendTo;
   flip?: boolean;
   fixed?: boolean;
@@ -27,4 +28,4 @@ export interface TooltipProps {
   open?: () => void;
 }
 
-export default class Tooltip extends React.PureComponent<TooltipProps>{}
+export default class Tooltip extends React.PureComponent<TooltipProps> {}

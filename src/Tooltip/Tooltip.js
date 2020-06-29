@@ -28,6 +28,8 @@ class Tooltip extends React.PureComponent {
     exitDelay: PropTypes.number,
     /** moves tooltip content relative to the parent by x or y */
     moveBy: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
+    /** Moves arrow by amount */
+    moveArrowTo: PropTypes.number,
     /** tooltips content calculation relation to a dom element. Can be either:
      *  `'window', 'scrollParent', 'viewport', 'parent'`, `element` or
      * `function` based predicate i.e. (elm) =>
