@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Animator } from 'wix-animations';
 import CloseButton from '../CloseButton';
 import TextLabel from './TextLabel';
 import ActionButton from './ActionButton';
@@ -17,8 +17,8 @@ export const DEFAULT_AUTO_HIDE_TIMEOUT = 6000;
 export const DEFAULT_TIMEOUT = DEFAULT_AUTO_HIDE_TIMEOUT;
 
 const animationsTimeouts = {
-  enter: 500,
-  exit: 350,
+  enter: 300,
+  exit: 300,
 };
 
 const themeIcon = {
@@ -26,11 +26,6 @@ const themeIcon = {
   success: <StatusComplete className={styles.iconStyling} />,
   warning: <StatusWarning className={styles.iconStyling} />,
 };
-
-function FirstChild(props) {
-  const childrenArray = Children.toArray(props.children);
-  return childrenArray[0] || null;
-}
 
 function mapChildren(children) {
   const childrenArray = Children.toArray(children);
@@ -52,17 +47,34 @@ function mapChildren(children) {
   }, {});
 }
 
+const heightCalculation = element => {
+  const height = element.firstChild.offsetHeight;
+  element.style.height = `${height}px`;
+  return height;
+};
+
 class Notification extends React.PureComponent {
   closeTimeout;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      hideByCloseClick: false,
-      hideByTimer: false,
-    };
+  state = {
+    hideByCloseClick: false,
+    hideByTimer: false,
+  };
 
-    this._startCloseTimer(props);
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.show) {
+      this._bypassCloseFlags();
+      this._clearCloseTimeout();
+      this._startCloseTimer(nextProps);
+    }
+  }
+
+  componentDidMount() {
+    this._startCloseTimer(this.props);
+  }
+
+  componentWillUnmount() {
+    this._clearCloseTimeout();
   }
 
   _startCloseTimer({ autoHideTimeout }) {
@@ -106,78 +118,58 @@ class Notification extends React.PureComponent {
     });
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.show) {
-      this._bypassCloseFlags();
-      this._clearCloseTimeout();
-      this._startCloseTimer(nextProps);
-    }
-  }
-
-  componentWillUnmount() {
-    this._clearCloseTimeout();
-  }
-
   _shouldShowNotification() {
     return (
       this.props.show && !this.state.hideByCloseClick && !this.state.hideByTimer
     );
   }
 
-  _renderNotification() {
-    const { zIndex, children, theme } = this.props;
-    const childrenComponents = mapChildren(children);
-
-    return (
-      <CSSTransition
-        classNames={{
-          enter: styles.notificationAnimationEnter,
-          enterActive: styles.notificationAnimationEnterActive,
-          exit: styles.notificationAnimationExit,
-          exitActive: styles.notificationAnimationExitActive,
-        }}
-        timeout={animationsTimeouts}
-      >
-        <div
-          data-hook={dataHooks.notificationWrapper}
-          style={{ zIndex }}
-          className={styles.notification}
-          role="alert"
-          aria-labelledby="notification-label"
-          aria-live="polite"
-        >
-          {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
-
-          <div className={styles.labelWrapper}>
-            {childrenComponents.label}
-            {childrenComponents.ctaButton}
-          </div>
-
-          {childrenComponents.closeButton && (
-            <div
-              data-hook={dataHooks.notificationCloseButton}
-              className={styles.closeButton}
-              onClick={this._hideNotificationOnCloseClick}
-              children={childrenComponents.closeButton}
-            />
-          )}
-        </div>
-      </CSSTransition>
-    );
-  }
-
   render() {
-    const { dataHook, theme, type } = this.props;
+    const { dataHook, theme, type, zIndex, children } = this.props;
+    const childrenComponents = mapChildren(children);
+    const show = this._shouldShowNotification();
+
     return (
       <div
         {...styles('root', { theme, type })}
+        style={{ zIndex }}
         data-hook={dataHook}
         data-theme={theme}
         data-type={type}
       >
-        <TransitionGroup component={FirstChild}>
-          {this._shouldShowNotification() ? this._renderNotification() : null}
-        </TransitionGroup>
+        <Animator
+          show={show}
+          className={styles.animator}
+          childClassName={styles.animatorContent}
+          timing="medium"
+          height={heightCalculation}
+        >
+          <div className={styles.wrapper}>
+            <div
+              data-hook={dataHooks.notificationContent}
+              className={styles.notification}
+              role="alert"
+              aria-labelledby="notification-label"
+              aria-live="polite"
+            >
+              {themeIcon[theme] && <div>{themeIcon[theme]}</div>}
+
+              <div className={styles.labelWrapper}>
+                {childrenComponents.label}
+                {childrenComponents.ctaButton}
+              </div>
+
+              {childrenComponents.closeButton && (
+                <div
+                  data-hook={dataHooks.notificationCloseButton}
+                  className={styles.closeButton}
+                  onClick={this._hideNotificationOnCloseClick}
+                  children={childrenComponents.closeButton}
+                />
+              )}
+            </div>
+          </div>
+        </Animator>
       </div>
     );
   }
@@ -218,7 +210,7 @@ Notification.propTypes = {
   /** Can be either:
    * - `<Notification.TextLabel/>` (required)
    * - `<Notification.CloseButton/>`
-   * -`<Notification.ActionButton/>` */
+   * - `<Notification.ActionButton/>` */
   children: PropTypes.node,
 };
 

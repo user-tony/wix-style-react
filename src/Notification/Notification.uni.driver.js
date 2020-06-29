@@ -4,8 +4,8 @@ import { dataHooks, THEMES, TYPE_POSITIONS_MAP } from './constants';
 export const notificationUniDriverFactory = base => {
   const getElementByDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
 
-  const notificationWrapper = getElementByDataHook(
-    dataHooks.notificationWrapper,
+  const notificationContent = getElementByDataHook(
+    dataHooks.notificationContent,
   );
   const labelText = getElementByDataHook(dataHooks.notificationLabel);
   const actionButton = getElementByDataHook(dataHooks.notificationCtaButton);
@@ -16,7 +16,7 @@ export const notificationUniDriverFactory = base => {
 
   return {
     ...baseUniDriverFactory(base),
-    visible: () => notificationWrapper.exists(),
+    visible: () => notificationContent.exists(),
     hasTheme: async () => !!(await getTheme()),
     isStandardNotification: async () => (await getTheme()) === THEMES.standard,
     isErrorNotification: async () => (await getTheme()) === THEMES.error,
@@ -36,7 +36,7 @@ export const notificationUniDriverFactory = base => {
     clickOnCloseButton: () => closeButton.click(),
     clickOnActionButton: () => actionButton.click(),
     getZIndex: async () => {
-      const style = await notificationWrapper._prop('style');
+      const style = await base._prop('style');
       return Number(style['z-index']);
     },
   };
