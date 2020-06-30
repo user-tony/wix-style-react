@@ -13,23 +13,23 @@
 /*.appearDone {}*/
 
 .enter {
-  transform: scale(1);
+  transform: scale(1.5);
 }
 
 .enterActive {
-  transform: scale(1.5);
-  transition: transform 300ms;
-}
-
-/*.enterDone {}*/
-
-.exit {
-  transform: scale(1.5);
-}
-
-.exitActive {
   transform: scale(1);
   transition: transform 300ms;
 }
 
-/*.exitDone {}*/
+.enterDone {}
+
+.exit {
+  transform: scale(1);
+}
+
+.exitActive {
+  transform: scale(1.5);
+  transition: transform 300ms;
+}
+
+.exitDone {}

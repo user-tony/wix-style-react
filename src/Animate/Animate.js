@@ -16,7 +16,13 @@ class Animate extends PureComponent {
   };
 
   render() {
-    const { dataHook, triggerAnimation, children } = this.props;
+    const {
+      dataHook,
+      triggerAnimation,
+      children,
+      onEnter,
+      onExited,
+    } = this.props;
 
     return (
       <div
@@ -37,6 +43,8 @@ class Animate extends PureComponent {
             exitActive: styles.exitActive,
             // exitDone: styles.exitDone,
           }}
+          onEnter={onEnter}
+          onExited={onExited}
         >
           <div
             data-hook={dataHooks.animateContent}
@@ -61,6 +69,12 @@ Animate.propTypes = {
 
   /** Triggers the enter or exit states of the component. */
   triggerAnimation: PropTypes.bool,
+
+  /** A callback fired immediately after the 'enter' or 'appear' class is applied.*/
+  onEnter: PropTypes.func,
+
+  /** A callback fired immediately after the 'exit' class is applied.*/
+  onExited: PropTypes.func,
 };
 
 Animate.defaultProps = {};

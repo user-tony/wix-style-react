@@ -5,9 +5,13 @@ export const bounceExample = `() => {
 
     return (
         <Layout>
-            <Cell><Button onClick={() => setPlay(!play) }>Play</Button></Cell>
+            <Cell><Button onClick={() => setPlay(true) }>Play</Button></Cell>
             <Cell>
-                <Animate triggerAnimation={play} >
+                <Animate
+                onEnter={()=> setPlay(true)}
+                onEnter={()=> setPlay(false)}
+                triggerAnimation={play}
+                >
                     <FormField label="Field label">
                         <Input size="small" placeholder="Placeholder" />
                     </FormField>
