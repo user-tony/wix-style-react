@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.26.0 - 2020-06-30
 ### Added
 - `<NoBorderInput/>` - adding unidriver [#5612](https://github.com/wix/wix-style-react/pull/5612)
 - `<Modal/>` - Testkit - export getContent method [#5611](https://github.com/wix/wix-style-react/pull/5611)
@@ -26,7 +28,7 @@ Types of changes:
 - `<Notificaiton/>`- implementing `<Notification/>` with Animator to fix the component animation issue[#5603](https://github.com/wix/wix-style-react/pull/5603)
 - `<ScrollableContainer/>` - Adding support for passing data-attributes inside, they will be positioned on the root element the same as data-hook and className [#5605](https://github.com/wix/wix-style-react/pull/5605)
 
-## 8.24.0 - 2020-06-25
+## 8.25.0 - 2020-06-25
 
 ### Changed
 - `<Tabs/>`- migrating to stylable [#5557](https://github.com/wix/wix-style-react/pull/5557)
