@@ -10,6 +10,7 @@ export interface ModalUniDriver extends BaseUniDriver {
   closeButtonExists: () => Promise<boolean>;
   clickOnOverlay: () => Promise<void>;
   clickOnCloseButton: () => Promise<void>;
+  getContent: () => Promise<Element>;
   getContentStyle: () => Promise<any>;
   getContentLabel: () => Promise<string | null>;
   getZIndex: () => Promise<any>;
