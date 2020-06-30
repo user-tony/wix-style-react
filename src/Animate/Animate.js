@@ -60,7 +60,7 @@ Animate.propTypes = {
   children: PropTypes.node,
 
   /** Triggers the enter or exit states of the component. */
-  in: PropTypes.bool,
+  triggerAnimation: PropTypes.bool,
 };
 
 Animate.defaultProps = {};
