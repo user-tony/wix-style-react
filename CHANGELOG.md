@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<NoBorderInput/>` - adding unidriver [#5612](https://github.com/wix/wix-style-react/pull/5612)
+- `<Modal/>` - Testkit - export getContent method [#5611](https://github.com/wix/wix-style-react/pull/5611)
 
 ### Changed
 - `<Autocomplete/>` emptyMessage proptype [#5609](https://github.com/wix/wix-style-react/pull/5609)
