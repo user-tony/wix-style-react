@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Tooltip as CoreTooltip } from 'wix-ui-core/dist/src/components/tooltip';
-import Text from '../Text';
+import RawText from '../Text/RawText';
 import styles from './Tooltip.st.css';
 import { dataHooks, TIMEOUT } from './constants';
 import { FontUpgradeContext } from '../FontUpgrade/context';
@@ -45,7 +45,7 @@ class Tooltip extends React.PureComponent {
     /** whether to enable the fixed behaviour. This behaviour is used to keep the Tooltip at it's original placement even when it's being positioned outside the boundary. */
     fixed: PropTypes.bool,
     /** tooltip content container width in pixels */
-    maxWidth: PropTypes.number,
+    maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** callback on tooltips content show event */
     onShow: PropTypes.func,
     /** callback on tooltips content hide event */
@@ -90,14 +90,14 @@ class Tooltip extends React.PureComponent {
             <div style={{ textAlign }}>
               <FontUpgrade active={!!context.active}>
                 {typeof content === 'string' ? (
-                  <Text
+                  <RawText
                     dataHook={dataHooks.tooltipText}
                     size={textSize}
                     weight="normal"
                     light
                   >
                     {content}
-                  </Text>
+                  </RawText>
                 ) : (
                   content
                 )}

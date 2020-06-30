@@ -20,7 +20,7 @@ function TextWithAllProps() {
       skin="standard"
       tagName="marquee"
       weight="thin"
-      appendTo={document.createElement('div')}
+      appendTo="window"
       dataHook="hook"
       ellipsis
       fixed
@@ -32,6 +32,11 @@ function TextWithAllProps() {
       timeout={300}
       zIndex={1}
       showTooltip
+      exitDelay={3}
+      enterDelay={3}
+      disabled
+      moveArrowTo={2}
+      moveBy={{ x: 2, y: 3 }}
     />
   );
 }

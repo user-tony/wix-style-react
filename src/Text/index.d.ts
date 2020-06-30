@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { EllipsisHOCProps } from '../common/EllipsisHOC';
+import { EllipsisProps } from '../common/Ellipsis';
 import { OmitPolyfill } from '../common';
 
 export type TextWithAsProp<T> =
@@ -32,7 +32,7 @@ type TextAsComponentProps<T> = T & {
   [additionalProps: string]: any;
 };
 
-export interface TextPropsBase extends EllipsisHOCProps {
+export type TextPropsBase = EllipsisProps & {
   dataHook?: string;
   tagName?: string;
   className?: string;
@@ -41,7 +41,7 @@ export interface TextPropsBase extends EllipsisHOCProps {
   skin?: TextSkin;
   light?: boolean;
   weight?: TextWeight;
-}
+};
 
 export type TextProps = TextWithAsProp<TextPropsBase>;
 
