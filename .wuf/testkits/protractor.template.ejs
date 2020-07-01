@@ -57,7 +57,7 @@ export const <%= exportName %> = <%= factoryName %>(load(require('<%= driverPath
         .filter(component => !component.manualExport)
         .filter(component => !component.noUnidriver)
 .map(component => {
-  const componentName = utils.toPascal(component.name);
+  const componentName = component.exportName || utils.toPascal(component.name);
   const driverPath = component.unidriverPath || [
     '../src',
     component.name,

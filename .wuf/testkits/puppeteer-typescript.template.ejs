@@ -38,7 +38,7 @@ type DeprecatedPuppeteerTestkit = any;
     .map(component => {
       const isLegacy = component.puppeteerLegacyTestkit;
       // Component Name
-      const componentName = utils.toPascal(component.name) + 'Testkit';
+      const componentName = component.exportName || utils.toPascal(component.name);
       const legacyComponentName = utils.toCamel(component.name) + 'TestkitFactory';
       // Import Name
       const importName = component.name + 'UniDriver'
@@ -55,7 +55,7 @@ type DeprecatedPuppeteerTestkit = any;
 %>
 <%- !component.noUnidriver ? `import { ${importName} } from '${importPath}';` : ''%>
 <%- isLegacy ? `import { ${legacyImportName} } from '${legacyImportPath}';` : ''%>
-<%- !component.noUnidriver ? `export const ${componentName}: ${factory}<${importName}${generics}>;` : ''%>
+<%- !component.noUnidriver ? `export const ${componentName}Testkit: ${factory}<${importName}${generics}>;` : ''%>
 <%- `export const ${legacyComponentName}: ${legacyFactory}<${legacyImportName}${legacyGenerics}>;` %>
 <% }) %>
 
