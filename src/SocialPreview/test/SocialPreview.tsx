@@ -13,11 +13,11 @@ function SocialPreviewWithMandatoryProps() {
 function SocialPreviewWithAllProps() {
   return (
     <SocialPreview
-     dataHook="hook"
-     description="description"
-     media={<div />}
-     previewUrl="url"
-     title="title"
+      dataHook="hook"
+      description="description"
+      media={<div />}
+      previewUrl="url"
+      title="title"
     />
   );
 }
@@ -25,18 +25,18 @@ function SocialPreviewWithAllProps() {
 async function testkits() {
   const testkit = socialPreviewTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = socialPreviewEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await socialPreviewPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

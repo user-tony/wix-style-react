@@ -13,7 +13,7 @@ function SliderWithMandatoryProps() {
 function SliderWithAllProps() {
   return (
     <Slider
-      onChange={(_value) => {}}
+      onChange={_value => {}}
       allowCross
       dataHook="x"
       disabled
@@ -27,7 +27,7 @@ function SliderWithAllProps() {
       rtl
       step={1}
       value={1}
-      marks={{ 1 : 1 , 2: '2'}}
+      marks={{ 1: 1, 2: '2' }}
       startPoint={2}
     />
   );
@@ -36,18 +36,18 @@ function SliderWithAllProps() {
 async function testkits() {
   const testkit = sliderTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = sliderEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await sliderPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

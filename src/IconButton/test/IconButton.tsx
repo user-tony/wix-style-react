@@ -28,18 +28,18 @@ function IconButtonWithAllProps() {
 async function testkits() {
   const testkit = iconButtonTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = iconButtonEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await iconButtonPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

@@ -1,4 +1,4 @@
-export default interface dndStyles {
+type dndStylesType = {
   item: string;
   itemPlaceholder: string;
   itemPreview: string;
@@ -8,4 +8,8 @@ export default interface dndStyles {
   gridItemPreview: string;
   withGridItemStrip: string;
   withGridItemStripRight: string;
-}
+};
+
+declare const dndStyles: dndStylesType;
+
+export default dndStyles;

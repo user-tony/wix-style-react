@@ -16,28 +16,28 @@ function RichTextInputAreaWithAllProps() {
       dataHook="value"
       initialValue="value"
       placeholder="value"
-      disabled={true}
+      disabled
       status="error"
       statusMessage="value"
-      onChange={(value:any) => {}}
+      onChange={(value: any) => {}}
       maxHeight="value"
       texts={{
         toolbarButtons: {
-          boldButtonLabel: "value",
-          italicButtonLabel: "value",
-          underlineButtonLabel: "value",
-          linkButtonLabel: "value",
-          bulletedListButtonLabel: "value",
-          numberedListButtonLabel: "value",
+          boldButtonLabel: 'value',
+          italicButtonLabel: 'value',
+          underlineButtonLabel: 'value',
+          linkButtonLabel: 'value',
+          bulletedListButtonLabel: 'value',
+          numberedListButtonLabel: 'value',
         },
         insertionForm: {
-          confirmButtonLabel: "value",
-          cancelButtonLabel: "value",
+          confirmButtonLabel: 'value',
+          cancelButtonLabel: 'value',
           link: {
-            textInputPlaceholder: "value",
-            urlInputPlaceholder: "value",
+            textInputPlaceholder: 'value',
+            urlInputPlaceholder: 'value',
           },
-        }
+        },
       }}
     />
   );
@@ -51,18 +51,18 @@ function testInstanceMethods() {
 async function testkits() {
   const testkit = richTextInputAreaTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = richTextInputAreaEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await richTextInputAreaPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

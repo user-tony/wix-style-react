@@ -26,18 +26,18 @@ function VerticalTabsItemWithAllProps() {
 async function testkits() {
   const testkit = verticalTabsItemTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = verticalTabsItemEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await verticalTabsItemPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

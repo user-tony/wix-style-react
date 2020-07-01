@@ -1,7 +1,5 @@
 import * as React from 'react';
-import MobilePreviewWidget, {
-  MobilePreviewWidgetSkin,
-} from '..';
+import MobilePreviewWidget from '..';
 import { mobilePreviewWidgetTestkitFactory } from '../../../testkit';
 import { mobilePreviewWidgetTestkitFactory as mobilePreviewWidgetEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { mobilePreviewWidgetTestkitFactory as mobilePreviewWidgetPuppeteerTestkitFactory } from '../../../testkit/puppeteer';

@@ -28,18 +28,18 @@ function SectionHelperWithAllProps() {
 async function testkits() {
   const testkit = sectionHelperTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = sectionHelperEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await sectionHelperPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

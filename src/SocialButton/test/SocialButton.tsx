@@ -18,6 +18,11 @@ function SocialButtonWithMandatoryProps() {
 
 function SocialButtonWithAllProps() {
   return (
-    <SocialButton disabled icon="facebook" text='asasd' onClick={() => console.log('')} />
+    <SocialButton
+      disabled
+      icon="facebook"
+      text="asasd"
+      onClick={() => console.log('')}
+    />
   );
 }

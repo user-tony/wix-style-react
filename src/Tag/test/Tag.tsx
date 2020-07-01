@@ -13,7 +13,7 @@ function TagWithMandatoryProps() {
 function TagWithAllProps() {
   return (
     <Tag
-      dataHook={"hook"}
+      dataHook="hook"
       id="asd"
       className="cls"
       disabled
@@ -23,7 +23,8 @@ function TagWithAllProps() {
       removable
       size="large"
       theme="dark"
-      thumb={<div />}>
+      thumb={<div />}
+    >
       text
     </Tag>
   );
@@ -32,18 +33,18 @@ function TagWithAllProps() {
 async function testkits() {
   const testkit = tagTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = tagEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await tagPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

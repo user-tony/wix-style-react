@@ -12,10 +12,10 @@ function RangeWithAllProps() {
   return (
     <Range
       required
-      info={"info"}
-      dataHook={"hook"}
+      info="info"
+      dataHook="hook"
       appendToParent
-      children={<div/>}
+      children={<div />}
     />
   );
 }
@@ -23,11 +23,11 @@ function RangeWithAllProps() {
 async function testkits() {
   const testkit = rangeTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = rangeEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 }

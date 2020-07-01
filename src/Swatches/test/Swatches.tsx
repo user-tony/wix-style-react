@@ -7,23 +7,23 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function SwatchesWithMandatoryProps() {
-  return <Swatches/>;
+  return <Swatches />;
 }
 
 function SwatchesWithAllProps() {
   return (
     <Swatches
-      colors={["blue", "green"]}
-      selected={"blue"}
-      dataHook={"hook"}
-      onClick={()=>{}}
-      size={'small'}
+      colors={['blue', 'green']}
+      selected="blue"
+      dataHook="hook"
+      onClick={() => {}}
+      size="small"
       showClear={false}
-      showClearMessage={<div/>}
-      onAdd={()=>{}}
-      onChange={()=>{}}
-      onCancel={()=>{}}
-      showAddButton={true}
+      showClearMessage={<div />}
+      onAdd={() => {}}
+      onChange={() => {}}
+      onCancel={() => {}}
+      showAddButton
       addButtonMessage="msg"
       addButtonIconSize="small"
       columns={10}
@@ -35,18 +35,18 @@ function SwatchesWithAllProps() {
 async function testkits() {
   const testkit = swatchesTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = swatchesEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await swatchesPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

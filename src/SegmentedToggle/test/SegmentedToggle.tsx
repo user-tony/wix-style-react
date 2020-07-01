@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import SegmentedToggle from '..';
 import { segmentedToggleTestkitFactory } from '../../../testkit';
 import { segmentedToggleTestkitFactory as segmentedToggleEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { segmentedToggleTestkitFactory as segmentedTogglePuppeteerTestkitFactory } from '../../../testkit/puppeteer';
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function SegmentedToggleWithMandatoryProps() {
   return <SegmentedToggle>{[]}</SegmentedToggle>;
@@ -40,7 +40,7 @@ function SegmentedToggleWithAllProps() {
         dataHook="hook"
         focusableOnBlur={_ev => {}}
         focusableOnFocus={_ev => {}}
-        {...{ "data-click": "foo" }}
+        {...{ 'data-click': 'foo' }}
       >
         <div />
       </SegmentedToggle.Icon>
@@ -50,19 +50,19 @@ function SegmentedToggleWithAllProps() {
 
 async function testkits() {
   const testkit = segmentedToggleTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = segmentedToggleEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await segmentedTogglePuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

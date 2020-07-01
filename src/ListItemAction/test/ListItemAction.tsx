@@ -1,10 +1,8 @@
 import * as React from 'react';
-import ListItemAction, {
-  listItemActionBuilder
-} from '..';
+import ListItemAction, { listItemActionBuilder } from '..';
 import { listItemActionTestkitFactory } from '../../../testkit';
 import { listItemActionTestkitFactory as listItemActionEnzymeTestkitFactory } from '../../../testkit/enzyme';
-// import { listItemActionTestkitFactory as listItemActionPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
+import { listItemActionTestkitFactory as listItemActionPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
@@ -45,27 +43,27 @@ function ListItemActionBuilderWithAllProps() {
     size: 'medium',
     skin: 'dark',
     tabIndex: 1,
-    title: 'title'
+    title: 'title',
   });
 
-  value({as: 'a', href: ''})
+  value({ as: 'a', href: '' });
 }
 
 async function testkits() {
   const testkit = listItemActionTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = listItemActionEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
-  //
-  // const browser = await puppeteer.launch();
-  // const page = await browser.newPage();
-  // const puppeteerTestkit = await listItemActionPuppeteerTestkitFactory({
-  //   dataHook: 'hook',
-  //   page
-  // });
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  const puppeteerTestkit = await listItemActionPuppeteerTestkitFactory({
+    dataHook: 'hook',
+    page,
+  });
 }
