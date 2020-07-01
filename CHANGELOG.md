@@ -15,6 +15,11 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+- `<Tooltip/>` - Inherit appendTo type from popover [#5632](https://github.com/wix/wix-style-react/pull/5632)
+
+## 8.27.0 - 2020-06-30
+### Internal
+- `<Ellipsis/>` - [internal] - New component to replace EllipsisHOC [#5622](https://github.com/wix/wix-style-react/pull/5622)
 
 ## 8.26.0 - 2020-06-30
 ### Added
