@@ -39,18 +39,18 @@ function InputWithLabelWithAllProps() {
 async function testkits() {
   const testkit = inputWithLabelTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = inputWithLabelEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await inputWithLabelPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

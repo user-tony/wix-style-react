@@ -17,8 +17,8 @@ function AutoCompleteWithLabelWithMandatoryProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
-        }
+          overrideStyle: true,
+        },
       ]}
     />
   );
@@ -36,7 +36,7 @@ function AutoCompleteWithLabelWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
         {
           value: <div />,
@@ -44,7 +44,7 @@ function AutoCompleteWithLabelWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
         { value: '-', id: '2' },
         {
@@ -53,11 +53,11 @@ function AutoCompleteWithLabelWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
-        }
+          overrideStyle: true,
+        },
       ]}
       suffix={[<span />]}
-      status={"warning"}
+      status="warning"
       statusMessage={<div />}
       onFocus={_ev => {}}
       onBlur={_ev => {}}
@@ -80,18 +80,18 @@ function AutoCompleteWithLabelWithAllProps() {
 async function testkits() {
   const testkit = autoCompleteWithLabelTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = autoCompleteWithLabelEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await autoCompleteWithLabelPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import CircularProgressBar from '..';
 import { circularProgressBarTestkitFactory } from '../../../testkit';
 import { circularProgressBarTestkitFactory as circularProgressBarEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { circularProgressBarTestkitFactory as circularProgressBarPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function CircularProgressBarWithMandatoryProps() {
   return <CircularProgressBar />;
@@ -27,19 +27,19 @@ function CircularProgressBarWithAllProps() {
 
 async function testkits() {
   const testkit = circularProgressBarTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = circularProgressBarEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await circularProgressBarPuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

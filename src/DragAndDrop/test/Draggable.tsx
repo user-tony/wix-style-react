@@ -1,8 +1,8 @@
-import * as React from "react";
-import Draggable from "../Draggable";
-import { draggableTestkitFactory } from "../../../testkit";
-import { draggableTestkitFactory as draggableEnzymeTestkitFactory } from "../../../testkit/enzyme";
-import * as enzyme from "enzyme";
+import * as React from 'react';
+import Draggable from '../Draggable';
+import { draggableTestkitFactory } from '../../../testkit';
+import { draggableTestkitFactory as draggableEnzymeTestkitFactory } from '../../../testkit/enzyme';
+import * as enzyme from 'enzyme';
 
 function DraggableWithMandatoryProps() {
   return <Draggable />;
@@ -38,12 +38,12 @@ function DraggableWithAllProps() {
 
 async function testkits() {
   const testkit = draggableTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = draggableEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 }

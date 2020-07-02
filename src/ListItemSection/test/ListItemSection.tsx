@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import ListItemSection, {listItemSectionBuilder} from '..';
+import ListItemSection, { listItemSectionBuilder } from '..';
 import { listItemSectionTestkitFactory } from '../../../testkit';
 import { listItemSectionTestkitFactory as listItemSectionEnzymeTestkitFactory } from '../../../testkit/enzyme';
 
@@ -20,19 +20,19 @@ async function testkits() {
 
 function listItemSectionBuilderWithMandatoryProps() {
   listItemSectionBuilder({
-    id: '1'
-  })
+    id: '1',
+  });
 }
 
 function listItemSectionBuilderWithAllProps() {
-  const {id, overrideStyle, value} = listItemSectionBuilder({
+  const { id, overrideStyle, value } = listItemSectionBuilder({
     id: '1',
     className: 'cls',
     ellipsis: true,
     suffix: <span />,
     title: 'title',
-    type: 'divider'
-  })
+    type: 'divider',
+  });
 }
 
 function ListItemSectionWithMandatoryProps() {

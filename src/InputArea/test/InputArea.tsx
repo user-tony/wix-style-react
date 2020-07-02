@@ -70,7 +70,6 @@ async function testkits() {
     dataHook: 'hook',
     wrapper: enzyme.mount(<div />),
   });
-  document.querySelector('textarea')!.disabled;
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

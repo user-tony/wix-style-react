@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TextButton from '..';
-import Checkbox from '..';
+import Checkbox from '../../Checkbox';
 import { textButtonTestkitFactory } from '../../../testkit';
 import { textButtonTestkitFactory as textButtonEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { textButtonTestkitFactory as textButtonPuppeteerTestkitFactory } from '../../../testkit/puppeteer';

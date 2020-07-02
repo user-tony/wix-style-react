@@ -52,8 +52,7 @@ function SidebarContextConsumerTest() {
   return (
     <SidebarItemContextConsumer>
       {({ selected }) => {
-        console.log(selected);
-        return <div />;
+        return <div>{selected}</div>;
       }}
     </SidebarItemContextConsumer>
   );
@@ -63,8 +62,10 @@ function SidebarItemContextConsumerTest() {
   return (
     <SidebarContextConsumer>
       {({ backClicked, getSelectedKey, getSkin, itemClicked }) => {
-        console.log(backClicked, getSelectedKey, getSkin, itemClicked);
-        return <div />;
+        backClicked();
+        getSelectedKey();
+        getSkin();
+        return <div>{itemClicked}</div>;
       }}
     </SidebarContextConsumer>
   );

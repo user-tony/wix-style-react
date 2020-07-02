@@ -17,25 +17,25 @@ function contactItemBuilderWithAllProps() {
     title: 'title',
     disabled: true,
     imageUrl: 'url',
-    subtitle: 'substitle'
+    subtitle: 'substitle',
   });
 }
 
 async function testkits() {
   const testkit = contactItemBuilderTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = contactItemBuilderEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await contactItemBuilderPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

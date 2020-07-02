@@ -28,18 +28,18 @@ function FillButtonWithAllProps() {
 async function testkits() {
   const testkit = fillButtonTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = fillButtonEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await fillButtonPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

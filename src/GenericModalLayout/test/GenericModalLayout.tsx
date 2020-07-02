@@ -25,18 +25,18 @@ function GenericModalLayoutWithAllProps() {
 async function testkits() {
   const testkit = genericModalLayoutTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = genericModalLayoutEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await genericModalLayoutPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

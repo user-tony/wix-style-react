@@ -27,18 +27,18 @@ function LinearProgressBarWithAllProps() {
 async function testkits() {
   const testkit = linearProgressBarTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = linearProgressBarEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await linearProgressBarPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

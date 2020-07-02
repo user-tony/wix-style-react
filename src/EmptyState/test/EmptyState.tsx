@@ -27,18 +27,18 @@ function EmptyStateWithAllProps() {
 async function testkits() {
   const testkit = emptyStateTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = emptyStateEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await emptyStatePuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

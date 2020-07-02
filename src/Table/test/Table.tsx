@@ -81,16 +81,22 @@ interface TableRowData {
 }
 
 function typedTable() {
-  return <Table<TableRowData>
-    data={[{
-      name: 'Joe',
-      age: 42,
-    }]}
-    columns={[{
-      title: 'name',
-      render: row => row.name,
-    }]}
-  />;
+  return (
+    <Table<TableRowData>
+      data={[
+        {
+          name: 'Joe',
+          age: 42,
+        },
+      ]}
+      columns={[
+        {
+          title: 'name',
+          render: row => row.name,
+        },
+      ]}
+    />
+  );
 }
 
 function testInstanceMethods() {

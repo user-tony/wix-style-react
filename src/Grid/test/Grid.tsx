@@ -7,7 +7,7 @@ import {
   Columns as Row,
   AutoAdjustedColumns,
   AutoAdjustedColumns as AutoAdjustedRow,
-  Col
+  Col,
 } from '..';
 
 function GridWithMandatoryProps() {
@@ -39,7 +39,8 @@ function GridWithAllProps() {
             sm="10"
             span="10"
             xl="10"
-            xs="10" />
+            xs="10"
+          />
         </Row>
         <Columns className="cls" rtl stretchViewsVertically dataHook="hook">
           <Col
@@ -51,7 +52,8 @@ function GridWithAllProps() {
             sm="10"
             span="10"
             xl="10"
-            xs="10" />
+            xs="10"
+          />
         </Columns>
         <AutoAdjustedRow>
           <Col />

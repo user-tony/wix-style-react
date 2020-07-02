@@ -47,7 +47,7 @@ function DropdownLayoutWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
         {
           value: <div />,
@@ -55,7 +55,7 @@ function DropdownLayoutWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
+          overrideStyle: true,
         },
         { value: '-', id: '2' },
         {
@@ -64,8 +64,8 @@ function DropdownLayoutWithAllProps() {
           disabled: true,
           linkTo: 'google.com',
           title: true,
-          overrideStyle: true
-        }
+          overrideStyle: true,
+        },
       ]}
     />
   );
@@ -74,18 +74,18 @@ function DropdownLayoutWithAllProps() {
 async function testkits() {
   const testkit = dropdownLayoutTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = dropdownLayoutEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await dropdownLayoutPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

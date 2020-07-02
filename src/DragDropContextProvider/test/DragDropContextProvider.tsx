@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import DragDropContextProvider from '..';
 
 function dragDropContextProviderWithMandatoryProps() {
@@ -6,9 +6,5 @@ function dragDropContextProviderWithMandatoryProps() {
 }
 
 function dragDropContextProviderWithAllProps() {
-  return (
-    <DragDropContextProvider
-      backend={()=>{}}
-    />
-  );
+  return <DragDropContextProvider backend={() => {}} />;
 }

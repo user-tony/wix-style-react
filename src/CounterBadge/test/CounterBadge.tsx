@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 import CounterBadge from '..';
 import { counterBadgeTestkitFactory } from '../../../testkit';
 import { counterBadgeTestkitFactory as counterBadgeEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import * as enzyme from "enzyme";
+import * as enzyme from 'enzyme';
 
 function CounterBadgeWithMandatoryProps() {
   return <CounterBadge />;
@@ -18,12 +18,12 @@ function CounterBadgeWithAllProps() {
 
 async function testkits() {
   const testkit = counterBadgeTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = counterBadgeEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 }

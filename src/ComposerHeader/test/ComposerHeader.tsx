@@ -30,7 +30,7 @@ function ComposerHeaderWithAllProps() {
         dataHook={'hook'}
         saveStatusError={'error'}
       />
-      <ComposerHeader.Actions/>
+      <ComposerHeader.Actions />
     </ComposerHeader>
   );
 }
@@ -38,18 +38,18 @@ function ComposerHeaderWithAllProps() {
 async function testkits() {
   const testkit = composerHeaderTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = composerHeaderEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await composerHeaderPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

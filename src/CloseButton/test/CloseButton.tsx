@@ -27,18 +27,18 @@ function CloseButtonWithAllProps() {
 async function testkits() {
   const testkit = closeButtonTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = closeButtonEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await closeButtonPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

@@ -11,9 +11,9 @@ function ColorPickerWithMandatoryProps() {
   return (
     <ColorPicker
       value={'blue'}
-      onChange={color => {}}
-      onCancel={color => {}}
-      onConfirm={color => {}}
+      onChange={_color => {}}
+      onCancel={_color => {}}
+      onConfirm={_color => {}}
     />
   );
 }
@@ -26,32 +26,32 @@ function ColorPickerWithAllProps() {
       showHistory
       showConverter={false}
       showInput={false}
-      onChange={color => {
-        if (typeof color !== 'string') {
-          color.hex();
+      onChange={_color => {
+        if (typeof _color !== 'string') {
+          _color.hex();
         } else {
-          color.toUpperCase();
+          _color.toUpperCase();
         }
       }}
-      onCancel={color => {
-        if (typeof color !== 'string') {
-          color.hex();
+      onCancel={_color => {
+        if (typeof _color !== 'string') {
+          _color.hex();
         } else {
-          color.toUpperCase();
+          _color.toUpperCase();
         }
       }}
-      onConfirm={color => {
-        if (typeof color !== 'string') {
-          color.hex();
+      onConfirm={_color => {
+        if (typeof _color !== 'string') {
+          _color.hex();
         } else {
-          color.toUpperCase();
+          _color.toUpperCase();
         }
       }}
-      onAdd={color => {
-        if (typeof color !== 'string') {
-          color.hex();
+      onAdd={_color => {
+        if (typeof _color !== 'string') {
+          _color.hex();
         } else {
-          color.toUpperCase();
+          _color.toUpperCase();
         }
       }}
       addTooltipContent={<div />}

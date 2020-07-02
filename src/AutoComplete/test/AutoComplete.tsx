@@ -92,7 +92,7 @@ function AutoCompleteWithAllProps() {
       visible
       withArrow
       overflow="scroll"
-      emptyStateMessage={"empty state"}
+      emptyStateMessage="empty state"
       options={[
         {
           value: 'a',

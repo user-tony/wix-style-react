@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import DropdownBase from '..';
 import { dropdownBaseTestkitFactory } from '../../../testkit';
 import { dropdownBaseTestkitFactory as dropdownBaseEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { dropdownBaseTestkitFactory as dropdownBasePuppeteerTestkitFactory } from '../../../testkit/puppeteer';
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function DropdownBaseWithMandatoryProps() {
   return <DropdownBase />;
@@ -32,10 +32,10 @@ function DropdownBaseWithAllProps() {
         {
           disabled: true,
           id: 1,
-          linkTo: "foo",
+          linkTo: 'foo',
           title: true,
-          value: "value"
-        }
+          value: 'value',
+        },
       ]}
       overflow="overflow"
       placement="top"
@@ -58,7 +58,7 @@ function DropdownBaseWithChildrenFn() {
           linkTo,
           overrideStyle,
           title,
-          value
+          value,
         } = selectedOption;
         open();
         toggle();
@@ -75,19 +75,19 @@ function DropdownBaseWithChildrenFn() {
 
 async function testkits() {
   const testkit = dropdownBaseTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = dropdownBaseEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await dropdownBasePuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

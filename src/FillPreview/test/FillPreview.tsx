@@ -14,8 +14,8 @@ function FillPreviewWithAllProps() {
   return (
     <FillPreview
       dataHook="test"
-      as={"a"}
-      href={"http://www.wix.com"}
+      as="a"
+      href="http://www.wix.com"
       tabIndex={-1}
       aspectRatio={1}
       disabled
@@ -29,18 +29,18 @@ function FillPreviewWithAllProps() {
 async function testkits() {
   const testkit = fillPreviewTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = fillPreviewEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await fillPreviewPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }
