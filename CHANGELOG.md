@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Internal
+- `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
 
 ## 8.27.1 - 2020-07-02
 ### Fixed
