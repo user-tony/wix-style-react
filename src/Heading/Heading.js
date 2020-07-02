@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ellipsisHOC from '../common/EllipsisHOC';
+import Ellipsis, { extractEllipsisProps } from '../common/Ellipsis';
 import style from './Heading.st.css';
 
 export const APPEARANCES = {
@@ -12,18 +12,42 @@ export const APPEARANCES = {
   H6: 'H6',
 };
 
-const Heading = ({ light, appearance, children, ...rest }) => {
-  const { dataHook, ...headingProps } = rest;
-  return React.createElement(
-    appearance.toLowerCase(),
-    {
-      ...headingProps,
-      'data-hook': dataHook,
-      ...style('root', { light, appearance }, rest),
-      'data-appearance': appearance,
-      'data-light': light,
-    },
+const Heading = props => {
+  const { ellipsisProps, componentProps } = extractEllipsisProps(props);
+  const {
+    light,
+    appearance,
     children,
+    dataHook,
+    ...headingProps
+  } = componentProps;
+
+  return (
+    <Ellipsis
+      {...ellipsisProps}
+      // TODO - with Stylable3 change to wrapperClassName
+      wrapperClasses={style('root', { appearance })}
+      render={({ ref, ellipsisClasses }) =>
+        React.createElement(
+          appearance.toLowerCase(),
+          {
+            ...headingProps,
+            ref,
+            'data-hook': dataHook,
+            ...style(
+              'root',
+              { light, appearance },
+              {
+                className: ellipsisClasses(props.className),
+              },
+            ),
+            'data-appearance': appearance,
+            'data-light': light,
+          },
+          children,
+        )
+      }
+    />
   );
 };
 
@@ -40,12 +64,13 @@ Heading.propTypes = {
   /** typography of the heading */
   appearance: PropTypes.oneOf(Object.keys(APPEARANCES)),
 
-  ...ellipsisHOC.propTypes,
+  ...Ellipsis.propTypes,
 };
 
 Heading.defaultProps = {
   appearance: APPEARANCES.H1,
   light: false,
+  ...Ellipsis.defaultProps,
 };
 
-export default ellipsisHOC(Heading);
+export default Heading;

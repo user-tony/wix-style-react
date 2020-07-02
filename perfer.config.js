@@ -53,7 +53,7 @@ const javascriptFiles = [
   ['GoogleAddressInput.bundle.min.js', 73],
   ['GooglePreview.bundle.min.js', 35],
   ['Grid.bundle.min.js', 8],
-  ['Heading.bundle.min.js', 8],
+  ['Heading.bundle.min.js', 33],
   ['Highlighter.bundle.min.js', 4],
   ['IconButton.bundle.min.js', 14],
   ['Image.bundle.min.js', 5],
