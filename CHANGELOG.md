@@ -15,6 +15,11 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.27.1 - 2020-07-02
+### Fixed
+- Fix dndStyles type [#5634](https://github.com/wix/wix-style-react/pull/5634)
+- Fix CardHeader testkit name [#5633](https://github.com/wix/wix-style-react/pull/5633)
 - `<Tooltip/>` - Inherit appendTo type from popover [#5632](https://github.com/wix/wix-style-react/pull/5632)
 
 ## 8.27.0 - 2020-06-30
