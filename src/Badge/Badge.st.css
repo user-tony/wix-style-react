@@ -1,11 +1,11 @@
 :import {
-    -st-from: '../Foundation/stylable/typography.st.css';
-    -st-named: text-medium-bold;
+  -st-from: 'wix-ui-core/hocs.st.css';
+  -st-named: Focusable;
 }
 
 :import {
-  -st-from: 'wix-ui-core/hocs.st.css';
-  -st-named: Focusable;
+  -st-from: "../Text/Caption.st.css";
+  -st-default: Caption;
 }
 
 :import {
@@ -78,13 +78,9 @@
 }
 
 .root .text {
-  -st-mixin: text-medium-bold;
-  font-size: 10px;
-  line-height: 12px;
-  letter-spacing: 1px;
+  -st-extends: Caption;
   color: currentColor;
-  white-space: nowrap;
-  max-width: 100%;
+  letter-spacing: 1px;
 }
 
 .root:uppercase .text {
