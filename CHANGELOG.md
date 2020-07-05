@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Internal
 - `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
+- `<ScrollableContainer/>` - Adding support for passing ref in using `React.forwardRef` [#5635](https://github.com/wix/wix-style-react/pull/5635)
 
 ## 8.27.1 - 2020-07-02
 ### Fixed
