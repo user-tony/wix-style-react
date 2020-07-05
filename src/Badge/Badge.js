@@ -96,7 +96,7 @@ class Badge extends React.PureComponent {
             className: style.prefix,
             'data-prefix-icon': true,
           })}
-        <Caption className={style.text} caption="c1" weight="bold" ellipsis>
+        <Caption className={style.text} caption="c1" ellipsis>
           {children}
         </Caption>
         {suffixIcon &&

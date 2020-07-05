@@ -15,6 +15,8 @@ const CaptionWithEllipsis = ({ className, caption, ...props }) => {
       render={({ ref, ellipsisClasses }) => (
         <RawText
           {...componentProps}
+          size="medium"
+          weight="bold"
           ref={ref}
           className={ellipsisClasses(
             className,
