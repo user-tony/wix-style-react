@@ -172,9 +172,6 @@ export * from './Heading';
 export { default as Highlighter } from './Highlighter';
 export * from './Highlighter';
 
-export { default as HorizontalTimeline } from './HorizontalTimeline';
-export * from './HorizontalTimeline';
-
 export { default as IconButton } from './IconButton';
 export * from './IconButton';
 
@@ -346,14 +343,8 @@ export * from './SocialButton';
 export { default as SocialPreview } from './SocialPreview';
 export * from './SocialPreview';
 
-export { default as SortableGrid } from './SortableGrid';
-export * from './SortableGrid';
-
 export { default as SortableList } from './SortableList';
 export * from './SortableList';
-
-export { default as StarsRatingBar } from './StarsRatingBar';
-export * from './StarsRatingBar';
 
 export { default as StatisticsWidget } from './StatisticsWidget';
 export * from './StatisticsWidget';
@@ -386,9 +377,6 @@ export * from './Tabs';
 
 export { default as Tag } from './Tag';
 export * from './Tag';
-
-export { default as TagList } from './TagList';
-export * from './TagList';
 
 export { default as Text } from './Text';
 export * from './Text';
@@ -432,5 +420,19 @@ export * from './VerticalTabsItem';
 export { default as clients } from './clients';
 export * from './clients';
 
-export * from './dnd-styles';
+export { default as ComposerSidebar } from './ComposerSidebar';
+export * from './ComposerSidebar';
+
+export { default as SortableGrid } from './SortableGrid';
+
+export { default as StarsRatingBar } from './StarsRatingBar';
+export * from './StarsRatingBar';
+
+export * from './SortableGrid';
+
 export { default as dndStyles } from './dnd-styles';
+
+export { default as HorizontalTimeline } from './HorizontalTimeline';
+export * from './HorizontalTimeline';
+
+export * from './dnd-styles';
