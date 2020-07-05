@@ -1,20 +1,25 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, forwardRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 import { getScrollPositionY } from './scrollPositionLogic';
 import { extractDataAttributes } from '../../utils/extractAttributes';
 
-const ScrollableContainer = ({
-  dataHook,
-  className,
-  style,
-  children,
-  onScrollPositionChanged,
-  onScrollChanged,
-  scrollThrottleWait,
-  ...restProps
-}) => {
-  const scrollContainerElement = useRef(null);
+const ScrollableContainer = forwardRef(function ScrollableContainer(
+  {
+    dataHook,
+    className,
+    style,
+    children,
+    onScrollPositionChanged,
+    onScrollChanged,
+    scrollThrottleWait,
+    ...restProps
+  },
+  ref,
+) {
+  const elementRef = useRef(null);
+  // In case a ref was passed from outside we should use it so allow the parent access to the dom node as well.
+  const scrollContainerElement = ref || elementRef;
   const scrollPositionY = useRef('');
 
   const handleScrollPositionChanged = useCallback(
@@ -70,6 +75,7 @@ const ScrollableContainer = ({
     handleScrollPositionChanged,
     onScrollChanged,
     onScrollPositionChanged,
+    scrollContainerElement,
   ]);
 
   const stl = {
@@ -90,7 +96,7 @@ const ScrollableContainer = ({
       {children}
     </div>
   );
-};
+});
 
 ScrollableContainer.propTypes = {
   /* The wait time value the scroll event will be throttled by */
