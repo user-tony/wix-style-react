@@ -19,6 +19,10 @@ Types of changes:
 - `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
 - `<ScrollableContainer/>` - Adding support for passing ref in using `React.forwardRef` [#5635](https://github.com/wix/wix-style-react/pull/5635)
 
+### Changed
+- `<RadioGroup/>` - Migrating to stylable [#5631](https://github.com/wix/wix-style-react/pull/5631)
+
+
 ## 8.27.1 - 2020-07-02
 ### Fixed
 - Fix dndStyles type [#5634](https://github.com/wix/wix-style-react/pull/5634)
