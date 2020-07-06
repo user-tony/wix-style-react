@@ -386,9 +386,6 @@ module.exports = {
   FormField: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    puppeteerLegacyTestkit: true,
-    puppeteerTypeImportName: 'FormFieldPuppeteerDriver',
   },
 
   ToggleSwitch: {
