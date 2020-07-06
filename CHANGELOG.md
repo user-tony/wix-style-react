@@ -14,8 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Changed
+- `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648)
+
 ## 8.28.0 - 2020-07-06
-### Internal
+### Changed
 - `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
 - `<ScrollableContainer/>` - Adding support for passing ref in using `React.forwardRef` [#5635](https://github.com/wix/wix-style-react/pull/5635)
 - `<LabeledElement/>`- small css fix [#5645](https://github.com/wix/wix-style-react/pull/5645)
