@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/typography.st.css";
-  -st-named: text-medium-normal;
+  -st-named: heading-h6, text-medium-normal;
 }
 
 :vars {
@@ -124,7 +124,7 @@
 }
 
 .option.title{
-/*@extend .h6;*/
+  -st-mixin: heading-h6;
   background: value(D70);
   color: value(D20);
 }
