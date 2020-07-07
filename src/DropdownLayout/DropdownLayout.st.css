@@ -13,6 +13,11 @@
   -st-named: heading-h6, text-medium-normal;
 }
 
+:import {
+  -st-from: '../Foundation/stylable/default-scroll-bar.st.css';
+  -st-named: defaultScrollBar;
+}
+
 :vars {
   option_height: 35px;
   big_option_height: 47px;
@@ -33,9 +38,9 @@
 }
 
 .options {
+  -st-mixin: defaultScrollBar;
   position: relative;
   overflow: auto;
-/*@include default-scroll-bar;*/
 }
 
 .content-container {
