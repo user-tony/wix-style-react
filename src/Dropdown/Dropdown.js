@@ -6,7 +6,7 @@ import { allValidators, extendPropTypes } from '../utils/propTypes';
 
 import InputWithOptions from '../InputWithOptions';
 import DropdownLayout from '../DropdownLayout';
-import styles from './Dropdown.scss';
+import styles from './Dropdown.st.css';
 
 const NO_SELECTED_ID = null;
 
