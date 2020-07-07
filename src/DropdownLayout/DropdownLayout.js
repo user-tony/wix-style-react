@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import InfiniteScroll from '../utils/InfiniteScroll';
 import scrollIntoView from '../utils/scrollIntoView';
 import * as DataAttr from './DataAttr';
-import styles from './DropdownLayout.scss';
+import styles from './DropdownLayout.st.css';
 
 const modulu = (n, m) => {
   const remain = n % m;
