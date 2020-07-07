@@ -45,7 +45,7 @@ class MultiSelectCheckbox extends InputWithOptions {
 
   dropdownAdditionalProps() {
     return {
-      options: this.wrapOptionsWithCheckbox(this.props.options),
+      options: this.props.options,
       closeOnSelect: false,
       selectedHighlight: false,
     };
