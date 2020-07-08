@@ -47,6 +47,7 @@ class DropdownBase extends React.PureComponent {
      *  * `open` - will open the Popover
      *  * `close` - will close the Popover
      *  * `toggle` - will toggle the Popover
+     *  * `isOpen` - indicates whether the items list is currently open
      *  * `delegateKeyDown` - the underlying DropdownLayout's keydown handler. It can be called
      *                        inside another keyDown event in order to delegate it.
      *  * `selectedOption` - the currently selected option
@@ -295,7 +296,7 @@ class DropdownBase extends React.PureComponent {
 
   _renderChildren() {
     const { children } = this.props;
-    const { selectedId } = this.state;
+    const { selectedId, open } = this.state;
 
     if (!children) {
       return null;
@@ -307,6 +308,7 @@ class DropdownBase extends React.PureComponent {
           open: this._open,
           close: this._close,
           toggle: this._toggle,
+          isOpen: Boolean(open),
 
           delegateKeyDown: this._delegateKeyDown,
 
