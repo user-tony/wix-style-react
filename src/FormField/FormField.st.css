@@ -17,80 +17,90 @@
 }
 
 .root {
+  -st-states: labelPlacement(enum(top, left, right)), labelAlignment(enum(top, middle)) , stretchContent, minLabelHeight;
   display: inline-flex;
   flex-wrap: wrap;
   font-size: initial;
+}
+
+.root:labelPlacement(right) {
+  flex-direction: row;
+}
+
+.root:labelPlacement(left) {
+  flex-direction: row-reverse;
+}
+
+.root:labelAlignment(middle) {
+  align-items: center;
+}
+
+.root:labelAlignment(top) {
+  align-items: start;
+}
+
+
+.root:stretchContent {
+  display: flex;
 }
 
 .root .children {
   margin: auto 0;
 }
 
-.root.stretchContent {
-  display: flex;
-}
-
-.root.stretchContent .children {
+.root:stretchContent .children {
   flex-grow: 1;
 }
 
+.root:labelPlacement(top) .children {
+  padding-top: value(childrenMargin);
+}
+
 .children {
+  -st-states: childrenWithInlineLabel;
   flex: 0 0 100%;
   max-width: 100%;
 }
 
-.children.childrenWithInlineLabel {
+.children:childrenWithInlineLabel {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
 
-.children.childrenWithInlineLabel .suffix {
+.children:childrenWithInlineLabel .suffix {
   margin-bottom: value(childrenMargin);
 }
 
-.children.stretchContent {
-  flex-grow: 1;
+.root:labelPlacement(right) .children:childrenWithInlineLabel {
+  padding-right: value(suffixHorizontalPadding);
 }
 
-.minLabelHeight {
+.root:labelPlacement(left) .children:childrenWithInlineLabel {
+  padding-left: value(suffixHorizontalPadding);
+}
+
+.root:minLabelHeight .label, .root:minLabelHeight .labelIndicators  {
   min-height: value(inlineLabelMinHeight);
   line-height: value(inlineLabelMinHeight);
 }
 
-.labelFromTop .label {
+.root:labelPlacement(top) .label {
   display: flex;
   align-items: center;
   flex: 1 0 auto;
   max-width: 100%;
 }
 
-.labelFromTop .children {
-  padding-top: value(childrenMargin);
-}
-
-.labelFromRight {
-  flex-direction: row;
-}
-
-.labelFromRight .childrenWithInlineLabel {
-  padding-right: value(suffixHorizontalPadding);
-}
-
-.labelFromLeft {
-  flex-direction: row-reverse;
-}
-
-.labelFromLeft .childrenWithInlineLabel {
-  padding-left: value(suffixHorizontalPadding);
-}
-
-.labelAlignMiddle {
+.labelIndicators {
+  -st-states: inlineWithSuffix;
+  display: flex;
   align-items: center;
 }
 
-.labelAlignTop {
-  align-items: start;
+.labelIndicators:inlineWithSuffix {
+  /* Aligns the inline label on the top in case the suffix (whether custom or the char counter) appears */
+  margin-top: calc(value(suffixHeight) + value(childrenMargin));
 }
 
 .asterisk {
@@ -102,21 +112,10 @@
   margin-top: -4px;
 }
 
-.infoIcon {
-  margin-left: 3px;
-}
-
-.labelIndicators {
-  display: flex;
-  align-items: center;
-}
-
-.labelIndicators.inlineWithSuffix {
-  /* Aligns the inline label on the top in case the suffix (whether custom or the char counter) appears */
-  margin-top: calc(value(suffixHeight) + value(childrenMargin));
-}
-
 .suffix {
   margin-left: auto;
 }
 
+.infoIcon {
+  margin-left: 3px;
+}
