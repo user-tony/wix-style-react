@@ -47,7 +47,7 @@ class EditableRow extends Component {
             onChange={event => this.setState({ newOption: event.target.value })}
             onEnterPressed={() => this.onApprove()}
             onEscapePressed={() => this.onCancel()}
-            size="normal"
+            size="medium"
             textOverflow="clip"
             theme="normal"
             width="initial"

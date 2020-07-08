@@ -215,7 +215,7 @@ class CustomModalLayoutExample extends PureComponent {
               <Row stretchViewsVertically>
                 <Col span={9}>
                   <FormField label="Title">
-                    <Input size="normal" placeholder="Value" />
+                    <Input size="medium" placeholder="Value" />
                   </FormField>
                 </Col>
                 <Col span={3}>

@@ -293,7 +293,7 @@ const renderPageHeader = () => {
               </IconButton>
             }
             placement="bottom"
-            size="normal"
+            textSize="medium"
             appendTo='parent'
           >
             <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />

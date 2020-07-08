@@ -106,7 +106,7 @@ PageTestStories.add('12. PopoverMenus', () => (
                   </IconButton>
                 }
                 placement="top"
-                size="normal"
+                textSize="medium"
                 appendTo="parent"
               >
                 <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />
