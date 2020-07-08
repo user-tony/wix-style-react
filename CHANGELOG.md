@@ -20,7 +20,7 @@ Types of changes:
 - `<DropdownBase/>` - Add isOpen to render function [#5651](https://github.com/wix/wix-style-react/pull/5651)
 
 ### Changed
-- `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648)
+- `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648) and [#5650](https://github.com/wix/wix-style-react/pull/5650)
 
 ## 8.28.0 - 2020-07-06
 ### Changed
