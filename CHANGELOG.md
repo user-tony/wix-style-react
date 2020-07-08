@@ -15,6 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<Table.Subtoolbar/>` - add subcomponent [#5624](https://github.com/wix/wix-style-react/pull/5624)
+
 ### Changed
 - `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648)
 
