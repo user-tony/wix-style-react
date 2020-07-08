@@ -209,7 +209,7 @@ export const sizes = `
   </Cell>
   <Cell>
     <Input
-      size="normal"
+      size="medium"
       placeholder="They did not know it was impossible, so they did it!"
     />
   </Cell>
@@ -232,7 +232,7 @@ export const rounded = `
   </Cell>
   <Cell>
     <Input
-      size="normal"
+      size="medium"
       placeholder="They did not know it was impossible, so they did it!"
       roundInput
     />

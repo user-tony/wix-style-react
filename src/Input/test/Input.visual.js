@@ -96,9 +96,9 @@ const tests = [
         },
       },
       {
-        it: 'normal',
+        it: 'medium',
         props: {
-          size: 'normal',
+          size: 'medium',
         },
       },
       {
@@ -120,9 +120,9 @@ const tests = [
         },
       },
       {
-        it: 'normal',
+        it: 'medium',
         props: {
-          size: 'normal',
+          size: 'medium',
           clearButton: true,
         },
       },

@@ -7,6 +7,7 @@ import IconAffix from './IconAffix';
 import Affix from './Affix';
 import Group from './Group';
 import InputSuffix, { getVisibleSuffixCount } from './InputSuffix';
+import deprecationLog from '../utils/deprecationLog';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
@@ -36,6 +37,10 @@ class Input extends Component {
   constructor(props) {
     super(props);
     this._isMounted = false;
+
+    if (props.size === 'normal') {
+      deprecationLog('<Input/> - change prop size="normal" to size="medium"');
+    }
   }
 
   componentDidMount() {
@@ -363,7 +368,7 @@ Input.displayName = 'Input';
 
 Input.defaultProps = {
   autoSelect: true,
-  size: 'normal',
+  size: 'medium',
   roundInput: false,
   textOverflow: 'clip',
   maxLength: 524288,
