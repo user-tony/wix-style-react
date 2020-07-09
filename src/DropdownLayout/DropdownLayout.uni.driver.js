@@ -90,12 +90,20 @@ export const dropdownLayoutDriverFactory = base => {
       return (await option.attr(DataAttr.DATA_OPTION.SELECTED)) === 'true';
     },
     isOptionSelectedWithGlobalClassName: position =>
-      doIfOptionExists(position, async () =>
-        (await optionElementAt(position)).hasClass('wixstylereactSelected'),
+      doIfOptionExists(
+        position,
+        async () =>
+          (await (await optionElementAt(position)).attr(
+            DataAttr.DATA_OPTION.SELECTED_GLOBAL,
+          )) === 'true',
       ),
     isOptionHoveredWithGlobalClassName: position =>
-      doIfOptionExists(position, async () =>
-        (await optionElementAt(position)).hasClass('wixstylereactHovered'),
+      doIfOptionExists(
+        position,
+        async () =>
+          (await (await optionElementAt(position)).attr(
+            DataAttr.DATA_OPTION.HOVERED_GLOBAL,
+          )) === 'true',
       ),
     isOptionHeightSmall: position =>
       doIfOptionExists(
