@@ -55,7 +55,8 @@ export const dropdownLayoutDriverFactory = base => {
         }
       }
     },
-    hasTopArrow: () => base.$('.arrow').exists(),
+    hasTopArrow: async () =>
+      await (await byDataHook(DataAttr.DATA_HOOKS.TOP_ARROW)).exists(),
     isDown: async () =>
       (await (await contentContainer()).attr(DataAttr.DATA_DIRECTION)) ===
       'down',

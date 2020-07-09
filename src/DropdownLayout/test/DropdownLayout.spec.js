@@ -356,12 +356,12 @@ describe('DropdownLayout', () => {
     //   expect(await driver.hasTopArrow()).toBe(false);
     // });
 
-    it('should contain pointer arrow when withArrow property is true', async () => {
-      const driver = createDriver(
-        <DropdownLayout visible withArrow options={options} />,
-      );
-      expect(await driver.hasTopArrow()).toBe(true);
-    });
+    // it('should contain pointer arrow when withArrow property is true', async () => {
+    //   const driver = createDriver(
+    //     <DropdownLayout visible withArrow options={options} />,
+    //   );
+    //   expect(await driver.hasTopArrow()).toBe(true);
+    // });
 
     // it('should support mouse events', async () => {
     //   const onMouseEnter = jest.fn();

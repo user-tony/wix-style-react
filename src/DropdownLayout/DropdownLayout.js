@@ -393,7 +393,12 @@ class DropdownLayout extends WixComponent {
       [styles.up]: dropDirectionUp,
       [styles.down]: !dropDirectionUp,
     });
-    return withArrow && visible ? <div className={arrowClassName} /> : null;
+    return withArrow && visible ? (
+      <div
+        data-hook={DataAttr.DATA_HOOKS.TOP_ARROW}
+        className={arrowClassName}
+      />
+    ) : null;
   }
 
   _markOptionByProperty(props) {
