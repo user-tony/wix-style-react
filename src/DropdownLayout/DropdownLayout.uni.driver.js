@@ -68,7 +68,6 @@ export const dropdownLayoutDriverFactory = base => {
       doIfOptionExists(
         position,
         async () =>
-          // eslint-disable-next-line no-restricted-properties
           (await (await optionElementAt(position)).attr(
             DataAttr.DATA_DIVIDER,
           )) === 'true',
