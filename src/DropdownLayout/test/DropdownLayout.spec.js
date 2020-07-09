@@ -614,185 +614,185 @@ describe('DropdownLayout', () => {
       });
     });
 
-    describe('hover logic', () => {
-      // it('should not hover any option by default', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   expect(
-      //     await Promise.all(
-      //       options.map((option, index) => driver.isOptionHovered(index)),
-      //     ),
-      //   ).not.toContain(true);
-      // });
-      // it('should hover starting from the top', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(0)).toBe(true);
-      // });
-      //
-      // it('should hover starting from the selected item', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.clickAtOption(0);
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(1)).toBe(true);
-      // });
-      // it('should hover when mouse enter and unhover when mouse leave', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.mouseEnterAtOption(0);
-      //   expect(await driver.isOptionHovered(0)).toBe(true);
-      //   await driver.mouseLeaveAtOption(0);
-      //   expect(await driver.isOptionHovered(0)).toBe(false);
-      // });
-      // it('should hover when mouse enter and unhover when mouse leave by data hook', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   const option = await driver.optionByHook('dropdown-item-0');
-      //   await option.mouseEnter();
-      //   expect(await option.isHovered()).toBe(true);
-      //   await option.mouseLeave();
-      //   expect(await option.isHovered()).toBe(false);
-      // });
-      // it('should hover when mouse enter and unhover when mouse leave when overrideStyle is true', async () => {
-      //   const _options = [{ id: 0, value: 'Option 1', overrideStyle: true }];
-      //
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={_options} />,
-      //   );
-      //
-      //   await driver.mouseEnterAtOption(0);
-      //   expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(true);
-      //   expect(
-      //     await (
-      //       await driver.optionByHook('dropdown-item-0')
-      //     ).isHoveredWithGlobalClassName(),
-      //   ).toBe(true);
-      //   await driver.mouseLeaveAtOption(0);
-      //   expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(false);
-      //   expect(
-      //     await (
-      //       await driver.optionByHook('dropdown-item-0')
-      //     ).isHoveredWithGlobalClassName(),
-      //   ).toBe(false);
-      // });
-      // it('should not hover divider or a disabled item when mouse enter', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.mouseEnterAtOption(2);
-      //   expect(await driver.isOptionHovered(2)).toBe(false);
-      //   await driver.mouseLeaveAtOption(4);
-      //   expect(await driver.isOptionHovered(4)).toBe(false);
-      // });
-      // it('should have only one hovered option', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.mouseEnterAtOption(0);
-      //   expect(await driver.isOptionHovered(0)).toBe(true);
-      //   await driver.mouseEnterAtOption(1);
-      //   expect(await driver.isOptionHovered(0)).toBe(false);
-      //   expect(await driver.isOptionHovered(1)).toBe(true);
-      // });
-      //
-      // it('should hovered items cyclic and skipping divider or disabled items on down key', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.pressDownKey();
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(1)).toBe(true);
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(3)).toBe(true);
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(5)).toBe(true);
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(0)).toBe(true);
-      // });
-      //
-      // it('should hovered items cyclic and skipping divider or disabled on up key', async () => {
-      //   const driver = createDriver(
-      //     <DropdownLayout visible options={options} />,
-      //   );
-      //   await driver.pressUpKey();
-      //   expect(await driver.isOptionHovered(5)).toBe(true);
-      //   await driver.pressUpKey();
-      //   expect(await driver.isOptionHovered(3)).toBe(true);
-      //   await driver.pressUpKey();
-      //   expect(await driver.isOptionHovered(1)).toBe(true);
-      //   await driver.pressUpKey();
-      //   expect(await driver.isOptionHovered(0)).toBe(true);
-      // });
-      //
-      // it('should hover starting from a given item', async () => {
-      //   const _options = [
-      //     { id: 10, value: 'Option 1' },
-      //     { id: 20, value: 'Option 2' },
-      //     { id: 30, value: 'Option 3' },
-      //   ];
-      //   const driver = createDriver(
-      //     <DropdownLayout
-      //       visible
-      //       options={_options}
-      //       selectedId={20}
-      //       onSelect={jest.fn()}
-      //     />,
-      //   );
-      //   await driver.pressDownKey();
-      //   expect(await driver.isOptionHovered(2)).toBe(true);
-      // });
-      //
-      // it('should remember the hovered option when options change', async () => {
-      //   const _options = [
-      //     { id: 0, value: 'a 1' },
-      //     { id: 1, value: 'a 2' },
-      //     { id: 2, value: 'a 3' },
-      //     { id: 3, value: 'a 4' },
-      //   ];
-      //
-      //   const { driver, rerender } = render(
-      //     <DropdownLayout visible options={_options} />,
-      //   );
-      //   await driver.pressDownKey();
-      //   await driver.pressDownKey();
-      //   await driver.pressDownKey();
-      //   await driver.pressDownKey();
-      //
-      //   expect(await driver.isOptionHovered(3)).toBe(true);
-      //
-      //   rerender(<DropdownLayout visible options={_options.slice(1)} />);
-      //
-      //   expect(await driver.isOptionHovered(2)).toBe(true);
-      // });
-      // it('should reset the hovered option when options change and hovered option does not exist anymore', async () => {
-      //   const initialOptions = [
-      //     { id: 0, value: 'a 1' },
-      //     { id: 1, value: 'a 2' },
-      //     { id: 2, value: 'a 3' },
-      //     { id: 3, value: 'a 4' },
-      //   ];
-      //
-      //   const { driver, rerender } = render(
-      //     <DropdownLayout visible options={initialOptions} />,
-      //   );
-      //   await driver.pressDownKey();
-      //   await driver.pressDownKey();
-      //
-      //   expect(await driver.isOptionHovered(1)).toBe(true);
-      //
-      //   rerender(<DropdownLayout visible options={initialOptions.slice(2)} />);
-      //
-      //   expect(await driver.isOptionHovered(0)).toBe(false);
-      //   expect(await driver.isOptionHovered(1)).toBe(false);
-      // });
-    });
+    // describe('hover logic', () => {
+    //   // it('should not hover any option by default', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   expect(
+    //   //     await Promise.all(
+    //   //       options.map((option, index) => driver.isOptionHovered(index)),
+    //   //     ),
+    //   //   ).not.toContain(true);
+    //   // });
+    //   // it('should hover starting from the top', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(0)).toBe(true);
+    //   // });
+    //   //
+    //   // it('should hover starting from the selected item', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.clickAtOption(0);
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(1)).toBe(true);
+    //   // });
+    //   // it('should hover when mouse enter and unhover when mouse leave', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.mouseEnterAtOption(0);
+    //   //   expect(await driver.isOptionHovered(0)).toBe(true);
+    //   //   await driver.mouseLeaveAtOption(0);
+    //   //   expect(await driver.isOptionHovered(0)).toBe(false);
+    //   // });
+    //   // it('should hover when mouse enter and unhover when mouse leave by data hook', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   const option = await driver.optionByHook('dropdown-item-0');
+    //   //   await option.mouseEnter();
+    //   //   expect(await option.isHovered()).toBe(true);
+    //   //   await option.mouseLeave();
+    //   //   expect(await option.isHovered()).toBe(false);
+    //   // });
+    //   // it('should hover when mouse enter and unhover when mouse leave when overrideStyle is true', async () => {
+    //   //   const _options = [{ id: 0, value: 'Option 1', overrideStyle: true }];
+    //   //
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={_options} />,
+    //   //   );
+    //   //
+    //   //   await driver.mouseEnterAtOption(0);
+    //   //   expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(true);
+    //   //   expect(
+    //   //     await (
+    //   //       await driver.optionByHook('dropdown-item-0')
+    //   //     ).isHoveredWithGlobalClassName(),
+    //   //   ).toBe(true);
+    //   //   await driver.mouseLeaveAtOption(0);
+    //   //   expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(false);
+    //   //   expect(
+    //   //     await (
+    //   //       await driver.optionByHook('dropdown-item-0')
+    //   //     ).isHoveredWithGlobalClassName(),
+    //   //   ).toBe(false);
+    //   // });
+    //   // it('should not hover divider or a disabled item when mouse enter', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.mouseEnterAtOption(2);
+    //   //   expect(await driver.isOptionHovered(2)).toBe(false);
+    //   //   await driver.mouseLeaveAtOption(4);
+    //   //   expect(await driver.isOptionHovered(4)).toBe(false);
+    //   // });
+    //   // it('should have only one hovered option', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.mouseEnterAtOption(0);
+    //   //   expect(await driver.isOptionHovered(0)).toBe(true);
+    //   //   await driver.mouseEnterAtOption(1);
+    //   //   expect(await driver.isOptionHovered(0)).toBe(false);
+    //   //   expect(await driver.isOptionHovered(1)).toBe(true);
+    //   // });
+    //   //
+    //   // it('should hovered items cyclic and skipping divider or disabled items on down key', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.pressDownKey();
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(1)).toBe(true);
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(3)).toBe(true);
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(5)).toBe(true);
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(0)).toBe(true);
+    //   // });
+    //   //
+    //   // it('should hovered items cyclic and skipping divider or disabled on up key', async () => {
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout visible options={options} />,
+    //   //   );
+    //   //   await driver.pressUpKey();
+    //   //   expect(await driver.isOptionHovered(5)).toBe(true);
+    //   //   await driver.pressUpKey();
+    //   //   expect(await driver.isOptionHovered(3)).toBe(true);
+    //   //   await driver.pressUpKey();
+    //   //   expect(await driver.isOptionHovered(1)).toBe(true);
+    //   //   await driver.pressUpKey();
+    //   //   expect(await driver.isOptionHovered(0)).toBe(true);
+    //   // });
+    //   //
+    //   // it('should hover starting from a given item', async () => {
+    //   //   const _options = [
+    //   //     { id: 10, value: 'Option 1' },
+    //   //     { id: 20, value: 'Option 2' },
+    //   //     { id: 30, value: 'Option 3' },
+    //   //   ];
+    //   //   const driver = createDriver(
+    //   //     <DropdownLayout
+    //   //       visible
+    //   //       options={_options}
+    //   //       selectedId={20}
+    //   //       onSelect={jest.fn()}
+    //   //     />,
+    //   //   );
+    //   //   await driver.pressDownKey();
+    //   //   expect(await driver.isOptionHovered(2)).toBe(true);
+    //   // });
+    //   //
+    //   // it('should remember the hovered option when options change', async () => {
+    //   //   const _options = [
+    //   //     { id: 0, value: 'a 1' },
+    //   //     { id: 1, value: 'a 2' },
+    //   //     { id: 2, value: 'a 3' },
+    //   //     { id: 3, value: 'a 4' },
+    //   //   ];
+    //   //
+    //   //   const { driver, rerender } = render(
+    //   //     <DropdownLayout visible options={_options} />,
+    //   //   );
+    //   //   await driver.pressDownKey();
+    //   //   await driver.pressDownKey();
+    //   //   await driver.pressDownKey();
+    //   //   await driver.pressDownKey();
+    //   //
+    //   //   expect(await driver.isOptionHovered(3)).toBe(true);
+    //   //
+    //   //   rerender(<DropdownLayout visible options={_options.slice(1)} />);
+    //   //
+    //   //   expect(await driver.isOptionHovered(2)).toBe(true);
+    //   // });
+    //   // it('should reset the hovered option when options change and hovered option does not exist anymore', async () => {
+    //   //   const initialOptions = [
+    //   //     { id: 0, value: 'a 1' },
+    //   //     { id: 1, value: 'a 2' },
+    //   //     { id: 2, value: 'a 3' },
+    //   //     { id: 3, value: 'a 4' },
+    //   //   ];
+    //   //
+    //   //   const { driver, rerender } = render(
+    //   //     <DropdownLayout visible options={initialOptions} />,
+    //   //   );
+    //   //   await driver.pressDownKey();
+    //   //   await driver.pressDownKey();
+    //   //
+    //   //   expect(await driver.isOptionHovered(1)).toBe(true);
+    //   //
+    //   //   rerender(<DropdownLayout visible options={initialOptions.slice(2)} />);
+    //   //
+    //   //   expect(await driver.isOptionHovered(0)).toBe(false);
+    //   //   expect(await driver.isOptionHovered(1)).toBe(false);
+    //   // });
+    // });
 
     // describe('option validator', () => {
     //   describe('valid', () => {
@@ -813,54 +813,54 @@ describe('DropdownLayout', () => {
     //   });
     // });
 
-    describe('option markedOption', () => {
-      const initialOptions = [
-        { id: 0, value: 'a 1' },
-        { id: 1, value: 'a 2' },
-        { id: 2, value: 'a 3' },
-        { id: 3, value: 'a 4' },
-      ];
-
-      // it('should not mark any option by default', async () => {
-      //   const { driver } = render(<DropdownLayout options={initialOptions} />);
-      //   expect(await driver.markedOption()).toBe(null);
-      // });
-
-      it('should mark first option when equals true', async () => {
-        const { driver } = render(
-          <DropdownLayout options={initialOptions} markedOption />,
-        );
-        expect(await driver.markedOption()).toBe('a 1');
-      });
-
-      it('should mark second option when providing id', async () => {
-        const { driver } = render(
-          <DropdownLayout options={initialOptions} markedOption={1} />,
-        );
-        expect(await driver.markedOption()).toBe('a 2');
-      });
-
-      // it('should call onOptionMarked on default options', async () => {
-      //   const spyOnOptionMarked = jest.fn();
-      //   const dataHook = 'myDataHook';
-      //   const wrapper = mount(
-      //     <DropdownLayout
-      //       dataHook={dataHook}
-      //       options={[]}
-      //       markedOption
-      //       onOptionMarked={spyOnOptionMarked}
-      //     />,
-      //   );
-      //   const dropdownLayoutTestkit = dropdownLayoutTestkitFactory({
-      //     wrapper,
-      //     dataHook,
-      //   });
-      //
-      //   wrapper.setProps({ options: initialOptions });
-      //   expect(await dropdownLayoutTestkit.markedOption()).toBe('a 1');
-      //   expect(spyOnOptionMarked).toHaveBeenLastCalledWith(initialOptions[0]);
-      // });
-    });
+    // describe('option markedOption', () => {
+    //   const initialOptions = [
+    //     { id: 0, value: 'a 1' },
+    //     { id: 1, value: 'a 2' },
+    //     { id: 2, value: 'a 3' },
+    //     { id: 3, value: 'a 4' },
+    //   ];
+    //
+    //   // it('should not mark any option by default', async () => {
+    //   //   const { driver } = render(<DropdownLayout options={initialOptions} />);
+    //   //   expect(await driver.markedOption()).toBe(null);
+    //   // });
+    //
+    //   it('should mark first option when equals true', async () => {
+    //     const { driver } = render(
+    //       <DropdownLayout options={initialOptions} markedOption />,
+    //     );
+    //     expect(await driver.markedOption()).toBe('a 1');
+    //   });
+    //
+    //   it('should mark second option when providing id', async () => {
+    //     const { driver } = render(
+    //       <DropdownLayout options={initialOptions} markedOption={1} />,
+    //     );
+    //     expect(await driver.markedOption()).toBe('a 2');
+    //   });
+    //
+    //   // it('should call onOptionMarked on default options', async () => {
+    //   //   const spyOnOptionMarked = jest.fn();
+    //   //   const dataHook = 'myDataHook';
+    //   //   const wrapper = mount(
+    //   //     <DropdownLayout
+    //   //       dataHook={dataHook}
+    //   //       options={[]}
+    //   //       markedOption
+    //   //       onOptionMarked={spyOnOptionMarked}
+    //   //     />,
+    //   //   );
+    //   //   const dropdownLayoutTestkit = dropdownLayoutTestkitFactory({
+    //   //     wrapper,
+    //   //     dataHook,
+    //   //   });
+    //   //
+    //   //   wrapper.setProps({ options: initialOptions });
+    //   //   expect(await dropdownLayoutTestkit.markedOption()).toBe('a 1');
+    //   //   expect(spyOnOptionMarked).toHaveBeenLastCalledWith(initialOptions[0]);
+    //   // });
+    // });
   }
 
   // These tests are not driver related, so no need to test them both sync and async

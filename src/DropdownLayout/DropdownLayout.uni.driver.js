@@ -165,7 +165,7 @@ export const dropdownLayoutDriverFactory = base => {
       const optionsWithHovered = await Promise.all(
         allOptions.map(async option => ({
           option,
-          hovered: await option.hasClass('hovered'),
+          hovered: (await option.attr(DataAttr.DATA_OPTION.HOVERED)) === 'true',
         })),
       );
       const hoveredOptions = optionsWithHovered

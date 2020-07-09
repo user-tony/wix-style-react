@@ -14,4 +14,3 @@ export const DATA_OPTION = {
   SIZE: 'data-option-size',
   HOVERED: 'data-option-hovered',
 };
-// export const DATA_OPTION_SIZE = 'data-option-size';
