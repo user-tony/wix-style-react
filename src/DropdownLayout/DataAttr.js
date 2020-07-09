@@ -6,3 +6,5 @@ export const DATA_HOOKS = {
 };
 
 export const DATA_SHOWN = 'data-shown';
+
+export const DATA_DIRECTION = 'data-direction';

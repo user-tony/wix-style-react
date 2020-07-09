@@ -56,7 +56,9 @@ export const dropdownLayoutDriverFactory = base => {
       }
     },
     hasTopArrow: () => base.$('.arrow').exists(),
-    isDown: async () => (await contentContainer()).hasClass('down'),
+    isDown: async () =>
+      (await (await contentContainer()).attr(DataAttr.DATA_DIRECTION)) ===
+      'down',
     isLinkOption: async position => {
       const option = await optionElementAt(position);
       return (await option._prop('tagName')).toLowerCase() === 'a';

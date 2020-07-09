@@ -243,10 +243,11 @@ class DropdownLayout extends WixComponent {
   );
 
   _getDataAttributes = () => {
-    const { visible } = this.props;
+    const { visible, dropDirectionUp } = this.props;
     return {
       'data-hook': DataAttr.DATA_HOOKS.CONTENT_CONTAINER,
       [DataAttr.DATA_SHOWN]: visible,
+      [DataAttr.DATA_DIRECTION]: dropDirectionUp ? 'up' : 'down',
     };
   };
 
