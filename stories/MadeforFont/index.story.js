@@ -55,11 +55,11 @@ export default {
             content={
               <Box direction="vertical">
                 {['Helvetica', 'Madefor'].map((v, k) => (
-                  <FontUpgrade active={v === 'Madefor'}>
-                    <Box marginBottom="18px" key={k} verticalAlign="bottom">
+                  <FontUpgrade key={k} active={v === 'Madefor'}>
+                    <Box marginBottom="18px" verticalAlign="bottom">
                       <Box marginRight="18px">
                         <FormField label={v}>
-                          <Input placeholder={v}></Input>
+                          <Input placeholder={v} />
                         </FormField>
                       </Box>
                       <Button size="large">{v}</Button>
