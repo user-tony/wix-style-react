@@ -101,7 +101,8 @@ export const dropdownLayoutDriverFactory = base => {
       ),
     isShown: async () =>
       (await (await contentContainer()).attr(DataAttr.DATA_SHOWN)) === 'true',
-    isUp: async () => (await contentContainer()).hasClass('up'),
+    isUp: async () =>
+      (await (await contentContainer()).attr(DataAttr.DATA_DIRECTION)) === 'up',
     mouseEnter: () => base.hover(),
     mouseEnterAtOption: position =>
       doIfOptionExists(position, async () =>
