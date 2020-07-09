@@ -31,13 +31,6 @@ class DropdownLayout extends WixComponent {
       hovered: NOT_HOVERED_INDEX,
       selectedId: props.selectedId,
     };
-
-    this._onSelect = this._onSelect.bind(this);
-    this._onMouseLeave = this._onMouseLeave.bind(this);
-    this._onMouseEnter = this._onMouseEnter.bind(this);
-    this._onKeyDown = this._onKeyDown.bind(this);
-    this._onClose = this._onClose.bind(this);
-    this.onClickOutside = this.onClickOutside.bind(this);
   }
 
   _isControlled() {
@@ -70,12 +63,12 @@ class DropdownLayout extends WixComponent {
     }
   }
 
-  onClickOutside(event) {
+  onClickOutside = event => {
     const { visible, onClickOutside } = this.props;
     if (visible && onClickOutside) {
       onClickOutside(event);
     }
-  }
+  };
 
   _markOption(index, options) {
     const { onOptionMarked } = this.props;
@@ -85,7 +78,7 @@ class DropdownLayout extends WixComponent {
     onOptionMarked && onOptionMarked(options[index] || null);
   }
 
-  _onSelect(index, e) {
+  _onSelect = (index, e) => {
     const { options, onSelect } = this.props;
     const chosenOption = options[index];
 
@@ -100,17 +93,17 @@ class DropdownLayout extends WixComponent {
       this.setState({ selectedId: chosenOption && chosenOption.id });
     }
     return !!onSelect && chosenOption;
-  }
+  };
 
-  _onMouseEnter(index) {
+  _onMouseEnter = index => {
     if (this._isSelectableOption(this.props.options[index])) {
       this._markOption(index);
     }
-  }
+  };
 
-  _onMouseLeave() {
+  _onMouseLeave = () => {
     this._markOption(NOT_HOVERED_INDEX);
-  }
+  };
 
   _getMarkedIndex() {
     const { options } = this.props;
@@ -159,7 +152,7 @@ class DropdownLayout extends WixComponent {
    * @param {SyntheticEvent} event - The keydown event triggered by React
    * @returns {boolean} - Whether the event was handled by the component
    */
-  _onKeyDown(event) {
+  _onKeyDown = event => {
     if (!this.props.visible || this.props.isComposing) {
       return false;
     }
@@ -211,15 +204,15 @@ class DropdownLayout extends WixComponent {
     }
     event.stopPropagation();
     return true;
-  }
+  };
 
-  _onClose() {
+  _onClose = () => {
     this._markOption(NOT_HOVERED_INDEX);
 
     if (this.props.onClose) {
       this.props.onClose();
     }
-  }
+  };
 
   _renderNode(node) {
     return node ? <div className={styles.node}>{node}</div> : null;
