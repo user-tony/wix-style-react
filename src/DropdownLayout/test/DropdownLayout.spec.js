@@ -431,20 +431,20 @@ describe('DropdownLayout', () => {
         });
       });
 
-      // describe('when false', () => {
-      //   it('should not give the option a selected classname', async () => {
-      //     const driver = createDriver(
-      //       <DropdownLayout
-      //         selectedHighlight={false}
-      //         visible
-      //         options={options}
-      //         selectedId={selectedId}
-      //       />,
-      //     );
-      //     const option = await driver.optionById(selectedId);
-      //     expect(await option.isSelected()).toBe(false);
-      //   });
-      // });
+      describe('when false', () => {
+        it('should not give the option a selected classname', async () => {
+          const driver = createDriver(
+            <DropdownLayout
+              selectedHighlight={false}
+              visible
+              options={options}
+              selectedId={selectedId}
+            />,
+          );
+          const option = await driver.optionById(selectedId);
+          expect(await option.isSelected()).toBe(false);
+        });
+      });
     });
 
     describe('options that are links', () => {
