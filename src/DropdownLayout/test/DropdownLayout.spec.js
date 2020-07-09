@@ -840,26 +840,26 @@ describe('DropdownLayout', () => {
         expect(await driver.markedOption()).toBe('a 2');
       });
 
-      // it('should call onOptionMarked on default options', async () => {
-      //   const spyOnOptionMarked = jest.fn();
-      //   const dataHook = 'myDataHook';
-      //   const wrapper = mount(
-      //     <DropdownLayout
-      //       dataHook={dataHook}
-      //       options={[]}
-      //       markedOption
-      //       onOptionMarked={spyOnOptionMarked}
-      //     />,
-      //   );
-      //   const dropdownLayoutTestkit = dropdownLayoutTestkitFactory({
-      //     wrapper,
-      //     dataHook,
-      //   });
-      //
-      //   wrapper.setProps({ options: initialOptions });
-      //   expect(await dropdownLayoutTestkit.markedOption()).toBe('a 1');
-      //   expect(spyOnOptionMarked).toHaveBeenLastCalledWith(initialOptions[0]);
-      // });
+      it('should call onOptionMarked on default options', async () => {
+        const spyOnOptionMarked = jest.fn();
+        const dataHook = 'myDataHook';
+        const wrapper = mount(
+          <DropdownLayout
+            dataHook={dataHook}
+            options={[]}
+            markedOption
+            onOptionMarked={spyOnOptionMarked}
+          />,
+        );
+        const dropdownLayoutTestkit = dropdownLayoutTestkitFactory({
+          wrapper,
+          dataHook,
+        });
+
+        wrapper.setProps({ options: initialOptions });
+        expect(await dropdownLayoutTestkit.markedOption()).toBe('a 1');
+        expect(spyOnOptionMarked).toHaveBeenLastCalledWith(initialOptions[0]);
+      });
     });
   }
 
