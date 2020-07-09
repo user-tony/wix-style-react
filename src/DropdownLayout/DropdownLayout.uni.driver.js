@@ -78,7 +78,7 @@ export const dropdownLayoutDriverFactory = base => {
     },
     isOptionHovered: async index => {
       const option = await optionElementAt(index);
-      return await option.hasClass('hovered');
+      return (await option.attr(DataAttr.DATA_OPTION.HOVERED)) === 'true';
     },
     isOptionSelected: async index => {
       const option = await optionElementAt(index);
@@ -97,7 +97,7 @@ export const dropdownLayoutDriverFactory = base => {
         position,
         async () =>
           (await (await optionElementAt(position)).attr(
-            DataAttr.DATA_OPTION_SIZE,
+            DataAttr.DATA_OPTION.SIZE,
           )) === 'small',
       ),
     isOptionHeightBig: position =>
@@ -105,7 +105,7 @@ export const dropdownLayoutDriverFactory = base => {
         position,
         async () =>
           (await (await optionElementAt(position)).attr(
-            DataAttr.DATA_OPTION_SIZE,
+            DataAttr.DATA_OPTION.SIZE,
           )) === 'big',
       ),
     isShown: async () =>
