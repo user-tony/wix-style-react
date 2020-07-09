@@ -73,21 +73,21 @@ describe('DropdownLayout', () => {
     //   expect(await driver.optionsScrollTop()).toBe(0);
     // });
 
-    it('should be visible and drop down', async () => {
-      const driver = createDriver(<DropdownLayout visible options={options} />);
-      expect(await driver.isShown()).toBe(true);
-      expect(await driver.isDown()).toBe(true);
-      expect(await driver.isUp()).toBe(false);
-    });
-
-    it('should be visible and drop up', async () => {
-      const driver = createDriver(
-        <DropdownLayout visible options={options} dropDirectionUp />,
-      );
-      expect(await driver.isShown()).toBe(true);
-      expect(await driver.isDown()).toBe(false);
-      expect(await driver.isUp()).toBe(true);
-    });
+    // it('should be visible and drop down', async () => {
+    //   const driver = createDriver(<DropdownLayout visible options={options} />);
+    //   expect(await driver.isShown()).toBe(true);
+    //   expect(await driver.isDown()).toBe(true);
+    //   expect(await driver.isUp()).toBe(false);
+    // });
+    //
+    // it('should be visible and drop up', async () => {
+    //   const driver = createDriver(
+    //     <DropdownLayout visible options={options} dropDirectionUp />,
+    //   );
+    //   expect(await driver.isShown()).toBe(true);
+    //   expect(await driver.isDown()).toBe(false);
+    //   expect(await driver.isUp()).toBe(true);
+    // });
 
     // it('should have all options values in dropdown list', async () => {
     //   const _options = [
