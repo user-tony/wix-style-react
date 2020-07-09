@@ -371,6 +371,7 @@ class DropdownLayout extends WixComponent {
 
     return (
       <div
+        data-option-size={itemHeight}
         className={optionClassName}
         ref={node => this._setSelectedOptionNode(node, option)}
         onClick={!disabled ? e => this._onSelect(idx, e) : null}

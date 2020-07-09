@@ -382,28 +382,28 @@ describe('DropdownLayout', () => {
     //   expect(onMouseLeave).toBeCalled();
     // });
 
-    describe('itemHeight prop', () => {
-      it('should be small by default', async () => {
-        const driver = createDriver(
-          <DropdownLayout visible options={options} />,
-        );
-        expect(await driver.isOptionHeightSmall(0)).toBe(true);
-      });
-
-      it('should be small', async () => {
-        const driver = createDriver(
-          <DropdownLayout visible options={options} itemHeight="small" />,
-        );
-        expect(await driver.isOptionHeightSmall(0)).toBe(true);
-      });
-
-      it('should be big', async () => {
-        const driver = createDriver(
-          <DropdownLayout visible options={options} itemHeight="big" />,
-        );
-        expect(await driver.isOptionHeightBig(0)).toBe(true);
-      });
-    });
+    // describe('itemHeight prop', () => {
+    //   it('should be small by default', async () => {
+    //     const driver = createDriver(
+    //       <DropdownLayout visible options={options} />,
+    //     );
+    //     expect(await driver.isOptionHeightSmall(0)).toBe(true);
+    //   });
+    //
+    //   it('should be small', async () => {
+    //     const driver = createDriver(
+    //       <DropdownLayout visible options={options} itemHeight="small" />,
+    //     );
+    //     expect(await driver.isOptionHeightSmall(0)).toBe(true);
+    //   });
+    //
+    //   it('should be big', async () => {
+    //     const driver = createDriver(
+    //       <DropdownLayout visible options={options} itemHeight="big" />,
+    //     );
+    //     expect(await driver.isOptionHeightBig(0)).toBe(true);
+    //   });
+    // });
 
     describe('selectedHighlight prop', () => {
       const selectedId = 0;

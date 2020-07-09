@@ -93,12 +93,20 @@ export const dropdownLayoutDriverFactory = base => {
         (await optionElementAt(position)).hasClass('wixstylereactHovered'),
       ),
     isOptionHeightSmall: position =>
-      doIfOptionExists(position, async () =>
-        (await optionElementAt(position)).hasClass('smallHeight'),
+      doIfOptionExists(
+        position,
+        async () =>
+          (await (await optionElementAt(position)).attr(
+            DataAttr.DATA_OPTION_SIZE,
+          )) === 'small',
       ),
     isOptionHeightBig: position =>
-      doIfOptionExists(position, async () =>
-        (await optionElementAt(position)).hasClass('bigHeight'),
+      doIfOptionExists(
+        position,
+        async () =>
+          (await (await optionElementAt(position)).attr(
+            DataAttr.DATA_OPTION_SIZE,
+          )) === 'big',
       ),
     isShown: async () =>
       (await (await contentContainer()).attr(DataAttr.DATA_SHOWN)) === 'true',
