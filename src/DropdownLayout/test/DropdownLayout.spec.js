@@ -121,23 +121,23 @@ describe('DropdownLayout', () => {
       expect(await driver.tabIndex()).toBe(0);
     });
 
-    // it('should have options', async () => {
-    //   const driver = createDriver(<DropdownLayout visible options={options} />);
-    //   expect(await driver.optionsLength()).toBe(7);
-    //   expect(await driver.optionContentAt(0)).toBe('Option 1');
-    //   expect(await driver.isOptionADivider(4)).toBe(true);
-    //   expect(
-    //     await (
-    //       await driver.optionByHook('dropdown-divider-divider1')
-    //     ).isDivider(),
-    //   ).toBe(true);
-    //   expect(await driver.optionContentAt(5)).toBe('Option 4');
-    //
-    //   expect(await driver.isOptionADivider(6)).toBe(true);
-    //   expect(
-    //     await (await driver.optionByHook('dropdown-divider-6')).isDivider(),
-    //   ).toBe(true);
-    // });
+    it('should have options', async () => {
+      const driver = createDriver(<DropdownLayout visible options={options} />);
+      expect(await driver.optionsLength()).toBe(7);
+      expect(await driver.optionContentAt(0)).toBe('Option 1');
+      expect(await driver.isOptionADivider(4)).toBe(true);
+      expect(
+        await (
+          await driver.optionByHook('dropdown-divider-divider1')
+        ).isDivider(),
+      ).toBe(true);
+      expect(await driver.optionContentAt(5)).toBe('Option 4');
+
+      expect(await driver.isOptionADivider(6)).toBe(true);
+      expect(
+        await (await driver.optionByHook('dropdown-divider-6')).isDivider(),
+      ).toBe(true);
+    });
 
     it('should call onClose when esc key is pressed', async () => {
       const onClose = jest.fn();

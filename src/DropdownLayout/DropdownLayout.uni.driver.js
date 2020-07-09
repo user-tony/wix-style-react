@@ -65,8 +65,13 @@ export const dropdownLayoutDriverFactory = base => {
       return (await option._prop('tagName')).toLowerCase() === 'a';
     },
     isOptionADivider: position =>
-      doIfOptionExists(position, async () =>
-        (await optionElementAt(position)).hasClass('divider'),
+      doIfOptionExists(
+        position,
+        async () =>
+          // eslint-disable-next-line no-restricted-properties
+          (await (await optionElementAt(position)).attr(
+            DataAttr.DATA_DIVIDER,
+          )) === 'true',
       ),
     isOptionExists: async optionText => {
       for (const _option of await options()) {
@@ -198,10 +203,13 @@ const createOptionDriver = option => ({
     (await option.attr(DataAttr.DATA_OPTION.HOVERED)) === 'true',
   isSelected: async () =>
     (await option.attr(DataAttr.DATA_OPTION.SELECTED)) === 'true',
-  isHoveredWithGlobalClassName: () => option.hasClass('wixstylereactHovered'),
-  isSelectedWithGlobalClassName: () => option.hasClass('wixstylereactSelected'),
+  isHoveredWithGlobalClassName: async () =>
+    (await option.attr(DataAttr.DATA_OPTION.HOVERED_GLOBAL)) === 'true',
+  isSelectedWithGlobalClassName: async () =>
+    (await option.attr(DataAttr.DATA_OPTION.SELECTED_GLOBAL)) === 'true',
   content: () => option.text(),
   click: () => option.click(),
-  isDivider: () => option.hasClass('divider'),
-  isDisabled: () => option.hasClass('disabled'),
+  isDivider: async () => (await option.attr(DataAttr.DATA_DIVIDER)) === 'true',
+  isDisabled: async () =>
+    (await option.attr(DataAttr.DATA_OPTION.DISABLED)) === 'true',
 });

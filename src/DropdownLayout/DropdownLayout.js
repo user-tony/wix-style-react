@@ -335,7 +335,14 @@ class DropdownLayout extends WixComponent {
   }
 
   _renderDivider(idx, dataHook) {
-    return <div key={idx} className={styles.divider} data-hook={dataHook} />;
+    return (
+      <div
+        key={idx}
+        data-divider="true"
+        className={styles.divider}
+        data-hook={dataHook}
+      />
+    );
   }
 
   _renderItem({
@@ -366,7 +373,10 @@ class DropdownLayout extends WixComponent {
       <div
         data-option-hovered={hovered && !overrideStyle}
         data-option-size={itemHeight}
+        data-option-disabled={disabled}
         data-option-selected={selected && !overrideStyle && selectedHighlight}
+        data-option-hovered-global={hovered && overrideStyle}
+        data-option-selected-global={selected && overrideStyle}
         className={optionClassName}
         ref={node => this._setSelectedOptionNode(node, option)}
         onClick={!disabled ? e => this._onSelect(idx, e) : null}
