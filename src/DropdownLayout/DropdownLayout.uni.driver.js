@@ -194,8 +194,10 @@ const createOptionDriver = option => ({
   element: () => option,
   mouseEnter: () => option.hover(),
   mouseLeave: () => ReactBase(option).mouseLeave(),
-  isHovered: () => option.hasClass('hovered'),
-  isSelected: () => option.hasClass('selected'),
+  isHovered: async () =>
+    (await option.attr(DataAttr.DATA_OPTION.HOVERED)) === 'true',
+  isSelected: async () =>
+    (await option.attr(DataAttr.DATA_OPTION.SELECTED)) === 'true',
   isHoveredWithGlobalClassName: () => option.hasClass('wixstylereactHovered'),
   isSelectedWithGlobalClassName: () => option.hasClass('wixstylereactSelected'),
   content: () => option.text(),
