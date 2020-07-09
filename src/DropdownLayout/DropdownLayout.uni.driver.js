@@ -82,7 +82,7 @@ export const dropdownLayoutDriverFactory = base => {
     },
     isOptionSelected: async index => {
       const option = await optionElementAt(index);
-      return await option.hasClass('selected');
+      return (await option.attr(DataAttr.DATA_OPTION.SELECTED)) === 'true';
     },
     isOptionSelectedWithGlobalClassName: position =>
       doIfOptionExists(position, async () =>

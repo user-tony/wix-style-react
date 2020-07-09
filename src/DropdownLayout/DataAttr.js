@@ -13,4 +13,5 @@ export const DATA_DIRECTION = 'data-direction';
 export const DATA_OPTION = {
   SIZE: 'data-option-size',
   HOVERED: 'data-option-hovered',
+  SELECTED: 'data-option-selected',
 };

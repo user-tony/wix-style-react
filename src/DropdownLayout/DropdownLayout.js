@@ -373,6 +373,7 @@ class DropdownLayout extends WixComponent {
       <div
         data-option-hovered={hovered && !overrideStyle}
         data-option-size={itemHeight}
+        data-option-selected={selected && !overrideStyle && selectedHighlight}
         className={optionClassName}
         ref={node => this._setSelectedOptionNode(node, option)}
         onClick={!disabled ? e => this._onSelect(idx, e) : null}
