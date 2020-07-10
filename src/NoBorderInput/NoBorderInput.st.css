@@ -58,8 +58,8 @@
   transition: 0.3s ease all;
 }
 
-.border:before,
-.border:after {
+.border::before,
+.border::after {
   content: '';
   height: 1px;
   width: 0;
@@ -139,22 +139,22 @@
   top: -12px;
 }
 
-.root:focus .border:before,
-.root:focus .border:after {
+.root:focus .border::before,
+.root:focus .border::after {
   width:100%;
   background: value(B10);
 }
 
 /* Status */
 .root:status(error) .border,
-.root:focus:status(error) .border:before,
-.root:focus:status(error) .border:after {
+.root:focus:status(error) .border::before,
+.root:focus:status(error) .border::after {
   background: value(R10);
 }
 
 .root:status(warning) .border,
-.root:focus:status(warning) .border:before,
-.root:focus:status(warning) .border:after {
+.root:focus:status(warning) .border::before,
+.root:focus:status(warning) .border::after {
   background: value(Y10);
 }
 
