@@ -34,7 +34,6 @@
 
 .exit {
   animation-name: easeOutElastic;
-  animation-duration: 400ms;
 }
 
 .exitActive {
