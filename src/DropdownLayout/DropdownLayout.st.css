@@ -130,6 +130,8 @@
 
 .option.title{
   -st-mixin: heading-h6;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
   background: value(D70);
   color: value(D20);
 }
