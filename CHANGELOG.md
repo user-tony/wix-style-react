@@ -18,6 +18,7 @@ Types of changes:
 ### Added
 - `<Table.Subtoolbar/>` - add subcomponent [#5624](https://github.com/wix/wix-style-react/pull/5624)
 - `<DropdownBase/>` - Add isOpen to render function [#5651](https://github.com/wix/wix-style-react/pull/5651)
+- `<FontUpgrade/>` - add 'className' & 'as' props [#5689](https://github.com/wix/wix-style-react/pull/5689)
 
 ### Changed
 - `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648) and [#5650](https://github.com/wix/wix-style-react/pull/5650)
