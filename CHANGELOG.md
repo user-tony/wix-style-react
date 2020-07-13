@@ -23,6 +23,9 @@ Types of changes:
 - `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648) and [#5650](https://github.com/wix/wix-style-react/pull/5650)
 - `<Multiselect/>`- remove use of internal part of Input [#5672](https://github.com/wix/wix-style-react/pull/5672)
 
+### Fixed
+- `<Notification/>`- fixing close button css and improving docs [#5675](https://github.com/wix/wix-style-react/pull/5675)
+
 ## 8.28.0 - 2020-07-06
 ### Changed
 - `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
