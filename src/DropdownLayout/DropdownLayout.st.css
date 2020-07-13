@@ -161,7 +161,7 @@ a[data-hook=link-item] {
 
 .option.selected {
   background-color: value(B10);
-  /*@extend .light;*/
+  color: value(D80);
 }
 
 .option.selected.hovered {
