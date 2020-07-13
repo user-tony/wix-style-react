@@ -126,7 +126,7 @@ export default {
           code({
             title: 'Label Text Ellipsis',
             compact: true,
-            subtitle: `Label text can either has ellipsis (default) or not.`,
+            subtitle: `Component with long text shows ellipsis and full text appears on mouse hover. It can be toggled to display multiple lines instead.`,
             source: examples.ellipsis,
           }),
 

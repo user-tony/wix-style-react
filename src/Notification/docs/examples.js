@@ -48,7 +48,7 @@ export const ellipsis = `
   <Cell>
       <Notification show>
         <Notification.TextLabel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            This notification appears with extremely long text and it doesn't fit in a single line. It requires to enable ellipsis feature or wrap the text in multiple lines.
         </Notification.TextLabel>
         <Notification.ActionButton onClick={() => console.log('Clicked!')}>
         button
@@ -59,7 +59,7 @@ export const ellipsis = `
   <Cell>
      <Notification show>
       <Notification.TextLabel ellipsis={false}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        This notification appears with extremely long text and it doesn't fit in a single line. It requires to enable ellipsis feature or wrap the text in multiple lines.
       </Notification.TextLabel>
       <Notification.ActionButton onClick={() => console.log('Clicked!')}>
       button
@@ -80,8 +80,7 @@ return <Layout>
     <Cell>
     <Notification onClose={() => setShow(false)}  theme='error' show={show}>
     <Notification.TextLabel ellipsis={false}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua
+        This notification appears with extremely long text and it doesn't fit in a single line. It requires to enable ellipsis feature or wrap the text in multiple lines.
     </Notification.TextLabel>
     <Notification.ActionButton onClick={() => console.log('Clicked!')}>
       button
@@ -89,7 +88,7 @@ return <Layout>
     <Notification.CloseButton />
   </Notification>
   </Cell>
-  <Cell><Text>text text text text text text text text text text text text text text text text text text text text text text</Text></Cell>
+  <Cell><Text>The Life and Strange Surprizing Adventures of Robinson Crusoe, Of York, Mariner: Who lived Eight and Twenty Years, all alone in an un-inhabited Island on the Coast of America, near the Mouth of the Great River of Oroonoque; Having been cast on Shore by Shipwreck, wherein all the Men perished but himself. With An Account how he was at last as strangely deliver'd by Pyrates</Text></Cell>
 </Layout>
 };
 `;
