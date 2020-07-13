@@ -1,19 +1,11 @@
-:vars {
-  enterEasing: cubic-bezier(0, 0, 0.2, 1);
-  enterDuration: 150ms;
-}
-
 @keyframes easeOutElastic {
-  0% {
-    transform: scale(1);
-  }
-  42% {
+  from {
     transform: scale(1.03);
   }
-  84% {
+  50% {
     transform: scale(0.98);
   }
-  100% {
+  to {
     transform: scale(1);
   }
 }
@@ -25,18 +17,18 @@
 
 .enter {
   transform: scale(1);
+  transition: transform 150ms;
 }
 
 .enterActive {
-  transform: scale(1.7);
-  transition: transform 150ms;
+  transform: scale(1.03);
 }
 
 .exit {
   animation-name: easeOutElastic;
+  animation-duration: 400ms;
 }
 
 .exitActive {
   animation-name: easeOutElastic;
-  animation-duration: 400ms;
 }
