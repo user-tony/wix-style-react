@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Added
+- `<HorizontalTimeline/>` - new component [#5653](https://github.com/wix/wix-style-react/pull/5653)
+
 ## 8.29.0 - 2020-07-13
 ### Added
 - `<Table.Subtoolbar/>` - add subcomponent [#5624](https://github.com/wix/wix-style-react/pull/5624)
