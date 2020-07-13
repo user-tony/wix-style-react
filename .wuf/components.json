@@ -185,6 +185,9 @@
   "Highlighter": {
     "path": "src/Highlighter"
   },
+  "HorizontalTimeline": {
+    "path": "src/HorizontalTimeline"
+  },
   "IconButton": {
     "path": "src/IconButton"
   },

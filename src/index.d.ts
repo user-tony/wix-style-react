@@ -424,4 +424,8 @@ export { default as SortableGrid } from './SortableGrid';
 export * from './SortableGrid';
 
 export { default as dndStyles } from './dnd-styles';
+
+export { default as HorizontalTimeline } from './HorizontalTimeline';
+export * from './HorizontalTimeline';
+
 export * from './dnd-styles';
