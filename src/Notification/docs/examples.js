@@ -1,56 +1,63 @@
-const wrapWithDiv = string =>
-  `<div>
+import { THEMES } from '../constants';
+
+const wrapWithLayout = string => `
+<Layout>
   ${string}
-</div>`;
+</Layout>`;
 
 const sourceForThemes = theme => `
-<Notification theme="${theme}" show>
-  <Notification.TextLabel>${theme} theme</Notification.TextLabel>
-  <Notification.CloseButton/>
-</Notification>
-`;
+<Cell>
+  <Notification theme="${theme}" show>
+    <Notification.TextLabel>${theme} theme</Notification.TextLabel>
+    <Notification.CloseButton/>
+  </Notification>
+</Cell>`;
 
-export const themes = wrapWithDiv(
-  ['standard', 'error', 'success', 'warning', 'premium']
+export const themes = wrapWithLayout(
+  Object.values(THEMES)
     .map(sourceForThemes)
-    .join('\n<br/>\n'),
+    .join(''),
 );
 
 export const actions = `
-<div>
-  <Notification show>
-    <Notification.TextLabel>This notification has</Notification.TextLabel>
-    <Notification.ActionButton type="textLink" onClick={() => console.log('Clicked!')}>
-      text link action
-    </Notification.ActionButton>
-    <Notification.CloseButton />
-  </Notification>
+<Layout>
+  <Cell>
+    <Notification show>
+      <Notification.TextLabel>This notification has</Notification.TextLabel>
+      <Notification.ActionButton type="textLink" onClick={() => console.log('Clicked!')}>
+        text link action
+      </Notification.ActionButton>
+      <Notification.CloseButton />
+    </Notification>
+  </Cell>
 
-  <br/>
-
-  <Notification show>
-    <Notification.TextLabel>This notification has</Notification.TextLabel>
-    <Notification.ActionButton onClick={() => console.log('Clicked!')}>
-      button
-    </Notification.ActionButton>
-    <Notification.CloseButton />
-  </Notification>
-</div>
+  <Cell>
+    <Notification show>
+      <Notification.TextLabel>This notification has</Notification.TextLabel>
+      <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+        button
+      </Notification.ActionButton>
+      <Notification.CloseButton />
+    </Notification>
+  </Cell>
+</Layout>
 `;
 
 export const ellipsis = `
-<div>
-    <Notification show>
-      <Notification.TextLabel>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </Notification.TextLabel>
-      <Notification.ActionButton onClick={() => console.log('Clicked!')}>
-      button
-    </Notification.ActionButton>
-      <Notification.CloseButton />
-    </Notification>
-    <br/>
-    <Notification show>
+<Layout>
+  <Cell>
+      <Notification show>
+        <Notification.TextLabel>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </Notification.TextLabel>
+        <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+        button
+        </Notification.ActionButton>
+        <Notification.CloseButton />
+      </Notification>
+  </Cell>
+  <Cell>
+     <Notification show>
       <Notification.TextLabel ellipsis={false}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
       </Notification.TextLabel>
@@ -59,5 +66,30 @@ export const ellipsis = `
     </Notification.ActionButton>
       <Notification.CloseButton />
     </Notification>
-</div>
+  </Cell>
+</Layout>
+`;
+
+export const controlled = `
+() => {
+
+const [show, setShow] = React.useState(false)
+
+return <Layout>
+    <Cell><Button onClick={() => setShow(!show)}>Show / Hide Notification</Button></Cell>
+    <Cell>
+    <Notification onClose={() => setShow(false)}  theme='error' show={show}>
+    <Notification.TextLabel ellipsis={false}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua
+    </Notification.TextLabel>
+    <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+      button
+    </Notification.ActionButton>
+    <Notification.CloseButton />
+  </Notification>
+  </Cell>
+  <Cell><Text>text text text text text text text text text text text text text text text text text text text text text text</Text></Cell>
+</Layout>
+};
 `;
