@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.30.0 - 2020-07-14
 ### Added
 - `<HorizontalTimeline/>` - new component [#5653](https://github.com/wix/wix-style-react/pull/5653)
 - `<Divider/>` - Add new skins [#5694](https://github.com/wix/wix-style-react/pull/5694)
