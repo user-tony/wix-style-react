@@ -167,3 +167,4 @@ export { default as ComposerSidebar } from './ComposerSidebar';
 export { default as SortableGrid } from './SortableGrid';
 export { default as dndStyles } from './dnd-styles';
 export { default as HorizontalTimeline } from './HorizontalTimeline';
+export { default as StarsRatingBar } from './StarsRatingBar';

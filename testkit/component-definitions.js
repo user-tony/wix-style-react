@@ -350,6 +350,12 @@ export default {
     },
   },
 
+  StarsRatingBar: {
+    props: {
+      value: 0,
+    },
+  },
+
   MarketingLayout: {
     props: {
       title: 'Large Size Layout',

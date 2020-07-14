@@ -377,6 +377,9 @@
       "docs"
     ]
   },
+  "StarsRatingBar": {
+    "path": "src/StarsRatingBar"
+  },
   "StatisticsWidget": {
     "path": "src/StatisticsWidget"
   },

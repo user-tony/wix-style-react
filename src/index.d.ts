@@ -421,6 +421,10 @@ export { default as ComposerSidebar } from './ComposerSidebar';
 export * from './ComposerSidebar';
 
 export { default as SortableGrid } from './SortableGrid';
+
+export { default as StarsRatingBar } from './StarsRatingBar';
+export * from './StarsRatingBar';
+
 export * from './SortableGrid';
 
 export { default as dndStyles } from './dnd-styles';

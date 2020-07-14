@@ -124,6 +124,7 @@ require('../src/Skeleton/docs/index.story');
 require('../src/Slider/docs/index.story');
 require('../src/SocialButton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
+require('../src/StarsRatingBar/docs/index.story');
 require('../src/StatisticsWidget/docs/index.story');
 require('../src/StatusIndicator/docs/index.story');
 require('../src/Stepper/docs/index.story');
