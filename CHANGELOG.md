@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<HorizontalTimeline/>` - new component [#5653](https://github.com/wix/wix-style-react/pull/5653)
+- `<Divider/>` - Add new skins [#5694](https://github.com/wix/wix-style-react/pull/5694)
 - `<StarsRatingBar />` - New component [#5602](https://github.com/wix/wix-style-react/pull/5602)
 
 ## 8.29.0 - 2020-07-13
