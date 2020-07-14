@@ -20,6 +20,9 @@ Types of changes:
 - `<Divider/>` - Add new skins [#5694](https://github.com/wix/wix-style-react/pull/5694)
 - `<StarsRatingBar />` - New component [#5602](https://github.com/wix/wix-style-react/pull/5602)
 
+### Fixed
+- `<FloatingHelper/>` - fixing closing button css [#5698](https://github.com/wix/wix-style-react/pull/5698)
+
 ## 8.29.0 - 2020-07-13
 ### Added
 - `<Table.Subtoolbar/>` - add subcomponent [#5624](https://github.com/wix/wix-style-react/pull/5624)
