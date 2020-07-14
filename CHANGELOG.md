@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Docs
+- `<SortableList/>` - create up-to-date docs [#5662](https://github.com/wix/wix-style-react/pull/5662)
 
 ## 8.30.0 - 2020-07-14
 ### Added
