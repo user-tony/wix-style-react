@@ -27,7 +27,8 @@
   arrowDownShadow: -3px -3px 8px rgba(0, 0, 0, .1);
 }
 
-.wrapper {
+.root {
+  -st-states: visible, withArrow, containerStyles, direction(enum(up, down));
   box-sizing: border-box;
   position: relative;
   outline: none;
@@ -37,6 +38,10 @@
   justify-content: center;
 }
 
+.root * {
+  box-sizing: border-box;
+}
+
 .options {
   -st-mixin: defaultScrollBar;
   position: relative;
@@ -44,7 +49,6 @@
 }
 
 .contentContainer {
-  -st-states: visible, withArrow, containerStyles, direction(enum(up, down));
   background: value(D80);
   border: none;
   display: none;
@@ -62,13 +66,13 @@
   user-select: none;
 }
 
-.contentContainer:containerStyles {
+.root:containerStyles .contentContainer{
   border-radius: 8px;
   box-shadow: value(shadow30);
   position: absolute;
 }
 
-.contentContainer:visible {
+.root:visible .contentContainer {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -76,25 +80,25 @@
   opacity: 1;
 }
 
-.contentContainer:visible:withArrow {
+.root:visible:withArrow .contentContainer {
   padding: 10px 0;
 }
 
-.contentContainer:visible:containerStyles.up {
+.root:visible:containerStyles:direction(up)  .contentContainer{
   bottom: 0;
   margin-top: 15px;
 }
 
-.contentContainer:visible:containerStyles:withArrow:direction(up) {
+.root:visible:containerStyles:withArrow:direction(up) .contentContainer{
   margin-bottom: value(top-arrow-size);
 }
 
-.contentContainer:visible:containerStyles:direction(down) {
+.root:visible:containerStyles:direction(down) .contentContainer {
   top: 0;
   margin-bottom: 15px;
 }
 
-.contentContainer:visible:containerStyles:withArrow:direction(down) {
+.root:visible:containerStyles:withArrow:direction(down) .contentContainer {
   margin-top: value(top-arrow-size);
 }
 
@@ -179,10 +183,6 @@ a[data-hook=link-item] {
   margin: 0;
 }
 
-.wrapper * {
-  box-sizing: border-box;
-}
-
 .arrow {
   position: absolute;
   left: 50%;
@@ -193,12 +193,12 @@ a[data-hook=link-item] {
   background: value(D80);
 }
 
-.arrow.up {
+.root:direction(up) .arrow {
   bottom: value(calc(value(top-arrow-size) / 2));
   box-shadow: value(arrowUpShadow);
 }
 
-.arrow.down {
+.root:direction(down) .arrow {
   top: calue(value(top-arrow-size) / 2);
   box-shadow: value(arrowDownShadow);
 }

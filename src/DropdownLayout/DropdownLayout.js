@@ -107,9 +107,7 @@ class DropdownLayout extends WixComponent {
     }
   };
 
-  _onMouseLeave = () => {
-    this._markOption(NOT_HOVERED_INDEX);
-  };
+  _onMouseLeave = () => this._markOption(NOT_HOVERED_INDEX);
 
   _getMarkedIndex() {
     const { options } = this.props;
@@ -241,6 +239,7 @@ class DropdownLayout extends WixComponent {
     </InfiniteScroll>
   );
 
+  // For testing purposes only
   _getDataAttributes = () => {
     const { visible, dropDirectionUp } = this.props;
 
@@ -276,22 +275,26 @@ class DropdownLayout extends WixComponent {
 
     return (
       <div
-        tabIndex={tabIndex}
-        className={styles.wrapper}
-        onKeyDown={this._onKeyDown}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <div
-          {...this._getDataAttributes()}
-          {...styles('contentContainer', {
+        {...styles(
+          'root',
+          {
             visible,
             withArrow,
             direction: dropDirectionUp
               ? DROPDOWN_LAYOUT_DIRECTIONS.UP
               : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
             containerStyles: !inContainer,
-          })}
+          },
+          this.props,
+        )}
+        tabIndex={tabIndex}
+        onKeyDown={this._onKeyDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div
+          {...this._getDataAttributes()}
+          className={styles.contentContainer}
           style={{
             overflow,
             maxHeight: getUnit(this.props.maxHeightPixels),
@@ -420,14 +423,10 @@ class DropdownLayout extends WixComponent {
   }
 
   _renderTopArrow() {
-    const { withArrow, visible, dropDirectionUp } = this.props;
-    const arrowClassName = classNames({
-      [styles.arrow]: true,
-      [styles.up]: dropDirectionUp,
-      [styles.down]: !dropDirectionUp,
-    });
+    const { withArrow, visible } = this.props;
+
     return withArrow && visible ? (
-      <div data-hook={DATA_HOOKS.TOP_ARROW} className={arrowClassName} />
+      <div className={styles.arrow} data-hook={DATA_HOOKS.TOP_ARROW} />
     ) : null;
   }
 
