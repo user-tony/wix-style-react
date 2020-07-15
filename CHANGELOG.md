@@ -23,6 +23,7 @@ Types of changes:
 
 ### Changed
 - `<SectionHelper />` - change scss to stylable [#5697](https://github.com/wix/wix-style-react/pull/5697)
+- `<DropdownLayout/>` - stylable migration [#5658](https://github.com/wix/wix-style-react/pull/5658)
 
 ## 8.30.0 - 2020-07-14
 ### Added
