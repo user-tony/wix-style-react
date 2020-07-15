@@ -277,7 +277,7 @@ class DropdownLayout extends WixComponent {
     return (
       <div
         tabIndex={tabIndex}
-        className={classNames(styles.wrapper)}
+        className={styles.wrapper}
         onKeyDown={this._onKeyDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
