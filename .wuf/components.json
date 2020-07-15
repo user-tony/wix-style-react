@@ -407,6 +407,9 @@
   "Tag": {
     "path": "src/Tag"
   },
+  "TagList": {
+    "path": "src/TagList"
+  },
   "Text": {
     "path": "src/Text"
   },
