@@ -18,6 +18,9 @@ Types of changes:
 ### Docs
 - `<SortableList/>` - create up-to-date docs [#5662](https://github.com/wix/wix-style-react/pull/5662)
 
+### Changed
+- `<SectionHelper />` - change scss to stylable [#5697](https://github.com/wix/wix-style-react/pull/5697)
+
 ## 8.30.0 - 2020-07-14
 ### Added
 - `<HorizontalTimeline/>` - new component [#5653](https://github.com/wix/wix-style-react/pull/5653)
