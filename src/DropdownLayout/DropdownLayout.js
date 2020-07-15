@@ -64,7 +64,7 @@ class DropdownLayout extends WixComponent {
           nextProps.options[this.state.hovered].id)
     ) {
       this._markOption(
-        this.findIndex(
+        this._findIndex(
           nextProps.options,
           item => item.id === this.props.options[this.state.hovered].id,
         ),
@@ -398,14 +398,14 @@ class DropdownLayout extends WixComponent {
             ? selectableOptions[0].id
             : props.markedOption;
         this._markOption(
-          this.findIndex(props.options, item => item.id === idToMark),
+          this._findIndex(props.options, item => item.id === idToMark),
           props.options,
         );
       }
     }
   }
 
-  findIndex(arr, predicate) {
+  _findIndex(arr, predicate) {
     return (Array.isArray(arr) ? arr : []).findIndex(predicate);
   }
 
