@@ -20,3 +20,8 @@ export const DATA_OPTION = {
   HOVERED_GLOBAL: 'data-option-hovered-global',
   SELECTED_GLOBAL: 'data-option-selected-global',
 };
+
+export const DROPDOWN_LAYOUT_DIRECTIONS = {
+  UP: 'up',
+  DOWN: 'down',
+};

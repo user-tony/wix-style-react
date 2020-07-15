@@ -5,7 +5,13 @@ import WixComponent from '../BaseComponents/WixComponent';
 import Loader from '../Loader/Loader';
 import InfiniteScroll from '../utils/InfiniteScroll';
 import scrollIntoView from '../utils/scrollIntoView';
-import * as DataAttr from './DataAttr';
+import {
+  DATA_HOOKS,
+  DATA_OPTION,
+  DATA_SHOWN,
+  DATA_DIRECTION,
+  DROPDOWN_LAYOUT_DIRECTIONS,
+} from './DataAttr';
 import styles from './DropdownLayout.st.css';
 
 const modulu = (n, m) => {
@@ -221,7 +227,7 @@ class DropdownLayout extends WixComponent {
   _wrapWithInfiniteScroll = scrollableElement => (
     <InfiniteScroll
       useWindow
-      dataHook={DataAttr.DATA_HOOKS.INFINITE_SCROLL_CONTAINER}
+      dataHook={DATA_HOOKS.INFINITE_SCROLL_CONTAINER}
       scrollElement={this.options}
       loadMore={this.props.loadMore}
       hasMore={this.props.hasMore}
@@ -237,11 +243,16 @@ class DropdownLayout extends WixComponent {
 
   _getDataAttributes = () => {
     const { visible, dropDirectionUp } = this.props;
-    return {
-      'data-hook': DataAttr.DATA_HOOKS.CONTENT_CONTAINER,
-      [DataAttr.DATA_SHOWN]: visible,
-      [DataAttr.DATA_DIRECTION]: dropDirectionUp ? 'up' : 'down',
-    };
+
+    return Object.fromEntries(
+      Object.entries({
+        'data-hook': DATA_HOOKS.CONTENT_CONTAINER,
+        [DATA_SHOWN]: visible,
+        [DATA_DIRECTION]: dropDirectionUp
+          ? DROPDOWN_LAYOUT_DIRECTIONS.UP
+          : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
+      }).filter(entry => !!entry[1]),
+    );
   };
 
   render() {
@@ -295,7 +306,7 @@ class DropdownLayout extends WixComponent {
               overflow,
             }}
             ref={_options => (this.options = _options)}
-            data-hook={DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
+            data-hook={DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
           >
             {this.props.infiniteScroll
               ? this._wrapWithInfiniteScroll(renderedOptions)
@@ -326,7 +337,7 @@ class DropdownLayout extends WixComponent {
     });
 
     return linkTo ? (
-      <a key={idx} data-hook={DataAttr.DATA_HOOKS.LINK_ITEM} href={linkTo}>
+      <a key={idx} data-hook={DATA_HOOKS.LINK_ITEM} href={linkTo}>
         {content}
       </a>
     ) : (
@@ -344,6 +355,22 @@ class DropdownLayout extends WixComponent {
       />
     );
   }
+
+  // For testing purposes only
+  _getItemDataAttr = ({ hovered, selected, disabled, overrideStyle }) => {
+    const { itemHeight, selectedHighlight } = this.props;
+
+    return Object.fromEntries(
+      Object.entries({
+        [DATA_OPTION.HOVERED]: hovered && !overrideStyle,
+        [DATA_OPTION.SIZE]: itemHeight,
+        [DATA_OPTION.DISABLED]: disabled,
+        [DATA_OPTION.SELECTED]: selected && !overrideStyle && selectedHighlight,
+        [DATA_OPTION.HOVERED_GLOBAL]: hovered && overrideStyle,
+        [DATA_OPTION.SELECTED_GLOBAL]: selected && overrideStyle,
+      }).filter(entry => !!entry[1]),
+    );
+  };
 
   _renderItem({
     option,
@@ -371,12 +398,12 @@ class DropdownLayout extends WixComponent {
 
     return (
       <div
-        data-option-hovered={hovered && !overrideStyle}
-        data-option-size={itemHeight}
-        data-option-disabled={disabled}
-        data-option-selected={selected && !overrideStyle && selectedHighlight}
-        data-option-hovered-global={hovered && overrideStyle}
-        data-option-selected-global={selected && overrideStyle}
+        {...this._getItemDataAttr({
+          hovered,
+          selected,
+          disabled,
+          overrideStyle,
+        })}
         className={optionClassName}
         ref={node => this._setSelectedOptionNode(node, option)}
         onClick={!disabled ? e => this._onSelect(idx, e) : null}
@@ -400,10 +427,7 @@ class DropdownLayout extends WixComponent {
       [styles.down]: !dropDirectionUp,
     });
     return withArrow && visible ? (
-      <div
-        data-hook={DataAttr.DATA_HOOKS.TOP_ARROW}
-        className={arrowClassName}
-      />
+      <div data-hook={DATA_HOOKS.TOP_ARROW} className={arrowClassName} />
     ) : null;
   }
 
