@@ -44,6 +44,7 @@
 }
 
 .contentContainer {
+  -st-states: visible, withArrow, containerStyles, direction(enum(up, down));
   background: value(D80);
   border: none;
   display: none;
@@ -61,13 +62,13 @@
   user-select: none;
 }
 
-.contentContainer.containerStyles {
+.contentContainer:containerStyles {
   border-radius: 8px;
   box-shadow: value(shadow30);
   position: absolute;
 }
 
-.contentContainer.shown {
+.contentContainer:visible {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -75,25 +76,25 @@
   opacity: 1;
 }
 
-.contentContainer.shown.withArrow {
+.contentContainer:visible:withArrow {
   padding: 10px 0;
 }
 
-.contentContainer.shown.containerStyles.up {
+.contentContainer:visible:containerStyles.up {
   bottom: 0;
   margin-top: 15px;
 }
 
-.contentContainer.shown.containerStyles.up.withArrow {
+.contentContainer:visible:containerStyles:withArrow:direction(up) {
   margin-bottom: value(top-arrow-size);
 }
 
-.contentContainer.shown.containerStyles.down {
+.contentContainer:visible:containerStyles:direction(down) {
   top: 0;
   margin-bottom: 15px;
 }
 
-.contentContainer.shown.containerStyles.down.withArrow {
+.contentContainer:visible:containerStyles:withArrow:direction(down) {
   margin-top: value(top-arrow-size);
 }
 

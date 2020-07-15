@@ -273,14 +273,7 @@ class DropdownLayout extends WixComponent {
     const renderedOptions = options.map((option, idx) =>
       this._renderOption({ option, idx }),
     );
-    const contentContainerClassName = classNames({
-      [styles.contentContainer]: true,
-      [styles.shown]: visible,
-      [styles.up]: dropDirectionUp,
-      [styles.down]: !dropDirectionUp,
-      [styles.withArrow]: withArrow,
-      [styles.containerStyles]: !inContainer,
-    });
+
     return (
       <div
         tabIndex={tabIndex}
@@ -291,7 +284,14 @@ class DropdownLayout extends WixComponent {
       >
         <div
           {...this._getDataAttributes()}
-          className={contentContainerClassName}
+          {...styles('contentContainer', {
+            visible,
+            withArrow,
+            direction: dropDirectionUp
+              ? DROPDOWN_LAYOUT_DIRECTIONS.UP
+              : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
+            containerStyles: !inContainer,
+          })}
           style={{
             overflow,
             maxHeight: getUnit(this.props.maxHeightPixels),
