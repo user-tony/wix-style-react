@@ -337,7 +337,12 @@ class DropdownLayout extends WixComponent {
     });
 
     return linkTo ? (
-      <a key={idx} data-hook={DATA_HOOKS.LINK_ITEM} href={linkTo}>
+      <a
+        className={styles.linkItem}
+        key={idx}
+        data-hook={DATA_HOOKS.LINK_ITEM}
+        href={linkTo}
+      >
         {content}
       </a>
     ) : (

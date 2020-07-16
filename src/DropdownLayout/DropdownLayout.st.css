@@ -136,7 +136,7 @@
   color: value(D20);
 }
 
-a[data-hook=link-item] {
+.linkItem{
   text-decoration: none;
 }
 
@@ -193,11 +193,11 @@ a[data-hook=link-item] {
 }
 
 .arrow.up {
-  bottom: value(calc(value(top-arrow-size) / 2));
+  bottom: calc(value(top-arrow-size) / 2);
   box-shadow: value(arrowUpShadow);
 }
 
 .arrow.down {
-  top: calue(value(top-arrow-size) / 2);
+  top: calc(value(top-arrow-size) / 2);
   box-shadow: value(arrowDownShadow);
 }
