@@ -14,6 +14,14 @@ class Bounce extends React.PureComponent {
     animationFinished: false,
   };
 
+  componentDidMount() {
+    const { triggerAnimation } = this.props;
+
+    if (triggerAnimation) {
+      this._startStopAnimation();
+    }
+  }
+
   componentDidUpdate(prevProps) {
     const { triggerAnimation } = this.props;
 

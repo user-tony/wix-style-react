@@ -60,8 +60,8 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'A simple example with compact preview',
+            title: 'Controlled Animation',
+            text: 'A simple example of usage of Bounce component',
             source: examples.bounceExample,
           }),
         ],
