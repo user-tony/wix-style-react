@@ -83,13 +83,13 @@ Bounce.propTypes = {
   /** The component which we would like to animate. When given multiple components- only the first child node will be animated. */
   children: PropTypes.node,
 
-  /** Triggers the enter or exit states of the component. */
+  /** Triggers the animation transition */
   triggerAnimation: PropTypes.bool,
 
-  /** A callback fired immediately after the 'enter' or 'appear' class is applied.*/
+  /** A callback fired immediately after the transition enters.*/
   onEnter: PropTypes.func,
 
-  /** A callback fired immediately after the 'exit' class is applied.*/
+  /** A callback fired immediately after the transition finishes.*/
   onExited: PropTypes.func,
 };
 
