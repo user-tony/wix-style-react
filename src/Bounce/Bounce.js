@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Bounce.st.css';
-import { CSSTransition } from 'react-transition-group';
-
-import { dataHooks, timeout } from './constants';
-import { children } from '../Composite';
 
 function FirstChild({ children }) {
   const childrenArray = React.Children.toArray(children);
@@ -27,16 +23,24 @@ class Bounce extends React.PureComponent {
   }
 
   _onAnimationStart = () => {
-    this.setState({
-      animationFinished: false,
-    });
+    const { onEnter } = this.props;
+    this.setState(
+      {
+        animationFinished: false,
+      },
+      () => onEnter && onEnter(),
+    );
   };
 
   _onAnimationEnd = () => {
-    this.setState({
-      animationFinished: true,
-      classNames: '',
-    });
+    const { onExited } = this.props;
+    this.setState(
+      {
+        animationFinished: true,
+        classNames: '',
+      },
+      () => onExited && onExited(),
+    );
   };
 
   _startStopAnimation = () => {
@@ -47,10 +51,11 @@ class Bounce extends React.PureComponent {
 
   render() {
     const { classNames } = this.state;
-    const { children } = this.props;
+    const { children, dataHook } = this.props;
 
     return (
       <div
+        data-hook={dataHook}
         className={classNames}
         onAnimationStart={this._onAnimationStart}
         onAnimationEnd={this._onAnimationEnd}

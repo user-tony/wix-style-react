@@ -4,6 +4,8 @@ export const bounceExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce
+              onEnter={() => console.log('enter')}
+              onExited={() => console.log('exited')}
               triggerAnimation={trigger}
             >
               <FormField label="Field label">
