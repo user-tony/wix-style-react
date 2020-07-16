@@ -1,5 +1,5 @@
 :import {
-  -st-from: '../Input/Input.mixins.js';
+  -st-from: '../Input/Input.mixins';
   -st-named: boxSizingMixin, placeholderMixin, borderRadiusMixin;
 }
 
