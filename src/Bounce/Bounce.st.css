@@ -1,34 +1,19 @@
+.animation {
+  animation: easeOutElastic;
+  animation-duration: 300ms;
+}
+
 @keyframes easeOutElastic {
-  from {
-    transform: scale(1.03);
-  }
-  50% {
-    transform: scale(0.98);
-  }
-  to {
+  0% {
     transform: scale(1);
   }
-}
-
-.root {}
-
-.animateContent{}
-
-
-.enter {
-  transform: scale(1);
-  transition: transform 150ms;
-}
-
-.enterActive {
-  transform: scale(1.03);
-}
-
-.exit {
-  animation-name: easeOutElastic;
-  animation-duration: 400ms;
-}
-
-.exitActive {
-  animation-name: easeOutElastic;
+  42% {
+    transform: scale(1.03);
+  }
+  84% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

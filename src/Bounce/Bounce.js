@@ -4,6 +4,7 @@ import styles from './Bounce.st.css';
 import { CSSTransition } from 'react-transition-group';
 
 import { dataHooks, timeout } from './constants';
+import { children } from '../Composite';
 
 function FirstChild({ children }) {
   const childrenArray = React.Children.toArray(children);
@@ -12,33 +13,49 @@ function FirstChild({ children }) {
 
 /** Bounce animation component */
 class Bounce extends React.PureComponent {
+  state = {
+    classNames: '',
+    animationFinished: false,
+  };
+
+  componentDidUpdate(prevProps) {
+    const { triggerAnimation } = this.props;
+
+    if (prevProps.triggerAnimation !== triggerAnimation) {
+      this._startStopAnimation();
+    }
+  }
+
+  _onAnimationStart = () => {
+    this.setState({
+      animationFinished: false,
+    });
+  };
+
+  _onAnimationEnd = () => {
+    this.setState({
+      animationFinished: true,
+      classNames: '',
+    });
+  };
+
+  _startStopAnimation = () => {
+    const { classNames } = this.state;
+
+    this.setState({ classNames: classNames ? '' : styles.animation });
+  };
+
   render() {
-    const {
-      dataHook,
-      children,
-      onEnter,
-      onExited,
-      triggerAnimation,
-    } = this.props;
+    const { classNames } = this.state;
+    const { children } = this.props;
 
     return (
-      <div {...styles('root', {}, this.props)} data-hook={dataHook}>
-        <CSSTransition
-          in={triggerAnimation}
-          timeout={timeout}
-          classNames={{
-            enter: styles.enter,
-            enterActive: styles.enterActive,
-            exit: styles.exit,
-            exitActive: styles.exitActive,
-          }}
-          onEnter={onEnter}
-          onExited={onExited}
-        >
-          <div data-hook={dataHooks.animateContent}>
-            <FirstChild children={children} />
-          </div>
-        </CSSTransition>
+      <div
+        className={classNames}
+        onAnimationStart={this._onAnimationStart}
+        onAnimationEnd={this._onAnimationEnd}
+      >
+        <FirstChild children={children} />
       </div>
     );
   }

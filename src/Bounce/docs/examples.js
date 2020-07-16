@@ -4,8 +4,6 @@ export const bounceExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce
-              onEnter={() => setTrigger(true)}
-              onEnter={() => setTrigger(false)}
               triggerAnimation={trigger}
             >
               <FormField label="Field label">
@@ -13,7 +11,7 @@ export const bounceExample = `() => {
               </FormField>
             </Bounce>
           </Cell>
-          <Cell><Button onClick={() => setTrigger(true)}>Play</Button></Cell>
+          <Cell><Button onClick={() => setTrigger(!trigger)}>Play</Button></Cell>
     </Layout>
    )
 }
