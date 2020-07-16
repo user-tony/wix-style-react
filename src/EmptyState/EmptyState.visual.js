@@ -5,7 +5,7 @@ import EmptyState from './EmptyState';
 import ImagePlaceholder from '../../stories/utils/ImagePlaceholder';
 import { RTLWrapper } from '../../stories/utils/RTLWrapper';
 
-const props = {
+const commonProps = {
   title: "You don't have any items yet",
   subtitle:
     'Create your product item in an easy & fast way to display it on your site',
@@ -13,37 +13,154 @@ const props = {
   theme: 'page',
 };
 
-const themes = ['page', 'page-no-border', 'section'];
-
-themes.map(theme =>
-  storiesOf(`EmptyState/Themes`, module).add(theme, () => (
-    <EmptyState {...props} theme={theme} />
-  )),
-);
-
-storiesOf(`EmptyState/Titles`, module).add('No Title', () => (
-  <EmptyState {...props} title="" />
-));
-
-storiesOf(`EmptyState/Titles`, module).add('No Subtitle', () => (
-  <EmptyState {...props} subtitle="" />
-));
-
-storiesOf(`EmptyState/align`, module).add('start', () => (
-  <EmptyState {...props} align="start" />
-));
-
-const loremipsum =
+const children =
   'Consectetur tenetur enim impedit facilis assumenda Illum laborum delectus';
 
-['start', 'center', 'end'].map(align => {
-  storiesOf(`EmptyState/align`, module).add(align, () => (
-    <EmptyState {...props} align={align} children={loremipsum} />
-  ));
+const tests = [
+  {
+    describe: 'theme',
+    its: [
+      {
+        it: 'page',
+        props: {
+          theme: 'page',
+        },
+      },
+      {
+        it: 'page-no-border',
+        props: {
+          theme: 'page-no-border',
+        },
+      },
+      {
+        it: 'section',
+        props: {
+          theme: 'section',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'sanity',
+    its: [
+      {
+        it: 'no Title',
+        props: {
+          title: '',
+        },
+      },
+      {
+        it: 'no Subtitle',
+        props: {
+          subtitle: '',
+        },
+      },
+      {
+        it: 'no image',
+        props: {
+          image: '',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'alignment',
+    its: [
+      {
+        it: 'start',
+        props: {
+          align: 'start',
+        },
+      },
+      {
+        it: 'center',
+        props: {
+          align: 'center',
+        },
+      },
+      {
+        it: 'end',
+        props: {
+          align: 'end',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'with children',
+    its: [
+      {
+        it: 'start',
+        props: {
+          align: 'start',
+          children,
+        },
+      },
+      {
+        it: 'center',
+        props: {
+          align: 'center',
+          children,
+        },
+      },
+      {
+        it: 'end',
+        props: {
+          align: 'end',
+          children,
+        },
+      },
+    ],
+  },
+];
 
-  storiesOf(`EmptyState/align/RTL`, module).add(align, () => (
-    <RTLWrapper rtl>
-      <EmptyState {...props} align={align} children={loremipsum} />
-    </RTLWrapper>
-  ));
+const rtlTests = [
+  {
+    describe: 'rtl',
+    its: [
+      {
+        it: 'start',
+        props: {
+          align: 'start',
+          children,
+        },
+      },
+      {
+        it: 'center',
+        props: {
+          align: 'center',
+          children,
+        },
+      },
+      {
+        it: 'end',
+        props: {
+          align: 'end',
+          children,
+        },
+      },
+    ],
+  },
+];
+
+tests.forEach(({ describe, its }) => {
+  its.forEach(({ it, props }) => {
+    storiesOf(
+      `${EmptyState.displayName}${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => <EmptyState {...commonProps} {...props} />);
+  });
+});
+
+rtlTests.forEach(({ describe, its }) => {
+  its.forEach(({ it, props }) => {
+    storiesOf(
+      `${EmptyState.displayName}${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => (
+      <RTLWrapper rtl>
+        <EmptyState {...commonProps} {...props} />
+      </RTLWrapper>
+    ));
+  });
 });
