@@ -66,10 +66,9 @@ export default {
           }),
 
           example({
-            title: 'onEnter and onExited example',
-            text:
-              '`onEnter` callback is executed when the transition starts. `onExited` callback is executed when the transition ends. ',
-            source: examples.onExitExample,
+            title: 'onExited example',
+            text: '`onExited` callback is executed when the transition ends.',
+            source: examples.onExitedExample,
           }),
         ],
       }),

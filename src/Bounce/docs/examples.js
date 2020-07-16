@@ -3,9 +3,7 @@ export const bounceExample = `() => {
     return (
         <Layout>
           <Cell span='8'>
-            <Bounce
-              triggerAnimation={trigger}
-            >
+            <Bounce triggerAnimation={trigger}>
               <FormField label="Field label">
                 <Input size="small" placeholder="Placeholder" />
               </FormField>
@@ -17,7 +15,7 @@ export const bounceExample = `() => {
 }
 `;
 
-export const onExitExample = `() => {
+export const onExitedExample = `() => {
     const [ trigger, setTrigger ] = React.useState(false);
     const inputRef = React.useRef(null);
 
