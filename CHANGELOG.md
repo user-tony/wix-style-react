@@ -22,8 +22,9 @@ Types of changes:
 - `<SortableList/>` - create up-to-date docs [#5662](https://github.com/wix/wix-style-react/pull/5662)
 
 ### Changed
-- `<SectionHelper />` - change scss to stylable [#5697](https://github.com/wix/wix-style-react/pull/5697)
+- `<SectionHelper/>` - change scss to stylable [#5697](https://github.com/wix/wix-style-react/pull/5697)
 - `<DropdownLayout/>` - stylable migration [#5658](https://github.com/wix/wix-style-react/pull/5658)
+- `<EmptyState/>` - change the visual test to the updated syntax [#5703](https://github.com/wix/wix-style-react/pull/5703)
 
 ## 8.30.0 - 2020-07-14
 ### Added
