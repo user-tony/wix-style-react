@@ -19,18 +19,16 @@ export const bounceExample = `() => {
 
 export const onExitExample = `() => {
     const [ trigger, setTrigger ] = React.useState(false);
-    const [disabled, setDisabled ]= React.useState(true);
     const inputRef = React.useRef(null);
 
     return (
         <Layout>
           <Cell span='8'>
             <Bounce
-              onEnter={() => setDisabled(false)}
               onExited={() => inputRef.current.focus()}
               triggerAnimation={trigger}
             >
-              <Tooltip content="I am here" disabled={disabled}>
+              <Tooltip content="I am here" >
                  <Input ref={inputRef} size="small" placeholder="Placeholder" />
               </Tooltip>
             </Bounce>
