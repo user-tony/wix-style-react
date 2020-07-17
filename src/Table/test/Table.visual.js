@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { storiesOf } from '@storybook/react';
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-
 import Table from '..';
 import { tablePrivateDriverFactory } from '../Table.private.driver';
 import Card from '../../Card';
