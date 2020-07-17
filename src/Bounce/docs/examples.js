@@ -36,3 +36,34 @@ export const onExitedExample = `() => {
    )
 }
 `;
+
+export const loopExample = `() => {
+    const [ trigger, setTrigger ] = React.useState(false);
+    const [ loop, setLoop ] = React.useState(false);
+
+    const onPlayClick = () => {
+        setTrigger(!trigger);
+        setLoop(true);
+    };
+
+    return (
+        <Layout>
+          <Cell span='8'>
+            <Bounce loop={loop} triggerAnimation={trigger}>
+              <FormField label="Field label">
+                <Input size="small" placeholder="Placeholder" />
+              </FormField>
+            </Bounce>
+          </Cell>
+          <Cell>
+          <Box>
+            <Box paddingRight="8px">
+              <Button onClick={onPlayClick}>Play</Button>
+            </Box>
+            <Button onClick={() => setLoop(false)}>Stop</Button>
+          </Box>
+         </Cell>
+        </Layout>
+   )
+}
+`;

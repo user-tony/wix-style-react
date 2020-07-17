@@ -23,9 +23,12 @@ class Bounce extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { triggerAnimation } = this.props;
+    const { triggerAnimation, loop } = this.props;
 
-    if (prevProps.triggerAnimation !== triggerAnimation) {
+    if (
+      prevProps.triggerAnimation !== triggerAnimation ||
+      prevProps.loop !== loop
+    ) {
       this._startStopAnimation();
     }
   }
@@ -53,8 +56,11 @@ class Bounce extends React.PureComponent {
 
   _startStopAnimation = () => {
     const { classNames } = this.state;
+    const { loop } = this.props;
 
-    this.setState({ classNames: classNames ? '' : styles.animation });
+    this.setState({
+      classNames: classNames ? '' : { ...styles('animation', { loop }) },
+    });
   };
 
   render() {
@@ -64,7 +70,7 @@ class Bounce extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        className={classNames}
+        {...classNames}
         onAnimationStart={this._onAnimationStart}
         onAnimationEnd={this._onAnimationEnd}
       >
@@ -91,6 +97,9 @@ Bounce.propTypes = {
 
   /** A callback fired immediately after the transition finishes.*/
   onExited: PropTypes.func,
+
+  /** when set to true, bounces repetitively until stopped by other event*/
+  loop: PropTypes.bool,
 };
 
 Bounce.defaultProps = {

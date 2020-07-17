@@ -70,6 +70,13 @@ export default {
             text: '`onExited` callback is executed when the transition ends.',
             source: examples.onExitedExample,
           }),
+
+          example({
+            title: 'loop example',
+            text:
+              'When `loop` prop is true, the child component bounces repetitively until stopped by other event.',
+            source: examples.loopExample,
+          }),
         ],
       }),
 
