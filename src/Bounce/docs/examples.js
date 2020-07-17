@@ -1,5 +1,5 @@
 export const bounceExample = `() => {
-    const [ trigger, setTrigger ] = React.useState(false)
+    const [ trigger, setTrigger ] = React.useState(false);
     return (
         <Layout>
           <Cell span='8'>
@@ -56,14 +56,40 @@ export const loopExample = `() => {
             </Bounce>
           </Cell>
           <Cell>
-          <Box>
-            <Box paddingRight="8px">
-              <Button onClick={onPlayClick}>Play</Button>
-            </Box>
-            <Button onClick={() => setLoop(false)}>Stop</Button>
-          </Box>
+             <Button onClick={onPlayClick}>{trigger ? 'Stop' : 'Play'}</Button>
          </Cell>
         </Layout>
+   )
+}
+`;
+
+export const delayExample = `() => {
+    const [ trigger1, setTrigger1 ] = React.useState(false);
+    const [ trigger2, setTrigger2 ] = React.useState(false);
+
+    return (
+    <Layout>
+      <Cell>
+        <Layout>
+          <Cell span='8'>
+            <Bounce triggerAnimation={trigger1}>
+                <Input size="small" placeholder="Placeholder" />
+            </Bounce>
+          </Cell>
+          <Cell span="4"><Button onClick={() => setTrigger1(!trigger1)}>Play</Button></Cell>
+        </Layout>
+      </Cell>
+      <Cell>
+        <Layout>
+          <Cell span='8'>
+            <Bounce delay triggerAnimation={trigger2}>
+                <Input size="small" placeholder="Placeholder" />
+            </Bounce>
+          </Cell>
+          <Cell span="4"><Button onClick={() => setTrigger2(!trigger2)}>Play</Button></Cell>
+        </Layout>
+      </Cell>
+    </Layout>
    )
 }
 `;

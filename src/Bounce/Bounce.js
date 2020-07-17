@@ -56,10 +56,10 @@ class Bounce extends React.PureComponent {
 
   _startStopAnimation = () => {
     const { classNames } = this.state;
-    const { loop } = this.props;
+    const { loop, delay } = this.props;
 
     this.setState({
-      classNames: classNames ? '' : { ...styles('animation', { loop }) },
+      classNames: classNames ? '' : { ...styles('animation', { loop, delay }) },
     });
   };
 
@@ -100,6 +100,8 @@ Bounce.propTypes = {
 
   /** when set to true, bounces repetitively until stopped by other event*/
   loop: PropTypes.bool,
+
+  delay: PropTypes.bool,
 };
 
 Bounce.defaultProps = {

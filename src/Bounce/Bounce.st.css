@@ -1,12 +1,16 @@
 .animation {
-  -st-states: loop;
+  -st-states: loop, delay;
   animation: easeOutElastic;
   animation-duration: 300ms;
-  animation-iteration-count: 1;
+  /*animation-iteration-count: 1;*/
 }
 
 .animation:loop {
   animation-iteration-count: infinite;
+}
+
+.animation:delay {
+  animation-delay: 200ms;
 }
 
 @keyframes easeOutElastic {

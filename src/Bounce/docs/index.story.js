@@ -77,6 +77,13 @@ export default {
               'When `loop` prop is true, the child component bounces repetitively until stopped by other event.',
             source: examples.loopExample,
           }),
+
+          example({
+            title: 'delay example',
+            text:
+              'When `delay` prop is true, the child component bounces with a delay.',
+            source: examples.delayExample,
+          }),
         ],
       }),
 
