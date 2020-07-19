@@ -1,16 +1,6 @@
-.animation {
-  -st-states: loop, delay;
-  animation: easeOutElastic;
-  animation-duration: 300ms;
-  /*animation-iteration-count: 1;*/
-}
-
-.animation:loop {
-  animation-iteration-count: infinite;
-}
-
-.animation:delay {
-  animation-delay: 200ms;
+:vars{
+  duration: 300ms;
+  delay: 200ms;
 }
 
 @keyframes easeOutElastic {
@@ -27,3 +17,37 @@
     transform: scale(1);
   }
 }
+
+@keyframes easeOutElasticLoop {
+  0% {
+    transform: scale(1);
+  }
+
+  25.2% {
+    transform: scale(1.03);
+  }
+
+  50.4%{
+    transform: scale(0.98);
+  }
+
+  60%, 100% {
+    transform: scale(1);
+  }
+}
+
+.animation {
+  -st-states: loop, delay;
+  animation: easeOutElastic;
+  animation-duration: value(duration);
+}
+
+.animation:loop {
+  animation: easeOutElasticLoop;
+  animation-iteration-count: infinite;
+}
+
+.animation:delay {
+  animation-delay: value(delay);
+}
+
