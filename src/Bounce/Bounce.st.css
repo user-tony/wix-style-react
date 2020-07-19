@@ -19,6 +19,7 @@
   }
 }
 
+/* values were calculated as explained here: https://css-tricks.com/css-keyframe-animation-delay-iterations */
 @keyframes easeOutElasticLoop {
   0% {
     transform: scale(1);
