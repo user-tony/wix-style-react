@@ -25,15 +25,15 @@
     transform: scale(1);
   }
 
-  25.2% {
+  12.6% {
     transform: scale(1.03);
   }
 
-  50.4%{
+  25.2%{
     transform: scale(0.98);
   }
 
-  60%, 100% {
+  30%, 100% {
     transform: scale(1);
   }
 }
