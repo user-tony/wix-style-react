@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<EmptyState/>` - migrate to stylable & fix a bug in the stroybook [#5707](https://github.com/wix/wix-style-react/pull/5707)
+
 ## 8.31.0 - 2020-07-16
 ### Added
 - `<TagList/>` - create new component [#5628](https://github.com/wix/wix-style-react/pull/5628)
