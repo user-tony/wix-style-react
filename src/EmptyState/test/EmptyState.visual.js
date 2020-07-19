@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import EmptyState from './EmptyState';
-import ImagePlaceholder from '../../stories/utils/ImagePlaceholder';
-import { RTLWrapper } from '../../stories/utils/RTLWrapper';
+import EmptyState from '../EmptyState';
+import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';
+import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 
 const commonProps = {
   title: "You don't have any items yet",
