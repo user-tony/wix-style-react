@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<CloseButton/>` - fix incorrect style extending [#5711](https://github.com/wix/wix-style-react/pull/5711)
+
 ### Changed
 - `<EmptyState/>` - migrate to stylable & fix a bug in the stroybook [#5707](https://github.com/wix/wix-style-react/pull/5707)
 
