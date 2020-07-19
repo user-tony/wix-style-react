@@ -13,6 +13,7 @@ import {
   DROPDOWN_LAYOUT_DIRECTIONS,
 } from './DataAttr';
 import styles from './DropdownLayout.st.css';
+import deprecationLog from '../utils/deprecationLog';
 
 const modulu = (n, m) => {
   const remain = n % m;
@@ -426,6 +427,13 @@ class DropdownLayout extends WixComponent {
 
   _renderTopArrow() {
     const { withArrow, visible, dropDirectionUp } = this.props;
+
+    if (this.props.hasOwnProperty('withArrow')) {
+      deprecationLog(
+        'DropdownLayout prop "withArrow" is deprecated and will be removed in the next major release, please use DropdownBase (with the prop "showArrow") or Popover component instead',
+      );
+    }
+
     const arrowClassName = classNames({
       [styles.arrow]: true,
       [styles.up]: dropDirectionUp,
