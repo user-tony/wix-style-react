@@ -12,14 +12,21 @@ class Bounce extends React.PureComponent {
   state = {
     classNames: '',
     animationFinished: false,
+    dimensions: null,
   };
 
   componentDidMount() {
     const { triggerAnimation } = this.props;
 
-    if (triggerAnimation) {
-      this._startStopAnimation();
-    }
+    this.setState(
+      {
+        dimensions: {
+          width: this.container.offsetWidth,
+          height: this.container.offsetHeight,
+        },
+      },
+      () => (triggerAnimation ? this._startStopAnimation() : null),
+    );
   }
 
   componentDidUpdate(prevProps) {
@@ -73,6 +80,7 @@ class Bounce extends React.PureComponent {
         {...classNames}
         onAnimationStart={this._onAnimationStart}
         onAnimationEnd={this._onAnimationEnd}
+        ref={el => (this.container = el)}
       >
         <FirstChild children={children} />
       </div>
