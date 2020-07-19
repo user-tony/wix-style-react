@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import DropdownLayout from '../DropdownLayout';
 
 class AutoComplete extends InputWithOptions {
   static displayName = 'AutoComplete';
 
   static propTypes = {
     ...InputWithOptions.propTypes,
+
+    /** THIS PROP WAS REMOVED */
+    withArrow: DropdownLayout.propTypes.withArrow,
 
     /** Callback predicate for the filtering options function */
     predicate: PropTypes.func,
@@ -31,11 +35,12 @@ class AutoComplete extends InputWithOptions {
             id: 'empty-state-message',
             value: emptyStateMessage,
             disabled: true,
+            withArrow: false,
           },
         ],
       };
     } else {
-      return { options: filtered };
+      return { options: filtered, withArrow: false };
     }
   }
 }
