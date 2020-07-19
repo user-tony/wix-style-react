@@ -19,6 +19,9 @@ Types of changes:
 ### Changed
 - `<EmptyState/>` - migrate to stylable & fix a bug in the stroybook [#5707](https://github.com/wix/wix-style-react/pull/5707)
 
+### Deprecated
+- `<DropdownLayout/>` - DropdownLayout prop "withArrow" is deprecated and will be removed in the next major release, please use DropdownBase (with the prop "showArrow") or Popover component instead' [#5720](https://github.com/wix/wix-style-react/pull/5720)
+
 ## 8.31.0 - 2020-07-16
 ### Added
 - `<TagList/>` - create new component [#5628](https://github.com/wix/wix-style-react/pull/5628)
