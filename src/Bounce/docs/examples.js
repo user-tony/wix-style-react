@@ -4,12 +4,12 @@ export const bounceExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce triggerAnimation={trigger}>
-              <FormField label="Field label">
+              <FormField labelPlacement="left" label="Field label">
                 <Input size="small" placeholder="Placeholder" />
               </FormField>
             </Bounce>
           </Cell>
-          <Cell><Button onClick={() => setTrigger(!trigger)}>Play</Button></Cell>
+          <Cell span='4'><Button onClick={() => setTrigger(!trigger)}>Play</Button></Cell>
     </Layout>
    )
 }
@@ -26,12 +26,14 @@ export const onExitedExample = `() => {
               onExited={() => inputRef.current.focus()}
               triggerAnimation={trigger}
             >
-              <Tooltip content="I am here" >
-                 <Input ref={inputRef} size="small" placeholder="Placeholder" />
-              </Tooltip>
+              <FormField labelPlacement="left" label="Field label">
+                <Tooltip content="I am here" >
+                   <Input ref={inputRef} size="small" placeholder="Placeholder" />
+                </Tooltip>
+              </FormField>
             </Bounce>
           </Cell>
-          <Cell><Button onClick={() => setTrigger(!trigger)}>Play</Button></Cell>
+          <Cell span='4'><Button onClick={() => setTrigger(!trigger)}>Play</Button></Cell>
     </Layout>
    )
 }
@@ -50,12 +52,12 @@ export const loopExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce loop={loop} triggerAnimation={trigger}>
-              <FormField label="Field label">
+              <FormField labelPlacement="left" label="Field label">
                 <Input size="small" placeholder="Placeholder" />
               </FormField>
             </Bounce>
           </Cell>
-          <Cell>
+          <Cell span='4'>
              <Button onClick={onPlayClick}>{trigger ? 'Stop' : 'Play'}</Button>
          </Cell>
         </Layout>
@@ -73,7 +75,9 @@ export const delayExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce triggerAnimation={trigger1}>
+              <FormField label="Without delay" labelPlacement="left">
                 <Input size="small" placeholder="Placeholder" />
+              </FormField>
             </Bounce>
           </Cell>
           <Cell span="4"><Button onClick={() => setTrigger1(!trigger1)}>Play</Button></Cell>
@@ -83,7 +87,9 @@ export const delayExample = `() => {
         <Layout>
           <Cell span='8'>
             <Bounce delay triggerAnimation={trigger2}>
+              <FormField label="With delay" labelPlacement="left">
                 <Input size="small" placeholder="Placeholder" />
+              </FormField>
             </Bounce>
           </Cell>
           <Cell span="4"><Button onClick={() => setTrigger2(!trigger2)}>Play</Button></Cell>
