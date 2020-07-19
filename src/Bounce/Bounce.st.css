@@ -1,6 +1,7 @@
 :vars{
   duration: 300ms;
   delay: 200ms;
+  iterationDely: 700ms;
 }
 
 @keyframes easeOutElastic {
@@ -44,6 +45,7 @@
 
 .animation:loop {
   animation: easeOutElasticLoop;
+  animation-duration:calc(value(duration) + value(iterationDely));
   animation-iteration-count: infinite;
 }
 
