@@ -1,6 +1,6 @@
 import React from 'react';
 
-import isSameDay from 'date-fns/is_same_day';
+import { isSameDay, format } from 'date-fns';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 
 import datePickerDriverFactory from '../DatePicker.driver';
@@ -11,8 +11,8 @@ import {
   requestAnimationFramePolyfill,
 } from '../../../testkit/polyfills';
 
-import isLocale from 'date-fns/locale/is';
-import { format } from 'date-fns';
+import { is as isLocale } from 'date-fns/locale';
+import { convertTokens } from '@date-fns/upgrade/v2';
 
 const noop = () => {};
 
@@ -527,7 +527,7 @@ describe('DatePicker', () => {
         <DatePicker
           onChange={noop}
           locale="fr"
-          dateFormat={_date => format(_date, 'YYYY MMM DD')}
+          dateFormat={_date => format(_date, convertTokens('YYYY MMM DD'))}
           value={date}
         />,
       );
@@ -702,7 +702,7 @@ describe('DatePicker', () => {
 
       it('should display translated weekdays', () => {
         const { calendarDriver } = setup({ locale: isLocale });
-        expect(calendarDriver.getNthWeekDayName(0)).toEqual('má');
+        expect(calendarDriver.getNthWeekDayName(0)).toEqual('Má');
       });
     });
   });
