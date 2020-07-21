@@ -8,7 +8,8 @@
 | ------------- | --------- | ------------------ | ------------------------------------------------------- |
 | exists()      | -         | `Promise<boolean>` | returns true if element in the DOM                      |
 | element()     | -         | `Promise<element>` | returns the component element                           |
-| selectChild() | number    | `Promise<void>`    | selects child by given number (selection begins with 1) |
+| selectChild() | oneOfType [string, number] | `Promise<void>`    | selects child by given number (selection begins with 1) or dataHook|
+| isSelected()  | oneOfType [string, number] | `Promise<boolean>`    | returns true if child is selected by given number (selection begins with 1) or dataHook|
 
 ## ReactTestUtils Example
 
