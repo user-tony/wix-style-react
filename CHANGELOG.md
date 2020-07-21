@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 - `<CloseButton/>` - fix incorrect style extending [#5711](https://github.com/wix/wix-style-react/pull/5711)
+- `<MessageBoxFunctionalLayout/>` - remove redundant white in corners [#5715](https://github.com/wix/wix-style-react/pull/5715)
 
 ### Changed
 - `<EmptyState/>` - migrate to stylable & fix a bug in the stroybook [#5707](https://github.com/wix/wix-style-react/pull/5707)
