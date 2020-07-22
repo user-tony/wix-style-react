@@ -13,7 +13,7 @@ const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
         <Tag
           {...tagProps}
           className={classNames(styles.item, className)}
-          size="small"
+          size={size}
           key={tagProps.id}
         />
       ))}
