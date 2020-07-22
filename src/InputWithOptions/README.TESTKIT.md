@@ -25,8 +25,8 @@
 > Unit Testing Example
 ```javascript
   import React from 'react';
-  import {inputWithOptionsTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {inputWithOptionsTestkitFactory as enzymeInputWithOptionsTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {InputWithOptionsTestkit} from 'wix-style-react/dist/testkit';
+  import {InputWithOptionsTestkit as EnzymeInputWithOptionsTestkit} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -34,7 +34,7 @@
   
   const dataHook = 'myDataHook';
   const wrapper = mount(<InputWithOptions dataHook={dataHook}/>);
-  const inputWithOptionsTestkit = enzymeInputWithOptionsTestkitFactory({wrapper, dataHook});
+  const inputWithOptionsTestkit = EnzymeInputWithOptionsTestkit({wrapper, dataHook});
 
   //Do tests
   expect(inputWithOptionsTestkit.driver.exists()).toBeTruthy();
@@ -48,7 +48,7 @@
   const div = document.createElement('div');
   const dataHook = 'myDataHook';
   const wrapper = div.appendChild(ReactTestUtils.renderIntoDocument(<div><InputWithOptions dataHook={dataHook}/></div>));
-  const inputWithOptionsTestkit = inputWithOptionsTestkitFactory({wrapper, dataHook});
+  const inputWithOptionsTestkit = InputWithOptionsTestkit({wrapper, dataHook});
 
   //Do tests
   expect(inputWithOptionsTestkit.driver.exists()).toBeTruthy();

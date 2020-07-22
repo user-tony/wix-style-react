@@ -35,12 +35,12 @@ For example:
 
 ```javascript
 import React from 'react';
-import {tableTestkitFactory, tableActionCellTestkitFactory} from 'wix-style-react/dist/testkit';
+import {TableTestkit, TableActionCellTestkit} from 'wix-style-react/dist/testkit';
 
 // ...
 
-const tableTestkit = tableTestkitFactory({wrapper, dataHook});
-const tableActionCellTestkit = tableActionCellTestkitFactory({
+const tableTestkit = TableTestkit({wrapper, dataHook});
+const tableActionCellTestkit = TableActionCellTestkit({
   dataHook: 'table-action-cell-datahook',
   wrapper: tableTestkit.getRow(0)
 });

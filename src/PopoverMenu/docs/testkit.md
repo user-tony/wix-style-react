@@ -17,7 +17,7 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import { popoverMenuTestkitFactory } from 'wix-style-react/dist/testkit';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit';
 
 const div = document.createElement('div');
 const dataHook = 'myDataHook';
@@ -32,7 +32,7 @@ const wrapper = div.appendChild(
   ReactTestUtils.renderIntoDocument(component, { dataHook })
 );
 
-const testkit = popoverMenuTestkitFactory({ wrapper, dataHook });
+const testkit = PopoverMenuTestkit({ wrapper, dataHook });
 
 //Do tests
 describe('Element should exist', async () => {
@@ -46,7 +46,7 @@ describe('Element should exist', async () => {
 import React from 'react';
 import { mount } from 'enzyme';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import { popoverMenuTestkitFactory } from 'wix-style-react/dist/testkit/enzyme';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/enzyme';
 
 const dataHook = 'myDataHook';
 const wrapper = mount(
@@ -55,7 +55,7 @@ const wrapper = mount(
   </div>
 );
 
-const testkit = popoverMenuTestkitFactory({ wrapper, dataHook });
+const testkit = PopoverMenuTestkit({ wrapper, dataHook });
 
 //Do tests
 describe('Element should exist', async () => {
@@ -69,14 +69,14 @@ describe('Element should exist', async () => {
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { popoverMenuTestkitFactory } from 'wix-style-react/dist/testkit/puppeteer';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/puppeteer';
 
 //puppeteer setup
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
 //Create an element testkit via the data-hook attribute
-const testkit = await popoverMenuTestkitFactory({
+const testkit = await PopoverMenuTestkit({
   dataHook: 'myDataHook',
   page,
 });
@@ -93,10 +93,10 @@ describe('Element should exist', async () => {
 > Element should be rendered with a data-hook into the DOM `<PopoverMenu dataHook="myDataHook" />`
 
 ```javascript
-import { popoverMenuTestkitFactory } from 'wix-style-react/dist/testkit/protractor';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/protractor';
 
 //Create an element testkit via the data-hook attribute
-const testkit = popoverMenuTestkitFactory({ dataHook: 'myDataHook' });
+const testkit = PopoverMenuTestkit({ dataHook: 'myDataHook' });
 
 await browser.get('/page-where-popovermenu-appears'); //Your application url
 

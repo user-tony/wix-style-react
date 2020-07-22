@@ -24,8 +24,8 @@
 
 ```javascript
   import React from 'react';
-  import {highlighterTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {highlighterTestkitFactory as enzymeHighlighterTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {HighlighterTestkit} from 'wix-style-react/dist/testkit';
+  import {HighlighterTestkit as EnzymeHighlighterTestkit} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -33,7 +33,7 @@
 
   const dataHook = 'myDataHook';
   const wrapper = mount(<div/><Highlighter dataHook={dataHook}/></div>);
-  const testkit = enzymeHighlighterTestkitFactory({wrapper, dataHook});
+  const testkit = EnzymeHighlighterTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -47,7 +47,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<Highlighter dataHook={dataHook} match="llo">Hello world</Highlighter>)
   );
-  const testkit = highlighterTestkitFactory({wrapper, dataHook});
+  const testkit = HighlighterTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -62,10 +62,10 @@
    protractor example
   *******************/
 
-  import {highlighterTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {HighlighterTestkit, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = highlighterTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = HighlighterTestkit({dataHook: 'myDataHook'});
 
   browser.get(appUrl); //Your application url
 

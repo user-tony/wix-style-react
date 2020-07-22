@@ -39,8 +39,8 @@
 > Unit Testing Example
 ```javascript
   import React from 'react';
-  import {dropdownLayoutTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {dropdownLayoutTestkitFactory as enzymeDropdownLayoutTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {DropdownLayoutTestkit} from 'wix-style-react/dist/testkit';
+  import {DropdownLayoutTestkit as EnzymeDropdownLayoutTestkit} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -48,7 +48,7 @@
   
   const dataHook = 'myDataHook';
   const wrapper = mount(<DropdownLayout {...props} dataHook={dataHook}/>);
-  const dropdownLayoutTestkit = enzymeDropdownLayoutTestkitFactory({wrapper, dataHook});
+  const dropdownLayoutTestkit = EnzymeDropdownLayoutTestkit({wrapper, dataHook});
 
   //Do tests
   expect(dropdownLayoutTestkit.isUp()).toBeTruthy();
@@ -60,7 +60,7 @@
   const div = document.createElement('div');
   const dataHook = 'myDataHook';
   const wrapper = div.appendChild(ReactTestUtils.renderIntoDocument(<div><DropdownLayout {...props} dataHook={dataHook}/></div>));
-  const dropdownLayoutTestkit = dropdownLayoutTestkitFactory({wrapper, dataHook});
+  const dropdownLayoutTestkit = DropdownLayoutTestkit({wrapper, dataHook});
 
   //Do tests
   expect(dropdownLayoutTestkit.isUp()).toBeTruthy();
