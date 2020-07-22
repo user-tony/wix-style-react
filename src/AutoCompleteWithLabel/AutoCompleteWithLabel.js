@@ -8,7 +8,7 @@ import LabelledElement from '../LabelledElement';
 import Text from '../Text';
 
 import InputWithOptions from '../InputWithOptions';
-import styles from './AutoCompleteWithLabel.scss';
+import styles from './AutoCompleteWithLabel.st.css';
 
 import dataHooks from './dataHooks';
 import { optionValidator } from '../DropdownLayout/DropdownLayout';
