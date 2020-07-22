@@ -6,7 +6,7 @@ import Tag from '../Tag';
 import classNames from 'classnames';
 
 /** TagList */
-const TagList = ({ dataHook, tags, actionButton }) => {
+const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
   return (
     <div className={styles.root} data-hook={dataHook}>
       {tags.map(({ className, ...tagProps }) => (
@@ -56,6 +56,9 @@ TagList.propTypes = {
 
   /** List of tags props to be rendered */
   tags: PropTypes.arrayOf(PropTypes.object),
+
+  /** The size of each individual `<Tag />` */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 
   /** Action button label and onClick handler */
   actionButton: PropTypes.shape({
