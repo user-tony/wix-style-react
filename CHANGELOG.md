@@ -16,10 +16,13 @@ Types of changes:
 
 ## Next
 
+## 8.32.0 - 2020-07-22
+
 ### Fixed
 - `<CloseButton/>` - fix incorrect style extending [#5711](https://github.com/wix/wix-style-react/pull/5711)
 - `<MessageBoxFunctionalLayout/>` - remove redundant white in corners [#5715](https://github.com/wix/wix-style-react/pull/5715)
 - `<BarChart/>` - fix label alignment [#5734](https://github.com/wix/wix-style-react/pull/5734)
+- refactor `Object.fromEntries` to crossbrowser utility function [#5733](https://github.com/wix/wix-style-react/pull/5733)
 
 ### Changed
 - `<EmptyState/>` - migrate to stylable & fix a bug in the stroybook [#5707](https://github.com/wix/wix-style-react/pull/5707)
