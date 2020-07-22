@@ -55,8 +55,9 @@ const TagListAction = ({
 
 TagListAction.propTypes = {
   dataHook: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  size: PropTypes.oneOf(['tiny', 'small', 'medium']),
 };
 
 TagList.displayName = 'TagList';
@@ -66,7 +67,7 @@ TagList.propTypes = {
   dataHook: PropTypes.string,
 
   /** List of tags props to be rendered */
-  tags: PropTypes.arrayOf(PropTypes.object),
+  tags: PropTypes.arrayOf(PropTypes.object).isRequired,
 
   /** The size of each individual `<Tag />` */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
