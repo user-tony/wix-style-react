@@ -5,8 +5,16 @@ import styles from './TagList.st.css';
 import Tag from '../Tag';
 import classNames from 'classnames';
 
+const tagToActionButtonSize = {
+  small: 'tiny',
+  medium: 'small',
+  large: 'medium',
+};
+
 /** TagList */
 const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
+  const actionButtonSize = tagToActionButtonSize[size];
+
   return (
     <div className={styles.root} data-hook={dataHook}>
       {tags.map(({ className, ...tagProps }) => (
@@ -19,32 +27,35 @@ const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
       ))}
       {actionButton && (
         <TagListAction
+          {...actionButton}
           dataHook="tag-list-action"
-          onClick={actionButton.onClick}
-        >
-          {actionButton.label}
-        </TagListAction>
+          size={actionButtonSize}
+        />
       )}
     </div>
   );
 };
 
-const TagListAction = ({ dataHook, className, onClick, children, ...rest }) => (
+const TagListAction = ({
+  skin = 'inverted',
+  size = 'tiny',
+  className,
+  label,
+  ...rest
+}) => (
   <Button
-    skin="inverted"
-    size="tiny"
+    skin={skin}
+    size={size}
     className={classNames(styles.item, className)}
-    dataHook={dataHook}
-    onClick={onClick}
     {...rest}
   >
-    {children}
+    {label}
   </Button>
 );
 
 TagListAction.propTypes = {
   dataHook: PropTypes.string,
-  children: PropTypes.node,
+  label: PropTypes.string,
   onClick: PropTypes.func,
 };
 
