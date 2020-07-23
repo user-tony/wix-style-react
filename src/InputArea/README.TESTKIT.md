@@ -38,8 +38,8 @@
 
 ```javascript
   import React from 'react';
-  import {inputAreaTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {inputAreaTestkitFactory as enzymeInputAreaTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {InputAreaTestkit} from 'wix-style-react/dist/testkit';
+  import {InputAreaTestkit as EnzymeInputAreaTestkit} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -47,7 +47,7 @@
 
   const dataHook = 'myDataHook';
   const wrapper = mount(<div/><InputArea value="my text value" dataHook={dataHook}/></div>);
-  const testkit = enzymeInputAreaTestkitFactory({wrapper, dataHook});
+  const testkit = EnzymeInputAreaTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.getValue()).toBe('my text value');
@@ -61,7 +61,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<div/><InputArea value="my text value" dataHook={dataHook}/></div>, {dataHook})
   );
-  const testkit = inputAreaTestkitFactory({wrapper, dataHook});
+  const testkit = InputAreaTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.getValue()).toBe('my text value');

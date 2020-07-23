@@ -237,7 +237,7 @@ describe('App', () => {
 > Why? It allows setting the device properties easily and simply.
 
 ```js
-import { buttonTestkitFactory } from 'wix-style-react/dist/testkit/puppeteer';
+import { ButtonTestkit } from 'wix-style-react/dist/testkit/puppeteer';
 const { devices } = require('puppeteer');
 
 // Assuming our app component renders the following on tablet viewport sizes:
@@ -249,7 +249,7 @@ describe('App', () => {
 
   beforeEach(
     async () =>
-      (buttonTestkit = await buttonTestkitFactory({
+      (buttonTestkit = await ButtonTestkit({
         dataHook: 'my-button',
         page,
       })),

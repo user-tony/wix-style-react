@@ -49,8 +49,8 @@
 ```javascript
   import React from 'react';
   import {mount} from 'enzyme';
-  import {modalSelectorLayoutTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {modalSelectorLayoutTestkitFactory as enzymeModalSelectorLayoutTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {ModalSelectorLayoutTestkit} from 'wix-style-react/dist/testkit';
+  import {ModalSelectorLayoutTestkit as EnzymeModalSelectorLayoutTestkit} from 'wix-style-react/dist/testkit/enzyme';
   import ModalSelectorLayout from 'wix-style-react/ModalSelectorLayout';
 
   /***************
@@ -59,7 +59,7 @@
 
   const dataHook = 'myDataHook';
   const wrapper = mount(<div/><ModalSelectorLayout dataHook={dataHook}/></div>);
-  const testkit = enzymeModalSelectorLayoutTestkitFactory({wrapper, dataHook});
+  const testkit = EnzymeModalSelectorLayoutTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -73,7 +73,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<div/><ModalSelectorLayout dataHook={dataHook}/></div>, {dataHook})
   );
-  const testkit = modalSelectorLayoutTestkitFactory({wrapper, dataHook});
+  const testkit = ModalSelectorLayoutTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -88,10 +88,10 @@
    protractor example
   *******************/
 
-  import {modalSelectorLayoutTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {ModalSelectorLayoutTestkit, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = modalSelectorLayoutTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = ModalSelectorLayoutTestkit({dataHook: 'myDataHook'});
 
   browser.get(appUrl); //Your application url
 

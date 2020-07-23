@@ -107,10 +107,10 @@ A component testkit provides an interface to the component, enabling automated t
 //  Here is an example
 
 // 1. import
-import { inputTestkitFactory } from 'wix-style-react/dist/testkit';
+import { InputTestkit } from 'wix-style-react/dist/testkit';
 
 // 2. initialize
-const inputDriver = inputTestkitFactory({
+const inputDriver = InputTestkit({
   wrapper: document.body,
   dataHook: 'name-input',
 });

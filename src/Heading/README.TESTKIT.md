@@ -31,8 +31,8 @@
 ```javascript
   import React from 'react';
   import {mount} from 'enzyme';
-  import {textTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {textTestkitFactory as enzymeTextTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {TextTestkit} from 'wix-style-react/dist/testkit';
+  import {TextTestkit as EnzymeTextTestkit} from 'wix-style-react/dist/testkit/enzyme';
   import Text from 'wix-style-react/Text';
 
   /***************
@@ -41,7 +41,7 @@
 
   const dataHook = 'myDataHook';
   const wrapper = mount(<div/><Text dataHook={dataHook}/></div>);
-  const testkit = enzymeTextTestkitFactory({wrapper, dataHook});
+  const testkit = EnzymeTextTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -55,7 +55,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<div/><Text dataHook={dataHook}/></div>, {dataHook})
   );
-  const testkit = textTestkitFactory({wrapper, dataHook});
+  const testkit = TextTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -70,10 +70,10 @@
    protractor example
   *******************/
 
-  import {textTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {TextTestkit, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = textTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = TextTestkit({dataHook: 'myDataHook'});
 
   browser.get(appUrl); //Your application url
 
@@ -88,13 +88,13 @@
   *******************/
 
   import puppeteer from 'puppeteer';
-  import headingTestkitFactory from 'wix-style-react/dist/testkit';
+  import HeadingTestkit from 'wix-style-react/dist/testkit';
 
   //puppeteer setup
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   //Create an element testkit via the data-hook attribute
-  const heading = await headingTestkitFactory({
+  const heading = await HeadingTestkit({
     dataHook: 'heading',
     page,
   });

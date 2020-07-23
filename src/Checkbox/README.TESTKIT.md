@@ -22,8 +22,8 @@
 
 ```javascript
   import React from 'react';
-  import {checkboxTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {checkboxTestkitFactory as enzymeCheckboxTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {CheckboxTestkit} from 'wix-style-react/dist/testkit';
+  import {CheckboxTestkit as EnzymeCheckboxTestkit} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -31,7 +31,7 @@
 
   const dataHook = 'myDataHook';
   const wrapper = mount(<div/><Checkbox dataHook={dataHook}/></div>);
-  const testkit = enzymeCheckboxTestkitFactory({wrapper, dataHook});
+  const testkit = EnzymeCheckboxTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -45,7 +45,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<div/><Checkbox dataHook={dataHook}/></div>, {dataHook})
   );
-  const testkit = checkboxTestkitFactory({wrapper, dataHook});
+  const testkit = CheckboxTestkit({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -60,10 +60,10 @@
    protractor example
   *******************/
 
-  import {checkboxTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {CheckboxTestkit, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = checkboxTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = CheckboxTestkit({dataHook: 'myDataHook'});
 
   browser.get(appUrl); //Your application url
 

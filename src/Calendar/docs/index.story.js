@@ -12,7 +12,7 @@ import {
   testkit,
 } from 'wix-storybook-utils/Sections';
 
-import addDays from 'date-fns/add_days';
+import { addDays } from 'date-fns';
 
 import Calendar from '..';
 
@@ -80,6 +80,7 @@ export default {
       'zh',
       'th',
       'cs',
+      'uk',
     ],
   },
 

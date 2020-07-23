@@ -1505,10 +1505,10 @@ After:
 Testkit was rewritten and is now async, which means you should `await` for every method invocation.
 You should change the import path accordingly:
 
-- `ReactTestUtils` - `import {tooltipTestkitFactory} from 'wix-style-react/dist/testkit';`
-- `Enzyme` - `import {tooltipTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';`
-- `Puppeteer` - `import {tooltipTestkitFactory} from 'wix-style-react/dist/testkit/puppeteer';`
-- `Protractor` - `import {tooltipTestkitFactory} from 'wix-style-react/dist/testkit/protractor';`
+- `ReactTestUtils` - `import {TooltipTestkit} from 'wix-style-react/dist/testkit';`
+- `Enzyme` - `import {TooltipTestkit} from 'wix-style-react/dist/testkit/enzyme';`
+- `Puppeteer` - `import {TooltipTestkit} from 'wix-style-react/dist/testkit/puppeteer';`
+- `Protractor` - `import {TooltipTestkit} from 'wix-style-react/dist/testkit/protractor';`
 
 ### New Testkit API
 API is slimmer and easier to interact it (with the recent types addition you can get an auto complete of these methods)

@@ -28,10 +28,10 @@
    Protractor example
   **********************/
 
-  import {dropdownTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {DropdownTestkit, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = dropdownTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = DropdownTestkit({dataHook: 'myDataHook'});
 
   browser.get(appUrl);  //Your application url
 

@@ -14,6 +14,7 @@ import {
 } from './DataAttr';
 import styles from './DropdownLayout.st.css';
 import deprecationLog from '../utils/deprecationLog';
+import { filterObject } from '../utils/filterObject';
 
 const modulu = (n, m) => {
   const remain = n % m;
@@ -245,14 +246,15 @@ class DropdownLayout extends WixComponent {
   _getDataAttributes = () => {
     const { visible, dropDirectionUp } = this.props;
 
-    return Object.fromEntries(
-      Object.entries({
+    return filterObject(
+      {
         'data-hook': DATA_HOOKS.CONTENT_CONTAINER,
         [DATA_SHOWN]: visible,
         [DATA_DIRECTION]: dropDirectionUp
           ? DROPDOWN_LAYOUT_DIRECTIONS.UP
           : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
-      }).filter(entry => !!entry[1]),
+      },
+      (key, value) => !!value,
     );
   };
 
@@ -366,15 +368,16 @@ class DropdownLayout extends WixComponent {
   _getItemDataAttr = ({ hovered, selected, disabled, overrideStyle }) => {
     const { itemHeight, selectedHighlight } = this.props;
 
-    return Object.fromEntries(
-      Object.entries({
+    return filterObject(
+      {
         [DATA_OPTION.HOVERED]: hovered && !overrideStyle,
         [DATA_OPTION.SIZE]: itemHeight,
         [DATA_OPTION.DISABLED]: disabled,
         [DATA_OPTION.SELECTED]: selected && !overrideStyle && selectedHighlight,
         [DATA_OPTION.HOVERED_GLOBAL]: hovered && overrideStyle,
         [DATA_OPTION.SELECTED_GLOBAL]: selected && overrideStyle,
-      }).filter(entry => !!entry[1]),
+      },
+      (key, value) => !!value,
     );
   };
 

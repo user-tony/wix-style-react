@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import colors from '../colors.scss';
 import styles from './Box.scss';
 
+import { filterObject } from '../utils/filterObject';
+
 /** Defined according to the design system */
 export const spacingUnit = 6;
 
@@ -147,8 +149,9 @@ const Box = ({
   };
 
   // Filter undefined values
-  const rootStylesFiltered = Object.fromEntries(
-    Object.entries(rootStyles).filter(entry => typeof entry[1] !== 'undefined'),
+  const rootStylesFiltered = filterObject(
+    rootStyles,
+    (key, value) => typeof value !== 'undefined',
   );
 
   return (

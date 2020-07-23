@@ -20,7 +20,7 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import ToggleButton from 'wix-style-react/ToggleButton';
-import { toggleButtonTestkitFactory } from 'wix-style-react/dist/testkit';
+import { ToggleButtonTestkit } from 'wix-style-react/dist/testkit';
 
 const div = document.createElement('div');
 const dataHook = 'myDataHook';
@@ -35,7 +35,7 @@ const wrapper = div.appendChild(
   ReactTestUtils.renderIntoDocument(component, { dataHook }),
 );
 
-const testkit = toggleButtonTestkitFactory({ wrapper, dataHook });
+const testkit = ToggleButtonTestkit({ wrapper, dataHook });
 
 //Do tests
 describe('Element should exist', async () => {
@@ -49,7 +49,7 @@ describe('Element should exist', async () => {
 import React from 'react';
 import { mount } from 'enzyme';
 import ToggleButton from 'wix-style-react/ToggleButton';
-import { toggleButtonTestkitFactory } from 'wix-style-react/dist/testkit/enzyme';
+import { ToggleButtonTestkit } from 'wix-style-react/dist/testkit/enzyme';
 
 const dataHook = 'myDataHook';
 const wrapper = mount(
@@ -58,7 +58,7 @@ const wrapper = mount(
   </div>,
 );
 
-const testkit = toggleButtonTestkitFactory({ wrapper, dataHook });
+const testkit = ToggleButtonTestkit({ wrapper, dataHook });
 
 //Do tests
 describe('Element should exist', async () => {
@@ -72,14 +72,14 @@ describe('Element should exist', async () => {
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { toggleButtonTestkitFactory } from 'wix-style-react/dist/testkit/puppeteer';
+import { ToggleButtonTestkit } from 'wix-style-react/dist/testkit/puppeteer';
 
 //puppeteer setup
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
 //Create an element testkit via the data-hook attribute
-const testkit = await toggleButtonTestkitFactory({
+const testkit = await ToggleButtonTestkit({
   dataHook: 'myDataHook',
   page,
 });
@@ -96,10 +96,10 @@ describe('Element should exist', async () => {
 > Element should be rendered with a data-hook into the DOM `<ToggleButton dataHook="myDataHook" />`
 
 ```javascript
-import { toggleButtonTestkitFactory } from 'wix-style-react/dist/testkit/protractor';
+import { ToggleButtonTestkit } from 'wix-style-react/dist/testkit/protractor';
 
 //Create an element testkit via the data-hook attribute
-const testkit = toggleButtonTestkitFactory({ dataHook: 'myDataHook' });
+const testkit = ToggleButtonTestkit({ dataHook: 'myDataHook' });
 
 await browser.get('/page-where-button-appears'); //Your application url
 

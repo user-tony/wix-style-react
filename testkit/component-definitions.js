@@ -707,4 +707,11 @@ export default {
       ],
     },
   },
+
+  FileUpload: {
+    props: {
+      onChange: () => {},
+      children: <div />,
+    },
+  },
 };
