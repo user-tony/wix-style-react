@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  TableToolbar,
-  ItemGroup,
-  Item,
-  Label,
-  Title,
-} from 'wix-style-react/TableToolbar';
-
-import Card from 'wix-style-react/Card';
-import Search from 'wix-style-react/Search';
-import Dropdown from 'wix-style-react/Dropdown';
+import { TableToolbar, Card, Search, Dropdown } from 'wix-style-react';
 
 export default class MainExample extends React.Component {
   render() {
@@ -28,12 +18,12 @@ export default class MainExample extends React.Component {
     return (
       <Card>
         <TableToolbar>
-          <ItemGroup position="start">
-            <Item>
-              <Title>My Table</Title>
-            </Item>
-            <Item>
-              <Label>
+          <TableToolbar.ItemGroup position="start">
+            <TableToolbar.Item>
+              <TableToolbar.Title>My Table</TableToolbar.Title>
+            </TableToolbar.Item>
+            <TableToolbar.Item>
+              <TableToolbar.Label>
                 Collection
                 <span style={{ width: '150px' }}>
                   <Dropdown
@@ -42,22 +32,22 @@ export default class MainExample extends React.Component {
                     roundInput
                   />
                 </span>
-              </Label>
-            </Item>
-            <Item>
-              <Label>
+              </TableToolbar.Label>
+            </TableToolbar.Item>
+            <TableToolbar.Item>
+              <TableToolbar.Label>
                 Filter By
                 <span style={{ width: '86px' }}>
                   <Dropdown options={filterOptions} selectedId={0} roundInput />
                 </span>
-              </Label>
-            </Item>
-          </ItemGroup>
-          <ItemGroup position="end">
-            <Item>
+              </TableToolbar.Label>
+            </TableToolbar.Item>
+          </TableToolbar.ItemGroup>
+          <TableToolbar.ItemGroup position="end">
+            <TableToolbar.Item>
               <Search />
-            </Item>
-          </ItemGroup>
+            </TableToolbar.Item>
+          </TableToolbar.ItemGroup>
         </TableToolbar>
       </Card>
     );

@@ -3,23 +3,21 @@ import React from 'react';
 import Markdown from 'wix-storybook-utils/Markdown';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
-import Card from 'wix-style-react/Card';
-
 import { storiesOf } from '@storybook/react';
 
 import MainExample from './MainExample';
+import Box from '../../Box';
+
 import MainExampleRaw from '!raw-loader!./MainExample';
-
 import MainExampleRTL from './MainExampleRTL';
-import MainExampleRTLRaw from '!raw-loader!./MainExampleRTL';
 
+import MainExampleRTLRaw from '!raw-loader!./MainExampleRTL';
 import { BulkActionsExample } from './BulkActionsExample';
+
 import BulkActionsExampleRaw from '!raw-loader!./BulkActionsExample';
 import { storySettings } from './storySettings';
-
 import Readme from './README.md';
-
-import s from './Toolbar.story.scss';
+import { Card } from 'wix-style-react';
 
 storiesOf(storySettings.category, module).add(storySettings.storyName, () => (
   <div>
@@ -38,7 +36,7 @@ It may include (by convention) the following UI components:
   - Checkbox
         `}
       />
-      <div className={s.example}>
+      <Box minWidth="874px" maxWidth="1234px" padding="20px 50px">
         <CodeExample title="Typical Main Toolbar" code={MainExampleRaw}>
           <Card>
             <MainExample />
@@ -53,7 +51,7 @@ It may include (by convention) the following UI components:
             <MainExampleRTL />
           </Card>
         </CodeExample>
-      </div>
+      </Box>
     </div>
     <div>
       <Markdown
@@ -70,7 +68,7 @@ It may include (by convention) the following UI component:
  - A collapsed Search input box (\`<Search expandable/>\`)
         `}
       />
-      <div className={s.example}>
+      <Box minWidth="874px" maxWidth="1234px" padding="20px 50px">
         <CodeExample
           title="Typical BulkActions Toolbar"
           code={BulkActionsExampleRaw}
@@ -79,7 +77,7 @@ It may include (by convention) the following UI component:
             <BulkActionsExample />
           </Card>
         </CodeExample>
-      </div>
+      </Box>
     </div>
   </div>
 ));
