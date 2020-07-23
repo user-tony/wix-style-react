@@ -10,14 +10,12 @@ import {
   api,
   header,
   tabs,
+  testkit,
   playground,
 } from 'wix-storybook-utils/Sections';
-
 import { storySettings } from '../test/storySettings';
 import SegmentedToggle from '..';
-
 import * as examples from './examples';
-import testkit from './testkit.md';
 
 const BasicExample = () => (
   <Layout>
@@ -134,20 +132,11 @@ export default {
         ],
       }),
 
-      tab({
-        title: 'API',
-        sections: [api()],
-      }),
-
-      tab({
-        title: 'Testkit',
-        sections: [description(testkit)],
-      }),
-
-      tab({
-        title: 'Playground',
-        sections: [playground()],
-      }),
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
     ]),
   ],
 };
