@@ -29,5 +29,6 @@ export type TableActionCellSecondaryAction = {
   icon: IconElement;
   onClick: () => void;
   disabled?: boolean;
+  disabledDescription?: string;
   dataHook?: string;
 };
