@@ -242,6 +242,9 @@
   "MarketingLayout": {
     "path": "src/MarketingLayout"
   },
+  "MarketingPageFeaturesFooter": {
+    "path": "src/MarketingPageFeaturesFooter"
+  },
   "MediaOverlay": {
     "path": "src/MediaOverlay"
   },

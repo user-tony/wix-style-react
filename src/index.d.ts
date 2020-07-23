@@ -99,6 +99,9 @@ export * from './CounterBadge';
 export { default as CustomModalLayout } from './CustomModalLayout';
 export * from './CustomModalLayout';
 
+export { default as MarketingPageFeaturesFooter } from './MarketingPageFeaturesFooter';
+export * from './MarketingPageFeaturesFooter';
+
 export { default as MessageModalLayout } from './MessageModalLayout';
 export * from './MessageModalLayout';
 

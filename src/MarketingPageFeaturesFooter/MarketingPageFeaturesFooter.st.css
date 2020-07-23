@@ -1,0 +1,58 @@
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing06, spacing12, spacing18, spacing24, spacing30, spacing36;
+}
+
+.root {
+  -st-states: size(enum(small, medium, large));
+  grid-area: footerContent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.root:size(large), .root:size(medium) {
+  padding: 0px 90px 0px 90px;
+}
+
+.root:size(small) {
+  padding: 0px 30px 0px 30px;
+}
+
+.test {
+  -st-states: size(enum(small, medium, large));
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.test:size(large), .test:size(medium) {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: value(spacing30);
+}
+
+.test:size(small) {
+  grid-template-columns: 1fr;
+  grid-gap: value(spacing12);
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: value(spacing36) 0;
+  width: 100%;
+}
+
+.featureItemImageArea {
+  margin-bottom: value(spacing18);
+}
+
+.featureItemTextArea {
+  flex-grow: 1;
+}
+
+.featureItemTextAreaTop {
+  display: block;
+  margin-bottom: value(spacing06);
+}
