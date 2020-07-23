@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<FileUpload/>` - new component [#5731](https://github.com/wix/wix-style-react/pull/5731)
+- `<DatePicker/>` -Add dateFormatV2 prop to support new date-fns format tokens [#5732](https://github.com/wix/wix-style-react/pull/5732)
 
 ### Fixed
 - `<TableActionCell/>` - Fix type of TableActionCellSecondaryAction [#5745](https://github.com/wix/wix-style-react/pull/5745)
