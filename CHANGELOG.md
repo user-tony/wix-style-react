@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<FileUpload/>` - new component [#5731](https://github.com/wix/wix-style-react/pull/5731)
+
 ## 8.32.0 - 2020-07-22
 
 ### Fixed
