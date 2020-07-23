@@ -40,7 +40,7 @@ export default {
 
   componentProps: setState => ({
     onChange: value => setState({ value }),
-    dateFormat: 'YYYY/MM/DD',
+    dateFormatV2: 'yyyy/LL/dd',
     placeholderText: 'Select Date',
     value: defaultValue,
     shouldCloseOnSelect: true,
@@ -57,9 +57,9 @@ export default {
       { label: 'Today', value: today },
       { label: 'Tomorrow', value: tomorrow },
     ],
-    dateFormat: [
-      { label: 'YYYY/MM/DD', value: 'YYYY/MM/DD' },
-      { label: 'MM/DD/YYYY', value: 'MM/DD/YYYY' },
+    dateFormatV2: [
+      { label: 'yyyy/LL/dd', value: 'yyyy/LL/dd' },
+      { label: 'LL/dd/yyyy', value: 'LL/dd/yyyy' },
       {
         label: 'custom function (date.getDate())',
         value: date => date.getDate(),

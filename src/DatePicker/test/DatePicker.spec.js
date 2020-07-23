@@ -495,7 +495,7 @@ describe('DatePicker', () => {
   });
 
   describe('`format` prop', () => {
-    it('should display date according to string format', () => {
+    it('should display date according to string format (dateFormat)', () => {
       const { inputDriver } = createDriver(
         <DatePicker
           onChange={noop}
@@ -507,7 +507,7 @@ describe('DatePicker', () => {
       expect(inputDriver.getValue()).toBe('02/10/2017');
     });
 
-    it('should ignore format from locale', () => {
+    it('should ignore format from locale (dateFormat)', () => {
       const date = new Date(2017, 9, 2);
       const { inputDriver } = createDriver(
         <DatePicker
@@ -521,7 +521,7 @@ describe('DatePicker', () => {
       expect(inputDriver.getValue()).toBe('2017/10/02');
     });
 
-    it('should display date according to custom function format', () => {
+    it('should display date according to custom function format (dateFormat)', () => {
       const date = new Date(2017, 9, 2);
       const { inputDriver } = createDriver(
         <DatePicker
@@ -533,6 +533,67 @@ describe('DatePicker', () => {
       );
 
       expect(inputDriver.getValue()).toBe('2017 Oct 02');
+    });
+
+    it('should display date according to string format (dateFormatV2)', () => {
+      const { inputDriver } = createDriver(
+        <DatePicker
+          onChange={noop}
+          value={new Date(2017, 9, 2)}
+          dateFormatV2={'dd/LL/yyyy'}
+        />,
+      );
+
+      expect(inputDriver.getValue()).toBe('02/10/2017');
+    });
+
+    it('should ignore format from locale (dateFormatV2)', () => {
+      const date = new Date(2017, 9, 2);
+      const { inputDriver } = createDriver(
+        <DatePicker
+          onChange={noop}
+          locale="fr"
+          dateFormatV2="yyyy/LL/dd"
+          value={date}
+        />,
+      );
+
+      expect(inputDriver.getValue()).toBe('2017/10/02');
+    });
+
+    it('should display date according to custom function format (dateFormatV2)', () => {
+      const date = new Date(2017, 9, 2);
+      const { inputDriver } = createDriver(
+        <DatePicker
+          onChange={noop}
+          locale="fr"
+          dateFormatV2={_date => format(_date, 'yyyy LLL dd')}
+          value={date}
+        />,
+      );
+
+      expect(inputDriver.getValue()).toBe('2017 Oct 02');
+    });
+
+    it('should display date according to string format dateFormatV2 if both dateFormat and dateFormatV2 given', () => {
+      const { inputDriver } = createDriver(
+        <DatePicker
+          onChange={noop}
+          value={new Date(2017, 9, 2)}
+          dateFormat={'MM/DD/YYYY'}
+          dateFormatV2={'dd/LL/yyyy'}
+        />,
+      );
+
+      expect(inputDriver.getValue()).toBe('02/10/2017');
+    });
+
+    it('should fallback to default dateFormatV2 if both dateFormat and dateFormatV2 not given', () => {
+      const { inputDriver } = createDriver(
+        <DatePicker onChange={noop} value={new Date(2017, 9, 2)} />,
+      );
+
+      expect(inputDriver.getValue()).toBe('10/02/2017');
     });
   });
 

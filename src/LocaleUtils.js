@@ -54,6 +54,11 @@ export const formatDate = (date, dateFormat, locale) =>
     locale: getLocale(locale),
   });
 
+export const formatDateV2 = (date, dateFormatV2, locale) =>
+  format(date, dateFormatV2, {
+    locale: getLocale(locale),
+  });
+
 export default locale => ({
   formatMonthTitle: date =>
     format(date, 'LLLL yyyy', {

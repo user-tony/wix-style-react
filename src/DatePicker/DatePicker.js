@@ -8,6 +8,7 @@ import Calendar from '../Calendar';
 import DateInput from './DateInput';
 
 import { PopoverCommonProps } from '../common/PropTypes/PopoverCommon';
+import deprecationLog from '../utils/deprecationLog';
 
 import styles from './DatePicker.st.css';
 
@@ -32,7 +33,6 @@ export default class DatePicker extends React.PureComponent {
 
   static defaultProps = {
     locale: 'en',
-    dateFormat: 'MM/DD/YYYY',
     filterDate: () => true,
     rtl: false,
     width: 150,
@@ -55,6 +55,10 @@ export default class DatePicker extends React.PureComponent {
       isOpen: initialOpen,
       isDateInputFocusable: !props.initialOpen,
     };
+
+    deprecationLog(
+      'dateFormat prop is deprecated and will be removed as part of the next major version, please use dateFormatV2',
+    );
   }
 
   openCalendar = () => {
@@ -142,6 +146,7 @@ export default class DatePicker extends React.PureComponent {
       status,
       statusMessage,
       customInput,
+      dateFormatV2,
       dateFormat,
       inputProps = {},
     } = this.props;
@@ -168,6 +173,7 @@ export default class DatePicker extends React.PureComponent {
         statusMessage={statusMessage}
         autoSelect={false}
         dateFormat={dateFormat}
+        dateFormatV2={dateFormatV2}
         customInput={customInput}
         {...(customInput ? customInput.props : {})}
         {...inputPropsRest}
@@ -246,11 +252,16 @@ DatePicker.propTypes = {
   /** Properties appended to the default Input component or the custom Input component. */
   inputProps: PropTypes.object,
 
-  /** Custom date format, can be either:
-   * * `string` of tokens (see [`date-fns` docs](https://date-fns.org/v1.29.0/docs/format) for list of supported tokens)
-   * * `function` of signature `Date -> String`
+  /** this prop is deprecated and should not be used
+   * @deprecated
    */
   dateFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+
+  /** Custom date format V2, can be either:
+   * * `string` of tokens (see [`date-fns V2` docs](https://date-fns.org/v2.15.0/docs/format) for list of supported tokens)
+   * * `function` of signature `Date -> String`
+   */
+  dateFormatV2: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 
   /** DatePicker instance locale */
   locale: PropTypes.oneOfType([

@@ -9,6 +9,7 @@ export interface DateInputProps extends OmitPolyfill<InputProps, 'value'> {
   value?: object | string | number;
   locale?: LanguageType;
   dateFormat?: string | ((date: Date) => void);
+  dateFormatV2?: string | ((date: Date) => void);
 }
 
 export default class DateInput extends React.PureComponent<DateInputProps> {}
