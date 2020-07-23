@@ -43,6 +43,7 @@ const javascriptFiles = [
   ['EmptyState.bundle.min.js', 38],
   ['EndorseContentLayout.bundle.min.js', 37],
   ['FilePicker.bundle.min.js', 50],
+  ['FileUpload.bundle.min.js', 3],
   ['FillButton.bundle.min.js', 52],
   ['FillPreview.bundle.min.js', 18],
   ['FloatingHelper.bundle.min.js', 49],

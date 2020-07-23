@@ -146,6 +146,9 @@
   "FilePicker": {
     "path": "src/FilePicker"
   },
+  "FileUpload": {
+    "path": "src/FileUpload"
+  },
   "FillButton": {
     "path": "src/FillButton"
   },

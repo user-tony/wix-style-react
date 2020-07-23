@@ -53,6 +53,7 @@ require('../src/EditableTitle/docs/index.story');
 require('../src/EmptyState/docs/index.story');
 require('../src/EndorseContentLayout/docs');
 require('../src/FilePicker/docs/index.story');
+require('../src/FileUpload/docs/index.story');
 require('../src/FillButton/docs/index.story');
 require('../src/FillPreview/docs/index.story');
 require('../src/FloatingHelper/FloatingHelperContent/docs/index.story');

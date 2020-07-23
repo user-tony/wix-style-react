@@ -434,3 +434,6 @@ export * from './clients';
 
 export * from './dnd-styles';
 export { default as dndStyles } from './dnd-styles';
+
+export { default as FileUpload } from './FileUpload';
+export * from './FileUpload';
