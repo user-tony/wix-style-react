@@ -21,6 +21,7 @@ Types of changes:
 
 ### Fixed
 - `<TableActionCell/>` - Fix type of TableActionCellSecondaryAction [#5745](https://github.com/wix/wix-style-react/pull/5745)
+- `<CustomModalLayout/>` - fix title type [#5748](https://github.com/wix/wix-style-react/pull/5748)
 
 ## 8.32.0 - 2020-07-22
 
