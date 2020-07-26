@@ -342,7 +342,7 @@ class DataTable extends React.Component {
   };
 
   renderCell = (rowData, column, rowNum, colNum) => {
-    const { virtualized, stickyColumns, columns } = this.props;
+    const { virtualized, stickyColumns, columns, rowDetails } = this.props;
 
     const classes = classNames({
       [this.style.important]: column.important,
@@ -357,6 +357,9 @@ class DataTable extends React.Component {
       [this.style.sticky]: colNum < stickyColumns,
       [this.style.lastSticky]: colNum === stickyColumns - 1,
       [this.style.stickyActionCell]: column.stickyActionCell,
+      [this.style.hasRowDetails]: rowDetails,
+      [this.style.rowDetailsExtended]:
+        !!this.state.selectedRows.get(rowData) && rowDetails(rowData),
     });
 
     const width =
