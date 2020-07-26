@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.33.0 - 2020-07-26
+
 ### Added
 - `<FileUpload/>` - new component [#5731](https://github.com/wix/wix-style-react/pull/5731)
 - `<DatePicker/>` -Add dateFormatV2 prop to support new date-fns format tokens [#5732](https://github.com/wix/wix-style-react/pull/5732)
