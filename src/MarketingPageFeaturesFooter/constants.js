@@ -1,4 +1,6 @@
 export const dataHooks = {
-  marketingPageFeaturesFooterCount: 'marketingPageFeaturesFooter-count',
-  marketingPageFeaturesFooterButton: 'marketingPageFeaturesFooter-button',
+  feature: 'feature',
+  featureImage: 'featureImage',
+  featureTitle: 'featureTitle',
+  featureText: 'featureText',
 };

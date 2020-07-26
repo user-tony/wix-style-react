@@ -5,6 +5,8 @@ import Text from '../Text';
 import styles from './MarketingPageFeaturesFooter.st.css';
 import { dataHooks } from './constants';
 
+const isString = a => typeof a === 'string';
+
 /** A footer for the marketing Page Layout */
 class MarketingPageFeaturesFooter extends React.PureComponent {
   render() {
@@ -12,10 +14,11 @@ class MarketingPageFeaturesFooter extends React.PureComponent {
 
     return (
       <div {...styles('root', { size }, className)} data-hook={dataHook}>
-        {features.map((featureItem, idx) => {
+        {features.map((featureItem, index) => {
           return (
             <FeatureItem
-              key={featureItem.id || `feature${idx}`}
+              key={featureItem.id || `feature${index}`}
+              index={index}
               image={featureItem.image}
               title={featureItem.title}
               text={featureItem.text}
@@ -27,16 +30,34 @@ class MarketingPageFeaturesFooter extends React.PureComponent {
   }
 }
 
-const FeatureItem = ({ image, title, text }) => (
-  <div className={styles.featureItem}>
-    <div className={styles.featureItemImageContainer}>{image}</div>
+const FeatureItem = ({ index, image, title, text }) => (
+  <div className={styles.featureItem} data-hook={dataHooks.feature}>
+    {image && (
+      <div
+        className={styles.featureItemImage}
+        data-hook={`${dataHooks.featureImage}${index}`}
+        children={
+          isString(image) ? <img src={image} alt="featureImage" /> : image
+        }
+      />
+    )}
     <div className={styles.featureItemTextContainer}>
-      <div className={styles.featureItemTitleContainer}>
-        <Text size="small" weight="bold">
-          {title}
+      {title && (
+        <div className={styles.featureItemTitleContainer}>
+          <Text
+            data-hook={`${dataHooks.featureTitle}${index}`}
+            size="small"
+            weight="bold"
+          >
+            {title}
+          </Text>
+        </div>
+      )}
+      {text && (
+        <Text data-hook={`${dataHooks.featureText}${index}`} size="small">
+          {text}
         </Text>
-      </div>
-      <Text size="small">{text}</Text>
+      )}
     </div>
   </div>
 );
@@ -56,7 +77,7 @@ MarketingPageFeaturesFooter.propTypes = {
   /**
    * Array of features
    *  * `id` - the id of the feature (Each feature must have a unique `id`)
-   *  * `image` - the feature image.
+   *  * `image` - the feature image. If given as string, it will be used within `<img/>`. Otherwise can be given as React.Node.
    *  * `title` - the feature title.
    *  * `text` - the feature content.
    */

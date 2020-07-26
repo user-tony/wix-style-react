@@ -5,7 +5,6 @@ import { marketingPageFeaturesFooterTestkitFactory as marketingPageFeaturesFoote
 import { marketingPageFeaturesFooterTestkitFactory as marketingPageFeaturesFooterPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
-import Image from '../../Image/Image';
 
 function marketingPageFeaturesFooterWithMandatoryProps() {
   return <MarketingPageFeaturesFooter />;
@@ -17,26 +16,26 @@ function marketingPageFeaturesFooterWithAllProps() {
       dataHook="dataHook"
       className="className"
       size="large"
-    //   features={[
-    //   {
-    //     id: '0001',
-    //     image: <Image width={60} height={60} />,
-    //     title: 'Remove Wix Ads',
-    //     text: "Enjoy a website that's completely your own brand by removing Wix ads.",
-    //   },
-    //   {
-    //     id: '0002',
-    //     image: <Image width={60} height={60} />,
-    //     title: 'Connect a Custom Domain',
-    //     text: "Get your business found with a custom domain.",
-    //   },
-    //   {
-    //     id: '0003',
-    //     image: <Image width={60} height={60} />,
-    //     title: 'Accept Online Payment',
-    //     text: "Let your customers and clients pay you online at checkout.",
-    //   },
-    // ]}
+      features={[
+      {
+        id: '0001',
+        image: <img alt="alt" />,
+        title: 'Remove Wix Ads',
+        text: "Enjoy a website that's completely your own brand by removing Wix ads.",
+      },
+      {
+        id: '0002',
+        image: <img alt="alt" />,
+        title: 'Connect a Custom Domain',
+        text: "Get your business found with a custom domain.",
+      },
+      {
+        id: '0003',
+        image: <img alt="alt" />,
+        title: 'Accept Online Payment',
+        text: "Let your customers and clients pay you online at checkout.",
+      },
+    ]}
     />
   );
 }
