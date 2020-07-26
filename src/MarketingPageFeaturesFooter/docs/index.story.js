@@ -37,24 +37,30 @@ export default {
   exampleProps: {
     features: [
       {
-        label: 'With features',
+        label: 'add features',
         value: [
           {
             id: '0001',
-            image: <Image width={60} height={60} />,
+            image: (
+              <img src="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_60,h_60/c78d05b79ede429fb77c9d8ec4443b93.jpg" />
+            ),
             title: 'Remove Wix Ads',
             text:
               "Enjoy a website that's completely your own brand by removing Wix ads.",
           },
           {
             id: '0002',
-            image: <Image width={60} height={60} />,
+            image: (
+              <img src="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_60,h_60/c78d05b79ede429fb77c9d8ec4443b93.jpg" />
+            ),
             title: 'Connect a Custom Domain',
             text: 'Get your business found with a custom domain.',
           },
           {
             id: '0003',
-            image: <Image width={60} height={60} />,
+            image: (
+              <img src="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_60,h_60/c78d05b79ede429fb77c9d8ec4443b93.jpg" />
+            ),
             title: 'Accept Online Payment',
             text: 'Let your customers and clients pay you online at checkout.',
           },
