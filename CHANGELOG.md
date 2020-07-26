@@ -18,6 +18,9 @@ Types of changes:
 ### Added
 - `<Animate/>`- new component [#5721](https://github.com/wix/wix-style-react/pull/5721)
 
+### Fixed
+- `<TableActionCell/>` - Fix tooltip not showing on disabled actions [#5747](https://github.com/wix/wix-style-react/pull/5747)
+
 ## 8.33.0 - 2020-07-26
 
 ### Added
