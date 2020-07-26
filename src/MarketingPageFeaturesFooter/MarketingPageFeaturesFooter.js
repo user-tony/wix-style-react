@@ -11,19 +11,17 @@ class MarketingPageFeaturesFooter extends React.PureComponent {
     const { dataHook, className, size, features } = this.props;
 
     return (
-      <div {...styles('root', { size }, className)}>
-        <div {...styles('test', { size }, className)} data-hook={dataHook}>
-          {features.map((featureItem, idx) => {
-            return (
-              <FeatureItem
-                key={featureItem.id || `feature${idx}`}
-                image={featureItem.image}
-                title={featureItem.title}
-                text={featureItem.text}
-              />
-            );
-          })}
-        </div>
+      <div {...styles('root', { size }, className)} data-hook={dataHook}>
+        {features.map((featureItem, idx) => {
+          return (
+            <FeatureItem
+              key={featureItem.id || `feature${idx}`}
+              image={featureItem.image}
+              title={featureItem.title}
+              text={featureItem.text}
+            />
+          );
+        })}
       </div>
     );
   }
@@ -31,16 +29,14 @@ class MarketingPageFeaturesFooter extends React.PureComponent {
 
 const FeatureItem = ({ image, title, text }) => (
   <div className={styles.featureItem}>
-    <div className={styles.featureItemImageArea}>{image}</div>
-    <div className={styles.featureItemTextArea}>
-      <div className={styles.featureItemTextAreaTop}>
+    <div className={styles.featureItemImageContainer}>{image}</div>
+    <div className={styles.featureItemTextContainer}>
+      <div className={styles.featureItemTitleContainer}>
         <Text size="small" weight="bold">
           {title}
         </Text>
       </div>
-      <div>
-        <Text size="small">{text}</Text>
-      </div>
+      <Text size="small">{text}</Text>
     </div>
   </div>
 );

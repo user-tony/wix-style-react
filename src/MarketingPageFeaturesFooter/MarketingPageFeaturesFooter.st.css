@@ -5,33 +5,17 @@
 
 .root {
   -st-states: size(enum(small, medium, large));
-  grid-area: footerContent;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.root:size(large), .root:size(medium) {
-  padding: 0px 90px 0px 90px;
-}
-
-.root:size(small) {
-  padding: 0px 30px 0px 30px;
-}
-
-.test {
-  -st-states: size(enum(small, medium, large));
   width: 100%;
   display: grid;
   justify-content: center;
 }
 
-.test:size(large), .test:size(medium) {
+.root:size(large), .root:size(medium) {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: value(spacing30);
 }
 
-.test:size(small) {
+.root:size(small) {
   grid-template-columns: 1fr;
   grid-gap: value(spacing12);
 }
@@ -44,15 +28,15 @@
   width: 100%;
 }
 
-.featureItemImageArea {
+.featureItemImageContainer {
   margin-bottom: value(spacing18);
 }
 
-.featureItemTextArea {
+.featureItemTextContainer {
   flex-grow: 1;
 }
 
-.featureItemTextAreaTop {
+.featureItemTitleContainer {
   display: block;
   margin-bottom: value(spacing06);
 }
