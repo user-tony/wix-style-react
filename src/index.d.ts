@@ -437,3 +437,6 @@ export { default as dndStyles } from './dnd-styles';
 
 export { default as FileUpload } from './FileUpload';
 export * from './FileUpload';
+
+export { default as Animate } from './Animate';
+export * from './Animate';

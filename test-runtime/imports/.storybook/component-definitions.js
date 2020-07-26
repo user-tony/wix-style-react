@@ -31,6 +31,7 @@ import SegmentedToggle from '../../../dist/es/src/SegmentedToggle';
  */
 
 export default {
+
   ColorPicker: {
     props: {
       value: '#000',
