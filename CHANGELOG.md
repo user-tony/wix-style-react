@@ -21,6 +21,9 @@ Types of changes:
 - `<DatePicker/>` -Add dateFormatV2 prop to support new date-fns format tokens [#5732](https://github.com/wix/wix-style-react/pull/5732)
 - `<MediaOverlay/>` - removeRoundedBorders prop [#5563](https://github.com/wix/wix-style-react/pull/5563)
 
+### Changed
+- `<Table/>` - Remove box shadow from row if expanded row details [#5751](https://github.com/wix/wix-style-react/pull/5751)
+
 ### Fixed
 - `<TableActionCell/>` - Fix type of TableActionCellSecondaryAction [#5745](https://github.com/wix/wix-style-react/pull/5745)
 - `<CustomModalLayout/>` - fix title type [#5748](https://github.com/wix/wix-style-react/pull/5748)
