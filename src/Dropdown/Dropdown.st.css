@@ -1,10 +1,9 @@
-@import '../common.scss';
-
 .showPointer, .showPointer input {
+  -st-states: noBorder;
   cursor: pointer;
 }
 
-.noBorder {
+.showPointer:noBorder {
   border:none;
 }
 

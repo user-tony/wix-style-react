@@ -9,7 +9,6 @@ import DropdownLayout, {
 import Highlighter from '../Highlighter/Highlighter';
 import { chainEventHandlers } from '../utils/ChainEventHandlers';
 import styles from './InputWithOptions.st.css';
-import nativeStyles from './InputWithOptions.scss';
 import { placements } from '../Popover/constants';
 import uniqueId from 'lodash/uniqueId';
 
@@ -185,11 +184,11 @@ class InputWithOptions extends Component {
   _renderNativeSelect() {
     const { options, onSelect } = this.props;
     return (
-      <div className={nativeStyles.nativeSelectWrapper}>
+      <div className={styles.nativeSelectWrapper}>
         {this.renderInput()}
         <select
           data-hook="native-select"
-          className={nativeStyles.nativeSelect}
+          className={styles.nativeSelect}
           onChange={event => {
             this._onChange(event);
 
@@ -203,7 +202,7 @@ class InputWithOptions extends Component {
               data-index={index}
               key={option.id}
               value={option.value}
-              className={nativeStyles.nativeOption}
+              className={styles.nativeOption}
             >
               {option.value}
             </option>
