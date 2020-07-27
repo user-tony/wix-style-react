@@ -12,7 +12,7 @@ const tagToActionButtonSize = {
 };
 
 /** TagList */
-const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
+const TagList = ({ dataHook, tags, actionButton, size }) => {
   const actionButtonSize = tagToActionButtonSize[size];
 
   return (
@@ -27,37 +27,46 @@ const TagList = ({ dataHook, tags, actionButton, size = 'small' }) => {
       ))}
       {actionButton && (
         <TagListAction
-          {...actionButton}
           dataHook="tag-list-action"
           size={actionButtonSize}
-        />
+          onClick={actionButton.onClick}
+        >
+          {actionButton.label}
+        </TagListAction>
       )}
     </div>
   );
 };
 
 const TagListAction = ({
-  skin = 'inverted',
-  size = 'tiny',
+  dataHook,
   className,
-  label,
+  onClick,
+  children,
+  size,
   ...rest
 }) => (
   <Button
-    skin={skin}
+    skin="inverted"
     size={size}
     className={classNames(styles.item, className)}
+    dataHook={dataHook}
+    onClick={onClick}
     {...rest}
   >
-    {label}
+    {children}
   </Button>
 );
 
 TagListAction.propTypes = {
   dataHook: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  children: PropTypes.node,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+};
+
+TagListAction.defaultProps = {
+  size: 'tiny',
 };
 
 TagList.displayName = 'TagList';
@@ -67,7 +76,7 @@ TagList.propTypes = {
   dataHook: PropTypes.string,
 
   /** List of tags props to be rendered */
-  tags: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tags: PropTypes.arrayOf(PropTypes.object),
 
   /** The size of each individual `<Tag />` */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -77,6 +86,10 @@ TagList.propTypes = {
     onClick: PropTypes.func,
     label: PropTypes.string,
   }),
+};
+
+TagList.defaultProps = {
+  size: 'small',
 };
 
 export default TagList;
