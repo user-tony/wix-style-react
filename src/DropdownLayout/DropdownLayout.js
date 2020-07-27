@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import WixComponent from '../BaseComponents/WixComponent';
@@ -243,6 +242,7 @@ class DropdownLayout extends WixComponent {
     </InfiniteScroll>
   );
 
+  /** for testing purposes only */
   _getDataAttributes = () => {
     const { visible, dropDirectionUp } = this.props;
 
@@ -271,47 +271,54 @@ class DropdownLayout extends WixComponent {
       fixedFooter,
       inContainer,
       overflow,
+      maxHeightPixels,
+      minWidthPixels,
+      infiniteScroll,
     } = this.props;
 
     const renderedOptions = options.map((option, idx) =>
       this._renderOption({ option, idx }),
     );
-    const contentContainerClassName = classNames({
-      [styles.contentContainer]: true,
-      [styles.shown]: visible,
-      [styles.up]: dropDirectionUp,
-      [styles.down]: !dropDirectionUp,
-      [styles.withArrow]: withArrow,
-      [styles.containerStyles]: !inContainer,
-    });
+
     return (
       <div
+        {...styles(
+          'root',
+          {
+            visible,
+            withArrow,
+            direction: dropDirectionUp
+              ? DROPDOWN_LAYOUT_DIRECTIONS.UP
+              : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
+            containerStyles: !inContainer,
+          },
+          this.props,
+        )}
         tabIndex={tabIndex}
-        className={classNames(styles.wrapper)}
         onKeyDown={this._onKeyDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         <div
           {...this._getDataAttributes()}
-          className={contentContainerClassName}
+          className={styles.contentContainer}
           style={{
             overflow,
-            maxHeight: getUnit(this.props.maxHeightPixels),
-            minWidth: getUnit(this.props.minWidthPixels),
+            maxHeight: getUnit(maxHeightPixels),
+            minWidth: getUnit(minWidthPixels),
           }}
         >
           {this._renderNode(fixedHeader)}
           <div
             className={styles.options}
             style={{
-              maxHeight: getUnit(parseInt(this.props.maxHeightPixels, 10) - 35),
+              maxHeight: getUnit(parseInt(maxHeightPixels, 10) - 35),
               overflow,
             }}
             ref={_options => (this.options = _options)}
             data-hook={DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
           >
-            {this.props.infiniteScroll
+            {infiniteScroll
               ? this._wrapWithInfiniteScroll(renderedOptions)
               : renderedOptions}
           </div>
@@ -393,18 +400,6 @@ class DropdownLayout extends WixComponent {
   }) {
     const { itemHeight, selectedHighlight } = this.props;
 
-    const optionClassName = classNames({
-      [styles.option]: !overrideStyle,
-      [styles.selected]: selected && !overrideStyle && selectedHighlight,
-      wixstylereactSelected: selected && overrideStyle, // global class for items that use the overrideStyle
-      [styles.hovered]: hovered && !overrideStyle,
-      wixstylereactHovered: hovered && overrideStyle, // global class for items that use the overrideStyle
-      [styles.disabled]: disabled,
-      [styles.title]: title,
-      [styles.smallHeight]: itemHeight === 'small',
-      [styles.bigHeight]: itemHeight === 'big',
-    });
-
     return (
       <div
         {...this._getItemDataAttr({
@@ -413,7 +408,14 @@ class DropdownLayout extends WixComponent {
           disabled,
           overrideStyle,
         })}
-        className={optionClassName}
+        {...styles('option', {
+          selected: selected && selectedHighlight,
+          hovered,
+          disabled,
+          title,
+          itemHeight,
+          overrideStyle,
+        })}
         ref={node => this._setSelectedOptionNode(node, option)}
         onClick={!disabled ? e => this._onSelect(idx, e) : null}
         key={idx}
@@ -429,21 +431,15 @@ class DropdownLayout extends WixComponent {
   }
 
   _renderTopArrow() {
-    const { withArrow, visible, dropDirectionUp } = this.props;
+    const { withArrow, visible } = this.props;
 
     if (this.props.hasOwnProperty('withArrow')) {
       deprecationLog(
         'DropdownLayout prop "withArrow" is deprecated and will be removed in the next major release, please use DropdownBase (with the prop "showArrow") or Popover component instead',
       );
     }
-
-    const arrowClassName = classNames({
-      [styles.arrow]: true,
-      [styles.up]: dropDirectionUp,
-      [styles.down]: !dropDirectionUp,
-    });
     return withArrow && visible ? (
-      <div data-hook={DATA_HOOKS.TOP_ARROW} className={arrowClassName} />
+      <div data-hook={DATA_HOOKS.TOP_ARROW} className={styles.arrow} />
     ) : null;
   }
 
