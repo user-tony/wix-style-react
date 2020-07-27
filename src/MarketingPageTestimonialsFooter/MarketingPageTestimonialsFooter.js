@@ -8,11 +8,56 @@ import { dataHooks } from './constants';
 /** A footer for the marketing page layout */
 class MarketingPageTestimonialsFooter extends React.PureComponent {
   render() {
-    const { className, dataHook } = this.props;
+    const { className, dataHook, size, testimonials } = this.props;
 
-    return <div {...styles('root', {}, className)} data-hook={dataHook}></div>;
+    return (
+      <div {...styles('root', { size }, className)} data-hook={dataHook}>
+        {testimonials.map((testimonialItem, index) => {
+          return (
+            <TestimonialItem
+              key={testimonialItem.id || `testimonial${index}`}
+              index={index}
+              avatar={testimonialItem.avatar}
+              authorName={testimonialItem.authorName}
+              text={testimonialItem.text}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
+
+const TestimonialItem = ({ index, avatar, text, authorName }) => (
+  <div className={styles.testimonialItem} data-hook="testimonial">
+    {avatar && (
+      <div
+        className={styles.testimonialItemAvatar}
+        data-hook={`${dataHooks.testimonialAvatar}${index}`}
+      >
+        {avatar}
+      </div>
+    )}
+    <div className={styles.testimonialItemTextArea}>
+      {text && (
+        <div className={styles.testimonialItemText}>
+          <Text data-hook={`${dataHooks.testimonialText}${index}`} size="small">
+            {text}
+          </Text>
+        </div>
+      )}
+      {authorName && (
+        <Text
+          data-hook={`${dataHooks.testimonialAuthorName}${index}`}
+          size="small"
+          weight="bold"
+        >
+          {authorName}
+        </Text>
+      )}
+    </div>
+  </div>
+);
 
 MarketingPageTestimonialsFooter.displayName = 'MarketingPageTestimonialsFooter';
 
@@ -44,6 +89,7 @@ MarketingPageTestimonialsFooter.propTypes = {
 };
 
 MarketingPageTestimonialsFooter.defaultProps = {
+  size: 'large',
   testimonials: [],
 };
 

@@ -1,6 +1,6 @@
 export const basicExample = `
-    <MarketingPageFeaturesFooter
-      testimonialsArr={[
+    <MarketingPageTestimonialsFooter
+        testimonials={[
           {
             id: '0001',
             avatar: <Avatar name="Guy in glasses" size="size60"/>,
@@ -49,19 +49,19 @@ export const sizesExample = `
         return (
           <Layout>
             <Cell>
-              <MarketingPageFeaturesFooter
+              <MarketingPageTestimonialsFooter
                 size='small'
                 testimonials={testimonialsArr}
                />
             </Cell>
             <Cell>
-              <MarketingPageFeaturesFooter
+              <MarketingPageTestimonialsFooter
                 size='medium'
                 testimonials={testimonialsArr}
                />
             </Cell>
             <Cell>
-              <MarketingPageFeaturesFooter
+              <MarketingPageTestimonialsFooter
                 size='large'
                 testimonials={testimonialsArr}
                />

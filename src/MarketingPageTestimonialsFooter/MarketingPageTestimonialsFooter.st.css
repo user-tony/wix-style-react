@@ -1,8 +1,40 @@
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G30,R30;
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing06, spacing12, spacing18, spacing24, spacing30, spacing36;
 }
 
 .root {
-  /*-st-states: odd, even;*/
+  -st-states: size(enum(small, medium, large));
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.root:size(large), .root:size(medium) {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: value(spacing30);
+}
+
+.root:size(small) {
+  grid-template-columns: 1fr;
+  grid-gap: value(spacing12);
+}
+
+.testimonialItem {
+  display: flex;
+  align-items: flex-start;
+  padding: value(spacing36) 0;
+  width: 100%;
+}
+
+.testimonialItemAvatar {
+  margin-right: value(spacing18);
+}
+
+.testimonialItemTextArea {
+  flex-grow: 1
+}
+
+.testimonialItemText {
+  margin-bottom: value(spacing06);
 }
