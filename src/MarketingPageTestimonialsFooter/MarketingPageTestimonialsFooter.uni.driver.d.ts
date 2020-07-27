@@ -5,8 +5,6 @@ export interface MarketingPageTestimonialsFooterUniDriver extends BaseUniDriver 
 
   hasTestimonialAvatar(): Promise<boolean>;
 
-  getTestimonialAvatar(): Promise<any>;
-
   hasTestimonialText(): Promise<boolean>;
 
   getTestimonialText(): Promise<string>;
