@@ -30,6 +30,7 @@ function tagListWithAllProps() {
         label: 'action',
         onClick: () => null
       }}
+      onTagRemove={() => {}}
     />
   );
 }

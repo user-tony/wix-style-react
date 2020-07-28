@@ -12,7 +12,7 @@ const tagToActionButtonSize = {
 };
 
 /** TagList */
-const TagList = ({ dataHook, tags, actionButton, size }) => {
+const TagList = ({ dataHook, tags, actionButton, size, onTagRemove }) => {
   const actionButtonSize = tagToActionButtonSize[size];
 
   return (
@@ -22,6 +22,7 @@ const TagList = ({ dataHook, tags, actionButton, size }) => {
           {...tagProps}
           className={classNames(styles.item, className)}
           size={size}
+          onRemove={onTagRemove}
           key={tagProps.id}
         />
       ))}
@@ -61,6 +62,9 @@ TagList.propTypes = {
 
   /** List of tags props to be rendered */
   tags: PropTypes.arrayOf(PropTypes.object),
+
+  /** Callback function that passes `id` property as parameter when removing a Tag  */
+  onTagRemove: PropTypes.func,
 
   /** The size of each individual `<Tag />` */
   size: PropTypes.oneOf(['small', 'medium', 'large']),

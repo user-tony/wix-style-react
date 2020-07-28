@@ -8,6 +8,7 @@ export type TagListProps = {
   dataHook?: string;
   tags: Array<Omit<TagProps, 'size'>>;
   size?: TagListSize;
+  onTagRemove?: (id: string) => void;
   actionButton?: TagListActionButtonProps;
 };
 

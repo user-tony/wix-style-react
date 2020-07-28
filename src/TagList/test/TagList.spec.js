@@ -77,4 +77,22 @@ describe(TagList.displayName, () => {
     await driver.clickActionButton();
     expect(onActionButtonClickFn).toHaveBeenCalled();
   });
+
+  it('should trigger onRemove when removing a tag', async () => {
+    const onTagRemove = jest.fn();
+    const id = 'one';
+    const { driver } = render(
+      <TagList
+        onTagRemove={onTagRemove}
+        tags={[
+          {
+            id,
+            children: 'Some Tag',
+          },
+        ]}
+      />,
+    );
+    await driver.removeTag(id);
+    expect(onTagRemove).toHaveBeenCalledWith(id);
+  });
 });

@@ -1,5 +1,6 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { buttonDriverFactory } from '../Button/Button.uni.driver';
+import { tagUniDriverFactory } from '../Tag/Tag.uni.driver';
 
 export const tagListDriverFactory = (base, body) => {
   const getTagListActionTestkit = async () =>
@@ -14,5 +15,7 @@ export const tagListDriverFactory = (base, body) => {
     clickActionButton: async () => (await getTagListActionTestkit()).click(),
     /** Get if action button exists */
     actionButtonExists: async () => (await getTagListActionTestkit()).exists(),
+    /** Remove tag by id */
+    removeTag: id => tagUniDriverFactory(base.$(`#${id}`)).removeTag(),
   };
 };
