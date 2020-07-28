@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import AddItem from '../index';
+import { Cell, Layout } from '../../Layout';
 
 const defaultProps = {
   label: 'String',
@@ -122,3 +123,28 @@ tests.forEach(({ describe, its }) => {
     );
   });
 });
+
+storiesOf('AddItem/borderRadius', module).add('borderRadius 100%', () => (
+  <Layout>
+    <Cell>
+      <div style={{ height: '40px', width: '40px' }}>
+        <AddItem size="tiny" removePadding borderRadius="100%" />
+      </div>
+    </Cell>
+    <Cell>
+      <div style={{ height: '80px', width: '80px' }}>
+        <AddItem size="small" removePadding borderRadius="100%" />
+      </div>
+    </Cell>
+    <Cell>
+      <div style={{ height: '120px', width: '120px' }}>
+        <AddItem size="medium" removePadding borderRadius="100%" />
+      </div>
+    </Cell>
+    <Cell>
+      <div style={{ height: '160px', width: '160px' }}>
+        <AddItem size="large" removePadding borderRadius="100%" />
+      </div>
+    </Cell>
+  </Layout>
+));
