@@ -16,6 +16,7 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import StructureExampleRaw from '!raw-loader!./examples/Structure';
+import SizesExampleRaw from '!raw-loader!./examples/Sizes';
 import CustomizingTagsExampleRaw from '!raw-loader!./examples/CustomizingTags';
 import UsageExampleRaw from '!raw-loader!./examples/Usage';
 
@@ -69,6 +70,13 @@ export default {
             text:
               'Component consists of any number tag and button subcomponents.',
             source: StructureExampleRaw,
+          }),
+
+          example({
+            title: 'Sizes',
+            text:
+              'Component supports three sizes – `small`, `medium` and `large`. Default size is `small`.',
+            source: SizesExampleRaw,
           }),
 
           example({
