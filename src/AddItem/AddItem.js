@@ -59,6 +59,9 @@ class AddItem extends Component {
 
     /** Removes padding */
     removePadding: PropTypes.bool,
+
+    /** sets the border-radius css property on the button element */
+    borderRadius: PropTypes.string,
   };
 
   static defaultProps = {
@@ -153,11 +156,13 @@ class AddItem extends Component {
       focusableOnFocus,
       focusableOnBlur,
       removePadding,
+      borderRadius,
     } = this.props;
 
     return (
       <button
-        {...style('root', { theme, removePadding }, this.props)}
+        {...style('root', { theme, removePadding, borderRadius }, this.props)}
+        style={borderRadius && { borderRadius }}
         data-hook={dataHook}
         disabled={disabled}
         type="button"

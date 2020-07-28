@@ -2,7 +2,6 @@ import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import {
   DATA_OPTION,
   DATA_HOOKS,
-  DATA_DIVIDER,
   DATA_DIRECTION,
   DATA_SHOWN,
   DROPDOWN_LAYOUT_DIRECTIONS,
@@ -77,7 +76,7 @@ export const dropdownLayoutDriverFactory = base => {
       doIfOptionExists(
         position,
         async () =>
-          !!(await (await optionElementAt(position)).attr(DATA_DIVIDER)),
+          !!(await (await optionElementAt(position)).attr(DATA_OPTION.DIVIDER)),
       ),
     isOptionExists: async optionText => {
       for (const _option of await options()) {
@@ -216,6 +215,6 @@ const createOptionDriver = option => ({
     !!(await option.attr(DATA_OPTION.SELECTED_GLOBAL)),
   content: () => option.text(),
   click: () => option.click(),
-  isDivider: async () => !!(await option.attr(DATA_DIVIDER)),
+  isDivider: async () => !!(await option.attr(DATA_OPTION.DIVIDER)),
   isDisabled: async () => !!(await option.attr(DATA_OPTION.DISABLED)),
 });

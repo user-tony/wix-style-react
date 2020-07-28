@@ -1,16 +1,27 @@
 import ReactTestUtils from 'react-dom/test-utils';
-import styles from './DropdownLayout.st.css';
 import values from '../utils/operators/values';
-import { isClassExists } from '../../test/utils';
+import {
+  DATA_HOOKS,
+  DATA_OPTION,
+  DATA_SHOWN,
+  DATA_DIRECTION,
+  DROPDOWN_LAYOUT_DIRECTIONS,
+} from './DataAttr';
 
 const dropdownLayoutDriverFactory = ({ element }) => {
-  const contentContainer = element.childNodes[0];
-  const infiniteScrollContainer = element.querySelector(
-    '[data-hook=infinite-scroll-container]',
+  const byDataHook = dataHook =>
+    element.querySelector(`[data-hook="${dataHook}"]`);
+
+  const contentContainer = byDataHook(DATA_HOOKS.CONTENT_CONTAINER);
+
+  const infiniteScrollContainer = byDataHook(
+    DATA_HOOKS.INFINITE_SCROLL_CONTAINER,
   );
-  const optionElementsContainer = element.querySelector(
-    '[data-hook=dropdown-layout-options]',
+
+  const optionElementsContainer = byDataHook(
+    DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS,
   );
+
   const optionElements = infiniteScrollContainer
     ? infiniteScrollContainer
     : optionElementsContainer;
@@ -43,13 +54,16 @@ const dropdownLayoutDriverFactory = ({ element }) => {
       option && ReactTestUtils.Simulate.click(option);
     },
     exists: () => !!element,
-    hasTopArrow: () => !!element.querySelector(`.${styles.arrow}`),
-    isDown: () => isClassExists(contentContainer, styles.down),
+    hasTopArrow: () =>
+      !!element.querySelector(`[data-hook="${DATA_HOOKS.TOP_ARROW}"]`),
+    isDown: () =>
+      contentContainer.getAttribute(DATA_DIRECTION) ===
+      DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
     isLinkOption: position =>
       optionElementAt(position).tagName.toLowerCase() === 'a',
     isOptionADivider: position =>
       doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), styles.divider),
+        optionElementAt(position).hasAttribute(DATA_OPTION.DIVIDER),
       ),
     isOptionExists: optionText =>
       [].filter.call(
@@ -59,30 +73,36 @@ const dropdownLayoutDriverFactory = ({ element }) => {
     /** returns if an option is hovered. notice that it checks by index and __not__ by id */
     isOptionHovered: position =>
       doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), styles.hovered),
+        optionElementAt(position).hasAttribute(DATA_OPTION.HOVERED),
       ),
     isOptionSelected: position =>
       doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), styles.selected),
+        optionElementAt(position).hasAttribute(DATA_OPTION.SELECTED),
       ),
     isOptionHoveredWithGlobalClassName: position =>
       doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), 'wixstylereactHovered'),
+        optionElementAt(position).hasAttribute(DATA_OPTION.HOVERED_GLOBAL),
       ),
     isOptionSelectedWithGlobalClassName: position =>
       doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), 'wixstylereactSelected'),
+        optionElementAt(position).hasAttribute(DATA_OPTION.SELECTED_GLOBAL),
       ),
     isOptionHeightSmall: position =>
-      doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), styles.smallHeight),
+      doIfOptionExists(
+        position,
+        () =>
+          optionElementAt(position).getAttribute(DATA_OPTION.SIZE) === 'small',
       ),
     isOptionHeightBig: position =>
-      doIfOptionExists(position, () =>
-        isClassExists(optionElementAt(position), styles.bigHeight),
+      doIfOptionExists(
+        position,
+        () =>
+          optionElementAt(position).getAttribute(DATA_OPTION.SIZE) === 'big',
       ),
-    isShown: () => isClassExists(contentContainer, styles.shown),
-    isUp: () => isClassExists(contentContainer, styles.up),
+    isShown: () => contentContainer.hasAttribute(DATA_SHOWN),
+    isUp: () =>
+      contentContainer.getAttribute(DATA_DIRECTION) ===
+      DROPDOWN_LAYOUT_DIRECTIONS.UP,
     mouseClickOutside: () =>
       document.body.dispatchEvent(new Event('mouseup', { cancelable: true })),
     mouseEnter: () => ReactTestUtils.Simulate.mouseEnter(element),
@@ -124,7 +144,9 @@ const dropdownLayoutDriverFactory = ({ element }) => {
       values(optionElements.childNodes).map(option => option.textContent),
 
     markedOption: async () => {
-      const hoveredOption = optionElements.querySelector(`.${styles.hovered}`);
+      const hoveredOption = optionElements.querySelector(
+        `[${DATA_OPTION.HOVERED}="true"]`,
+      );
       return (
         (hoveredOption && createOptionDriver(hoveredOption).content()) || null
       );
@@ -151,16 +173,16 @@ const createOptionDriver = option => ({
   element: () => option,
   mouseEnter: () => ReactTestUtils.Simulate.mouseEnter(option),
   mouseLeave: () => ReactTestUtils.Simulate.mouseLeave(option),
-  isHovered: () => isClassExists(option, styles.hovered),
-  isSelected: () => isClassExists(option, styles.selected),
+  isHovered: () => option.hasAttribute(DATA_OPTION.HOVERED),
+  isSelected: () => option.hasAttribute(DATA_OPTION.SELECTED),
   isHoveredWithGlobalClassName: () =>
-    isClassExists(option, 'wixstylereactHovered'),
+    option.hasAttribute(DATA_OPTION.HOVERED_GLOBAL),
   isSelectedWithGlobalClassName: () =>
-    isClassExists(option, 'wixstylereactSelected'),
+    option.hasAttribute(DATA_OPTION.SELECTED_GLOBAL),
   content: () => option.textContent,
   click: () => ReactTestUtils.Simulate.click(option),
-  isDivider: () => isClassExists(option, styles.divider),
-  isDisabled: () => isClassExists(option, styles.disabled),
+  isDivider: () => option.hasAttribute(DATA_OPTION.DIVIDER),
+  isDisabled: () => option.hasAttribute(DATA_OPTION.DISABLED),
 });
 
 export default dropdownLayoutDriverFactory;

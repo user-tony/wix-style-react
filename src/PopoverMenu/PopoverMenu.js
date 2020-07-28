@@ -13,7 +13,10 @@ class PopoverMenu extends React.PureComponent {
 
   static Divider = ({ dataHook }) => {
     return (
-      <div data-hook={dataHook} style={{ padding: `6px 24px 6px 18px` }}>
+      <div
+        data-hook={dataHook}
+        style={{ padding: `6px 24px 6px 18px`, width: '100%' }}
+      >
         <div className={styles.divider} />
       </div>
     );

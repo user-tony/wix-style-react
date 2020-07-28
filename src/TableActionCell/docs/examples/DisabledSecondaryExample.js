@@ -1,5 +1,7 @@
 import React from 'react';
 import Download from 'wix-ui-icons-common/Download';
+import Edit from 'wix-ui-icons-common/Edit';
+import Star from 'wix-ui-icons-common/Star';
 import Duplicate from 'wix-ui-icons-common/Duplicate';
 import Print from 'wix-ui-icons-common/Print';
 import style from '../TableActionCell.story.st.css';
@@ -17,6 +19,20 @@ const Example = () => (
           onClick: () => window.alert('Download action was triggered.'),
         },
         {
+          text: 'Edit',
+          icon: <Edit />,
+          onClick: () => window.alert('Edit action was triggered.'),
+          disabled: true,
+          disabledDescription: 'You are not allowed to Edit!',
+        },
+        {
+          text: 'Star',
+          icon: <Star />,
+          onClick: () => window.alert('Star action was triggered.'),
+          disabled: true,
+          disabledDescription: '',
+        },
+        {
           text: 'Duplicate',
           icon: <Duplicate />,
           onClick: () => window.alert('Duplicate action was triggered.'),
@@ -27,9 +43,10 @@ const Example = () => (
           icon: <Print />,
           onClick: () => window.alert('Print action was triggered.'),
           disabled: true,
+          disabledDescription: 'wersf',
         },
       ]}
-      numOfVisibleSecondaryActions={1}
+      numOfVisibleSecondaryActions={3}
     />
   </div>
 );

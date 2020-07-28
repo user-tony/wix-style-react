@@ -12,6 +12,7 @@ export interface AddItemProps {
   tooltipProps?: TooltipCommonProps;
   showIcon?: boolean;
   removePadding?: boolean;
+  borderRadius?: React.CSSProperties['borderRadius'];
 }
 
 export default class AddItem extends React.Component<AddItemProps> {}
