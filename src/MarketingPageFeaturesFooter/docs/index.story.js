@@ -30,9 +30,7 @@ export default {
   component: MarketingPageFeaturesFooter,
   componentPath: '..',
 
-  componentProps: {
-    buttonText: 'Hello World!',
-  },
+  componentProps: {},
 
   exampleProps: {
     features: [
