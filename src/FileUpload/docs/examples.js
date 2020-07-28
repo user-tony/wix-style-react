@@ -1,6 +1,6 @@
 export const simple = `
 <FileUpload onChange={files => console.log(files)}>
-  <Button>upload file</Button>
+  <Button>Upload a File</Button>
 </FileUpload>
 `;
 export const withMultipleAndAccept = `
@@ -9,6 +9,6 @@ export const withMultipleAndAccept = `
   multiple
   accept=".jpeg,.gif,.png"
 >
-  <AddItem>Add images only</AddItem>
+  <TextButton prefixIcon={<Icons.Image />}>Upload Images</TextButton>
 </FileUpload>
 `;

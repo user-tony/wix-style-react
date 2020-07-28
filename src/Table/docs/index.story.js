@@ -20,6 +20,7 @@ import contextReadmeApi from './CONTEXT_README.API.md';
 import testkitReadme from './README.TESTKIT.md';
 
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
+import TableRowDetailsExampleRaw from '!raw-loader!./examples/TableRowDetailsExample';
 import TableSkinNeutralExample from '!raw-loader!./examples/TableSkinNeutralExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
 import TableSubToolbarExampleRaw from '!raw-loader!./examples/TableSubToolbarExample';
@@ -168,6 +169,13 @@ export default {
               description:
                 'Horizontal scroll can be enabled by providing `horizontalScroll` prop and defining `width` prop for all table columns. Combined column size should exceed available table size. In addition, you can "sticky" a number of columns from the left using `stickyColumns` prop. Sticky columns will remain and will not scroll with the rest of table columns.',
               source: TableStickyScrollExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Expandable Rows',
+              description:
+                'A table with expandable rows. A row is expandable using the `renderRowDetails` prop.',
+              source: TableRowDetailsExampleRaw,
               compact: true,
             },
             {

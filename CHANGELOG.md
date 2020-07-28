@@ -16,8 +16,34 @@ Types of changes:
 
 ## Next
 
+### Addded
+- `<AddItem/>` - add borderRadius prop [#5757](https://github.com/wix/wix-style-react/pull/5757)
+
+### Changed
+- `<DropdownLayout/>`- using stylable states and changing drivers accordingly [#5725](https://github.com/wix/wix-style-react/pull/5725)
+- `<InputWithOptions/>` & `<Dropdown/>`- stylable migration [#5756](https://github.com/wix/wix-style-react/pull/5756)
+
+## 8.34.0 - 2020-07-27
+### Added
+- `<Animate/>`- new component [#5721](https://github.com/wix/wix-style-react/pull/5721)
+
+### Fixed
+- `<TableActionCell/>` - Fix tooltip not showing on disabled actions [#5747](https://github.com/wix/wix-style-react/pull/5747)
+
+## 8.33.0 - 2020-07-26
+
 ### Added
 - `<FileUpload/>` - new component [#5731](https://github.com/wix/wix-style-react/pull/5731)
+- `<DatePicker/>` -Add dateFormatV2 prop to support new date-fns format tokens [#5732](https://github.com/wix/wix-style-react/pull/5732)
+- `<MediaOverlay/>` - removeRoundedBorders prop [#5563](https://github.com/wix/wix-style-react/pull/5563)
+
+### Changed
+- `<Table/>` - Remove box shadow from row if expanded row details [#5751](https://github.com/wix/wix-style-react/pull/5751)
+
+### Fixed
+- `<TableActionCell/>` - Fix type of TableActionCellSecondaryAction [#5745](https://github.com/wix/wix-style-react/pull/5745)
+- `<CustomModalLayout/>` - fix title type [#5748](https://github.com/wix/wix-style-react/pull/5748)
+- `<Ellipsis/>` - strengthen ellipsis rules [#5750](https://github.com/wix/wix-style-react/pull/5750)
 
 ## 8.32.0 - 2020-07-22
 

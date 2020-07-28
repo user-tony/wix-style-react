@@ -38,6 +38,7 @@ function renderVisibleActions(actions) {
       <Tooltip
         key={index}
         dataHook={dataHook || dataHooks.tableActionCellVisibleActionTooltip}
+        disabled={disabled && disabledDescription === ''}
         content={
           disabled && Boolean(disabledDescription) ? disabledDescription : text
         }
@@ -181,7 +182,7 @@ TableActionCell.propTypes = {
    * signature is `onClick(rowData, rowNum)`.
    * `disabled` is an optional prop for the secondary action to be disabled
    * `dataHook` is an optional prop for accessing the action in tests
-   * 'disabledDescription' is an optional prop that indicates what string to display in tooltip when action is visible and disabled (if non is provided, the text prop is used)
+   * 'disabledDescription' is an optional prop that indicates what string to display in tooltip when action is visible and disabled (if none is provided, the text prop is used. if empty string is provided, no tooltip will be displayed)
    * 'divider' is an optional prop to display a divider between the action items
    */
   secondaryActions: PropTypes.arrayOf(

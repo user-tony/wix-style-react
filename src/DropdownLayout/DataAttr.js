@@ -10,8 +10,6 @@ export const DATA_SHOWN = 'data-shown';
 
 export const DATA_DIRECTION = 'data-direction';
 
-export const DATA_DIVIDER = 'data-divider';
-
 export const DATA_OPTION = {
   SIZE: 'data-option-size',
   HOVERED: 'data-option-hovered',
@@ -19,6 +17,7 @@ export const DATA_OPTION = {
   DISABLED: 'data-option-disabled',
   HOVERED_GLOBAL: 'data-option-hovered-global',
   SELECTED_GLOBAL: 'data-option-selected-global',
+  DIVIDER: 'data-divider',
 };
 
 export const DROPDOWN_LAYOUT_DIRECTIONS = {

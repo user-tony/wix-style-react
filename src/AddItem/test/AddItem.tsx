@@ -23,6 +23,7 @@ function AddItemWithAllProps() {
       theme="dashes"
       tooltipContent="content"
       tooltipProps={{}}
+      borderRadius="100%"
     />
   );
 }

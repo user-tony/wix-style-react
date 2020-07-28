@@ -28,6 +28,12 @@ import PopoverMenu from '../src/PopoverMenu';
  */
 
 export default {
+  Animate: {
+    props: {
+      children: <div />,
+    },
+  },
+
   AudioPlayer: {
     props: {
       src: 'example.mp3',

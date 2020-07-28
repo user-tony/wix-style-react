@@ -180,6 +180,22 @@ $cellHorizontalEdgePadding: 30px;
   }
 }
 
+.table:not(.showLastRowDivider) {
+  & tr:nth-last-child(2) {
+    td.hasRowDetails {
+      box-shadow: none;
+    }
+  }
+}
+
+.table.showLastRowDivider {
+  & tr:nth-last-child(2) {
+    td.hasRowDetails {
+      box-shadow: $columnShadow;
+    }
+  }
+}
+
 .table td.details {
   padding: 0px;
   height: 0px;
@@ -240,10 +256,6 @@ $cellHorizontalEdgePadding: 30px;
 
 .row-details:not(:last-child) {
   box-shadow: $activeColumnShadow;
-
-  .row-details-inner {
-    box-shadow: $rowShadow;
-  }
 }
 
 .animatedDataRow {
@@ -341,5 +353,11 @@ $cellHorizontalEdgePadding: 30px;
     .stickyActionCell {
       background-color: $B60;
     }
+  }
+}
+
+.table tr td {
+  &.rowDetailsExtended {
+    box-shadow: none !important;
   }
 }

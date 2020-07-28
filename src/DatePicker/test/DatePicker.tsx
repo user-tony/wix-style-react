@@ -14,6 +14,7 @@ function datePickerWithAllProps() {
       customInput="customInput"
       inputProps="{}"
       dateFormat="string | Function"
+      dateFormatV2="string | Function"
       locale="en"
       disabled
       inputDataHook="string"

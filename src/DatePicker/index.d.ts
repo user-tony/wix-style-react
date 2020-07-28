@@ -7,6 +7,7 @@ export interface DatePickerProps extends CalendarProps {
   customInput?: React.ReactNode;
   inputProps?: {};
   dateFormat?: string | Function;
+  dateFormatV2?: string | Function;
   locale?: string | { distanceInWords?: {}; format?: {} };
   disabled?: boolean;
   inputDataHook?: string;

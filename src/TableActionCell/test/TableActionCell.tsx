@@ -24,6 +24,7 @@ function tableActionCellWithAllProps() {
       secondaryActions={[
         {
           dataHook: 'hook',
+          disabledDescription: 'You are not allowed for this action',
           disabled: true,
           icon: <div />,
           onClick: () => {},
