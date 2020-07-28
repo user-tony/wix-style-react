@@ -20,6 +20,7 @@ Types of changes:
 - `<AddItem/>` - add borderRadius prop [#5757](https://github.com/wix/wix-style-react/pull/5757)
 - `<TagList/>` - add size prop [#5743](https://github.com/wix/wix-style-react/pull/5743)
 - `<TagList/>` - add onTagRemove prop [#5755](https://github.com/wix/wix-style-react/pull/5755)
+- `<FloatingHelper/>`- adding `standardPrimary` skin to action button [#5763](https://github.com/wix/wix-style-react/pull/5763)
 
 ### Changed
 - `<DropdownLayout/>`- using stylable states and changing drivers accordingly [#5725](https://github.com/wix/wix-style-react/pull/5725)
