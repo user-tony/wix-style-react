@@ -31,6 +31,11 @@
   margin-right: value(spacing18);
 }
 
+:global(.rtl) .testimonialItemAvatar, :global([dir='rtl']) .testimonialItemAvatar {
+  margin-right: 0;
+  margin-left: value(spacing18);
+}
+
 .testimonialItemTextArea {
   flex-grow: 1
 }
