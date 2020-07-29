@@ -102,13 +102,15 @@ export default class DatePicker extends React.PureComponent {
     const isChanged = !isSameDay(value, this.props.value);
 
     if (isChanged) {
+      const oldValue =
+        this.props.value || new Date(new Date().setHours(0, 0, 0, 0));
       const newValue = [
         [value.getFullYear(), setYear],
         [value.getMonth(), setMonth],
         [value.getDate(), setDate],
       ].reduce(
         (_value, [datePart, setter]) => setter(_value, datePart),
-        this.props.value || new Date(),
+        oldValue,
       );
 
       this.setState({ value: newValue }, () => this.props.onChange(newValue));

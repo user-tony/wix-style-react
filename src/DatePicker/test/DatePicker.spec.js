@@ -675,6 +675,21 @@ describe('DatePicker', () => {
         new Date('2017-01-02T12:34:56.000Z'),
       );
     });
+
+    it('should adjust time if no value given to midnight', () => {
+      const onChange = jest.fn();
+      const { calendarDriver, driver } = createDriver(
+        <DatePicker onChange={onChange} />,
+      );
+      driver.open();
+      calendarDriver.clickOnNthDay(1);
+
+      const chosenDate = onChange.mock.calls[0][0];
+      expect(chosenDate.getHours()).toEqual(0);
+      expect(chosenDate.getMinutes()).toEqual(0);
+      expect(chosenDate.getSeconds()).toEqual(0);
+      expect(chosenDate.getMilliseconds()).toEqual(0);
+    });
   });
 
   describe('`readonly` prop', () => {
