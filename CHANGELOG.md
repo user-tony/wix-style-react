@@ -28,6 +28,7 @@ Types of changes:
 
 ### Fixed
 - `<TagList/>`- fix playground for component [#5767](https://github.com/wix/wix-style-react/pull/5767)
+- `<DatePicker/>`- fix a bug of date not retuning the midnight of the selected date [#5771](https://github.com/wix/wix-style-react/pull/5771)
 
 ## 8.34.0 - 2020-07-27
 ### Added
