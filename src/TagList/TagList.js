@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button';
 import styles from './TagList.st.css';
 import Tag from '../Tag';
+import TagListAction from './TagListAction';
 import classNames from 'classnames';
 
 const tagToActionButtonSize = {
@@ -12,47 +12,35 @@ const tagToActionButtonSize = {
 };
 
 /** TagList */
-const TagList = ({ dataHook, tags, actionButton, size, onTagRemove }) => {
-  const actionButtonSize = tagToActionButtonSize[size];
+class TagList extends React.PureComponent {
+  render() {
+    const { dataHook, tags, actionButton, size, onTagRemove } = this.props;
+    const actionButtonSize = tagToActionButtonSize[size];
 
-  return (
-    <div className={styles.root} data-hook={dataHook}>
-      {tags.map(({ className, ...tagProps }) => (
-        <Tag
-          {...tagProps}
-          className={classNames(styles.item, className)}
-          size={size}
-          onRemove={onTagRemove}
-          key={tagProps.id}
-        />
-      ))}
-      {actionButton && (
-        <TagListAction
-          dataHook="tag-list-action"
-          size={actionButtonSize}
-          onClick={actionButton.onClick}
-        >
-          {actionButton.label}
-        </TagListAction>
-      )}
-    </div>
-  );
-};
-
-const TagListAction = ({ className, ...rest }) => (
-  <Button className={classNames(styles.item, className)} {...rest} />
-);
-
-TagListAction.propTypes = {
-  dataHook: PropTypes.string,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-};
-
-TagListAction.defaultProps = {
-  size: 'tiny',
-  skin: 'inverted',
-};
+    return (
+      <div className={styles.root} data-hook={dataHook}>
+        {tags.map(({ className, ...tagProps }) => (
+          <Tag
+            {...tagProps}
+            className={classNames(styles.item, className)}
+            size={size}
+            onRemove={onTagRemove}
+            key={tagProps.id}
+          />
+        ))}
+        {actionButton && (
+          <TagListAction
+            dataHook="tag-list-action"
+            size={actionButtonSize}
+            onClick={actionButton.onClick}
+          >
+            {actionButton.label}
+          </TagListAction>
+        )}
+      </div>
+    );
+  }
+}
 
 TagList.displayName = 'TagList';
 
