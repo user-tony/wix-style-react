@@ -26,6 +26,9 @@ Types of changes:
 - `<DropdownLayout/>`- using stylable states and changing drivers accordingly [#5725](https://github.com/wix/wix-style-react/pull/5725)
 - `<InputWithOptions/>` & `<Dropdown/>`- stylable migration [#5756](https://github.com/wix/wix-style-react/pull/5756)
 
+### Fixed
+- `<TagList/>`- fix playground for component [#5767](https://github.com/wix/wix-style-react/pull/5767)
+
 ## 8.34.0 - 2020-07-27
 ### Added
 - `<Animate/>`- new component [#5721](https://github.com/wix/wix-style-react/pull/5721)
