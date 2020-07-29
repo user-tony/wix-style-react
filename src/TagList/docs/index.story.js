@@ -24,12 +24,42 @@ import TagList from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
+const exampleTags = [
+  {
+    label: 'Two Tags',
+    value: [
+      { id: '1', children: 'In Progress' },
+      { id: '2', children: 'Canceled By Client' },
+    ],
+  },
+  {
+    label: 'Three Tags',
+    value: [
+      { id: '1', children: 'In Progress' },
+      { id: '2', children: 'Canceled By Client' },
+      { id: '3', children: 'Last  7 Days' },
+    ],
+  },
+];
+
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
   component: TagList,
   componentPath: '..',
+
+  componentProps: {
+    tags: exampleTags[0].value,
+    size: 'small',
+  },
+
+  exampleProps: {
+    tags: exampleTags,
+    actionButton: [{ label: 'Button' }],
+  },
+
+  exampleImport: `import { TagList } from 'wix-style-react';`,
 
   sections: [
     header({
