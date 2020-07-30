@@ -16,7 +16,9 @@ Types of changes:
 
 ## Next
 
-### Addded
+## 8.35.0 - 2020-07-29
+
+### Added
 - `<AddItem/>` - add borderRadius prop [#5757](https://github.com/wix/wix-style-react/pull/5757)
 - `<TagList/>` - add size prop [#5743](https://github.com/wix/wix-style-react/pull/5743)
 - `<TagList/>` - add onTagRemove prop [#5755](https://github.com/wix/wix-style-react/pull/5755)
