@@ -25,6 +25,10 @@ function tableActionCellWithAllProps() {
         {
           dataHook: 'hook',
           disabledDescription: 'You are not allowed for this action',
+          tooltipProps: {
+            maxWidth: 250,
+            textAlign: 'start',
+          },
           disabled: true,
           icon: <div />,
           onClick: () => {},
