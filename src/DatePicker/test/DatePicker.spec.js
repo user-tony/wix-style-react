@@ -841,4 +841,16 @@ describe('DatePicker', () => {
       expect(calendarDriver.isTwoMonthsLayout()).toBe(true);
     });
   });
+
+  describe('firstDayOfWeek', () => {
+    it('should show correct first day of the week', async () => {
+      const { inputDriver, calendarDriver } = createDriver(
+        <DatePicker onChange={() => {}} firstDayOfWeek={0} />,
+      );
+
+      inputDriver.trigger('click');
+
+      expect(await calendarDriver.getNthWeekDayName(0)).toEqual('Su');
+    });
+  });
 });

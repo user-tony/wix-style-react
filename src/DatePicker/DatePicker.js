@@ -43,6 +43,7 @@ export default class DatePicker extends React.PureComponent {
       placement: 'top-start',
       zIndex: 1,
     },
+    firstDayOfWeek: 1,
   };
 
   constructor(props) {
@@ -198,6 +199,7 @@ export default class DatePicker extends React.PureComponent {
       zIndex,
       dataHook,
       popoverProps,
+      firstDayOfWeek,
     } = this.props;
 
     const { isOpen, value } = this.state;
@@ -215,6 +217,7 @@ export default class DatePicker extends React.PureComponent {
       value,
       shouldCloseOnSelect,
       numOfMonths: twoMonths ? 2 : 1,
+      firstDayOfWeek,
     };
 
     return (
@@ -327,4 +330,7 @@ DatePicker.propTypes = {
   zIndex: PropTypes.number,
 
   popoverProps: PropTypes.shape(PopoverCommonProps),
+
+  /** First day of the week, allowing only from 0 to 6 (Sunday to Saturday) */
+  firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
 };

@@ -21,6 +21,7 @@ export interface DatePickerProps extends CalendarProps {
   width?: number | string;
   zIndex?: number;
   popoverProps?: PopoverCommonProps;
+  firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 export default class DatePicker extends React.PureComponent<DatePickerProps> {}
