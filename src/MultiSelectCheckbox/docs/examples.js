@@ -1,6 +1,6 @@
 import { listItemSelectBuilder } from '../../ListItemSelect';
 
-export const options = [
+const statesArray = [
   'Alabama',
   'Arkansas',
   'California',
@@ -9,7 +9,9 @@ export const options = [
   'Texas',
   'Utah',
   'Washington',
-].map(state => ({ value: state, id: state }));
+];
+
+export const options = statesArray.map(state => ({ value: state, id: state }));
 
 export const simple = `
 class Example extends React.Component {
@@ -33,7 +35,7 @@ class Example extends React.Component {
 }
 `;
 
-export const builderOptions = ['Alabama', 'Arkansas'].map(
+export const builderOptions = statesArray.map(
   option =>
     `listItemSelectBuilder({
       checkbox: true,
