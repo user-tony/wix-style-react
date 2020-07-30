@@ -1,3 +1,5 @@
+import { listItemSelectBuilder } from '../../ListItemSelect';
+
 export const options = [
   'Alabama',
   'Arkansas',
@@ -29,4 +31,42 @@ class Example extends React.Component {
     );
   }
 }
+`;
+
+export const builderOptions = ['Alabama', 'Arkansas'].map(
+  option =>
+    `listItemSelectBuilder({
+      checkbox: true,
+      value: "${option}",
+      id: "${option}",
+      title: "${option}",
+      selected: this.state.selectedOptions.indexOf("${option}") !== -1
+  })`,
+);
+
+export const usingBuilders = `
+class BuildersExample extends React.Component {
+  state = { selectedOptions: [] };
+  onSelect = option =>
+    this.setState({ selectedOptions: [...this.state.selectedOptions, option] });
+  onDeselect = option =>
+    this.setState({
+      selectedOptions: this.state.selectedOptions.filter(
+        item => item !== option,
+      ),
+    });
+  render() {
+    const { selectedOptions } = this.state;
+    return (
+      <MultiSelectCheckbox
+        options={[${builderOptions}]}
+        selectedOptions={selectedOptions}
+        onSelect={this.onSelect}
+        onDeselect={this.onDeselect}
+      />
+    );
+  }
+}
+
+
 `;

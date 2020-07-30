@@ -81,6 +81,11 @@ export default {
             source: examples.simple,
             compact: false,
           }),
+
+          code({
+            source: examples.usingBuilders,
+            compact: false,
+          }),
         ],
       }),
       ...[
