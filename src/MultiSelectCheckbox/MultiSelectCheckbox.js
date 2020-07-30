@@ -43,9 +43,15 @@ class MultiSelectCheckbox extends InputWithOptions {
     return this.props.selectedOptions.indexOf(optionId) !== -1;
   }
 
+  _isUsingBuilder() {
+    return this.props.options.find(({ value }) => typeof value === 'function');
+  }
+
   dropdownAdditionalProps() {
     return {
-      options: this.wrapOptionsWithCheckbox(this.props.options),
+      options: this._isUsingBuilder()
+        ? this.props.options
+        : this.wrapOptionsWithCheckbox(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
     };
@@ -57,7 +63,11 @@ class MultiSelectCheckbox extends InputWithOptions {
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
-      .map(this.props.valueParser)
+      .map(option => {
+        return this._isUsingBuilder()
+          ? option.value({ hovered: true }).props.title
+          : this.props.valueParser;
+      })
       .join(this.props.delimiter);
   }
 
@@ -139,13 +149,6 @@ MultiSelectCheckbox.propTypes = {
 
   /** delimiter between the selected options that will be displayed in the input. */
   delimiter: PropTypes.string,
-};
-
-const builderValueParser = () => {
-  return option => {
-    const { props } = option.value({ hovered: true });
-    return props.title;
-  };
 };
 
 MultiSelectCheckbox.defaultProps = {
