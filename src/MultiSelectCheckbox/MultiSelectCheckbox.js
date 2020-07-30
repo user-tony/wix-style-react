@@ -141,6 +141,13 @@ MultiSelectCheckbox.propTypes = {
   delimiter: PropTypes.string,
 };
 
+const builderValueParser = () => {
+  return option => {
+    const { props } = option.value({ hovered: true });
+    return props.title;
+  };
+};
+
 MultiSelectCheckbox.defaultProps = {
   ...InputWithOptions.defaultProps,
   delimiter: ', ',
