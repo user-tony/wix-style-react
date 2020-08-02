@@ -17,6 +17,11 @@ const Example = () => (
           text: 'Download',
           icon: <Download />,
           onClick: () => window.alert('Download action was triggered.'),
+          tooltipProps: {
+            maxWidth: 250,
+            content:
+              'Clicking this icon will start the download process of the selected asset',
+          },
         },
         {
           text: 'Edit',
@@ -43,10 +48,11 @@ const Example = () => (
           icon: <Print />,
           onClick: () => window.alert('Print action was triggered.'),
           disabled: true,
-          disabledDescription: 'wersf',
+          disabledDescription:
+            'This description will not be displayed, as this secondary action is hidden',
         },
       ]}
-      numOfVisibleSecondaryActions={3}
+      numOfVisibleSecondaryActions={4}
     />
   </div>
 );

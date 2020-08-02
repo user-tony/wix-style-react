@@ -16,6 +16,7 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import StructureExampleRaw from '!raw-loader!./examples/Structure';
+import SizesExampleRaw from '!raw-loader!./examples/Sizes';
 import CustomizingTagsExampleRaw from '!raw-loader!./examples/CustomizingTags';
 import UsageExampleRaw from '!raw-loader!./examples/Usage';
 
@@ -23,12 +24,42 @@ import TagList from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
+const exampleTags = [
+  {
+    label: 'Two Tags',
+    value: [
+      { id: '1', children: 'In Progress' },
+      { id: '2', children: 'Canceled By Client' },
+    ],
+  },
+  {
+    label: 'Three Tags',
+    value: [
+      { id: '1', children: 'In Progress' },
+      { id: '2', children: 'Canceled By Client' },
+      { id: '3', children: 'Last  7 Days' },
+    ],
+  },
+];
+
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
   component: TagList,
   componentPath: '..',
+
+  componentProps: {
+    tags: exampleTags[0].value,
+    size: 'small',
+  },
+
+  exampleProps: {
+    tags: exampleTags,
+    actionButton: [{ label: 'Button' }],
+  },
+
+  exampleImport: `import { TagList } from 'wix-style-react';`,
 
   sections: [
     header({
@@ -69,6 +100,13 @@ export default {
             text:
               'Component consists of any number tag and button subcomponents.',
             source: StructureExampleRaw,
+          }),
+
+          example({
+            title: 'Sizes',
+            text:
+              'Component supports three sizes – `small`, `medium` and `large`. Default size is `small`.',
+            source: SizesExampleRaw,
           }),
 
           example({

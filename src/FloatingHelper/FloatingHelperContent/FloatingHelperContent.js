@@ -23,6 +23,10 @@ const themeToButtonProps = {
     skin: ButtonSkin.premium,
     priority: ButtonPriority.primary,
   },
+  [actionButtonTheme.standardPrimary]: {
+    skin: ButtonSkin.standard,
+    priority: ButtonPriority.primary,
+  },
   [actionButtonTheme.lightPrimary]: {
     skin: ButtonSkin.light,
     priority: ButtonPriority.primary,
@@ -109,6 +113,7 @@ FloatingHelperContent.propTypes = {
     'white',
     'premium',
     'lightPrimary',
+    'standardPrimary',
   ]),
   /** Custom footer node */
   footer: PropTypes.node,

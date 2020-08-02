@@ -16,12 +16,29 @@ Types of changes:
 
 ## Next
 
-### Addded
+### Added
+- `<TableActionCell/>` - Add `tooltipProps` to `secondaryActions` [#5759](https://github.com/wix/wix-style-react/pull/5759)
+- `<DatePicker/>`, `<Calendar/>`-  allow setting first day of the week for calendar [#5765](https://github.com/wix/wix-style-react/pull/5765)
+- `<FacesRatingBar/>` - new component [#5643](https://github.com/wix/wix-style-react/pull/5643)
+
+### Fixed
+- `<StatisticsWidget/>` - add missing `children` prop to d.ts [#5776](https://github.com/wix/wix-style-react/pull/5776)
+
+## 8.35.0 - 2020-07-29
+
+### Added
 - `<AddItem/>` - add borderRadius prop [#5757](https://github.com/wix/wix-style-react/pull/5757)
+- `<TagList/>` - add size prop [#5743](https://github.com/wix/wix-style-react/pull/5743)
+- `<TagList/>` - add onTagRemove prop [#5755](https://github.com/wix/wix-style-react/pull/5755)
+- `<FloatingHelper/>`- adding `standardPrimary` skin to action button [#5763](https://github.com/wix/wix-style-react/pull/5763)
 
 ### Changed
 - `<DropdownLayout/>`- using stylable states and changing drivers accordingly [#5725](https://github.com/wix/wix-style-react/pull/5725)
 - `<InputWithOptions/>` & `<Dropdown/>`- stylable migration [#5756](https://github.com/wix/wix-style-react/pull/5756)
+
+### Fixed
+- `<TagList/>`- fix playground for component [#5767](https://github.com/wix/wix-style-react/pull/5767)
+- `<DatePicker/>`- fix a bug of date not retuning the midnight of the selected date [#5771](https://github.com/wix/wix-style-react/pull/5771)
 
 ## 8.34.0 - 2020-07-27
 ### Added

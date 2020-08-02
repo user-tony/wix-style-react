@@ -24,6 +24,7 @@ export default class Calendar extends React.PureComponent {
     showMonthDropdown: false,
     showYearDropdown: false,
     numOfMonths: 1,
+    firstDayOfWeek: 1,
   };
 
   constructor(props) {
@@ -242,7 +243,13 @@ export default class Calendar extends React.PureComponent {
   };
 
   _createDayPickerProps = () => {
-    const { locale, filterDate, excludePastDates, numOfMonths } = this.props;
+    const {
+      locale,
+      filterDate,
+      excludePastDates,
+      numOfMonths,
+      firstDayOfWeek,
+    } = this.props;
 
     const value = Calendar.parseValue(this.props.value);
 
@@ -272,7 +279,7 @@ export default class Calendar extends React.PureComponent {
       selectedDays,
       month,
       year: month,
-      firstDayOfWeek: 1,
+      firstDayOfWeek,
       locale: typeof locale === 'string' ? locale : '',
       fixedWeeks: true,
       onKeyDown: this._handleKeyDown,
@@ -364,6 +371,9 @@ Calendar.propTypes = {
 
   /** Display multiple months, currently allowing only 1 or 2 */
   numOfMonths: PropTypes.oneOf([1, 2]),
+
+  /** First day of the week, allowing only from 0 to 6 (Sunday to Saturday) */
+  firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
 
   /** A single CSS class name to be appended to the root element. */
   className: PropTypes.string,

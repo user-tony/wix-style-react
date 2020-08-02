@@ -41,6 +41,7 @@ function datePickerWithAllProps() {
         zIndex: 1,
         width: 100,
       }}
+      firstDayOfWeek={1}
     />
   );
 }

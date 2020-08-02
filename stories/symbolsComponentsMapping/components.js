@@ -65,6 +65,7 @@ export const selectionComponentsNames = {
   Thumbnail: 'Thumbnail',
   Slider: 'Slider',
   StarsRatingBar: 'StarsRatingBar',
+  FacesRatingBar: 'FacesRatingBar',
 };
 
 /**

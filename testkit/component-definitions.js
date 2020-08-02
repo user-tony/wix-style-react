@@ -331,6 +331,12 @@ export default {
     },
   },
 
+  FacesRatingBar: {
+    props: {
+      value: 1,
+    },
+  },
+
   ListItemAction: {
     props: {
       title: 'something',

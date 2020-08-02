@@ -443,3 +443,6 @@ export * from './FileUpload';
 
 export { default as Animate } from './Animate';
 export * from './Animate';
+
+export { default as FacesRatingBar } from './FacesRatingBar';
+export * from './FacesRatingBar';

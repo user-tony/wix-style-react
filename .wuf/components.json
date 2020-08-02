@@ -146,6 +146,9 @@
       "docs/index.story.js"
     ]
   },
+  "FacesRatingBar": {
+    "path": "src/FacesRatingBar"
+  },
   "FilePicker": {
     "path": "src/FilePicker"
   },

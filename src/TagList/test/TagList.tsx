@@ -25,10 +25,12 @@ function tagListWithAllProps() {
           children: 'Some Tag',
         },
       ]}
+      size="medium"
       actionButton={{
         label: 'action',
         onClick: () => null
       }}
+      onTagRemove={() => {}}
     />
   );
 }
