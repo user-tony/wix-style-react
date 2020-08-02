@@ -11,30 +11,37 @@ const OPEN_DROPDOWN_CHARS = ['Enter', 'ArrowDown', 'Space', ' '];
 class MultiSelectCheckbox extends InputWithOptions {
   wrapOptionsWithCheckbox(options) {
     return options.map(option => {
-      if (option.value === '-') {
+      if (typeof option.value === 'function') {
         return {
           ...option,
-          overrideStyle: true,
-          value: <ListItemSection type="divider" />,
+          value: ({ hovered }) => option.value({ hovered }),
         };
       } else {
-        return {
-          ...option,
-          overrideStyle: true,
-          value: props => (
-            <ListItemSelect
-              checkbox
-              selected={this.isSelectedId(option.id)}
-              disabled={option.disabled}
-              title={option.value}
-              highlighted={props.hovered}
-              prefix={option.prefix}
-              suffix={option.suffix}
-              ellipsis={option.ellipsis}
-              onClick={e => e.preventDefault()} // This is prevented because there's an event listener wrapping the option
-            />
-          ),
-        };
+        if (option.value === '-') {
+          return {
+            ...option,
+            overrideStyle: true,
+            value: <ListItemSection type="divider" />,
+          };
+        } else {
+          return {
+            ...option,
+            overrideStyle: true,
+            value: props => (
+              <ListItemSelect
+                checkbox
+                selected={this.isSelectedId(option.id)}
+                disabled={option.disabled}
+                title={option.value}
+                highlighted={props.hovered}
+                prefix={option.prefix}
+                suffix={option.suffix}
+                ellipsis={option.ellipsis}
+                onClick={e => e.preventDefault()} // This is prevented because there's an event listener wrapping the option
+              />
+            ),
+          };
+        }
       }
     });
   }
@@ -43,15 +50,9 @@ class MultiSelectCheckbox extends InputWithOptions {
     return this.props.selectedOptions.indexOf(optionId) !== -1;
   }
 
-  _isUsingBuilder() {
-    return this.props.options.find(({ value }) => typeof value === 'function');
-  }
-
   dropdownAdditionalProps() {
     return {
-      options: this._isUsingBuilder()
-        ? this.props.options
-        : this.wrapOptionsWithCheckbox(this.props.options),
+      options: this.wrapOptionsWithCheckbox(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
     };
@@ -63,10 +64,13 @@ class MultiSelectCheckbox extends InputWithOptions {
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
-      .map(option => {
-        return this._isUsingBuilder()
-          ? option.value({ hovered: true }).props.title
-          : this.props.valueParser;
+      .map(({ value }) => {
+        if (typeof value === 'function') {
+          const { title } = value({ hovered: true }).props;
+          return title;
+        } else {
+          return value;
+        }
       })
       .join(this.props.delimiter);
   }
