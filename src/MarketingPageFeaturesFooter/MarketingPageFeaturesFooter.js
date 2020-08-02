@@ -54,7 +54,7 @@ const FeatureItem = ({ index, image, title, text }) => (
         <div className={styles.featureItemTitleContainer}>
           <Text
             data-hook={`${dataHooks.featureTitle}${index}`}
-            size="small"
+            size="medium"
             weight="bold"
           >
             {title}

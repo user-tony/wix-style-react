@@ -80,7 +80,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'This component is a footer for the MarketingPageLayout component.',
+              'This component is used as a footer for the Marketing Page Layout.',
           }),
 
           importExample(),
