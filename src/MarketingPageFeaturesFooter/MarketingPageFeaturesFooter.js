@@ -10,10 +10,10 @@ const isString = a => typeof a === 'string';
 /** A footer for the marketing Page Layout */
 class MarketingPageFeaturesFooter extends React.PureComponent {
   render() {
-    const { dataHook, className, size, features } = this.props;
+    const { dataHook, className, features } = this.props;
 
     return (
-      <div {...styles('root', { size }, className)} data-hook={dataHook}>
+      <div {...styles('root', {}, className)} data-hook={dataHook}>
         {features.map((featureItem, index) => {
           return (
             <FeatureItem
@@ -34,10 +34,18 @@ const FeatureItem = ({ index, image, title, text }) => (
   <div className={styles.featureItem} data-hook={dataHooks.feature}>
     {image && (
       <div
-        className={styles.featureItemImage}
+        className={styles.featureItemImageContainer}
         data-hook={`${dataHooks.featureImage}${index}`}
         children={
-          isString(image) ? <img src={image} alt="featureImage" /> : image
+          isString(image) ? (
+            <img
+              className={styles.featureItemImage}
+              src={image}
+              alt="featureImage"
+            />
+          ) : (
+            image
+          )
         }
       />
     )}
@@ -71,9 +79,6 @@ MarketingPageFeaturesFooter.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
-  /** Specify the footer size */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
   /**
    * Array of features
    *  * `id` - the id of the feature (Each feature must have a unique `id`)
@@ -92,7 +97,6 @@ MarketingPageFeaturesFooter.propTypes = {
 };
 
 MarketingPageFeaturesFooter.defaultProps = {
-  size: 'large',
   features: [],
 };
 

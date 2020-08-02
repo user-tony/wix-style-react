@@ -94,12 +94,6 @@ export default {
             text: 'A simple example with compact preview',
             source: examples.basicExample,
           }),
-
-          example({
-            title: 'Sizes',
-            text: 'The are 3 sizes: small, medium, large (default)',
-            source: examples.sizesExample,
-          }),
         ],
       }),
 
