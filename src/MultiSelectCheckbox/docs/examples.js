@@ -1,7 +1,7 @@
 import { listItemSelectBuilder } from '../../ListItemSelect';
 import { listItemSectionBuilder } from '../../ListItemSection';
 
-const statesArray = [
+export const options = [
   'Alabama',
   'Arkansas',
   'California',
@@ -10,9 +10,7 @@ const statesArray = [
   'Texas',
   'Utah',
   'Washington',
-];
-
-export const options = statesArray.map(state => ({ value: state, id: state }));
+].map(state => ({ value: state, id: state }));
 
 export const simple = `
 class Example extends React.Component {
@@ -36,7 +34,11 @@ class Example extends React.Component {
 }
 `;
 
-export const builderOptions = statesArray.map(
+const personalTrainers = [
+  'Christian Mills',
+  'Logan Chandler',
+  'Paul Simon',
+].map(
   option =>
     `listItemSelectBuilder({
       checkbox: true,
@@ -47,16 +49,28 @@ export const builderOptions = statesArray.map(
   })`,
 );
 
-builderOptions.splice(
-  2,
-  0,
-  `
+personalTrainers.unshift(`
   listItemSectionBuilder({
-        title: 'Sub header',
-        type: 'subheader',
+        title: 'Personal Trainers',
       })
-  `,
+  `);
+
+const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
+  option =>
+    `listItemSelectBuilder({
+      checkbox: true,
+      value: "${option}",
+      id: "${option}",
+      title: "${option}",
+      selected: this.state.selectedOptions.indexOf("${option}") !== -1
+  })`,
 );
+
+nutritionists.unshift(`
+  listItemSectionBuilder({
+        title: 'Nutritionists',
+      })
+  `);
 
 export const usingBuilders = `
 class BuildersExample extends React.Component {
@@ -82,7 +96,7 @@ class BuildersExample extends React.Component {
     const { selectedOptions } = this.state;
     return (
       <MultiSelectCheckbox
-        options={[${builderOptions}]}
+        options={[${personalTrainers} , ${nutritionists}]}
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}
