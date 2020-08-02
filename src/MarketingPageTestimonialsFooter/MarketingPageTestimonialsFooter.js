@@ -8,10 +8,10 @@ import { dataHooks } from './constants';
 /** A footer for the marketing page layout */
 class MarketingPageTestimonialsFooter extends React.PureComponent {
   render() {
-    const { className, dataHook, size, testimonials } = this.props;
+    const { className, dataHook, testimonials } = this.props;
 
     return (
-      <div {...styles('root', { size }, className)} data-hook={dataHook}>
+      <div {...styles('root', {}, className)} data-hook={dataHook}>
         {testimonials.map((testimonialItem, index) => {
           return (
             <TestimonialItem
@@ -68,9 +68,6 @@ MarketingPageTestimonialsFooter.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
-  /** Specify the footer size */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
   /**
    * Array of testimonials
    *  * `id` - the id of the testimonial (Each testimonial must have a unique `id`)
@@ -89,7 +86,6 @@ MarketingPageTestimonialsFooter.propTypes = {
 };
 
 MarketingPageTestimonialsFooter.defaultProps = {
-  size: 'large',
   testimonials: [],
 };
 

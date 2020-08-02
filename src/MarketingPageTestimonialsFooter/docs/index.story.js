@@ -74,7 +74,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+              'This component is used as a footer for the Marketing Page Layout.',
           }),
 
           importExample(),
@@ -87,12 +87,6 @@ export default {
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
             source: examples.basicExample,
-          }),
-
-          example({
-            title: 'Sizes',
-            text: 'The are 3 sizes: small, medium, large (default)',
-            source: examples.sizesExample,
           }),
         ],
       }),

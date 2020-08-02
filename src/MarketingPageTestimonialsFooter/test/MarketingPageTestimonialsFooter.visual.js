@@ -31,32 +31,10 @@ const tests = [
   {
     describe: 'sanity',
     its: [
-      // {
-      //   it: 'default',
-      //   props: {},
-      // },
-    ],
-  },
-  {
-    describe: 'sizes',
-    its: [
-      // {
-      //   it: 'small',
-      //   props: {
-      //     size: 'small'
-      //   },
-      // },
-      // {
-      //   it: 'medium',
-      //   props: {
-      //     size: 'medium'
-      //   },
-      // },
-      // {
-      //   it: 'large - (default)',
-      //   props: {
-      //   },
-      // },
+      {
+        it: 'default',
+        props: {},
+      },
     ],
   },
 ];
@@ -65,11 +43,10 @@ const rtlTests = [
   {
     describe: 'rtl',
     its: [
-      // {
-      //   it: 'rtl',
-      //   props: {
-      //   },
-      // },
+      {
+        it: 'rtl',
+        props: {},
+      },
     ],
   },
 ];

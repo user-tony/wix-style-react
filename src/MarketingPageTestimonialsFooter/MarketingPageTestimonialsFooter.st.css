@@ -4,20 +4,11 @@
 }
 
 .root {
-  -st-states: size(enum(small, medium, large));
   width: 100%;
   display: grid;
   justify-content: center;
-}
-
-.root:size(large), .root:size(medium) {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: value(spacing30);
-}
-
-.root:size(small) {
-  grid-template-columns: 1fr;
-  grid-gap: value(spacing12);
 }
 
 .testimonialItem {

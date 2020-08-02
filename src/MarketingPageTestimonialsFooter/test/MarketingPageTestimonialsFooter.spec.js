@@ -168,7 +168,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
               {
                 id: '0001',
                 avatar: <div />,
-                authorName: 'Guy in glasses',
+                text: 'I love it! This product is exactly what I needed.',
               },
             ]}
           />,

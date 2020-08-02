@@ -14,7 +14,6 @@ function marketingPageTestimonialsFooterWithAllProps() {
   return (
     <MarketingPageTestimonialsFooter
       dataHook="dataHook"
-      size="large"
       testimonials={[
         {
           id: '0001',
