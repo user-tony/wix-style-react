@@ -68,6 +68,7 @@ export const selectionSymbols = {
   slider: '4.8 Slider',
   checkToggle: '4.9 Check Toggle',
   starsRatingBar: '4.10 Stars Rating Bar',
+  facesRatingBar: '4.11 Faces Rating Bar',
 };
 
 /**

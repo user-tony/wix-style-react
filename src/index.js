@@ -171,3 +171,4 @@ export { default as StarsRatingBar } from './StarsRatingBar';
 export { default as TagList } from './TagList';
 export { default as FileUpload } from './FileUpload';
 export { default as Animate } from './Animate';
+export { default as FacesRatingBar } from './FacesRatingBar';

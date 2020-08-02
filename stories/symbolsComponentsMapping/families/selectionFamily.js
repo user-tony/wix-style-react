@@ -51,4 +51,9 @@ export const selectionSymbolsToComponents = {
     sharedComponentsNames.FormField,
     componentsNames.StarsRatingBar,
   ],
+
+  [selectionSymbols.facesRatingBar]: [
+    sharedComponentsNames.FormField,
+    componentsNames.FacesRatingBar,
+  ],
 };
