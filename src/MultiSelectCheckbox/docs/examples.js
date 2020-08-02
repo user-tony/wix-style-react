@@ -45,7 +45,7 @@ const personalTrainers = [
       value: "${option}",
       id: "${option}",
       title: "${option}",
-      selected: this.state.selectedOptions.indexOf("${option}") !== -1
+      selected: selectedOptions.indexOf("${option}") !== -1
   })`,
 );
 
@@ -62,7 +62,7 @@ const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
       value: "${option}",
       id: "${option}",
       title: "${option}",
-      selected: this.state.selectedOptions.indexOf("${option}") !== -1
+      selected: selectedOptions.indexOf("${option}") !== -1
   })`,
 );
 
