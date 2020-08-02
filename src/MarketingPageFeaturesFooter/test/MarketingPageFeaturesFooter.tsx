@@ -15,7 +15,6 @@ function marketingPageFeaturesFooterWithAllProps() {
     <MarketingPageFeaturesFooter
       dataHook="dataHook"
       className="className"
-      size="large"
       features={[
       {
         id: '0001',
