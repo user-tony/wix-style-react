@@ -9,7 +9,7 @@ import ListItemSection from '../ListItemSection';
 const OPEN_DROPDOWN_CHARS = ['Enter', 'ArrowDown', 'Space', ' '];
 
 class MultiSelectCheckbox extends InputWithOptions {
-  wrapOptionsWithCheckbox(options) {
+  createOptions(options) {
     return options.map(option => {
       if (typeof option.value === 'function') {
         return {
@@ -52,7 +52,7 @@ class MultiSelectCheckbox extends InputWithOptions {
 
   dropdownAdditionalProps() {
     return {
-      options: this.wrapOptionsWithCheckbox(this.props.options),
+      options: this.createOptions(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
     };
