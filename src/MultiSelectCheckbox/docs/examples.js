@@ -1,4 +1,5 @@
 import { listItemSelectBuilder } from '../../ListItemSelect';
+import { listItemSectionBuilder } from '../../ListItemSection';
 
 const statesArray = [
   'Alabama',
@@ -44,6 +45,17 @@ export const builderOptions = statesArray.map(
       title: "${option}",
       selected: this.state.selectedOptions.indexOf("${option}") !== -1
   })`,
+);
+
+builderOptions.splice(
+  2,
+  0,
+  `
+  listItemSectionBuilder({
+        title: 'Sub header',
+        type: 'subheader',
+      })
+  `,
 );
 
 export const usingBuilders = `
