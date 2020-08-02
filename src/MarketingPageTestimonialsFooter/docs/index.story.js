@@ -50,12 +50,6 @@ export default {
             text: 'Amazing! It helped me to solve my problems.',
             authorName: 'Person with a hat',
           },
-          {
-            id: '0003',
-            avatar: <Avatar name="Smiling lady" size="size60" />,
-            text: 'A perfect tool for my every day tasks.',
-            authorName: 'Smiling lady',
-          },
         ],
       },
     ],

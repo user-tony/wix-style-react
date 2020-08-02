@@ -5,10 +5,9 @@
 
 .root {
   width: 100%;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: value(spacing30);
+  display: flex;
+  /*flex-flow: row wrap;*/
+  justify-content: flex-start;
 }
 
 .testimonialItem {
@@ -16,6 +15,9 @@
   align-items: flex-start;
   padding: value(spacing36) 0;
   width: 100%;
+}
+.testimonialItem:not(:last-child) {
+  margin-right: value(spacing30);
 }
 
 .testimonialItemAvatar {
