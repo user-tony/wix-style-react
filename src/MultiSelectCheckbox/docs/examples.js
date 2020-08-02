@@ -61,14 +61,18 @@ builderOptions.splice(
 export const usingBuilders = `
 class BuildersExample extends React.Component {
   state = { selectedOptions: [] };
-  onSelect = option =>
-    this.setState({ selectedOptions: [...this.state.selectedOptions, option] });
-  onDeselect = option =>
+
+  onSelect = optionId  =>
+    optionId &&
+        this.setState({ selectedOptions: [...this.state.selectedOptions, optionId] });
+
+  onDeselect = optionId =>
     this.setState({
       selectedOptions: this.state.selectedOptions.filter(
-        item => item !== option,
+        item => item !== optionId,
       ),
     });
+
   render() {
     const { selectedOptions } = this.state;
     return (
@@ -81,6 +85,4 @@ class BuildersExample extends React.Component {
     );
   }
 }
-
-
 `;
