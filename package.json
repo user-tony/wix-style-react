@@ -393,6 +393,21 @@
             }
           ]
         }
+      },
+      {
+        "files": [
+          "*.d.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "types": {
+                "Omit": "Use OmitPolyfill from common.d.ts instead"
+              }
+            }
+          ]
+        }
       }
     ]
   }
