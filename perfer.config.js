@@ -77,6 +77,7 @@ const javascriptFiles = [
   ['ListItemSelect.bundle.min.js', 45],
   ['Loader.bundle.min.js', 44],
   ['MarketingLayout.bundle.min.js', 40],
+  ['MarketingPageTestimonialsFooter.bundle.min.js', 34],
   ['MediaOverlay.bundle.min.js', 14],
   ['MessageModalLayout.bundle.min.js', 47],
   ['MobilePreviewWidget.bundle.min.js', 7],
@@ -143,7 +144,6 @@ const javascriptFiles = [
   ['VerticalTabs.bundle.min.js', 38],
   ['VerticalTabsItem.bundle.min.js', 38],
   ['WarningIndicator.bundle.min.js', 40],
-  ['MarketingPageTestimonialsFooter.bundle.min.js', 10],
 ];
 
 const cssFiles = [
@@ -205,6 +205,7 @@ const cssFiles = [
   ['ListItemSelect.min.css', 2],
   ['Loader.min.css', 2],
   ['MarketingLayout.min.css', 1],
+  ['MarketingPageTestimonialsFooter.min.css', 1],
   ['MobilePreviewWidget.min.css', 1],
   ['Modal.min.css', 1],
   ['ModalPreviewLayout.min.css', 2],
@@ -252,7 +253,6 @@ const cssFiles = [
   ['Tooltip.min.css', 2],
   ['VariableInput.min.css', 2],
   ['WarningIndicator.min.css', 2],
-  ['MarketingPageTestimonialsFooter.min.css', 1],
 ];
 
 const getJS = () =>
