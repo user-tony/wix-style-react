@@ -73,6 +73,11 @@ class BuildersExample extends React.Component {
       ),
     });
 
+  valueParser = ({ value }) => {
+    const { title } = value({ hovered: true }).props;
+    return title;
+  }
+
   render() {
     const { selectedOptions } = this.state;
     return (
@@ -81,8 +86,20 @@ class BuildersExample extends React.Component {
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}
+        valueParser={this.valueParser}
       />
     );
   }
 }
 `;
+
+/*
+({ value }) => {
+        if (typeof value === 'function') {
+          const { title } = value({ hovered: true }).props;
+          return title;
+        } else {
+          return value;
+        }
+      }
+* */

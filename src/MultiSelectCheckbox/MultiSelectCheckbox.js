@@ -64,14 +64,7 @@ class MultiSelectCheckbox extends InputWithOptions {
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
-      .map(({ value }) => {
-        if (typeof value === 'function') {
-          const { title } = value({ hovered: true }).props;
-          return title;
-        } else {
-          return value;
-        }
-      })
+      .map(this.props.valueParser)
       .join(this.props.delimiter);
   }
 
