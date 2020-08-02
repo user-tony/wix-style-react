@@ -15,9 +15,11 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
 ### Added
 - `<TableActionCell/>` - Add `tooltipProps` to `secondaryActions` [#5759](https://github.com/wix/wix-style-react/pull/5759)
 - `<DatePicker/>`, `<Calendar/>`-  allow setting first day of the week for calendar [#5765](https://github.com/wix/wix-style-react/pull/5765)
+- `<FacesRatingBar/>` - new component [#5643](https://github.com/wix/wix-style-react/pull/5643)
 
 ### Fixed
 - `<StatisticsWidget/>` - add missing `children` prop to d.ts [#5776](https://github.com/wix/wix-style-react/pull/5776)
