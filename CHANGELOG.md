@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.36.0 - 2020-08-02
+
 ### Added
 - `<TableActionCell/>` - Add `tooltipProps` to `secondaryActions` [#5759](https://github.com/wix/wix-style-react/pull/5759)
 - `<DatePicker/>`, `<Calendar/>`-  allow setting first day of the week for calendar [#5765](https://github.com/wix/wix-style-react/pull/5765)
