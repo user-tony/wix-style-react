@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<Breadcrumbs/>` - remove abuse of line-height internally [#5783](https://github.com/wix/wix-style-react/pull/5783)
+
 ## 8.36.0 - 2020-08-02
 
 ### Added
