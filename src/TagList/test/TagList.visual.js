@@ -39,6 +39,35 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'size',
+    its: [
+      {
+        it: 'none',
+        props: {
+          size: null,
+        },
+      },
+      {
+        it: 'small',
+        props: {
+          size: 'small',
+        },
+      },
+      {
+        it: 'medium',
+        props: {
+          size: 'medium',
+        },
+      },
+      {
+        it: 'large',
+        props: {
+          size: 'large',
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

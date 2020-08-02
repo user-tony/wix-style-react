@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconElement, OmitPolyfill } from '../common';
+import { IconElement, OmitPolyfill, TooltipCommonProps } from '../common';
 import { PopoverMenuProps } from '../PopoverMenu';
 
 type CommonTableActionCellProps = {
@@ -30,5 +30,6 @@ export type TableActionCellSecondaryAction = {
   onClick: () => void;
   disabled?: boolean;
   disabledDescription?: string;
+  tooltipProps?: TooltipCommonProps,
   dataHook?: string;
 };

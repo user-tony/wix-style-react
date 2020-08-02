@@ -19,4 +19,5 @@ export type StatisticsWidgetItem = {
   onClick?: (
     event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
   ) => void;
+  children?: React.ReactNode;
 };

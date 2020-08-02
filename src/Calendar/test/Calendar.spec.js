@@ -719,5 +719,15 @@ describe('Calendar', () => {
         });
       });
     });
+
+    describe('firstDayOfWeek', () => {
+      it('should show correct first day of the week', async () => {
+        const { driver } = render(
+          <Calendar value={{}} onChange={() => {}} firstDayOfWeek={0} />,
+        );
+
+        expect(await driver.getNthWeekDayName(0)).toEqual('Su');
+      });
+    });
   }
 });
