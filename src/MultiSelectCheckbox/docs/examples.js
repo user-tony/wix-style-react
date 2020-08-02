@@ -92,14 +92,3 @@ class BuildersExample extends React.Component {
   }
 }
 `;
-
-/*
-({ value }) => {
-        if (typeof value === 'function') {
-          const { title } = value({ hovered: true }).props;
-          return title;
-        } else {
-          return value;
-        }
-      }
-* */
