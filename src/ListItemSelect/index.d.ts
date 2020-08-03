@@ -20,6 +20,13 @@ export interface ListItemSelectProps {
 
 declare const ListItemSelect: React.ComponentClass<ListItemSelectProps>;
 
+export type listItemSelectBuilderObject = {
+  id: string | number;
+  disabled: boolean | undefined;
+  overrideStyle: true;
+  value: (props?: Partial<ListItemSelectProps>) => React.ReactNode;
+};
+
 export const listItemSelectBuilder: (data: {
   id: string | number;
   className?: string;
@@ -33,11 +40,6 @@ export const listItemSelectBuilder: (data: {
   size?: ListItemSelectSizes;
   ellipsis?: boolean;
   dataHook?: string;
-}) => {
-  id: string | number;
-  disabled: boolean | undefined;
-  overrideStyle: true;
-  value: (props?: Partial<ListItemSelectProps>) => React.ReactNode;
-};
+}) => listItemSelectBuilderObject;
 
 export default ListItemSelect;
