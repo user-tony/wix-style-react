@@ -200,24 +200,28 @@ export const listItemSelectBuilder = ({
   size,
   ellipsis,
   dataHook,
-}) => ({
-  id,
-  disabled,
-  overrideStyle: true,
-  value: props => (
-    <ListItemSelect
-      dataHook={dataHook}
-      className={className}
-      checkbox={checkbox}
-      prefix={prefix}
-      title={title}
-      subtitle={subtitle}
-      suffix={suffix}
-      size={size}
-      ellipsis={ellipsis}
-      selected={selected}
-      highlighted={props.hovered}
-      {...props}
-    />
-  ),
-});
+}) => {
+  debugger;
+
+  return {
+    id,
+    disabled,
+    overrideStyle: true,
+    value: props => (
+      <ListItemSelect
+        dataHook={dataHook}
+        className={className}
+        checkbox={checkbox}
+        prefix={prefix}
+        title={title}
+        subtitle={subtitle}
+        suffix={suffix}
+        size={size}
+        ellipsis={ellipsis}
+        selected={selected}
+        highlighted={props.hovered}
+        {...props}
+      />
+    ),
+  };
+};

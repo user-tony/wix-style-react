@@ -52,6 +52,7 @@ const personalTrainers = [
 personalTrainers.unshift(`
   listItemSectionBuilder({
         title: 'Personal Trainers',
+        id: 'personalTrainers',
       })
   `);
 
@@ -69,6 +70,7 @@ const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
 nutritionists.unshift(`
   listItemSectionBuilder({
         title: 'Nutritionists',
+        id: 'nutritionists',
       })
   `);
 
