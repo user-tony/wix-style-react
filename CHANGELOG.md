@@ -16,6 +16,11 @@ Types of changes:
 
 ## Next
 
+## 8.37.0 - 2020-08-03
+
+### Added
+- `<Box/>` - accept spacing tokens for sizing [#5775](https://github.com/wix/wix-style-react/pull/5775)
+
 ### Changed
 - `<Text/>` - Align non textual direct children of text to top [#5718](https://github.com/wix/wix-style-react/pull/5718)
 
