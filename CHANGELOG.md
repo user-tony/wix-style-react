@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<Text/>` - Align non textual direct children of text to top [#5718](https://github.com/wix/wix-style-react/pull/5718)
+
 ### Fixed
 - `<Breadcrumbs/>` - remove abuse of line-height internally [#5783](https://github.com/wix/wix-style-react/pull/5783)
 - `<AutoCompleteWithLabel/>` - fix type for `value` prop [#5784](https://github.com/wix/wix-style-react/pull/5784)
