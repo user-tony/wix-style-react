@@ -1,5 +1,6 @@
 import { listItemSelectBuilder } from '../../ListItemSelect';
 import { listItemSectionBuilder } from '../../ListItemSection';
+import { builderParser } from '../MultiSelectCheckbox';
 
 export const options = [
   'Alabama',
@@ -89,11 +90,6 @@ class BuildersExample extends React.Component {
       ),
     });
 
-  valueParser = ({ value }) => {
-    const { title } = value({ hovered: true }).props;
-    return title;
-  }
-
   render() {
     const { selectedOptions } = this.state;
     return (
@@ -102,7 +98,7 @@ class BuildersExample extends React.Component {
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}
-        valueParser={this.valueParser}
+        valueParser={builderParser}
       />
     );
   }

@@ -161,3 +161,9 @@ MultiSelectCheckbox.defaultProps = {
 };
 
 export default MultiSelectCheckbox;
+
+/** This is a util function that is used to parse the text of a builder option to the input */
+export const builderParser = option => {
+  const { title } = option.value({ hovered: true }).props;
+  return title;
+};

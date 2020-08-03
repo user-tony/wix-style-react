@@ -30,3 +30,9 @@ export type MultiSelectOnSelectFnSignature = (
   id: DropdownLayoutValueOption['id'],
   option: DropdownLayoutValueOption,
 ) => void;
+
+export const builderParser: (option : {
+
+}) => {
+  title: string;
+};

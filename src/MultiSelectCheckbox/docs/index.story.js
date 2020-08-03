@@ -15,10 +15,11 @@ import {
   example as baseExample,
 } from 'wix-storybook-utils/Sections';
 import allComponents from '../../../stories/utils/allComponents';
-import MultiSelectCheckbox from '..';
+import MultiSelectCheckbox, { builderParser } from '..';
 import * as examples from './examples';
 
-const example = config => baseExample({ components: allComponents, ...config });
+const example = config =>
+  baseExample({ components: { ...allComponents, builderParser }, ...config });
 
 export default {
   category: storySettings.category,
