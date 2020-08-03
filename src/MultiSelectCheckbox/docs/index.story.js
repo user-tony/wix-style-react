@@ -9,7 +9,6 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
   playground,
   api,
   testkit,
@@ -79,11 +78,13 @@ export default {
 
           example({
             title: 'Simple usage',
+            text: 'Simple usage of object options.',
             source: examples.simple,
           }),
 
           example({
             title: 'Advanced usage',
+            text: 'Advanced usage using builders as options.',
             source: examples.usingBuilders,
           }),
         ],
