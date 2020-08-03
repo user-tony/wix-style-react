@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 8.38.0 - 2020-08-03
 ### Changed
 - `<TableActionCell/>`- add placeholder to primary and only visible secondary [#5760](https://github.com/wix/wix-style-react/pull/5760)
 
