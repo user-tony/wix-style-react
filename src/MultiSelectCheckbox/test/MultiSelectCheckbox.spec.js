@@ -1,5 +1,5 @@
 import React from 'react';
-import MultiSelectCheckbox from '../MultiSelectCheckbox';
+import MultiSelectCheckbox, { builderParser } from '../MultiSelectCheckbox';
 import { listItemSelectBuilder } from '../../ListItemSelect';
 import { listItemSectionBuilder } from '../../ListItemSection';
 import { multiSelectCheckboxUniDriverFactory } from '../MultiSelectCheckbox.uni.driver';
@@ -20,7 +20,7 @@ describe('multiSelectCheckbox', () => {
   });
 
   function runTests(render) {
-    afterEach(() => cleanup());
+    afterEach(cleanup);
     const createDriver = jsx => render(jsx).driver;
 
     const options = [
@@ -169,11 +169,6 @@ describe('multiSelectCheckbox', () => {
 
     describe('Builder Options', () => {
       it('should allow using builders as options', async () => {
-        const valueParser = ({ value }) => {
-          const { title } = value({ hovered: true }).props;
-          return title;
-        };
-
         const options = [
           listItemSectionBuilder({
             id: 'title',
@@ -208,7 +203,7 @@ describe('multiSelectCheckbox', () => {
           <MultiSelectCheckbox
             options={options}
             selectedOptions={selectedOptions}
-            valueParser={valueParser}
+            valueParser={builderParser}
           />,
         );
 
