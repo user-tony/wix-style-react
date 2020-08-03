@@ -163,6 +163,7 @@ require('../src/Typography/docs/cssClasses.story');
 require('./Colors/index.story');
 require('../src/Typography/docs/index.story'); // 1.2 Typography
 require('./Icons/index.story.js'); // 1.4 Icons
+require('./Spacing/index.story.js'); // 1.5 Spacing
 require('./ScrollBar'); // 1.8 ScrollBar
 
 // 2. Layout

@@ -58,3 +58,15 @@ export interface TooltipCommonProps {
 }
 
 export type StatusIndications = 'error' | 'warning' | 'loading';
+
+export type Spacing =
+  | 'SP1'
+  | 'SP2'
+  | 'SP3'
+  | 'SP4'
+  | 'SP5'
+  | 'SP6'
+  | 'SP7'
+  | 'SP8'
+  | 'SP9'
+  | 'SP10';
