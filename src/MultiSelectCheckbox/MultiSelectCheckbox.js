@@ -134,9 +134,7 @@ MultiSelectCheckbox.propTypes = {
 
   /** Array of objects or builders.
    * - Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead.
-   * - Builders:
-   *    A. listItemSelectBuilder must have an Id, selected function and a value.
-   *    B. listItemSectionBuilder should have a type.
+   * - Builders must have Ids and title.
    * */
   options: PropTypes.array,
 
