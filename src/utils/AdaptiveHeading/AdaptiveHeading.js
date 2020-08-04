@@ -2,10 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Heading from '../../Heading';
+import Text from '../../Text';
 import Tooltip from '../../Tooltip';
 
 import DataHooks from './dataHooks';
 import styles from './AdaptiveHeading.st.css';
+
+import { APPEARANCES } from './constants';
+
+const appearanceToComponent = {
+  [APPEARANCES.H1]: Heading,
+  [APPEARANCES.H2]: Heading,
+  [APPEARANCES.H3]: Heading,
+  [APPEARANCES.H4]: Heading,
+  [APPEARANCES.H5]: Heading,
+  [APPEARANCES.H6]: Heading,
+  [APPEARANCES.tiny]: Text,
+};
+
+const appearanceToSizingProps = {
+  [APPEARANCES.H1]: { appearance: 'H1' },
+  [APPEARANCES.H2]: { appearance: 'H2' },
+  [APPEARANCES.H3]: { appearance: 'H3' },
+  [APPEARANCES.H4]: { appearance: 'H4' },
+  [APPEARANCES.H5]: { appearance: 'H5' },
+  [APPEARANCES.H6]: { appearance: 'H6' },
+  [APPEARANCES.tiny]: { size: 'medium', weight: 'bold' },
+};
 
 /** AdaptiveHeading */
 class AdaptiveHeading extends React.PureComponent {
@@ -18,7 +41,7 @@ class AdaptiveHeading extends React.PureComponent {
     text: PropTypes.string.isRequired,
     /** Short version text */
     textInShort: PropTypes.string,
-    /** Tag name: H1-H6 */
+    /** H1-H6 to create a Heading component, or "tiny" for a bold Text component  */
     appearance: PropTypes.string,
     /** Use light theme */
     light: PropTypes.bool,
@@ -36,38 +59,36 @@ class AdaptiveHeading extends React.PureComponent {
       textInShort,
     } = this.props;
 
+    const Component = appearanceToComponent[appearance];
+    const sizingProps = appearanceToSizingProps[appearance];
+
     if (!textInShort) {
       if (emptyLast) {
         return (
-          <Heading
+          <Component
             {...styles('headerWrapper', { appearance }, this.props)}
+            {...sizingProps}
             dataHook={dataHook}
-            appearance={appearance}
             light={light}
           >
             <span className={styles.headerShort}>&nbsp;</span>
             <span data-hook={DataHooks.text} className={styles.headerFull}>
               {text}
             </span>
-          </Heading>
+          </Component>
         );
       }
 
       return (
-        <Heading
-          dataHook={dataHook}
-          appearance={appearance}
-          light={light}
-          ellipsis
-        >
+        <Component {...sizingProps} dataHook={dataHook} light={light} ellipsis>
           <span data-hook={DataHooks.text}>{text}</span>
-        </Heading>
+        </Component>
       );
     }
 
     if (emptyLast) {
       return (
-        <Heading
+        <Component
           {...styles('headerWrapper', { appearance }, this.props)}
           dataHook={dataHook}
           appearance={appearance}
@@ -91,15 +112,15 @@ class AdaptiveHeading extends React.PureComponent {
           <span data-hook={DataHooks.text} className={styles.headerFull}>
             {text}
           </span>
-        </Heading>
+        </Component>
       );
     }
 
     return (
-      <Heading
+      <Component
         {...styles('headerWrapper', { appearance }, this.props)}
+        {...sizingProps}
         dataHook={dataHook}
-        appearance={appearance}
         light={light}
       >
         <div className={styles.headerShort}>
@@ -116,7 +137,7 @@ class AdaptiveHeading extends React.PureComponent {
         <span data-hook={DataHooks.text} className={styles.headerFull}>
           {text}
         </span>
-      </Heading>
+      </Component>
     );
   }
 }

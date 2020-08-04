@@ -10,6 +10,8 @@ class StatisticsWidget extends React.PureComponent {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
+    /** Displayed value size (default: large) */
+    size: PropTypes.oneOf(['tiny', 'large']),
 
     /**
      * Array of statistic items
@@ -36,7 +38,10 @@ class StatisticsWidget extends React.PureComponent {
     ),
   };
 
-  _renderStat = (stat, key) => <StatisticsItem {...stat} key={key} />;
+  _renderStat = (stat, key) => {
+    const { size } = this.props;
+    return <StatisticsItem {...stat} key={key} size={size} />;
+  };
 
   render() {
     const { dataHook } = this.props;
