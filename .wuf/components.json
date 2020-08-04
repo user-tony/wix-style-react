@@ -404,6 +404,9 @@
   "TableActionCell": {
     "path": "src/TableActionCell"
   },
+  "TableListItem": {
+    "path": "src/TableListItem"
+  },
   "TableToolbar": {
     "path": "src/TableToolbar",
     "missingFiles": [
