@@ -16,8 +16,11 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<StatisticsWidget/>` - Add size prop [#5791](https://github.com/wix/wix-style-react/pull/5791)
+
 ### Lab - please don't use unless instructed to!
-- `<ThemeProvider/>` - new component [5501](https://github.com/wix/wix-style-react/pull/5501)
+- `<ThemeProvider/>` - new component [#5501](https://github.com/wix/wix-style-react/pull/5501)
 
 ## 8.38.1 - 2020-08-03
 - revert [#5718](https://github.com/wix/wix-style-react/pull/5718)
