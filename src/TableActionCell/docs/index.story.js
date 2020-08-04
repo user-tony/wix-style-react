@@ -227,7 +227,7 @@ export default {
         </CodeExample>
       </div>
 
-      <div className={style.example}>
+      <div className={classes.example}>
         <CodeExample
           title="Primary with only visible secondary actions"
           code={PrimaryWithOnlyVisibleSecondaryExampleRaw}

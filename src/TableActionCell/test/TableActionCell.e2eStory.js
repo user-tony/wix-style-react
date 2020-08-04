@@ -89,7 +89,7 @@ storiesOf(kind, module).add(testStories.tableActionCell, () => (
       </CodeExample>
     </div>
 
-    <div className={style.example}>
+    <div className={classes.example}>
       <CodeExample title="Primary with only visible secondary actions">
         <PrimaryWithOnlyVisibleSecondaryExample />
       </CodeExample>
