@@ -14,6 +14,14 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Lab - please don't use unless instructed to!
+- `<ThemeProvider/>` - new component [5501](https://github.com/wix/wix-style-react/pull/5501)
+
+## 8.38.1 - 2020-08-03
+- revert [#5718](https://github.com/wix/wix-style-react/pull/5718)
+
 ## 8.38.0 - 2020-08-03
 ### Changed
 - `<TableActionCell/>`- add placeholder to primary and only visible secondary [#5760](https://github.com/wix/wix-style-react/pull/5760)
