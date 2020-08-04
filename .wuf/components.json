@@ -425,6 +425,9 @@
   "TextButton": {
     "path": "src/TextButton"
   },
+  "ThemeProvider": {
+    "path": "src/ThemeProvider"
+  },
   "Thumbnail": {
     "path": "src/Thumbnail"
   },

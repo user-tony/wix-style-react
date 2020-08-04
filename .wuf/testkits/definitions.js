@@ -523,4 +523,14 @@ module.exports = {
     namedProtractorTestkitExport: true,
     namedPuppeteerTestkitExport: true,
   },
+
+  Themes: {
+    skipSanityTest: true,
+    noTestkit: true,
+  },
+
+  ThemeProvider: {
+    skipSanityTest: true,
+    noTestkit: true,
+  },
 };
