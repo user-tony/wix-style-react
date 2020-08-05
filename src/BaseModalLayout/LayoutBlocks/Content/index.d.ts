@@ -6,7 +6,7 @@ export interface ContentProps {
   dataHook?: string;
   content?: string | React.ReactNode;
   contentHideDividers?: boolean;
-  onContentScrollAreaChanged?: ScrollableContainerCommonProps['onScrollAreaChanged'];
+  scrollProps?: ScrollableContainerCommonProps;
 }
 
 export const Content: React.FunctionComponent<ContentProps>;

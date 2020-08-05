@@ -62,6 +62,7 @@ class Page extends React.PureComponent {
   static defaultProps = {
     minWidth: GRID_MIN_WIDTH,
     maxWidth: GRID_MAX_WIDTH,
+    scrollProps: {},
   };
 
   constructor(props) {
@@ -191,8 +192,11 @@ class Page extends React.PureComponent {
       });
     }
 
-    if (this.props.scrollProps && this.props.scrollProps.onScrollChanged) {
-      this.props.scrollProps.onScrollChanged(e);
+    const {
+      scrollProps: { onScrollChanged },
+    } = this.props;
+    if (onScrollChanged) {
+      onScrollChanged(e);
     }
   }
 
@@ -332,6 +336,9 @@ class Page extends React.PureComponent {
   }
 
   _renderScrollableContainer() {
+    const {
+      scrollProps: { onScrollAreaChanged },
+    } = this.props;
     return (
       <ScrollableContainer
         className={classNames(s.scrollableContainer, {
@@ -340,9 +347,7 @@ class Page extends React.PureComponent {
         dataHook="page-scrollable-content"
         data-class="page-scrollable-content"
         ref={this.scrollableContainerRef}
-        onScrollAreaChanged={
-          this.props.scrollProps && this.props.scrollProps.onScrollAreaChanged
-        }
+        onScrollAreaChanged={onScrollAreaChanged}
         onScrollChanged={this._handleScroll}
       >
         {this._renderScrollableBackground()}

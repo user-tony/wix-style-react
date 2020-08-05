@@ -15,10 +15,11 @@ export const Content = ({
   className,
   children,
   contentHideDividers,
-  onContentScrollAreaChanged,
+  scrollProps = {},
 }) => {
   const { contentClassName, content = children } = useBaseModalLayoutContext();
   const [scrollAreaY, setScrollAreaY] = useState(AreaY.NONE);
+  const { onScrollAreaChanged } = scrollProps;
 
   const handleScrollAreaChanged = useCallback(
     ({ area, target }) => {
@@ -26,12 +27,12 @@ export const Content = ({
         if (!contentHideDividers) {
           setScrollAreaY(area.y);
         }
-        if (onContentScrollAreaChanged) {
-          onContentScrollAreaChanged({ area, target });
+        if (onScrollAreaChanged) {
+          onScrollAreaChanged({ area, target });
         }
       }
     },
-    [contentHideDividers, onContentScrollAreaChanged, scrollAreaY],
+    [contentHideDividers, onScrollAreaChanged, scrollAreaY],
   );
 
   const isTopDividerHidden = useCallback(
@@ -52,7 +53,7 @@ export const Content = ({
 
   className = classNames(contentClassName, className);
   const registerToScrollAreaChanges =
-    !contentHideDividers || !!onContentScrollAreaChanged;
+    !contentHideDividers || !!onScrollAreaChanged;
 
   return (
     (content && (
@@ -96,16 +97,22 @@ Content.propTypes = {
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** hides the content scrolling dividers  */
   contentHideDividers: PropTypes.bool,
-  /**
-   * A Handler for scroll area changes, will be triggered only when the user scrolls to a
+  /** Props related to the scrollable content.
+   *
+   * **onScrollAreaChanged** - A Handler for scroll area changes, will be triggered only when the user scrolls to a
    * different area of the scrollable content, see signature for possible areas
    * ##### Signature:
    * `function({area: {y: AreaY, x: AreaX}, target: HTMLElement}) => void`
+   *
    * `AreaY`: top | middle | bottom | none
+   *
    * `AreaX`: start | middle | end | none (not implemented yet)
-   */
-  onContentScrollAreaChanged:
-    ScrollableContainerCommonProps['onScrollAreaChanged'],
+   *
+   * **onScrollAreaChanged** - A Generic Handler for scroll changes with throttling (100ms)
+   * ##### Signature:
+   * `function({target: HTMLElement}) => void`
+   * */
+  scrollProps: PropTypes.shape(ScrollableContainerCommonProps),
 };
 
 Content.defaultProps = {

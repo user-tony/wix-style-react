@@ -29,9 +29,10 @@ const MessageModalLayout = ({ children, ...restProps }) => {
           <BaseModalLayout.Header />
           <BaseModalLayout.Content
             contentHideDividers={hasIllustration}
-            onContentScrollAreaChanged={
-              (hasIllustration && onContentScrollAreaChanged) || null
-            }
+            scrollProps={{
+              onScrollAreaChanged:
+                (hasIllustration && onContentScrollAreaChanged) || null,
+            }}
           >
             {children}
           </BaseModalLayout.Content>
