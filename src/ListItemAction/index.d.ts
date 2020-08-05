@@ -1,9 +1,42 @@
 import * as React from 'react';
-import { IconElement } from '../common';
+import { IconElement, OmitPolyfill } from '../common';
 import { EllipsisProps } from '../common/Ellipsis';
-import { ButtonWithAsProp } from '../Button';
 
-export type ListItemActionProps = ButtonWithAsProp<{
+export type ListItemActionWithAsProp<T> =
+  | ListItemActionAsButtonProps<T>
+  | ListItemActionAsAnchorProps<T>
+  | ListItemActionGenericProps<T>
+  | ListItemActionAsComponentProps<T>;
+
+type ListItemActionAsButtonProps<T> = React.ButtonHTMLAttributes<
+  HTMLButtonElement
+> &
+  T & {
+    as?: 'button';
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  };
+
+type ListItemActionAsAnchorProps<T> = React.AnchorHTMLAttributes<
+  HTMLAnchorElement
+> &
+  T & {
+    as: 'a';
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  };
+
+type ListItemActionGenericProps<T> = T & {
+  as: keyof OmitPolyfill<HTMLElementTagNameMap, 'a' | 'button'>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [additionalProps: string]: any;
+};
+
+type ListItemActionAsComponentProps<T> = T & {
+  as: React.ComponentType<any>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [additionalProps: string]: any;
+};
+
+export type ListItemActionProps = ListItemActionWithAsProp<{
   title: string;
   dataHook?: string;
   skin?: ListItemActionSkin;
