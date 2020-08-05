@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 8.39.0 - 2020-08-05
+
 ### Added
 - `<StatisticsWidget/>` - Add size prop [#5791](https://github.com/wix/wix-style-react/pull/5791)
 - `<Accordion/>` - add `onHover` callback prop to <AccordionItem/> [#5792](https://github.com/wix/wix-style-react/pull/5792)
