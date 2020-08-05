@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<StatisticsWidget/>` - Add size prop [#5791](https://github.com/wix/wix-style-react/pull/5791)
 
+### Fixed
+- `<ListItemAction/>` - support additional props when using `as` prop [#5785](https://github.com/wix/wix-style-react/pull/5785)
+
 ### Lab - please don't use unless instructed to!
 - `<ThemeProvider/>` - new component [#5501](https://github.com/wix/wix-style-react/pull/5501)
 
