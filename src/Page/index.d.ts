@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PageHeader from '../PageHeader';
+import { ScrollableContainerCommonProps } from '../common';
 
 export type PageProps = {
   dataHook?: string;
@@ -13,6 +14,7 @@ export type PageProps = {
   scrollableContentRef?: (ref: HTMLElement) => void;
   zIndex?: number;
   horizontalScroll?: boolean;
+  scrollProps?: ScrollableContainerCommonProps;
 };
 
 export interface ContentProps {

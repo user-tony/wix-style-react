@@ -10,10 +10,9 @@ const MessageModalLayout = ({ children, ...restProps }) => {
   const { illustration } = restProps;
   const [showFooterDivider, setShowFooterDivider] = useState(false);
 
-  const onContentScrollPositionChanged = useCallback(({ position }) => {
-    const { y: scrollPosition } = position;
-    const newShowDivider =
-      scrollPosition === 'top' || scrollPosition === 'middle';
+  const onContentScrollAreaChanged = useCallback(({ area }) => {
+    const { y: scrollArea } = area;
+    const newShowDivider = scrollArea === 'top' || scrollArea === 'middle';
     setShowFooterDivider(newShowDivider);
   }, []);
 
@@ -30,8 +29,8 @@ const MessageModalLayout = ({ children, ...restProps }) => {
           <BaseModalLayout.Header />
           <BaseModalLayout.Content
             contentHideDividers={hasIllustration}
-            onContentScrollPositionChanged={
-              (hasIllustration && onContentScrollPositionChanged) || null
+            onContentScrollAreaChanged={
+              (hasIllustration && onContentScrollAreaChanged) || null
             }
           >
             {children}

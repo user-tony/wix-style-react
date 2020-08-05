@@ -30,6 +30,7 @@ import './PageStory.scss';
 import ChildrenReadme from './Children.md';
 
 import ExampleStickyTableWithGapRaw from '!raw-loader!./ExampleStickyTableWithGap';
+import ExampleVerticalScrollListenersRaw from '!raw-loader!./ExampleVerticalScrollListeners';
 
 const code = config =>
   baseCode({
@@ -219,7 +220,7 @@ export default {
                   <Page.Content>
                     <Box directon="horizontal">
                       {
-                        Array.from(Array(7)).map((_, idx) => 
+                        Array.from(Array(7)).map((_, idx) =>
                           <Box key={idx} backgroundColor="lightyellow" marginRight="12px" padding="12px" minWidth="200px" height="1000px">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                           </Box>
@@ -229,6 +230,14 @@ export default {
                   </Page.Content>
                 </Page>
               `,
+              compact: true,
+            },
+            {
+              title: 'Vertical Scroll',
+              description:
+                'Provides easy registration to vertical scroll listeners on the scrollable content, all scroll events are throttled internally (100ms)',
+              source: ExampleVerticalScrollListenersRaw,
+              autoRender: false,
               compact: true,
             },
             {
