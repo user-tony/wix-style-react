@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<StatisticsWidget/>` - Add size prop [#5791](https://github.com/wix/wix-style-react/pull/5791)
+- `<Accordion/>` - add `onHover` callback prop to <AccordionItem/> [#5792](https://github.com/wix/wix-style-react/pull/5792)
 
 ### Fixed
 - `<ListItemAction/>` - support additional props when using `as` prop [#5785](https://github.com/wix/wix-style-react/pull/5785)
