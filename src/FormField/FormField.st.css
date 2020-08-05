@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B20;
+  -st-named: THEME-COLOR-20;
 }
 
 :import {
@@ -106,7 +106,7 @@
 .asterisk {
   -st-mixin: text-medium-thin;
   display: inline-block;
-  color: value(B20);
+  color: value(THEME-COLOR-20);
   font-size: 22px;
   margin-left: 6px;
   margin-top: -4px;

@@ -8,10 +8,15 @@ import Input from '../../Input';
 import Checkbox from '../../Checkbox';
 import TextButton from '../../TextButton';
 import ToggleButton from '../../ToggleButton';
-import { CropRotate } from 'wix-ui-icons-common';
+import { CropRotate, More } from 'wix-ui-icons-common';
 import SegmentedToggle from '../../SegmentedToggle';
 import Box from '../../Box';
 import { floatingPanels } from '../../Themes';
+import Slider from '../../Slider';
+import Tabs from '../../Tabs';
+import RadioGroup from '../../RadioGroup';
+import FormField from '../../FormField';
+import IconButton from '../../IconButton';
 
 const tests = [
   {
@@ -44,13 +49,20 @@ tests.forEach(({ describe, its }) => {
               <ToggleSwitch />
             </Cell>
             <Cell>
-              <Input placeholder="Hello!" />
+              <FormField required infoContent="Hello!">
+                <Input placeholder="Hello!" />
+              </FormField>
             </Cell>
             <Cell>
               <Checkbox>Hello!</Checkbox>
             </Cell>
             <Cell>
               <TextButton>Hello!</TextButton>
+            </Cell>
+            <Cell>
+              <IconButton>
+                <More />
+              </IconButton>
             </Cell>
             <Cell>
               <ToggleButton selected>
@@ -66,6 +78,25 @@ tests.forEach(({ describe, its }) => {
                   Hello!
                 </SegmentedToggle.Button>
               </SegmentedToggle>
+            </Cell>
+            <Cell>
+              <Tabs
+                activeId={1}
+                items={[
+                  { id: 1, title: 'item 1' },
+                  { id: 2, title: 'item 2' },
+                  { id: 3, title: 'item 3' },
+                ]}
+              />
+            </Cell>
+            <Cell>
+              <Slider min={1} max={10} onChange={() => {}} />
+            </Cell>
+            <Cell>
+              <RadioGroup value={1}>
+                <RadioGroup.Radio value={1}>Option 1</RadioGroup.Radio>
+                <RadioGroup.Radio value={2}>Option 2</RadioGroup.Radio>
+              </RadioGroup>
             </Cell>
           </Layout>
         </Box>

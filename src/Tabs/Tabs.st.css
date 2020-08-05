@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B10, D60 ;
+  -st-named: THEME-COLOR-10, D60 ;
 }
 
 :import {
@@ -68,15 +68,15 @@
 }
 
 .tab span.tabText:hover {
-  color: value(B10);
+  color: value(THEME-COLOR-10);
 }
 
 .tab.active {
-  border-color: value(B10);
+  border-color: value(THEME-COLOR-10);
 }
 
 .tab.active span.tabText {
-  color: value(B10);
+  color: value(THEME-COLOR-10);
 }
 
 .hasDivider {

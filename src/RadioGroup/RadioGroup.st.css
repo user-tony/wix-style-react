@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: F00, D80, D10, B10, B20, B40, B50, B60, D10-30, D10-05;
+  -st-named: F00, D80, D10, THEME-COLOR-10, THEME-COLOR-20, THEME-COLOR-40, THEME-COLOR-50, THEME-COLOR-60, D10-30, D10-05;
 }
 
 :import {
@@ -29,7 +29,7 @@
 }
 
 .radioWrapper:not(.checked) .radio:hover:not(:active) {
-  background-color: value(B40);
+  background-color: value(THEME-COLOR-40);
 }
 
 .radioWrapper > input {
@@ -57,7 +57,7 @@
 
 .focusableRadioButton:focus-visible .radioWrapper .radio {
   outline: none;
-  border-color: value(B10);
+  border-color: value(THEME-COLOR-10);
   box-shadow: 0 0 0 3px value(F00);
 }
 
@@ -76,7 +76,7 @@
   position: relative;
   min-width: 16px;
   height: 16px;
-  border: 1px solid value(B10);
+  border: 1px solid value(THEME-COLOR-10);
   background-color: value(D80);
   border-radius: 50%;
   cursor: pointer;
@@ -125,11 +125,11 @@
 }
 
 .checked:not(.disabled) .radioButtonChecked::after {
-  background-color: value(B10);
+  background-color: value(THEME-COLOR-10);
 }
 
 .radio:active::after {
-  background-color: value(B20);
+  background-color: value(THEME-COLOR-20);
 }
 
 .radioButtonWrapper {
@@ -175,7 +175,7 @@
 }
 
 .selectionAreaAlways .radioWrapper:not(.disabled).checked {
-  background-color: value(B40);
+  background-color: value(THEME-COLOR-40);
 }
 
 .selectionAreaAlways .radioButtonWrapper {
@@ -187,7 +187,7 @@
 }
 
 .selectionAreaAlways :not(.disabled):not(.checked).radioWrapper:hover {
-  background-color: value(B50);
+  background-color: value(THEME-COLOR-50);
 }
 
 .selectionAreaHover .radioWrapper {
@@ -196,7 +196,7 @@
 }
 
 .selectionAreaHover .radioWrapper:not(.disabled).checked {
-  background-color: value(B40);
+  background-color: value(THEME-COLOR-40);
 }
 
 .selectionAreaHover .radioButtonWrapper {
@@ -208,11 +208,11 @@
 }
 
 .selectionAreaHover :not(.disabled):not(.checked).radioWrapper:hover {
-  background-color: value(B50);
+  background-color: value(THEME-COLOR-50);
 }
 
 .selectionAreaAlways :not(.disabled).radioWrapper {
-  background-color: value(B60);
+  background-color: value(THEME-COLOR-60);
 }
 
 .content {
