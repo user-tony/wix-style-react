@@ -62,6 +62,20 @@ describe('Accordion', () => {
         expandLabel: 'see more',
         collapseLabel: 'see less',
         buttonType: buttonTypes.button,
+        onHover: jest.fn(),
+      },
+    ];
+
+    const collapsedDisabledSingleItem = [
+      {
+        title: 'first item',
+        icon: <FakeIcon />,
+        children: 'first item content',
+        expandLabel: 'see more',
+        collapseLabel: 'see less',
+        buttonType: buttonTypes.button,
+        disabled: true,
+        onHover: jest.fn(),
       },
     ];
 
@@ -162,6 +176,20 @@ describe('Accordion', () => {
       expect(await driver.getToggleButtonLabelAt(0)).toEqual('see more');
       await driver.clickToggleButtonAt(0);
       expect(await driver.getToggleButtonLabelAt(0)).toEqual('see less');
+    });
+
+    it('should notify when hovering an item', async () => {
+      const driver = createDriver(<Accordion items={collapsedSingleItem} />);
+      await driver.hoverOnItem(0);
+      expect(collapsedSingleItem[0].onHover).toHaveBeenCalled();
+    });
+
+    it('should not notify hovering an item when item is disabled', async () => {
+      const driver = createDriver(
+        <Accordion items={collapsedDisabledSingleItem} />,
+      );
+      await driver.hoverOnItem(0);
+      expect(collapsedDisabledSingleItem[0].onHover).not.toHaveBeenCalled();
     });
 
     it('should allow only a single item to be expanded by default', async () => {
