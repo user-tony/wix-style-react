@@ -1,13 +1,3 @@
-/*:import {*/
-/*  -st-from: "../Foundation/stylable/colors.st.css";*/
-/*  -st-named: D60, D80, D10-20, D10-30;*/
-/*}*/
-
-/*:import{*/
-/*  -st-from: "../DropdownLayout/DropdownLayout.st.css";*/
-/*  -st-default: DropdownLayout;*/
-/*}*/
-
 .showPointer,
 .showPointer input {
   cursor: pointer;

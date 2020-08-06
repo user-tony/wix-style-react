@@ -105,7 +105,6 @@ class DropdownLayout extends WixComponent {
       }
     }
     if (!this._isControlled()) {
-      debugger;
       this.setState({ selectedId: chosenOption && chosenOption.id });
     }
     return !!onSelect && chosenOption;
@@ -124,7 +123,6 @@ class DropdownLayout extends WixComponent {
   _getMarkedIndex() {
     const { options } = this.props;
     const useHoverIndex = this.state.hovered > NOT_HOVERED_INDEX;
-    debugger;
     const useSelectedIdIndex = typeof this.state.selectedId !== 'undefined';
 
     let markedIndex;
