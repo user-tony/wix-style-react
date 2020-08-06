@@ -1,12 +1,12 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import MarketingPageTestimonialsFooter from '../MarketingPageTestimonialsFooter';
-import { marketingPageTestimonialsFooterPrivateDriverFactory } from './MarketingPageTestimonialsFooter.private.uni.driver';
+import TestimonialList from '../TestimonialList';
+import { testimonialListPrivateDriverFactory } from './TestimonialList.private.uni.driver';
 
-describe(MarketingPageTestimonialsFooter.displayName, () => {
+describe(TestimonialList.displayName, () => {
   const render = createRendererWithUniDriver(
-    marketingPageTestimonialsFooterPrivateDriverFactory,
+    testimonialListPrivateDriverFactory,
   );
 
   afterEach(() => {
@@ -14,14 +14,14 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<MarketingPageTestimonialsFooter />);
+    const { driver } = render(<TestimonialList />);
 
     expect(await driver.exists()).toBe(true);
   });
 
   it('should render 3 testimonials', async () => {
     const { driver } = render(
-      <MarketingPageTestimonialsFooter
+      <TestimonialList
         testimonials={[
           {
             id: '0001',
@@ -52,7 +52,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
     describe('avatar', () => {
       it('should display avatar', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',
@@ -75,7 +75,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
 
       it('should not display avatar', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',
@@ -93,7 +93,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
     describe('text', () => {
       it('should display text', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',
@@ -119,7 +119,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
 
       it('should not display text', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',
@@ -137,7 +137,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
     describe('author name', () => {
       it('should display author name', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',
@@ -163,7 +163,7 @@ describe(MarketingPageTestimonialsFooter.displayName, () => {
 
       it('should not display author name', async () => {
         const { driver } = render(
-          <MarketingPageTestimonialsFooter
+          <TestimonialList
             testimonials={[
               {
                 id: '0001',

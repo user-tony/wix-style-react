@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import MarketingPageTestimonialsFooter from '../MarketingPageTestimonialsFooter';
+import TestimonialList from '../TestimonialList';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 import Avatar from '../../Avatar';
 
@@ -54,26 +54,20 @@ const rtlTests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(
-      `${MarketingPageTestimonialsFooter.displayName}${
-        describe ? '/' + describe : ''
-      }`,
+      `${TestimonialList.displayName}${describe ? '/' + describe : ''}`,
       module,
-    ).add(it, () => (
-      <MarketingPageTestimonialsFooter {...commonProps} {...props} />
-    ));
+    ).add(it, () => <TestimonialList {...commonProps} {...props} />);
   });
 });
 
 rtlTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(
-      `${MarketingPageTestimonialsFooter.displayName}${
-        describe ? '/' + describe : ''
-      }`,
+      `${TestimonialList.displayName}${describe ? '/' + describe : ''}`,
       module,
     ).add(it, () => (
       <RTLWrapper rtl>
-        <MarketingPageTestimonialsFooter {...commonProps} {...props} />
+        <TestimonialList {...commonProps} {...props} />
       </RTLWrapper>
     ));
   });

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from '../Text';
-import styles from './MarketingPageTestimonialsFooter.st.css';
+import styles from './TestimonialList.st.css';
 import { dataHooks } from './constants';
 
-/** A footer for the marketing page layout */
-class MarketingPageTestimonialsFooter extends React.PureComponent {
+/** TestimonialList is a group of layouts that display avatar, description and name. It's used in a footer of a marketing page layout. */
+class TestimonialList extends React.PureComponent {
   render() {
     const { className, dataHook, testimonials } = this.props;
 
@@ -59,9 +59,9 @@ const TestimonialItem = ({ index, avatar, text, authorName }) => (
   </div>
 );
 
-MarketingPageTestimonialsFooter.displayName = 'MarketingPageTestimonialsFooter';
+TestimonialList.displayName = 'TestimonialList';
 
-MarketingPageTestimonialsFooter.propTypes = {
+TestimonialList.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
 
@@ -85,8 +85,8 @@ MarketingPageTestimonialsFooter.propTypes = {
   ),
 };
 
-MarketingPageTestimonialsFooter.defaultProps = {
+TestimonialList.defaultProps = {
   testimonials: [],
 };
 
-export default MarketingPageTestimonialsFooter;
+export default TestimonialList;

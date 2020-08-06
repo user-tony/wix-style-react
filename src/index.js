@@ -172,4 +172,4 @@ export { default as TagList } from './TagList';
 export { default as FileUpload } from './FileUpload';
 export { default as Animate } from './Animate';
 export { default as FacesRatingBar } from './FacesRatingBar';
-export { default as MarketingPageTestimonialsFooter } from './MarketingPageTestimonialsFooter';
+export { default as TestimonialList } from './TestimonialList';

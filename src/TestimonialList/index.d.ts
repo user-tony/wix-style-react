@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-export interface MarketingPageTestimonialsFooterProps {
+export interface TestimonialListProps {
   dataHook?: string;
   className?: string;
   testimonials?: TestimonialType[];
 }
 
-export default class MarketingPageTestimonialsFooter extends React.PureComponent<MarketingPageTestimonialsFooterProps>{}
+export default class TestimonialList extends React.PureComponent<TestimonialListProps>{}
 
 export type TestimonialType = {
   id: string | number;

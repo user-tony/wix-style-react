@@ -1,18 +1,18 @@
 import * as React from 'react';
-import MarketingPageTestimonialsFooter from '..';
-import { marketingPageTestimonialsFooterTestkitFactory } from '../../../testkit';
-import { marketingPageTestimonialsFooterTestkitFactory as marketingPageTestimonialsFooterEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import { marketingPageTestimonialsFooterTestkitFactory as marketingPageTestimonialsFooterPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
+import TestimonialList from '..';
+import { testimonialListTestkitFactory } from '../../../testkit';
+import { testimonialListTestkitFactory as testimonialListEnzymeTestkitFactory } from '../../../testkit/enzyme';
+import { testimonialListTestkitFactory as testimonialListPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
-function marketingPageTestimonialsFooterWithMandatoryProps() {
-  return <MarketingPageTestimonialsFooter />;
+function testimonialListWithMandatoryProps() {
+  return <TestimonialList />;
 }
 
-function marketingPageTestimonialsFooterWithAllProps() {
+function testimonialListWithAllProps() {
   return (
-    <MarketingPageTestimonialsFooter
+    <TestimonialList
       dataHook="dataHook"
       testimonials={[
         {
@@ -39,19 +39,19 @@ function marketingPageTestimonialsFooterWithAllProps() {
 }
 
 async function testkits() {
-  const testkit = marketingPageTestimonialsFooterTestkitFactory({
+  const testkit = testimonialListTestkitFactory({
     dataHook: 'hook',
     wrapper: document.createElement('div'),
   });
 
-  const enzymeTestkit = marketingPageTestimonialsFooterEnzymeTestkitFactory({
+  const enzymeTestkit = testimonialListEnzymeTestkitFactory({
     dataHook: 'hook',
     wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const puppeteerTestkit = await marketingPageTestimonialsFooterPuppeteerTestkitFactory({
+  const puppeteerTestkit = await testimonialListPuppeteerTestkitFactory({
     dataHook: 'hook',
     page,
   });

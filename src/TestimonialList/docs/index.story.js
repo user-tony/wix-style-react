@@ -18,7 +18,7 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-import MarketingPageTestimonialsFooter from '..';
+import TestimonialList from '..';
 import Avatar from '../../Avatar';
 
 const example = config => baseExample({ components: allComponents, ...config });
@@ -28,7 +28,7 @@ export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
-  component: MarketingPageTestimonialsFooter,
+  component: TestimonialList,
   componentPath: '..',
 
   componentProps: {},
@@ -57,8 +57,8 @@ export default {
 
   sections: [
     header({
-      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${MarketingPageTestimonialsFooter.displayName}/`,
-      component: <MarketingPageTestimonialsFooter buttonText="Click me!" />,
+      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${TestimonialList.displayName}/`,
+      component: <TestimonialList buttonText="Click me!" />,
     }),
 
     tabs([
@@ -68,7 +68,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'This component is used as a footer for the Marketing Page Layout.',
+              "TestimonialList is a group of layouts that display avatar, description and name. It's used in a footer of a marketing page layout.",
           }),
 
           importExample(),
@@ -78,8 +78,9 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'A simple example with compact preview',
+            title: 'Structure',
+            text:
+              'Component lists horizontally any number of testimonials. Each testimonial has text, author name and avatar. Avatar should be 60px size.',
             source: examples.basicExample,
           }),
         ],

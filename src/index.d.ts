@@ -230,8 +230,8 @@ export * from './Loader';
 export { default as MarketingLayout } from './MarketingLayout';
 export * from './MarketingLayout';
 
-export { default as MarketingPageTestimonialsFooter } from './MarketingPageTestimonialsFooter';
-export * from './MarketingPageTestimonialsFooter';
+export { default as TestimonialList } from './TestimonialList';
+export * from './TestimonialList';
 
 export { default as MediaOverlay } from './MediaOverlay';
 export * from './MediaOverlay';

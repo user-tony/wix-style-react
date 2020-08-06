@@ -251,8 +251,8 @@
   "MarketingLayout": {
     "path": "src/MarketingLayout"
   },
-  "MarketingPageTestimonialsFooter": {
-    "path": "src/MarketingPageTestimonialsFooter"
+  "TestimonialList": {
+    "path": "src/TestimonialList"
   },
   "MediaOverlay": {
     "path": "src/MediaOverlay"

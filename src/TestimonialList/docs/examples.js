@@ -1,5 +1,5 @@
 export const basicExample = `
-    <MarketingPageTestimonialsFooter
+    <TestimonialList
         testimonials={[
           {
             id: '0001',

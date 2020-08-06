@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface MarketingPageTestimonialsFooterUniDriver extends BaseUniDriver {
+export interface TestimonialListUniDriver extends BaseUniDriver {
   getNumberOfTestimonials(): Promise<number>;
 
   hasTestimonialAvatar(): Promise<boolean>;
