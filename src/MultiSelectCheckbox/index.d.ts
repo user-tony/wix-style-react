@@ -6,7 +6,6 @@ import {
   DropdownLayoutValueOption,
   DropdownLayoutProps,
 } from '../DropdownLayout';
-import { listItemSelectBuilderObject } from '../ListItemSelect';
 import { listItemSectionBuilderObject } from '../ListItemSection';
 
 export interface MultiSelectCheckboxProps
@@ -32,8 +31,3 @@ export type MultiSelectOnSelectFnSignature = (
   id: DropdownLayoutValueOption['id'],
   option: DropdownLayoutValueOption,
 ) => void;
-
-
-export const builderParser: (option : listItemSelectBuilderObject | listItemSectionBuilderObject ) => {
-  title: string;
-};

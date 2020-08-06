@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
-import MultiSelectCheckbox, { builderParser } from '../MultiSelectCheckbox';
+import MultiSelectCheckbox from '../MultiSelectCheckbox';
 import { listItemSelectBuilder } from '../../ListItemSelect';
 import { listItemSectionBuilder } from '../../ListItemSection';
 import { multiSelectCheckboxTestkitFactory } from '../../../testkit';
@@ -108,7 +108,6 @@ const interactiveTests = [
               selected: false,
             }),
           ],
-          valueParser: builderParser,
         },
       },
     ],

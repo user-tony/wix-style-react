@@ -1,1 +1,1 @@
-export { default, builderParser } from './MultiSelectCheckbox';
+export { default } from './MultiSelectCheckbox';

@@ -18,12 +18,6 @@ export interface ListItemSectionProps {
 
 declare const ListItemSection: React.ComponentClass<ListItemSectionProps>;
 
-export type listItemSectionBuilderObject = {
-  id: string | number;
-  overrideStyle: true;
-  value: (props?: Partial<ListItemSectionProps>) => React.ReactNode;
-};
-
 export const listItemSectionBuilder: (data: {
   id: string | number;
   className?: string;
@@ -31,6 +25,10 @@ export const listItemSectionBuilder: (data: {
   title?: string;
   suffix?: React.ReactNode;
   ellipsis?: boolean;
-}) => listItemSectionBuilderObject;
+}) => {
+  id: string | number;
+  overrideStyle: true;
+  value: (props?: Partial<ListItemSectionProps>) => React.ReactNode;
+};
 
 export default ListItemSection;
