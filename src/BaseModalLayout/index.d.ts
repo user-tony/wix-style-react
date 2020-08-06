@@ -14,6 +14,7 @@ export interface BaseModalLayoutProps {
   dataHook?: string;
   theme?: ModalTheme;
   onCloseButtonClick?(): void;
+  onHelpButtonClick?(): void;
 }
 
 export * from './LayoutBlocks';

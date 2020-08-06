@@ -8,6 +8,7 @@ export interface CustomModalLayoutProps {
   dataHook?: string;
   theme?: ModalTheme;
   onCloseButtonClick?(): void;
+  onHelpButtonClick?(): void;
   title?: React.ReactNode;
   subtitle?: string;
   content?: string | React.ReactNode;
