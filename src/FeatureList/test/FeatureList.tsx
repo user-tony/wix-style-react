@@ -1,18 +1,18 @@
 import * as React from 'react';
-import MarketingPageFeaturesFooter from '..';
-import { marketingPageFeaturesFooterTestkitFactory } from '../../../testkit';
-import { marketingPageFeaturesFooterTestkitFactory as marketingPageFeaturesFooterEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import { marketingPageFeaturesFooterTestkitFactory as marketingPageFeaturesFooterPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
+import FeatureList from '..';
+import { featureListTestkitFactory } from '../../../testkit';
+import { featureListTestkitFactory as featureListEnzymeTestkitFactory } from '../../../testkit/enzyme';
+import { featureListTestkitFactory as featureListPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
-function marketingPageFeaturesFooterWithMandatoryProps() {
-  return <MarketingPageFeaturesFooter />;
+function featureListWithMandatoryProps() {
+  return <FeatureList />;
 }
 
-function marketingPageFeaturesFooterWithAllProps() {
+function featureListWithAllProps() {
   return (
-    <MarketingPageFeaturesFooter
+    <FeatureList
       dataHook="dataHook"
       className="className"
       features={[
@@ -40,19 +40,19 @@ function marketingPageFeaturesFooterWithAllProps() {
 }
 
 async function testkits() {
-  const testkit = marketingPageFeaturesFooterTestkitFactory({
+  const testkit = featureListTestkitFactory({
     dataHook: 'hook',
     wrapper: document.createElement('div'),
   });
 
-  const enzymeTestkit = marketingPageFeaturesFooterEnzymeTestkitFactory({
+  const enzymeTestkit = featureListEnzymeTestkitFactory({
     dataHook: 'hook',
     wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const puppeteerTestkit = await marketingPageFeaturesFooterPuppeteerTestkitFactory({
+  const puppeteerTestkit = await featureListPuppeteerTestkitFactory({
     dataHook: 'hook',
     page,
   });

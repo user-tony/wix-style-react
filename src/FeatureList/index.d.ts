@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-export interface MarketingPageFeaturesFooterProps {
+export interface FeatureListProps {
   dataHook?: string;
   className?: string;
   features?: FeatureType[];
 }
 
-export default class MarketingPageFeaturesFooter extends React.PureComponent<MarketingPageFeaturesFooterProps>{}
+export default class FeatureList extends React.PureComponent<FeatureListProps>{}
 
 export type FeatureType = {
   id: string | number;

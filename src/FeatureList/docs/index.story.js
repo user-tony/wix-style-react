@@ -18,7 +18,7 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 
-import MarketingPageFeaturesFooter from '..';
+import FeatureList from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
 const code = config => baseCode({ components: allComponents, ...config });
@@ -27,7 +27,7 @@ export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
-  component: MarketingPageFeaturesFooter,
+  component: FeatureList,
   componentPath: '..',
 
   componentProps: {},
@@ -69,8 +69,8 @@ export default {
 
   sections: [
     header({
-      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${MarketingPageFeaturesFooter.displayName}/`,
-      component: <MarketingPageFeaturesFooter buttonText="Click me!" />,
+      sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${FeatureList.displayName}/`,
+      component: <FeatureList />,
     }),
 
     tabs([

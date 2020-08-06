@@ -1,5 +1,5 @@
 export const basicExample = `
-    <MarketingPageFeaturesFooter
+    <FeatureList
       features={[
           {
             id: '0001',

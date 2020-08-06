@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import MarketingPageFeaturesFooter from '../MarketingPageFeaturesFooter';
+import FeatureList from '../FeatureList';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 
 const commonProps = {
@@ -124,26 +124,20 @@ const rtlTests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(
-      `${MarketingPageFeaturesFooter.displayName}${
-        describe ? '/' + describe : ''
-      }`,
+      `${FeatureList.displayName}${describe ? '/' + describe : ''}`,
       module,
-    ).add(it, () => (
-      <MarketingPageFeaturesFooter {...commonProps} {...props} />
-    ));
+    ).add(it, () => <FeatureList {...commonProps} {...props} />);
   });
 });
 
 rtlTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(
-      `${MarketingPageFeaturesFooter.displayName}${
-        describe ? '/' + describe : ''
-      }`,
+      `${FeatureList.displayName}${describe ? '/' + describe : ''}`,
       module,
     ).add(it, () => (
       <RTLWrapper rtl>
-        <MarketingPageFeaturesFooter {...commonProps} {...props} />
+        <FeatureList {...commonProps} {...props} />
       </RTLWrapper>
     ));
   });

@@ -103,9 +103,6 @@ export * from './CounterBadge';
 export { default as CustomModalLayout } from './CustomModalLayout';
 export * from './CustomModalLayout';
 
-export { default as MarketingPageFeaturesFooter } from './MarketingPageFeaturesFooter';
-export * from './MarketingPageFeaturesFooter';
-
 export { default as MessageModalLayout } from './MessageModalLayout';
 export * from './MessageModalLayout';
 
@@ -453,3 +450,6 @@ export * from './FacesRatingBar';
 
 export { default as ThemeProvider } from './ThemeProvider';
 export * from './ThemeProvider';
+
+export { default as FeatureList } from './FeatureList';
+export * from './FeatureList';

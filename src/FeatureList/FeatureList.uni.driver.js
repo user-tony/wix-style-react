@@ -2,7 +2,7 @@ import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { dataHooks } from './constants';
 import { textUniDriverFactory } from '../Text/Text.uni.driver';
 
-export const marketingPageFeaturesFooterDriverFactory = (base, body) => {
+export const featureListDriverFactory = (base, body) => {
   const byHook = hook => base.$(`[data-hook*="${hook}"]`);
   const getFeatures = () => base.$$(`[data-hook="${dataHooks.feature}"]`);
 

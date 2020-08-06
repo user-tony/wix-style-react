@@ -176,4 +176,4 @@ export { default as FileUpload } from './FileUpload';
 export { default as Animate } from './Animate';
 export { default as FacesRatingBar } from './FacesRatingBar';
 export { default as ThemeProvider } from './ThemeProvider';
-export { default as MarketingPageFeaturesFooter } from './MarketingPageFeaturesFooter';
+export { default as FeatureList } from './FeatureList';

@@ -1,6 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
 
-export interface MarketingPageFeaturesFooterUniDriver extends BaseUniDriver {
+export interface FeatureListUniDriver extends BaseUniDriver {
   getNumberOfFeatures(): Promise<number>;
   hasFeatureTitle(): Promise<boolean>;
   getFeatureTitle(): Promise<string>;

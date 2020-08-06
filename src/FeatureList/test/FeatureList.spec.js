@@ -1,27 +1,25 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import MarketingPageFeaturesFooter from '../MarketingPageFeaturesFooter';
-import { marketingPageFeaturesFooterPrivateDriverFactory } from './MarketingPageFeaturesFooter.private.uni.driver';
+import FeatureList from '../FeatureList';
+import { featureListPrivateDriverFactory } from './FeatureList.private.uni.driver';
 
-describe(MarketingPageFeaturesFooter.displayName, () => {
-  const render = createRendererWithUniDriver(
-    marketingPageFeaturesFooterPrivateDriverFactory,
-  );
+describe(FeatureList.displayName, () => {
+  const render = createRendererWithUniDriver(featureListPrivateDriverFactory);
 
   afterEach(() => {
     cleanup();
   });
 
   it('should render', async () => {
-    const { driver } = render(<MarketingPageFeaturesFooter />);
+    const { driver } = render(<FeatureList />);
 
     expect(await driver.exists()).toBe(true);
   });
 
   it('should render 3 features', async () => {
     const { driver } = render(
-      <MarketingPageFeaturesFooter
+      <FeatureList
         features={[
           {
             id: '0001',
@@ -53,7 +51,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
     describe('title', () => {
       it('should display title', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -81,7 +79,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
 
       it('should not display title', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -100,7 +98,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
     describe('text', () => {
       it('should display text', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -128,7 +126,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
 
       it('should not display text', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -148,7 +146,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
         'https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_300,h_200/c78d05b79ede429fb77c9d8ec4443b93.jpg';
       it('should display image - image prop as a string', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -170,7 +168,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
 
       it('image prop as a node', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',
@@ -192,7 +190,7 @@ describe(MarketingPageFeaturesFooter.displayName, () => {
 
       it('should not display image', async () => {
         const { driver } = render(
-          <MarketingPageFeaturesFooter
+          <FeatureList
             features={[
               {
                 id: '0001',

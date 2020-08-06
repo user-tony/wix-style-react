@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from '../Text';
-import styles from './MarketingPageFeaturesFooter.st.css';
+import styles from './FeatureList.st.css';
 import { dataHooks } from './constants';
 
 const isString = a => typeof a === 'string';
 
 /** A footer for the marketing Page Layout */
-class MarketingPageFeaturesFooter extends React.PureComponent {
+class FeatureList extends React.PureComponent {
   render() {
     const { dataHook, className, features } = this.props;
 
@@ -70,9 +70,9 @@ const FeatureItem = ({ index, image, title, text }) => (
   </div>
 );
 
-MarketingPageFeaturesFooter.displayName = 'MarketingPageFeaturesFooter';
+FeatureList.displayName = 'FeatureList';
 
-MarketingPageFeaturesFooter.propTypes = {
+FeatureList.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
 
@@ -96,8 +96,8 @@ MarketingPageFeaturesFooter.propTypes = {
   ),
 };
 
-MarketingPageFeaturesFooter.defaultProps = {
+FeatureList.defaultProps = {
   features: [],
 };
 
-export default MarketingPageFeaturesFooter;
+export default FeatureList;
