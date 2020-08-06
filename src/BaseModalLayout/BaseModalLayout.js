@@ -41,20 +41,35 @@ class BaseModalLayout extends React.PureComponent {
       ...restProps
     } = this.props;
     const { theme } = restProps;
-    const showControlButtons = onCloseButtonClick || onHelpButtonClick;
+
+    const controlButtonHandlers = [onCloseButtonClick, onHelpButtonClick];
+    let controlButtonAmount = 0;
+    controlButtonHandlers.forEach(handler => {
+      if (handler) {
+        controlButtonAmount++;
+      }
+    });
+
     return (
       <div
         data-hook={dataHook}
         data-theme={theme}
         style={style}
-        {...styles('root', { theme }, { className, ...restProps })}
+        {...styles(
+          'root',
+          {
+            theme,
+            controlButtonAmount: controlButtonAmount,
+          },
+          { className, ...restProps },
+        )}
       >
         <BaseModalLayoutContext.Provider
           value={{ ...restProps, ...classNames }}
         >
           {children}
         </BaseModalLayoutContext.Provider>
-        {showControlButtons && (
+        {controlButtonAmount > 0 && (
           <Box
             gap="SP1"
             direction="horizontal"
