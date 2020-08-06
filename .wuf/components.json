@@ -419,6 +419,9 @@
   "TagList": {
     "path": "src/TagList"
   },
+  "TestimonialList": {
+    "path": "src/TestimonialList"
+  },
   "Text": {
     "path": "src/Text"
   },
@@ -457,8 +460,5 @@
   },
   "VerticalTabsItem": {
     "path": "src/VerticalTabsItem"
-  },
-  "TestimonialList": {
-    "path": "src/TestimonialList"
   }
 }
