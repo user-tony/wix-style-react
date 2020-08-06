@@ -258,7 +258,7 @@ export { default as MultiSelect } from './MultiSelect';
 export * from './MultiSelect';
 
 export { default as MultiSelectCheckbox } from './MultiSelectCheckbox';
-export { MultiSelectCheckboxProps } from './MultiSelectCheckbox';
+export * from './MultiSelectCheckbox';
 
 export { default as NestableList } from './NestableList';
 export * from './NestableList';
