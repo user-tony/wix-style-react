@@ -6,7 +6,6 @@ import {
   DropdownLayoutValueOption,
   DropdownLayoutProps,
 } from '../DropdownLayout';
-import { listItemSectionBuilderObject } from '../ListItemSection';
 
 export interface MultiSelectCheckboxProps
   extends InputWithOptionsProps<
