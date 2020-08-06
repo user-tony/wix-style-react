@@ -168,6 +168,7 @@ export const listItemActionBuilder = ({
       skin={skin}
       size={size}
       highlighted={hovered}
+      disabled={disabled}
     />
   ),
 });
