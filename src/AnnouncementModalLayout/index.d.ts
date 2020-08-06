@@ -7,6 +7,7 @@ export interface AnnouncementModalLayoutProps {
   dataHook?: string;
   theme?: 'standard' | 'premium';
   onCloseButtonClick?(): void;
+  onHelpButtonClick?(): void;
   title?: string;
   subtitle?: string;
   content?: string | React.ReactNode;
