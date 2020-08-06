@@ -1,4 +1,4 @@
-import { TestimonialListDriverFactory as publicDriverFactory } from '../TestimonialList.uni.driver';
+import { testimonialListDriverFactory as publicDriverFactory } from '../TestimonialList.uni.driver';
 
 export const testimonialListPrivateDriverFactory = (base, body) => {
   return {
