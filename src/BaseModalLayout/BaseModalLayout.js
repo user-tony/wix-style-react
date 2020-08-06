@@ -82,7 +82,7 @@ class BaseModalLayout extends React.PureComponent {
                 size="large"
                 skin="dark"
               >
-                <Help className={styles.helpButton} />
+                <Help className={styles.helpIcon} />
               </CloseButton>
             )}
             {onCloseButtonClick && (

@@ -1,6 +1,6 @@
 :vars {
   modalBoxPadding: 48px;
-  helpButtonSize: 24px;
+  helpIconSize: 24px;
 }
 
 :import {
@@ -71,9 +71,9 @@
   right: unset;
 }
 
-.helpButton {
-  width: value(helpButtonSize);
-  height: value(helpButtonSize);
+.helpIcon {
+  width: value(helpIconSize);
+  height: value(helpIconSize);
 }
 
 /** Exposing stylable api of the LayoutBlock for extending purposes */
