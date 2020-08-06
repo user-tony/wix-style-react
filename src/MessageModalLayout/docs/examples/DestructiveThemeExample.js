@@ -7,6 +7,7 @@ class DestructiveThemeExample extends React.Component {
       <MessageModalLayout
         theme={'destructive'}
         onCloseButtonClick={() => {}}
+        onHelpButtonClick={() => {}}
         primaryButtonText="Move To Trash"
         secondaryButtonText="Cancel"
         title="Move Site to Trash"

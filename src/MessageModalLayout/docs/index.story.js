@@ -43,6 +43,7 @@ export default {
     sideActions: <Checkbox>Check</Checkbox>,
     footnote: 'footnote text',
     onCloseButtonClick: () => {},
+    onHelpButtonClick: () => {},
   },
 
   exampleProps: {},

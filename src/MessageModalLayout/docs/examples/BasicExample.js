@@ -10,6 +10,7 @@ class BasicExample extends React.Component {
         title="Discard changes"
         sideActions={<Checkbox>Don't show this again</Checkbox>}
         onCloseButtonClick={() => {}}
+        onHelpButtonClick={() => {}}
       >
         <Text>
           Are you sure you want to leave this page? Your changes won't be saved.

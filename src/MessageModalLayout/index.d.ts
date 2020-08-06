@@ -8,6 +8,7 @@ export interface MessageModalLayoutProps {
   dataHook?: string;
   theme?: ModalTheme;
   onCloseButtonClick?(): void;
+  onHelpButtonClick?(): void;
   title?: string;
   content?: string | React.ReactNode;
   primaryButtonText?: string;

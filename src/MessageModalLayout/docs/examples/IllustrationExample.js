@@ -6,6 +6,7 @@ class BasicExample extends React.Component {
     return (
       <MessageModalLayout
         onCloseButtonClick={() => {}}
+        onHelpButtonClick={() => {}}
         primaryButtonText="Report"
         secondaryButtonText="Cancel"
         title="Report as Spam?"

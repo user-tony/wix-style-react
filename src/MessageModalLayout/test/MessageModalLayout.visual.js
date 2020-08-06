@@ -24,6 +24,7 @@ const commonProps = {
   subtitle: 'Subtitle',
   children: SHORT_CONTENT,
   onCloseButtonClick: () => {},
+  onHelpButtonClick: () => {},
 };
 
 const messageModalLayoutTestkitFactory = testkitFactoryCreator(

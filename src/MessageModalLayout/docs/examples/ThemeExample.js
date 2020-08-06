@@ -6,6 +6,7 @@ class BasicExample extends React.Component {
     return (
       <MessageModalLayout
         onCloseButtonClick={() => {}}
+        onHelpButtonClick={() => {}}
         theme={'premium'}
         primaryButtonText="Upgrade"
         secondaryButtonText="Not Now"
