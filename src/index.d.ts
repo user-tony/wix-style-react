@@ -230,6 +230,9 @@ export * from './Loader';
 export { default as MarketingLayout } from './MarketingLayout';
 export * from './MarketingLayout';
 
+export { default as MarketingPageLayout } from './MarketingPageLayout';
+export * from './MarketingPageLayout';
+
 export { default as MediaOverlay } from './MediaOverlay';
 export * from './MediaOverlay';
 
