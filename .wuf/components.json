@@ -251,9 +251,6 @@
   "MarketingLayout": {
     "path": "src/MarketingLayout"
   },
-  "TestimonialList": {
-    "path": "src/TestimonialList"
-  },
   "MediaOverlay": {
     "path": "src/MediaOverlay"
   },
@@ -460,5 +457,8 @@
   },
   "VerticalTabsItem": {
     "path": "src/VerticalTabsItem"
+  },
+  "TestimonialList": {
+    "path": "src/TestimonialList"
   }
 }
