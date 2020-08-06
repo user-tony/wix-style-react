@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './BaseModalLayout.st.css';
 import { dataHooks } from './constants';
 import CloseButton from '../CloseButton';
+import Help from 'wix-ui-icons-common/system/Help24';
 import { BaseModalLayoutContext } from './BaseModalLayoutContext';
 import {
   Header,
@@ -12,6 +13,7 @@ import {
   Footnote,
   Illustration,
 } from './LayoutBlocks';
+import Box from '../Box';
 
 const classNames = {
   headerClassName: styles.header,
@@ -35,9 +37,11 @@ class BaseModalLayout extends React.PureComponent {
       children,
       style,
       onCloseButtonClick,
+      onHelpButtonClick,
       ...restProps
     } = this.props;
     const { theme } = restProps;
+    const showControlButtons = onCloseButtonClick || onHelpButtonClick;
     return (
       <div
         data-hook={dataHook}
@@ -50,14 +54,31 @@ class BaseModalLayout extends React.PureComponent {
         >
           {children}
         </BaseModalLayoutContext.Provider>
-        {onCloseButtonClick && (
-          <CloseButton
-            dataHook={dataHooks.closeButton}
-            className={styles.closeButton}
-            onClick={onCloseButtonClick}
-            size="large"
-            skin="dark"
-          />
+        {showControlButtons && (
+          <Box
+            gap="SP1"
+            direction="horizontal"
+            className={styles.controlButtons}
+          >
+            {onHelpButtonClick && (
+              <CloseButton
+                dataHook={dataHooks.helpButton}
+                onClick={onHelpButtonClick}
+                size="large"
+                skin="dark"
+              >
+                <Help className={styles.helpButton} />
+              </CloseButton>
+            )}
+            {onCloseButtonClick && (
+              <CloseButton
+                dataHook={dataHooks.closeButton}
+                onClick={onCloseButtonClick}
+                size="large"
+                skin="dark"
+              />
+            )}
+          </Box>
         )}
       </div>
     );

@@ -1,5 +1,6 @@
 :vars {
   modalBoxPadding: 48px;
+  helpButtonSize: 24px;
 }
 
 :import {
@@ -59,15 +60,20 @@
   box-shadow: value(shadow40);
 }
 
-.closeButton {
+.controlButtons {
   position: absolute;
   right: value(spacing12);
   top: value(spacing12);
 }
 
-:global(.rtl) .closeButton {
+:global(.rtl) .controlButtons {
   left: value(spacing12);
   right: unset;
+}
+
+.helpButton {
+  width: value(helpButtonSize);
+  height: value(helpButtonSize);
 }
 
 /** Exposing stylable api of the LayoutBlock for extending purposes */
