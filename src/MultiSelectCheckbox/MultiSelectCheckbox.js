@@ -14,7 +14,6 @@ class MultiSelectCheckbox extends InputWithOptions {
       if (typeof option.value === 'function') {
         return {
           ...option,
-          value: ({ hovered }) => option.value({ hovered }),
         };
       } else {
         if (option.value === '-') {
@@ -55,6 +54,7 @@ class MultiSelectCheckbox extends InputWithOptions {
       options: this.createOptions(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
+      selectedId: this.props.selectedOptions.join(),
     };
   }
 
@@ -64,7 +64,7 @@ class MultiSelectCheckbox extends InputWithOptions {
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
-      .map(this.props.valueParser)
+      .map(option => option.title || option.value)
       .join(this.props.delimiter);
   }
 

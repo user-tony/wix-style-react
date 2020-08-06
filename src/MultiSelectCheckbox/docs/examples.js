@@ -37,8 +37,8 @@ class Example extends React.Component {
 
 const personalTrainers = [
   'Christian Mills',
-  'Logan Chandler',
-  'Paul Simon',
+  // 'Logan Chandler',
+  // 'Paul Simon',
 ].map(
   option =>
     `listItemSelectBuilder({
@@ -46,38 +46,35 @@ const personalTrainers = [
       value: "${option}",
       id: "${option}",
       title: "${option}",
-      selected: selectedOptions.indexOf("${option}") !== -1
   })`,
 );
 
-personalTrainers.unshift(`
-  listItemSectionBuilder({
-        title: 'Personal Trainers',
-        id: 'personalTrainers',
-      })
-  `);
-
-const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
-  option =>
-    `listItemSelectBuilder({
-      checkbox: true,
-      value: "${option}",
-      id: "${option}",
-      title: "${option}",
-      selected: selectedOptions.indexOf("${option}") !== -1
-  })`,
-);
-
-nutritionists.unshift(`
-  listItemSectionBuilder({
-        title: 'Nutritionists',
-        id: 'nutritionists',
-      })
-  `);
+// personalTrainers.unshift(`
+//   listItemSectionBuilder({
+//         title: 'Personal Trainers',
+//         id: 'personalTrainers',
+//       })
+//   `);
+// const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
+//   option =>
+//     `listItemSelectBuilder({
+//       checkbox: true,
+//       value: "${option}",
+//       id: "${option}",
+//       title: "${option}",
+//   })`,
+// );
+//
+// nutritionists.unshift(`
+//   listItemSectionBuilder({
+//         title: 'Nutritionists',
+//         id: 'nutritionists',
+//       })
+//   `);
 
 export const usingBuilders = `
 class BuildersExample extends React.Component {
-  state = { selectedOptions: [] };
+  state = { selectedOptions: ['Christian Mills'] };
 
   onSelect = optionId  =>
     optionId &&
@@ -94,11 +91,10 @@ class BuildersExample extends React.Component {
     const { selectedOptions } = this.state;
     return (
       <MultiSelectCheckbox
-        options={[${personalTrainers} , ${nutritionists}]}
+        options={[${personalTrainers} , { value: 'Etta Wheeler', id: 'Etta Wheeler' }]}
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}
-        valueParser={builderParser}
       />
     );
   }

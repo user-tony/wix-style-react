@@ -76,11 +76,11 @@ export default {
 
           title('Examples'),
 
-          example({
-            title: 'Simple usage',
-            text: 'Simple usage of object options.',
-            source: examples.simple,
-          }),
+          // example({
+          //   title: 'Simple usage',
+          //   text: 'Simple usage of object options.',
+          //   source: examples.simple,
+          // }),
 
           example({
             title: 'Advanced usage',
