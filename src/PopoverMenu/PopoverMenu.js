@@ -227,7 +227,7 @@ class PopoverMenu extends React.PureComponent {
       if (option.divider || option.custom) {
         return option;
       }
-      const { id, disabled, onClick, dataHook, ...rest } = option;
+      const { id, disabled, onClick, dataHook, skin, ...rest } = option;
 
       const { focused } = this.state;
 
@@ -244,7 +244,7 @@ class PopoverMenu extends React.PureComponent {
         ref: ref => (this.children[id] = ref),
         tabIndex: id === focused && !disabled ? '0' : '-1',
         onKeyDown: e => this._onKeyDown(e, id),
-        skin: option.skin || 'dark',
+        skin: skin || 'dark',
         size: textSize,
         className: styles.listItem,
         ellipsis,
