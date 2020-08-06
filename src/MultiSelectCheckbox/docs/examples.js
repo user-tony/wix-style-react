@@ -35,43 +35,6 @@ class Example extends React.Component {
 }
 `;
 
-const personalTrainers = [
-  'Christian Mills',
-  // 'Logan Chandler',
-  // 'Paul Simon',
-].map(
-  option =>
-    `listItemSelectBuilder({
-      checkbox: true,
-      value: "${option}",
-      id: "${option}",
-      title: "${option}",
-  })`,
-);
-
-// personalTrainers.unshift(`
-//   listItemSectionBuilder({
-//         title: 'Personal Trainers',
-//         id: 'personalTrainers',
-//       })
-//   `);
-// const nutritionists = ['Etta Wheeler', 'Robert Ortega'].map(
-//   option =>
-//     `listItemSelectBuilder({
-//       checkbox: true,
-//       value: "${option}",
-//       id: "${option}",
-//       title: "${option}",
-//   })`,
-// );
-//
-// nutritionists.unshift(`
-//   listItemSectionBuilder({
-//         title: 'Nutritionists',
-//         id: 'nutritionists',
-//       })
-//   `);
-
 export const usingBuilders = `
 class BuildersExample extends React.Component {
   state = { selectedOptions: ['Christian Mills'] };
@@ -91,7 +54,30 @@ class BuildersExample extends React.Component {
     const { selectedOptions } = this.state;
     return (
       <MultiSelectCheckbox
-        options={[${personalTrainers} , { value: 'Etta Wheeler', id: 'Etta Wheeler' }]}
+        options={[
+        listItemSectionBuilder({
+          title: 'Personal Trainers',
+          id: 'personalTrainers',
+        }),
+        listItemSelectBuilder({
+            checkbox: true,
+            value: 'Logan Chandler',
+            id: 'Logan Chandler',
+            title: 'Logan Chandler',
+        }),
+        { value: 'Paul Simon', id: 'Paul Simon' },
+        listItemSectionBuilder({
+          title: 'Nutritionists',
+          id: 'nutritionists',
+        }),
+        listItemSelectBuilder({
+            checkbox: true,
+            value: 'Etta Wheeler',
+            id: 'Etta Wheeler',
+            title: 'Etta Wheeler',
+          }),
+        { value: 'Robert Ortega', id: 'Robert Ortega'}
+        ]}
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}

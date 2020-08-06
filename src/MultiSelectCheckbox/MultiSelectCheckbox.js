@@ -54,7 +54,7 @@ class MultiSelectCheckbox extends InputWithOptions {
       options: this.createOptions(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
-      selectedId: this.props.selectedOptions.join(),
+      selectedOptions: this.props.selectedOptions,
     };
   }
 
