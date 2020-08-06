@@ -21,6 +21,7 @@ function PageWithAllProps() {
       maxWidth={200}
       minWidth={100}
       scrollableContentRef={_ref => {}}
+      scrollProps={{ onScrollAreaChanged: () => {}, onScrollChanged: () => {} }}
       sidePadding={10}
       zIndex={2}
       horizontalScroll

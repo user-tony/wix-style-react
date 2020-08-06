@@ -31,6 +31,7 @@ class Accordion extends React.Component {
         buttonType: PropTypes.oneOf(['textButton', 'button']),
         disabled: PropTypes.bool,
         onToggle: PropTypes.func,
+        onHover: PropTypes.func,
         open: PropTypes.bool,
         initiallyOpen: PropTypes.bool,
       }),

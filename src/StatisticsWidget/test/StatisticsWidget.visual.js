@@ -128,6 +128,23 @@ const tests = [
         },
       },
       {
+        it: 'with tiny values',
+        props: {
+          size: 'tiny',
+          items: [
+            {
+              value: '$7,500,000,000',
+            },
+            {
+              value: '$1,200,000',
+            },
+            {
+              value: '$1,872',
+            },
+          ],
+        },
+      },
+      {
         it: 'with short text in a value',
         props: {
           items: [

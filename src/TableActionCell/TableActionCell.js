@@ -153,15 +153,17 @@ const TableActionCell = props => {
         </div>
       )}
 
-      {primaryAction && !(secondaryActions || []).length && (
-        <HoverSlot
-          display="notOnHover"
-          className={style.placeholderIcon}
-          data-hook={dataHooks.tableActionCellPlaceholder}
-        >
-          {renderPlaceholder()}
-        </HoverSlot>
-      )}
+      {primaryAction &&
+        (!secondaryActions.length ||
+          secondaryActions.length === numOfVisibleSecondaryActions) && (
+          <HoverSlot
+            display="notOnHover"
+            className={style.placeholderIcon}
+            data-hook={dataHooks.tableActionCellPlaceholder}
+          >
+            {renderPlaceholder()}
+          </HoverSlot>
+        )}
     </span>
   );
 };

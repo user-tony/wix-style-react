@@ -35,6 +35,9 @@ import OnlySecondaryExampleRaw from '!raw-loader!./examples/OnlySecondaryExample
 import OnlyVisibleSecondaryExample from './examples/OnlyVisibleSecondaryExample';
 import OnlyVisibleSecondaryExampleRaw from '!raw-loader!./examples/OnlyVisibleSecondaryExample';
 
+import PrimaryWithOnlyVisibleSecondaryExample from './examples/PrimaryWithOnlyVisibleSecondaryExample';
+import PrimaryWithOnlyVisibleSecondaryExampleRaw from '!raw-loader!./examples/PrimaryWithOnlyVisibleSecondaryExample';
+
 import PrimarySecondaryRTLExample from './examples/PrimarySecondaryRTLExample';
 import PrimarySecondaryRTLExampleRaw from '!raw-loader!./examples/PrimarySecondaryRTLExample';
 
@@ -221,6 +224,15 @@ export default {
           code={SecondaryWithDividerExampleRaw}
         >
           <SecondaryWithDividerExample />
+        </CodeExample>
+      </div>
+
+      <div className={style.example}>
+        <CodeExample
+          title="Primary with only visible secondary actions"
+          code={PrimaryWithOnlyVisibleSecondaryExampleRaw}
+        >
+          <PrimaryWithOnlyVisibleSecondaryExample />
         </CodeExample>
       </div>
     </div>

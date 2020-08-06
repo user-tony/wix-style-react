@@ -103,10 +103,15 @@ class ListItemActionComponent extends React.PureComponent {
       onKeyDown,
       autoFocus,
       highlighted,
+      ...others
     } = this.props;
+
+    // since we're spreading the "rest" props, we don't want to pass
+    const { selected, hovered, ellipsis, ...rest } = others;
 
     return (
       <Component
+        {...rest}
         {...styles('root', { skin, disabled, highlighted }, this.props)}
         data-skin={skin}
         data-disabled={disabled}
@@ -143,13 +148,14 @@ export const listItemActionBuilder = ({
   autoFocus,
   className,
   ellipsis,
+  ...rest
 }) => ({
   id,
   disabled,
   overrideStyle: true,
-  value: props => (
+  value: ({ hovered }) => (
     <ListItemAction
-      {...props}
+      {...rest}
       ellipsis={ellipsis}
       className={className}
       autoFocus={autoFocus}
@@ -161,7 +167,7 @@ export const listItemActionBuilder = ({
       prefixIcon={prefixIcon}
       skin={skin}
       size={size}
-      highlighted={props.hovered}
+      highlighted={hovered}
     />
   ),
 });

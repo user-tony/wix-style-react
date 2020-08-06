@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
-import { getScrollPositionY } from './scrollPositionLogic';
+import { getScrollAreaY } from './scrollAreaLogic';
 import { extractDataAttributes } from '../../utils/extractAttributes';
 
 const ScrollableContainer = forwardRef(function ScrollableContainer(
@@ -10,7 +10,7 @@ const ScrollableContainer = forwardRef(function ScrollableContainer(
     className,
     style,
     children,
-    onScrollPositionChanged,
+    onScrollAreaChanged,
     onScrollChanged,
     scrollThrottleWait,
     ...restProps
@@ -20,24 +20,24 @@ const ScrollableContainer = forwardRef(function ScrollableContainer(
   const elementRef = useRef(null);
   // In case a ref was passed from outside we should use it so allow the parent access to the dom node as well.
   const scrollContainerElement = ref || elementRef;
-  const scrollPositionY = useRef('');
+  const scrollAreaY = useRef('');
 
-  const handleScrollPositionChanged = useCallback(
+  const handleScrollAreaChanged = useCallback(
     throttle(
       ({ target }) => {
-        const newScrollPositionY = getScrollPositionY(target);
-        if (scrollPositionY.current !== newScrollPositionY) {
-          scrollPositionY.current = newScrollPositionY;
-          onScrollPositionChanged({
+        const newScrollAreaY = getScrollAreaY(target);
+        if (scrollAreaY.current !== newScrollAreaY) {
+          scrollAreaY.current = newScrollAreaY;
+          onScrollAreaChanged({
             target,
-            position: { y: newScrollPositionY },
+            area: { y: newScrollAreaY },
           });
         }
       },
       scrollThrottleWait,
       { trailing: true },
     ),
-    [onScrollPositionChanged, scrollThrottleWait],
+    [onScrollAreaChanged, scrollThrottleWait],
   );
 
   const handleScrollChanged = useCallback(
@@ -48,21 +48,21 @@ const ScrollableContainer = forwardRef(function ScrollableContainer(
   useEffect(() => {
     // Registering to the scroll event only if the relevant handlers were provided
     const scrollableElement = scrollContainerElement.current;
-    if (onScrollPositionChanged) {
-      scrollableElement.addEventListener('scroll', handleScrollPositionChanged);
-      // We trigger a call to this handler to expose the initial position state to registering consumers
-      handleScrollPositionChanged({ target: scrollableElement });
+    if (onScrollAreaChanged) {
+      scrollableElement.addEventListener('scroll', handleScrollAreaChanged);
+      // We trigger a call to this handler to expose the initial scroll area to registering consumers
+      handleScrollAreaChanged({ target: scrollableElement });
     }
     if (onScrollChanged) {
       scrollableElement.addEventListener('scroll', handleScrollChanged);
     }
     return () => {
       // Unregistering from relevant events on component unmount
-      if (onScrollPositionChanged) {
-        handleScrollPositionChanged.cancel();
+      if (onScrollAreaChanged) {
+        handleScrollAreaChanged.cancel();
         scrollableElement.removeEventListener(
           'scroll',
-          handleScrollPositionChanged,
+          handleScrollAreaChanged,
         );
       }
       if (onScrollChanged) {
@@ -72,9 +72,9 @@ const ScrollableContainer = forwardRef(function ScrollableContainer(
     };
   }, [
     handleScrollChanged,
-    handleScrollPositionChanged,
+    handleScrollAreaChanged,
     onScrollChanged,
-    onScrollPositionChanged,
+    onScrollAreaChanged,
     scrollContainerElement,
   ]);
 
@@ -101,13 +101,17 @@ const ScrollableContainer = forwardRef(function ScrollableContainer(
 ScrollableContainer.propTypes = {
   /* The wait time value the scroll event will be throttled by */
   scrollThrottleWait: PropTypes.number,
-  /** A Handler for scroll position changes
+  /** A Handler for scroll area changes, will trigger only when the user scrolls to a different area of
+   * the container, see signature for possible areas
+   *
    * ##### Signature:
-   * function({position: {x: positionX, y: positionY}, target: HTMLElement}) => void
-   * * `positionX`: start | middle | end | none (not implemented yet)
-   * * `positionY`: top | middle | bottom | none
+   * `function({area: {y: AreaY, x: AreaX}, target: HTMLElement}) => void`
+   *
+   * `AreaY`: top | middle | bottom | none
+   *
+   * `AreaX`: start | middle | end | none (not implemented yet)
    */
-  onScrollPositionChanged: PropTypes.func,
+  onScrollAreaChanged: PropTypes.func,
   /** A Generic Handler for scroll changes with throttling
    * ##### Signature:
    * function({target: HTMLElement}) => void

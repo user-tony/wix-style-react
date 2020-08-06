@@ -1,5 +1,6 @@
 import { PopoverProps } from './Popover';
 import { TooltipProps } from './Tooltip';
+import { ScrollableContainerProps } from './common/ScrollableContainer';
 
 export interface InjectedFocusableProps {
   onBlur?: () => void;
@@ -58,3 +59,20 @@ export interface TooltipCommonProps {
 }
 
 export type StatusIndications = 'error' | 'warning' | 'loading';
+
+export type Spacing =
+  | 'SP1'
+  | 'SP2'
+  | 'SP3'
+  | 'SP4'
+  | 'SP5'
+  | 'SP6'
+  | 'SP7'
+  | 'SP8'
+  | 'SP9'
+  | 'SP10';
+
+export interface ScrollableContainerCommonProps {
+  onScrollAreaChanged?: ScrollableContainerProps['onScrollAreaChanged'];
+  onScrollChanged?: ScrollableContainerProps['onScrollChanged'];
+}

@@ -22,6 +22,8 @@ import {
   mainContainerMinWidthPx as GRID_MIN_WIDTH,
   mainContainerMaxWidthPx as GRID_MAX_WIDTH,
 } from '../Grid/constants';
+import ScrollableContainer from '../common/ScrollableContainer';
+import { ScrollableContainerCommonProps } from '../common/PropTypes/ScrollableContainerCommon';
 
 /*
  * Page structure without mini-header-overlay:
@@ -60,11 +62,13 @@ class Page extends React.PureComponent {
   static defaultProps = {
     minWidth: GRID_MIN_WIDTH,
     maxWidth: GRID_MAX_WIDTH,
+    scrollProps: {},
   };
 
   constructor(props) {
     super(props);
 
+    this.scrollableContainerRef = React.createRef();
     this._handleScroll = this._handleScroll.bind(this);
     this._handleWidthResize = this._handleWidthResize.bind(this);
     this._handleWindowResize = this._handleWindowResize.bind(this);
@@ -95,6 +99,13 @@ class Page extends React.PureComponent {
     // Maybe there is a transition
     const ARBITRARY_SHORT_DURATION_MS = 100;
     setTimeout(this._calculateComponentsHeights, ARBITRARY_SHORT_DURATION_MS);
+
+    // This is done for backward compatibility only,
+    // Notifying current users that passed the `scrollableContentRef` prop about the ref current value.
+    // New users should be encouraged to use the new event handlers onScrollChanged/onScrollAreaChanged
+    // according to their use case.
+    this.props.scrollableContentRef &&
+      this.props.scrollableContentRef(this.scrollableContainerRef.current);
   }
 
   componentDidUpdate(prevProps) {
@@ -149,15 +160,8 @@ class Page extends React.PureComponent {
     }
   }
 
-  _setScrollContainer(scrollableContainerRef) {
-    this.scrollableContentRef = scrollableContainerRef;
-
-    this.props.scrollableContentRef &&
-      this.props.scrollableContentRef(scrollableContainerRef);
-  }
-
   _getScrollContainer() {
-    return this.scrollableContentRef;
+    return this.scrollableContainerRef.current;
   }
 
   _getMinimizedHeaderWrapperHeight() {
@@ -173,7 +177,7 @@ class Page extends React.PureComponent {
       : null;
   }
 
-  _handleScroll() {
+  _handleScroll(e) {
     const containerScrollTop = this._getScrollContainer().scrollTop;
 
     const { minimized } = this.state;
@@ -186,6 +190,13 @@ class Page extends React.PureComponent {
       this.setState({
         minimized: nextDisplayMiniHeader,
       });
+    }
+
+    const {
+      scrollProps: { onScrollChanged },
+    } = this.props;
+    if (onScrollChanged) {
+      onScrollChanged(e);
     }
   }
 
@@ -325,21 +336,25 @@ class Page extends React.PureComponent {
   }
 
   _renderScrollableContainer() {
+    const {
+      scrollProps: { onScrollAreaChanged },
+    } = this.props;
     return (
-      <div
+      <ScrollableContainer
         className={classNames(s.scrollableContainer, {
           [s.hasTail]: this._hasTail(),
         })}
-        data-hook="page-scrollable-content"
+        dataHook="page-scrollable-content"
         data-class="page-scrollable-content"
-        ref={r => this._setScrollContainer(r)}
-        onScroll={this._handleScroll}
+        ref={this.scrollableContainerRef}
+        onScrollAreaChanged={onScrollAreaChanged}
+        onScrollChanged={this._handleScroll}
       >
         {this._renderScrollableBackground()}
         {this._renderMinimizationPlaceholder()}
         {this._renderHeaderContainer()}
         {this._renderContentContainer()}
-      </div>
+      </ScrollableContainer>
     );
   }
 
@@ -522,8 +537,27 @@ Page.propTypes = {
   className: PropTypes.string,
   /** Header background color class name, allows to add a gradient to the header */
   gradientClassName: PropTypes.string,
-  /** Is called with the Page's scrollable content ref **/
+  /** Will be called with the Page's scrollable content ref after page mount.
+   *
+   * **Note** - If you need this ref just for listening to scroll events on the scrollable content then use the prop
+   * `scrollProps = {onScrollChanged/onScrollAreaChanged}` instead according to your needs. **/
   scrollableContentRef: PropTypes.func,
+  /** Props related to the scrollable content of the page.
+   *
+   * **onScrollAreaChanged** - A Handler for scroll area changes, will be triggered only when the user scrolls to a
+   * different area of the scrollable content, see signature for possible areas
+   * ##### Signature:
+   * `function({area: {y: AreaY, x: AreaX}, target: HTMLElement}) => void`
+   *
+   * `AreaY`: top | middle | bottom | none
+   *
+   * `AreaX`: start | middle | end | none (not implemented yet)
+   *
+   * **onScrollAreaChanged** - A Generic Handler for scroll changes with throttling (100ms)
+   * ##### Signature:
+   * `function({target: HTMLElement}) => void`
+   * */
+  scrollProps: PropTypes.shape(ScrollableContainerCommonProps),
 
   /** Accepts these components as children: `Page.Header`, `Page.Tail`, `Page.Content`, `Page.FixedContent`. Order is insignificant. */
   children: PropTypes.arrayOf((children, key) => {

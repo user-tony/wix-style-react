@@ -66,6 +66,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
     onSelect: PropTypes.func,
     /** Indicates whether to render using the native select element */
     native: PropTypes.bool,
+    /** Value of rendered child input */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {

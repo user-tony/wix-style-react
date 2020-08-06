@@ -15,6 +15,39 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
+
+## 8.39.0 - 2020-08-05
+
+### Added
+- `<StatisticsWidget/>` - Add size prop [#5791](https://github.com/wix/wix-style-react/pull/5791)
+- `<Accordion/>` - add `onHover` callback prop to <AccordionItem/> [#5792](https://github.com/wix/wix-style-react/pull/5792)
+
+### Fixed
+- `<ListItemAction/>` - support additional props when using `as` prop [#5785](https://github.com/wix/wix-style-react/pull/5785)
+
+### Lab - please don't use unless instructed to!
+- `<ThemeProvider/>` - new component [#5501](https://github.com/wix/wix-style-react/pull/5501)
+
+## 8.38.1 - 2020-08-03
+- revert [#5718](https://github.com/wix/wix-style-react/pull/5718)
+
+## 8.38.0 - 2020-08-03
+### Changed
+- `<TableActionCell/>`- add placeholder to primary and only visible secondary [#5760](https://github.com/wix/wix-style-react/pull/5760)
+
+## 8.37.0 - 2020-08-03
+
+### Added
+- `<Box/>` - accept spacing tokens for sizing [#5775](https://github.com/wix/wix-style-react/pull/5775)
+
+### Changed
+- `<Text/>` - Align non textual direct children of text to top [#5718](https://github.com/wix/wix-style-react/pull/5718)
+
+### Fixed
+- `<Breadcrumbs/>` - remove abuse of line-height internally [#5783](https://github.com/wix/wix-style-react/pull/5783)
+- `<AutoCompleteWithLabel/>` - fix type for `value` prop [#5784](https://github.com/wix/wix-style-react/pull/5784)
 
 ## 8.36.0 - 2020-08-02
 
