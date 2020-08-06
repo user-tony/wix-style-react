@@ -83,6 +83,13 @@ export default {
               'Component lists horizontally any number of testimonials. Each testimonial has text, author name and avatar. Avatar should be 60px size.',
             source: examples.basicExample,
           }),
+
+          example({
+            title: 'Without an avatar',
+            text:
+              "The testimonial's props: avatar, text and author name are all optional. This is an example for testimonial list without avatars.",
+            source: examples.withoutAvatarExample,
+          }),
         ],
       }),
 
