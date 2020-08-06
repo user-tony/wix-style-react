@@ -13,7 +13,7 @@ Due to security reasons we decided to enforce signed commits.
 This way we can prevent attackers to use spoofed addresses.
 
 ##### How to sign commits:
-1. Generate a PGP key - read more [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key).
+1. Generate a GPG key - read more [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key).
   Make sure you create the key with the email you use to sign-in to your Github account, which should be the same email you get when running this: `git config --global user.email` (If your email isn't configured, you can add it by running `git config --global user.email "email@example.com"`)
 2. Set your Public key on you GitHub account - https://github.com/settings/keys
 3. Use this command to `commit - git commit -S -am "…"` to sign your commit, or `git config --global commit.gpgsign true` for automatic sign.

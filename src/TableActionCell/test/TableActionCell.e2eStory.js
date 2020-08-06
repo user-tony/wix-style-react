@@ -14,6 +14,7 @@ import PopoverMenuPropsExample from '../docs/examples/PopoverMenuPropsExample';
 import AlwaysVisibleSecondaryExample from '../docs/examples/AlwaysVisibleSecondaryExample';
 import OnlySecondaryExample from '../docs/examples/OnlySecondaryExample';
 import OnlyVisibleSecondaryExample from '../docs/examples/OnlyVisibleSecondaryExample';
+import PrimaryWithOnlyVisibleSecondaryExample from '../docs/examples/PrimaryWithOnlyVisibleSecondaryExample';
 import PrimarySecondaryRTLExample from '../docs/examples/PrimarySecondaryRTLExample';
 import DisabledSecondaryExample from '../docs/examples/DisabledSecondaryExample';
 import DisabledPrimaryExample from '../docs/examples/DisabledPrimaryExample';
@@ -85,6 +86,12 @@ storiesOf(kind, module).add(testStories.tableActionCell, () => (
     <div className={style.example}>
       <CodeExample title="Disabled primary actions">
         <DisabledPrimaryExample />
+      </CodeExample>
+    </div>
+
+    <div className={style.example}>
+      <CodeExample title="Primary with only visible secondary actions">
+        <PrimaryWithOnlyVisibleSecondaryExample />
       </CodeExample>
     </div>
   </div>

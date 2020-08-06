@@ -1,7 +1,8 @@
 import React from 'react';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
 
-import Box, { spacingUnit } from '../Box';
+import Box from '../Box';
+import { spacingUnit } from '../../spacing';
 import { boxPrivateDriverFactory } from '../Box.private.uni.driver';
 
 describe('Box', () => {
@@ -149,6 +150,14 @@ describe('Box', () => {
       const driver = createDriver(
         <Box padding={expectedPadding}>{children}</Box>,
       );
+
+      expect(await driver.getStyle()).toContain(`padding: ${expectedPadding}`);
+    });
+
+    it('should render with padding when passing a spacing token', async () => {
+      const expectedPadding = `${spacingUnit * 3}px`;
+      const children = <span>Children</span>;
+      const driver = createDriver(<Box padding="SP3">{children}</Box>);
 
       expect(await driver.getStyle()).toContain(`padding: ${expectedPadding}`);
     });

@@ -22,6 +22,7 @@ export interface AccordionItem {
   initiallyOpen?: boolean;
   disabled?: boolean;
   onToggle?: React.MouseEventHandler<HTMLElement>;
+  onHover?: React.MouseEventHandler<HTMLElement>;
 }
 
 export default class Accordion extends React.Component<AccordionProps> {}

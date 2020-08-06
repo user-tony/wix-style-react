@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListItemAction from '../ListItemAction';
+import { listItemActionBuilder } from '../ListItemAction';
 import DropdownBase from '../DropdownBase';
 import { placements } from '../Popover';
 import styles from './PopoverMenu.st.css';
@@ -235,26 +235,20 @@ class PopoverMenu extends React.PureComponent {
         this.focusableList = [...this.focusableList, id];
       }
 
-      return {
+      return listItemActionBuilder({
+        ...rest,
         id,
         disabled,
-        overrideStyle: true,
-        value: props => (
-          <ListItemAction
-            {...props}
-            {...rest}
-            as="button"
-            dataHook={dataHook ? dataHook : `popover-menu-${id}`}
-            ref={ref => (this.children[id] = ref)}
-            tabIndex={id === focused && !disabled ? '0' : '-1'}
-            onKeyDown={e => this._onKeyDown(e, id)}
-            skin={option.skin || 'dark'}
-            size={textSize}
-            className={styles.listItem}
-            ellipsis={ellipsis}
-          />
-        ),
-      };
+        as: 'button',
+        dataHook: dataHook || `popover-menu-${id}`,
+        ref: ref => (this.children[id] = ref),
+        tabIndex: id === focused && !disabled ? '0' : '-1',
+        onKeyDown: e => this._onKeyDown(e, id),
+        skin: option.skin || 'dark',
+        size: textSize,
+        className: styles.listItem,
+        ellipsis,
+      });
     });
   };
 

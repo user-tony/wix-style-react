@@ -4,8 +4,9 @@ import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ScrollableContainer, {
-  positionY,
+  AreaY,
 } from '../../../common/ScrollableContainer';
+import { ScrollableContainerCommonProps } from '../../../common/PropTypes/ScrollableContainerCommon';
 import { dataHooks } from '../../constants';
 import { useBaseModalLayoutContext } from '../../BaseModalLayoutContext';
 
@@ -14,44 +15,45 @@ export const Content = ({
   className,
   children,
   contentHideDividers,
-  onContentScrollPositionChanged,
+  scrollProps = {},
 }) => {
   const { contentClassName, content = children } = useBaseModalLayoutContext();
-  const [scrollPositionY, setScrollPositionY] = useState(positionY.NONE);
+  const [scrollAreaY, setScrollAreaY] = useState(AreaY.NONE);
+  const { onScrollAreaChanged } = scrollProps;
 
-  const handleScrollPositionChanged = useCallback(
-    ({ position, target }) => {
-      if (scrollPositionY !== position.y) {
+  const handleScrollAreaChanged = useCallback(
+    ({ area, target }) => {
+      if (scrollAreaY !== area.y) {
         if (!contentHideDividers) {
-          setScrollPositionY(position.y);
+          setScrollAreaY(area.y);
         }
-        if (onContentScrollPositionChanged) {
-          onContentScrollPositionChanged({ position, target });
+        if (onScrollAreaChanged) {
+          onScrollAreaChanged({ area, target });
         }
       }
     },
-    [contentHideDividers, onContentScrollPositionChanged, scrollPositionY],
+    [contentHideDividers, onScrollAreaChanged, scrollAreaY],
   );
 
   const isTopDividerHidden = useCallback(
     () =>
       contentHideDividers ||
-      scrollPositionY === positionY.TOP ||
-      scrollPositionY === positionY.NONE,
-    [contentHideDividers, scrollPositionY],
+      scrollAreaY === AreaY.TOP ||
+      scrollAreaY === AreaY.NONE,
+    [contentHideDividers, scrollAreaY],
   );
 
   const isBottomDividerHidden = useCallback(
     () =>
       contentHideDividers ||
-      scrollPositionY === positionY.BOTTOM ||
-      scrollPositionY === positionY.NONE,
-    [contentHideDividers, scrollPositionY],
+      scrollAreaY === AreaY.BOTTOM ||
+      scrollAreaY === AreaY.NONE,
+    [contentHideDividers, scrollAreaY],
   );
 
   className = classNames(contentClassName, className);
-  const registerToScrollPositionChanges =
-    !contentHideDividers || !!onContentScrollPositionChanged;
+  const registerToScrollAreaChanges =
+    !contentHideDividers || !!onScrollAreaChanged;
 
   return (
     (content && (
@@ -71,9 +73,8 @@ export const Content = ({
         <ScrollableContainer
           dataHook={dataHooks.contentWrapper}
           className={styles.innerContent}
-          onScrollPositionChanged={
-            (registerToScrollPositionChanges && handleScrollPositionChanged) ||
-            null
+          onScrollAreaChanged={
+            (registerToScrollAreaChanges && handleScrollAreaChanged) || null
           }
         >
           {content}
@@ -96,12 +97,22 @@ Content.propTypes = {
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** hides the content scrolling dividers  */
   contentHideDividers: PropTypes.bool,
-  /** A Handler for changes in the content scroll position
+  /** Props related to the scrollable content.
+   *
+   * **onScrollAreaChanged** - A Handler for scroll area changes, will be triggered only when the user scrolls to a
+   * different area of the scrollable content, see signature for possible areas
    * ##### Signature:
-   * function({position: {y: positionY}, target: HTMLElement}) => void
-   * * `positionY`: top | middle | bottom | none
-   */
-  onContentScrollPositionChanged: PropTypes.func,
+   * `function({area: {y: AreaY, x: AreaX}, target: HTMLElement}) => void`
+   *
+   * `AreaY`: top | middle | bottom | none
+   *
+   * `AreaX`: start | middle | end | none (not implemented yet)
+   *
+   * **onScrollAreaChanged** - A Generic Handler for scroll changes with throttling (100ms)
+   * ##### Signature:
+   * `function({target: HTMLElement}) => void`
+   * */
+  scrollProps: PropTypes.shape(ScrollableContainerCommonProps),
 };
 
 Content.defaultProps = {

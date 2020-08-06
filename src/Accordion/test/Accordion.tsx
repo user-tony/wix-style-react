@@ -27,6 +27,7 @@ function AccordionWithAllProps() {
           title: <div />,
           disabled: true,
           onToggle: () => {},
+          onHover: () => {},
           open: true,
           initiallyOpen: true,
         },

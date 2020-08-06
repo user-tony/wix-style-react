@@ -26,6 +26,7 @@ export interface AutoCompleteWithLabelProps {
   placeholder?: string;
   onSelect?: (option: DropdownLayoutValueOption) => void;
   native?: boolean;
+  value?: string | number;
 }
 
 export default class AutoCompleteWithLabel extends React.PureComponent<

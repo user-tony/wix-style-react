@@ -13,9 +13,18 @@ import DataHooks from '../dataHooks';
 import DataAttrs from '../dataAttrs';
 
 import styles from './StatisticsItem.st.css';
+import { SIZES } from '../constants';
+
+const sizeToAppearance = {
+  [SIZES.tiny]: 'tiny',
+  [SIZES.large]: 'H1',
+};
 
 class StatisticsItem extends React.PureComponent {
   static displayName = 'StatisticsItem';
+  static defaultProps = {
+    size: 'large',
+  };
 
   _getFocusableProps = () => {
     const { onClick, focusableOnFocus, focusableOnBlur } = this.props;
@@ -40,9 +49,10 @@ class StatisticsItem extends React.PureComponent {
     }
   };
 
-  _renderValue = (value, valueInShort) => (
+  _renderValue = (value, valueInShort, size) => (
     <AdaptiveHeading
       text={value}
+      appearance={sizeToAppearance[size]}
       textInShort={valueInShort}
       dataHook={DataHooks.value}
     />
@@ -131,6 +141,7 @@ class StatisticsItem extends React.PureComponent {
       focusableOnFocus,
       focusableOnBlur,
       className,
+      size,
       ...rest
     } = this.props;
 
@@ -145,7 +156,7 @@ class StatisticsItem extends React.PureComponent {
 
     return (
       <div {...attrs}>
-        {this._renderValue(value, valueInShort)}
+        {this._renderValue(value, valueInShort, size)}
         {this._renderDescription(description, descriptionInfo)}
         {this._renderPercents(percentage, invertedPercentage)}
         {children}

@@ -25,17 +25,20 @@
 
 .breadcrumbs {
     height: value(height);
-    line-height: value(height);
     padding: 0 value(sidePadding);
 }
 
 .item {
     -st-states: active, disabled, link, button, fullWidth;
-    display: inline-block;
+    display: inline-flex;
     overflow: hidden;
     white-space: nowrap;
     max-width: 240px;
     text-overflow: ellipsis;
+}
+
+.itemText {
+  margin: auto 0;
 }
 
 .item:fullWidth {

@@ -1,3 +1,7 @@
+import * as Themes from './Themes';
+
+export { Themes };
+
 export * from './common';
 
 export { default as Accordion } from './Accordion';
@@ -435,8 +439,8 @@ export * from './VerticalTabsItem';
 export { default as clients } from './clients';
 export * from './clients';
 
-export * from './dnd-styles';
 export { default as dndStyles } from './dnd-styles';
+export * from './dnd-styles';
 
 export { default as FileUpload } from './FileUpload';
 export * from './FileUpload';
@@ -446,3 +450,6 @@ export * from './Animate';
 
 export { default as FacesRatingBar } from './FacesRatingBar';
 export * from './FacesRatingBar';
+
+export { default as ThemeProvider } from './ThemeProvider';
+export * from './ThemeProvider';

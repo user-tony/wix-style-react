@@ -14,6 +14,7 @@ function StatisticsWidgetWithAllProps() {
   return (
     <StatisticsWidget
       dataHook="hook"
+      size="tiny"
       items={[
         { value: '' },
         {

@@ -73,6 +73,7 @@ function AutoCompleteWithLabelWithAllProps() {
       placeholder="placeholder"
       onSelect={_ev => {}}
       native
+      value="value"
     />
   );
 }

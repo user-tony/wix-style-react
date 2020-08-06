@@ -31,6 +31,7 @@ import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
 import onClick from '!raw-loader!./examples/onClick';
 import Card from '!raw-loader!./examples/Card';
 import InteractiveCard from '!raw-loader!./examples/InteractiveCard';
+import TinyValues from '!raw-loader!./examples/TinyValues';
 
 const code = config => baseCode({ components: allComponents, ...config });
 const example = config => baseExample({ components: allComponents, ...config });
@@ -101,6 +102,15 @@ export default {
               'When there is not enough space, part of the value or description will be hidden with an ellipsis. Hover it to see full text.',
             autoRender: false,
             source: LongText,
+          }),
+
+          example({
+            compact: true,
+            autoRender: false,
+            title: 'Tiny Values',
+            description:
+              'Uses a bold Text component instead of a Heading to display the values',
+            source: TinyValues,
           }),
 
           example({

@@ -6,9 +6,7 @@ import colors from '../colors.scss';
 import styles from './Box.scss';
 
 import { filterObject } from '../utils/filterObject';
-
-/** Defined according to the design system */
-export const spacingUnit = 6;
+import { spacingUnit, spacingTokens } from '../spacing';
 
 const directions = {
   horizontal: styles.horizontal,
@@ -34,15 +32,19 @@ const spacingValues = {
 };
 
 /** In case the value is a number, it's multiplied by the defined spacing unit.
- *  Otherwise - there're two options:
- *   1. A predefined spacing value with semantic name (tiny, small, etc.)
- *   2. Space-separated values that are represented by a string (for example: "3px 3px")
+ *  Otherwise - there are three options:
+ *   1. A Spacing Token - SP1, SP2, etc. - where the number is multiplied by the spacing unit.
+ *   2. A predefined spacing value with semantic name (tiny, small, etc.)
+ *   3. Space-separated values that are represented by a string (for example: "3px 3px")
  * */
 const formatSpacingValue = value => {
-  if (typeof value !== 'undefined')
-    return isFinite(value)
-      ? `${value * spacingUnit}px`
-      : spacingValues[value] || `${value}`;
+  if (typeof value !== 'undefined') {
+    if (isFinite(value)) {
+      return `${value * spacingUnit}px`;
+    }
+
+    return spacingTokens[value] || spacingValues[value] || `${value}`;
+  }
 };
 const formatSizeValue = value => {
   if (typeof value !== 'undefined')
@@ -182,43 +184,43 @@ Box.propTypes = {
   verticalAlign: PropTypes.oneOf(Object.keys(verticalAlignmentValues)),
   /** Sets padding on all sides.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets padding on the top.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   paddingTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets padding on the right.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   paddingRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets padding on the bottom.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   paddingBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets padding on the left.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   paddingLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets margin on all sides.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets margin on the top.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets margin on the right.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   marginRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets margin on the bottom.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets margin on the left.
    * Accepts a numeric value (multiplied by spacing unit), predefined spacing value (tiny, small, etc.)
-   * or a string of space-separated values ("3px 3px") */
+   * a spacing token (SP1, SP2, etc.) or a string of space-separated values ("3px 3px") */
   marginLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Sets the minimum width of the box (pixels) */
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

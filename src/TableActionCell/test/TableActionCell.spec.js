@@ -16,7 +16,12 @@ const primaryActionProps = (actionTrigger = () => {}, disabled = false) => ({
   },
 });
 
-const secondaryActionsProps = ({ actionTriggers, actionDataHooks } = {}) => {
+const secondaryActionsProps = ({
+  actionTriggers,
+  actionDataHooks,
+  numOfSecondaryActions = 4,
+  numOfVisibleSecondaryActions = 2,
+} = {}) => {
   const createAction = n => ({
     text: `Action ${n}`,
     dataHook: actionDataHooks && actionDataHooks[n],
@@ -25,10 +30,10 @@ const secondaryActionsProps = ({ actionTriggers, actionDataHooks } = {}) => {
   });
 
   return {
-    secondaryActions: Array(4)
+    secondaryActions: Array(numOfSecondaryActions)
       .fill(undefined)
       .map((val, idx) => createAction(idx)),
-    numOfVisibleSecondaryActions: 2,
+    numOfVisibleSecondaryActions,
   };
 };
 
@@ -42,6 +47,32 @@ describe('Table Action Cell', () => {
 
     it("should have a placeholder when there's only a primary action", async () => {
       const { driver } = render(<TableActionCell {...primaryActionProps()} />);
+      expect(await driver.primaryActionPlaceholderExists()).toBe(true);
+    });
+
+    it("should have a placeholder when there's only a primary action without secondaryActions and numOfVisibleSecondaryActions > 0", async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps({
+            numOfSecondaryActions: 0,
+            numOfVisibleSecondaryActions: 2,
+          })}
+        />,
+      );
+      expect(await driver.primaryActionPlaceholderExists()).toBe(true);
+    });
+
+    it("should have a placeholder when there's a primary action and only visible secondary actions", async () => {
+      const { driver } = render(
+        <TableActionCell
+          {...primaryActionProps()}
+          {...secondaryActionsProps({
+            numOfSecondaryActions: 2,
+            numOfVisibleSecondaryActions: 2,
+          })}
+        />,
+      );
       expect(await driver.primaryActionPlaceholderExists()).toBe(true);
     });
 

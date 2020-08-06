@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Text from '../Text';
 import { SIZES, SKINS, WEIGHTS } from '../constants';
 import { Layout, Cell } from 'wix-style-react';
+import Box from '../../Box';
 
 const tests = [
   {
@@ -82,23 +83,23 @@ tests.forEach(({ describe, its }) => {
       Object.keys(WEIGHTS).forEach(weight => {
         testStories.push(
           <Cell span={4} key={testStories.length}>
-            <div>
+            <Box>
               <Text
                 size={size}
                 weight={weight}
                 children={'ABCDEFGHIJKLMNOPQRSTUVWXYZ'}
                 {...props}
               />
-            </div>
+            </Box>
             {!props.children && (
-              <div>
+              <Box>
                 <Text
                   size={size}
                   weight={weight}
                   children={'abcdefghijklmnopqrstuvwxyz'}
                   {...props}
                 />
-              </div>
+              </Box>
             )}
           </Cell>,
         );
