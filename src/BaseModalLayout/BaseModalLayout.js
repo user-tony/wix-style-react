@@ -42,13 +42,9 @@ class BaseModalLayout extends React.PureComponent {
     } = this.props;
     const { theme } = restProps;
 
-    const controlButtonHandlers = [onCloseButtonClick, onHelpButtonClick];
-    let controlButtonAmount = 0;
-    controlButtonHandlers.forEach(handler => {
-      if (handler) {
-        controlButtonAmount++;
-      }
-    });
+    const controlButtonAmount = [onCloseButtonClick, onHelpButtonClick].filter(
+      Boolean,
+    ).length;
 
     return (
       <div
