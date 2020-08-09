@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Dropzone />` - New component [#5574](https://github.com/wix/wix-style-react/pull/5574)
+- `<Table/>` - add isRowDisabled prop [#5764](https://github.com/wix/wix-style-react/pull/5764)
+
 ## 8.40.0 - 2020-08-09
 ### Added
 - `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
