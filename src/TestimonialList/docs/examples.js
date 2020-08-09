@@ -45,6 +45,12 @@ export const columnsExample = `
             text: 'A perfect tool for my every day tasks.',
             authorName: 'Smiling lady'
           },
+          {
+            id: '0004',
+            avatar: <Avatar name="Smiling lady" size="size60"/>,
+            text: 'A perfect tool for my every day tasks.',
+            authorName: 'Smiling lady'
+          },
         ]}
     />
 `;

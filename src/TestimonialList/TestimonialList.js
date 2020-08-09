@@ -14,7 +14,7 @@ class TestimonialList extends React.PureComponent {
       <div
         {...styles('root', {}, className)}
         data-hook={dataHook}
-        style={{ 'grid-template-columns': `repeat(${cols}, 1fr)` }}
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
       >
         {testimonials.map((testimonialItem, index) => {
           return (
@@ -72,7 +72,7 @@ TestimonialList.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
-  /** Define the number of columns. It is used for the grid in order to define how many feature will be displayed in a row. The default value is 3. */
+  /** Define the number of columns. It is used for the grid in order to define how many testimonials will be displayed in a row. The default value is 3. */
   cols: PropTypes.number,
 
   /**
