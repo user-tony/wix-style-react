@@ -48,24 +48,23 @@ class BuildersExample extends React.Component {
 
   render() {
     const { selectedOptions } = this.state;
-    return (
-      <MultiSelectCheckbox
-        options={[
+    const optionsList = [
         listItemSelectBuilder({
             checkbox: true,
-            value: 'Logan Chandler',
             id: 'Logan Chandler',
             title: 'Logan Chandler',
         }),
         { value: 'Paul Simon', id: 'Paul Simon' },
         listItemSelectBuilder({
             checkbox: true,
-            value: 'Etta Wheeler',
             id: 'Etta Wheeler',
             title: 'Etta Wheeler',
           }),
         { value: 'Robert Ortega', id: 'Robert Ortega'}
-        ]}
+        ];
+    return (
+      <MultiSelectCheckbox
+        options={optionsList}
         selectedOptions={selectedOptions}
         onSelect={this.onSelect}
         onDeselect={this.onDeselect}

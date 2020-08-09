@@ -14,7 +14,7 @@ import uniqueId from 'lodash/uniqueId';
 
 import Popover from '../Popover';
 
-export const DEFAULT_VALUE_PARSER = option => option.value;
+export const DEFAULT_VALUE_PARSER = option => option.label || option.value;
 
 const DEFAULT_POPOVER_PROPS = {
   appendTo: 'parent',

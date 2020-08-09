@@ -171,14 +171,12 @@ describe('multiSelectCheckbox', () => {
         const options = [
           listItemSelectBuilder({
             checkbox: true,
-            value: 'option1',
             id: 'option1',
             title: 'option1',
           }),
           { id: 'option2', value: 'option2' },
           listItemSelectBuilder({
             checkbox: true,
-            value: 'option3',
             id: 'option3',
             title: 'option3',
           }),

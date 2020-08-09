@@ -501,6 +501,7 @@ const optionPropTypes = PropTypes.shape({
     .isRequired,
   disabled: PropTypes.bool,
   overrideStyle: PropTypes.bool,
+  label: PropTypes.string,
 });
 
 export function optionValidator(props, propName, componentName) {
