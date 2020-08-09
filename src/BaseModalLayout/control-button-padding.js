@@ -12,5 +12,6 @@ module.exports = function(amount) {
   if (amount > MAX_BUTTON_AMOUNT) {
     throw new Error(`Modal accepts up to ${MAX_BUTTON_AMOUNT} control buttons`);
   }
-  return `${BASE_PADDING + BUTTON_WIDTH * amount + GAP_WIDTH * (amount - 1)}px`;
+  const gap = amount > 1 ? GAP_WIDTH * (amount - 1) : 0;
+  return `${BASE_PADDING + BUTTON_WIDTH * amount + gap}px`;
 };
