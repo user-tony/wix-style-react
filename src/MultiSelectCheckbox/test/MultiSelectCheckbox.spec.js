@@ -1,8 +1,7 @@
 import React from 'react';
-import MultiSelectCheckbox, { builderParser } from '../MultiSelectCheckbox';
-import { listItemSelectBuilder } from '../../ListItemSelect';
-import { listItemSectionBuilder } from '../../ListItemSection';
+import MultiSelectCheckbox from '../MultiSelectCheckbox';
 import { multiSelectCheckboxUniDriverFactory } from '../MultiSelectCheckbox.uni.driver';
+import { listItemSelectBuilder } from '../../ListItemSelect';
 import {
   cleanup,
   createRendererWithDriver,
@@ -167,54 +166,80 @@ describe('multiSelectCheckbox', () => {
       expect(await driver.getLabelAt(0)).toBe(specialOption.label);
     });
 
-    // describe('Builder Options', () => {
-    //   it('should allow using builders as options', async () => {
-    //     const options = [
-    //       listItemSectionBuilder({
-    //         id: 'title',
-    //         title: 'title',
-    //       }),
-    //       listItemSelectBuilder({
-    //         checkbox: true,
-    //         value: 'option1',
-    //         id: 'option1',
-    //         title: 'option1',
-    //         selected: true,
-    //       }),
-    //       listItemSelectBuilder({
-    //         checkbox: true,
-    //         value: 'option2',
-    //         id: 'option2',
-    //         title: 'option2',
-    //         selected: true,
-    //       }),
-    //       listItemSelectBuilder({
-    //         checkbox: true,
-    //         value: 'option3',
-    //         id: 'option3',
-    //         title: 'option3',
-    //         selected: false,
-    //       }),
-    //     ];
-    //
-    //     const selectedOptions = ['option1', 'option2'];
-    //
-    //     const { driver, inputDriver } = createDriver(
-    //       <MultiSelectCheckbox
-    //         options={options}
-    //         selectedOptions={selectedOptions}
-    //         valueParser={builderParser}
-    //       />,
-    //     );
-    //
-    //     expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
-    //     expect(await driver.getLabelAt(0)).toBe(selectedOptions[0]);
-    //     expect(await driver.getLabelAt(1)).toBe(selectedOptions[1]);
-    //     expect(await inputDriver.getValue()).toBe(
-    //       `${selectedOptions[0]}, ${selectedOptions[1]}`,
-    //     );
-    //   });
-    // });
+    describe('Builder Options', () => {
+      it('should allow using builders as options', async () => {
+        const options = [
+          listItemSelectBuilder({
+            checkbox: true,
+            value: 'option1',
+            id: 'option1',
+            title: 'option1',
+          }),
+          listItemSelectBuilder({
+            checkbox: true,
+            value: 'option2',
+            id: 'option2',
+            title: 'option2',
+          }),
+          listItemSelectBuilder({
+            checkbox: true,
+            value: 'option3',
+            id: 'option3',
+            title: 'option3',
+          }),
+        ];
+
+        const selectedOptions = ['option1', 'option2'];
+
+        const { driver, inputDriver } = createDriver(
+          <MultiSelectCheckbox
+            options={options}
+            selectedOptions={selectedOptions}
+          />,
+        );
+
+        expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
+        expect(await driver.getLabelAt(0)).toBe(selectedOptions[0]);
+        expect(await driver.getLabelAt(1)).toBe(selectedOptions[1]);
+        expect(await inputDriver.getValue()).toBe(
+          `${selectedOptions[0]}, ${selectedOptions[1]}`,
+        );
+      });
+
+      it('should allow using both builders and objects as options', async () => {
+        const options = [
+          listItemSelectBuilder({
+            checkbox: true,
+            value: 'option1',
+            id: 'option1',
+            title: 'option1',
+          }),
+          { id: 'option2', value: 'option2' },
+          listItemSelectBuilder({
+            checkbox: true,
+            value: 'option3',
+            id: 'option3',
+            title: 'option3',
+          }),
+        ];
+
+        const selectedOptions = ['option1', 'option2'];
+
+        const { driver, inputDriver } = createDriver(
+          <MultiSelectCheckbox
+            options={options}
+            selectedOptions={selectedOptions}
+          />,
+        );
+
+        expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
+        expect(await driver.getLabelAt(0)).toBe(selectedOptions[0]);
+        expect(await driver.getLabelAt(1)).toBe(selectedOptions[1]);
+        expect(await inputDriver.getValue()).toBe(
+          `${selectedOptions[0]}, ${selectedOptions[1]}`,
+        );
+      });
+    });
 
     it('should contain specific selected values', async () => {
       const selectedOptions = [options[0].id, options[1].id];
