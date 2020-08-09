@@ -450,3 +450,6 @@ export * from './FacesRatingBar';
 
 export { default as ThemeProvider } from './ThemeProvider';
 export * from './ThemeProvider';
+
+export { default as MarketingPageLayoutContent } from './MarketingPageLayoutContent';
+export * from './MarketingPageLayoutContent';
