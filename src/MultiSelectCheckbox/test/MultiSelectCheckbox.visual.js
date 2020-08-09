@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 import MultiSelectCheckbox from '../MultiSelectCheckbox';
 import { listItemSelectBuilder } from '../../ListItemSelect';
-import { listItemSectionBuilder } from '../../ListItemSection';
 import { multiSelectCheckboxTestkitFactory } from '../../../testkit';
 import DistributeGlobeSmall from 'wix-ui-icons-common/DistributeGlobeSmall';
 import Box from '../../Box';
@@ -82,30 +81,23 @@ const interactiveTests = [
         props: {
           selectedOptions: ['option1', 'option2'],
           options: [
-            listItemSectionBuilder({
-              id: 'title',
-              title: 'title',
-            }),
             listItemSelectBuilder({
               checkbox: true,
               value: 'option1',
               id: 'option1',
               title: 'option1',
-              selected: true,
             }),
             listItemSelectBuilder({
               checkbox: true,
               value: 'option2',
               id: 'option2',
               title: 'option2',
-              selected: true,
             }),
             listItemSelectBuilder({
               checkbox: true,
               value: 'option3',
               id: 'option3',
               title: 'option3',
-              selected: false,
             }),
           ],
         },
