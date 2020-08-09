@@ -44,9 +44,13 @@ class MarketingPageLayoutContent extends React.PureComponent {
     return (
       <div {...styles('root', { size }, className)} data-hook={dataHook}>
         {overline && (
-          <div className={styles.overlineContainer}>
+          <div
+            className={styles.overlineContainer}
+            data-hook={dataHooks.overlineContainer}
+          >
             <div
               className={styles.overline}
+              data-hook={dataHooks.overline}
               children={
                 isString(overline) ? (
                   <Text size={sizesMap.overline[size]}>{overline}</Text>
@@ -61,6 +65,7 @@ class MarketingPageLayoutContent extends React.PureComponent {
         {title && (
           <div
             className={styles.title}
+            data-hook={dataHooks.title}
             children={
               isString(title) ? (
                 <Heading appearance={sizesMap.title[size]}>{title}</Heading>
@@ -73,6 +78,7 @@ class MarketingPageLayoutContent extends React.PureComponent {
         {subtitle && (
           <div
             className={styles.subtitle}
+            data-hook={dataHooks.subtitle}
             children={
               isString(subtitle) ? (
                 <Heading appearance={sizesMap.subtitle[size]}>
@@ -87,6 +93,7 @@ class MarketingPageLayoutContent extends React.PureComponent {
         {content && (
           <div
             className={styles.content}
+            data-hook={dataHooks.content}
             children={
               isString(content) ? (
                 <Text size={sizesMap.content[size]}>{content}</Text>
@@ -96,7 +103,13 @@ class MarketingPageLayoutContent extends React.PureComponent {
             }
           ></div>
         )}
-        {actions && <div className={styles.actions} children={actions}></div>}
+        {actions && (
+          <div
+            className={styles.actions}
+            data-hook={dataHooks.actions}
+            children={actions}
+          />
+        )}
       </div>
     );
   }

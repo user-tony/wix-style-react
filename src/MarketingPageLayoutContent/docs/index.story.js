@@ -31,10 +31,22 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
+    overline: 'overline text',
+    title: 'title text',
+    subtitle: 'subtitle text',
+    content: 'content text',
   },
 
-  exampleProps: {},
+  exampleProps: {
+    actions: [
+      {
+        label: 'Action button',
+        value: (
+          <allComponents.Button size="large">Main Action</allComponents.Button>
+        ),
+      },
+    ],
+  },
 
   sections: [
     header({
@@ -60,7 +72,8 @@ export default {
 
           example({
             title: 'Simple Usage',
-            text: 'A simple example with compact preview',
+            text:
+              'This component is used in the MarketingPageLayout component. All the properties are optional and It could includes the following data: outline, title, subtitle, content and actions (buttons).',
             source: examples.basicExample,
           }),
 
