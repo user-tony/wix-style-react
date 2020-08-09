@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+## 8.40.0 - 2020-08-09
 ### Added
 - `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
 - `<TagList/>` - enable expanding and collapsing of Tag lists [#5768](https://github.com/wix/wix-style-react/pull/5768)
