@@ -167,45 +167,6 @@ describe('multiSelectCheckbox', () => {
     });
 
     describe('Builder Options', () => {
-      it('should allow using builders as options', async () => {
-        const options = [
-          listItemSelectBuilder({
-            checkbox: true,
-            value: 'option1',
-            id: 'option1',
-            title: 'option1',
-          }),
-          listItemSelectBuilder({
-            checkbox: true,
-            value: 'option2',
-            id: 'option2',
-            title: 'option2',
-          }),
-          listItemSelectBuilder({
-            checkbox: true,
-            value: 'option3',
-            id: 'option3',
-            title: 'option3',
-          }),
-        ];
-
-        const selectedOptions = ['option1', 'option2'];
-
-        const { driver, inputDriver } = createDriver(
-          <MultiSelectCheckbox
-            options={options}
-            selectedOptions={selectedOptions}
-          />,
-        );
-
-        expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
-        expect(await driver.getLabelAt(0)).toBe(selectedOptions[0]);
-        expect(await driver.getLabelAt(1)).toBe(selectedOptions[1]);
-        expect(await inputDriver.getValue()).toBe(
-          `${selectedOptions[0]}, ${selectedOptions[1]}`,
-        );
-      });
-
       it('should allow using both builders and objects as options', async () => {
         const options = [
           listItemSelectBuilder({
