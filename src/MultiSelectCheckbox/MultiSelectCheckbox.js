@@ -151,7 +151,7 @@ MultiSelectCheckbox.propTypes = {
   /** delimiter between the selected options that will be displayed in the input. */
   delimiter: PropTypes.string,
 
-  /** Function that receives an option, and should return the value to be displayed. By default returns `option.value` in case the option is an object and `option.optionTitle` in case it's a builder */
+  /** Function that receives an option, and should return the value to be displayed. By default returns `option.value` in case the option is an object and `option.optionTitle` in case is a builder */
   valueParser: PropTypes.func,
 };
 
