@@ -340,7 +340,7 @@ class DropdownLayout extends WixComponent {
       idx,
       selected: id === this.state.selectedId,
       hovered: idx === this.state.hovered,
-      disabled,
+      disabled: disabled || title,
       title,
       overrideStyle,
       dataHook: `dropdown-item-${id}`,
@@ -405,7 +405,7 @@ class DropdownLayout extends WixComponent {
         {...this._getItemDataAttr({
           hovered,
           selected,
-          disabled: disabled || title,
+          disabled,
           overrideStyle,
         })}
         {...styles('option', {
