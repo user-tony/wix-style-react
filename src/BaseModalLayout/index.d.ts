@@ -13,8 +13,8 @@ export interface BaseModalLayoutProps {
   className?: string;
   dataHook?: string;
   theme?: ModalTheme;
-  onCloseButtonClick?(): void;
-  onHelpButtonClick?(): void;
+  onCloseButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onHelpButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export * from './LayoutBlocks';
