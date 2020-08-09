@@ -59,7 +59,7 @@ class BaseModalLayout extends React.PureComponent {
           'root',
           {
             theme,
-            controlButtonAmount: controlButtonAmount,
+            controlButtonAmount,
           },
           { className, ...restProps },
         )}
