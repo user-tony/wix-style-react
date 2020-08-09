@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
+- `<TagList/>` - enable expanding and collapsing of Tag lists [#5768](https://github.com/wix/wix-style-react/pull/5768)
 
 ### Changed
 - `<Collapse/>` upgrade react-collapse version 5.X [#5799](https://github.com/wix/wix-style-react/pull/5799)
