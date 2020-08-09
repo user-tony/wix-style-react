@@ -150,20 +150,46 @@ describe('multiSelectCheckbox', () => {
       );
     });
 
-    it('should use provided valueParser that will enable handling option with a component in value', async () => {
-      const specialOption = options.find(x => typeof x.value !== 'string');
-      const selectedOptions = [specialOption.id];
-      const valueParser = option =>
-        typeof option.value === 'string' ? option.value : option.label;
+    describe('valueParser', () => {
+      it('should use provided valueParser that will enable handling option with a component in value', async () => {
+        const specialOption = {
+          value: <div>Arkansas</div>,
+          id: 'Arkansas',
+          title: 'Arkansan Label',
+        };
+        const selectedOptions = [specialOption.id];
 
-      const { driver } = createDriver(
-        <MultiSelectCheckbox
-          valueParser={valueParser}
-          options={options}
-          selectedOptions={selectedOptions}
-        />,
-      );
-      expect(await driver.getLabelAt(0)).toBe(specialOption.label);
+        const options = [specialOption];
+        const valueParser = option =>
+          typeof option.value === 'string' ? option.value : option.title;
+
+        const { driver } = createDriver(
+          <MultiSelectCheckbox
+            valueParser={valueParser}
+            options={options}
+            selectedOptions={selectedOptions}
+          />,
+        );
+        expect(await driver.getLabelAt(0)).toBe(specialOption.title);
+      });
+
+      it('should use default valueParser and display option label when given', async () => {
+        const label1 = 'Option 1 Label';
+        const label2 = 'Option 2 Label';
+        const options = [
+          { value: <div>Option 1</div>, id: 'Arkansas', label: label1 },
+          { value: 'Option 2', id: 'Option 2', label: label2 },
+        ];
+
+        const { driver } = createDriver(
+          <MultiSelectCheckbox
+            options={options}
+            selectedOptions={['Arkansas', 'Option 2']}
+          />,
+        );
+        expect(await driver.getLabelAt(0)).toBe(label1);
+        expect(await driver.getLabelAt(1)).toBe(label2);
+      });
     });
 
     describe('Builder Options', () => {
