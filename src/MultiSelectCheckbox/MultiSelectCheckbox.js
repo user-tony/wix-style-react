@@ -66,7 +66,7 @@ class MultiSelectCheckbox extends InputWithOptions {
         this.props.options.find(option => option.id === selectedOption),
       )
       .filter(selectedOption => selectedOption)
-      .map(option => option.title || option.value)
+      .map(this.props.valueParser)
       .join(this.props.delimiter);
   }
 
@@ -155,6 +155,7 @@ MultiSelectCheckbox.defaultProps = {
   delimiter: ', ',
   selectedOptions: [],
   closeOnSelect: false,
+  valueParser: option => option.optionTitle || option.value,
 };
 
 export default MultiSelectCheckbox;

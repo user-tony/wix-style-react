@@ -204,7 +204,7 @@ export const listItemSelectBuilder = ({
   id,
   disabled,
   overrideStyle: true,
-  title,
+  optionTitle: title,
   value: props => (
     <ListItemSelect
       dataHook={dataHook}
