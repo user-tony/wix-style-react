@@ -11,7 +11,7 @@ const ToggleMoreButton = ({
   isExpanded,
   dataHook,
 }) => {
-  const { label, tooltipProps, ...props } = toggleMoreButton(
+  const { label, tooltipContent, tooltipProps, ...props } = toggleMoreButton(
     amountOfHiddenTags,
     isExpanded,
   );
@@ -22,9 +22,13 @@ const ToggleMoreButton = ({
     </TagListAction>
   );
 
-  if (tooltipProps) {
+  if (tooltipContent) {
     return (
-      <Tooltip {...tooltipProps} className={styles.item}>
+      <Tooltip
+        content={tooltipContent}
+        className={styles.item}
+        {...tooltipProps}
+      >
         {button}
       </Tooltip>
     );

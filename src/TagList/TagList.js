@@ -117,7 +117,15 @@ TagList.propTypes = {
     label: PropTypes.string,
   }),
 
-  /** Receives `amountOfHiddenTags` and `isExpanded` and returns object containing toggle more button's `label` and `tooltipProps` */
+  /** Function which provides props for the Toggle more `Button`
+   * ##### toggleMoreButton signature:
+   * function(amountOfHiddenTags: number, isExpanded: boolean) => ToggleMoreButtonProps
+   * ##### ToggleMoreButtonProps: shape [
+   * * label: string
+   * * tooltipContent: node
+   * * tooltipProps: TooltipCommonProps
+   * ]
+   */
   toggleMoreButton: PropTypes.func,
 };
 
