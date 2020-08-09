@@ -119,17 +119,8 @@ export class Table extends React.Component {
   }
 
   renderChildren() {
-    const { children, withWrapper, onRowClick, dataHook } = this.props;
-    return withWrapper ? (
-      <div
-        data-hook={dataHook}
-        {...style('root', { isRowClickable: !!onRowClick }, this.props)}
-      >
-        {children}
-      </div>
-    ) : (
-      children
-    );
+    const { children, withWrapper, dataHook } = this.props;
+    return withWrapper ? <div data-hook={dataHook}>{children}</div> : children;
   }
 
   render() {
@@ -208,6 +199,7 @@ Table.defaultProps = {
   showLastRowDivider: false,
   horizontalScroll: false,
   stickyColumns: 0,
+  isRowDisabled: () => false,
 };
 
 Table.propTypes = {
@@ -357,6 +349,8 @@ Table.propTypes = {
   horizontalScroll: PropTypes.bool,
   /** Number of columns to sticky from the left (should be used with horizontal scroll). */
   stickyColumns: PropTypes.number,
+  /** a function which will be called for every row in `data` to specify if it should appear as disabled. Example: `isRowDisabled={(rowData) => !rowData.isEnabled}` */
+  isRowDisabled: PropTypes.func,
 };
 
 // export default Table;
