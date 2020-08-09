@@ -151,17 +151,16 @@ describe('multiSelectCheckbox', () => {
     });
 
     describe('valueParser', () => {
-      it('should use provided valueParser that will enable handling option with a component in value', async () => {
+      it('should use provided valueParser when given', async () => {
         const specialOption = {
-          value: <div>Arkansas</div>,
+          value: 'Arkansas',
           id: 'Arkansas',
           title: 'Arkansan Label',
         };
         const selectedOptions = [specialOption.id];
 
         const options = [specialOption];
-        const valueParser = option =>
-          typeof option.value === 'string' ? option.value : option.title;
+        const valueParser = option => option.title;
 
         const { driver } = createDriver(
           <MultiSelectCheckbox
@@ -174,21 +173,23 @@ describe('multiSelectCheckbox', () => {
       });
 
       it('should use default valueParser and display option label when given', async () => {
-        const label1 = 'Option 1 Label';
-        const label2 = 'Option 2 Label';
         const options = [
-          { value: <div>Option 1</div>, id: 'Arkansas', label: label1 },
-          { value: 'Option 2', id: 'Option 2', label: label2 },
+          {
+            value: <div>Option 1</div>,
+            id: 'Option 1',
+            label: 'Option 1 Label',
+          },
+          { value: 'Option 2', id: 'Option 2' },
         ];
 
         const { driver } = createDriver(
           <MultiSelectCheckbox
             options={options}
-            selectedOptions={['Arkansas', 'Option 2']}
+            selectedOptions={['Option 1', 'Option 2']}
           />,
         );
-        expect(await driver.getLabelAt(0)).toBe(label1);
-        expect(await driver.getLabelAt(1)).toBe(label2);
+        expect(await driver.getLabelAt(0)).toBe(options[0].label);
+        expect(await driver.getLabelAt(1)).toBe(options[1].value);
       });
     });
 
