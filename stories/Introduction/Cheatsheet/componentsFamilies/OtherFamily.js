@@ -26,6 +26,7 @@ import {
   BadgeSelect,
   CounterBadge,
   Tag,
+  TagList,
   Loader,
   LinearProgressBar,
   CircularProgressBar,
@@ -254,22 +255,22 @@ const TagsExample = () => {
   const thumbTags = [
     {
       id: '1',
-      label: 'Green',
+      children: 'Green',
       thumb: <Box height="100%" backgroundColor="G10" />,
     },
     {
       id: '2',
-      label: 'Red',
+      children: 'Red',
       thumb: <Box height="100%" backgroundColor="R10" />,
     },
     {
       id: '3',
-      label: 'Yellow',
+      children: 'Yellow',
       thumb: <Box height="100%" backgroundColor="Y10" />,
     },
     {
       id: '4',
-      label: 'Avatar',
+      children: 'Avatar',
       thumb: (
         <Avatar
           imgProps={{
@@ -282,20 +283,23 @@ const TagsExample = () => {
   ];
 
   const themeTags = [
-    { id: '1', label: 'Default' },
-    { id: '2', label: 'Error', theme: 'error' },
-    { id: '3', label: 'Warning', theme: 'warning' },
-    { id: '4', label: 'Dark', theme: 'dark' },
+    { id: '1', children: 'Default' },
+    { id: '2', children: 'Error', theme: 'error' },
+    { id: '3', children: 'Warning', theme: 'warning' },
+    { id: '4', children: 'Dark', theme: 'dark' },
   ];
 
-  const renderTag = props => <Tag {...props}>{props.label}</Tag>;
-
   const renderTagsLayout = tagsArr => (
-    <Layout cols={6} gap="5px">
-      {tagsArr.map((tagProps, i) => (
-        <Cell>{renderTag({ ...tagProps, key: `tag-${i + 1}` })}</Cell>
-      ))}
-    </Layout>
+    <Cell>
+      <TagList
+        tags={tagsArr}
+        maxVisibleTags={3}
+        toggleMoreButton={(amountOfHiddenTags, isExpanded) => ({
+          label: isExpanded ? 'Show Less' : `+${amountOfHiddenTags} More`,
+          tooltipContent: !isExpanded && 'Show More',
+        })}
+      />
+    </Cell>
   );
 
   const symbol = otherSymbols.tag;
@@ -308,7 +312,7 @@ const TagsExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout cols={6}>
+      <Layout cols={12}>
         {renderTagsLayout(thumbTags)}
         {renderTagsLayout(themeTags)}
       </Layout>

@@ -20,7 +20,10 @@ export const otherSymbolsToComponents = {
     sharedComponentsNames.Icon,
   ],
 
-  [otherSymbols.tag]: [sharedComponentsNames.Tag],
+  [otherSymbols.tag]: [
+    sharedComponentsNames.Tag,
+    sharedComponentsNames.TagList,
+  ],
 
   [otherSymbols.loader]: [componentsNames.Loader],
 

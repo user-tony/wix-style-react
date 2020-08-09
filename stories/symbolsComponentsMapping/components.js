@@ -5,6 +5,7 @@ export const sharedComponentsNames = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',
   Tag: 'Tag',
+  TagList: 'TagList',
   Icon: 'Icon',
 };
 
