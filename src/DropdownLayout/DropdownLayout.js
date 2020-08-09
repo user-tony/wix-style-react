@@ -411,7 +411,7 @@ class DropdownLayout extends WixComponent {
         {...styles('option', {
           selected: selected && selectedHighlight,
           hovered,
-          disabled,
+          disabled: disabled || title,
           title,
           itemHeight,
           overrideStyle,
