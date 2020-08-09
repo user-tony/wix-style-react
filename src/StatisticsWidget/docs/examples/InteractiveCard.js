@@ -1,12 +1,5 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import {
-  StatisticsWidget,
-  Card,
-  DropdownBase,
-  Icons,
-  TextButton,
-} from 'wix-style-react';
 
 class StatsWrapper extends React.Component {
   constructor() {
