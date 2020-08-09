@@ -14,6 +14,6 @@ describe('Control Button padding', () => {
   });
 
   it('should throw error with more than two buttons', () => {
-    expect(controlButtonPadding(3)).toThrow();
+    expect(() => controlButtonPadding(3)).toThrow();
   });
 });
