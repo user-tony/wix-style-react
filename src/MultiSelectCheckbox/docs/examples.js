@@ -33,7 +33,7 @@ class Example extends React.Component {
 
 export const usingBuilders = `
 class BuildersExample extends React.Component {
-  state = { selectedOptions: ['Christian Mills'] };
+  state = { selectedOptions: ['Logan Chandler'] };
 
   onSelect = optionId  =>
     optionId &&
