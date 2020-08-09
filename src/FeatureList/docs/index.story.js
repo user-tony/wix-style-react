@@ -79,7 +79,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'This component is used as a footer for the Marketing Page Layout.',
+              "FeatureList is a group of layouts that displays image, description and title. It's used in a footer of a marketing page to list product features.",
           }),
 
           importExample(),
@@ -89,9 +89,24 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'A simple example with compact preview',
+            title: 'Structure',
+            text:
+              'Component lists horizontally any number of features. Each feature has title, text and image. Image should be 60px size.',
             source: examples.basicExample,
+          }),
+
+          example({
+            title: 'Columns',
+            text:
+              "Component can have any number of columns. Default is set to 3. If items don't fit in a row, they move to a new one.",
+            source: examples.columnsExample,
+          }),
+
+          example({
+            title: 'Customization',
+            text:
+              "The Feature's props: image, title and text are all optional. This is an example for feature list without images.",
+            source: examples.withoutImagesExample,
           }),
         ],
       }),

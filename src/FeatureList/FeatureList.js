@@ -10,10 +10,14 @@ const isString = a => typeof a === 'string';
 /** A footer for the marketing Page Layout */
 class FeatureList extends React.PureComponent {
   render() {
-    const { dataHook, className, features } = this.props;
+    const { dataHook, className, features, cols } = this.props;
 
     return (
-      <div {...styles('root', {}, className)} data-hook={dataHook}>
+      <div
+        {...styles('root', {}, className)}
+        data-hook={dataHook}
+        style={{ 'grid-template-columns': `repeat(${cols}, 1fr)` }}
+      >
         {features.map((featureItem, index) => {
           return (
             <FeatureItem
@@ -79,6 +83,9 @@ FeatureList.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
+  /** Define the number of columns. It is used for the grid in order to define how many feature will be displayed in a row. The default value is 3. */
+  cols: PropTypes.number,
+
   /**
    * Array of features
    *  * `id` - the id of the feature (Each feature must have a unique `id`)
@@ -97,6 +104,7 @@ FeatureList.propTypes = {
 };
 
 FeatureList.defaultProps = {
+  cols: 3,
   features: [],
 };
 
