@@ -76,32 +76,6 @@ const interactiveTests = [
           valueParser: option => (option.label ? option.label : option.value),
         },
       },
-      {
-        it: 'Builders items',
-        props: {
-          selectedOptions: ['option1', 'option2'],
-          options: [
-            listItemSelectBuilder({
-              checkbox: true,
-              value: 'option1',
-              id: 'option1',
-              title: 'option1',
-            }),
-            listItemSelectBuilder({
-              checkbox: true,
-              value: 'option2',
-              id: 'option2',
-              title: 'option2',
-            }),
-            listItemSelectBuilder({
-              checkbox: true,
-              value: 'option3',
-              id: 'option3',
-              title: 'option3',
-            }),
-          ],
-        },
-      },
     ],
   },
 ];
