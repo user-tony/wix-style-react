@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<Dropzone />` - New component [#5574](https://github.com/wix/wix-style-react/pull/5574)
 - `<Table/>` - add isRowDisabled prop [#5764](https://github.com/wix/wix-style-react/pull/5764)
+- `<TagList/>` - implement tooltip content prop [#5805](https://github.com/wix/wix-style-react/pull/5805)
 
 ## 8.40.0 - 2020-08-09
 ### Added
