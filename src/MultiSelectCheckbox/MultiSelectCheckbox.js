@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import Input from '../Input';
-import styles from './MultiSelectCheckbox.st.css';
+import styles from './MultiSelectCheckbox.scss';
 import ListItemSelect from '../ListItemSelect';
 import ListItemSection from '../ListItemSection';
 
