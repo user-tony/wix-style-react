@@ -24,6 +24,7 @@ Types of changes:
 
 ### Fixed
 - `<PopoverMenu/>` - fix dropped disable prop + cover with extra skin tests [#5798](https://github.com/wix/wix-style-react/pull/5798)
+- `<StatisticsWidget/>` - fix styles for size "tiny" [#5806](https://github.com/wix/wix-style-react/pull/5806)
 
 ## 8.39.0 - 2020-08-05
 
