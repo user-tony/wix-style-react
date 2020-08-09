@@ -1,26 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 
-import {
-  Box,
-  Breadcrumbs,
-  Button,
-  Card,
-  Checkbox,
-  IconButton,
-  Dropdown,
-  Container,
-  Row,
-  Highlighter,
-  Page,
-  PopoverMenu,
-  Search,
-  Table,
-  TableActionCell,
-  TableToolbar,
-  FormField,
-} from 'wix-style-react';
-
 class Example extends React.Component {
   render() {
     return (
