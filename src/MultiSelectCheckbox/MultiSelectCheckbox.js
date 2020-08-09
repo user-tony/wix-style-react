@@ -134,7 +134,9 @@ MultiSelectCheckbox.displayName = 'MultiSelectCheckbox';
 MultiSelectCheckbox.propTypes = {
   ...InputWithOptions.propTypes,
 
-  /** Array of objects. Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead. */
+  /** Array of objects and/or builders. Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead.
+   * Builders must have an Id, title and a value.
+   * */
   options: PropTypes.array,
 
   /** The selected options ids. */
@@ -148,6 +150,9 @@ MultiSelectCheckbox.propTypes = {
 
   /** delimiter between the selected options that will be displayed in the input. */
   delimiter: PropTypes.string,
+
+  /** Function that receives an option, and should return the value to be displayed. By default returns `option.value` in case the option is an object and `option.optionTitle` in case it's a builder */
+  valueParser: PropTypes.func,
 };
 
 MultiSelectCheckbox.defaultProps = {
