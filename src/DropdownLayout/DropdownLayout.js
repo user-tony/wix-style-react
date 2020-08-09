@@ -405,13 +405,13 @@ class DropdownLayout extends WixComponent {
         {...this._getItemDataAttr({
           hovered,
           selected,
-          disabled,
+          disabled: disabled || title,
           overrideStyle,
         })}
         {...styles('option', {
           selected: selected && selectedHighlight,
           hovered,
-          disabled: disabled || title,
+          disabled,
           title,
           itemHeight,
           overrideStyle,
