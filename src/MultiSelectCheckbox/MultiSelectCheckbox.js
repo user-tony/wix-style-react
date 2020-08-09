@@ -155,6 +155,7 @@ MultiSelectCheckbox.defaultProps = {
   delimiter: ', ',
   selectedOptions: [],
   closeOnSelect: false,
+  valueParser: option => option.label || option.value,
 };
 
 export default MultiSelectCheckbox;
