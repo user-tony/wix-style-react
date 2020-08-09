@@ -1,14 +1,6 @@
 /* eslint-disable no-undef */
 
 import React from 'react';
-import TextButton from '../../TextButton/TextButton';
-
-import {
-  MultiSelect,
-  Card,
-  FormField,
-  contactItemBuilder,
-} from 'wix-style-react';
 
 const contacts = [
   { name: 'David Fincher', email: 'davidf@wix.com' },
