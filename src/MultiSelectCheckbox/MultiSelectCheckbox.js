@@ -12,8 +12,11 @@ class MultiSelectCheckbox extends InputWithOptions {
   createOptions(options) {
     return options.map(option => {
       if (typeof option.value === 'function') {
+        const value = option.value;
         return {
           ...option,
+          value: props =>
+            value({ ...props, selected: this.isSelectedId(option.id) }),
         };
       } else {
         if (option.value === '-') {
@@ -54,7 +57,6 @@ class MultiSelectCheckbox extends InputWithOptions {
       options: this.createOptions(this.props.options),
       closeOnSelect: false,
       selectedHighlight: false,
-      selectedOptions: this.props.selectedOptions,
     };
   }
 
@@ -132,10 +134,7 @@ MultiSelectCheckbox.displayName = 'MultiSelectCheckbox';
 MultiSelectCheckbox.propTypes = {
   ...InputWithOptions.propTypes,
 
-  /** Array of objects or builders.
-   * - Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead.
-   * - Builders must have Ids and title.
-   * */
+  /** Array of objects. Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead. */
   options: PropTypes.array,
 
   /** The selected options ids. */

@@ -51,10 +51,6 @@ class BuildersExample extends React.Component {
     return (
       <MultiSelectCheckbox
         options={[
-        listItemSectionBuilder({
-          title: 'Personal Trainers',
-          id: 'personalTrainers',
-        }),
         listItemSelectBuilder({
             checkbox: true,
             value: 'Logan Chandler',
@@ -62,10 +58,6 @@ class BuildersExample extends React.Component {
             title: 'Logan Chandler',
         }),
         { value: 'Paul Simon', id: 'Paul Simon' },
-        listItemSectionBuilder({
-          title: 'Nutritionists',
-          id: 'nutritionists',
-        }),
         listItemSelectBuilder({
             checkbox: true,
             value: 'Etta Wheeler',
