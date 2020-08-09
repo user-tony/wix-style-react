@@ -8,10 +8,14 @@ import { dataHooks } from './constants';
 /** TestimonialList is a group of layouts that display avatar, description and name. It's used in a footer of a marketing page layout. */
 class TestimonialList extends React.PureComponent {
   render() {
-    const { className, dataHook, testimonials } = this.props;
+    const { className, dataHook, testimonials, cols } = this.props;
 
     return (
-      <div {...styles('root', {}, className)} data-hook={dataHook}>
+      <div
+        {...styles('root', {}, className)}
+        data-hook={dataHook}
+        style={{ 'grid-template-columns': `repeat(${cols}, 1fr)` }}
+      >
         {testimonials.map((testimonialItem, index) => {
           return (
             <TestimonialItem
@@ -68,6 +72,9 @@ TestimonialList.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
+  /** Define the number of columns. It is used for the grid in order to define how many feature will be displayed in a row. The default value is 3. */
+  cols: PropTypes.number,
+
   /**
    * Array of testimonials
    *  * `id` - the id of the testimonial (Each testimonial must have a unique `id`)
@@ -86,6 +93,7 @@ TestimonialList.propTypes = {
 };
 
 TestimonialList.defaultProps = {
+  cols: 3,
   testimonials: [],
 };
 

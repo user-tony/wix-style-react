@@ -31,7 +31,9 @@ export default {
   component: TestimonialList,
   componentPath: '..',
 
-  componentProps: {},
+  componentProps: {
+    cols: 2,
+  },
 
   exampleProps: {
     testimonials: [
@@ -85,7 +87,14 @@ export default {
           }),
 
           example({
-            title: 'Without an avatar',
+            title: 'Columns',
+            text:
+              "Component can have any number of columns. Default is set to 3. If items don't fit in a row, they move to a new one.",
+            source: examples.columnsExample,
+          }),
+
+          example({
+            title: 'Customization',
             text:
               "The testimonial's props: avatar, text and author name are all optional. This is an example for testimonial list without avatars.",
             source: examples.withoutAvatarExample,

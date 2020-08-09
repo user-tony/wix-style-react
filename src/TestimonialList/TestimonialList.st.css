@@ -5,8 +5,9 @@
 
 .root {
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  justify-content: center;
+  grid-gap: value(spacing30);
 }
 
 .testimonialItem {
