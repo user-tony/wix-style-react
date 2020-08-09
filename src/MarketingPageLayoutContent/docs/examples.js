@@ -4,29 +4,29 @@ export const basicExample = `
       title="Marketing Page Title"
       subtitle="Subtitle text"
       content={<div><div>First Feature</div> <div>Second Feature</div>< div>Third Feature</div></div>}
-      action={<Button>Main Action</Button>}
+      actions={<Button size="large">Main Action</Button>}
     />
 `;
 
 export const sizesExample = `
     <Layout>
         <Cell>
-          <MarketingPageLayout
+          <MarketingPageLayoutContent
             size='medium'
             overline="overline"
             title="Marketing Page Title"
             subtitle="Subtitle text"
             content={<div><div>First Feature</div> <div>Second Feature</div>< div>Third Feature</div></div>}
-            action={<Button>Main Action</Button>}
+            actions={<Button size="large">Main Action</Button>}
           />
         </Cell>
         <Cell>
-          <MarketingPageLayout
+          <MarketingPageLayoutContent
             overline="overline"
             title="Marketing Page Title"
             subtitle="Subtitle text"
             content={<div><div>First Feature</div> <div>Second Feature</div>< div>Third Feature</div></div>}
-            action={<Button>Main Action</Button>}
+            actions={<Button size="large">Main Action</Button>}
           />
         </Cell>
     </Layout>

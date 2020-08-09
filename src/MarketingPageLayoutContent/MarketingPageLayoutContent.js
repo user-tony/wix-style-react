@@ -2,20 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './MarketingPageLayoutContent.st.css';
-import { dataHooks } from './constants';
+import { dataHooks, size } from './constants';
 
-import Text from '../Text';
-import Heading from '../Heading';
-import { isString } from '../../utils/StringUtils';
+import Text, { SIZES as TEXT_SIZES } from '../Text';
+import Heading, { APPEARANCES } from '../Heading';
+import { isString } from '../utils/StringUtils';
+
+const sizesMap = {
+  overline: {
+    [size.medium]: TEXT_SIZES.small,
+    [size.large]: TEXT_SIZES.medium,
+  },
+  title: {
+    [size.medium]: APPEARANCES.H2,
+    [size.large]: APPEARANCES.H1,
+  },
+  subtitle: {
+    [size.medium]: APPEARANCES.H4,
+    [size.large]: APPEARANCES.H3,
+  },
+  content: {
+    [size.medium]: TEXT_SIZES.small,
+    [size.large]: TEXT_SIZES.medium,
+  },
+};
 
 /** This component is used in the MarketingPageLayout component. It includes all the content of the page. */
 class MarketingPageLayoutContent extends React.PureComponent {
-  state = {};
-
   render() {
     const {
       dataHook,
       className,
+      size,
       overline,
       title,
       subtitle,
@@ -24,25 +42,28 @@ class MarketingPageLayoutContent extends React.PureComponent {
     } = this.props;
 
     return (
-      <div {...styles('root', {}, className)} data-hook={dataHook}>
+      <div {...styles('root', { size }, className)} data-hook={dataHook}>
         {overline && (
-          <div
-            className={styles.overline}
-            children={
-              isString(overline) ? (
-                <Text size="small">{overline}</Text>
-              ) : (
-                overline
-              )
-            }
-          ></div>
+          <div className={styles.overlineContainer}>
+            <div
+              className={styles.overline}
+              children={
+                isString(overline) ? (
+                  <Text size={sizesMap.overline[size]}>{overline}</Text>
+                ) : (
+                  overline
+                )
+              }
+            />
+            <div className={styles.overlineDivider} />
+          </div>
         )}
         {title && (
           <div
             className={styles.title}
             children={
               isString(title) ? (
-                <Heading appearance="H2">{title}</Heading>
+                <Heading appearance={sizesMap.title[size]}>{title}</Heading>
               ) : (
                 title
               )
@@ -51,16 +72,31 @@ class MarketingPageLayoutContent extends React.PureComponent {
         )}
         {subtitle && (
           <div
-            className={styles.header}
+            className={styles.subtitle}
             children={
               isString(subtitle) ? (
-                <Text size="medium">{subtitle}</Text>
+                <Heading appearance={sizesMap.subtitle[size]}>
+                  {subtitle}
+                </Heading>
               ) : (
                 subtitle
               )
             }
           ></div>
         )}
+        {content && (
+          <div
+            className={styles.content}
+            children={
+              isString(content) ? (
+                <Text size={sizesMap.content[size]}>{content}</Text>
+              ) : (
+                content
+              )
+            }
+          ></div>
+        )}
+        {actions && <div className={styles.actions} children={actions}></div>}
       </div>
     );
   }
@@ -74,6 +110,9 @@ MarketingPageLayoutContent.propTypes = {
 
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
+
+  /** Specifies the size of the marketing page layout content.  The default value is 'large'. */
+  size: PropTypes.oneOf(['medium', 'large']),
 
   /** The overline content. */
   overline: PropTypes.node,

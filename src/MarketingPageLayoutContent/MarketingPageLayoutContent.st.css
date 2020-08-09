@@ -1,8 +1,43 @@
-/*:import {*/
-/*  -st-from: "../Foundation/stylable/colors.st.css";*/
-/*  -st-named: G30,R30;*/
-/*}*/
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing06, spacing12, spacing24, spacing30, spacing42;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: D10, D60;
+}
 
 .root {
+}
 
+.overlineContainer {
+}
+
+.overline {
+  margin-bottom: 17px;
+}
+
+.overlineDivider {
+  width: 36px;
+  border-bottom: solid value(D60) 1px;
+  margin-bottom: value(spacing12);
+}
+
+
+.title {
+}
+
+.subtitle {
+  margin-top: value(spacing12);
+}
+
+.content {
+  margin-top: value(spacing24);
+  color: value(D10);
+}
+
+
+.actions {
+  margin-top: value(spacing42);
 }
