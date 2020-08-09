@@ -16,7 +16,7 @@ class FeatureList extends React.PureComponent {
       <div
         {...styles('root', {}, className)}
         data-hook={dataHook}
-        style={{ 'grid-template-columns': `repeat(${cols}, 1fr)` }}
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
       >
         {features.map((featureItem, index) => {
           return (
