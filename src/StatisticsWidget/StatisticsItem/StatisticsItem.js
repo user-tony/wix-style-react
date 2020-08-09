@@ -147,7 +147,7 @@ class StatisticsItem extends React.PureComponent {
 
     const attrs = {
       ...this._getFocusableProps(),
-      ...styles('item', { clickable: !!onClick }, this.props),
+      ...styles('item', { clickable: !!onClick, size }, this.props),
       'data-hook': DataHooks.stat,
       onKeyDown: onClick ? this._getSpaceOrEnterHandler(onClick) : undefined,
       onClick,

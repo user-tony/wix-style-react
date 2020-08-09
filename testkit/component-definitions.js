@@ -8,6 +8,7 @@ import FloatingHelper from '../src/FloatingHelper';
 import VerticalTabs from '../src/VerticalTabs';
 import SegmentedToggle from '../src/SegmentedToggle';
 import PopoverMenu from '../src/PopoverMenu';
+import Dropzone from '../src/Dropzone';
 
 /*
  * This file exports object with config for components.
@@ -724,6 +725,20 @@ export default {
     props: {
       onChange: () => {},
       children: <div />,
+    },
+  },
+
+  Dropzone: {
+    props: {
+      onDrop: () => {},
+      children: [
+        <Dropzone.Overlay>
+          <span />
+        </Dropzone.Overlay>,
+        <Dropzone.Content>
+          <span />
+        </Dropzone.Content>,
+      ],
     },
   },
 };

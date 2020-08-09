@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './TagList.st.css';
 import Tag from '../Tag';
 import TagListAction from './TagListAction';
+import ToggleMoreButton from './ToggleMoreButton';
 import classNames from 'classnames';
+import dataHooks from './dataHooks';
 
 const tagToActionButtonSize = {
   small: 'tiny',
@@ -13,13 +15,58 @@ const tagToActionButtonSize = {
 
 /** TagList */
 class TagList extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isExpanded: props.initiallyExpanded,
+    };
+  }
+
+  _toggleExpanded = () =>
+    this.setState(prevState => ({ isExpanded: !prevState.isExpanded }));
+
+  _renderToggleMoreButton = () => {
+    const { toggleMoreButton, tags, maxVisibleTags } = this.props;
+    const { isExpanded } = this.state;
+
+    const amountOfHiddenTags = tags.length - maxVisibleTags;
+
+    if (toggleMoreButton && amountOfHiddenTags > 0) {
+      return (
+        <ToggleMoreButton
+          {...{
+            toggleMoreButton,
+            amountOfHiddenTags,
+            isExpanded,
+          }}
+          dataHook={dataHooks.toggleMoreButton}
+          onClick={this._toggleExpanded}
+        />
+      );
+    }
+
+    return null;
+  };
+
   render() {
-    const { dataHook, tags, actionButton, size, onTagRemove } = this.props;
+    const {
+      dataHook,
+      tags,
+      actionButton,
+      size,
+      onTagRemove,
+      maxVisibleTags,
+    } = this.props;
+    const { isExpanded } = this.state;
+
+    const visibleTags = isExpanded ? tags : tags.slice(0, maxVisibleTags);
+
     const actionButtonSize = tagToActionButtonSize[size];
 
     return (
       <div className={styles.root} data-hook={dataHook}>
-        {tags.map(({ className, ...tagProps }) => (
+        {visibleTags.map(({ className, ...tagProps }) => (
           <Tag
             {...tagProps}
             className={classNames(styles.item, className)}
@@ -28,9 +75,10 @@ class TagList extends React.PureComponent {
             key={tagProps.id}
           />
         ))}
+        {this._renderToggleMoreButton()}
         {actionButton && (
           <TagListAction
-            dataHook="tag-list-action"
+            dataHook={dataHooks.actionButton}
             size={actionButtonSize}
             onClick={actionButton.onClick}
           >
@@ -57,15 +105,26 @@ TagList.propTypes = {
   /** The size of each individual `<Tag />` */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 
+  /** Whether list is initially expanded */
+  initiallyExpanded: PropTypes.bool,
+
+  /** The amount of tags to show before expanding */
+  maxVisibleTags: PropTypes.number,
+
   /** Action button label and onClick handler */
   actionButton: PropTypes.shape({
     onClick: PropTypes.func,
     label: PropTypes.string,
   }),
+
+  /** Receives `amountOfHiddenTags` and `isExpanded` and returns object containing toggle more button's `label` and `tooltipProps` */
+  toggleMoreButton: PropTypes.func,
 };
 
 TagList.defaultProps = {
   size: 'small',
+  initiallyExpanded: false,
+  maxVisibleTags: 3,
 };
 
 export default TagList;

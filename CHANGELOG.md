@@ -15,14 +15,23 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+### Added
+- `<Dropzone />` - New component [#5574](https://github.com/wix/wix-style-react/pull/5574)
+- `<Table/>` - add isRowDisabled prop [#5764](https://github.com/wix/wix-style-react/pull/5764)
+
+## 8.40.0 - 2020-08-09
 ### Added
 - `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
+- `<TagList/>` - enable expanding and collapsing of Tag lists [#5768](https://github.com/wix/wix-style-react/pull/5768)
+- `<TimeInput/>` - add status indication [#5800](https://github.com/wix/wix-style-react/pull/5800)
 
 ### Changed
 - `<Collapse/>` upgrade react-collapse version 5.X [#5799](https://github.com/wix/wix-style-react/pull/5799)
 
 ### Fixed
 - `<PopoverMenu/>` - fix dropped disable prop + cover with extra skin tests [#5798](https://github.com/wix/wix-style-react/pull/5798)
+- `<StatisticsWidget/>` - fix styles for size "tiny" [#5806](https://github.com/wix/wix-style-react/pull/5806)
 
 ## 8.39.0 - 2020-08-05
 
