@@ -72,7 +72,7 @@ const getMatchesInString = (str, prefix, suffix) => {
    * that doesn't start with the last letter of the prefix,
    * followed by the suffix
    */
-  const pattern = `${escPrefix}((?:[^${escPrefixLastChar}].*)*?)${escSuffix}`;
+  const pattern = `${escPrefix}((?:[^${escPrefixLastChar}].*?)*?)${escSuffix}`;
   const regex = new RegExp(pattern, 'g');
   let part;
   const parts = [];
