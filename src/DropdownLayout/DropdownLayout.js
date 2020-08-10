@@ -534,6 +534,12 @@ export function optionValidator(props, propName, componentName) {
       'Warning: Failed option type: The option `option.value` should be non-empty after trimming in `DropdownLayout`.',
     );
   }
+
+  if (option.label && option.label.toString().trim().length === 0) {
+    return new Error(
+      'Warning: Failed option type: The option `option.label` should be non-empty after trimming in `DropdownLayout`.',
+    );
+  }
 }
 
 DropdownLayout.propTypes = {
