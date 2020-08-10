@@ -25,7 +25,8 @@ class AccordionItem extends React.PureComponent {
     initiallyOpen: PropTypes.bool,
     disabled: PropTypes.bool,
     onToggle: PropTypes.func,
-    onHover: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
     skin: PropTypes.oneOf(['standard', 'light']),
     hideShadow: PropTypes.bool,
   };
@@ -38,12 +39,17 @@ class AccordionItem extends React.PureComponent {
     hover: false,
   };
 
-  _onMouseLeave = () => this.setState({ hover: false });
+  _onMouseLeave = e => {
+    const { disabled, onMouseLeave } = this.props;
+
+    this.setState({ hover: false });
+    !disabled && onMouseLeave && onMouseLeave(e);
+  };
   _onMouseEnter = e => {
-    const { disabled, onHover } = this.props;
+    const { disabled, onMouseEnter } = this.props;
 
     this.setState({ hover: true });
-    !disabled && onHover && onHover(e);
+    !disabled && onMouseEnter && onMouseEnter(e);
   };
 
   _renderOpenButton = () => {
