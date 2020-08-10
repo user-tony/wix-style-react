@@ -1,7 +1,7 @@
 import React from 'react';
 import MultiSelectCheckbox from '../MultiSelectCheckbox';
 import { multiSelectCheckboxUniDriverFactory } from '../MultiSelectCheckbox.uni.driver';
-import { listItemSelectBuilder } from '../../ListItemSelect';
+import ListItemSelect, { listItemSelectBuilder } from '../../ListItemSelect';
 import {
   cleanup,
   createRendererWithDriver,
@@ -151,6 +151,42 @@ describe('multiSelectCheckbox', () => {
     });
 
     describe('valueParser', () => {
+      it('should use the default valueParser', async () => {
+        const options = [{ value: 'Option 1', id: 'Option 1' }];
+
+        const selectedOptions = [options[0].id];
+
+        const { inputDriver } = createDriver(
+          <MultiSelectCheckbox
+            options={options}
+            selectedOptions={selectedOptions}
+          />,
+        );
+
+        expect(await inputDriver.getValue()).toBe(options[0].value);
+      });
+
+      it('should use the default valueParser for options that contain label property', async () => {
+        const options = [
+          {
+            value: <div>Option 1</div>,
+            id: 'Option 1',
+            label: 'Option 1 Label',
+          },
+        ];
+
+        const selectedOptions = [options[0].id];
+
+        const { inputDriver } = createDriver(
+          <MultiSelectCheckbox
+            options={options}
+            selectedOptions={selectedOptions}
+          />,
+        );
+
+        expect(await inputDriver.getValue()).toBe(options[0].label);
+      });
+
       it('should use provided valueParser when given', async () => {
         const specialOption = {
           value: 'Arkansas',
@@ -162,70 +198,36 @@ describe('multiSelectCheckbox', () => {
         const options = [specialOption];
         const valueParser = option => option.title;
 
-        const { driver, inputDriver } = createDriver(
+        const { inputDriver } = createDriver(
           <MultiSelectCheckbox
             valueParser={valueParser}
             options={options}
             selectedOptions={selectedOptions}
           />,
         );
-        expect(await driver.getLabelAt(0)).toBe(specialOption.title);
         expect(await inputDriver.getValue()).toBe(specialOption.title);
-      });
-
-      it('should use default valueParser and display option label when given', async () => {
-        const options = [
-          {
-            value: <div>Option 1</div>,
-            id: 'Option 1',
-            label: 'Option 1 Label',
-          },
-          { value: 'Option 2', id: 'Option 2' },
-        ];
-
-        const selectedOptions = ['Option 1', 'Option 2'];
-
-        const { driver, inputDriver } = createDriver(
-          <MultiSelectCheckbox
-            options={options}
-            selectedOptions={selectedOptions}
-          />,
-        );
-
-        expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
-        expect(await driver.getLabelAt(0)).toBe(options[0].label);
-        expect(await driver.getLabelAt(1)).toBe(options[1].value);
-
-        expect(await inputDriver.getValue()).toBe(
-          `${options[0].label}, ${options[1].value}`,
-        );
       });
     });
 
-    describe('Builder Options', () => {
-      it('should allow using "listItemSelectBuilder" and objects as options', async () => {
-        const options = [
-          listItemSelectBuilder({
-            checkbox: true,
-            id: 'option1',
-            title: 'option1',
-          }),
-          { id: 'option2', value: 'option2' },
-        ];
+    it('should allow using functions as options', async () => {
+      const options = [
+        {
+          value: jest.fn(),
+          id: 'option1',
+          label: 'option 1',
+        },
+      ];
 
-        const selectedOptions = ['option1', 'option2'];
+      const selectedOptions = [options[0].id];
 
-        const { driver } = createDriver(
-          <MultiSelectCheckbox
-            options={options}
-            selectedOptions={selectedOptions}
-          />,
-        );
+      const { driver } = createDriver(
+        <MultiSelectCheckbox
+          options={options}
+          selectedOptions={selectedOptions}
+        />,
+      );
 
-        expect(await driver.getNumOfLabels()).toBe(selectedOptions.length);
-        expect(await driver.getLabelAt(0)).toBe(selectedOptions[0]);
-        expect(await driver.getLabelAt(1)).toBe(selectedOptions[1]);
-      });
+      expect(await driver.getLabelAt(0)).toBe(options[0].label);
     });
 
     it('should contain specific selected values', async () => {

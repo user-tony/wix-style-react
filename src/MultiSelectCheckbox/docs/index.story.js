@@ -83,8 +83,9 @@ export default {
           }),
 
           example({
-            title: 'Advanced usage',
-            text: 'Advanced usage using builders as options.',
+            title: 'Using builders',
+            text:
+              'Use the Multi-selection dropdown behavior using the predefined list items',
             source: examples.usingBuilders,
           }),
         ],
