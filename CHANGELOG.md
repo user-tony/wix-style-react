@@ -24,6 +24,9 @@ Types of changes:
 ### Fixed
 - `<RadioGroup/>` - fix incorrectly exported uni-driver [#5814](https://github.com/wix/wix-style-react/pull/5814)
 
+### Changed
+- `<FileUpload/>` - support children as a function [#5796](https://github.com/wix/wix-style-react/pull/5796)
+
 ## 8.40.0 - 2020-08-09
 ### Added
 - `<Page/>` - Integrating with `ScrollableContainer`, now developers can easily register to scroll events with built in throttling. [#5766](https://github.com/wix/wix-style-react/pull/5766)
