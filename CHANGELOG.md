@@ -16,6 +16,7 @@ Types of changes:
 
 ## Next
 
+## 8.41.0 - 2020-08-10
 ### Added
 - `<Dropzone />` - New component [#5574](https://github.com/wix/wix-style-react/pull/5574)
 - `<Table/>` - add `isRowDisabled` prop [#5764](https://github.com/wix/wix-style-react/pull/5764)
@@ -25,8 +26,8 @@ Types of changes:
 - `<RadioGroup/>` - fix incorrectly exported uni-driver [#5814](https://github.com/wix/wix-style-react/pull/5814)
 - `<Calendar/>` - fix head styles [#5812](https://github.com/wix/wix-style-react/pull/5812)
 
-### Changed
-- `<FileUpload/>` - support children as a function [#5796](https://github.com/wix/wix-style-react/pull/5796)
+### Breaking
+- `<FileUpload/>` - changed children to be a function [#5796](https://github.com/wix/wix-style-react/pull/5796)
 
 ## 8.40.0 - 2020-08-09
 ### Added
