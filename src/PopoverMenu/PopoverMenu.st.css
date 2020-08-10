@@ -46,9 +46,3 @@
   -st-extends: ListItemAction;
   border-radius: 2px;
 }
-
-
-.divider {
-  width: 100%;
-  border-bottom: 1px solid value(D60);
-}

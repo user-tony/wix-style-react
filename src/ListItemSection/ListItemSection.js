@@ -129,6 +129,7 @@ export default ListItemSection;
 export const listItemSectionBuilder = ({
   id,
   className,
+  dataHook,
   type,
   title,
   suffix,
@@ -136,9 +137,11 @@ export const listItemSectionBuilder = ({
 }) => ({
   id,
   overrideStyle: true,
+  title: true,
   value: props => (
     <ListItemSection
       className={className}
+      dataHook={dataHook}
       type={type}
       title={title}
       suffix={suffix}
