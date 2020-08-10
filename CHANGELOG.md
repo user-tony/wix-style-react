@@ -23,6 +23,7 @@ Types of changes:
 
 ### Fixed
 - `<RadioGroup/>` - fix incorrectly exported uni-driver [#5814](https://github.com/wix/wix-style-react/pull/5814)
+- `<Calendar/>` - fix head styles [#5812](https://github.com/wix/wix-style-react/pull/5812)
 
 ### Changed
 - `<FileUpload/>` - support children as a function [#5796](https://github.com/wix/wix-style-react/pull/5796)
