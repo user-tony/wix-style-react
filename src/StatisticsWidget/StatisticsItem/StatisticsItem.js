@@ -71,7 +71,7 @@ class StatisticsItem extends React.PureComponent {
         {subtitleContentInfo && (
           <Tooltip
             textAlign="start"
-            {...styles('tooltip', {}, this.props)}
+            className={classes.tooltip}
             dataHook={DataHooks.tooltip}
             content={subtitleContentInfo}
           >
@@ -111,7 +111,7 @@ class StatisticsItem extends React.PureComponent {
     return (
       <Badge
         {...badgeProps}
-        {...styles('percentage ', { clickable: !!this.props.onClick })}
+        className={st(classes.percentage, { clickable: !!this.props.onClick })}
       >
         <div className={classes.percentageInner}>
           {!!percentage && (
