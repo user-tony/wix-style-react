@@ -21,13 +21,8 @@ class FileUpload extends React.PureComponent {
 
     return (
       <label className={className} data-hook={dataHook}>
-        {React.cloneElement(children, {
-          onClick: event => {
-            if (typeof children.props.onClick === 'function')
-              children.props.onClick();
-            this.inputRef.current.click();
-            event.preventDefault();
-          },
+        {children({
+          openFileUploadDialog: () => this.inputRef.current.click(),
         })}
         <input
           type="file"
@@ -53,8 +48,13 @@ FileUpload.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
 
-  /** An element to be wrapped by the component */
-  children: PropTypes.element.isRequired,
+  /** Children render prop
+   * ##### signature:
+   * function({ openFileUpload }): element
+   * * `openFileUpload`: A function that will open a file upload dialog upon trigger.
+   * * return: A react element
+   */
+  children: PropTypes.func.isRequired,
 
   /** Allow uploading multiple files */
   multiple: PropTypes.bool,
