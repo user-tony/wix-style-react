@@ -1,7 +1,6 @@
 import React from 'react';
 import MultiSelectCheckbox from '../MultiSelectCheckbox';
 import { multiSelectCheckboxUniDriverFactory } from '../MultiSelectCheckbox.uni.driver';
-import ListItemSelect, { listItemSelectBuilder } from '../../ListItemSelect';
 import {
   cleanup,
   createRendererWithDriver,
