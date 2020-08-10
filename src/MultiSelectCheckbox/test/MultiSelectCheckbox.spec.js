@@ -155,14 +155,14 @@ describe('multiSelectCheckbox', () => {
 
         const selectedOptions = [options[0].id];
 
-        const { inputDriver } = createDriver(
+        const { driver } = createDriver(
           <MultiSelectCheckbox
             options={options}
             selectedOptions={selectedOptions}
           />,
         );
 
-        expect(await inputDriver.getValue()).toBe(options[0].value);
+        expect(await driver.getLabelAt(0)).toBe(options[0].value);
       });
 
       it('should use the default valueParser for options that contain label property', async () => {
@@ -176,14 +176,14 @@ describe('multiSelectCheckbox', () => {
 
         const selectedOptions = [options[0].id];
 
-        const { inputDriver } = createDriver(
+        const { driver } = createDriver(
           <MultiSelectCheckbox
             options={options}
             selectedOptions={selectedOptions}
           />,
         );
 
-        expect(await inputDriver.getValue()).toBe(options[0].label);
+        expect(await driver.getLabelAt(0)).toBe(options[0].label);
       });
 
       it('should use provided valueParser when given', async () => {
@@ -197,14 +197,14 @@ describe('multiSelectCheckbox', () => {
         const options = [specialOption];
         const valueParser = option => option.title;
 
-        const { inputDriver } = createDriver(
+        const { driver } = createDriver(
           <MultiSelectCheckbox
             valueParser={valueParser}
             options={options}
             selectedOptions={selectedOptions}
           />,
         );
-        expect(await inputDriver.getValue()).toBe(specialOption.title);
+        expect(await driver.getLabelAt(0)).toBe(specialOption.title);
       });
     });
 
